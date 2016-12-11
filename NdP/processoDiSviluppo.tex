@@ -19,7 +19,7 @@ In accordo con lo \gl{standard} \iso{ISO/IEC 12207}, il processo di sviluppo è 
 \subsubsection{Analisi dei requisiti}
  \paragraph{Scopo dell'attività}
   Individuare i requisiti del progetto dalle specifiche del \gl{capitolato} e tramite incontri con il pro-
-  ponente. Tale attività produrra un documento redatto dagli analisti, i quali avranno cura di elencare i casi d'uso e i requisiti. Tale documento permette di
+  ponente. Tale attività produrrà un documento redatto dagli analisti, i quali avranno cura di elencare i casi d'uso e i requisiti. Tale documento permette di
  capire le scelte di progettazione effettuate.
  \paragraph{Aspettative dell'attività}
  L'attività fissa come scopo la creazione di un documento, il quale conterrà e rappresenterà i requisiti richiesti dal proponente.
@@ -42,18 +42,57 @@ In accordo con lo \gl{standard} \iso{ISO/IEC 12207}, il processo di sviluppo è 
 
 \subsubsection{Progettazione}
  \paragraph{Scopo dell'attività}
-
+L'attività di progettazione definisce le linee essenziali della struttura del prodotto software in
+funzione dei requisiti individuati dall'analisi. L'obiettivo del processo consiste nella stesura dei
+documenti: Specifica Tecnica e Definizione di Prodotto.
  \paragraph{Aspettative dell'attività}
-
+Il processo porta alla formazione dei documenti sopra citati, i quali garantiscono affidabilità e
+coerenza.
  \paragraph{Descrizione dell'attività}
-
- \paragraph{Specifica tecnina}
-
+La progettazione deve rispettare tutti i vincoli e i requisiti concordati tra i componenti del gruppo
+e i proponenti. I documenti derivati da questa attività sono:
+\begin{itemize}
+	\item \textbf{Specifica tecnica}: descrive la progettazione ad alto livello relativa all'architettura dell'applicazione
+e dei singoli componenti. Il documento specifica i diagrammi UML ed i \gl{design
+pattern} utilizzati per realizzare l'architettura definendo inoltre i test necessari alla verifica;
+	\item \textbf{Definizione di Prodotto}: descrive in dettaglio la progettazione di \gl{sistema}, integrando
+quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi UML e le
+definizioni delle classi definendo inoltre i test necessari alla verifica.
+\end{itemize}
+ \paragraph{Specifica tecnica}
+\begin{itemize} 
+	\item \textbf{Diagrammi UML}:
+	\begin{itemize}
+	\item[--] Diagrammi delle classi
+	\item[--] Diagrammi dei \gl{package}
+	\item[--] Diagrammi di attività
+	\item[--] Diagrammi di sequenza
+	\end{itemize}
+	\item \textbf{Design pattern}:\\	Devono essere descritti i design pattern utilizzati per realizzare l'architettura. Ogni design
+pattern deve essere accompagnato da una descrizione ed un diagramma, che ne esponga il
+significato e la struttura;
+	\item \textbf{Tracciamento delle componenti}:
+	\item \textbf{Test di integrazione}:\\	Devono essere definite delle classi di verifica, utili a verificare che ogni componente del
+sistema funzioni nella maniera appropriata.
+\end{itemize}
  \paragraph{Definizione di prodotto}
+\begin{itemize}
+	\item \textbf{Diagrammi UML}:
+	\begin{itemize}
+		\item[--] Diagrammi delle classi
+		\item[--] Diagrammi di attività
+		\item[--] Diagrammi di sequenza
+	\end{itemize}
+	\item \textbf{Definizioni delle classi}:\\Ogni classe progettata deve essere descritta in modo da spiegarne lo scopo e definirne le
+funzionalità ad essa associate;
+	\item \textbf{Tracciamento delle classi}:\\Ogni requisito deve essere tracciato, in modo da poter risalire alle classi ad esso associate; Trender????
+	\item \textbf{Test di unità}:\\Devono essere definiti dei test di \gl{unità} utili a verificare che le componenti del sistema
+funzionino nel modo previsto.
+\end{itemize}
 
 \subsubsection{Codifica}
  \paragraph{Scopo dell'attività}
-
+ 
  \paragraph{Aspettative dell'attività}
 
  \paragraph{Descrizione dell'attività}
