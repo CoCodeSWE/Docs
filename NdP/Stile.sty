@@ -1,0 +1,91 @@
+% Nome File: Comandi.sty
+% Creatore:  Tommaso Panozzo
+% Data: 2016-03-13
+
+%-------------------------
+%        PACCHETTI
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[margin=3cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[bf]{caption}
+\usepackage{float}
+
+
+%-------------------------
+%   IMPOSTAZIONI LINK
+\definecolor{link}{HTML}{62588A}
+\definecolor{url}{HTML}{3BB8DD}
+\hypersetup{%
+	colorlinks=true,%
+	linkcolor=link,%
+	urlcolor=url
+}
+
+%-------------------------
+% IMPOSTAZIONI PARAGRAPH
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%-------------------------
+%      PRIMA PAGINA
+\renewcommand{\maketitle}{
+	\begingroup
+	\centering
+	\includegraphics[scale=0.8]{img/logo_full.png}\\
+	\vspace{1cm}
+	{\LARGE \PROGETTO}\\
+	\rule{12cm}{0.4pt}\\
+	\vspace{1cm}
+	{\Huge \TITOLO}\\
+	\rule{12cm}{0.4pt}\\
+	\vspace{2cm}
+	\textbf{Sommario}\\
+	\SOMMARIO\\
+	\vfill
+	\begin{table}[h]
+	\centering
+	\begin{tabular}{r|l}
+	\textbf{Versione}               & \VERSIONE      \\
+	\textbf{Data di redazione}      & \DATA          \\
+	\textbf{Redazione}              & \REDATTORE     \\
+	\textbf{Verifica}               & \VERIFICATORE  \\
+	\textbf{Approvazione}           & \RESPONSABILE  \\
+	\textbf{Uso}                    & \USO           \\
+	\textbf{Distribuzione} & \DESTINATARI \\
+	\end{tabular}
+	\end{table}
+	\setcounter{page}{0}
+	\thispagestyle{empty}
+	\newpage
+	\clearpage
+	\setcounter{page}{1}
+	\endgroup
+}
+
+%-------------------------
+%         HEADER
+
+
+%-------------------------
+%         FOOTER
+\pagestyle{fancy}
+%\lhead{\includegraphics[scale=0.3]{img/logo_full.png}}
+\lfoot{\TITOLO}
+\cfoot{\AUTORE}
+\rfoot{Pagina \thepage{} di \pageref*{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
