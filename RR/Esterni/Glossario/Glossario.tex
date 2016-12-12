@@ -1,0 +1,35 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{glossario}
+
+\def\NOME{Glossario}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-12-12}
+\def\REDATTORE{Mattia Bottaro}
+\def\VERIFICATORE{Luca Bertolini}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Questo documento chiarisce le possibili ambiguità all'interno della documentazione prodotta.}
+
+
+\begin{document}
+	
+\maketitle
+
+\begin{diario}
+	\modifica{Mattia Bottaro}{\AMM}{Stesura struttura documento}{2016-12-12}{0.0.1}
+\end{diario}
+
+\newpage
+
+\include{A}
+
+\end{document}

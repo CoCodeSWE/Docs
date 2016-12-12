@@ -1,0 +1,39 @@
+Attributi
+Capitolato
+Caso d'uso
+Design pattern
+Iterazione
+Package
+Prodotto
+Progetto
+Proponente
+Repository
+Ricorsione
+Sistema
+Slack
+Software
+Stack
+Template
+UML
+Unità
+Validazione
+Verifica
+attributi
+capitolato
+caso d'uso
+design pattern
+iterazione
+package
+prodotto
+progetto
+proponente
+repository
+ricorsione
+sistema
+slack
+software
+stack
+template
+unità
+validazione
+verifica

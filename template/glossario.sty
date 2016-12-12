@@ -1,0 +1,26 @@
+\newcommand{\lettera}[1]{
+	\begin{center}
+		{\Huge #1}\\
+	\end{center}
+	\rule{15cm}{0.4pt}
+	\vspace{1cm}
+}
+
+\newcommand\invisiblesection[1]{%
+	\refstepcounter{section}%
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+	\sectionmark{#1}
+}
+
+\newcommand\invisiblesubsection[1]{%
+	\refstepcounter{subsection}%
+	\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}#1}%
+	\sectionmark{#1}
+}
+
+\newcommand{\parola}[2]{
+	\invisiblesubsection{#1}
+	\textbf{\large{#1}} \\
+	\indent #2 
+	\vspace{0.3cm}
+}

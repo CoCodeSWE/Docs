@@ -1,0 +1,98 @@
+\BOOKMARK [1][-]{section.1}{Introduzione}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Scopo del documento}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Scopo del prodottog}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Glossario}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Riferimenti}{section.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.4.1}{Riferimenti Normativi}{subsection.1.4}% 6
+\BOOKMARK [3][-]{subsubsection.1.4.2}{Riferimenti Informativi}{subsection.1.4}% 7
+\BOOKMARK [1][-]{section.2}{Processi primari}{}% 8
+\BOOKMARK [2][-]{subsection.2.1}{Sviluppo}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Scopo}{subsection.2.1}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Aspettative}{subsection.2.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Descrizione}{subsection.2.1}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Analisi dei requisiti}{subsection.2.1}% 13
+\BOOKMARK [4][-]{paragraph.2.1.4.1}{Scopo dell'attivit\340}{subsubsection.2.1.4}% 14
+\BOOKMARK [4][-]{paragraph.2.1.4.2}{Aspettative dell'attivit\340}{subsubsection.2.1.4}% 15
+\BOOKMARK [4][-]{paragraph.2.1.4.3}{Descrizione dell'attivit\340}{subsubsection.2.1.4}% 16
+\BOOKMARK [4][-]{paragraph.2.1.4.4}{Studio di fattibilit\340}{subsubsection.2.1.4}% 17
+\BOOKMARK [4][-]{paragraph.2.1.4.5}{Casi d'uso}{subsubsection.2.1.4}% 18
+\BOOKMARK [4][-]{paragraph.2.1.4.6}{Codice identificativo dei casi d'uso}{subsubsection.2.1.4}% 19
+\BOOKMARK [4][-]{paragraph.2.1.4.7}{Requisiti}{subsubsection.2.1.4}% 20
+\BOOKMARK [4][-]{paragraph.2.1.4.8}{Codice identificativo dei requisiti}{subsubsection.2.1.4}% 21
+\BOOKMARK [4][-]{paragraph.2.1.4.9}{UMLg}{subsubsection.2.1.4}% 22
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Progettazione}{subsection.2.1}% 23
+\BOOKMARK [4][-]{paragraph.2.1.5.1}{Scopo dell'attivit\340}{subsubsection.2.1.5}% 24
+\BOOKMARK [4][-]{paragraph.2.1.5.2}{Aspettative dell'attivit\340}{subsubsection.2.1.5}% 25
+\BOOKMARK [4][-]{paragraph.2.1.5.3}{Descrizione dell'attivit\340}{subsubsection.2.1.5}% 26
+\BOOKMARK [4][-]{paragraph.2.1.5.4}{Specifica tecnica}{subsubsection.2.1.5}% 27
+\BOOKMARK [4][-]{paragraph.2.1.5.5}{Definizione di prodottog}{subsubsection.2.1.5}% 28
+\BOOKMARK [3][-]{subsubsection.2.1.6}{Codifica}{subsection.2.1}% 29
+\BOOKMARK [4][-]{paragraph.2.1.6.1}{Scopo dell'attivit\340}{subsubsection.2.1.6}% 30
+\BOOKMARK [4][-]{paragraph.2.1.6.2}{Aspettative dell'attivit\340}{subsubsection.2.1.6}% 31
+\BOOKMARK [4][-]{paragraph.2.1.6.3}{Descrizione dell'attivit\340}{subsubsection.2.1.6}% 32
+\BOOKMARK [4][-]{paragraph.2.1.6.4}{Stile}{subsubsection.2.1.6}% 33
+\BOOKMARK [4][-]{paragraph.2.1.6.5}{Versionamento}{subsubsection.2.1.6}% 34
+\BOOKMARK [4][-]{paragraph.2.1.6.6}{Ricorsioneg}{subsubsection.2.1.6}% 35
+\BOOKMARK [3][-]{subsubsection.2.1.7}{Strumenti}{subsection.2.1}% 36
+\BOOKMARK [4][-]{paragraph.2.1.7.1}{Strumento uno}{subsubsection.2.1.7}% 37
+\BOOKMARK [4][-]{paragraph.2.1.7.2}{Strumento due}{subsubsection.2.1.7}% 38
+\BOOKMARK [1][-]{section.3}{Processi di supporto}{}% 39
+\BOOKMARK [2][-]{subsection.3.1}{Documentazione}{section.3}% 40
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Scopo}{subsection.3.1}% 41
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Aspettative}{subsection.3.1}% 42
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Descrizione}{subsection.3.1}% 43
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Procedure}{subsection.3.1}% 44
+\BOOKMARK [4][-]{paragraph.3.1.4.1}{Approvazione dei documenti}{subsubsection.3.1.4}% 45
+\BOOKMARK [3][-]{subsubsection.3.1.5}{Template}{subsection.3.1}% 46
+\BOOKMARK [3][-]{subsubsection.3.1.6}{Struttura dei documenti}{subsection.3.1}% 47
+\BOOKMARK [4][-]{paragraph.3.1.6.1}{Frontespizio}{subsubsection.3.1.6}% 48
+\BOOKMARK [4][-]{paragraph.3.1.6.2}{Diario delle modifiche}{subsubsection.3.1.6}% 49
+\BOOKMARK [4][-]{paragraph.3.1.6.3}{Indice}{subsubsection.3.1.6}% 50
+\BOOKMARK [4][-]{paragraph.3.1.6.4}{Intestazione e pi\350 di pagina}{subsubsection.3.1.6}% 51
+\BOOKMARK [3][-]{subsubsection.3.1.7}{Versionamento}{subsection.3.1}% 52
+\BOOKMARK [3][-]{subsubsection.3.1.8}{Norme tipografiche}{subsection.3.1}% 53
+\BOOKMARK [4][-]{paragraph.3.1.8.1}{Stile del testo}{subsubsection.3.1.8}% 54
+\BOOKMARK [4][-]{paragraph.3.1.8.2}{Elenchi puntati}{subsubsection.3.1.8}% 55
+\BOOKMARK [4][-]{paragraph.3.1.8.3}{Formati comuni}{subsubsection.3.1.8}% 56
+\BOOKMARK [4][-]{paragraph.3.1.8.4}{Sigle}{subsubsection.3.1.8}% 57
+\BOOKMARK [3][-]{subsubsection.3.1.9}{Elementi grafici}{subsection.3.1}% 58
+\BOOKMARK [4][-]{paragraph.3.1.9.1}{Tabelle}{subsubsection.3.1.9}% 59
+\BOOKMARK [4][-]{paragraph.3.1.9.2}{Immagini}{subsubsection.3.1.9}% 60
+\BOOKMARK [3][-]{subsubsection.3.1.10}{Classificazione dei documenti}{subsection.3.1}% 61
+\BOOKMARK [4][-]{paragraph.3.1.10.1}{Documenti informali}{subsubsection.3.1.10}% 62
+\BOOKMARK [4][-]{paragraph.3.1.10.2}{Documenti formali}{subsubsection.3.1.10}% 63
+\BOOKMARK [4][-]{paragraph.3.1.10.3}{Verbali}{subsubsection.3.1.10}% 64
+\BOOKMARK [3][-]{subsubsection.3.1.11}{Strumenti}{subsection.3.1}% 65
+\BOOKMARK [4][-]{paragraph.3.1.11.1}{LaTeX}{subsubsection.3.1.11}% 66
+\BOOKMARK [4][-]{paragraph.3.1.11.2}{TexMaker}{subsubsection.3.1.11}% 67
+\BOOKMARK [2][-]{subsection.3.2}{Verificag}{section.3}% 68
+\BOOKMARK [1][-]{section.4}{Processi organizzativi}{}% 69
+\BOOKMARK [2][-]{subsection.4.1}{Gestione}{section.4}% 70
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Scopo}{subsection.4.1}% 71
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Aspettative}{subsection.4.1}% 72
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Descrizione}{subsection.4.1}% 73
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Ruoli di progetto}{subsection.4.1}% 74
+\BOOKMARK [4][-]{paragraph.4.1.4.1}{Responsabile}{subsubsection.4.1.4}% 75
+\BOOKMARK [4][-]{paragraph.4.1.4.2}{Amministratore}{subsubsection.4.1.4}% 76
+\BOOKMARK [4][-]{paragraph.4.1.4.3}{Analista}{subsubsection.4.1.4}% 77
+\BOOKMARK [4][-]{paragraph.4.1.4.4}{Progettista}{subsubsection.4.1.4}% 78
+\BOOKMARK [4][-]{paragraph.4.1.4.5}{Programmatore}{subsubsection.4.1.4}% 79
+\BOOKMARK [4][-]{paragraph.4.1.4.6}{Verificatore}{subsubsection.4.1.4}% 80
+\BOOKMARK [3][-]{subsubsection.4.1.5}{Comunicazioni}{subsection.4.1}% 81
+\BOOKMARK [4][-]{paragraph.4.1.5.1}{Interne}{subsubsection.4.1.5}% 82
+\BOOKMARK [4][-]{paragraph.4.1.5.2}{Esterne}{subsubsection.4.1.5}% 83
+\BOOKMARK [3][-]{subsubsection.4.1.6}{Incontri}{subsection.4.1}% 84
+\BOOKMARK [4][-]{paragraph.4.1.6.1}{Interni}{subsubsection.4.1.6}% 85
+\BOOKMARK [4][-]{paragraph.4.1.6.2}{Esterni}{subsubsection.4.1.6}% 86
+\BOOKMARK [3][-]{subsubsection.4.1.7}{Strumenti di coordinamento}{subsection.4.1}% 87
+\BOOKMARK [4][-]{paragraph.4.1.7.1}{Ticketing}{subsubsection.4.1.7}% 88
+\BOOKMARK [3][-]{subsubsection.4.1.8}{Strumenti di versionamento}{subsection.4.1}% 89
+\BOOKMARK [4][-]{paragraph.4.1.8.1}{Repositoryg}{subsubsection.4.1.8}% 90
+\BOOKMARK [4][-]{paragraph.4.1.8.2}{Struttura del repositoryg}{subsubsection.4.1.8}% 91
+\BOOKMARK [4][-]{paragraph.4.1.8.3}{Commit}{subsubsection.4.1.8}% 92
+\BOOKMARK [4][-]{paragraph.4.1.8.4}{Rischi}{subsubsection.4.1.8}% 93
+\BOOKMARK [3][-]{subsubsection.4.1.9}{Strumenti}{subsection.4.1}% 94
+\BOOKMARK [4][-]{paragraph.4.1.9.1}{Sistemag Operativo}{subsubsection.4.1.9}% 95
+\BOOKMARK [4][-]{paragraph.4.1.9.2}{Telegram}{subsubsection.4.1.9}% 96
+\BOOKMARK [4][-]{paragraph.4.1.9.3}{Git}{subsubsection.4.1.9}% 97
+\BOOKMARK [4][-]{paragraph.4.1.9.4}{Ecc...}{subsubsection.4.1.9}% 98

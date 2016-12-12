@@ -1,0 +1,7 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {subsection}{\numberline {0.1}Akka}{3}{subsection.0.1}
+\contentsline {subsection}{\numberline {0.2}Amazon Web Services}{3}{subsection.0.2}
+\contentsline {subsection}{\numberline {0.3}Android}{3}{subsection.0.3}
+\contentsline {subsection}{\numberline {0.4}Application server}{3}{subsection.0.4}
+\contentsline {subsection}{\numberline {0.5}Asana}{3}{subsection.0.5}
