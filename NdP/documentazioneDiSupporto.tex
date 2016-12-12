@@ -18,8 +18,8 @@ Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si ve
 La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
-	\item il \RESP{} di progetto assegna i \VERP al documento, i quali dovranno occuparsi di controllare la correttezza dello stesso;
-	\item se i \VERP riscontrano degli errori si ritorna al punto 1, altrimenti il documento viene consegnato al \RESP ;
+	\item il \RESP{} di progetto consegna il documento ai \VERP, i quali dovranno occuparsi di controllare la correttezza dello stesso;
+	\item se i \VERP{} riscontrano degli errori si ritorna al punto 1, altrimenti il documento viene consegnato al \RESP ;
 	\item il \RESP{} di progetto decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
 
@@ -30,20 +30,20 @@ Per garantire omogeneità tra i documenti è stato creato un template \LaTeX, do
 La prima pagina di ogni documento dovrà contenere:
 \begin{itemize}
 	\item logo del gruppo;
-	\item nome del \gl{progetto};
+	\item nome del progetto;
 	\item nome del documento e la relativa versione;
 	\item sommario;
 	\item data di redazione;
 	\item nome e cognome dei redattori del documento;
 	\item nome e cognome dei verificatori del documento;
 	\item nome e cognome del responsabile per l'approvazione del documento;
-	\item destinazione d'uso del documento;
+	\item uso del documento (interno o esterno);
 	\item lista di distribuzione del documento.
 \end{itemize}
  \paragraph{Diario delle modifiche}
  La seconda pagina dovrà contenere i diario delle modifiche di quel determinato documento.\\
  Il diario è costituito di una tabella ordinata in modo decrescente seconda la data di modifica e il numero di versione.\\
- Gli \gl{attributi} della tabella rappresentano:
+ Gli attributi della tabella rappresentano:
  \begin{itemize}
  	\item numero di versione;
  	\item breve riepilogo delle modifiche apportate;
@@ -53,13 +53,67 @@ La prima pagina di ogni documento dovrà contenere:
  \end{itemize}
  \paragraph{Indice}
  In ogni documento è presente un indice delle sezioni, utile a fornire una visione macroscopica della struttura del documento. Sono previsti, se necessari, gli indici relativi alle tabelle e alle figure presenti nel documento in questo ordine.
- \paragraph{Contenuto principale}
- \paragraph{Note a piè di pagina}
- 
+ \paragraph{Intestazione e piè di pagina}
+L'intestazione delle pagine di ogni documento deve contenere:
+\begin{itemize}
+	\item numero e titolo della sezione;
+	\item nome del progetto.
+\end{itemize} 
+Il piè di pagina contiene invece:
+\begin{itemize}
+	\item nome del documento con la relativa versione;
+	\item nome del gruppo;
+	\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali del documento.
+\end{itemize} 
 \subsubsection{Versionamento}
-
+Ciascun documento che verrà redatto dovrà essere versionato, per consentire un tracciamento chiaro della sua storia e delle sue modifiche.\\Verrà applicato il seguente formalismo:\\ \\ \centerline{vX.Y.Z}\\ \\dove:
+\begin{itemize}
+	\item \textbf{X}:
+	\begin{itemize}
+		\item[--]inizia da 0;
+		\item[--]viene incrementato quando il \RESP{} di progetto approva il documento;
+		\item[--]è sempre minore del numero totali di revisioni.
+	\end{itemize}
+	\item \textbf{Y}:
+	\begin{itemize}
+		\item[--]inizia da 0;
+		\item[--]viene incrementato dal \VER{} ad ogni verifica;
+		\item[--]quando viene modificato X, viene riportato a 0.
+	\end{itemize}
+	\item \textbf{Z}:
+	\begin{itemize}
+		\item[--]inizia da 0;
+		\item[--]viene incrementato dal Redattore del documento dopo ogni modifica;
+		\item[--]quando viene modificato Y, viene riportato a 0.
+	\end{itemize}
+\end{itemize}
 \subsubsection{Norme tipografiche}
+In questa sezione vengono definite le norme ortografiche e tipografiche da rispettare nella stesura di ogni documento.
  \paragraph{Stile del testo} 
+\begin{itemize}
+	\item \textbf{Grassetto}: viene utilizzato per:
+	\begin{itemize}
+		\item[--]titoli;
+		\item[--]elementi di un elenco puntato che riassumono il contenuto del relativo paragrafo.
+	\end{itemize}
+	\item \textbf{Corsivo}: viene utilizzato per:
+	\begin{itemize}
+		\item[--]citazioni;
+		\item[--]abbreviazioni;
+		\item[--]parole inserite nel glossario;
+		\item[--]riferimenti ad altri documenti;
+		\item[--]nomi di società o aziende;
+		\item[--]ruoli dei membri del gruppo.
+	\end{itemize}
+	\item \textbf{Maiuscolo}: le parole scritte interamente in maiuscolo dovranno riferirsi soltanto ad acronimi.
+	\item \textbf{Monospace}: le porzioni di testo scritte in monospace definiscono:
+	\begin{itemize}
+		\item[--]frammenti di codice;
+		\item[--]comandi;
+		\item[--]URL;
+	\end{itemize}
+	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
+\end{itemize}
  \paragraph{Elenchi puntati}
  \paragraph{Formati comuni}
  \paragraph{Sigle}
