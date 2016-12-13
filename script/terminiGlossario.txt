@@ -2,6 +2,11 @@ Attributi
 Capitolato
 Caso d'uso
 Design pattern
+Google Hangout
+LaTeX
+Texmaker
+Git
+GitHub
 Iterazione
 Package
 Prodotto
@@ -13,6 +18,7 @@ Sistema
 Slack
 Software
 Stack
+Team
 Template
 UML
 Unità
