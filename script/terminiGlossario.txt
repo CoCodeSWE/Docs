@@ -1,5 +1,13 @@
 Attributi
 Capitolato
+Milestone
+VoIP
+milestone
+Bot Telegram
+task 
+Task
+bot Telegram
+VotePoll
 Caso d'uso
 Design pattern
 Google Hangout
