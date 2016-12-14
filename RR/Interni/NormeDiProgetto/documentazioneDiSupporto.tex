@@ -70,21 +70,21 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 \begin{itemize}
 	\item \textbf{X}:
 	\begin{itemize}
-		\item[--]inizia da 0;
-		\item[--]viene incrementato quando il \RESP{} di \gl{progetto} approva il documento;
-		\item[--]è sempre minore del numero totali di revisioni.
+		\item inizia da 0;
+		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento;
+		\item è sempre minore del numero totali di revisioni.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
-		\item[--]inizia da 0;
-		\item[--]viene incrementato dal \VER{} ad ogni \gl{verifica};
-		\item[--]quando viene modificato X, viene riportato a 0.
+		\item inizia da 0;
+		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
+		\item quando viene modificato X, viene riportato a 0.
 	\end{itemize}
 	\item \textbf{Z}:
 	\begin{itemize}
-		\item[--]inizia da 0;
-		\item[--]viene incrementato dal Redattore del documento dopo ogni modifica;
-		\item[--]quando viene modificato Y, viene riportato a 0.
+		\item inizia da 0;
+		\item viene incrementato dal Redattore del documento dopo ogni modifica;
+		\item quando viene modificato Y, viene riportato a 0.
 	\end{itemize}
 \end{itemize}
 \subsubsection{Norme tipografiche}
@@ -93,29 +93,29 @@ In questa sezione vengono definite le norme ortografiche e tipografiche da rispe
 \begin{itemize}
 	\item \textbf{Grassetto}: viene utilizzato per:
 	\begin{itemize}
-		\item[--]titoli;
-		\item[--]elementi di un elenco puntato che riassumono il contenuto del relativo paragrafo.
+		\item titoli;
+		\item elementi di un elenco puntato che riassumono il contenuto del relativo paragrafo.
 	\end{itemize}
 	\item \textbf{Corsivo}: viene utilizzato per:
 	\begin{itemize}
-		\item[--]citazioni;
-		\item[--]abbreviazioni;
-		\item[--]parole inserite nel glossario;
-		\item[--]riferimenti ad altri documenti;
-		\item[--]nomi di società o aziende;
-		\item[--]ruoli dei membri del gruppo.
+		\item citazioni;
+		\item abbreviazioni;
+		\item parole inserite nel glossario;
+		\item riferimenti ad altri documenti;
+		\item nomi di società o aziende;
+		\item ruoli dei membri del gruppo.
 	\end{itemize}
 	\item \textbf{Maiuscolo}: le parole scritte interamente in maiuscolo dovranno riferirsi soltanto ad acronimi.
 	\item \textbf{Monospace}: le porzioni di testo scritte in monospace definiscono:
 	\begin{itemize}
-		\item[--]frammenti di codice;
-		\item[--]comandi;
-		\item[--]URL;
+		\item frammenti di codice;
+		\item comandi;
+		\item URL;
 	\end{itemize}
 	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 \end{itemize}
  \paragraph{Elenchi puntati}
-Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo. \\
+Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al template \LaTeX creato). \\
 Ogni elemento deve terminare con il punto e virgola, a meno che non sia l'ultimo dell'elenco, in questo caso la frase va terminata con il punto. Ogni punto inizia con la minuscola, tranne nel caso in cui necessiti di una spiegazione: allora
 si utilizzerà la maiuscola.
  \paragraph{Formati comuni}
@@ -123,20 +123,20 @@ si utilizzerà la maiuscola.
 	\item \textbf{Date}:\\ \\ \centerline{AAAA - MM - GG} \\ \\
 	dove:
 	\begin{itemize}
-		\item[--]AAAA: rappresenta l'anno utilizzando 4 cifre;
-		\item[--]MM: rappresenta il mese utilizzando due cifre;
-		\item[--]GG: rappresenta il giorno usando due cifre;
+		\item AAAA: rappresenta l'anno utilizzando 4 cifre;
+		\item MM: rappresenta il mese utilizzando due cifre;
+		\item GG: rappresenta il giorno usando due cifre;
 	\end{itemize}
 	\item \textbf{Orari}:\\ \\ \centerline{HH:MM} \\ \\dove:
 	\begin{itemize}
-		\item[--]HH: rappresenta l'ora e può assumere valori da 0 a 23;
-		\item[--]MM: rappresenta i minuti e può assumere valori da 0 a 59;
+		\item HH: rappresenta l'ora e può assumere valori da 0 a 23;
+		\item MM: rappresenta i minuti e può assumere valori da 0 a 59;
 	\end{itemize}
 	\item \textbf{Nomi ricorrenti}:
 	\begin{itemize}
-		\item[--] \textbf{Ruoli di progetto}: ogni nome di un ruolo di progetto deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
-		\item[--] \textbf{Nomi propri}: ogni nome deve essere espresso nella forma "Nome Cognome";
-		\item[--] \textbf{Nomi dei documenti}: ogni nome di documento viene scritto con lo stile corsivo, con l'iniziale di ogni parola maiuscola e con la versione corrente. Questo viene automatizzato richiamando il comando "\textbackslash{SiglaDocumentodoc}".
+		\item \textbf{Ruoli di progetto}: ogni nome di un ruolo di progetto deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
+		\item \textbf{Nomi propri}: ogni nome deve essere espresso nella forma "Nome Cognome";
+		\item \textbf{Nomi dei documenti}: ogni nome di documento viene scritto con lo stile corsivo, con l'iniziale di ogni parola maiuscola e con la versione corrente. Questo viene automatizzato richiamando il comando "\textbackslash{SiglaDocumentodoc}".
 	\end{itemize}
 \end{itemize}
  \paragraph{Sigle}
@@ -166,6 +166,18 @@ UML vengono inseriti nel documento sotto forma di immagine.
  \paragraph{Documenti formali}
  Un documento viene definito formale quando viene validato dal \RESP di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
 documento deve aver già passato la verifica e la validazione.
+ \paragraph{Glossario}
+Il glossario nasce dall'esigenza di chiarire il significato di parole che possono risultare ambigue all'interno di determinati contesti. Saranno quindi presenti parole che:
+\begin{itemize}
+	\item trattano argomenti tecnici;
+	\item possono creare delle ambiguità sul significato;
+	\item rappresentano delle sigle.
+\end{itemize}
+La struttura deve avere queste caratteristiche:
+\begin{itemize}
+	\item le parole devono essere in ordine alfabetico;
+	\item ogni termine deve essere seguito da una spiegazione chiara e concisa, che non debba generare alcun tipo di ambiguità.
+\end{itemize}
  \paragraph{Verbali}
 Questo documento ha lo scopo di riassumere in modo formale le discussioni effettuate e le decisioni prese durante le riunioni. I verbali, come le riunioni, sono classificati in: interni ed esterni. In
 particolare i verbali esterni, essendo documenti ufficiali, devono essere redatti dal \RESP{} di Progetto.
@@ -198,4 +210,14 @@ dove:
 Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice al posto della D viene messa una S.
 \subsubsection{Strumenti}
  \paragraph{\LaTeX}
+La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX offre:
+\begin{itemize}
+	\item creazione di documenti formali in modo rapido ed efficiente;
+	\item possibilità di separare contenuto e formattazione, definendo l'aspetto delle pagine in un file
+template separato e condiviso da tutti i documenti;
+	\item creazione e gestione automatica dell'indice del documento.
+\end{itemize}
+Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
  \paragraph{TexMaker}
+Per la redazione del codice \LaTeX viene utilizzato l'editor TeXMaker. Questo
+strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
