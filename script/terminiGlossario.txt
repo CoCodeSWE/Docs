@@ -1,23 +1,29 @@
 Attributi
+Bot
 Capitolato
-Milestone
-VoIP
-milestone
-Bot Telegram
-task 
-Task
-bot Telegram
-VotePoll
 Caso d'uso
 Design pattern
-Google Hangout
-LaTeX
-Texmaker
 Git
 GitHub
+Google Hangout
 Iterazione
+LaTeX
+Milestone
+Cloud 
+cloud
+ticketing
+Ticketing
 Package
 Prodotto
+PDF 
+pdf 
+Pdf
+markup
+Markup
+Issue
+issue
+ciclo di vita
+Ciclo di vita
 Progetto
 Proponente
 Repository
@@ -26,17 +32,23 @@ Sistema
 Slack
 Software
 Stack
+Task
 Team
 Template
+Texmaker
 UML
 Unità
 Validazione
 Verifica
+VoIP
+VotePoll
 attributi
+bot
 capitolato
 caso d'uso
 design pattern
 iterazione
+milestone
 package
 prodotto
 progetto
@@ -47,6 +59,7 @@ sistema
 slack
 software
 stack
+task
 template
 unità
 validazione
