@@ -1,0 +1,35 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Piano di \gl{progetto}}
+\def\VERSIONE{1.0}
+\def\DATA{2016-12-15}
+\def\REDATTORE{Luca Bertolini \\ & Simeone Pizzi \\ & Pier Paolo Tricomi}
+\def\VERIFICATORE{Andrea Magnan}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Documento contenente il piano di progetto relativo al prodotto \PROGETTO determinato dal gruppo \GRUPPO nel corso della realizzazione del progetto \PROGETTO.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+
+\include{introduzione}
+
+\end{document}
