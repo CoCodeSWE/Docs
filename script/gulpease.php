@@ -1,6 +1,9 @@
 <?php
 
 /*
+  modifiche script 2016-15-12: Mattia Bottaro - Co.code:
+  script modificato con il repository di Co.Code
+
 	modifiche script: Viviana Alessio - Beacon Strips - 2016:
 	lo script è ora compatibile con la struttura del repository del team Beacon strips.
 
@@ -9,7 +12,7 @@
 
 
 // eseguire lo script direttamente all'interno della cartella "script"
-$rev = ('../NdP'); //al cambio di revisione modificare questa variabile
+$rev = ('../RR/'); //al cambio di revisione modificare questa variabile
 $revisione = 'Revisione dei requisiti';//e questa
 
 $rootE = 'Esterni/';
@@ -18,13 +21,9 @@ $rootI = 'Interni/';
  * Elenco delle directory dei documenti
  */
 $docs = array(
-  'AR' => 'AnalisiDeiRequisiti/',
   'Gl' => 'Glossario/',
-  'PP' => 'PianoDiProgetto/',
-  'PQ' => 'PianoDiQualifica/',
   'NP' => 'NormeDiProgetto/',
-  //'SF' => 'StudioDiFattibilita/'
-  'ST' => 'SpecificaTecnica/'
+  'SF' => 'StudioDiFattibilita/'
 );
 
 

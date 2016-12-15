@@ -13,7 +13,7 @@ del \gl{software};
 In questo documento devono essere redatte tutte le norme e le convenzioni adottate dal gruppo,
 in modo da produrre una documentazione valida e coerente.
 \subsubsection{Procedure}
-Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si veda 4.1.11.
+Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si veda \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
  \paragraph{Approvazione dei documenti}
 La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
@@ -41,7 +41,7 @@ La prima pagina di ogni documento dovrà contenere:
 	\item lista di distribuzione del documento.
 \end{itemize}
  \paragraph{Diario delle modifiche}
- La seconda pagina dovrà contenere i diario delle modifiche di quel determinato documento.\\
+ La seconda pagina dovrà contenere il diario delle modifiche di quel determinato documento.\\
  Il diario è costituito di una tabella ordinata in modo decrescente seconda la data di modifica e il numero di versione.\\
  Gli \gl{attributi} della tabella rappresentano:
  \begin{itemize}
@@ -124,8 +124,8 @@ si utilizzerà la maiuscola.
 	dove:
 	\begin{itemize}
 		\item AAAA: rappresenta l'anno utilizzando 4 cifre;
-		\item MM: rappresenta il mese utilizzando due cifre;
-		\item GG: rappresenta il giorno usando due cifre;
+		\item MM: rappresenta il mese utilizzando 2 cifre;
+		\item GG: rappresenta il giorno usando 2 cifre;
 	\end{itemize}
 	\item \textbf{Orari}:\\ \\ \centerline{HH:MM} \\ \\dove:
 	\begin{itemize}
@@ -162,7 +162,7 @@ essere nettamente separata dai paragrafi che la seguono e la precedono, in modo 
 UML vengono inseriti nel documento sotto forma di immagine.
 \subsubsection{Classificazione dei documenti}
  \paragraph{Documenti informali}
- Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
+ Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
  \paragraph{Documenti formali}
  Un documento viene definito formale quando viene validato dal \RESP di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
 documento deve aver già passato la verifica e la validazione.
@@ -209,6 +209,7 @@ dove:
 \end{itemize}
 Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice al posto della D viene messa una S.
 \subsubsection{Strumenti}
+\label{sec:Strumenti}
  \paragraph{\LaTeX}
 La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX offre:
 \begin{itemize}
@@ -218,6 +219,6 @@ template separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
 Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
- \paragraph{TexMaker}
-Per la redazione del codice \LaTeX viene utilizzato l'editor TeXMaker. Questo
+ \paragraph{Texmaker}
+Per la redazione del codice \LaTeX viene utilizzato l'editor Texmaker. Questo
 strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
