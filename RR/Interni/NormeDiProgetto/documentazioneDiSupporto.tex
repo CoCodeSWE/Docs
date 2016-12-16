@@ -18,8 +18,8 @@ Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si ve
 La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
-	\item il \RESP{} di \gl{progetto} consegna il documento ai \VERP, i quali dovranno occuparsi di controllare la correttezza dello stesso;
-	\item se i \VERP{} riscontrano degli errori si ritorna al punto 1, altrimenti il documento viene consegnato al \RESP ;
+	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
+	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica issue, tornando così al punto 1, altrimenti il documento viene consegnato al \RESP ;
 	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
 
@@ -115,7 +115,7 @@ In questa sezione vengono definite le norme ortografiche e tipografiche da rispe
 	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 \end{itemize}
  \paragraph{Elenchi puntati}
-Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al template \LaTeX creato). \\
+Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al template \LaTeX{} creato). \\
 Ogni elemento deve terminare con il punto e virgola, a meno che non sia l'ultimo dell'elenco, in questo caso la frase va terminata con il punto. Ogni punto inizia con la minuscola, tranne nel caso in cui necessiti di una spiegazione: allora
 si utilizzerà la maiuscola.
  \paragraph{Formati comuni}
@@ -125,7 +125,7 @@ si utilizzerà la maiuscola.
 	\begin{itemize}
 		\item AAAA: rappresenta l'anno utilizzando 4 cifre;
 		\item MM: rappresenta il mese utilizzando 2 cifre;
-		\item GG: rappresenta il giorno usando 2 cifre;
+		\item GG: rappresenta il giorno utilizzando 2 cifre;
 	\end{itemize}
 	\item \textbf{Orari}:\\ \\ \centerline{HH:MM} \\ \\dove:
 	\begin{itemize}
@@ -142,14 +142,14 @@ si utilizzerà la maiuscola.
  \paragraph{Sigle}
 E' previsto l'utilizzo di queste sigle:
 \begin{itemize}
-	\item \textbf{AdR}: per "\ARdoc";
-	\item \textbf{PdP}: per "\PPdoc";
-	\item \textbf{NdP}: per "\NPdoc";
-	\item \textbf{SdF}: per "\SFdoc";
-	\item \textbf{PdQ}: per "\PQdoc";
-	\item \textbf{ST}: per "\STdoc";
-	\item \textbf{Gl}: per "\Gldoc";
-	\item \textbf{DP}: per "\DPdoc".		
+	\item \textbf{AdR}: per \ARdoc;
+	\item \textbf{PdP}: per \PPdoc;
+	\item \textbf{NdP}: per \NPdoc;
+	\item \textbf{SdF}: per \SFdoc;
+	\item \textbf{PdQ}: per \PQdoc;
+	\item \textbf{ST}: per \STdoc;
+	\item \textbf{Gl}: per \Gldoc;
+	\item \textbf{DP}: per \DPdoc.		
 \end{itemize}
  
 \subsubsection{Elementi grafici}
@@ -164,7 +164,7 @@ UML vengono inseriti nel documento sotto forma di immagine.
  \paragraph{Documenti informali}
  Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
  \paragraph{Documenti formali}
- Un documento viene definito formale quando viene validato dal \RESP di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
+ Un documento viene definito formale quando viene validato dal \RESP{} di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
 documento deve aver già passato la verifica e la validazione.
  \paragraph{Glossario}
 Il glossario nasce dall'esigenza di chiarire il significato di parole che possono risultare ambigue all'interno di determinati contesti. Saranno quindi presenti parole che:
@@ -176,7 +176,7 @@ Il glossario nasce dall'esigenza di chiarire il significato di parole che posson
 La struttura deve avere queste caratteristiche:
 \begin{itemize}
 	\item le parole devono essere in ordine alfabetico;
-	\item ogni termine deve essere seguito da una spiegazione chiara e concisa, che non debba generare alcun tipo di ambiguità.
+	\item ogni termine deve essere seguito da una spiegazione chiara e concisa, che non generi alcun tipo di ambiguità.
 \end{itemize}
  \paragraph{Verbali}
 Questo documento ha lo scopo di riassumere in modo formale le discussioni effettuate e le decisioni prese durante le riunioni. I verbali, come le riunioni, sono classificati in: interni ed esterni. In
@@ -211,16 +211,16 @@ Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verba
 \subsubsection{Strumenti}
 \label{sec:Strumenti}
  \paragraph{\LaTeX}
-La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX offre:
+La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX{} offre:
 \begin{itemize}
 	\item creazione di documenti formali in modo rapido ed efficiente;
 	\item possibilità di separare contenuto e formattazione, definendo l'aspetto delle pagine in un file
 template separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
-Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
+Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
  \paragraph{Texmaker}
-Per la redazione del codice \LaTeX viene utilizzato l'editor Texmaker. Questo
+Per la redazione del codice \LaTeX{} viene utilizzato l'editor Texmaker. Questo
 strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
 \begin{figure}[h]
 \centering
