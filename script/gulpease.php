@@ -20,15 +20,15 @@ $rootI = 'Interni/';
 /*
  * Elenco delle directory dei documenti
  */
-$docs = array(
-  'Glo' => 'Glossario/',
-  'NdP' => 'NormeDiProgetto/',
-  'SdF' => 'StudioDiFattibilita/',
-  'PdP' => 'PianoDiProgetto/',
-  'AdR' => 'AnalisiDeiRequisiti/',
-  '1VI' => 'Verbale_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-  '1VE' => 'Verbale_E_2016-12-17/'
-);
+ $docs = array(
+   'Glo' => 'Glossario/',
+   'NdP' => 'NormeDiProgetto/',
+   'SdF' => 'StudioDiFattibilita/',
+   'PdP' => 'PianoDiProgetto/',
+   'AdR' => 'AnalisiDeiRequisiti/',
+   '1VI' => 'Verbale_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+   '1VE' => 'Verbale_E_2016-12-17/'
+ );
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 

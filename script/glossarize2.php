@@ -96,17 +96,17 @@ function glossarizeDoc($path) {
    * e sotto-sezioni, paragrafi e sotto-paragrafi, etichette e riferimenti,
    * didascalie, URL e testo preformattato.
    */
-  $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|" .
-                   "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|" .
-                   "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|" .
-                   "(\\\\ref)|(\\\label)|(\\\def\\\input@path))/";
+   $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|" .
+                    "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|" .
+                    "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|" .
+                    "(\\\\ref)|(\\\label)|(\\\def\\\input@path))/";
 
   /**
    * Per ogni voce di glossario...
    */
   while (!feof($voci)) {
 
-    $voce = trim(fgets($voci));
+    $voce =trim(fgets($voci));
     $lineNumber = 0;
     rewind($file);
 
@@ -123,13 +123,15 @@ function glossarizeDoc($path) {
        */
       if (preg_match("/\b$voce\b/", $line)) {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) {
-        //  echo $linesToIgnore." ".$voce."\n";
+          //echo $path." ".$voce."\n";
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
-          echo "";
+          //echo "";
         } else {
+          if($voce=="Progetto") echo " ################### ATTENZIONE \N";
+        //  echo $linesToIgnore." ".$voce."\n";
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
-        //  echo "\033[33;31m>  riga $lineNumber:\tdeglossarizzato '$voce'\n";
+      //    echo $path." \n";
         }
 
       }
@@ -154,23 +156,15 @@ function median($array) {
   return $sum/sizeof($array);
 }
 
-/**
- * Calcola e stampa la media del Gulpease di tutti i file per ogni documento
- */
+
  //echo "Glossarizzazione di: \n";
 foreach ($docs as $doc => $dir) {
   if (file_exists($rev . $rootE . $dir)) $root = $rootE;
   else
   	if (file_exists($rev . $rootI . $dir)) $root = $rootI;
-
-    // Se la cartella $dir esiste inizializza $gulpease e salva il nome di tutti
-    // i file al suo interno in $files
-    $gulpease = array();
     $files = scandir($rev . $root . $dir);
     foreach ($files as $file) {
     	// echo "\n$file\n";
-      // Di ogni $file, se ha estensione .tex, ne calcola il Gulpease che salva
-      // in $gulpease con una push
       if (preg_match('/.tex$/', $file)) {
         $path = $rev . $root . $dir . $file;
         if (file_exists($path)) {
@@ -178,14 +172,14 @@ foreach ($docs as $doc => $dir) {
             glossarizeDoc($path);
         //  $glossarizzato=true;
         //  echo $path."\n";
-        }else $glossarizzato=false;
+      }// else $glossarizzato=false;
       }
     }
     if(file_exists($rev.$root.$dir)){
-      echo "|        $doc            |    Glossarizzato    |\n";
+      echo "|        $doc            |    \033[33;32m Glossarizzato";echo"\e[0m   |   \n";
       echo "+-----------------------+---------------------+\n";
     }else{
-      echo "|        $doc            |    Non esistente    |\n";
+      echo "|        $doc            |    \033[33;31m Non esistente";echo"\e[0m   |    \n";
       echo "+-----------------------+---------------------+\n";
     }
 }

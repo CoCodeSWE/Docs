@@ -5,26 +5,25 @@ Capitolato
 Design pattern
 Git
 GitHub
-Google Hangout
+Google Hangouts
 Iterazione
 LaTeX
 Milestone
-Cloud 
+Cloud
 cloud
 ticketing
 Ticketing
 Package
 Prodotto
-PDF 
-pdf 
-Pdf
+PDF
+
 markup
 Markup
 Issue
 issue
 ciclo di vita
 Ciclo di vita
-Progetto
+
 Proponente
 Repository
 Ricorsione
