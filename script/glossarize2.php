@@ -1,19 +1,35 @@
 
 <?php
 /*
-  modifiche script 2016-15-12: Mattia Bottaro - Co.code:
-  script modificato con il repository di Co.Code
-
-	modifiche script: Viviana Alessio - Beacon Strips - 2016:
-	lo script è ora compatibile con la struttura del repository del team Beacon strips.
-
-	creazione script: Enrico Ceron - Infinitech - 2015
+* Autore: InfiniTech
+* Data creazione: 2015-04-12
+* E-mail: info.infinitech@gmail.com
+*
+* Questo file è proprietà del gruppo InfiniTech e viene rilasciato sotto licenza MIT.
+*
+* Diario delle modifiche:
+* 2016-04-02 - Adattamento script alla struttura del repository del team Beacon Strips
+* 				Viviana Alessio
+* 2015-05-13 - Aggiunta deglossarizzazione delle $linesToIgnore - Enrico Ceron
+* 2015-04-18 - Creazione dello script - Enrico Ceron
+*
+* Diaro delle modifiche:
+* 2016-12-12 - adattamento dello script al gruppo Co.Code, Mattia Bottaro
+* 2017-12-17 - pesanti modifiche effettuate da Mattia Bottaro del gruppo Co.Code(formatosi
+  per il progetto di SWE dell'uniPD) -> UPDATE alla versione 2.0 by Mattia Bottaro
+  Nelle versioni 1.x lo script funzionava solo per un file, dato in input. Quindi per
+  glossarizzare n files bisognava eseguire n volte lo script.
+  Ora, in base alla organizzazione del repository di Co.Code, lo script cerca tutti i file .tex
+  e li glossarizza.
 */
 
 
 // eseguire lo script direttamente all'interno della cartella "script"
+
+error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
+
 $rev = ('../RR/'); //al cambio di revisione modificare questa variabile
-$revisione = 'RR';//e questa
+$revisione = 'Revisione dei requisiti';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -25,13 +41,29 @@ $docs = array(
   'NdP' => 'NormeDiProgetto/',
   'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
-  'AdR' => 'AnalisiDeiRequisiti'
+  'AdR' => 'AnalisiDeiRequisiti/',
+  '1VI' => 'Verbale_2016-12-10/' // primo verbale interno. 1=primo,V=verbale,I=interno
 );
 
 
 echo <<< EOF
+
+###  Software sotto licenza MIT ###
+
+______                            _
+|  __ \ | by Enrico Ceron        (_) v1.1
+| |  \/ | ___  ___ ___  __ _ _ __ _ _______
+| | __| |/ _ \/ __/ __|/ _` | '__| |_  / _ \
+| |_\ \ | (_) \__ \__ \ (_| | |  | |/ /  __/
+ \____/_|\___/|___/___/\__,_|_|  |_/___\___|
+                                
+  Improved by Mattia Bottaro     v2.0
+
+EOF;
+
+echo <<< EOF
 +-----------------------+---------------------+
-                    $revisione
+ $revisione
 +-----------------------+---------------------+
 |       Documento       |        Esito        |
 +-----------------------+---------------------+
@@ -90,12 +122,15 @@ function glossarizeDoc($path) {
        */
       if (preg_match("/\b$voce\b/", $line)) {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) {
+        //  echo $linesToIgnore." ".$voce."\n";
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
+          echo "";
         } else {
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
         //  echo "\033[33;31m>  riga $lineNumber:\tdeglossarizzato '$voce'\n";
         }
+
       }
     }
   }
@@ -139,31 +174,23 @@ foreach ($docs as $doc => $dir) {
         $path = $rev . $root . $dir . $file;
         if (file_exists($path)) {
           // qui si glossarizza
-          glossarizeDoc($path);
+            glossarizeDoc($path);
         //  $glossarizzato=true;
         //  echo $path."\n";
         }else $glossarizzato=false;
       }
     }
     if(file_exists($rev.$root.$dir)){
-      echo "|         $doc          |    Glossarizzato     |\n";
-      echo "+----------------------+----------------------+\n";
+      echo "|        $doc            |    Glossarizzato    |\n";
+      echo "+-----------------------+---------------------+\n";
     }else{
-      echo "|          $doc         |    Non esistente     |\n";
-      echo "+----------------------+----------------------+\n";
+      echo "|        $doc            |    Non esistente    |\n";
+      echo "+-----------------------+---------------------+\n";
     }
-    /*
-    if ($glossarizzato) {
-      echo "| $doc        | Glossarizzato |\n";
-      echo "+-----------+--------+------------------+\n";
-    }
-    else {
-      echo "| $doc        | Nessun file o directory |\n";
-      echo "+-----------+--------+------------------+\n";
-    }
-    */
 }
 
+echo "\n";
+echo "\e[0m\nInfiniTech e Co.Code si sollevano da ogni responsabilità.\n";
 echo "\n";
 
 ?>

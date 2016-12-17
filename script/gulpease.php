@@ -21,18 +21,22 @@ $rootI = 'Interni/';
  * Elenco delle directory dei documenti
  */
 $docs = array(
-  'Gl' => 'Glossario/',
-  'NP' => 'NormeDiProgetto/',
-  'SF' => 'StudioDiFattibilita/'
+  'Glo' => 'Glossario/',
+  'NdP' => 'NormeDiProgetto/',
+  'SdF' => 'StudioDiFattibilita/',
+  'PdP' => 'PianoDiProgetto/',
+  'AdR' => 'AnalisiDeiRequisiti/',
+  '1VI' => 'Verbale_2016-12-10/' // primo verbale interno. 1=primo,V=verbale,I=interno
 );
 
+error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
 echo <<< EOF
-+-----------+--------+----------+
++---------------------------------
     $revisione
-+-----------+--------+----------+
-| Documento | Valore | Esito    |
-+-----------+--------+----------+
++------------+--------------+---------+
+| Documento | Valore       | Esito    |
++-----------+--------------+----------+
 
 EOF;
 
@@ -93,12 +97,12 @@ foreach ($docs as $doc => $dir) {
         $esito = 'Positivo';
       else
         $esito = 'Negativo';
-      echo "| $doc        | $gulp     | $esito |\n";
-      echo "+-----------+--------+----------+\n";
+      echo "| $doc       | $gulp           | $esito |\n";
+      echo "+-----------+--------------+----------+\n";
     }
     else {
-      echo "| $doc        | Nessun file o directory |\n";
-      echo "+-----------+--------+------------------+\n";
+      echo "| $doc       | Nessun file o directory |\n";
+      echo "+-----------+-------------------------+\n";
     }
 }
 

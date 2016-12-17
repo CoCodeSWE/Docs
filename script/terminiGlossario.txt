@@ -1,7 +1,7 @@
 Attributi
 Bot
 Capitolato
-Caso d'uso
+
 Design pattern
 Git
 GitHub
@@ -45,7 +45,7 @@ VotePoll
 attributi
 bot
 capitolato
-caso d'uso
+
 design pattern
 iterazione
 milestone
