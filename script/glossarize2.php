@@ -42,7 +42,8 @@ $docs = array(
   'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
-  '1VI' => 'Verbale_2016-12-10/' // primo verbale interno. 1=primo,V=verbale,I=interno
+  '1VI' => 'Verbale_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+  '1VE' => 'Verbale_E_2016-12-17/'
 );
 
 
@@ -56,7 +57,7 @@ ______                            _
 | | __| |/ _ \/ __/ __|/ _` | '__| |_  / _ \
 | |_\ \ | (_) \__ \__ \ (_| | |  | |/ /  __/
  \____/_|\___/|___/___/\__,_|_|  |_/___\___|
-                                
+
   Improved by Mattia Bottaro     v2.0
 
 EOF;
