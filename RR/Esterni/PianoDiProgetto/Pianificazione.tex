@@ -48,8 +48,8 @@
   \begin{itemize}
     \item incremento e verifica documenti: tutti i documenti prodotti nel periodo precedente vengono incrementati e corretti in base alle segnalazioni del committente e del proponente;
     \item incremento e verifica requisiti:  gli \ANP provvedono ad individuare nuovi requisiti e a correggere eventuali requisiti segnalati; tutti i documenti saranno aggiornati di conseguenza. Verrà fissato un incontro col proponente per la verifica dei requisiti individuati in questo modo;
-    \item documentazione API: viene prodotta una documentazione dettagliata delle varie API fornite dal sistema;
-    \item piano di test di unità: viene creato il piano dei test di unità.
+    %\item documentazione API: viene prodotta una documentazione dettagliata delle varie API fornite dal sistema;
+    %\item piano di test di unità: viene creato il piano dei test di unità.
   \end{itemize}
   %\newpage
   \subsubsection{Diagramma di Gantt - \PerPA}
@@ -59,69 +59,32 @@
     \caption{Gantt - \PerPA}
     \end{figure}
 
-  \subsection{\PerPDR[]{} (PDR)}
+  \subsection{\PerPD{} (PD)}
 
-  Questo periodo inizia con la fine del periodo PA. È stato suddiviso in tre sottoperiodi, per differenziare tra i requisiti di diversa priorità.
-  %attività in comune qui e quelle diverse nei singoli sottoperiodi?
-  \subsubsection{\PerPDROB{} (PDROB)}
-  \textbf{Periodo: dal 2016-01-12 al 2016-02-22}
-
-  È il primo dei sottoperiodi. Il suo inizio coincide con l'inizio della \PerPDR[], e la sua fine coincide con la consegna della \textbf{Revisione di Progettazione}. Le attività svolte durante questo consistono in:
+  Questo periodo inizia con la fine della \PerPA e termina con la consegna dei documenti per la \textit{Revisione di Progettazione}. Le attività che verranno svolte in questo periodo saranno:
   \begin{itemize}
-    \item Definizione di prodotto: viene steso il documento \textit{Definizione di Prodotto v1.0.0}. Esso definisce la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto, per quanto riguarda i requisiti obbligatori;
-    \item codifica: inizia lo sviluppo da parte dei programmatori dei moduli del sistema atti a soddisfare i requisiti obbligatori. Sarà guidato da quanto riportato nel documento \textit{Definizione di Prodotto v1.0.0};
-    \item test: contemporaneamente alla codifica dei moduli del sistema si inizia anche a codificare i test di unità, integrazione e di sistema definiti nel documento [Piano di qualifica versione da decidere]. Gli \AMMP si occupano dell'automazione dell'esecuzione di tali test;
+    \item Definizione di prodotto: viene steso il documento \textit{Definizione di Prodotto v1.0.0}. Esso definisce nel dettaglio la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto;
     \item incremento e verifica dei documenti: se ritenuto necessario vengono apportate modifiche ai documenti già stilati;
-    \item Glossario: vengono aggiunti al \textit{Glossario} i vocaboli dei quali si ritenga necessaria una definizione formale.
+    \item documentazione delle API: viene stesa la documentazione dettagliata di tutte le API del sistema;
+    \item piano di test di unità: viene scritto il piano dei test di unità.
   \end{itemize}
-
-  %\newpage
-  \paragraph{Diagramma di Gantt - \PerPDROB}
-    \begin{figure}[!h]
-    \centering
-    %\includegraphics[width=\textwidth]{images/PDROB}
-    \caption{Gantt - \PerPDROB}
-    \end{figure}
-
-  \subsubsection{\PerPDRD{} (PDRD)}
+  %attività in comune qui e quelle diverse nei singoli sottoperiodi?
+  \subsubsection{\PerC{} (C)}
   \textbf{Periodo: dal 2016-01-12 al 2016-02-22}
-
-  Questo sottoperiodo inizia in seguito all'esito della \textbf{Revisione di Progetto}. Le attività di questa fase saranno le seguenti:
+  Questo periodo inizia in seguito all'esito della \textbf{Revisione di Progettazione} e termina con la consegna del prodotto alla \textbf{Revisione di Qualifica}. Questo periodo è diviso in tre cicli incrementali, in cui vengono svolte le seguenti attività:
   \begin{itemize}
-    \item Definizione di prodotto: viene steso il documento \textit{Definizione di Prodotto v2.0.0}. Esso definisce la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto, per quanto riguarda i requisiti desiderabili;
-    \item codifica: inizia lo sviluppo da parte dei programmatori dei moduli del sistema atti a soddisfare i requisiti obbligatori. Sarà guidato da quanto riportato nel documento \textit{Definizione di Prodotto v2.0.0};
-    \item test: analogamente a quanto avvenuto nel periodo precedente sono codificati test automatici in base a quanto definito nel documento [Piano di qualifica versione da decidere, > di quella sopra] ed è predisposta la loro esecuzione automatica;
-    \item manuali: inizia la stesura del manuale utente e della documentazione per gli sviluppatori, che serviranno agli utilizzatori del sistema;
-    \item incremento e verifica dei documenti: se ritenuto necessario vengo apportate modifiche ai documenti già stilati;
-    \item Glossario: vengono aggiunti al \textit{Glossario} i vocaboli dei quali si ritenga necessaria una definizione formale.
+    \item codifica: in base a quanto definito nel documento di \textit{Definizione di Prodotto}, i \PRP{} sviluppano il codice del prodotto software;
+    \item test: contemporaneamente all'inizio della codifica del sistema, si inizia la stesura dei test di unità, integrazione e sistema come previsto nel \textit{Piano di Qualifica};
+    \item automazione: gli \AMMP{} si occuperanno della predisposizione di sistemi automatizzati per l'esecuzione automatica dei test.
   \end{itemize}
+  inoltre, al termine delle prime due iterazioni verrà svolta da parte dei \PJP un'attività di progettazione dell'incremento, al fine di migliorare o estendere il sistema.
 
   %\newpage
-  \paragraph{Diagramma di Gantt - \PerPDRD}
-    \begin{figure}[!h]
-    \centering
-    %\includegraphics[width=\textwidth]{images/PDRD}
-    \caption{Gantt - \PerPDRD}
-    \end{figure}
-
-  \subsubsection{\PerPDROP{} (PDROP)}
-  \textbf{Periodo: dal 2016-01-12 al 2016-02-22}
-
-  Questo sottoperiodo inizia [inserire_qui_condizione_inizio_da_decidere] e terminerà con [fine_progetto || RQ]. le attività da svolgere saranno:
-  \begin{itemize}
-    \item Definizione di prodotto: viene steso il documento \textit{Definizione di Prodotto v3.0.0}. Esso definisce la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto, per quanto riguarda i requisiti opzionali;
-    \item codifica: inizia lo sviluppo da parte dei programmatori dei moduli del sistema atti a soddisfare i requisiti obbligatori. Sarà guidato da quanto riportato nel documento \textit{Definizione di Prodotto v3.0.0};
-    \item test: analogamente a quanto avvenuto nel periodo precedente sono codificati test automatici in base a quanto definito nel documento [Piano di qualifica versione da decidere, > di quella sopra] ed è predisposta la loro esecuzione automatica;
-    \item incremento e verifica dei documenti: se ritenuto necessario vengo apportate modifiche ai documenti già stilati;
-    \item Glossario: vengono aggiunti al \textit{Glossario} i vocaboli dei quali si ritenga necessaria una definizione formale.
-  \end{itemize}
-
-  %\newpage
-  \paragraph{Diagramma di Gantt - \PerPDROP}
+  \paragraph{Diagramma di Gantt - \PerC}
     \begin{figure}[!h]
     \centering
     %\includegraphics[width=\textwidth]{images/PDROP}
-    \caption{Gantt - \PerPDROP}
+    \caption{Gantt - \PerC}
     \end{figure}
 
   \subsection{\PerV (V)}
