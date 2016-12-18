@@ -7,6 +7,7 @@
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
+\usepackage{subfiles}
 
 \def\NOME{Piano di \gl{progetto}}
 \def\VERSIONE{1.0}
@@ -22,14 +23,15 @@
 
 \maketitle
 
-\begin{diario}
-
-\end{diario}
+\subfile{diario}
 
 \newpage
 \tableofcontents
 \newpage
+\listoffigures
+\newpage
 
 \include{introduzione}
+\subfile{Pianificazione}
 
 \end{document}
