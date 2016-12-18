@@ -1,11 +1,11 @@
 \subsubsection{Scopo}
 Lo scopo di questo processo consiste nell'illustrazione di come deve essere redatta e mantenuta
-la documentazione, durante il ciclo di vita del software.
+la documentazione, durante il \gl{ciclo di vita} del \gl{software}.
 \subsubsection{Aspettative}
 Le aspettative della corretta implementazione di tale processo sono:
 \begin{itemize}
-	\item una chiara visione della documentazione prodotta durante il ciclo di vita
-del software;
+	\item una chiara visione della documentazione prodotta durante il \gl{ciclo di vita}
+del \gl{software};
 	\item una serie di norme per la stesura di documenti coerenti e validi;
 	\item una documentazione formale e coerente.
 \end{itemize}
@@ -13,14 +13,14 @@ del software;
 In questo documento devono essere redatte tutte le norme e le convenzioni adottate dal gruppo,
 in modo da produrre una documentazione valida e coerente.
 \subsubsection{Procedure}
-Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si veda \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
+Per la stesura della documentazione si è utilizzato il linguaggio \\gl{LaTeX}, si veda \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
  \paragraph{Approvazione dei documenti}
 La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
 	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
-	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica issue, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
-	\item il \RESP{} di progetto decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
+	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica \gl{issue}, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
+	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
 \begin{figure}[h]
 \centering
@@ -28,13 +28,13 @@ La formalizzazione di un documento segue la seguente procedura:
 \caption{Flow chart dell'approvazione di un documento}\label{sec:Figura2}
 \end{figure}
 \subsubsection{Template}
-Per garantire omogeneità tra i documenti è stato creato un template \LaTeX, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
+Per garantire omogeneità tra i documenti è stato creato un \gl{template} \\gl{LaTeX}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
 \subsubsection{Struttura dei documenti}
  \paragraph{Frontespizio} 
 La prima pagina di ogni documento dovrà contenere:
 \begin{itemize}
 	\item logo del gruppo;
-	\item nome del progetto;
+	\item nome del \gl{progetto};
 	\item nome del documento e la relativa versione;
 	\item sommario;
 	\item data di redazione;
@@ -47,12 +47,12 @@ La prima pagina di ogni documento dovrà contenere:
  \paragraph{Diario delle modifiche}
  La seconda pagina dovrà contenere il diario delle modifiche di quel determinato documento.\\
  Il diario è costituito di una tabella ordinata in modo decrescente seconda la data di modifica e il numero di versione.\\
- Gli attributi della tabella rappresentano:
+ Gli \gl{attributi} della tabella rappresentano:
  \begin{itemize}
  	\item numero di versione;
  	\item breve riepilogo delle modifiche apportate;
  	\item autore delle modifiche;
- 	\item ruolo ricoperto dall'attore all'interno del progetto;
+ 	\item ruolo ricoperto dall'attore all'interno del \gl{progetto};
  	\item data di modifica.
  \end{itemize}
  \paragraph{Indice}
@@ -61,7 +61,7 @@ La prima pagina di ogni documento dovrà contenere:
 L'intestazione delle pagine di ogni documento deve contenere:
 \begin{itemize}
 	\item numero e titolo della sezione;
-	\item nome del progetto.
+	\item nome del \gl{progetto}.
 \end{itemize} 
 Il piè di pagina contiene invece:
 \begin{itemize}
@@ -75,12 +75,12 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\item \textbf{X}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di progetto approva il documento.
+		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato dal \VER{} ad ogni verifica;
+		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
 		\item quando viene modificato X, viene riportato a 0.
 	\end{itemize}
 	\item \textbf{Z}:
@@ -118,7 +118,7 @@ In questa sezione vengono definite le norme ortografiche e tipografiche da rispe
 	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 \end{itemize}
  \paragraph{Elenchi puntati}
-Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al template \LaTeX{} creato). \\
+Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al \gl{template} \\gl{LaTeX}{} creato). \\
 Ogni elemento deve terminare con il punto e virgola, a meno che non sia l'ultimo dell'elenco, in questo caso la frase va terminata con il punto. Ogni punto inizia con la minuscola, tranne nel caso in cui necessiti di una spiegazione: allora
 si utilizzerà la maiuscola.
  \paragraph{Formati comuni}
@@ -137,7 +137,7 @@ si utilizzerà la maiuscola.
 	\end{itemize}
 	\item \textbf{Nomi ricorrenti}:
 	\begin{itemize}
-		\item \textbf{Ruoli di progetto}: ogni nome di un ruolo di progetto deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
+		\item \textbf{Ruoli di \gl{progetto}}: ogni nome di un ruolo di \gl{progetto} deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
 		\item \textbf{Nomi propri}: ogni nome deve essere espresso nella forma "Nome Cognome";
 		\item \textbf{Nomi dei documenti}: ogni nome di documento viene scritto con lo stile corsivo, con l'iniziale di ogni parola maiuscola e con la versione corrente. Questo viene automatizzato richiamando il comando "\textbackslash{SiglaDocumentodoc}".
 	\end{itemize}
@@ -162,13 +162,13 @@ garantirne la tracciabilità.
  \paragraph{Immagini}
 Ogni immagine deve essere centrata orizzontalmente. Inoltre deve
 essere nettamente separata dai paragrafi che la seguono e la precedono, in modo da definire un netto distacco tra testo e grafica e migliorare conseguentemente la leggibilità. Essa dev'essere accompagnata da una didascalia analoga a quella descritta per le tabelle. Tutti i diagrammi
-UML vengono inseriti nel documento sotto forma di immagine.
+\gl{UML} vengono inseriti nel documento sotto forma di immagine.
 \subsubsection{Classificazione dei documenti}
  \paragraph{Documenti informali}
- Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
+ Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di \gl{progetto}, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
  \paragraph{Documenti formali}
- Un documento viene definito formale quando viene validato dal \RESP{} di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
-documento deve aver già passato la verifica e la validazione.
+ Un documento viene definito formale quando viene validato dal \RESP{} di \gl{progetto}. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
+documento deve aver già passato la \gl{verifica} e la \gl{validazione}.
  \paragraph{Glossario}
 Il glossario nasce dall'esigenza di chiarire il significato di parole che possono risultare ambigue all'interno di determinati contesti. Saranno quindi presenti parole che:
 \begin{itemize}
@@ -215,18 +215,18 @@ dove:
 Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice al posto della D viene messa una S.
 \subsubsection{Strumenti}
 \label{sec:Strumenti}
- \paragraph{\LaTeX}
-La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX{} offre:
+ \paragraph{\\gl{LaTeX}}
+La stesura dei documenti deve essere effettuata utilizzando il linguaggio di \gl{markup} \\gl{LaTeX}. Le motivazioni di questa scelta sono dovute alle possibilità che \\gl{LaTeX}{} offre:
 \begin{itemize}
 	\item creazione di documenti formali in modo rapido ed efficiente;
 	\item possibilità di separare contenuto e formattazione, definendo l'aspetto delle pagine in un file
-template separato e condiviso da tutti i documenti;
+\gl{template} separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
-Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
- \paragraph{Texmaker}
-Per la redazione del codice \LaTeX{} viene utilizzato l'editor Texmaker. Questo
-strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
+Inoltre è stato reso disponibile uno script PHP che per ogni documento \\gl{LaTeX}{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
+ \paragraph{\gl{Texmaker}}
+Per la redazione del codice \\gl{LaTeX}{} viene utilizzato l'editor \gl{Texmaker}. Questo
+strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce suggerimenti per il completamento dei comandi \\gl{LaTeX}.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{img/texm.png}

@@ -42,7 +42,7 @@ $docs = array(
   'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
-  '1VI' => 'Verbale_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+  '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
   '1VE' => 'Verbale_E_2016-12-17/'
 );
 
