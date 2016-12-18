@@ -1,11 +1,11 @@
 \subsubsection{Scopo}
 Lo scopo di questo processo consiste nell'illustrazione di come deve essere redatta e mantenuta
-la documentazione, durante il ciclo di vita del \gl{software}.
+la documentazione, durante il ciclo di vita del software.
 \subsubsection{Aspettative}
 Le aspettative della corretta implementazione di tale processo sono:
 \begin{itemize}
 	\item una chiara visione della documentazione prodotta durante il ciclo di vita
-del \gl{software};
+del software;
 	\item una serie di norme per la stesura di documenti coerenti e validi;
 	\item una documentazione formale e coerente.
 \end{itemize}
@@ -19,18 +19,22 @@ La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
 	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
-	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica issue, tornando così al punto 1, altrimenti il documento viene consegnato al \RESP ;
-	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
+	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica issue, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
+	\item il \RESP{} di progetto decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
-
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{img/flussoapprovazione.png}
+\caption{Flow chart dell'approvazione di un documento}\label{sec:Figura2}
+\end{figure}
 \subsubsection{Template}
-Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
+Per garantire omogeneità tra i documenti è stato creato un template \LaTeX, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
 \subsubsection{Struttura dei documenti}
  \paragraph{Frontespizio} 
 La prima pagina di ogni documento dovrà contenere:
 \begin{itemize}
 	\item logo del gruppo;
-	\item nome del \gl{progetto};
+	\item nome del progetto;
 	\item nome del documento e la relativa versione;
 	\item sommario;
 	\item data di redazione;
@@ -43,12 +47,12 @@ La prima pagina di ogni documento dovrà contenere:
  \paragraph{Diario delle modifiche}
  La seconda pagina dovrà contenere il diario delle modifiche di quel determinato documento.\\
  Il diario è costituito di una tabella ordinata in modo decrescente seconda la data di modifica e il numero di versione.\\
- Gli \gl{attributi} della tabella rappresentano:
+ Gli attributi della tabella rappresentano:
  \begin{itemize}
  	\item numero di versione;
  	\item breve riepilogo delle modifiche apportate;
  	\item autore delle modifiche;
- 	\item ruolo ricoperto dall'attore all'interno del \gl{progetto};
+ 	\item ruolo ricoperto dall'attore all'interno del progetto;
  	\item data di modifica.
  \end{itemize}
  \paragraph{Indice}
@@ -57,7 +61,7 @@ La prima pagina di ogni documento dovrà contenere:
 L'intestazione delle pagine di ogni documento deve contenere:
 \begin{itemize}
 	\item numero e titolo della sezione;
-	\item nome del \gl{progetto}.
+	\item nome del progetto.
 \end{itemize} 
 Il piè di pagina contiene invece:
 \begin{itemize}
@@ -71,13 +75,12 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\item \textbf{X}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento;
-		\item è sempre minore del numero totali di revisioni.
+		\item viene incrementato quando il \RESP{} di progetto approva il documento.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
+		\item viene incrementato dal \VER{} ad ogni verifica;
 		\item quando viene modificato X, viene riportato a 0.
 	\end{itemize}
 	\item \textbf{Z}:
@@ -182,11 +185,12 @@ La struttura deve avere queste caratteristiche:
 Questo documento ha lo scopo di riassumere in modo formale le discussioni effettuate e le decisioni prese durante le riunioni. I verbali, come le riunioni, sono classificati in: interni ed esterni. In
 particolare i verbali esterni, essendo documenti ufficiali, devono essere redatti dal \RESP{} di Progetto.
 Ogni verbale dovrà essere denominato nel seguente modo:\\ \\
-\centerline{\textit{Verbale\textunderscore{DataVerbale}}}
+\centerline{\textit{Verbale\textunderscore{TipoVerbale}\textunderscore{DataVerbale}}}
 \\ \\
 dove:
 \begin{itemize}
-	\item DataVerbale: identifica la data nella quale si è svolta la riunione relativa al verbale.
+	\item \textbf{TipoVerbale}: identifica se il verbale è riferito ad una riunione interna (I) o esterna (E)
+	\item \textbf{DataVerbale}: identifica la data nella quale si è svolta la riunione relativa al verbale.
 \end{itemize}
 Nella parte introduttiva vengono specificate le seguenti informazioni:
 \begin{itemize}
@@ -201,7 +205,8 @@ Nella parte introduttiva vengono specificate le seguenti informazioni:
 	\item segnalazioni varie.
 \end{itemize}
 Tutte le decisioni prese durante la riunione vengono identificate univocamente utilizzando questo formato: \\ \\
-\centerline{DX.Y} \\ \\
+\centerline{\textbf{DIX.Y} per i verbali interni}  \\ \\
+\centerline{\textbf{DEX.Y} per i verbali esterni}  \\ \\
 dove:
 \begin{itemize}
 	\item \textbf{X}: rappresenta il numero di verbale redatto in ordine cronologico (inizia da 1);
@@ -224,6 +229,8 @@ Per la redazione del codice \LaTeX{} viene utilizzato l'editor Texmaker. Questo
 strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{img/texm.png}
-\caption{Texmaker}\label{sec:Figura2}
+\includegraphics[scale=0.4]{img/texm.png}
+\caption{Texmaker}\label{sec:Figura3}
 \end{figure}
+ \paragraph{Excel}
+Per la creazione di grafici (istogrammi, diagrammi a torta, ecc) viene utilizzato Excel di Microsoft Office, nella versione 2013 o successive.
