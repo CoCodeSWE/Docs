@@ -96,9 +96,9 @@ function glossarizeDoc($path) {
    * e sotto-sezioni, paragrafi e sotto-paragrafi, etichette e riferimenti,
    * didascalie, URL e testo preformattato.
    */
-   $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|" .
-                    "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|" .
-                    "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|" .
+   $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|(\\\parola)|(\\\url)|" .
+                    "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|(\\\parola)|" .
+                    "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|(\\\parola)|(\\\url)|" .
                     "(\\\\ref)|(\\\label)|(\\\def\\\input@path))/";
 
   /**
@@ -128,7 +128,6 @@ function glossarizeDoc($path) {
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
           //echo "";
         } else {
-          if($voce=="Progetto") echo " ################### ATTENZIONE \N";
         //  echo $linesToIgnore." ".$voce."\n";
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
       //    echo $path." \n";
