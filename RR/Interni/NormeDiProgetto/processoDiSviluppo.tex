@@ -44,30 +44,54 @@ al \gl{capitolato} in analisi;
  \paragraph{Casi d'uso}
  Ogni caso d'uso è così composto:
  \begin{itemize}
-  \item codice identificativo;
-  \item titolo;
-  \item diagramma \gl{UML};
-  \item attori primari;
-  \item attori secondari;
-  \item scopo;
-  \item descrizione;
-  \item precondizione;
-  \item postcondizione;
-  \item scenario principale;
-  \item scenari alternativi.
+  \item \textbf{Codice identificativo}: codice univoco del caso d'uso in esame;
+  \item \textbf{Titolo}: indica il titolo del caso d'uso;
+  \item \textbf{Diagramma \gl{UML}}: rappresenta graficamente il caso d'uso;
+  \item \textbf{Attori primari}: indica gli attori primari coinvolti;
+  \item \textbf{Attori secondari}: indica gli attori secondari coinvolti;
+  \item \textbf{Scopo}: indica l'obiettivo del caso d'uso;
+  \item \textbf{Descrizione}: chiara, precisa e concisa descrizione del caso d'uso;
+  \item \textbf{Precondizione}: indica la situazione che deve essere vera prima dell'esecuzione del caso d'uso;
+  \item \textbf{Postcondizione} indica la situazione che deve essere vera dopo l'esecuzione del caso d'uso;
+  \item \textbf{Scenario principale}: descrizione composta dal flusso dei casi d'uso figli;
+  \item \textbf{Scenari alternativi}: descrizione composta dai casi d'uso che non appartengono al flusso
+principale di esecuzione.
  \end{itemize}
  \paragraph{Codice identificativo dei casi d'uso}
-da decidere
+Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente formalismo:\\ \\
+\centerline{UC\textbraceleft{Codice}\textbraceright{}}
+\\ \\dove:
+\begin{itemize}
+	\item \textbf{Codice}: indica il codice identificativo del requisito, è univoco e deve essere identificato in forma gerarchica.
+\end{itemize}
  \paragraph{Requisiti}
  Ogni requisito è così composto:
   \begin{itemize}
-  \item codice identificativo;
-  \item tipologia;
-  \item descrizione;
-  \item fonti.
+  \item \textbf{Codice identificativo}: codice univoco del requisito;
+  \item \textbf{Descrizione}: una breve descrizione, deve essere meno ambigua possibile;
+  \item \textbf{Fonti}: identifica la fonte dalla quale è stato identificato il requisito.
  \end{itemize}
  \paragraph{Codice identificativo dei requisiti}
- da decidere
+ Ogni requisito individuato avrà un codice identificativo univoco così formato: \\ \\
+ \centerline{R\textbraceleft{}Tipo\textbraceright{}\textbraceleft{}Importanza\textbraceright{}\textbraceleft{}Codice\textbraceright{}}
+ \\ \\
+ dove:
+ \begin{itemize}
+ 	\item \textbf{Tipo}: può assumere uno di questi valori:
+ 	\begin{itemize}
+ 		\item \textbf{F}: indica un requisito funzionale;
+ 		\item \textbf{Q}: indica un requisito di qualità;
+ 		\item \textbf{P}: indica un requisito prestazionale;
+ 		\item \textbf{V}: indica un requisito di vincolo.
+ 	\end{itemize}
+ 	\item \textbf{Importanza}: può assumere uno di questi valori:
+ 	\begin{itemize}
+ 		\item \textbf{O}: indica un requisito obbligatorio;
+ 		\item \textbf{D}: indica un requisito desiderabile;
+ 		\item \textbf{F}: indica un requisito facoltativo.
+ 	\end{itemize}
+ 	\item \textbf{Codice}: indica il codice identificativo del requisito, è univoco e deve essere identificato in forma gerarchica.
+ \end{itemize}
  \paragraph{\gl{UML}}
  Viene utilizzata la versione corrente alla stesura del documento, ovvero la 2.5.
 
