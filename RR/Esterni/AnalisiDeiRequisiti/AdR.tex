@@ -1,0 +1,43 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Analisi dei requisiti}
+\def\VERSIONE{1.0}
+\def\DATA{2016-12-21}
+\def\REDATTORE{Mauro Carlin \\ & Simeone Pizzi \\ & Pier Paolo Tricomi \\ & Mattia Bottaro \\ & Nicola Tintorri \\ & Andrea Magnan}
+\def\VERIFICATORE{Luca Bertolini}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Documento contenente i requisiti del progetto \PROGETTO{} individuati dal gruppo \GRUPPO.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+
+\end{diario}
+
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+\include{introduzione}
+ \section{Descrizione generale}
+  \input{descrizione}
+ \section{Casi d'uso}
+  \input{useCase}
+ \section{Requisiti}
+  \input{requisiti}
+
+\end{document}
