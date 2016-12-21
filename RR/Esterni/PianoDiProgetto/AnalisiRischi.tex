@@ -3,10 +3,10 @@
 \section{Analisi dei rischi}
 Al fine di evitare rallentamenti delle fasi di lavoro è stata effettuata una dettagliata analisi dei rischi, in modo da poter evitare le situazioni che portano alla creazione di eventi non pianificati, ove possibile. L'analisi si suddivide in quattro attività:
 	\begin{itemize}
-		\item Identificazione: individuare quali rischi possono incorrere durante lo sviluppo del progetto, analizzarli e provare a intuire quali saranno le conseguenze se questi si verificano;
-		\item Analisi di fase: valutare la probabilità di occorrenza di un rischio e analizzare la criticità delle conseguenze di questo rispetto all' andamento del progetto nella fase in corso. Tutte le fasi sono illustrate nella sezione 5 riguardante la Pianificazione. Il \RESP di progetto è incaricato  di fare una nuova analisi dei rischi ogni qualvolta si cambi fase;
-		\item Pianificazione e mitigazione: identificare un metodo di controllo dei rischi così da renderli evitabili, nel qual caso non lo siano, pianificare delle contromisure per ridurre al minimo i danni; 
-		\item Controllo: monitorare nel tempo ogni rischio, nel caso si verifichi descriverne il riscontro effettivo e come il team ha reagito per ridurre al minimo i danni. 
+		\item \textbf{Identificazione}: individuare quali rischi possono incorrere durante lo sviluppo del progetto, analizzarli e provare a intuire quali saranno le conseguenze se questi si verificano;
+		\item \textbf{Analisi di fase}: valutare la probabilità di occorrenza di un rischio e analizzare la criticità delle conseguenze di questo rispetto all'andamento del progetto nella fase in corso. Tutte le fasi sono illustrate nella sezione 5 riguardante la Pianificazione. Il \RESP{} di progetto è incaricato  di fare una nuova analisi dei rischi ogni qualvolta si cambi fase;
+		\item \textbf{Pianificazione e mitigazione}: identificare un metodo di controllo dei rischi così da renderli evitabili, nel qual caso non lo siano, pianificare delle contromisure per ridurre al minimo i danni; 
+		\item \textbf{Controllo}: monitorare nel tempo ogni rischio, e nel caso si verifichi descriverne il riscontro effettivo e come il team ha reagito per ridurre al minimo i danni. 
 	\end{itemize}
 I rischi trattati vengono suddivisi in 5 sottosezioni per essere analizzati al meglio:
 	\begin{itemize}
@@ -34,19 +34,20 @@ Ogni rischio verrà monitorato nel tempo e ne verrà indicato l’effettivo risc
 
 \newpage
 
-\begin{table}[]
+\begin{table}[t]
 \centering
 \caption{Registro dei rischi}
 \label{Analisi dei Rischi}
 \begin{tabular}{cc}
 \hline
 \textbf{Livello}       & \textbf{Tipologia} \\ \hline
-Tecnologico   & \begin{tabular}[c]{@{}c@{}}Tecnologie adottate sconosciute\end{tabular}             \\ \hline
-              & \begin{tabular}[c]{@{}c@{}}Guasti hardware e malfunzionamenti software\end{tabular} \\ \hline
-Organizzativo & \begin{tabular}[c]{@{}c@{}}Valutazioni delle risorse\end{tabular}                   \\ \hline
-Personale     & \begin{tabular}[c]{@{}c@{}}Problemi personali dei membri del team\end{tabular}     \\ \hline
-              & \begin{tabular}[c]{@{}c@{}}Problemi personali dei membri del team\end{tabular}     \\ \hline
-Requisiti     & Mancata comprensione                                                                    \\ \hline
+Tecnologico   & \begin{tabular}[cl]{ll} Tecnologie adottate sconosciute \ref{sec:tas}
+ \end{tabular}\\  \cline{2-2}
+              & \begin{tabular}[cl]{ll} Guasti hardware e malfunzionamenti software \ref{sec:ghs}\end{tabular} \\ \hline
+Organizzativo & \begin{tabular}[cl]{ll} Valutazioni delle risorse \ref{sec:lo}\end{tabular}                   \\ \hline
+Personale     & \begin{tabular}[cl]{ll} Problemi personali dei membri del team \ref{sec:ppdct}\end{tabular}     \\ \cline{2-2}
+              & \begin{tabular}[cl]{ll} Problemi personali tra i membri del team \ref{sec:pptc}\end{tabular}     \\ \hline
+Requisiti     &   Mancata comprensione \ref{sec:lr}\\ \hline 
 \end{tabular}
 \end{table}
 
@@ -54,14 +55,16 @@ Requisiti     & Mancata comprensione                                            
 
 \subsection{Livello tecnologico}
 		\subsubsection{Tecnologie adottate sconosciute}
-Descrizione: per lo svolgimento e l' implementazione del progetto, il team dovrà utilizzare una serie di tecnologie che nessun membro ha mai utilizzato.
+			\label{sec:tas}
+Descrizione: per lo svolgimento e l'implementazione del progetto, il team dovrà utilizzare una serie di tecnologie che nessun membro ha mai utilizzato.
 	\begin{itemize}
-		\item Probabilità di occorrenza: media;
-		\item Grado di pericolosità: alto;
-		\item Possibili conseguenze: l’utilizzo di tecnologie sconosciute richiede tempo per la scelta e l’apprendimento di quest’ultima, il che può portare ad un ritardo sulle date di consegna;
-		\item Riconoscimento: il Responsabile deve verificare il grado di preparazione di ogni membro del gruppo relativo alle tecnologie utilizzate;
-		\item Trattamento: ogni membro del team deve studiare e approfondire autonomamente i documenti forniti dall' \AMM{} che spiegano come utilizzare propriamente le nuove tecnologie adottate.
-		\item Attuazione nel periodo: 
+		\item \textbf{Probabilità di occorrenz}a: media;
+		\item \textbf{Grado di pericolosità}: alto;
+		\item \textbf{Possibili conseguenze}: l’utilizzo di tecnologie sconosciute richiede tempo per la scelta e l’apprendimento, il che può portare ad un ritardo sulle date di consegna;
+	
+		\item \textbf{Riconoscimento}: il Responsabile deve verificare il grado di preparazione di ogni membro del gruppo relativo alle tecnologie utilizzate;
+		\item \textbf{Trattamento}: ogni membro del team deve studiare e approfondire autonomamente i documenti forniti dall'\AMM{} che spiegano come utilizzare propriamente le nuove tecnologie adottate.
+		\item \textbf{Attuazione nel periodo}: 
 			\begin{itemize}
 				\item \ARdoc : il rischio non si è presentato, in quanto le nuove tecnologie non sono ancora state prese in carico.
 			\end{itemize}
@@ -69,14 +72,15 @@ Descrizione: per lo svolgimento e l' implementazione del progetto, il team dovr�
 	\end{itemize}
 	
 	\subsubsection{Guasti hardware e malfunzionamenti software}
-Descrizione: durante tutto il progetto è possibile che si verifichino guasti hardware e/o malfunzionamenti software ai computer usati dal team per sviluppare, in quanto non sono dispositivi professionali; --{non so se devo parlare dei server di zero12}--
+		\label{sec:ghs}
+Descrizione: durante tutto il progetto è possibile che si verifichino guasti hardware e/o malfunzionamenti software ai computer usati dal team per sviluppare.
 	\begin{itemize}
-		\item Probabilità di occorrenza: basso;
-		\item Grado di pericolosità: basso;
-		\item Possibili conseguenze: il malfunzionamento di uno dei dispositivi del team può portare a perdita di dati e di conseguenza perdita di tempo in quanto si va a svolgere nuovamente un lavoro già effettuato;
-		\item Riconoscimento: tutti i membri del team mantengono un' elevata attenzione sulle condizioni dei propri dispositivi;
-		\item Trattamento: ogni componente del team si impegnerà a fare un backup giornaliero del lavoro effettuato su un dispositivo esterno al computer utilizzato per sviluppare; in caso di rotture hardware ogni membro possiede un altro dispositivo che gli permette di continuare il lavoro.
-		\item Attuazione nel periodo: 
+		\item \textbf{Probabilità di occorrenza}: medio;
+		\item \textbf{Grado di pericolosità}: basso;
+		\item \textbf{Possibili conseguenze}: il malfunzionamento di uno dei dispositivi del team può portare a perdita di dati e di conseguenza perdita di tempo in quanto si va a svolgere nuovamente un lavoro già effettuato;
+		\item \textbf{Riconoscimento}: tutti i membri del team devono mantenere un'elevata attenzione sulle condizioni dei propri dispositivi;
+		\item \textbf{Trattamento}: ogni componente del team si impegnerà a fare un backup giornaliero del lavoro effettuato su un dispositivo esterno al computer utilizzato per sviluppare; in caso di rotture hardware ogni membro possiede un altro dispositivo che gli permette di continuare il lavoro.
+		\item \textbf{Attuazione nel periodo}: 
 			\begin{itemize}
 				\item \ARdoc : il rischio non si è presentato.
 			\end{itemize}
@@ -84,14 +88,15 @@ Descrizione: durante tutto il progetto è possibile che si verifichino guasti ha
 	\end{itemize}
 
 	\subsection{Livello organizzativo}
-Descrizione: data la non esperienza con con progetti di questa dimensione il team potrebbe incorrere in stime errate di valutazione delle risorse.
+		\label{sec:lo}
+Descrizione: data la mancanza di esperienza con progetti di questa dimensione il team potrebbe incorrere in stime errate di valutazione delle risorse.
 	\begin{itemize}
-		\item Probabilità di occorrenza: alta;
-		\item Grado di pericolosità: alto;
-		\item Possibili conseguenze: un'errata stima delle risorse può portare a spreco di queste o a ritardi nelle date di consegna.
-		\item Riconoscimento: il rischio in questo caso è dinamico, per questo si vuole una periodica verifica da parte del \RESP{} così da prendere atto di eventuali ritardi nello sviluppo delle attività;
-		\item Trattamento: ogni attività ha un periodo di slack, tale che l'eventuale ritardo di un'attività non condizioni le tempistiche delle altre.
-		\item Attuazione nel periodo: 
+		\item \textbf{Probabilità di occorrenza}: alta;
+		\item \textbf{Grado di pericolosità}: alto;
+		\item \textbf{Possibili conseguenze}: un'errata stima delle risorse può portare ad uno spreco di queste o a ritardi nelle date di consegna.
+		\item \textbf{Riconoscimento}: il rischio in questo caso è dinamico, per questo è necessario controllare lo sviluppo delle attività di progettazione periodicamente, tramite  verifica da parte del \RESP{}, così da prendere atto di eventuali ritardi.
+		\item \textbf{Trattamento}: ogni attività ha un periodo di slack, tale che l'eventuale ritardo di un'attività non condizioni le tempistiche delle altre.
+		\item \textbf{Attuazione nel periodo}: 
 			\begin{itemize}
 				\item \ARdoc : il rischio non si è presentato.
 			\end{itemize}
@@ -99,28 +104,30 @@ Descrizione: data la non esperienza con con progetti di questa dimensione il tea
 	
 	\subsection{Livello personale}
 		\subsubsection{Problemi personali dei componenti del team}
+			\label{sec:ppdct}
 Descrizione: ogni membro del team avrà le sue necessità e i suoi impegni personali lungo la durata del progetto. Risulta inevitabile il verificarsi di problemi organizzativi in seguito a sovrapposizioni di tali impegni.
 
 	\begin{itemize}
-		\item Probabilità di occorrenza: media;
-		\item Grado di pericolosità: alto;
-		\item Possibili conseguenze: ritardo nello svolgimento delle attività;
-		\item Riconoscimento: per creare un calendario sincronizzato e condiviso tra i membri del gruppo è necessario che vengano notificati al Responsabile in maniera preventiva e tempestiva gli impegni di ognuno. Grazie a questa pratica è possibile ridurre al minimo tale rischio;
-		\item Trattamento: nel caso un membro del team abbia un impegno che non gli permetta di proseguire il lavoro, il \RESP{} andrà a modificare la pianificazione prevista in modo da coprire l' assenza creatasi;
-		\item Attuazione nel periodo: 
+		\item \textbf{Probabilità di occorrenza}: media;
+		\item \textbf{Grado di pericolosità}: alto;
+		\item \textbf{Possibili conseguenze}: ritardo nello svolgimento delle attività;
+		\item \textbf{Riconoscimento}: per creare un calendario sincronizzato e condiviso tra i membri del gruppo è necessario che vengano notificati al Responsabile in maniera preventiva e tempestiva gli impegni di ognuno. Grazie a questa pratica è possibile ridurre al minimo tale rischio;
+		\item \textbf{Trattamento}: nel caso un membro del team abbia un impegno che non gli permetta di proseguire il lavoro, il \RESP{} andrà a modificare la pianificazione prevista in modo da coprire l'assenza creatasi;
+		\item \textbf{Attuazione nel periodo}: 
 			\begin{itemize}
 				\item \ARdoc : i membri si sono impegnati per comunicare anticipatamente gli impegni personali, in questo modo il \RESP{} è riuscito a pianificare al meglio le attività da assegnare. Grazie a questa collaborazione il rischio non si è presentato.
 			\end{itemize}
 	\end{itemize}
 		\subsubsection{Problemi personali tra i componenti del team}
+			\label{sec:pptc}
 Descrizione: essendo la prima volta che i membri del team collaborano, potrebbero sorgere attriti o squilibri interni che andrebbero a danneggiare il clima lavorativo e porterebbero a ritardi nelle consegne.
 
 	\begin{itemize}
-		\item Probabilità di occorrenza: bassa;
-		\item Grado di pericolosità: alto;
-		\item Possibili conseguenze: ritardo nello svolgimento delle attività;
-		\item Riconoscimento: tutti i membri del gruppo devono avere una comunicazione costante con il \RESP{} il quale si occuperà di monitorare i rapporti tra i collaboratori.
-		\item Trattamento: nel caso di contrasti tra membri del gruppo, il \RESP{} provvederà ad assegnare a tali membri attività differenti con il minimo contatto (nel limite del possibile).
+		\item \textbf{Probabilità di occorrenza}: bassa;
+		\item \textbf{Grado di pericolosità}: alto;
+		\item \textbf{Possibili conseguenze}: ritardo nello svolgimento delle attività;
+		\item \textbf{Riconoscimento}: tutti i membri del gruppo devono avere una comunicazione costante con il \RESP{} il quale si occuperà di monitorare i rapporti tra i collaboratori.
+		\item \textbf{Trattamento}: nel caso di contrasti tra membri del gruppo, il \RESP{} provvederà ad assegnare a tali membri attività differenti con il minimo contatto (nel limite del possibile).
 		\begin{itemize}
 				\item \ARdoc : il rischio non si è presentato.
 		\end{itemize}
@@ -128,14 +135,15 @@ Descrizione: essendo la prima volta che i membri del team collaborano, potrebber
 	
 	\subsection{Livello dei Requisiti}
 		\subsubsection{Incomprensione e scelte non ottimali}
+			\label{sec:lr}
 Descrizione: è possibile che alcuni requisiti individuati dagli analisti siano fraintesi, superficiali o errati rispetto alle aspettative del proponente \PROPONENTE{}. Inoltre esiste la probabilità che qualche requisito venga modificato, eliminato o aggiunto durante il corso del progetto.
 
 		\begin{itemize}
-		\item Probabilità di occorrenza: alta;
-		\item Grado di pericolosità: alto;
-		\item Possibili conseguenze: sviluppo di un prodotto non consono alle aspettative del proponente;
-		\item Riconoscimento: avere una costante comunicazione con il proponente \PROPONENTE{} durante la fase di \ARdoc{} in modo da chiarire tutte le incomprensioni e assicurare la concordanza sui requisiti del prodotto;
-		\item Trattamento: si dovranno effettuare incontri con il \PROPONENTE{} così da poter correggere eventuali errori indicati dal committente durante la revisione.
+		\item \textbf{Probabilità di occorrenza}: alta;
+		\item \textbf{Grado di pericolosità}: alto;
+		\item \textbf{Possibili conseguenze}: sviluppo di un prodotto non consono alle aspettative del proponente;
+		\item \textbf{Riconoscimento}: avere una costante comunicazione con il proponente \PROPONENTE{} durante la fase di \ARdoc{} in modo da chiarire tutte le incomprensioni e assicurare la concordanza sui requisiti del prodotto;
+		\item \textbf{Trattamento}: si dovranno effettuare incontri con il proponente \PROPONENTE{} così da poter correggere eventuali errori indicati dal committente durante la revisione.
 		\begin{itemize}
 				\item \ARdoc : il rischio non si è presentato.
 		\end{itemize}
