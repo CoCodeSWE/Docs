@@ -1,13 +1,13 @@
 Attributi
 Bot
 Capitolato
-
+Casi d'uso
+casi d'uso
 Design pattern
 Git
 GitHub
 Google Hangouts
 Iterazione
-LaTeX
 Milestone
 Cloud
 cloud
@@ -44,7 +44,6 @@ VotePoll
 attributi
 bot
 capitolato
-
 design pattern
 iterazione
 milestone
