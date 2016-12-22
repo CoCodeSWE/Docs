@@ -1,10 +1,10 @@
 \subsubsection{Scopo}
 Lo scopo di questo processo consiste nell'illustrazione di come deve essere redatta e mantenuta
-la documentazione, durante il ciclo di vita del \gl{software}.
+la documentazione, durante il \gl{ciclo di vita} del \gl{software}.
 \subsubsection{Aspettative}
 Le aspettative della corretta implementazione di tale processo sono:
 \begin{itemize}
-	\item una chiara visione della documentazione prodotta durante il ciclo di vita
+	\item una chiara visione della documentazione prodotta durante il \gl{ciclo di vita}
 del \gl{software};
 	\item una serie di norme per la stesura di documenti coerenti e validi;
 	\item una documentazione formale e coerente.
@@ -13,18 +13,22 @@ del \gl{software};
 In questo documento devono essere redatte tutte le norme e le convenzioni adottate dal gruppo,
 in modo da produrre una documentazione valida e coerente.
 \subsubsection{Procedure}
-Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX, si veda \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
+Per la stesura della documentazione si è utilizzato il linguaggio \\gl{LaTeX}, si veda \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
  \paragraph{Approvazione dei documenti}
 La formalizzazione di un documento segue la seguente procedura:
 \begin{enumerate}
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
 	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
-	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica issue, tornando così al punto 1, altrimenti il documento viene consegnato al \RESP ;
+	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica \gl{issue}, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
 	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
-
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{img/flussoapprovazione.png}
+\caption{Flow chart dell'approvazione di un documento}\label{sec:Figura2}
+\end{figure}
 \subsubsection{Template}
-Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
+Per garantire omogeneità tra i documenti è stato creato un \gl{template} \\gl{LaTeX}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
 \subsubsection{Struttura dei documenti}
  \paragraph{Frontespizio} 
 La prima pagina di ogni documento dovrà contenere:
@@ -48,7 +52,7 @@ La prima pagina di ogni documento dovrà contenere:
  	\item numero di versione;
  	\item breve riepilogo delle modifiche apportate;
  	\item autore delle modifiche;
- 	\item ruolo ricoperto dall'attore all'interno del \gl{progetto};
+ 	\item ruolo ricoperto dall'autore all'interno del \gl{progetto};
  	\item data di modifica.
  \end{itemize}
  \paragraph{Indice}
@@ -71,8 +75,7 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\item \textbf{X}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento;
-		\item è sempre minore del numero totali di revisioni.
+		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
@@ -110,12 +113,12 @@ In questa sezione vengono definite le norme ortografiche e tipografiche da rispe
 	\begin{itemize}
 		\item frammenti di codice;
 		\item comandi;
-		\item URL;
+		\item URL.
 	\end{itemize}
 	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 \end{itemize}
  \paragraph{Elenchi puntati}
-Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al template \LaTeX{} creato). \\
+Tutti gli elenchi puntati sono caratterizzati graficamente da un pallino nel primo livello, da una trattino nel secondo e da un asterisco nel terzo (automatizzato grazie al \gl{template} \\gl{LaTeX}{} creato). \\
 Ogni elemento deve terminare con il punto e virgola, a meno che non sia l'ultimo dell'elenco, in questo caso la frase va terminata con il punto. Ogni punto inizia con la minuscola, tranne nel caso in cui necessiti di una spiegazione: allora
 si utilizzerà la maiuscola.
  \paragraph{Formati comuni}
@@ -125,16 +128,16 @@ si utilizzerà la maiuscola.
 	\begin{itemize}
 		\item AAAA: rappresenta l'anno utilizzando 4 cifre;
 		\item MM: rappresenta il mese utilizzando 2 cifre;
-		\item GG: rappresenta il giorno utilizzando 2 cifre;
+		\item GG: rappresenta il giorno utilizzando 2 cifre.
 	\end{itemize}
 	\item \textbf{Orari}:\\ \\ \centerline{HH:MM} \\ \\dove:
 	\begin{itemize}
 		\item HH: rappresenta l'ora e può assumere valori da 0 a 23;
-		\item MM: rappresenta i minuti e può assumere valori da 0 a 59;
+		\item MM: rappresenta i minuti e può assumere valori da 0 a 59.
 	\end{itemize}
 	\item \textbf{Nomi ricorrenti}:
 	\begin{itemize}
-		\item \textbf{Ruoli di progetto}: ogni nome di un ruolo di progetto deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
+		\item \textbf{Ruoli di \gl{progetto}}: ogni nome di un ruolo di \gl{progetto} deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando "\textbackslash{CodiceRuolo}";
 		\item \textbf{Nomi propri}: ogni nome deve essere espresso nella forma "Nome Cognome";
 		\item \textbf{Nomi dei documenti}: ogni nome di documento viene scritto con lo stile corsivo, con l'iniziale di ogni parola maiuscola e con la versione corrente. Questo viene automatizzato richiamando il comando "\textbackslash{SiglaDocumentodoc}".
 	\end{itemize}
@@ -159,13 +162,13 @@ garantirne la tracciabilità.
  \paragraph{Immagini}
 Ogni immagine deve essere centrata orizzontalmente. Inoltre deve
 essere nettamente separata dai paragrafi che la seguono e la precedono, in modo da definire un netto distacco tra testo e grafica e migliorare conseguentemente la leggibilità. Essa dev'essere accompagnata da una didascalia analoga a quella descritta per le tabelle. Tutti i diagrammi
-UML vengono inseriti nel documento sotto forma di immagine.
+\gl{UML} vengono inseriti nel documento sotto forma di immagine.
 \subsubsection{Classificazione dei documenti}
  \paragraph{Documenti informali}
- Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
+ Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di \gl{progetto}, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
  \paragraph{Documenti formali}
- Un documento viene definito formale quando viene validato dal \RESP{} di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
-documento deve aver già passato la verifica e la validazione.
+ Un documento viene definito formale quando viene validato dal \RESP{} di \gl{progetto}. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
+documento deve aver passato la \gl{verifica} e la \gl{validazione}.
  \paragraph{Glossario}
 Il glossario nasce dall'esigenza di chiarire il significato di parole che possono risultare ambigue all'interno di determinati contesti. Saranno quindi presenti parole che:
 \begin{itemize}
@@ -182,11 +185,12 @@ La struttura deve avere queste caratteristiche:
 Questo documento ha lo scopo di riassumere in modo formale le discussioni effettuate e le decisioni prese durante le riunioni. I verbali, come le riunioni, sono classificati in: interni ed esterni. In
 particolare i verbali esterni, essendo documenti ufficiali, devono essere redatti dal \RESP{} di Progetto.
 Ogni verbale dovrà essere denominato nel seguente modo:\\ \\
-\centerline{\textit{Verbale\textunderscore{DataVerbale}}}
+\centerline{\textit{Verbale\textunderscore{TipoVerbale}\textunderscore{DataVerbale}}}
 \\ \\
 dove:
 \begin{itemize}
-	\item DataVerbale: identifica la data nella quale si è svolta la riunione relativa al verbale.
+	\item \textbf{TipoVerbale}: identifica se il verbale è riferito ad una riunione interna (I) o esterna (E);
+	\item \textbf{DataVerbale}: identifica la data nella quale si è svolta la riunione relativa al verbale.
 \end{itemize}
 Nella parte introduttiva vengono specificate le seguenti informazioni:
 \begin{itemize}
@@ -201,29 +205,32 @@ Nella parte introduttiva vengono specificate le seguenti informazioni:
 	\item segnalazioni varie.
 \end{itemize}
 Tutte le decisioni prese durante la riunione vengono identificate univocamente utilizzando questo formato: \\ \\
-\centerline{DX.Y} \\ \\
+\centerline{\textbf{DIX.Y} per i verbali interni}  \\ \\
+\centerline{\textbf{DEX.Y} per i verbali esterni}  \\ \\
 dove:
 \begin{itemize}
 	\item \textbf{X}: rappresenta il numero di verbale redatto in ordine cronologico (inizia da 1);
 	\item \textbf{Y}: rappresenta il numero della decisione all'interno di un singolo verbale (inizia da 1).
 \end{itemize}
-Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice al posto della D viene messa una S.
+Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice la D viene sostituita dalla S.
 \subsubsection{Strumenti}
 \label{sec:Strumenti}
- \paragraph{\LaTeX}
-La stesura dei documenti deve essere effettuata utilizzando il linguaggio di markup \LaTeX. Le motivazioni di questa scelta sono dovute alle possibilità che \LaTeX{} offre:
+ \paragraph{\\gl{LaTeX}}
+La stesura dei documenti deve essere effettuata utilizzando il linguaggio di \gl{markup} \\gl{LaTeX}. Le motivazioni di questa scelta sono dovute alle possibilità che \\gl{LaTeX}{} offre:
 \begin{itemize}
 	\item creazione di documenti formali in modo rapido ed efficiente;
 	\item possibilità di separare contenuto e formattazione, definendo l'aspetto delle pagine in un file
-template separato e condiviso da tutti i documenti;
+\gl{template} separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
-Inoltre è stato reso disponibile uno script PHP che per ogni documento \LaTeX{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
- \paragraph{Texmaker}
-Per la redazione del codice \LaTeX{} viene utilizzato l'editor Texmaker. Questo
-strumento oltre ad integrare un compilatore e visualizzatore PDF, fornisce suggerimenti per il completamento dei comandi \LaTeX.
+Inoltre è stato reso disponibile uno script PHP che per ogni documento \\gl{LaTeX}{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
+ \paragraph{\gl{Texmaker}}
+Per la redazione del codice \\gl{LaTeX}{} viene utilizzato l'editor \gl{Texmaker}. Questo
+strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce suggerimenti per il completamento dei comandi \\gl{LaTeX}.
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{img/texm.png}
-\caption{Texmaker}\label{sec:Figura2}
+\includegraphics[scale=0.4]{img/texm.png}
+\caption{Texmaker}\label{sec:Figura3}
 \end{figure}
+ \paragraph{Excel}
+Per la creazione di grafici (istogrammi, diagrammi a torta, ecc.) viene utilizzato Excel di Microsoft Office, nella versione 2013 o successive.

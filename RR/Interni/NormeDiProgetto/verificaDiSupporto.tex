@@ -1,43 +1,45 @@
 \subsubsection{Scopo del processo}
-Si occupa di accertare che lo svolgimento del processo in esame non introduca errori nel prodotto.
+Si occupa di accertare che lo svolgimento del processo in esame non introduca errori nel \gl{prodotto}.
 \subsubsection{Aspettative del processo}
 Una corretta implementazione di tale processo permette di individuare:
 \begin{itemize}
-	\item una procedura di verifica;
-	\item i criteri per la verifica del prodotto.
+	\item una procedura di \gl{verifica};
+	\item i criteri per la \gl{verifica} del \gl{prodotto}.
 \end{itemize}
 \subsubsection{Attività}
  \paragraph{Analisi statica}
 E' una tecnica di analisi del codice sorgente e della documentazione associata, prevalentemente
-usata quando il sistema non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
-richiede l'esecuzione del prodotto software in alcuna sua parte. Può essere applicata tramite una
+usata quando il \gl{sistema} non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
+richiede l'esecuzione del \gl{prodotto} \gl{software} in alcuna sua parte. Può essere applicata tramite una
 delle seguenti strategie:
 \begin{itemize}
-	\item \textbf{Walkthrough}: si legge l'intero documento (o codice) in cerca di tutte le possibili anomalie. E' una tecnica onerosa che richiede l'impegno di più persone e per questo deve essere utilizzata solo durante la prima parte del progetto, dove non tutti i membri hanno piena padronanza e conoscenza delle \NPdoc e del \PQdoc;
+	\item \textbf{Walkthrough}: si legge l'intero documento (o codice) in cerca di tutte le possibili anomalie. E' una tecnica onerosa che richiede l'impegno di più persone e per questo deve essere utilizzata solo durante la prima parte del \gl{progetto}, dove non tutti i membri hanno piena padronanza e conoscenza delle \NPdoc e del \PQdoc;
 	\item \textbf{Inspection}: questa tecnica dev'essere applicata quando si ha idea della
-problematica che si sta cercando e consiste in una lettura mirata del
+problematica che si sta cercando; consiste in una lettura mirata del
 documento (o del codice), sulla base di una lista degli errori precedentemente
 stilata.
 \end{itemize}
  \paragraph{Analisi dinamica}
-L'attività di analisi dinamica è una tecnica di verifica applicabile solamente al software. Tale tecnica può essere utilizzata per analizzare l'intero software o una
+L'attività di analisi dinamica è una tecnica di \gl{verifica} applicabile solamente al \gl{software}. Tale tecnica può essere utilizzata per analizzare l'intero \gl{software} o una
 porzione limitata dello stesso. L'attività consiste nell'esecuzione di test automatici realizzati
 dal team. Le verifiche devono essere effettuate su un insieme finito di casi, con valori di
 ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
 che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia
-applicabile durante l'intero ciclo di vita del software.
+applicabile durante l'intero \gl{ciclo di vita} del \gl{software}.
 \subsubsection{Issue tracking}
-L'issue tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
- \paragraph{Gestione delle issue}
-Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del ticketing di una issue è la seguente:
+L'\gl{issue} tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
+ \paragraph{Gestione delle \gl{issue}}
+Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del \gl{ticketing} di una \gl{issue} è la seguente:
 \begin{enumerate}
-	\item il \VER{} dovrà aprire una nuova issue assegnandole una label che si riferisca al problema trovato;
-	\item il \RESP{} di progetto dovrà valutare la issue; se la ritiene essere appropriata assegnerà ai redattori del documento (o ai \PRP) il compito di risolvere la issue;
-	\item una volta risolta, e verificata, la issue dovrà essere marcata come conlcusa;
+	\item il \VER{} dovrà aprire una nuova \gl{issue} assegnandole una label che si riferisca al problema trovato;
+	\item il \RESP{} di \gl{progetto} dovrà valutare la \gl{issue}; se la ritiene appropriata assegnerà ai redattori del documento (o ai \PRP) il compito di risolvere la \gl{issue};
+	\item una volta risolta, e verificata, la \gl{issue} dovrà essere marcata come conlcusa da parte del \RESP{} o del \VER;
 \end{enumerate}
 \subsubsection{Strumenti}
 \paragraph{Strumenti per l'issue tracking}
-Lo strumento utilizzato per l'issue tracking è il servizio Issues messo a disposizione da GitHub.
+Lo strumento utilizzato per l'\gl{issue} tracking è il servizio Issues messo a disposizione da \gl{GitHub}.
 \paragraph{Verifica ortografica}
-Viene utilizzata la verifica in tempo reale dell'ortografia, integrata in TexMaker. Essa marca,
+Viene utilizzata la \gl{verifica} in tempo reale dell'ortografia, integrata in TexMaker. Essa marca,
 sottolineando in rosso, le parole errate secondo la lingua italiana.
+\paragraph{Indice di Gulpease}
+Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.

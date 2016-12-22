@@ -8,6 +8,9 @@
 \usepackage{Riferimenti}
 \usepackage{Stile}
 \usepackage{subfiles}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{eurosym}
 
 \def\NOME{Piano di \gl{progetto}}
 \def\VERSIONE{1.0}
@@ -17,7 +20,7 @@
 \def\RESPONSABILE{Simeone Pizzi}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
-\def\SOMMARIO{Documento contenente il piano di progetto relativo al prodotto \PROGETTO determinato dal gruppo \GRUPPO nel corso della realizzazione del progetto \PROGETTO.}
+\def\SOMMARIO{Documento contenente il piano di \gl{progetto} relativo al \gl{prodotto} \PROGETTO determinato dal gruppo \GRUPPO nel corso della realizzazione del \gl{progetto} \PROGETTO.}
 
 \begin{document}
 
@@ -29,9 +32,13 @@
 \tableofcontents
 \newpage
 \listoffigures
+\newpage\texttt{}
+\listoftables
 \newpage
+\listoftables
 
 \include{introduzione}
+\subfile{AnalisiRischi}
 \subfile{Pianificazione}
-
+\subfile{Preventivo}
 \end{document}
