@@ -36,6 +36,7 @@ $rootI = 'Interni/';
 /*
  * Elenco delle directory dei documenti
  */
+
 $docs = array(
   'Glo' => 'Glossario/',
   'NdP' => 'NormeDiProgetto/',
@@ -96,9 +97,9 @@ function glossarizeDoc($path) {
    * e sotto-sezioni, paragrafi e sotto-paragrafi, etichette e riferimenti,
    * didascalie, URL e testo preformattato.
    */
-   $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|(\\\parola)|(\\\url)|" .
-                    "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|(\\\parola)|" .
-                    "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|(\\\parola)|(\\\url)|" .
+   $linesToIgnore = "/^((\\\section)|(\\\subsection)|(\\\subsubsection)|(\\\parola)|(\\\url)|(\\\modifica)|" .
+                    "(\\\paragraph)|(\\\subparagraph)|(\\\caption)|(\\\url)|(\\\parola)|(\\\modifica)|" .
+                    "(\\\myparagraph)|(\\\mysubparagraph)|(\\\\texttt)|(\\\parola)|(\\\url)|(\\\modifica)|" .
                     "(\\\\ref)|(\\\label)|(\\\def\\\input@path))/";
 
   /**
@@ -122,12 +123,26 @@ function glossarizeDoc($path) {
        * ...e la (de)glossarizza!
        */
       if (preg_match("/\b$voce\b/", $line)) {
-        if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) {
+        if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
           //echo $path." ".$voce."\n";
+
+          if($voce=="casi d'uso" || $voce=="Casi d'uso"){
+            $Vvoce=$voce;
+            $file_contents = file_get_contents($filename);
+            $file_contents = str_replace($Vvoce,"casi duso",$file_contents);
+            file_put_contents($filename,$file_contents);
+            $voce="casi duso";
+          }
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
+          if($voce=="casi duso"){
+            $file_contents = file_get_contents($filename);
+            $file_contents = str_replace("casi duso",$Vvoce,$file_contents);
+            file_put_contents($filename,$file_contents);
+            $voce=$Vvoce;
+          }
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
           //echo "";
-        } else {
+        } else { // deglo
         //  echo $linesToIgnore." ".$voce."\n";
           shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
       //    echo $path." \n";
@@ -168,6 +183,9 @@ foreach ($docs as $doc => $dir) {
         $path = $rev . $root . $dir . $file;
         if (file_exists($path)) {
           // qui si glossarizza
+            $correggilatex = file_get_contents($path);
+            $correggilatex = str_replace("\\\\gl{LaTeX}","\\LaTeX{}",$correggilatex);
+            file_put_contents($path,$correggilatex);
             glossarizeDoc($path);
         //  $glossarizzato=true;
         //  echo $path."\n";
