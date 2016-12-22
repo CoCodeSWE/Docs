@@ -1,8 +1,8 @@
 Attributi
 Bot
 Capitolato
-Casi d'uso
 casi d'uso
+Casi d'uso
 Design pattern
 Git
 GitHub
@@ -10,6 +10,11 @@ Google Hangouts
 Iterazione
 Milestone
 Cloud
+CSS3
+HTML5
+JavaScript
+Browser
+browser
 cloud
 ticketing
 Ticketing
