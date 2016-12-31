@@ -9,7 +9,7 @@
 		Vengono quindi fissati dei valori minimi che è obbligatorio superare per soddisfarlo e dei valori ottimali che ne rappresentano il pieno (ma non obbligatorio) conseguimento.
 		A tale scopo vengono utilizzati modelli, metriche e standard. \\
 		Viene assegnato un codice identificativo ad ogni obiettivo, al fine di semplificarne il tracciamento con la metrica ad esso associata. \\
-		Il metodo di denominazione degli obiettivi è descritto in dettaglio nel documento \NPdocRR.
+		Il metodo di denominazione degli obiettivi è descritto in dettaglio nel documento \NPdocRR{}.
 		
 		\subsubsection{Qualità di processo}
 		Da processi scadenti derivano prodotti scadenti. Quindi, la qualità di processo è un fattore indispensabile per garantire la qualità dei prodotti. Assicurarla, inoltre, permette di:
@@ -79,10 +79,10 @@
 			
 				\subparagraph{Leggibilità e comprensibilità - OPDD1}
 				Per determinare il grado di leggibilità e comprensibilità del documento, il gruppo ha deciso di utilizzare l'indice Gulpease. Si desidera come soglia minima accettabile un indice
-				pari a 40 e, come soglia ottimale, un indice pari a 60. \\
+				maggiore o uguale a 40 e, come soglia ottimale, un indice maggiore di 60. \\
 				Riassumendo: \\ \\
 				\textbf{Metrica utilizzata:} indice Gulpease; \\ \\
-				\textbf{Soglia di accettabilità:} indice maggiore di 40; \\ \\
+				\textbf{Soglia di accettabilità:} indice maggiore o uguale a 40; \\ \\
 				\textbf{Soglia di ottimalità:} indice maggiore di 60. \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
 				
@@ -110,36 +110,31 @@
 			\begin{itemize}
 				\item il prodotto possiede le funzionalità descritte all’interno dei requisiti obbligatori;
 				\item il prodotto possiede le funzionalità descritte all’interno dei requisiti desiderabili;
-				\item il codice risulta manutenibile e facilmente comprensibile;
 				\item il prodotto è testato in ogni sua parte e in ogni situazione nella quale si può trovare;
 				\item il prodotto è robusto e non interrompe l’esecuzione in seguito a situazioni anomale;
-				\item il prodotto garantisce un funzionamento senza interruzioni.
+				\item il prodotto garantisce un funzionamento senza interruzioni;
+				\item il codice risulta manutenibile e facilmente comprensibile.
 			\end{itemize}
 			
 				\subparagraph{Funzionalità obbligatorie - OPDS1}
-				Il prodotto deve possedere tutte le funzionalità descritte nei requisiti obbligatori. Per determinare il numero di requisiti obbligatori soddisfatti viene usata la
-				seguente metrica: percetuale di requisiti obbligatori soddisfatti. \\
+				Il prodotto deve possedere tutte le funzionalità descritte nei requisiti obbligatori. Per determinare il numero di requisiti obbligatori soddisfatti viene usata 
+				come metrica la percentuale di requisiti obbligatori soddisfatti rispetto al totale. \\
 				Riassumendo: \\ \\
-				\textbf{Metrica utilizzata:} percentuale di requisiti obbligatori soddisfatti;\\ \\
+				\textbf{Metrica utilizzata:} copertura requisiti obbligatori;\\ \\
 				\textbf{Soglia di accettabilità:} tutti i requisiti obbligatori sono soddisfatti (100\%); \\ \\
 				\textbf{Soglia di ottimalità:} tutti i requisiti obbligatori sono soddisfatti (100\%). \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
 				
 				\subparagraph{Funzionalità desiderabili - OPDS2}
-				Per determinare il numero di requisiti desiderabili soddisfatti viene usata la seguente metrica: percentuale di requisiti desiderabili soddisfatti. Si desidera come soglia
-				minima accettabile che x\% dei requisiti desiderabili sia soddisfatto mentre, come soglia ottimale, che tutti i requisiti desiderabili siano soddisfatti. \\
+				Per determinare il numero di requisiti desiderabili soddisfatti viene usata come metrica la percentuale di requisiti desiderabili soddisfatti rispetto al totale.
+				Si desidera come soglia minima accettabile che x\% dei requisiti desiderabili sia soddisfatto mentre, come soglia ottimale, che tutti i requisiti desiderabili siano soddisfatti. \\
 				Riassumendo: \\ \\
-				\textbf{Metrica utilizzata:} percentuale di requisiti desiderabili soddisfatti;\\ \\
+				\textbf{Metrica utilizzata:} copertura requisiti desiderabili;\\ \\
 				\textbf{Soglia di accettabilità:} almeno x\% dei requisiti desiderabili soddisfatti; \\ \\
 				\textbf{Soglia di ottimalità:} tutti i requisiti desiderabili sono soddisfatti (100\%). \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
 				
-				\subparagraph{Manutenibilità e Comprensibilità del codice - OPDS3}
-				Il grado di manutenibilità e comprensibilità del codice deriva dalla sua complessità e lunghezza. È importante quindi che il prodotto abbia codice manutenibile e
-				privo di incomprensioni al suo interno. \\
-				Metriche e soglie verrano definite in dettaglio nelle fasi progettuali successive.
-				
-				\subparagraph{Copertura dei test richiesti - OPDS4}
+				\subparagraph{Copertura dei test richiesti - OPDS3}
 				Il prodotto deve essere testato in ogni sua parte per garantirne il funzionamento. Vengono considerati solo i test riguardanti le funzionalità descritte nei requisiti.
 				Si desidera come soglia minima accettabile che il numero di test passati sia almeno del 80\% mentre, come soglia ottimale, almeno del 90\%. \\
 				Riassumendo: \\ \\
@@ -148,23 +143,28 @@
 				\textbf{Soglia di ottimalità:} almeno 90\% dei test passati. \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
 				
-				\subparagraph{Robustezza - OPDS5}
-				Il software deve essere robusto e deve quindi saper gestire situazioni anomale.
-				Si desidera come soglia minima accettabile che il numero di situazioni anomale gestite sia almeno del 80\% mentre, come soglia ottimale, almeno del 90\%. \\
+				\subparagraph{Robustezza - OPDS4}
+				Il prodotto deve essere robusto e non deve interrompere il suo funzionamento in seguito al verificarsi di situazioni anomale.
+				Si desidera come soglia minima accettabile che il numero di situazioni anomale gestite sia almeno del 80\% mentre, come soglia ottimale, più del 90\%. \\
 				Riassumendo: \\ \\
 				\textbf{Metrica utilizzata:} Failure Avoidance;\\ \\
 				\textbf{Soglia di accettabilità:} gestite almeno 80\% delle situazioni anomale; \\ \\
-				\textbf{Soglia di ottimalità:} gestite almeno 90\% delle situazioni anomale. \\ \\
+				\textbf{Soglia di ottimalità:} gestite più del 90\% delle situazioni anomale. \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
 				
-				\subparagraph{Funzionamento senza interruzioni - OPDS6}
+				\subparagraph{Funzionamento senza interruzioni - OPDS5}
 				Il prodotto deve garantire un funzionamento senza interruzioni.
-				Si desidera come soglia minima accettabile che il numero di interruzioni evitate sia almeno del 80\% mentre, come soglia ottimale, almeno del 90\%. \\
+				Si desidera come soglia minima accettabile che il numero di interruzioni evitate sia almeno del 80\% mentre, come soglia ottimale, più del 90\%. \\
 				Riassumendo: \\ \\
 				\textbf{Metrica utilizzata:} Breakdown Avoidance;\\ \\
 				\textbf{Soglia di accettabilità:} evitate almeno 80\% delle interruzioni; \\ \\
-				\textbf{Soglia di ottimalità:} evitate almeno 90\% delle interruzioni. \\ \\
+				\textbf{Soglia di ottimalità:} evitate più del 90\% delle interruzioni. \\ \\
 				Per approfondire la scelta delle soglie di accettabilità e ottimalità consultare la metrica alla sezione (scrivere sezione).
+				
+				\subparagraph{Manutenibilità e Comprensibilità del codice - OPDS6}
+				Il grado di manutenibilità e comprensibilità del codice deriva dalla sua complessità e lunghezza. È importante quindi che il prodotto abbia codice manutenibile e
+				privo di incomprensioni al suo interno. \\
+				Metriche e soglie verrano definite in dettaglio nelle fasi progettuali successive.
 				
 		\subsection{Scadenze temporali}
 		Le scadenze che il gruppo \GRUPPO{} ha deciso di rispettare sono riportate nel \PPdocRR{}.
