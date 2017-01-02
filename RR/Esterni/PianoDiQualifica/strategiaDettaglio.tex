@@ -56,7 +56,7 @@
 		Viene assegnato un codice identificativo ad ogni metrica, al fine di semplificarne il tracciamento con l'obiettivo ad essa associato. \\
 		Il metodo di denominazione delle metriche è descritto in dettaglio nel documento \NPdocRR{}.
 		
-			\paragraph{Capability Maturity Model - MPC1}
+			\hypertarget{CMM_m}{\paragraph{Capability Maturity Model - MPC1}}
 			Per controllare e verificare la qualità dei processi, vengono adottate le metriche fornite dal modello CMM.
 			Per ogni fase di lavoro, viene associato un indice che descriverà la qualità della fase.
 			L'indice, relativo ad una scala appartenente al CMM, può assumere i valori tra 1 (il peggiore) e 5 (il migliore). \\
@@ -68,7 +68,7 @@
 			\end{itemize}
 			Per approfondimenti sul modello CMM consultare l'appendice A.
 			
-			\paragraph{Schedule Variance - MPC2}
+			\hypertarget{Schedule_m}{\paragraph{Schedule Variance - MPC2}}
 			La presente metrica indica se le attività di progetto sono in anticipo o in ritardo rispetto a quelle pianificate nel \PPdocRR{}. \\
 			Viene calcolata come la differenza fra la data pianificata di fine di un’attività e la data di fine reale dell’attività stessa. \\
 			Se la Schedule Variance ha un valore minore di 0 allora il processo è in ritardo rispetto alla pianificazione. Viceversa, se il valore è maggiore di 0, allora il processo è
@@ -80,7 +80,7 @@
 				\item valori maggiori o uguali a 0 sono considerati ottimali.
 			\end{itemize}
 			
-			\paragraph{Cost Variance - MPC3}
+			\hypertarget{Cost_m}{\paragraph{Cost Variance - MPC3}}
 			La presente metrica indica se i costi alla data corrente sono maggiori o minori rispetto a quanto dichiarato nel \PPdocRR{}. \\
 			Viene calcolata come la differenza fra preventivo e consuntivo. \\
 			Il gruppo ha stabilito i seguenti intervalli:
@@ -99,7 +99,7 @@
 			dell’esperienza pressoché nulla del gruppo in quest’ambito. Si è deciso dunque di limitarsi a valutare parametri maggiormente oggettivi e soprattutto misurabili automaticamente
 			attraverso strumenti software.
 			
-				\subparagraph{Indice di leggibilità - MPDD1}
+				\hypertarget{leggi_m}{\subparagraph{Indice di leggibilità - MPDD1}}
 				Per valutare la qualità del documento si è deciso di utilizzare l'indice di leggibilità.
 				In particolare, è stato considerato l’indice Gulpease, studiato appositamente per la lingua italiana. \\
 				Questo particolare indice si basa sulla lunghezza della parola e sulla lunghezza della frase rispetto al numero di lettere. La formula per il suo calcolo è la seguente: \\ \\
@@ -118,7 +118,7 @@
 					\item valori maggiori di 60 sono considerati ottimali.
 				\end{itemize}
 				
-				\subparagraph{Errori ortografici rinvenuti e non corretti - MPDD2}
+				\hypertarget{err_ortografici}{\subparagraph{Errori ortografici rinvenuti e non corretti - MPDD2}}
 				Tale metrica è necessaria per capire quanto un documento sia corretto dal punto di vista ortografico. Supponendo che gli strumenti automatici
 				siano in grado di trovare tutti gli errori ortografici all’interno di un testo, allora la correttezza ortografica non può che basarsi
 				sul numero di errori rinvenuti ma non successivamente corretti. Notare che per errori corretti si intende un errore revisionato manualmente da parte
@@ -130,7 +130,7 @@
 					\item una percentuale di errori non corretti pari allo 0\% è ritenuta ottimale.
 				\end{itemize}
 				
-				\subparagraph{Errori concettuali rinvenuti e non corretti - MPDD3}
+				\hypertarget{err_concettuali}{\subparagraph{Errori concettuali rinvenuti e non corretti - MPDD3}}
 				Tale metrica è necessaria per capire quanto un documento sia corretto dal punto di vista concettuale. Supponendo che, in seguito alle revisioni,
 				siano stati individuati tutti gli errori concettuali all’interno di un testo, allora la correttezza concettuale non può che basarsi
 				sul numero di errori rinvenuti ma non successivamente corretti. Notare che per errori corretti si intende un errore revisionato manualmente da parte
@@ -168,7 +168,7 @@
 				\caption{Mappa metriche-caratteristiche}
 			\end{table}
 			
-				\subparagraph{Copertura requisiti obbligatori - MPDS1}
+				\hypertarget{req_obbligatori}{\subparagraph{Copertura requisiti obbligatori - MPDS1}}
 				La seguente metrica controlla quanti requisiti obbligatori sono stati soddisfatti. Viene calcolata come rapporto, espresso in percentuale, tra i requisiti obbligatori soddisfatti e
 				il numero totale dei requisiti obbligatori. \\
 				\begin{equation}\textit{Copertura requisiti obbligatori} = 100 * \frac{\textit{\#requisiti obbligatori soddisfatti}}{\textit{\#requisiti obbligatori totali}}\end{equation}
@@ -179,7 +179,7 @@
 					\item una percentuale uguale al 100\% ottimale.
 				\end{itemize}
 				
-				\subparagraph{Copertura requisiti desiderabili - MPDS2}
+				\hypertarget{req_desiderabili}{\subparagraph{Copertura requisiti desiderabili - MPDS2}}
 				La seguente metrica controlla quanti requisiti desiderabili sono stati soddisfatti. Viene calcolata come rapporto, espresso in percentuale, tra i requisiti desiderabili soddisfatti e
 				il numero totale dei requisiti desiderabili. \\
 				\begin{equation}\textit{Copertura requisiti desiderabili} = 100 * \frac{\textit{\#requisiti desiderabili soddisfatti}}{\textit{\#requisiti desiderabili totali}}\end{equation}
@@ -191,7 +191,7 @@
 				\end{itemize}
 				
 				
-				\subparagraph{Test passati richiesti - MPDS3}
+				\hypertarget{test_passati}{\subparagraph{Test passati richiesti - MPDS3}}
 				La metrica controlla che il rapporto, espresso in percentuale, tra il numero di test passati e il numero di test totali rientri tra i valori definiti. Questo ci permette
 				di valutare se il prodotto supera la maggior parte dei test. \\
 				\begin{equation}\textit{Test passati richiesti} = 100 * \frac{\textit{\# di test passati}}{\textit{\# di test totali}}\end{equation}
@@ -202,7 +202,7 @@
 					\item una percentuale maggiore o uguale a 90\% è ritenuta ottimale;
 				\end{itemize}
 				
-				\subparagraph{Failure Avoidance - MPDS4}
+				\hypertarget{failure}{\subparagraph{Failure Avoidance - MPDS4}}
 				La metrica controlla che il rapporto, espresso in percentuale, tra il numero di situazioni anomale gestite e il numero di situazioni anomale presentate rientri tra i valori definiti.
 				\begin{equation}\textit{Failure Avoidance} = 100 * \frac{\textit{\# situazioni anomale gestite}}{\textit{\# situazioni anomale presentate}}\end{equation}
 				Il gruppo ha stabilito i seguenti intervalli:
@@ -212,7 +212,7 @@
 					\item una percentuale maggiore di 90\% è ritenuta ottimale.
 				\end{itemize}
 				
-				\subparagraph{Breakdown Avoidance - MPDS5}
+				\hypertarget{breakdown}{\subparagraph{Breakdown Avoidance - MPDS5}}
 				La metrica controlla che la percentuale di interruzioni evitate dal prodotto rientri tra i valori definiti. Il valore su cui si applicherà la metrica verrà calcolato come il
 				complemento delle interruzioni verificate. Questa metrica ci permette di controllare che il prodotto lavori senza interruzioni.
 				\begin{equation}\textit{Breakdown Avoidance} = 100 * \left ( 1 - \frac{\textit{\# di interruzioni}}{\textit{\# situazioni anomale presentate}} \right ) \end{equation}
