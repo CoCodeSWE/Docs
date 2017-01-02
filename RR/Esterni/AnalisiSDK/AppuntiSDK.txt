@@ -1,4 +1,4 @@
-pros and cons of SDK for AI
+﻿pros and cons of SDK for AI
 
 Wit.ai
 pros:
@@ -13,7 +13,17 @@ cons:
 	- Piattaforma ancora acerba, non stabile. 
 Caratteristiche Docs Wit:
 	- Autenticazione tramite token OAuth2
-
+	- numero di versione delle API Wit così che siano tracciabili
+	- non è permessa la comunicazione tra browser e Wit per altre parte delle API 
+	- il context è la chiave del linguaggio naturale, si occupa di capire le frasi (eg "oggi" cambia valore in base alla nazione in cui siamo.)
+		+ lo si può vedere come un oggetto che comunica a Wit in che stato è la conversazione
+		+ si può usare per prevedere la prossima azione da fare: vengono tenuti in considerazione le chiavi dei context alle iterazioni N-1,N-2...
+	- riesce a lavorare solo su audio MONO di al massimo 10s
+	- accetta chunked data (modalità di trasmissione dati)
+	- Response:
+		+ type: valori stringa per dire cosa il "bot" dovrà fare
+		+ ...https://wit.ai/docs/http/20160526#response-format-link
+	
 API.ai
 pros:
 	- Fornisce le funzionalità di tts e stt insieme al machine learning
@@ -24,6 +34,7 @@ pros:
 cons:
 	- Il riconoscimento vocale non è gratuito.
 	- La modalità di input è solo push-to-talk, cioè non è attivabile con una keyword.
+
 Caratteristiche Docs API:
 	- Un agent è un'interfaccia di conversazione. -> E' la tua applicazione
 	- facile export di un intero agent in JSON per gli altri principali AV (Alexa, Cortana...)
@@ -43,8 +54,6 @@ Caratteristiche Docs API:
 		+ News
 		+ 
 	
-	
-
 Siri:
 	- obbligo che il campo della tua app rispetti uno dei domini di sirikit nei quali sono definiti Intents.
 	- Intents= intentions of the user
