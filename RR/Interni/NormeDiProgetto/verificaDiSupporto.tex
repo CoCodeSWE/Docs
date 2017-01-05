@@ -26,6 +26,43 @@ dal team. Le verifiche devono essere effettuate su un insieme finito di casi, co
 ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
 che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia
 applicabile durante l'intero \gl{ciclo di vita} del \gl{software}.
+\subsubsection{Metriche}
+ Per garantire la qualità del lavoro del team gli \AMMP{} hanno definito delle metriche, riportandole
+nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{M\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
+dove:  
+\begin{itemize}
+	\item \textbf{X} indica se la metrica si riferisce a prodotti o processi e può assumere
+i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se la metrica è riferita ai prodotti, indica se il termine prodotto si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco della metrica (numero intero incrementale a partire da 1).
+\end{itemize}
+\subsubsection{Obiettivi}
+Per garantire la qualità del lavoro del team, gli \AMMP{} hanno definito degli obiettivi di qualità,
+riportandoli nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{O\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
+dove: 
+\begin{itemize}
+	\item \textbf{X} indica se l'obiettivo si riferisce a prodotti o processi e può assumere i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se l'obiettivo è riferito ai prodotti, indica se il termine prodotto si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco dell'obiettivo (numero intero incrementale a partire da 1).
+\end{itemize}
 \subsubsection{Issue tracking}
 L'\gl{issue} tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
  \paragraph{Gestione delle \gl{issue}}
