@@ -4,9 +4,9 @@
 \hline
 &\\
 \textbf{Attori} & Utente;\\[7pt]
-\textbf{Descrizione} & Il \gl{sistema} deve permettere all'utente di fornire il proprio nome e cognome per essere identificato.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} è pronto e in attesa di ricevere nome e cognome da parte dell'utente.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} ha ottenuto nome e cognome dell'utente.\\[7pt]
+\textbf{Descrizione} & Il sistema deve permettere all'utente di fornire il proprio nome e cognome per essere identificato.\\[7pt]
+\textbf{Precondizione} & Il sistema è pronto e in attesa di ricevere nome e cognome da parte dell'utente.\\[7pt]
+\textbf{Postcondizione} & Il sistema ha ottenuto nome e cognome dell'utente.\\[7pt]
 \textbf{Scenario principale} & 1. L'utente comunica il proprio nome e cognome. \\[7pt]\hline
 \end{longtable}
 
@@ -21,10 +21,10 @@
 \hline
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
-\textbf{Descrizione} & L'amministratore deve poter accedere alle funzionalità avanzate messe a disposizione dall'applicazione. Tali funzionalità consentono di fornire delle direttive per l'interazione con gli ospiti al \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'amministratore deve poter accedere alle funzionalità avanzate messe a disposizione dall'applicazione. Tali funzionalità consentono di fornire delle direttive per l'interazione con gli ospiti al sistema.\\[7pt]
 \textbf{Precondizione} & L'amministratore ha effettuato l'accesso tramite la password di amministrazione.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha usufruito delle funzionalità di amministratore.\\[7pt]
-\textbf{Scenario principale} & 1. L'amministratore può gestire le direttive del \gl{sistema} da lui accessibili;
+\textbf{Scenario principale} & 1. L'amministratore può gestire le direttive del sistema da lui accessibili;
 2. L'amministratore può gestire le informazioni del proprio profilo.\\[7pt]\hline
 \end{longtable}
 
@@ -32,7 +32,7 @@
 \label{UC2.1}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC21.png}
 \caption{UC2.1: Gestione direttive}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -53,16 +53,16 @@
 \label{UC2.1.1}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.1.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC211.png}
 \caption{UC2.1.1: Creazione nuova direttiva}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
-\textbf{Descrizione} & L'amministratore può creare una nuova direttiva, che comporterà il suo salvataggio nel \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'amministratore può creare una nuova direttiva, che comporterà il suo salvataggio nel sistema.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione dedicata alla creazione di una nuova direttiva.\\[7pt]
-\textbf{Postcondizione} & La direttiva è stata creata e salvata nel \gl{sistema}.\\[7pt]
+\textbf{Postcondizione} & La direttiva è stata creata e salvata nel sistema.\\[7pt]
 \textbf{Scenario principale} & 1. L'amministratore può inserire il nome della direttiva; 2. L'amministratore può inserire il target della direttiva; 3. L'amministratore può inserire la funzione della direttiva; 4. L'amministratore può confermare la creazione della direttiva. \\[7pt]
 \textbf{Scenari alternativi} & L'amministratore visualizza un messaggio d'errore relativo alla conferma della creazione della direttiva.\\[7pt]\hline
 \end{longtable}
@@ -135,8 +135,8 @@
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
 \textbf{Descrizione} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di una nuova direttiva.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & L'amministratore visualizza un messaggio d'errore.\\[7pt]
 \textbf{Estensioni} & UC2.1.1.4\\[7pt]\hline
 \end{longtable}
@@ -145,16 +145,16 @@
 \label{UC2.1.2}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC212.png}
 \caption{UC2.1.2: Eliminazione direttiva }
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
-\textbf{Descrizione} & L'amministratore può eliminare dal \gl{sistema} una direttiva di cui ha i privilegi. L'eliminazione comporterà la cancellazione dei dati dal \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'amministratore può eliminare dal sistema una direttiva di cui ha i privilegi. L'eliminazione comporterà la cancellazione dei dati dal sistema.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione dedicata alla eliminazione di una direttiva.\\[7pt]
-\textbf{Postcondizione} & La direttiva è stata rimossa dal \gl{sistema}.\\[7pt]
+\textbf{Postcondizione} & La direttiva è stata rimossa dal sistema.\\[7pt]
 \textbf{Scenario principale} & L'amministratore può confermare di voler eliminare una direttiva.\\[7pt]\hline
 \end{longtable}
 
@@ -175,7 +175,7 @@
 \label{UC2.1.3}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.3.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC213.png}
 \caption{UC2.1.3: Modifica direttiva}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -246,7 +246,7 @@
 \label{UC2.1.3.5}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.3.5.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2135.png}
 \caption{UC2.1.3.5: Modifica privilegi direttiva}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -304,8 +304,8 @@
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
 \textbf{Descrizione} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica di una direttiva.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & L'amministratore visualizza un messaggio d'errore.\\[7pt]
 \textbf{Estensioni} & UC2.1.3.5\\[7pt]\hline
 \end{longtable}
@@ -314,7 +314,7 @@
 \label{UC2.1.4}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.1.4.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC214.png}
 \caption{UC2.1.4: Visualizzazione direttive }
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -383,14 +383,14 @@
 \label{UC2.2}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC22.png}
 \caption{UC2.2: Gestione profilo amministratore}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
-\textbf{Descrizione} & L'amministratore può gestire le impostazioni del proprio profilo tramite le funzionalità offerte dal \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'amministratore può gestire le impostazioni del proprio profilo tramite le funzionalità offerte dal sistema.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione adibita alla gestione delle impostazioni del proprio profilo.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha usufruito delle funzionalità per gestire le impostazioni del proprio profilo.\\[7pt]
 \textbf{Scenario principale} & 1. L'amministratore può modificare il proprio nome e cognome;
@@ -415,7 +415,7 @@
 \label{UC2.2.2}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC2.2.2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC222.png}
 \caption{UC2.2.2: Modifica password}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -473,8 +473,8 @@
 &\\
 \textbf{Attori} & Amministratore;\\[7pt]
 \textbf{Descrizione} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica del profilo d'amministratore.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & L'amministratore visualizza un messaggio d'errore.\\[7pt]
 \textbf{Estensioni} & UC2.2.3\\[7pt]\hline
 \end{longtable}
@@ -490,12 +490,12 @@
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può essere accolto dal \gl{sistema} tramite le funzionalità da esso offerte.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha riconosciuto l'utente come ospite dell'azienda.\\[7pt]
-\textbf{Postcondizione} & L'ospite è stato accolto usufruendo delle funzionalità del \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'ospite può essere accolto dal sistema tramite le funzionalità da esso offerte.\\[7pt]
+\textbf{Precondizione} & Il sistema ha riconosciuto l'utente come ospite dell'azienda.\\[7pt]
+\textbf{Postcondizione} & L'ospite è stato accolto usufruendo delle funzionalità del sistema.\\[7pt]
 \textbf{Scenario principale} & 1. L'ospite può comunicare la persona desiderata per il suo incontro;
 2. L'ospite può esprimere alcune necessità particolari riguardanti l'incontro;
-3. L'ospite può essere intrattenuto dal \gl{sistema} durante l'attesa.\\[7pt]\hline
+3. L'ospite può essere intrattenuto dal sistema durante l'attesa.\\[7pt]\hline
 \end{longtable}
 
 \subsubsection{UC3.1: Comunicazione persona desiderata}
@@ -504,9 +504,9 @@
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può comunicare al \gl{sistema} la persona che desidera incontrare.\\[7pt]
+\textbf{Descrizione} & L'ospite può comunicare al sistema la persona che desidera incontrare.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione adibita alla comunicazione della persona desiderata.\\[7pt]
-\textbf{Postcondizione} & L'ospite ha comunicato al \gl{sistema} la persona che vuole incontrare.\\[7pt]
+\textbf{Postcondizione} & L'ospite ha comunicato al sistema la persona che vuole incontrare.\\[7pt]
 \textbf{Scenario principale} & L'ospite comunica il nome della persona desiderata.\\[7pt]\hline
 \end{longtable}
 
@@ -514,14 +514,14 @@
 \label{UC3.2}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC3.2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC32.png}
 \caption{UC3.2: Comunicazione necessità}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può comunicare al \gl{sistema} particolari necessità per l'incontro.\\[7pt]
+\textbf{Descrizione} & L'ospite può comunicare al sistema particolari necessità per l'incontro.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione adibita a comunicare particolari necessità riguardanti l'incontro.\\[7pt]
 \textbf{Postcondizione} & L'ospite ha comunicato le necessità.\\[7pt]
 \textbf{Scenario principale} & 1. L'ospite può desiderare un caffè;
@@ -585,8 +585,8 @@
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
 \textbf{Descrizione} & L'ospite può visualizzare un errore nel caso richieda informazioni su una stanza inesistente.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & L'ospite visualizza un messaggio d'errore\\[7pt]
 \textbf{Estensioni} & UC3.2.2, UC3.2.3 \\[7pt]\hline
 \end{longtable}
@@ -595,20 +595,20 @@
 \label{UC3.3}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC3.3.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC33.png}
 \caption{UC3.3: Intrattenimento ospite}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può scegliere tra alcuni tipi di intrattenimento forniti dal \gl{sistema}, mentre attende l'arrivo della persona desiderata.\\[7pt]
+\textbf{Descrizione} & L'ospite può scegliere tra alcuni tipi di intrattenimento forniti dal sistema, mentre attende l'arrivo della persona desiderata.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione dedicata all'intrattenimento degli ospiti.\\[7pt]
-\textbf{Postcondizione} & L'ospite è stato intrattenuto dal \gl{sistema}.\\[7pt]
+\textbf{Postcondizione} & L'ospite è stato intrattenuto dal sistema.\\[7pt]
 \textbf{Scenario principale} & 1. L'ospite può essere intrattenuto con alcuni indovinelli ai quali deve rispondere;
 2. L'ospite può esser
 e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere intrattenuto chiedendo di visualizzare alcune notizie di varia natura;
-4. L'ospite può essere intrattenuto con alcuni giochi che il \gl{sistema} rende disponibili.
+4. L'ospite può essere intrattenuto con alcuni giochi che il sistema rende disponibili.
 \\[7pt]
 \textbf{Scenari alternativi} & Dopo un certo lasso di tempo, l'ospite può sollecitare l'arrivo della persona desiderata.\\[7pt]\hline
 \end{longtable}
@@ -619,10 +619,10 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può rispondere ad alcuni indovinelli fatti dal \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'ospite può rispondere ad alcuni indovinelli fatti dal sistema.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione dedicata alla risposta degli indovinelli.\\[7pt]
 \textbf{Postcondizione} & L'ospite ha risposto agli indovinelli.\\[7pt]
-\textbf{Scenario principale} & L'ospite risponde agli indovinelli posti dal \gl{sistema}.\\[7pt]\hline
+\textbf{Scenario principale} & L'ospite risponde agli indovinelli posti dal sistema.\\[7pt]\hline
 \end{longtable}
 
 \subsubsection{UC3.3.2: Visualizzazione curiosità}
@@ -631,10 +631,10 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può essere intrattenuto dal \gl{sistema} tramite la visualizzazione di curiosità di vario genere.\\[7pt]
+\textbf{Descrizione} & L'ospite può essere intrattenuto dal sistema tramite la visualizzazione di curiosità di vario genere.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione dedicata alla visualizzazione delle curiosità.\\[7pt]
 \textbf{Postcondizione} & L'ospite ha visualizzato alcune curiosità.\\[7pt]
-\textbf{Scenario principale} & L'ospite visualizza le curiosità fornite dal \gl{sistema}.\\[7pt]\hline
+\textbf{Scenario principale} & L'ospite visualizza le curiosità fornite dal sistema.\\[7pt]\hline
 \end{longtable}
 
 \subsubsection{UC3.3.3: Visualizzazione notizie}
@@ -655,10 +655,10 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Ospite;\\[7pt]
-\textbf{Descrizione} & L'ospite può essere intrattenuto tramite alcuni giochi forniti dal \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & L'ospite può essere intrattenuto tramite alcuni giochi forniti dal sistema.\\[7pt]
 \textbf{Precondizione} & L'ospite si trova nella sezione dedicata ai giochi.\\[7pt]
-\textbf{Postcondizione} & L'ospite ha interagito con i giochi forniti dal \gl{sistema}.\\[7pt]
-\textbf{Scenario principale} & L'ospite interagisce con i giochi forniti dal \gl{sistema}.\\[7pt]\hline
+\textbf{Postcondizione} & L'ospite ha interagito con i giochi forniti dal sistema.\\[7pt]
+\textbf{Scenario principale} & L'ospite interagisce con i giochi forniti dal sistema.\\[7pt]\hline
 \end{longtable}
 
 \subsection{UC4: Comunicazione nome azienda}
@@ -669,7 +669,7 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \textbf{Attori} & Utente;\\[7pt]
 \textbf{Descrizione} & L'utente può comunicare il nome dell'azienda di cui fa parte.\\[7pt]
 \textbf{Precondizione} & L'utente appartiene ad una azienda.\\[7pt]
-\textbf{Postcondizione} & L'utente ha comunicato al \gl{sistema} il nome dell'azienda di cui fa parte.\\[7pt]
+\textbf{Postcondizione} & L'utente ha comunicato al sistema il nome dell'azienda di cui fa parte.\\[7pt]
 \textbf{Scenario principale} & L'utente comunica il nome della propria azienda di provenienza.\\[7pt]\hline
 \end{longtable}
 
@@ -679,10 +679,10 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Amministratore, Ospite, Utente;\\[7pt]
-\textbf{Descrizione} & Il \gl{sistema} richiederà all'utente una chiarimento nel caso in cui non riesca a interpretare la sua risposta.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} non è riuscito ad interpretare una comunicazione dell'utente.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} comunica l'errore richiedendo nuovamente l'informazione all'utente.\\[7pt]
-\textbf{Scenario principale} & L'utente comunica nuovamente l'informazione non compresa dal \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & Il sistema richiederà all'utente una chiarimento nel caso in cui non riesca a interpretare la sua risposta.\\[7pt]
+\textbf{Precondizione} & Il sistema non è riuscito ad interpretare una comunicazione dell'utente.\\[7pt]
+\textbf{Postcondizione} & Il sistema comunica l'errore richiedendo nuovamente l'informazione all'utente.\\[7pt]
+\textbf{Scenario principale} & L'utente comunica nuovamente l'informazione non compresa dal sistema.\\[7pt]
 \textbf{Estensioni} & UC1, UC2, UC3, UC4\\[7pt]\hline
 \end{longtable}
 
@@ -692,12 +692,12 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Amministratore, Ospite, Utente;\\[7pt]
-\textbf{Descrizione} & L'utente, per ogni interazione con il \gl{sistema}, ha un tempo limitato di risposta. Scaduto questo lasso di tempo l'utente visualizzerà un opportuno messaggio, attraverso il quale potrà tornare alla schermata precedente.\\[7pt]
-\textbf{Precondizione} & L'utente non ha interagito con il \gl{sistema} entro il tempo prestabilito di risposta.\\[7pt]
-\textbf{Postcondizione} & L'utente ha visualizzato il messaggio oppure il \gl{sistema} si è disattivato.\\[7pt]
+\textbf{Descrizione} & L'utente, per ogni interazione con il sistema, ha un tempo limitato di risposta. Scaduto questo lasso di tempo l'utente visualizzerà un opportuno messaggio, attraverso il quale potrà tornare alla schermata precedente.\\[7pt]
+\textbf{Precondizione} & L'utente non ha interagito con il sistema entro il tempo prestabilito di risposta.\\[7pt]
+\textbf{Postcondizione} & L'utente ha visualizzato il messaggio oppure il sistema si è disattivato.\\[7pt]
 \textbf{Scenario principale} & L'utente visualizza un messaggio opportuno. \\[7pt]
 \textbf{Estensioni} & UC1, UC2, UC3, UC4\\[7pt]
-\textbf{Scenari alternativi} & Nel caso in cui l'utente non confermi la sua presenza il \gl{sistema} si disattiva.\\[7pt]\hline
+\textbf{Scenari alternativi} & Nel caso in cui l'utente non confermi la sua presenza il sistema si disattiva.\\[7pt]\hline
 \end{longtable}
 
 \subsection{UC7: Accesso funzionalità super amministratore}
@@ -711,25 +711,25 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
-\textbf{Descrizione} & Il super amministratore può gestire gli amministratori ed accedere ai file \gl{log}.\\[7pt]
+\textbf{Descrizione} & Il super amministratore può gestire gli amministratori ed accedere ai file log.\\[7pt]
 \textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla gestione.\\[7pt]
 \textbf{Postcondizione} & Il super amministratore ha usufruito delle funzionalità di gestione.\\[7pt]
-\textbf{Scenario principale} & 1. Il super amministratore può gestire gli amministratori del \gl{sistema}; 
-2. Il super amministratore può accedere ai file \gl{log}.\\[7pt]\hline
+\textbf{Scenario principale} & 1. Il super amministratore può gestire gli amministratori del sistema; 
+2. Il super amministratore può accedere ai file log.\\[7pt]\hline
 \end{longtable}
 
 \subsubsection{UC7.1: Gestione amministrazione}
 \label{UC7.1}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC7.1.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC71.png}
 \caption{UC7.1: Gestione amministrazione}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
-\textbf{Descrizione} & Il super amministratore può gestire gli amministratori del \gl{sistema}.\\[7pt]
+\textbf{Descrizione} & Il super amministratore può gestire gli amministratori del sistema.\\[7pt]
 \textbf{Precondizione} & Il super amministratore si trova nella sezione per gestire gli amministratori.\\[7pt]
 \textbf{Postcondizione} & Il super amministratore ha usufruito delle funzionalità per gestire gli amministratori.\\[7pt]
 \textbf{Scenario principale} & 1. Il super amministratore può creare un nuovo amministratore;
@@ -742,7 +742,7 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \label{UC7.1.1}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC7.1.1.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC711.png}
 \caption{UC7.1.1: Creazione nuovo amministratore}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -802,8 +802,8 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
 \textbf{Descrizione} & Il super amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di un nuovo amministratore.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & Il super amministratore visualizza un messaggio d'errore.\\[7pt]
 \textbf{Estensioni} & UC9.1.1.4\\[7pt]\hline
 \end{longtable}
@@ -812,7 +812,7 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \label{UC7.1.2}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC7.1.2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC712.png}
 \caption{UC7.1.2: Reset password amministratore}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
@@ -845,16 +845,16 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \label{UC7.1.3}\newpage
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC7.1.3.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUC713.png}
 \caption{UC7.1.3: Eliminazione amministratore}
 \end{figure}
 \begin{longtable}{l|p{10cm}}
 \hline
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
-\textbf{Descrizione} & Il super amministratore può rimuovere un amministratore dal \gl{sistema}\\[7pt]
+\textbf{Descrizione} & Il super amministratore può rimuovere un amministratore dal sistema\\[7pt]
 \textbf{Precondizione} & Il super amministratore si trova nella sezione per l'eliminazione di un amministratore.\\[7pt]
-\textbf{Postcondizione} & Il super amministratore ha eliminato un amministratore dal \gl{sistema}.\\[7pt]
+\textbf{Postcondizione} & Il super amministratore ha eliminato un amministratore dal sistema.\\[7pt]
 \textbf{Scenario principale} & 1. Il super amministratore può eliminare un amministratore;
 2. il super amministratore può confermare l'eliminazione dell'amministratore.\\[7pt]
 \textbf{Scenari alternativi} & Il super amministratore visualizza un messaggio d'errore relativo alla revoca dei privilegi dell'amministratore.\\[7pt]\hline
@@ -880,8 +880,8 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
 \textbf{Descrizione} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per l'eliminazione di un amministratore.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha ricevuto dati vuoti o non validi.\\[7pt]
-\textbf{Postcondizione} & Il \gl{sistema} mostra un messaggio d'errore.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} & Il super amministratore visualizza un messaggio d'errore.\\[7pt]
 \textbf{Estensioni} & UC9.1.3.1\\[7pt]\hline
 \end{longtable}
@@ -892,10 +892,10 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Super Amministratore;\\[7pt]
-\textbf{Descrizione} & Il super amministratore può accedere ai file \gl{log}.\\[7pt]
-\textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla visualizzazione dei file \gl{log}.\\[7pt]
-\textbf{Postcondizione} & Il super amministratore ha fatto accesso ai file \gl{log}\\[7pt]
-\textbf{Scenario principale} & Il super amministratore accede e visualizza i file \gl{log}.\\[7pt]\hline
+\textbf{Descrizione} & Il super amministratore può accedere ai file log.\\[7pt]
+\textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla visualizzazione dei file log.\\[7pt]
+\textbf{Postcondizione} & Il super amministratore ha fatto accesso ai file log\\[7pt]
+\textbf{Scenario principale} & Il super amministratore accede e visualizza i file log.\\[7pt]\hline
 \end{longtable}
 
 \subsection{UC8: Inserimento password amministrazione}
@@ -904,12 +904,11 @@ e intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere int
 \hline
 &\\
 \textbf{Attori} & Utente;\\[7pt]
-\textbf{Descrizione} & L'utente può fornire la propria password di amministrazione. Nel caso in cui la password fornita sia sbagliata, il \gl{sistema} la chiederà nuovamente.\\[7pt]
-\textbf{Precondizione} & Il \gl{sistema} ha riconosciuto l'utente come uno degli amministratori del \gl{sistema}\\[7pt]
-\textbf{Postcondizione} & L'utente ha fornito la password di amministrazione del \gl{sistema}\\[7pt]
+\textbf{Descrizione} & L'utente può fornire la propria password di amministrazione. Nel caso in cui la password fornita sia sbagliata, il sistema la chiederà nuovamente.\\[7pt]
+\textbf{Precondizione} & Il sistema ha riconosciuto l'utente come uno degli amministratori del sistema\\[7pt]
+\textbf{Postcondizione} & L'utente ha fornito la password di amministrazione del sistema\\[7pt]
 \textbf{Scenario principale} & 1. L'utente fornisce la propria password di amministrazione\\[7pt]
 \textbf{Scenari alternativi} & Nel caso in cui la password fornita non sia valida:
 1. viene richiesto all'utente di inserire nuovamente la password.\\[7pt]\hline
 \end{longtable}
-
 
