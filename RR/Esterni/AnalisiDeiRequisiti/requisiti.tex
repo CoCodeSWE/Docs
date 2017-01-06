@@ -1,3 +1,37 @@
+ In questa sezione verranno presentati i requisiti individuati dal team durante l'analisi del capitolato
+e dei casi d'uso, discussi con il proponente durante le riunioni esterne e decisi dai componenti
+nelle riunioni interne.
+Ogni requisito individuato avrà un codice identificativo univoco così formato: \\ \\
+\centerline{R\textbraceleft{}Tipo\textbraceright{}\textbraceleft{}Importanza\textbraceright{}\textbraceleft{}Codice\textbraceright{}}
+ \\ \\
+dove:
+\begin{itemize}
+ 	\item \textbf{Tipo}: può assumere uno di questi valori:
+ 	\begin{itemize}
+ 		\item \textbf{F}: indica un requisito funzionale;
+ 		\item \textbf{Q}: indica un requisito di qualità;
+ 		\item \textbf{P}: indica un requisito prestazionale;
+ 		\item \textbf{V}: indica un requisito di vincolo.
+ 	\end{itemize}
+ 	\item \textbf{Importanza}: può assumere uno di questi valori:
+ 	\begin{itemize}
+ 		\item \textbf{O}: indica un requisito obbligatorio;
+ 		\item \textbf{D}: indica un requisito desiderabile;
+ 		\item \textbf{F}: indica un requisito facoltativo.
+ 	\end{itemize}
+ 	\item \textbf{Codice}: indica il codice identificativo del requisito, è univoco e deve essere identificato in forma gerarchica.
+ \end{itemize}
+Per ogni requisito inoltre verranno riportate:
+\begin{itemize}
+	\item \textbf{Descrizione}: breve testo ma completo che andrà a descrivere il requisito in esame;
+	\item \textbf{Fonte}: che potrà essere una tra le seguenti:
+	\begin{itemize}
+		\item Capitolato: requisito dedotto direttamente dall'analisi del capitolato;
+		\item Verbale Esterno 1: requisito derivato dal verbale esterno \textit{Verbale\textunderscore{}E\textunderscore{}2016-12-17};
+		\item Interno: requisito identificato dagli \ANP;
+		\item Caso d'uso: si tratta di un requisito emerso da un caso d'uso; viene riportato l'identificativo del caso d'uso associato.
+	\end{itemize}
+\end{itemize}
 \subsection{Requisiti Funzionali}
 \normalsize
 \begin{longtable}{|c|>{\centering}m{7cm}|c|}
@@ -5,157 +39,157 @@
 \textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
-\hypertarget{RFO1}{RFO1} & Il sistema deve permettere all'utente di fornire i propri dati identificativi. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO1}{RFO1} & Il sistema deve permettere all'utente di fornire i propri dati identificativi. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2}{RFO2} & L'amministratore deve poter accedere alla sezione amministrativa. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2}{RFO2} & L'amministratore deve poter accedere alla sezione amministrativa. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1}{RFO2.1} & L'amministratore deve poter gestire le direttive da lui accessibili. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1}{RFO2.1} & L'amministratore deve poter gestire le direttive da lui accessibili. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1}{RFO2.1.1} & L'amministratore deve poter creare una nuova direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1}{RFO2.1.1} & L'amministratore deve poter creare una nuova direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1.1}{RFO2.1.1.1} & L'amministratore deve poter inserire la funzione di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1.1}{RFO2.1.1.1} & L'amministratore deve poter inserire la funzione di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1.2}{RFO2.1.1.2} & L'amministratore deve poter inserire il nome di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1.2}{RFO2.1.1.2} & L'amministratore deve poter inserire il nome di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1.3}{RFO2.1.1.3} & L'amministratore deve poter inserire il target di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1.3}{RFO2.1.1.3} & L'amministratore deve poter inserire il target di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.1.4}{RFD2.1.1.4} & L'amministratore deve poter concedere i privilegi per la direttiva ad altri amministratori. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.1.4}{RFD2.1.1.4} & L'amministratore deve poter concedere i privilegi per la direttiva ad altri amministratori. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1.5}{RFO2.1.1.5} & L'amministratore deve poter confermare la creazione di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1.5}{RFO2.1.1.5} & L'amministratore deve poter confermare la creazione di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.1.6}{RFO2.1.1.6} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di una nuova direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.1.6}{RFO2.1.1.6} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di una nuova direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.2}{RFO2.1.2} & L'amministratore deve poter eliminare dal sistema una direttiva di cui ha i privilegi. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.2}{RFO2.1.2} & L'amministratore deve poter eliminare dal sistema una direttiva di cui ha i privilegi. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.2.1}{RFO2.1.2.1} & L'amministratore deve poter confermare l'eliminazione di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.2.1}{RFO2.1.2.1} & L'amministratore deve poter confermare l'eliminazione di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3}{RFD2.1.3} & L'amministratore deve poter modificare una direttiva di cui ha i privilegi di modifica. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3}{RFD2.1.3} & L'amministratore deve poter modificare una direttiva di cui ha i privilegi di modifica. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.1}{RFD2.1.3.1} & L'amministratore deve poter modificare il nome di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.1}{RFD2.1.3.1} & L'amministratore deve poter modificare il nome di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.2}{RFD2.1.3.2} & L'amministratore deve poter modificare i target di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.2}{RFD2.1.3.2} & L'amministratore deve poter modificare i target di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.3}{RFD2.1.3.3} & L'amministratore deve poter modificare la funzione di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.3}{RFD2.1.3.3} & L'amministratore deve poter modificare la funzione di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.4}{RFD2.1.3.4} & L'amministratore deve poter modificare l'abilitazione di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.4}{RFD2.1.3.4} & L'amministratore deve poter modificare l'abilitazione di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.5}{RFD2.1.3.5} & L'amministratore deve poter modificare i privilegi degli altri amministratori per la direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.5}{RFD2.1.3.5} & L'amministratore deve poter modificare i privilegi degli altri amministratori per la direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.5.1}{RFD2.1.3.5.1} & L'amministratore deve poter concedere ad altri amministratori i privilegi per la direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.5.1}{RFD2.1.3.5.1} & L'amministratore deve poter concedere ad altri amministratori i privilegi per la direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.5.2}{RFD2.1.3.5.2} & L'amministratore deve poter revocare i privilegi degli altri amministratori per la direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.5.2}{RFD2.1.3.5.2} & L'amministratore deve poter revocare i privilegi degli altri amministratori per la direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.6}{RFD2.1.3.6} & L'amministratore deve poter confermare la modifica di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.6}{RFD2.1.3.6} & L'amministratore deve poter confermare la modifica di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.3.7}{RFD2.1.3.7} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica di una direttiva. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.3.7}{RFD2.1.3.7} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica di una direttiva. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.4}{RFO2.1.4} & L'amministratore deve poter visualizzare tutte le direttive da lui accessibili. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.4}{RFO2.1.4} & L'amministratore deve poter visualizzare tutte le direttive da lui accessibili. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.1.4.1}{RFO2.1.4.1} & L'amministratore deve poter cercare delle direttive in base al nome. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.1.4.1}{RFO2.1.4.1} & L'amministratore deve poter cercare delle direttive in base al nome. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.4.2}{RFD2.1.4.2} & L'amministratore deve poter cercare delle direttive in base ai target. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.4.2}{RFD2.1.4.2} & L'amministratore deve poter cercare delle direttive in base ai target. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.4.3}{RFD2.1.4.3} & L'amministratore deve poter cercare le direttive in base alla loro funzione. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.4.3}{RFD2.1.4.3} & L'amministratore deve poter cercare le direttive in base alla loro funzione. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD2.1.4.4}{RFD2.1.4.4} & L'amministratore deve poter cercare le direttive in base alla loro abilitazione. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD2.1.4.4}{RFD2.1.4.4} & L'amministratore deve poter cercare le direttive in base alla loro abilitazione. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2}{RFO2.2} & L'amministratore deve poter gestire le impostazioni del proprio profilo. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2}{RFO2.2} & L'amministratore deve poter gestire le impostazioni del proprio profilo. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF2.2.1}{RFF2.2.1} & L'amministratore deve poter modificare il nome e cognome del suo profilo. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF2.2.1}{RFF2.2.1} & L'amministratore deve poter modificare il nome e cognome del suo profilo. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2.2}{RFO2.2.2} & L'amministratore deve poter modificare la password del suo profilo. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2.2}{RFO2.2.2} & L'amministratore deve poter modificare la password del suo profilo. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2.2.1}{RFO2.2.2.1} & L'amministratore deve poter inserire la vecchia password. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2.2.1}{RFO2.2.2.1} & L'amministratore deve poter inserire la vecchia password. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2.2.2}{RFO2.2.2.2} & L'amministratore deve poter inserire la nuova password. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2.2.2}{RFO2.2.2.2} & L'amministratore deve poter inserire la nuova password. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2.3}{RFO2.2.3} & L'amministratore deve poter confermare le modifiche al profilo. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2.3}{RFO2.2.3} & L'amministratore deve poter confermare le modifiche al profilo. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO2.2.4}{RFO2.2.4} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica del profilo d'amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO2.2.4}{RFO2.2.4} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica del profilo d'amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO3}{RFO3} & L'ospite deve venire accolto dal sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO3}{RFO3} & L'ospite deve venire accolto dal sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO3.1}{RFO3.1} & L'ospite deve poter comunicare al sistema la persona che desidera incontrare. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO3.1}{RFO3.1} & L'ospite deve poter comunicare al sistema la persona che desidera incontrare. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2}{RFD3.2} & L'ospite deve poter comunicare al sistema particolari necessità  per l'incontro. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2}{RFD3.2} & L'ospite deve poter comunicare al sistema particolari necessità  per l'incontro. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2.1}{RFD3.2.1} & L'ospite deve poter richiedere un caffè. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2.1}{RFD3.2.1} & L'ospite deve poter richiedere un caffè. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2.2}{RFD3.2.2} & L'ospite deve poter chiedere informazioni riguardanti una particolare stanza. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2.2}{RFD3.2.2} & L'ospite deve poter chiedere informazioni riguardanti una particolare stanza. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2.3}{RFD3.2.3} & L'ospite deve poter richiedere le indicazioni necessarie a raggiungere una particolare stanza. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2.3}{RFD3.2.3} & L'ospite deve poter richiedere le indicazioni necessarie a raggiungere una particolare stanza. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2.4}{RFD3.2.4} & L'ospite deve poter richiedere particolare materiale per l'incontro. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2.4}{RFD3.2.4} & L'ospite deve poter richiedere particolare materiale per l'incontro. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.2.5}{RFD3.2.5} & L'ospite deve poter visualizzare un errore nel caso richieda informazioni su una stanza inesistente. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.2.5}{RFD3.2.5} & L'ospite deve poter visualizzare un errore nel caso richieda informazioni su una stanza inesistente. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.3}{RFD3.3} & L'ospite deve poter scegliere tra alcuni tipi di intrattenimento forniti dal sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.3}{RFD3.3} & L'ospite deve poter scegliere tra alcuni tipi di intrattenimento forniti dal sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF3.3.1}{RFF3.3.1} & L'ospite deve poter rispondere ad alcuni indovinelli fatti dal sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF3.3.1}{RFF3.3.1} & L'ospite deve poter rispondere ad alcuni indovinelli fatti dal sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD3.3.2}{RFD3.3.2} & L'ospite deve poter visualizzare curiosità  di vario genere. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD3.3.2}{RFD3.3.2} & L'ospite deve poter visualizzare curiosità  di vario genere. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF3.3.3}{RFF3.3.3} & L'ospite deve poter visualizzare le ultime notizie riguardanti categorie di vario genere. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF3.3.3}{RFF3.3.3} & L'ospite deve poter visualizzare le ultime notizie riguardanti categorie di vario genere. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF3.3.4}{RFF3.3.4} & L'ospite deve poter essere intrattenuto tramite alcuni giochi forniti dal sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF3.3.4}{RFF3.3.4} & L'ospite deve poter essere intrattenuto tramite alcuni giochi forniti dal sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO4}{RFO4} & L'ospite deve poter comunicare il nome dell'azienda di cui fa parte. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO4}{RFO4} & L'ospite deve poter comunicare il nome dell'azienda di cui fa parte. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO5}{RFO5} & Il sistema, nel caso in cui non riesca ad interpretare la risposta, deve chiedere nuovamente l'informazione all'utente. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO5}{RFO5} & Il sistema, nel caso in cui non riesca ad interpretare la risposta, deve chiedere nuovamente l'informazione all'utente. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD6}{RFD6} & Il sistema deve mostrare un opportuno messaggio qualora il tempo trascorso tra due successive interazioni superi un certo limite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD6}{RFD6} & Il sistema deve mostrare un opportuno messaggio qualora il tempo trascorso tra due successive interazioni superi un certo limite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO7}{RFO7} & Il sistema deve riconoscere gli ospiti passati e modificare il proprio comportamento in base alle interazioni passate. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO7}{RFO7} & Il sistema deve riconoscere gli ospiti passati e modificare il proprio comportamento in base alle interazioni passate. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO7.1}{RFO7.1} & Il sistema deve prevedere metodi di apprendimento per migliorare la comunicazione con gli utenti. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO7.1}{RFO7.1} & Il sistema deve prevedere metodi di apprendimento per migliorare la comunicazione con gli utenti. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO8}{RFO8} & Il sistema deve sollecitare la persona desiderata ed eventualmente avvisare gli altri membri dell'azienda su richiesta dell'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO8}{RFO8} & Il sistema deve sollecitare la persona desiderata ed eventualmente avvisare gli altri membri dell'azienda su richiesta dell'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9}{RFD9} & Il super amministratore deve poter accedere alla sezione dedicata al super amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9}{RFD9} & Il super amministratore deve poter accedere alla sezione dedicata al super amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1}{RFD9.1} & Il super amministratore deve poter gestire gli amministratori del sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1}{RFD9.1} & Il super amministratore deve poter gestire gli amministratori del sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.1}{RFD9.1.1} & Il super amministratore deve poter creare un nuovo amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.1}{RFD9.1.1} & Il super amministratore deve poter creare un nuovo amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.1.1}{RFD9.1.1.1} & Il super amministratore deve poter inserire nome e cognome del nuovo amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.1.1}{RFD9.1.1.1} & Il super amministratore deve poter inserire nome e cognome del nuovo amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.1.2}{RFD9.1.1.2} & Il super amministratore deve poter inserire la password di un nuovo amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.1.2}{RFD9.1.1.2} & Il super amministratore deve poter inserire la password di un nuovo amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.1.3}{RFD9.1.1.3} & Il super amministratore deve poter confermare i dati inseriti per un nuovo amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.1.3}{RFD9.1.1.3} & Il super amministratore deve poter confermare i dati inseriti per un nuovo amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.1.4}{RFD9.1.1.4} & Il super amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di un nuovo amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.1.4}{RFD9.1.1.4} & Il super amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di un nuovo amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.2}{RFD9.1.2} & Il super amministratore deve poter resettare la password dell'amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.2}{RFD9.1.2} & Il super amministratore deve poter resettare la password dell'amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.2.1}{RFD9.1.2.1} & Il super amministratore deve poter confermare il reset della password di un amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.2.1}{RFD9.1.2.1} & Il super amministratore deve poter confermare il reset della password di un amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.3}{RFD9.1.3} & Il super amministratore deve poter eliminare un amministratore dal sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.3}{RFD9.1.3} & Il super amministratore deve poter eliminare un amministratore dal sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.3.1}{RFD9.1.3.1} & Il super amministratore dever poter confermare la revoca dei privilegi ad un amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.3.1}{RFD9.1.3.1} & Il super amministratore dever poter confermare la revoca dei privilegi ad un amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.1.3.2}{RFD9.1.3.2} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per l'eliminazione di un amministratore. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.1.3.2}{RFD9.1.3.2} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per l'eliminazione di un amministratore. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD9.2}{RFD9.2} & Il super amministratore può accedere ai file log. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD9.2}{RFD9.2} & Il super amministratore può accedere ai file log. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO10}{RFO10} & Il sistema deve permettere all'amministratore di definire il comportamento del sistema stesso in base alla persona che sta interagendo con esso. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO10}{RFO10} & Il sistema deve permettere all'amministratore di definire il comportamento del sistema stesso in base alla persona che sta interagendo con esso. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD11}{RFD11} & Il sistema deve notificare l'arrivo di ospiti in modo differente in base alla loro azienda di provenienza. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD11}{RFD11} & Il sistema deve notificare l'arrivo di ospiti in modo differente in base alla loro azienda di provenienza. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO12}{RFO12} & Il sistema deve memorizzare i dati relativi alle interazioni con gli ospiti. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO12}{RFO12} & Il sistema deve memorizzare i dati relativi alle interazioni con gli ospiti. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO12.1}{RFO12.1} & Il sistema deve registrare i dati identificativi dell'ospite & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO12.1}{RFO12.1} & Il sistema deve registrare i dati identificativi dell'ospite & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO12.2}{RFO12.2} & Il sistema deve registrare l'azienda di provenienza dell'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO12.2}{RFO12.2} & Il sistema deve registrare l'azienda di provenienza dell'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFO12.3}{RFO12.3} & Il sistema deve registrare le diverse persone che l'ospite viene a trovare e con quale frequenza & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFO12.3}{RFO12.3} & Il sistema deve registrare le diverse persone che l'ospite viene a trovare e con quale frequenza & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD12.4}{RFD12.4} & Il sistema deve registrare i dati relativi alle necessità  dell'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD12.4}{RFD12.4} & Il sistema deve registrare i dati relativi alle necessità  dell'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFD12.5}{RFD12.5} & Il sistema deve registrare dati relativi ai metodi di intrattenimento selezionati dall'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFD12.5}{RFD12.5} & Il sistema deve registrare dati relativi ai metodi di intrattenimento selezionati dall'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF12.6}{RFF12.6} & Il sistema deve registrare i dati relativi all'ora di arrivo dell'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF12.6}{RFF12.6} & Il sistema deve registrare i dati relativi all'ora di arrivo dell'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RFF12.7}{RFF12.7} & Il sistema deve registrare dati relativi agli errori verificatisi nell'interazione con l'ospite. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RFF12.7}{RFF12.7} & Il sistema deve registrare dati relativi agli errori verificatisi nell'interazione con l'ospite. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
 \caption[Requisiti Funzionali]{Requisiti Funzionali}
 \label{tabella:req0}
@@ -168,14 +202,14 @@
 \textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
-\hypertarget{RQO1}{RQO1} & Il gruppo deve fare un'analisi preliminare degli SDK dei principali assistenti virtuali presenti sul mercato. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RQO1}{RQO1} & Il gruppo deve fare un'analisi preliminare degli SDK dei principali assistenti virtuali presenti sul mercato. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
 \hypertarget{RQO2}{RQO2} & Il gruppo deve fornire uno schema design per la base di dati NoSQL.
- & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+ & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RQO3}{RQO3} & Deve essere prodotto un piano di test di unitÃ  per il sistema. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RQO3}{RQO3} & Deve essere prodotto un piano di test di unitÃ  per il sistema. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RQO4}{RQO4} & Deve essere fornita una documentazione dettagliata di tutte le API. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RQO4}{RQO4} & Deve essere fornita una documentazione dettagliata di tutte le API. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
 \caption[Requisiti di QualitÃ ]{Requisiti di QualitÃ }
 \label{tabella:req2}
@@ -188,23 +222,23 @@
 \textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
-\hypertarget{RVO1}{RVO1} & Il sistema deve interagire con i membri dell'azienda mediante Slack. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO1}{RVO1} & Il sistema deve interagire con i membri dell'azienda mediante Slack. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO2}{RVO2} & Il sistema deve essere sviluppato utilizzando AWS, con lambda function o server dedicato. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO2}{RVO2} & Il sistema deve essere sviluppato utilizzando AWS, con lambda function o server dedicato. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO3}{RVO3} & Il sistema deve utilizzare un database NoSQL per la memorizzazione dei dati. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO3}{RVO3} & Il sistema deve utilizzare un database NoSQL per la memorizzazione dei dati. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO4}{RVO4} & Il sistema deve presentare un'interfaccia web. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO4}{RVO4} & Il sistema deve presentare un'interfaccia web. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO5}{RVO5} & L'interazione col sistema deve essere principalmente vocale. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO5}{RVO5} & L'interazione col sistema deve essere principalmente vocale. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVF6}{RVF6} & Il sistema deve permettere all'amministratore di interagire con il sistema anche tramite l'invio di messaggi con Slack. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVF6}{RVF6} & Il sistema deve permettere all'amministratore di interagire con il sistema anche tramite l'invio di messaggi con Slack. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO7}{RVO7} & L'assistente virtuale deve essere sviluppato in lingua inglese. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO7}{RVO7} & L'assistente virtuale deve essere sviluppato in lingua inglese. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVO8}{RVO8} & L'interfaccia web deve funzionare su PC, Mac e Tablet (Android/iOs). & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVO8}{RVO8} & L'interfaccia web deve funzionare su PC, Mac e Tablet (Android/iOs). & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
-\hypertarget{RVD9}{RVD9} & Il sistema deve permettere l'interazione in altre lingue. & \textcolor{Red}{\textit{Non Soddisfatto}}\\ \hline
+\hypertarget{RVD9}{RVD9} & Il sistema deve permettere l'interazione in altre lingue. & \textcolor{red}{\textit{Non Soddisfatto}}\\ \hline
 
 \caption[Requisiti di Vincolo]{Requisiti di Vincolo}
 \label{tabella:req3}
