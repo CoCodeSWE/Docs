@@ -1,35 +1,51 @@
+﻿Astah
 Attributi
+attributi
 Bot
+bot
+Browser
+browser
 Capitolato
+capitolato
 casi d'uso
 Casi d'uso
+ciclo di vita
+Ciclo di vita
+Cloud
+cloud
+CMM
+CSS3
 Design pattern
+design pattern
+Diagramma di Gantt
 Git
 GitHub
 Google Hangouts
-Iterazione
-Milestone
-Cloud
-CSS3
 HTML5
-JavaScript
-Browser
-browser
-cloud
-ticketing
-Ticketing
-Package
-Prodotto
-PDF
-
-markup
-Markup
+iOS
 Issue
 issue
-ciclo di vita
-Ciclo di vita
-
+Iterazione
+iterazione
+JavaScript
+Log
+log
+markup
+Markup
+Milestone
+milestone
+Modello incrementale
+modello incrementale
+MongoDB
+Package
+package
+PDCA
+PDF
+Prodotto
+prodotto
+progetto
 Proponente
+proponente
 Repository
 Ricorsione
 Sistema
@@ -40,30 +56,11 @@ Task
 Team
 Template
 Texmaker
+ticketing
+Ticketing
 UML
 Unità
 Validazione
 Verifica
 VoIP
 VotePoll
-attributi
-bot
-capitolato
-design pattern
-iterazione
-milestone
-package
-prodotto
-progetto
-proponente
-repository
-ricorsione
-sistema
-slack
-software
-stack
-task
-template
-unità
-validazione
-verifica

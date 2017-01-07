@@ -44,7 +44,10 @@ $docs = array(
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
   '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-  '1VE' => 'Verbale_E_2016-12-17/'
+  '1VE' => 'Verbale_E_2016-12-17/',
+  'PdQ' => 'PianoDiQualifica/',
+  'SDK' => 'AnalisiSDK/'
+  //'LdP' => 'LetteraDiPresentazione/'
 );
 
 

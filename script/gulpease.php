@@ -27,7 +27,10 @@ $rootI = 'Interni/';
    'PdP' => 'PianoDiProgetto/',
    'AdR' => 'AnalisiDeiRequisiti/',
    '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-   '1VE' => 'Verbale_E_2016-12-17/'
+   '1VE' => 'Verbale_E_2016-12-17/',
+   'PdQ' => 'PianoDiQualifica/',
+   'SDK' => 'AnalisiSDK/',
+   'LdP' => 'LetteraDiPresentazione/'
  );
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
@@ -59,7 +62,9 @@ function gulpease($path) {
  */
 function median($array) {
   $sum = 0;
+
   foreach ($array as $val) {
+   if(!is_nan($val))
     $sum += $val;
   }
   return $sum/sizeof($array);
