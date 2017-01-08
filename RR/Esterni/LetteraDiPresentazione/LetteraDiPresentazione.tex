@@ -1,36 +1,79 @@
-\documentclass[a4paper,titlepage]{article}
+\documentclass[a4paper,titlepage]{letteracdp}
 
 \makeatletter
-\def\input@path{{../}}
+\def\input@path{{../../../template/}}
 \makeatother
 
 \usepackage{Comandi}
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
 \usepackage{Riferimenti}
 \usepackage{Stile}
 
-\def\NOME{Nome Docs}
-\def\VERSIONE{1.0}
-\def\DATA{data}
-\def\REDATTORE{Nome cognome \\ & Nome cognome}
-\def\VERIFICATORE{Nome cognome}
-\def\RESPONSABILE{Nome cognome}
-\def\USO{Interno o esterno}
-\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO}
-\def\SOMMARIO{Breve descrizione del doc}
+\address{
+  \includegraphics[scale=0.25]{img/logo_full.png}\\
+  \vspace{0.2cm}
+  Ingegneria del Software \\
+  Gruppo \GRUPPO{} \\
+}
+
+\signature{
+  Il Responsabile di Progetto \par
+  Simeone Pizzi
+}
+\date{2017-01-11}
+\place{Padova}
 
 \begin{document}
+  \begin{letter}{
+    Alla C. Att.ne del commitente: \\
+    \COMMITTENTE \\
+    \CARDIN      \\
+    Dipartimento di Matematica \\
+		Università degli Studi di Padova \\
+		Via Trieste, 63 \\
+		35121 Padova}
+    \opening{Egregio Prof.~Vardanega Tullio, }
+    Con la presente si comunica ufficialmente che il gruppo intende impegnarsi
+    nella realizzazione del prodotto da Lei commissionato, chiamato:
+    \begin{center}
+      \PROGETTO
+    \end{center}
+    proposto dall'azienda \PROPONENTE{}, rappresentata dal sig.re Stefano Dindo.
+    Può trovare tutti i dettagli relativi all'offerta all'interno dei seguenti
+    documenti forniti in allegato:
 
-\maketitle
-
-\begin{diario}
-  \modifica{Mattia Bottaro}{\AMM}{Completata stesura processo di sviluppo}{2016-12-10}{0.0.2}
-  \modifica{Mattia Bottaro}{\AMM}{Inizio stesura documento}{2016-12-10}{0.0.1}
-\end{diario}
-
-\newpage
-\tableofcontents
-%\listoffigures da aggiungere se abbiamo figure
-\newpage
+    \begin{itemize}
+      \item \Gldoc{} \Glfile{};
+      \item \NPdoc{} \NPfile{};
+      \item \SFdoc{} \SFfile{};
+      \item \PPdoc{} \PPfile{};
+      \item \PQdoc{} \PQfile{};
+      \item \ARdoc{} \ARfile{};
+      \item \SDKdoc{} \SDKfile{};
+      \item \doc{Verbali delle riunioni interne} \file{RR/Interni/Verbali Interni}
+      \item \doc{Verbali delle riunioni esterne} \file{RR/Esterni/Verbali Esterni}
+    \end{itemize}
+    Come scritto nel Piano di Progetto, il gruppo ha stimato di riuscire a
+    consegnare il prodotto richiesto entro il 2017-05-08, ovvero la prima data
+    fissata per la Revisione di Accettazione, preventivando costi per un importo
+    totale di 15.063,00 \euro.
+    \newpage
+    Di seguito si riporta l'elenco dei componenti del gruppo:\\
+    \begin{center}
+      \begin{tabular}{l c}
+        \textbf{Nominativo} & \textbf{Matricola} \\
+        Luca Bertolini 	 	& 1099549  \\
+        Mattia Bottaro 	 	& 1097723  \\
+        Mauro Carlin 	 	& 1102351  \\
+        Andrea Magnan    	& 1096609  \\
+        Simeone Pizzi    	& 1096826  \\
+        Nicola Tintorri    	& 1102860  \\
+        Pier Paolo Tricomi 	& 1096827  \\
+      \end{tabular}
+    \end{center}
+    \closing{Rimango a Sua completa disposizione per qualsiasi chiarimento.
+		RingraziandoLa anticipatamente per la Sua disponibilità, Le porgo distinti saluti.}
+  \end{letter}
 
 \end{document}
-
