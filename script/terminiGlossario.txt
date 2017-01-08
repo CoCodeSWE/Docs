@@ -69,11 +69,10 @@ Monolith
 monolith
 Node.js
 NoSQL
-Package
-package
-Unix-like
 Open source
 open source
+Package
+package
 PDCA
 PDF
 Policy
@@ -104,6 +103,7 @@ Tomcat
 TvOS
 UML
 Unità
+Unix-like
 Validazione
 Verifica
 VoIP
