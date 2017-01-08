@@ -25,7 +25,7 @@
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
-\def\NOME{Analisi SDK dei principali A.V.}
+\def\NOME{Analisi \gl{SDK} dei principali A.V.}
 \def\VERSIONE{1.0.0}
 \def\DATA{2016-12-28}
 \def\REDATTORE{Luca Bertolini \\ & Simeone Pizzi \\ & Nicola Tintorri}
@@ -33,7 +33,7 @@
 \def\RESPONSABILE{Simeone Pizzi}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
-\def\SOMMARIO{Documento contenente l'analisi degli SDK dei principali assistenti virtuali relativo al \gl{prodotto} \PROGETTO{} determinato dal gruppo \GRUPPO{} nel corso della realizzazione del \gl{progetto} \PROGETTO.}
+\def\SOMMARIO{Documento contenente l'analisi degli \gl{SDK} dei principali assistenti virtuali relativo al \gl{prodotto} \PROGETTO{} determinato dal gruppo \GRUPPO{} nel corso della realizzazione del \gl{progetto} \PROGETTO.}
 
 \begin{document}
 
@@ -47,23 +47,23 @@
 
 \begin{diario}
 	\modifica{Nicola Tintorri}{\AN}{Correzione errori segnalati}{2017-01-07}{0.3.1}
-	\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-01-06}{0.3.0}
+	\modifica{Mattia Bottaro}{\VER}{\gl{Verifica}}{2017-01-06}{0.3.0}
 	\modifica{Nicola Tintorri}{\AN}{Stesura sezione Conclusioni}{2017-01-05}{0.2.3}
 	\modifica{Luca Bertolini}{\RESP}{Stesura sezione Confronto tra i diversi assistenti virtuali}{2017-01-05}{0.2.2}
 	\modifica{Simeone Pizzi}{\AN}{Correzione errori segnalati}{2017-01-05}{0.2.1}
-	\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-01-04}{0.2.0}
+	\modifica{Mattia Bottaro}{\VER}{\gl{Verifica}}{2017-01-04}{0.2.0}
 	\modifica{Nicola Tintorri}{\AN}{Stesura sezione Siri}{2017-01-04}{0.1.2}
 	\modifica{Simeone Pizzi}{\AN}{Correzione errori segnalati e stesura sezione Alexa}{2017-01-04}{0.1.1}
-	\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-01-03}{0.1.0}
-	\modifica{Luca Bertolini}{\RESP}{Stesura sezioni wit.ai e API.AI}{2017-01-03}{0.0.2}
+	\modifica{Mattia Bottaro}{\VER}{\gl{Verifica}}{2017-01-03}{0.1.0}
+	\modifica{Luca Bertolini}{\RESP}{Stesura sezioni wit.ai e \gl{API}.AI}{2017-01-03}{0.0.2}
 	\modifica{Luca Bertolini}{\RESP}{Stesura struttura documento}{2017-01-02}{0.0.1}
 \end{diario}
 \newpage
 
 \section{Introduzione}
 	\subsection{Scopo del documento}
-Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali SDK di assistenti virtuali presenti sul mercato. L'analisi in questione ha lo scopo di mettere in mostra i punti di forza e le debolezze degli SDK presi in considerazione.
-	\subsection{Scopo del prodotto}
+Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali \gl{SDK} di assistenti virtuali presenti sul mercato. L'analisi in questione ha lo scopo di mettere in mostra i punti di forza e le debolezze degli \gl{SDK} presi in considerazione.
+	\subsection{Scopo del \gl{prodotto}}
 	\SCOPO{}
 	\subsection{Glossario}
 	\GLOSSARIO{}
@@ -77,7 +77,7 @@ Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali
 			\begin{itemize}
 				\item wit.ai: \\
 				\url{https://wit.ai}
-				\item API.AI: \\
+				\item \gl{API}.AI: \\
 				\url{https://api.ai}
 				\item Alexa: \\
 				\url{https://developer.amazon.com/alexa-skills-kit} \\
@@ -98,14 +98,14 @@ Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali
 		\end{minipage}
 		\subsection{Caratteristiche}
 
-			wit.ai mette a disposizione un SDK gratuito ed open source per il riconoscimento del linguaggio naturale. Questa piattaforma è caratterizzata dall'utilizzo di \textit{Context}, \textit{Intent} ed \textit{Entity} che sono dei costrutti messi a disposizione per tradurre le richieste vocali dell'utente in dati processabili. In particolare il \textit{Context} si utilizza per monitorare lo stato della conversazione tra l'utente e wit.ai.
-			La piattaforma non del tutto stabile (crash, freeze temporanei, ecc..) e l'assenza di moduli di integrazione diretti con API esterne rendono lo sviluppo su wit.ai non ottimale.
+			wit.ai mette a disposizione un \gl{SDK} gratuito ed \gl{open source} per il riconoscimento del linguaggio naturale. Questa piattaforma è caratterizzata dall'utilizzo di \textit{Context}, \textit{Intent} ed \textit{Entity} che sono dei costrutti messi a disposizione per tradurre le richieste vocali dell'utente in dati processabili. In particolare il \textit{Context} si utilizza per monitorare lo stato della conversazione tra l'utente e wit.ai.
+			La piattaforma non del tutto stabile (crash, freeze temporanei, ecc..) e l'assenza di moduli di integrazione diretti con \gl{API} esterne rendono lo sviluppo su wit.ai non ottimale.
 
-In questa sezione si vogliono elencare le principali caratteristiche del SDK in questione:
+In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK} in questione:
 \begin{itemize}
-	\item ambiente open source e totalmente gratuito per progetti sia pubblici che privati;
+	\item ambiente \gl{open source} e totalmente gratuito per progetti sia pubblici che privati;
 	\item programmatori agevolati a sviluppare grazie ai costrutti \textit{Intent} ed \textit{Entity}; 
-	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, Android, Windows Phone, Raspberry Pi, Python e C.;
+	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, Windows Phone, Raspberry Pi, Python e C.;
 	\item \textbf{Context}: è un "object" che lo sviluppatore utilizzerà per monitorare lo stato della conversazione tra l'utente e Wit.ai. La sua principale funzione è quella di trasformare il linguaggio naturale in dati processabili da Wit;	
 \end{itemize}	
 
@@ -114,15 +114,15 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 \section{API.AI}
 	\subsection{Descrizione}
 	\begin{minipage}{0.7\textwidth}\raggedright
-		API.AI è una società nata nell'ottobre del 2010 e acquisita da Google Inc. nel 2016.
-		API.AI è una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.
+		\gl{API}.AI è una società nata nell'ottobre del 2010 e acquisita da Google Inc. nel 2016.
+		\gl{API}.AI è una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.
 	\end{minipage}
 	\hfill
 	\noindent\begin{minipage}{0.1\textwidth}
 		\includegraphics[scale=0.15]{images/apiai.png}
 	\end{minipage}
 	\subsection{Caratteristiche}
-	API.AI fornisce SDK per i principali liguaggi di programmazione tra i quali C++, C\#, Java, Node.js, Javascript e Phyton. Inoltre può essere integrato con Amazon Echo e Microsoft Cortana.\\
+	\gl{API}.AI fornisce \gl{SDK} per i principali liguaggi di programmazione tra i quali C++, C\#, \gl{Java}, \gl{Node.js}, Javascript e Phyton. Inoltre può essere integrato con Amazon Echo e Microsoft Cortana.\\
 	Le applicazioni sviluppate su questa piattaforma sono costuite da \textit{Agent}, i quali si occupano di trasformare il linguaggio naturale in dati processabili.
 	Tali \textit{Agent} sono a loro volta costituiti da \textit{Intent}, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed \textit{Entity}, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.\\
 	
@@ -139,16 +139,16 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 		\includegraphics[scale=0.3]{images/alexa.png}
 	\end{minipage}
 	\subsection{Caratteristiche}
-		Amazon.com mette a disposizione gratuitamente Alexa Voice Service (AVS), un servizio che permette di integrare, in qualsiasi dispositivo e applicazione con accesso al web, l'assistente virtuale Alexa. La compagnia inoltre fornisce l'\textit{Alexa Skills Kit} (ASK), un SDK che permette di estendere le funzionalità dell'assistente virtuale. Per creare una \textit{Custom Skill} ASK richiede:
+		Amazon.com mette a disposizione gratuitamente Alexa Voice Service (AVS), un servizio che permette di integrare, in qualsiasi dispositivo e applicazione con accesso al web, l'assistente virtuale Alexa. La compagnia inoltre fornisce l'\textit{Alexa Skills Kit} (ASK), un \gl{SDK} che permette di estendere le funzionalità dell'assistente virtuale. Per creare una \textit{Custom Skill} ASK richiede:
 		\begin{itemize}
 			\item \textbf{Insieme di intenti}: rappresentano le azioni che l' utente può compiere con quella determinata \textit{Skill}; 
 			\item \textbf{Insieme di affermazioni d'esempio}: specificano le parole e le frasi che l'utente può pronunciare per invocare gli intenti;
 			\item \textbf{Nome della \textit{Skill}}: identifica la \textit{Skill} e viene pronunciato dall'utente per interagire con essa;
-			\item \textbf{Servizio \textit{cloud-based}}: accetta gli intenti come richieste strutturate ed agisce in base ad essi;
+			\item \textbf{Servizio \textit{\gl{cloud}-based}}: accetta gli intenti come richieste strutturate ed agisce in base ad essi;
 			\item \textbf{Configurazione}: combina gli elementi precedentemente descritti in modo che Alexa possa indirizzare le richieste al servizio creato per la \textit{Skill}.
 			
 		\end{itemize}
-	Amazon.com suggerisce di usare \textit{AWS Lamda} per la creazione di servizi \textit{cloud-based}.
+	Amazon.com suggerisce di usare \textit{AWS Lamda} per la creazione di servizi \textit{\gl{cloud}-based}.
 		
 	
 \newpage	
@@ -156,16 +156,16 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 	\subsection{Descrizione}
 	
 	\begin{minipage}{0.7\textwidth}\raggedright
-		Siri nasce come applicazione indipendente per iOS resa disponibile tramite il canale commerciale App Store, per poi essere acquisita da Apple Inc. nel 2011. È presente nei dispositivi iOS, macOS, watchOS e tvOS come assistente virtuale.
+		Siri nasce come applicazione indipendente per \gl{iOS} resa disponibile tramite il canale commerciale App Store, per poi essere acquisita da \gl{Apple} Inc. nel 2011. È presente nei dispositivi \gl{iOS}, \gl{macOS}, \gl{watchOS} e \gl{tvOS} come assistente virtuale.
 	\end{minipage}
 	\hfill
 	\noindent\begin{minipage}{0.1\textwidth}
 		\includegraphics[scale=0.3]{images/siri.jpg}
 	\end{minipage}
 	\subsection{Caratteristiche}
-		Essendo Siri parte integrante di iOS, il suo utilizzo è vincolato alla creazione di un'applicazione per tale sistema operativo. Inoltre questa applicazione deve appartenere ad uno degli ambiti prestabiliti da SiriKit i quali sono:
+		Essendo Siri parte integrante di \gl{iOS}, il suo utilizzo è vincolato alla creazione di un'applicazione per tale sistema operativo. Inoltre questa applicazione deve appartenere ad uno degli ambiti prestabiliti da SiriKit i quali sono:
 			\begin{itemize}
-				\item chiamate VoIP;
+				\item chiamate \gl{VoIP};
 				\item messaggistica;
 				\item pagamenti;
 				\item foto;
@@ -174,7 +174,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 				\item prenotazioni ristoranti;
 				\item CarPlay.
 			\end{itemize}
-		L'assistente virtuale di casa Apple processa per intero ogni frase dell'utente e ne ricava le intenzioni. Tali intenzioni, al fine di essere rappresentate in dati processabili, sono tradotte in \textit{Intents}. Una volta acquisiti i dati e aver creato l'\textit{Intent}, nel caso questi non risultino validi, Siri riformula le domande per gli attributi interessati.
+		L'assistente virtuale di casa \gl{Apple} processa per intero ogni frase dell'utente e ne ricava le intenzioni. Tali intenzioni, al fine di essere rappresentate in dati processabili, sono tradotte in \textit{Intents}. Una volta acquisiti i dati e aver creato l'\textit{Intent}, nel caso questi non risultino validi, Siri riformula le domande per gli \gl{attributi} interessati.
 \newpage
 	\section{Confronto tra i diversi assistenti virtuali}
 	
@@ -182,7 +182,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 		\centering
 		\begin{tabulary}{\textwidth}{|Z||U|V|U|U|}
 		\hline
-		\backslashbox{\textbf{Caratteristica}}{\textbf{A.V.}} & \textbf{wit.ai} & \textbf{API.AI} & \textbf{Siri} & \textbf{Alexa} \\
+		\backslashbox{\textbf{Caratteristica}}{\textbf{A.V.}} & \textbf{wit.ai} & \textbf{\gl{API}.AI} & \textbf{Siri} & \textbf{Alexa} \\
 		\hline 
 		\hline 
 		\rule[-0.2cm]{0cm}{0.6cm} Risveglio vocale & \xmark & \xmark & obbligatorio & \cmark \\
@@ -197,9 +197,9 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 		\hline 
 		Costi & gratis & gratis senza ambiti predefiniti & gratis & \rule[-0.2cm]{0cm}{0.6cm} gratis fino a 1.000.000 di chiamate (per AWS Lambda)\\
 		\hline 
-		Piattaforme e linguaggi  di prog. supportati & \textit{Node.js; Python; Ruby; HTTP} & \rule[-0.2cm]{0cm}{0.6cm} \textit{Android; iOS; Apple Watch; Node.js; Cordova; Unity; C\#; Xamarin; Windows Phone; Python; JavaScript; PHP; Botkit; C++; Mac OS X; HTML; Ruby} & \textit{iOS} & qualsiasi linguaggio permetta di accettare richieste \textit{HTTPS}\\
+		Piattaforme e linguaggi  di prog. supportati & \textit{\gl{Node.js}; Python; Ruby; \gl{HTTP}} & \rule[-0.2cm]{0cm}{0.6cm} \textit{\gl{Android}; \gl{iOS}; \gl{Apple} Watch; \gl{Node.js}; Cordova; Unity; C\#; Xamarin; Windows Phone; Python; \gl{JavaScript}; PHP; Botkit; C++; Mac OS X; HTML; Ruby} & \textit{\gl{iOS}} & qualsiasi linguaggio permetta di accettare richieste \textit{HTTPS}\\
 		\hline 
-		\rule[-0.2cm]{0cm}{0.6cm}Documentazione API esaustiva & \cmark & \cmark & \cmark & \cmark	\\	
+		\rule[-0.2cm]{0cm}{0.6cm}Documentazione \gl{API} esaustiva & \cmark & \cmark & \cmark & \cmark	\\	
 		\hline
 		\rule[-0.2cm]{0cm}{0.6cm}Gui modificazione \textit{Intents} & \cmark & \cmark & \xmark & \cmark \\
 		\hline 
@@ -212,8 +212,8 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 	\end{table}
 \newpage
 	\section{Conclusioni}
-	Dall'attenta analisi del gruppo \GRUPPO{} è emerso che \textit{SiriKit} non è adeguato a soddisfare le esigenze del progetto \PROGETTO{} in quanto gli ambiti forniti sono limitati, le interazioni con l'utente non sono personalizzabili ed il supporto a piattaforme diverse da iOS è assente.\\
-	I restanti SDK non presentano tali limitazioni e quinidi potrebbero essere tutti potenzialmente sfruttati. La scelta del gruppo è ricaduta su API.AI per la maggiore stabilità rispetto a wit.ai, per il  maggior numero di lingue disponibili in vista di un supporto futuro ad interazioni con utenti di diversa nazionalità, per la maggiore maturità della piattaforma e per la possibilità di esportare gli \textit{Agents} in formati compatibili con i principali assistenti virtuali presenti sul mercato, tra cui Cortana ed Alexa.
+	Dall'attenta analisi del gruppo \GRUPPO{} è emerso che \textit{SiriKit} non è adeguato a soddisfare le esigenze del \gl{progetto} \PROGETTO{} in quanto gli ambiti forniti sono limitati, le interazioni con l'utente non sono personalizzabili ed il supporto a piattaforme diverse da \gl{iOS} è assente.\\
+	I restanti \gl{SDK} non presentano tali limitazioni e quinidi potrebbero essere tutti potenzialmente sfruttati. La scelta del gruppo è ricaduta su \gl{API}.AI per la maggiore stabilità rispetto a wit.ai, per il  maggior numero di lingue disponibili in vista di un supporto futuro ad interazioni con utenti di diversa nazionalità, per la maggiore maturità della piattaforma e per la possibilità di esportare gli \textit{Agents} in formati compatibili con i principali assistenti virtuali presenti sul mercato, tra cui Cortana ed Alexa.
 	
 	
 	\end{document}
