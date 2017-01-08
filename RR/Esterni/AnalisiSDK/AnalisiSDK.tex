@@ -46,7 +46,7 @@
 
 \section{Introduzione}
 	\subsection{Scopo del documento}
-Questo documento riporta un analisi eseguita dal gruppo \GRUPPO{} sui principali SDK di assistenti virtuali presenti nel mercato. L'analisi in questione ha lo scopo di mettere in mostra i punti di forza e le debolezze degli SDK presi in considerazione.
+Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali SDK di assistenti virtuali presenti sul mercato. L'analisi in questione ha lo scopo di mettere in mostra i punti di forza e le debolezze degli SDK presi in considerazione.
 	\subsection{Glossario}
 	\GLOSSARIO
 	\subsection{Riferimenti}
@@ -71,7 +71,7 @@ Questo documento riporta un analisi eseguita dal gruppo \GRUPPO{} sui principali
 			wit.ai mette a disposizione un SDK gratuito ed open source per il riconoscimento del linguaggio naturale. Questa piattaforma è caratterizzata dall'utilizzo di \textit{Context}, \textit{Intent} ed \textit{Entity} che sono dei costrutti messi a disposizione per tradurre le richieste vocali dell'utente in dati processabili. In particolare il \textit{Context} si utilizza per monitorare lo stato della conversazione tra l'utente e wit.ai.
 			La piattaforma non del tutto stabile (crash, freeze temporanei, ecc..) e l'assenza di moduli di integrazione diretti con API esterne rendono lo sviluppo su wit.ai non ottimale.
 
-In questa sezione si vogliono elencare le principali caratteristiche del SDK in questione.
+In questa sezione si vogliono elencare le principali caratteristiche del SDK in questione:
 \begin{itemize}
 	\item ambiente open source e totalmente gratuito per progetti sia pubblici che privati;
 	\item programmatori agevolati a sviluppare grazie ai costrutti \textit{Intent} ed \textit{Entity}; 
@@ -82,19 +82,19 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 
 		
 \newpage
-\section{api.ai}
+\section{API.AI}
 	\subsection{Descrizione}
 	\begin{minipage}{0.7\textwidth}\raggedright
-		api.ai è una società nata nell'ottobre del 2010 e acquisita da Google Inc. nel 2016.
-		api.ai è una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.
+		API.AI è una società nata nell'ottobre del 2010 e acquisita da Google Inc. nel 2016.
+		API.AI è una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.
 	\end{minipage}
 	\hfill
 	\noindent\begin{minipage}{0.1\textwidth}
 		\includegraphics[scale=0.15]{images/apiai.png}
 	\end{minipage}
 	\subsection{Caratteristiche}
-	api.ai fornisce SDK per i principali liguaggi di programmazione tra i quali C++, C\#, Java, Node.js, Javascript e Phyton. Inoltre può essere integrato con Amazon Echo e Microsoft Cortana.\\
-	Le applicazioni sviluppate su questa piattaforma sono costuite da \textit{Agent}, i quali si occupano di trasformare in dati processabili il linguaggio naturale.
+	API.AI fornisce SDK per i principali liguaggi di programmazione tra i quali C++, C\#, Java, Node.js, Javascript e Phyton. Inoltre può essere integrato con Amazon Echo e Microsoft Cortana.\\
+	Le applicazioni sviluppate su questa piattaforma sono costuite da \textit{Agent}, i quali si occupano di trasformare il linguaggio naturale in dati processabili.
 	Tali \textit{Agent} sono a loro volta costituiti da \textit{Intent}, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed \textit{Entity}, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.\\
 	
 \newpage
@@ -134,7 +134,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 		\includegraphics[scale=0.3]{images/siri.jpg}
 	\end{minipage}
 	\subsection{Caratteristiche}
-		Essendo Siri parte integrante di iOS, il suo utilizzo è vincolato alla creazione di un'applicazione per tale sistema operativo. Inoltre questa applicazione deve appartenere ad uno dei ambiti prestabiliti da SiriKit i quali sono:
+		Essendo Siri parte integrante di iOS, il suo utilizzo è vincolato alla creazione di un'applicazione per tale sistema operativo. Inoltre questa applicazione deve appartenere ad uno degli ambiti prestabiliti da SiriKit i quali sono:
 			\begin{itemize}
 				\item chiamate VoIP;
 				\item messaggistica;
@@ -152,7 +152,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 	\begin{center}
 		\begin{tabulary}{\textwidth}{|Z||U|V|U|U|}
 		\hline
-		\backslashbox{\textbf{Caratteristica}}{\textbf{A.V.}} & \textbf{wit.ai} & \textbf{api.ai} & \textbf{Siri} & \textbf{Alexa} \\
+		\backslashbox{\textbf{Caratteristica}}{\textbf{A.V.}} & \textbf{wit.ai} & \textbf{API.AI} & \textbf{Siri} & \textbf{Alexa} \\
 		\hline 
 		\hline 
 		\rule[-0.2cm]{0cm}{0.6cm} Risveglio vocale & \xmark & \xmark & obbligatorio & \cmark \\
@@ -182,7 +182,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del SDK in 
 \newpage
 	\section{Conclusioni}
 	Dall'attenta analisi del gruppo \GRUPPO{} è emerso che \textit{SiriKit} non è adeguato a soddisfare le esigenze del progetto \PROGETTO{} in quanto gli ambiti forniti sono limitati, le interazioni con l'utente non sono personalizzabili ed il supporto a piattaforme diverse da iOS è assente.\\
-	I restanti SDK non presentano tali limitazioni e quinidi potrebbero essere tutti potenzialmente sfruttati. La scelta del gruppo è ricaduta su api.ai per la maggiore stabilità rispetto a wit.ai, per il  maggior numero di lingue disponibili in vista di un supporto futuro ad interazioni con utenti di diversa nazionalità, per la maggiore maturità della piattaforma e per la possibilità di esportare gli \textit{Agents} in formati compatibili con i principali assistenti virtuali presenti sul mercato, tra cui Cortana ed Alexa.
+	I restanti SDK non presentano tali limitazioni e quinidi potrebbero essere tutti potenzialmente sfruttati. La scelta del gruppo è ricaduta su API.AI per la maggiore stabilità rispetto a wit.ai, per il  maggior numero di lingue disponibili in vista di un supporto futuro ad interazioni con utenti di diversa nazionalità, per la maggiore maturità della piattaforma e per la possibilità di esportare gli \textit{Agents} in formati compatibili con i principali assistenti virtuali presenti sul mercato, tra cui Cortana ed Alexa.
 	
 	
 	\end{document}
