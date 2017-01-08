@@ -1,6 +1,7 @@
 Amazon Web Services
 Android
 API
+Apple
 Asana
 Astah
 Attributi
@@ -23,6 +24,7 @@ Cloud
 cloud
 CMM
 CSS3
+DBMS
 Design pattern
 design pattern
 Diagramma di Gantt
@@ -47,6 +49,8 @@ iterazione
 Java
 JavaScript
 Jolie
+Kernel
+kernel
 Linux
 Log
 log
@@ -65,6 +69,8 @@ Monolith
 monolith
 Node.js
 NoSQL
+Open source
+open source
 Package
 package
 PDCA
@@ -94,9 +100,10 @@ Texmaker
 ticketing
 Ticketing
 Tomcat
-TvOS
+tvOS
 UML
 Unità
+Unix
 Validazione
 Verifica
 VoIP
