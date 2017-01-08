@@ -1,11 +1,9 @@
-Amazon Web Services
+﻿Amazon Web Services
 Android
 API
 Apple
 Asana
 Astah
-Attributi
-attributi
 Bitbucket
 Bolle interattive
 bolle interattive
@@ -65,8 +63,6 @@ Modello incrementale
 modello incrementale
 MongoDB
 MongoDB
-Monolith
-monolith
 Node.js
 NoSQL
 Open source
