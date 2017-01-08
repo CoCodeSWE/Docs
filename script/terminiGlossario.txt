@@ -100,10 +100,10 @@ Texmaker
 ticketing
 Ticketing
 Tomcat
-TvOS
+tvOS
 UML
 Unità
-Unix-like
+Unix
 Validazione
 Verifica
 VoIP
