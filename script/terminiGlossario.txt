@@ -69,6 +69,11 @@ Node.js
 NoSQL
 Package
 package
+Unix-like
+Kernel
+kernel
+Open source
+open source
 PDCA
 PDF
 Policy
