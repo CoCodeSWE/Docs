@@ -47,8 +47,10 @@ iterazione
 Java
 JavaScript
 Jolie
+Linux
 Log
 log
+macOS
 markup
 Markup
 Microservizio
@@ -92,10 +94,12 @@ Texmaker
 ticketing
 Ticketing
 Tomcat
+TvOS
 UML
 Unità
 Validazione
 Verifica
 VoIP
 VotePoll
+watchOS
 
