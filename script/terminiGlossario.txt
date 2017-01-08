@@ -1,6 +1,14 @@
-﻿Astah
+Amazon Web Services
+Android
+API
+Asana
+Astah
 Attributi
 attributi
+Bitbucket
+Bolle interattive
+bolle interattive
+Bootstrap
 Bot
 bot
 Browser
@@ -18,29 +26,51 @@ CSS3
 Design pattern
 design pattern
 Diagramma di Gantt
+DynamoDB
+ebook
+Ebook
+Flexible And Adaptive Text To Speech
+Framework
+framework
+gateway
+Gateway 
 Git
 GitHub
 Google Hangouts
 HTML5
+HTTP
 iOS
 Issue
 issue
 Iterazione
 iterazione
+Java
 JavaScript
+Jolie
+Linux
 Log
 log
+macOS
 markup
 Markup
+Microservizio
+microservizio
 Milestone
 milestone
 Modello incrementale
 modello incrementale
 MongoDB
+MongoDB
+Monolith
+monolith
+Node.js
+NoSQL
 Package
 package
 PDCA
 PDF
+Policy
+policy
 Prodotto
 prodotto
 progetto
@@ -48,19 +78,28 @@ Proponente
 proponente
 Repository
 Ricorsione
+Rocket.chat
+SDK
+Service Level Agreement
 Sistema
 Slack
 Software
+SQL
 Stack
+Swift
 Task
 Team
 Template
 Texmaker
 ticketing
 Ticketing
+Tomcat
+TvOS
 UML
 Unità
 Validazione
 Verifica
 VoIP
 VotePoll
+watchOS
+
