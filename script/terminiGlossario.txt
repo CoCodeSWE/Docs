@@ -49,6 +49,8 @@ iterazione
 Java
 JavaScript
 Jolie
+Kernel
+kernel
 Linux
 Log
 log
@@ -70,8 +72,6 @@ NoSQL
 Package
 package
 Unix-like
-Kernel
-kernel
 Open source
 open source
 PDCA
