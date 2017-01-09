@@ -1,0 +1,58 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2016-12-19}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-12-19}
+\def\REDATTORE{Mattia Bottaro}
+\def\VERIFICATORE{Luca Bertolini}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Interno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO} % Se esterno va anche il \gl{proponente}
+\def\SOMMARIO{Verbale della riunione in data 2016-12-19.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+    \modifica{Mattia Bottaro}{\AMM}{Stesura documento e verbalizzazione della riunione}{2016-12-19}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+	\label{sec:Informazioni}
+
+	\begin{itemize}
+		\item \textbf{Luogo}: Google Hangouts.
+		\item \textbf{Data}: 2016-12-19.
+		\item \textbf{Orario di inizio}: 16:00.
+		\item \textbf{Orario di fine}: 18:00.
+		\item \textbf{Durata}: 2h.
+		\item \textbf{Oggetto}: presentato al gruppo il preventintivo e la rotazione dei ruoli contenuti nel documento \textit{\quotes{Piano di Progetto}}. Fissate le milestone per alcuni documenti. Spiegato il funzionamento di PragmaDB.
+		\item \textbf{Partecipanti}: Andrea Magnan, Luca Bertolini, Mattia Bottaro, Mauro Carlin, Nicola Tintorri, Pier Paolo Tricomi, Simeone Pizzi.
+		\item \textbf{Segretario}: Mattia Bottaro.
+	  
+	\end{itemize}
+
+\section{Riassunto della riunione}
+	\subsection{Descrizione}
+	Nel corso della riunione interna sono state affrontate le seguenti tematiche: presentato al gruppo il preventintivo e la rotazione dei ruoli contenuti nel documento \PPdocRR{}, fissate le milestone per alcuni documenti, spiegato il funzionamento di PragmaDB.
+	
+	\subsection{Decisioni}
+		\begin{itemize}
+			\item DI2.1 - Milestone fissata per \PQdocRR{}: 2017-01-08
+			\item DI2.2 - Milestone fissata per \ARdocRR{}: 2017-01-07
+			\item DI2.3 - Milestone fissata per \Gldoc{}: 2017-01-08
+		\end{itemize}
+
+\end{document}
