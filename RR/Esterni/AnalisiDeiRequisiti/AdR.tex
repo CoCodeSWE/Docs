@@ -3,14 +3,15 @@
 \makeatletter
 \def\input@path{{../../../template/}{./img}}
 \makeatother
-
+\usepackage{color}
+\usepackage{colortbl}
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
 
 \def\NOME{Analisi dei requisiti}
-\def\VERSIONE{1.0}
-\def\DATA{2016-12-21}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-01-09}
 \def\REDATTORE{Mauro Carlin \\ & Simeone Pizzi \\ & Pier Paolo Tricomi \\ & Mattia Bottaro \\ & Nicola Tintorri \\ & Andrea Magnan}
 \def\VERIFICATORE{Luca Bertolini}
 \def\RESPONSABILE{Simeone Pizzi}
@@ -23,8 +24,28 @@
 \maketitle
 
 \begin{diario}
-  \modifica{Mattia Bottaro}{\AN}{Completata sezione introduzione e descrizione generale}{2016-12-22}{0.0.2}	
-  \modifica{Mauro Carlin}{\AN}{Inizio stesura struttura documento}{2016-12-21}{0.0.1}
+  \modifica{Simeone Pizzi}{\RESP}{Approvazione documento}{2017-01-09}{1.0.0}
+  \modifica{Pier Paolo Tricomi}{\AN}{Correzione errori rilevati durante la verifica}{2017-01-06}{0.4.1}
+  \modifica{Luca Bertolini}{\VER}{Verifica documento}{2017-01-06}{0.4.0}
+  \modifica{Mauro Carlin}{\AN}{Completata stesura requisiti funzionali}{2017-01-06}{0.3.4}
+  \modifica{Andrea Magnan}{\AN}{Completata stesura requisiti di qualità}{2017-01-02}{0.3.3}
+  \modifica{Pier Paolo Tricomi}{\AN}{Completata stesura requisiti di vincolo}{2016-12-30}{0.3.2}
+  \modifica{Pier Paolo Tricomi}{\AN}{Correzione errori rilevati durante la verifica}{2016-12-30}{0.3.1}
+  \modifica{Luca Bertolini}{\VER}{Verifica documento}{2016-12-30}{0.3.0}
+  \modifica{Simeone Pizzi}{\AN}{Completata stesura UC3}{2016-12-29}{0.2.5}
+  \modifica{Mattia Bottaro}{\AN}{Completata stesura UC2}{2016-12-29}{0.2.4}
+  \modifica{Mauro Carlin}{\AN}{Completata stesura UC7}{2016-12-28}{0.2.3}
+  \modifica{Mauro Carlin}{\AN}{Completata stesura UC8}{2016-12-26}{0.2.2}
+  \modifica{Andrea Magnan}{\AN}{Correzione errori rilevati durante la verifica}{2016-12-24}{0.2.1}
+  \modifica{Luca Bertolini}{\VER}{Verifica documento}{2016-12-24}{0.2.0}
+  \modifica{Pier Paolo Tricomi}{\AN}{Completata stesura UC6}{2016-12-24}{0.1.5}
+  \modifica{Nicola Tintorri}{\AN}{Completata stesura UC5}{2016-12-23}{0.1.4}
+  \modifica{Nicola Tintorri}{\AN}{Completata stesura UC4}{2016-12-23}{0.1.3}
+  \modifica{Nicola Tintorri}{\AN}{Completata stesura UC1}{2016-12-23}{0.1.2}
+  \modifica{Andrea Magnan}{\AN}{Correzione errori rilevati durante la verifica}{2016-12-22}{0.1.1}
+  \modifica{Luca Bertolini}{\VER}{Verifica documento}{2016-12-22}{0.1.0}
+  \modifica{Mattia Bottaro}{\AN}{Completata sezione introduzione e descrizione generale}{2016-12-21}{0.0.2}	
+  \modifica{Mauro Carlin}{\AN}{Inizio stesura struttura documento}{2016-12-20}{0.0.1}
 \end{diario}
 
 \newpage
@@ -36,9 +57,19 @@
 \include{introduzione}
  \section{Descrizione generale}
   \input{descrizione}
+  \newpage
  \section{\gl{Casi d'uso}}
+  \input{introUseCase}
   \input{useCase}
+  \newpage
  \section{Requisiti}
+  \input{introRequisiti}
   \input{requisiti}
+  \subsection{Tracciamento fonti-requisiti}
+   \input{tracciamentoFontiRequisiti}
+  \subsection{Tracciamento requisiti-fonti}
+   \input{tracciamentoRequisitiFonti}
+  \subsection{Riepilogo requisiti}
+   \input{riepilogoRequisiti}
 
 \end{document}
