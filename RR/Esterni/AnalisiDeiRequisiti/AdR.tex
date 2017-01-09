@@ -3,6 +3,7 @@
 \makeatletter
 \def\input@path{{../../../template/}{./img}}
 \makeatother
+\usepackage{subfiles}
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{Comandi}
@@ -59,11 +60,11 @@
   \input{descrizione}
   \newpage
  \section{\gl{Casi d'uso}}
-  \input{introUseCase}
+  \subfile{introUseCase}
   \input{useCase}
   \newpage
  \section{Requisiti}
-  \input{introRequisiti}
+  \subfile{introRequisiti}
   \input{requisiti}
   \subsection{Tracciamento fonti-requisiti}
    \input{tracciamentoFontiRequisiti}
