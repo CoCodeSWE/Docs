@@ -158,15 +158,21 @@ Le norme di stile saranno specificate in versioni successive di questo documento
  \paragraph{\gl{Ricorsione}}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
 \subsubsection{Strumenti}
+ \paragraph{PragmaDB} 
+  PragmaDB è uno strumento open source di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti. In particolare, una volta inseriti casi d'uso, attori, requisiti e relative fonti, PragmaDB genera: 
+  \begin{itemize}
+  \item il codice \LaTeX{} relativo a casi d'uso e requisiti in forma tabellare;
+  \item i diagrammi UML associati ai casi d'uso.
+  Essendo open source, questo strumento è stato adattato dal team \GRUPPO{} in base alle proprie necessità.
+  \end{itemize}
   \paragraph{\gl{Astah}}
-  \gl{Astah} è uno strumento di modellazione \gl{UML}. Verrà quindi usato per la produzione di diagrammi \gl{UML}. Viene utilizzata la versione 7.0 o superiori.
+  \gl{Astah} è uno strumento di modellazione \gl{UML}. Qualora i diagrammi UML generati da PragmaDB non siano soddisfacenti, si ricorrerà all'utilizzo di Astah. Viene utilizzata la versione 7.0 o superiori.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3]{img/astah.png}
 \caption{Astah}\label{sec:Figura1}
 \end{figure}
- \paragraph{PragmaDB} 
-PragmaDB è uno strumento open-source di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti.
+
 
 
 
