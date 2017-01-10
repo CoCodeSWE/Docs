@@ -149,7 +149,7 @@
 \textbf{Descrizione} & L'amministratore può concedere i privilegi per la direttiva ad altri amministratori.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione relativa all'inserimento dei privilegi per la direttiva\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha inserito i privilegi per la direttiva\\[7pt]
-\textbf{Scenario principale} &L'amministratore specifica chi tra gliu altri amministratori può accedere alla direttiva e può modificarla.\\[7pt]\hline
+\textbf{Scenario principale} &L'amministratore specifica chi tra gli altri amministratori può accedere alla direttiva e può modificarla.\\[7pt]\hline
 \end{longtable}
 
 \subsubsection{UC2.1.1.5: Conferma creazione direttiva}
@@ -766,7 +766,8 @@
 \textbf{Postcondizione} & L'ospite è stato intrattenuto dal sistema.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
 \item  L'ospite può essere intrattenuto con alcuni indovinelli ai quali deve rispondere;
-\item  L'ospite può essere intrattenuto con alcune curiosità di varia natura;3. L'ospite può essere intrattenuto chiedendo di visualizzare alcune notizie di varia natura;
+\item  L'ospite può essere intrattenuto con alcune curiosità di varia natura;
+\item  L'ospite può essere intrattenuto chiedendo di visualizzare alcune notizie di varia natura;
 \item  L'ospite può essere intrattenuto con alcuni giochi che il sistema rende disponibili.
 \end{enumerate}
 \\[7pt]
@@ -857,7 +858,7 @@
 \hline
 &\\
 \textbf{Attori} & Amministratore, Ospite, Utente.\\[7pt]
-\textbf{Descrizione} & Il sistema richiederà all'utente una chiarimento nel caso in cui non riesca a interpretare la sua risposta.\\[7pt]
+\textbf{Descrizione} & Il sistema richiederà all'utente un chiarimento nel caso in cui non riesca a interpretare la sua risposta.\\[7pt]
 \textbf{Precondizione} & Il sistema non è riuscito ad interpretare una comunicazione dell'utente.\\[7pt]
 \textbf{Postcondizione} & Il sistema comunica l'errore richiedendo nuovamente l'informazione all'utente.\\[7pt]
 \textbf{Scenario principale} &L'utente comunica nuovamente l'informazione non compresa dal sistema.\\[7pt]\hline
@@ -1010,7 +1011,7 @@
 &\\
 \textbf{Attori} & Super Amministratore.\\[7pt]
 \textbf{Descrizione} & Il super amministratore può visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la creazione di un nuovo amministratore.\\[7pt]
-\textbf{Precondizione} & Il sistema ha ricevuto dati vuoti o non validi.\\[7pt]
+\textbf{Precondizione} & Il sistema ha ricevuto dati nulli o non validi.\\[7pt]
 \textbf{Postcondizione} & Il sistema mostra un messaggio d'errore.\\[7pt]
 \textbf{Scenario principale} &Il super amministratore visualizza un messaggio d'errore.\\[7pt]\hline
 \end{longtable}
@@ -1140,7 +1141,7 @@
 \textbf{Descrizione} & L'utente può fornire la propria password di amministrazione. Nel caso in cui la password fornita sia sbagliata, il sistema la chiederà nuovamente.\\[7pt]
 \textbf{Precondizione} & Il sistema ha riconosciuto l'utente come uno degli amministratori del sistema\\[7pt]
 \textbf{Postcondizione} & L'utente ha fornito la password di amministrazione del sistema\\[7pt]
-\textbf{Scenario principale} &1. L'utente fornisce la propria password di amministrazione\\[7pt]
+\textbf{Scenario principale} & L'utente fornisce la propria password di amministrazione\\[7pt]
 \textbf{Scenari alternativi} & Nel caso in cui la password fornita non sia valida viene richiesto all'utente di inserire nuovamente la password.\\[7pt]\hline
 \end{longtable}
 
