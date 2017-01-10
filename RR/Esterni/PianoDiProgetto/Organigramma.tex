@@ -1,0 +1,103 @@
+\documentclass[./PianoDiProgetto.tex]{subfiles}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\begin{document}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{img/logo_full.png}
+	\\
+	\LARGE Gruppo \GRUPPO
+\end{figure}
+
+\section{Organigramma}
+\subsection{Redazione}
+\begin{table}[htbp]
+	\begin{center}
+		\setlength{\extrarowheight}{\jot}
+		\begin{tabular}{|c|c|p{7cm}|}
+			\hline
+			\textbf{Nominativo} & \textbf{Data di redazione} & \textbf{Firma} \\[1ex]
+			\hline
+			Simeone Pizzi & 2016-12-10 & \myincludegraphics[scale=1]{firme/simeonepizzi}\\[1ex]
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Redazione}
+\end{table}
+
+\subsection{Approvazione}
+\begin{table}[htbp]
+	\begin{center}
+		\setlength{\extrarowheight}{\jot}
+		\begin{tabular}{|p{3cm}|p{4cm}|p{5cm}|}
+			\hline
+			\textbf{Nominativo}     & \textbf{Data di approvazione} & \textbf{Firma}  \\[1ex]
+			\hline
+			Simeone Pizzi &	\specialcell[t]{2017-01-10\\ Revisione dei Requisiti} & \myincludegraphics[scale=1]{firme/simeonepizzi} \\[1ex]
+			\hline
+			Tullio Vardanega & & \\[4ex]
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Approvazione}
+\end{table}
+\newpage
+\subsection{Accettazione dei componenti}
+\begin{table}[htbp]
+	\begin{center}
+		\setlength{\extrarowheight}{\jot}
+		\begin{tabular}{|c|p{4cm}|p{6cm}|}
+			\hline
+			\textbf{Nominativo} & \textbf{Data di accettazione} & \textbf{Firma} \\[1ex]
+			\hline
+			Luca Bertolini	&	2017-01-10	&  \myincludegraphics[scale=0.10]{firme/lucabertolini}\\[1ex]
+			\hline
+			Mattia Bottaro		&	2017-01-10	& \myincludegraphics[scale=0.5]{firme/mattiabottaro}\\[1ex]
+			\hline
+			Mauro Carlin	&	2017-01-10	& \myincludegraphics[scale=0.75]{firme/maurocarlin}\\[1ex]
+			\hline
+			Andrea Magnan	&	2017-01-10	& \myincludegraphics[scale=1]{firme/andreamagnan}\\[1ex]
+			\hline
+			Simeone Pizzi	&	2017-01-10	& \myincludegraphics[scale=1]{firme/simeonepizzi}\\[1ex]
+			\hline
+			Nicola Tintorri	&	2017-01-10	& \myincludegraphics[scale=0.9]{firme/nicolatintorri}\\[1ex]
+			\hline
+			Pier Paolo Tricomi	&	2017-01-10	& \myincludegraphics[scale=0.35]{firme/pierpaolotricomi}\\[1ex]
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Accettazione}
+\end{table}
+
+\subsection{Componenti}
+\begin{table}[H]
+	\begin{center}
+		\setlength{\extrarowheight}{\jot}
+		\begin{tabular}{|c|c|p{5cm}|p{4.3cm}|}
+			\hline
+			\textbf{Nominativo} & \textbf{Matricola} & \raggedright \textbf{Indirizzo di posta elettronica} & \textbf{Ruoli} \\[1ex]
+			\hline
+	 		Luca Bertolini & 1099549	& \href{mailto:luca.bertolini.1@studenti.unipd.it}{luca.bertolini.1@studenti.unipd.it} & Responsabile, Amministratore, Verificatore \\[1ex]
+			\hline
+			Mattia Bottaro & 1097723	& \href{mailto:mattiabottaro9@gmail.com}{mattiabottaro9@gmail.com} & Verificatore, Analista, Amministratore  \\[1ex]
+			\hline
+			Mauro Carlin & 1102351	& \href{mailto:indirizzo@ema.il}{mauro.carlin3@gmail.com} & Amministratore, Analista e Verificatore	\\[1ex]
+			\hline
+			Andrea Magnan & 1096609 & \href{mailto:andrea.magnan@studenti.unipd.it}{andrea.magnan@studenti.unipd.it} & Amministratore, Analista, Verificatore\\[1ex]
+			\hline
+			Simeone Pizzi & 1096826	& \href{mailto:sime.pizzi@gmail.com}{sime.pizzi@gmail.com} 	& Responsabile, Amministratore, Analista \\[1ex]
+			\hline
+			Nicola Tintorri	& 1102860 & \href{mailto:tintorri.nicola@gmail.com}{tintorri.nicola@gmail.com} & Amministratore, Analista, Verificatore 	\\[1ex]
+			\hline
+			Pier Paolo Tricomi	& 1096827	& \href{mailto:tricomipierpaolo@gmail.com}{tricomipierpaolo@gmail.com} & Responsabile, Amministratore, Analista, Verificatore \\[1ex]
+			\hline	
+		\end{tabular}
+	\end{center}
+	\caption{Componenti}
+\end{table}
+\end{document}
+
