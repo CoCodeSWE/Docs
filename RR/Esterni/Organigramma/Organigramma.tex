@@ -7,6 +7,13 @@
 \newcommand{\specialcell}[2][c]{%
 	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
+\newcommand{\myincludegraphics}[2][]{%
+	\setbox0=\hbox{\phantom{X}}%
+	\vtop{
+		\hbox{\phantom{X}}
+		\vskip-\ht0
+		\hbox{\includegraphics[#1]{#2}}}}
+
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
@@ -42,7 +49,7 @@
 			\hline
 			\textbf{Nominativo} & \textbf{Data di redazione} & \textbf{Firma} \\[1ex]
 			\hline
-			Simeone Pizzi & 2016-12-10 & \\[1ex]
+			Simeone Pizzi & 2016-12-10 & \myincludegraphics[scale=1]{firme/simeonepizzi}\\[1ex]
 			\hline
 		\end{tabular}
 	\end{center}
@@ -57,7 +64,7 @@
 			\hline
 			\textbf{Nominativo}     & \textbf{Data di approvazione} & \textbf{Firma}  \\[1ex]
 			\hline
-			Simeone Pizzi &	\specialcell[t]{2017-01-10\\ Revisione dei Requisiti} &	\\[1ex]
+			Simeone Pizzi &	\specialcell[t]{2017-01-10\\ Revisione dei Requisiti} & \myincludegraphics[scale=1]{firme/simeonepizzi} \\[1ex]
 			\hline
 			Tullio Vardanega & & \\[1ex]
 			\hline
@@ -76,17 +83,17 @@
 			\hline
 			Luca Bortolini	&	2017-01-10	& \\[1ex]
 			\hline
-			Mattia Bottaro		&	2017-01-10	& \\[1ex]
+			Mattia Bottaro		&	2017-01-10	& \myincludegraphics[scale=0.5]{firme/mattiabottaro}\\[1ex]
 			\hline
-			Mauro Carlin	&	2017-01-10	& \\[1ex]
+			Mauro Carlin	&	2017-01-10	& \myincludegraphics[scale=0.75]{firme/maurocarlin}\\[1ex]
 			\hline
-			Andrea Magnan	&	2017-01-10	& \\[1ex]
+			Andrea Magnan	&	2017-01-10	& \myincludegraphics[scale=1]{firme/andreamagnan}\\[1ex]
 			\hline
-			Simeone Pizzi	&	2017-01-10	& \\[1ex]
+			Simeone Pizzi	&	2017-01-10	& \myincludegraphics[scale=1]{firme/simeonepizzi}\\[1ex]
 			\hline
-			Nicola Tintorri	&	2017-01-10	& \\[1ex]
+			Nicola Tintorri	&	2017-01-10	& \myincludegraphics[scale=0.9]{firme/nicolatintorri}\\[1ex]
 			\hline
-			Pier Paolo Tricomi	&	2017-01-10	& \\[1ex]
+			Pier Paolo Tricomi	&	2017-01-10	& \myincludegraphics[scale=0.35]{firme/pierpaolotricomi}\\[1ex]
 			\hline
 		\end{tabular}
 	\end{center}
