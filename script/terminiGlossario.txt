@@ -7,6 +7,7 @@ Apple
 Apple Watch
 Asana
 Astah
+AWS Lambda
 Bitbucket
 Bolle interattive
 bolle interattive
@@ -93,7 +94,7 @@ package
 PDCA
 PDF
 PHP
-Phyton
+Phython
 Policy
 policy
 Prodotto
