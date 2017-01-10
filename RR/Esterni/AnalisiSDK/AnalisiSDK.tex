@@ -20,7 +20,7 @@
 \usepackage{eurosym}
 
 \newcolumntype{U}{>{\centering\arraybackslash}m{2cm}}
-\newcolumntype{V}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{P}{>{\centering\arraybackslash}m{3cm}}
 \newcolumntype{Z}{>{\centering\arraybackslash}m{4.2cm}}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -46,8 +46,8 @@
 \newpage
 
 \begin{diario}
-	\modifica{Pier Paolo Tricomi}{\AMM}{Approvazione del documento}{2017-01-07}{1.0.0}
-	\modifica{Nicola Tintorri}{\AN}{Correzione errori segnalati}{2017-01-07}{0.3.1}
+	\modifica{Pier Paolo Tricomi}{\AMM}{Approvazione del documento}{2017-01-06}{1.0.0}
+	\modifica{Nicola Tintorri}{\AN}{Correzione errori segnalati}{2017-01-06}{0.3.1}
 	\modifica{Mattia Bottaro}{\VER}{\gl{Verifica}}{2017-01-06}{0.3.0}
 	\modifica{Nicola Tintorri}{\AN}{Stesura sezione Conclusioni}{2017-01-05}{0.2.3}
 	\modifica{Luca Bertolini}{\RESP}{Stesura sezione Confronto tra i diversi assistenti virtuali}{2017-01-05}{0.2.2}
@@ -106,8 +106,13 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 \begin{itemize}
 	\item ambiente \gl{open source} e totalmente gratuito per progetti sia pubblici che privati;
 	\item programmatori agevolati a sviluppare grazie ai costrutti \textit{Intent} ed \textit{Entity}; 
+<<<<<<< HEAD
 	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, Windows Phone, Raspberry Pi, Python e C.;
+	\item \textbf{Context}: è un \quotes{object} che lo sviluppatore utilizzerà per monitorare lo stato della conversazione tra l'utente e Wit.ai. La sua principale funzione è quella di trasformare il linguaggio naturale in dati processabili da Wit;	
+=======
+	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, Windows Phone, Raspberry Pi, Python e C;
 	\item \textbf{Context}: è un "object" che lo sviluppatore utilizzerà per monitorare lo stato della conversazione tra l'utente e Wit.ai. La sua principale funzione è quella di trasformare il linguaggio naturale in dati processabili da Wit;	
+>>>>>>> aae817fcc591304420a0212fd563e4e3cabd2711
 \end{itemize}	
 
 		
@@ -132,7 +137,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 	\subsection{Descrizione}
 	\begin{minipage}{0.7\textwidth}\raggedright
 		Alexa è stata annunciata per la prima volta nel novembre del 2014 come assistente virtuale dello \textit{smart speaker} Echo, sviluppato da Amazon.com.
-		Le funzionalità di Alexa sono ispirate dal computer di bordo delle navicelle interstellari presenti nelle serie TV sci-fi "Star Trek".
+		Le funzionalità di Alexa sono ispirate dal computer di bordo delle navicelle interstellari presenti nelle serie TV sci-fi \quotes{Star Trek}.
 
 	\end{minipage}
 	\hfill
@@ -181,7 +186,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 	
 	\begin{table}[h]
 		\centering
-		\begin{tabulary}{\textwidth}{|Z||U|V|U|U|}
+		\begin{tabulary}{\textwidth}{|Z||U|P|U|U|}
 		\hline
 		\backslashbox{\textbf{Caratteristica}}{\textbf{A.V.}} & \textbf{wit.ai} & \textbf{\gl{API}.AI} & \textbf{Siri} & \textbf{Alexa} \\
 		\hline 
