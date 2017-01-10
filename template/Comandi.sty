@@ -158,3 +158,16 @@
 
 \newcommand{\quotes}[1]{``#1''}
 % siccome utilizzando le virgolette normali LATEX le renderizza male, ho definito il comando
+
+%----------------------------
+%   ORGANIGRAMMA
+
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\myincludegraphics}[2][]{%
+	\setbox0=\hbox{\phantom{X}}%
+	\vtop{
+		\hbox{\phantom{X}}
+		\vskip-\ht0
+		\hbox{\includegraphics[#1]{#2}}}}

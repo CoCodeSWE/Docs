@@ -4,16 +4,6 @@
 \def\input@path{{../../../template/}}
 \makeatother
 
-\newcommand{\specialcell}[2][c]{%
-	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-
-\newcommand{\myincludegraphics}[2][]{%
-	\setbox0=\hbox{\phantom{X}}%
-	\vtop{
-		\hbox{\phantom{X}}
-		\vskip-\ht0
-		\hbox{\includegraphics[#1]{#2}}}}
-
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
@@ -66,7 +56,7 @@
 			\hline
 			Simeone Pizzi &	\specialcell[t]{2017-01-10\\ Revisione dei Requisiti} & \myincludegraphics[scale=1]{firme/simeonepizzi} \\[1ex]
 			\hline
-			Tullio Vardanega & & \\[1ex]
+			Tullio Vardanega & & \\[4ex]
 			\hline
 		\end{tabular}
 	\end{center}
