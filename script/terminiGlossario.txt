@@ -7,6 +7,7 @@ Apple
 Apple Watch
 Asana
 Astah
+AWS Lambda
 Bitbucket
 Bolle interattive
 bolle interattive
@@ -17,7 +18,6 @@ Botkit
 Browser
 browser
 C#
-C++
 Capitolato
 capitolato
 CarPlay
@@ -93,7 +93,7 @@ package
 PDCA
 PDF
 PHP
-Phyton
+Phython
 Policy
 policy
 Prodotto
