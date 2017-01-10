@@ -27,6 +27,7 @@ $rootI = 'Interni/';
    'PdP' => 'PianoDiProgetto/',
    'AdR' => 'AnalisiDeiRequisiti/',
    '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+   '2VI' => 'Verbale_I_2016-12-19/',
    '1VE' => 'Verbale_E_2016-12-17/',
    'PdQ' => 'PianoDiQualifica/',
    'SDK' => 'AnalisiSDK/',

@@ -1,7 +1,10 @@
-﻿Amazon Web Services
+Amazon Echo
+Amazon echo
+Amazon Web Services
 Android
 API
 Apple
+Apple Watch
 Asana
 Astah
 Bitbucket
@@ -10,10 +13,14 @@ bolle interattive
 Bootstrap
 Bot
 bot
+Botkit
 Browser
 browser
+C#
+C++
 Capitolato
 capitolato
+CarPlay
 casi d'uso
 Casi d'uso
 ciclo di vita
@@ -21,11 +28,16 @@ Ciclo di vita
 Cloud
 cloud
 CMM
+Cordova
 CSS3
 DBMS
 Design pattern
 design pattern
 Diagramma di Gantt
+Direttiva
+direttiva
+double token
+Double token
 DynamoDB
 ebook
 Ebook
@@ -39,6 +51,7 @@ GitHub
 Google Hangouts
 HTML5
 HTTP
+HTTPS
 iOS
 Issue
 issue
@@ -57,6 +70,7 @@ markup
 Markup
 Microservizio
 microservizio
+Microsoft Cortana
 Milestone
 milestone
 Modello incrementale
@@ -65,12 +79,17 @@ MongoDB
 MongoDB
 Node.js
 NoSQL
+OAuth2
+On demand
+on demand
 Open source
 open source
 Package
 package
 PDCA
 PDF
+PHP
+Phyton
 Policy
 policy
 Prodotto
@@ -78,9 +97,11 @@ prodotto
 progetto
 Proponente
 proponente
+Raspberry Pi
 Repository
 Ricorsione
 Rocket.chat
+Ruby
 SDK
 Service Level Agreement
 Sistema
@@ -94,15 +115,22 @@ Team
 Template
 Texmaker
 ticketing
+crash
+Crash
+freeze 
+Freeze
 Ticketing
 Tomcat
 tvOS
 UML
 Unità
+Unity
 Unix
 Validazione
 Verifica
 VoIP
 VotePoll
 watchOS
+Windows Phone
+Xamarin
 
