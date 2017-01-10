@@ -100,17 +100,17 @@ Questo documento riporta un'analisi eseguita dal gruppo \GRUPPO{} sui principali
 		\subsection{Caratteristiche}
 
 			wit.ai mette a disposizione un \gl{SDK} gratuito ed \gl{open source} per il riconoscimento del linguaggio naturale. Questa piattaforma è caratterizzata dall'utilizzo di \textit{Context}, \textit{Intent} ed \textit{Entity} che sono dei costrutti messi a disposizione per tradurre le richieste vocali dell'utente in dati processabili. In particolare il \textit{Context} si utilizza per monitorare lo stato della conversazione tra l'utente e wit.ai.
-			La piattaforma non del tutto stabile (crash, freeze temporanei, ecc..) e l'assenza di moduli di integrazione diretti con \gl{API} esterne rendono lo sviluppo su wit.ai non ottimale.
+			La piattaforma non del tutto stabile (\gl{crash}, \gl{freeze} temporanei, ecc..) e l'assenza di moduli di integrazione diretti con \gl{API} esterne rendono lo sviluppo su wit.ai non ottimale.
 
 In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK} in questione:
 \begin{itemize}
 	\item ambiente \gl{open source} e totalmente gratuito per progetti sia pubblici che privati;
 	\item programmatori agevolati a sviluppare grazie ai costrutti \textit{Intent} ed \textit{Entity}; 
 <<<<<<< HEAD
-	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, Windows Phone, Raspberry Pi, Python e C.;
+	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, \gl{Windows Phone}, \gl{Raspberry Pi}, Python e \gl{C++}.;
 	\item \textbf{Context}: è un \quotes{object} che lo sviluppatore utilizzerà per monitorare lo stato della conversazione tra l'utente e Wit.ai. La sua principale funzione è quella di trasformare il linguaggio naturale in dati processabili da Wit;	
 =======
-	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, Windows Phone, Raspberry Pi, Python e C;
+	\item compatibilità con molti sistemi operativi, tra cui: \gl{iOS}, \gl{Android}, \gl{Windows Phone}, \gl{Raspberry Pi}, Python e \gl{C++};
 	\item \textbf{Context}: è un "object" che lo sviluppatore utilizzerà per monitorare lo stato della conversazione tra l'utente e Wit.ai. La sua principale funzione è quella di trasformare il linguaggio naturale in dati processabili da Wit;	
 >>>>>>> aae817fcc591304420a0212fd563e4e3cabd2711
 \end{itemize}	
@@ -128,7 +128,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 		\includegraphics[scale=0.15]{images/apiai.png}
 	\end{minipage}
 	\subsection{Caratteristiche}
-	\gl{API}.AI fornisce \gl{SDK} per i principali liguaggi di programmazione tra i quali C++, C\#, \gl{Java}, \gl{Node.js}, Javascript e Phyton. Inoltre può essere integrato con Amazon Echo e Microsoft Cortana.\\
+	\gl{API}.AI fornisce \gl{SDK} per i principali liguaggi di programmazione tra i quali \gl{C++}++, \gl{C++}\#, \gl{Java}, \gl{Node.js}, Javascript e \gl{Phyton}. Inoltre può essere integrato con \gl{Amazon Echo} e \gl{Microsoft Cortana}.\\
 	Le applicazioni sviluppate su questa piattaforma sono costuite da \textit{Agent}, i quali si occupano di trasformare il linguaggio naturale in dati processabili.
 	Tali \textit{Agent} sono a loro volta costituiti da \textit{Intent}, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed \textit{Entity}, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.\\
 	
@@ -178,7 +178,7 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 				\item allenamento;
 				\item trasporti;
 				\item prenotazioni ristoranti;
-				\item CarPlay.
+				\item \gl{CarPlay}.
 			\end{itemize}
 		L'assistente virtuale di casa \gl{Apple} processa per intero ogni frase dell'utente e ne ricava le intenzioni. Tali intenzioni, al fine di essere rappresentate in dati processabili, sono tradotte in \textit{Intents}. Una volta acquisiti i dati e aver creato l'\textit{Intent}, nel caso questi non risultino validi, Siri riformula le domande per gli attributi interessati.
 \newpage
@@ -203,13 +203,13 @@ In questa sezione si vogliono elencare le principali caratteristiche del \gl{SDK
 		\hline 
 		Costi & gratis & gratis senza ambiti predefiniti & gratis & \rule[-0.2cm]{0cm}{0.6cm} gratis fino a 1.000.000 di chiamate (per AWS Lambda)\\
 		\hline 
-		Piattaforme e linguaggi  di prog. supportati & \textit{\gl{Node.js}; Python; Ruby; \gl{HTTP}} & \rule[-0.2cm]{0cm}{0.6cm} \textit{\gl{Android}; \gl{iOS}; \gl{Apple} Watch; \gl{Node.js}; Cordova; Unity; C\#; Xamarin; Windows Phone; Python; \gl{JavaScript}; PHP; Botkit; C++; Mac OS X; HTML; Ruby} & \textit{\gl{iOS}} & qualsiasi linguaggio permetta di accettare richieste \textit{HTTPS}\\
+		Piattaforme e linguaggi  di prog. supportati & \textit{\gl{Node.js}; Python; \gl{Ruby}; \gl{HTTP}} & \rule[-0.2cm]{0cm}{0.6cm} \textit{\gl{Android}; \gl{iOS}; \gl{Apple} Watch; \gl{Node.js}; \gl{Cordova}; \gl{Unity}; \gl{C++}\#; \gl{Xamarin}; \gl{Windows Phone}; Python; \gl{JavaScript}; \gl{PHP}; \gl{Botkit}; \gl{C++}++; Mac OS X; HTML; \gl{Ruby}} & \textit{\gl{iOS}} & qualsiasi linguaggio permetta di accettare richieste \textit{\gl{HTTPS}}\\
 		\hline 
 		\rule[-0.2cm]{0cm}{0.6cm}Documentazione \gl{API} esaustiva & \cmark & \cmark & \cmark & \cmark	\\	
 		\hline
 		\rule[-0.2cm]{0cm}{0.6cm}Gui modificazione \textit{Intents} & \cmark & \cmark & \xmark & \cmark \\
 		\hline 
-		Autenticazione & OAuth2 & double token & \xmark & \rule[-0.2cm]{0cm}{0.6cm}LWA(\textit{Login with Amazon}) \\
+		Autenticazione & \gl{OAuth2} & \gl{double token} & \xmark & \rule[-0.2cm]{0cm}{0.6cm}LWA(\textit{Login with Amazon}) \\
 		\hline
 		\rule[-0.2cm]{0cm}{0.6cm}Numero di lingue supportate & 15 & 50 & 21 & 2 \\
 		\hline
