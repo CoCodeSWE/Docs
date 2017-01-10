@@ -29,6 +29,8 @@ Cloud
 cloud
 CMM
 Cordova
+crash
+Crash
 CSS3
 DBMS
 Design pattern
@@ -44,6 +46,8 @@ Ebook
 Flexible And Adaptive Text To Speech
 Framework
 framework
+Freeze
+freeze
 gateway
 Gateway 
 Git
@@ -115,10 +119,6 @@ Team
 Template
 Texmaker
 ticketing
-crash
-Crash
-freeze 
-Freeze
 Ticketing
 Tomcat
 tvOS
