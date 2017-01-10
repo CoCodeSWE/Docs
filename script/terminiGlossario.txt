@@ -18,7 +18,6 @@ Botkit
 Browser
 browser
 C#
-C++
 Capitolato
 capitolato
 CarPlay
