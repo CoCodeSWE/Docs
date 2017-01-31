@@ -1,0 +1,238 @@
+\documentclass[PianoDiQualifica.tex]{subfiles}
+
+\begin{document}
+
+\section{La strategia di gestione della qualità nel dettaglio}
+
+	\subsection{Risorse}
+	Per garantire un buon funzionamento del processo di verifica verranno impiegati i seguenti tipi di risorse:
+	\begin{itemize}
+		\item risorse umane;
+		\item risorse hardware;
+		\item risorse software.
+	\end{itemize}
+	
+		\subsubsection{Risorse necessarie}
+		
+			\paragraph{Risorse umane}
+			Le risorse umane necessarie al processo di verifica sono i \VERP{} e il \RESP{}. Informazioni più dettagliate sui ruoli sono riportate nelle \NPdocRR{}.
+			
+			\paragraph{Risorse hardware}
+			Per eseguire la verifica, il gruppo dovrà avere a disposizione dei computer con un'adeguata potenza di calcolo in grado di sopportare il carico di lavoro.
+			
+			\paragraph{Risorse software}
+			Le risorse software necessarie alla verifica sono gli strumenti software che eseguono controlli sui documenti e verificano che non violino le \NPdocRR{}.
+			Gli strumenti software devono avere le seguenti caratteristiche:
+			\begin{itemize}
+				\item rilevare eventuali errori ortografici;
+				\item costruire e visualizzare in tempo reale il documento scritto in \LaTeX (in modo che sia facile accorgersi di errori nell’utilizzo dei comandi).
+			\end{itemize}
+			Inoltre è necessario disporre di una piattaforma che raccolga i vari errori incontrati e li segnali ai componenti del gruppo che dovranno occuparsene.
+			
+		\subsubsection{Risorse disponibili}
+		
+			\paragraph{Risorse umane}
+			Tutti i membri del gruppo sono a disposizione per eseguire operazioni di verifica. Ognuno dei componenti, a turno, ricoprirà il ruolo di \RESP{} o di \VER{} come definito nel \PPdocRR{}.
+			
+			\paragraph{Risorse hardware}
+			Le risorse hardware disponibili sono i vari computer dei componenti del gruppo incaricati di svolgere il ruolo di \RESP{} o \VER{}.
+			
+			\paragraph{Risorse software}
+			Le risorse software disponibili comprendono editor \LaTeX{} con controlli integrati e script per controllare la leggibilità e la complessità dei documenti in riferimento all’indice Gulpease.
+			Sarà disponibile anche il sistema di sollevamento delle \gl{issue} offerto dalla piattaforma \gl{GitHub}. Per maggiori informazioni sulla procedura di sollevamento e gestione delle \gl{issue} si veda
+			il documento \NPdocRR{}.
+			
+	\subsection{Misure e metriche}
+	
+		\subsubsection{Misure}
+		Ogni misura effettuata sui processi e sui prodotti deve essere confrontata con una scala. I valori della scala sono:
+		\begin{itemize}
+			\item \textbf{Negativo}: valore non accettabile, bisogna correggere gli errori presenti ed effettuare ulteriori verifiche;
+			\item \textbf{Accettabile}: valore accettabile, l’oggetto sottoposto a verifica ha raggiunto una soglia minima.
+			\item \textbf{Ottimale}: valore accettabile, l’oggetto sottoposto a verifica ha raggiunto le massime aspettative del team.
+		\end{itemize}
+		
+		\subsubsection{Metriche per processi}
+		Viene assegnato un codice identificativo ad ogni metrica, al fine di semplificarne il tracciamento con l'obiettivo ad essa associato. \\
+		Il metodo di denominazione delle metriche è descritto in dettaglio nel documento \NPdocRR{}.
+		
+			\hypertarget{CMM_m}{\paragraph{Capability Maturity Model - MPC1}}
+			Per controllare e verificare la qualità dei processi, vengono adottate le metriche fornite dal modello \gl{CMM}.
+			Per ogni fase di lavoro, viene associato un indice che descriverà la qualità della fase.
+			L'indice, relativo ad una scala appartenente al \gl{CMM}, può assumere i valori tra 1 (il peggiore) e 5 (il migliore). \\
+			Il gruppo ha stabilito i seguenti intervalli:
+			\begin{itemize}
+				\item il valore 1 è considerato negativo;
+				\item i valori 2 e 3 sono considerati accettabili;
+				\item i valori 4 e 5 sono considerati ottimali.
+			\end{itemize}
+			Per approfondimenti sul modello \gl{CMM} consultare l'appendice A.
+			
+			\hypertarget{Schedule_m}{\paragraph{Schedule Variance - MPC2}}
+			La presente metrica indica se le attività di \gl{progetto} sono in anticipo o in ritardo rispetto a quelle pianificate nel \PPdocRR{}. \\
+			Viene calcolata come la differenza fra la data reale di fine di un’attività e la data pianificata di fine dell’attività stessa. \\
+			Se la Schedule Variance ha un valore maggiore di 0 allora il processo è in ritardo rispetto alla pianificazione. Viceversa, se il valore è minore di 0, allora il processo è
+			in anticipo. Se invece il valore è uguale a 0 allora è in linea con quanto pianificato. \\
+			Il gruppo ha stabilito i seguenti intervalli:
+			\begin{itemize}
+				\item un valore maggiore del 5\% rispetto alla pianificazione è considerato negativo;
+				\item un valore minore o uguale al 5\% rispetto alla pianificazione è considerato accettabile;
+				\item valori minori o uguali a 0 sono considerati ottimali.
+			\end{itemize}
+			
+			\hypertarget{Cost_m}{\paragraph{Cost Variance - MPC3}}
+			La presente metrica indica se i costi alla data corrente sono maggiori o minori rispetto a quanto dichiarato nel \PPdocRR{}. \\
+			Viene calcolata come la differenza fra consuntivo e preventivo. \\
+			Il gruppo ha stabilito i seguenti intervalli:
+			\begin{itemize}
+				\item un valore maggiore del 10\% delle risorse preventivate per il processo è considerato negativo;
+				\item un valore minore o uguale al 10\% delle risorse preventivate per il processo è accettabile;
+				\item un valore minore o uguale a 0 è considerato ottimale.
+			\end{itemize}
+			
+		\subsubsection{Metriche per i prodotti}
+		Viene assegnato un codice identificativo ad ogni metrica, al fine di semplificarne il tracciamento con l'obiettivo ad essa associato. \\
+		Il metodo di denominazione delle metriche è descritto in dettaglio nel documento \NPdocRR{}.
+		
+			\paragraph{Metriche per i documenti}
+			La qualità di un documento dipende soprattutto dai suoi contenuti. La loro qualità, tuttavia, è difficilmente quantificabile allo stato attuale del \gl{progetto} a causa
+			dell’esperienza pressoché nulla del gruppo in quest’ambito. Si è deciso dunque di limitarsi a valutare parametri maggiormente oggettivi e soprattutto misurabili automaticamente
+			attraverso strumenti software.
+			
+				\hypertarget{leggi_m}{\subparagraph{Indice di leggibilità - MPDD1}}
+				Per valutare la qualità del documento si è deciso di utilizzare l'indice di leggibilità.
+				In particolare, è stato considerato l’indice Gulpease, studiato appositamente per la lingua italiana. \\
+				Questo particolare indice si basa sulla lunghezza della parola e sulla lunghezza della frase rispetto al numero di lettere. La formula per il suo calcolo è la seguente: \\ \\
+				\begin{equation}\textit{Indice Gulpease} = 89 + \frac{300 * \textit{numeroFrasi} + 10 * \textit{numeroLettere}}{\textit{numeroParole}}\end{equation} \\ \\
+				Il risultato è compreso tra 0 e 100, dove valori alti indicano leggibilità elevata e viceversa.
+				In generale, risulta che testi con un indice:
+				\begin{itemize}
+					\item inferiore a 80 risultano difficili da leggere per chi ha la licenza elementare;
+					\item inferiore a 60 risultano difficili da leggere per chi ha la licenza media;
+					\item inferiore a 40 risultano difficili da leggere per chi ha la licenza superiore.
+				\end{itemize}
+				Poichè la documentazione è rivolta a persone istruite, il gruppo ha stabilito i seguenti intervalli per l'indice:
+				\begin{itemize}
+					\item valori minori di 40 sono considerati negativi;
+					\item valori compresi tra 40 e 60 sono considerati accettabili.
+					\item valori maggiori di 60 sono considerati ottimali.
+				\end{itemize}
+				
+				\hypertarget{err_ortografici}{\subparagraph{Errori ortografici rinvenuti e non corretti - MPDD2}}
+				Tale metrica è necessaria per capire quanto un documento sia corretto dal punto di vista ortografico. Supponendo che gli strumenti automatici
+				siano in grado di trovare tutti gli errori ortografici all’interno di un testo, allora la correttezza ortografica non può che basarsi
+				sul numero di errori rinvenuti ma non successivamente corretti. Notare che per errori corretti si intende un errore revisionato manualmente da parte
+				di un \VER{}. Le correzioni automatiche, infatti, non sono molto attendibili.
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale di errori non corretti maggiore allo 0\% è ritenuta negativa;
+					\item una percentuale di errori non corretti pari allo 0\% è ritenuta accettabile;
+					\item una percentuale di errori non corretti pari allo 0\% è ritenuta ottimale.
+				\end{itemize}
+				
+				\hypertarget{err_concettuali}{\subparagraph{Errori concettuali rinvenuti e non corretti - MPDD3}}
+				Tale metrica è necessaria per capire quanto un documento sia corretto dal punto di vista concettuale. Supponendo che, in seguito alle revisioni,
+				siano stati individuati tutti gli errori concettuali all’interno di un testo, allora la correttezza concettuale non può che basarsi
+				sul numero di errori rinvenuti ma non successivamente corretti. Notare che per errori corretti si intende un errore revisionato manualmente da parte
+				di un \VER{}.
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale di errori non corretti maggiore al 5\% è ritenuta negativa;
+					\item una percentuale di errori non corretti minore o uguale al 5\% è ritenuta accettabile;
+					\item una percentuale di errori non corretti pari allo 0\% è ritenuta ottimale;
+				\end{itemize}
+				
+			\paragraph{Metriche per il software}
+			Il gruppo \GRUPPO{} ha deciso di adottare alcune metriche che hanno il compito di monitorare la qualità interna, la qualità esterna e
+			la qualità in uso del software. Tali metriche sono un sottoinsieme di quelle difinite nello standard ISO/IEC 9126:2001. \\
+			Ogni metrica scelta viene associata ad una caratteristica di qualità presente all’interno dello standard: \\
+			\begin{table}[h]
+				\centering
+				\begin{tabular}{l c}
+					\hline
+					\rule[-0.3cm]{0cm}{0.8cm}
+					\textbf{Metriche scelte} & \textbf{Caratteristiche di qualità} \\
+					\hline
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS1 - Copertura requisiti obbligatori & Funzionalità \\
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS2 - Copertura requisiti desiderabili & Funzionalità \\
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS3 - Copertura requisiti facoltativi & Funzionalità \\
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS4 - Test passati richiesti & Affidabilità \\
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS5 - Failure Avoidance & Affidabilità \\
+					\rule[0cm]{0cm}{0.4cm}
+					MPDS6 - Breakdown Avoidance & Affidabilità \\
+					\hline
+				\end{tabular}
+				\caption{Mappa metriche-caratteristiche}
+			\end{table}
+			
+				\hypertarget{req_obbligatori}{\subparagraph{Copertura requisiti obbligatori - MPDS1}}
+				La seguente metrica controlla quanti requisiti obbligatori sono stati soddisfatti. Viene calcolata come rapporto, espresso in percentuale, tra i requisiti obbligatori soddisfatti e
+				il numero totale dei requisiti obbligatori. \\
+				\begin{equation}\textit{Copertura requisiti obbligatori} = 100 * \frac{\textit{\#requisiti obbligatori soddisfatti}}{\textit{\#requisiti obbligatori totali}}\end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale minore del 100\% è ritenuta negativa;
+					\item una percentuale uguale al 100\% è ritenuta accettabile;
+					\item una percentuale uguale al 100\% ottimale.
+				\end{itemize}
+				
+				\hypertarget{req_desiderabili}{\subparagraph{Copertura requisiti desiderabili - MPDS2}}
+				La seguente metrica controlla quanti requisiti desiderabili sono stati soddisfatti. Viene calcolata come rapporto, espresso in percentuale, tra i requisiti desiderabili soddisfatti e
+				il numero totale dei requisiti desiderabili. \\
+				\begin{equation}\textit{Copertura requisiti desiderabili} = 100 * \frac{\textit{\#requisiti desiderabili soddisfatti}}{\textit{\#requisiti desiderabili totali}}\end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale minore del 70\% è ritenuta negativa;
+					\item una percentuale maggiore o uguale a 70\% è ritenuta accettabile;
+					\item una percentuale uguale al 100\% ottimale.
+				\end{itemize}
+				
+							\hypertarget{req_facoltativi}{\subparagraph{Copertura requisiti facoltativi - MPDS3}}
+				La seguente metrica controlla quanti requisiti facoltativi sono stati soddisfatti. Viene calcolata come rapporto, espresso in percentuale, tra i requisiti facoltativi soddisfatti e
+				il numero totale dei requisiti facoltativi. \\
+				\begin{equation}\textit{Copertura requisiti facoltativi} = 100 * \frac{\textit{\#requisiti facoltativi soddisfatti}}{\textit{\#requisiti facoltativi totali}}\end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale maggiore o uguale a 0\% è ritenuta accettabile;
+					\item una percentuale uguale al 100\% ottimale.
+				\end{itemize}
+				
+				
+				\hypertarget{test_passati}{\subparagraph{Percentuale test passati  - MPDS4}}
+				La metrica controlla che il rapporto, espresso in percentuale, tra il numero di test passati e il numero di test totali rientri tra i valori definiti. Questo ci permette
+				di valutare se il \gl{prodotto} supera la maggior parte dei test. \\
+				\begin{equation}\textit{Test passati richiesti} = 100 * \frac{\textit{\# di test passati}}{\textit{\# di test totali}}\end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale minore del 90\% è ritenuta negativa;
+					\item una percentuale maggiore o uguale a 90\% è ritenuta accettabile;
+					\item una percentuale uguale a 100\% è ritenuta ottimale;
+				\end{itemize}
+				
+				\hypertarget{failure}{\subparagraph{Failure Avoidance - MPDS5}}
+				La metrica controlla che il rapporto, espresso in percentuale, tra il numero di situazioni anomale gestite e il numero di situazioni anomale presentate rientri tra i valori definiti.
+				\begin{equation}\textit{Failure Avoidance} = 100 * \frac{\textit{\# situazioni anomale gestite}}{\textit{\# situazioni anomale presentate}}\end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale minore del 80\% è ritenuta negativa;
+					\item una percentuale compresa tra 80\% e 90\% è ritenuta accettabile;
+					\item una percentuale maggiore di 90\% è ritenuta ottimale.
+				\end{itemize}
+				
+				\hypertarget{breakdown}{\subparagraph{Breakdown Avoidance - MPDS6}}
+				La metrica controlla che la percentuale di interruzioni evitate dal \gl{prodotto} rientri tra i valori definiti. Il valore su cui si applicherà la metrica verrà calcolato come il
+				complemento delle interruzioni verificate. Questa metrica ci permette di controllare che il \gl{prodotto} lavori senza interruzioni.
+				\begin{equation}\textit{Breakdown Avoidance} = 100 * \left ( 1 - \frac{\textit{\# di interruzioni}}{\textit{\# situazioni anomale presentate}} \right ) \end{equation}
+				Il gruppo ha stabilito i seguenti intervalli:
+				\begin{itemize}
+					\item una percentuale minore del 80\% è ritenuta negativa;
+					\item una percentuale compresa tra 80\% e 90\% è ritenuta accettabile;
+					\item una percentuale maggiore di 90\% è ritenuta ottimale.
+				\end{itemize}
+				
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{glossario}
+
+\def\NOME{Glossario}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-01-08}
+\def\REDATTORE{Mattia Bottaro \\ & Pier Paolo Tricomi}
+\def\VERIFICATORE{Luca Bertolini}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Questo documento chiarisce le possibili ambiguità all'interno della documentazione prodotta.}
+
+
+\begin{document}
+	
+\maketitle
+
+\begin{diario}
+    \modifica{Simeone Pizzi}{\RESP}{Approvazione del documento}{2017-01-08}{1.0.0}
+    \modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-01-08}{0.1.0}
+	\modifica{Pier Paolo Tricomi}{\AMM}{Aggiunti vocaboli dalla A alla K}{2017-01-08}{0.0.4}
+	\modifica{Mattia Bottaro}{\AMM}{Aggiunti vocaboli dalla L alla Z}{2017-01-08}{0.0.3}
+    \modifica{Mattia Bottaro}{\AMM}{Aggiunti vocaboli}{2017-01-08}{0.0.2}
+	\modifica{Mattia Bottaro}{\AMM}{Stesura struttura documento e aggiunti primi vocaboli.}{2017-01-08}{0.0.1}
+\end{diario}
+
+\newpage
+% è il caso di includere solo le lettere che contengono vocaboli
+\include{A}
+\include{B}
+\include{C}
+\include{D}
+\include{E}
+\include{F}
+\include{G}
+\include{H}
+\include{I}
+\include{J}
+\include{K}
+\include{L}
+\include{M}
+\include{N}
+\include{O}
+\include{P}
+\include{R}
+\include{S}
+\include{T}
+\include{U}
+\include{V}
+\include{W}
+\include{X}
+\end{document}
