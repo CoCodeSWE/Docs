@@ -93,6 +93,11 @@ Se il \RESP{} decide che l'incontro può essere organizzato dovrà accordarsi co
       \item Esterni: contiene i documenti esterni;
       \item Interni: contiene i documenti interni.
      \end{itemize}
+     \item RP
+     \begin{itemize}
+     	\item Esterni: contiene i documenti esterni;
+     	\item Interni: contiene i documenti interni.
+     \end{itemize}
      \item script: contiene gli script utilizzati;
      \item \gl{template}: contiene i \gl{template} utilizzati.
     \end{itemize}
@@ -101,6 +106,8 @@ In futuro verranno aggiunte nuove \gl{repository}, le quali strutture saranno ra
  \paragraph{Commit}
  Ogni commit effettuata deve essere accompagnata da un messaggio descrittivo delle modifiche effettuate. L'autore della commit dovrà assicurarsi della correttezza dei file. È sconsigliato effettuare il commit di intere cartelle, al fine di evitare inclusioni di file inutili(ad es: file di compilazione).
  Dovrà inoltre essere segnalata l'eventuale aggiunta di nuovi file.
+ \paragraph{Modifiche}
+ In caso di modifiche importanti da attuare, si dovrà creare un \gl{branch} apposito nel quale lavorare, al fine di proteggere il branch principale di sviluppo. Una volta apportate, le modifiche dovranno essere applicate al branch principale.
  \subsubsection{Rischi}
  Il \RESP{} ha il dovere di individuare e monitorare i rischi indicati nel \PPdoc. In caso ne vengano identificati di nuovi, il \RESP{} deve agire nel modo seguente:
  \begin{itemize}
