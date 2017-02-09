@@ -28,8 +28,8 @@
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
-$rev = ('../RR/'); //al cambio di revisione modificare questa variabile
-$revisione = 'Revisione dei requisiti';//e questa
+$rev = ('../RP/'); //al cambio di revisione modificare questa variabile
+$revisione = 'Revisione di Progettazione';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -43,9 +43,6 @@ $docs = array(
   'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
-  '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-  '2VI' => 'Verbale_I_2016-12-19',
-  '1VE' => 'Verbale_E_2016-12-17/',
   'PdQ' => 'PianoDiQualifica/',
   'SDK' => 'AnalisiSDK/'
   //'LdP' => 'LetteraDiPresentazione/'
@@ -126,7 +123,7 @@ function glossarizeDoc($path) {
       /**
        * ...e la (de)glossarizza!
        */
-      if (preg_match("/\b$voce\b/", $line)) {
+      if (preg_match("/\b\gl\{$voce\}\b/", $line)) {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
           //echo $path." ".$voce."\n";
 
@@ -137,7 +134,7 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce="casi duso";
           }
-          shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
+          shell_exec("sed -r -i '$lineNumber!b;s/(\\\<$voce\>)|(\<$voce\>)/\\$voce/g' $filename") . "\n";
           if($voce=="casi duso"){
             $file_contents = file_get_contents($filename);
             $file_contents = str_replace("casi duso",$Vvoce,$file_contents);
