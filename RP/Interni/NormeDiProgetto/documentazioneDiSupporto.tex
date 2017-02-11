@@ -12,23 +12,6 @@ del \gl{software};
 \subsubsection{Descrizione}
 In questo documento devono essere redatte tutte le norme e le convenzioni adottate dal gruppo,
 in modo da produrre una documentazione valida e coerente.
-\subsubsection{Procedure}
-Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX{}, si veda la \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
- \paragraph{Approvazione dei documenti}
-La formalizzazione di un documento segue la seguente procedura:
-\begin{enumerate}
-	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
-	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
-	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica \gl{issue}, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
-	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
-\end{enumerate}
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.4]{img/flussoapprovazione.png}
-\caption{Flow chart dell'approvazione di un documento}\label{sec:Figura2}
-\end{figure}
-\subsubsection{Template}
-Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
 \subsubsection{Struttura dei documenti}
  \paragraph{Frontespizio} 
 La prima pagina di ogni documento dovrà contenere:
@@ -69,27 +52,6 @@ Il piè di pagina contiene invece:
 	\item nome del gruppo;
 	\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali del documento.
 \end{itemize} 
-\subsubsection{Versionamento}
-Ciascun documento che verrà redatto dovrà essere versionato, per consentire un tracciamento chiaro della sua storia e delle sue modifiche.\\Verrà applicato il seguente formalismo:\\ \\ \centerline{vX.Y.Z}\\ \\dove:
-\begin{itemize}
-	\item \textbf{X}:
-	\begin{itemize}
-		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento.
-	\end{itemize}
-	\item \textbf{Y}:
-	\begin{itemize}
-		\item inizia da 0;
-		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
-		\item quando viene modificato X, viene riportato a 0.
-	\end{itemize}
-	\item \textbf{Z}:
-	\begin{itemize}
-		\item inizia da 0;
-		\item viene incrementato dal Redattore del documento dopo ogni modifica;
-		\item quando viene modificato Y, viene riportato a 0.
-	\end{itemize}
-\end{itemize}
 \subsubsection{Norme tipografiche}
 In questa sezione vengono definite le norme ortografiche e tipografiche da rispettare nella stesura di ogni documento.
  \paragraph{Stile del testo} 
@@ -213,6 +175,73 @@ dove:
 	\item \textbf{Y}: rappresenta il numero della decisione all'interno di un singolo verbale (inizia da 1).
 \end{itemize}
 Inoltre vengono tracciate le decisioni in sospeso che verranno chiarite in verbali successivi. Il formato identificativo è lo stesso delle decisioni definitive, dove nel codice la D viene sostituita dalla S.
+\subsubsection{Procedure}
+Per la stesura della documentazione si è utilizzato il linguaggio \LaTeX{}, si veda la \hyperref[sec:Strumenti]{sezione strumenti \ref*{sec:Strumenti}}.
+\paragraph{Approvazione dei documenti}
+La formalizzazione di un documento segue la seguente procedura:
+\begin{enumerate}
+	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
+	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
+	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica \gl{issue}, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
+	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
+\end{enumerate}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{img/flussoapprovazione.png}
+	\caption{Flow chart dell'approvazione di un documento}\label{sec:Figura2}
+\end{figure}
+\newpage
+\paragraph{Versionamento}
+Ciascun documento che verrà redatto dovrà essere versionato, per consentire un tracciamento chiaro della sua storia e delle sue modifiche.\\Verrà applicato il seguente formalismo:\\ \\ \centerline{vX.Y.Z}\\ \\dove:
+\begin{itemize}
+	\item \textbf{X}:
+	\begin{itemize}
+		\item inizia da 0;
+		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento.
+	\end{itemize}
+	\item \textbf{Y}:
+	\begin{itemize}
+		\item inizia da 0;
+		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
+		\item quando viene modificato X, viene riportato a 0.
+	\end{itemize}
+	\item \textbf{Z}:
+	\begin{itemize}
+		\item inizia da 0;
+		\item viene incrementato dal Redattore del documento dopo ogni modifica;
+		\item quando viene modificato Y, viene riportato a 0.
+	\end{itemize}
+\end{itemize}
+\paragraph{Glossarizzazione}
+È stato creato uno script PHP che permette la glossarizzazione di tutti i documenti, ovvero marca in corsivo e con la g a pedice tutte le parole presenti nel \Gldoc{}. Prima di ogni revisione, lo script dovrà essere lanciato da terminale con il comando \begin{verbatim}
+php glossarize2.php
+\end{verbatim}
+\paragraph{Calcolo dell'indice di Gulpease}
+Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di
+leggibilità con un indice Gulpease superiore a 40 punti. Prima di ogni revisione è necessario lanciare lo script da terminale con il comando \begin{verbatim}
+php gulpease.php
+\end{verbatim}
+il quale calcola l'indice di Gulpease di tutti i documenti.
+\paragraph{Inserimento di un termine nel \Gldoc}
+Per inserire un termine nel \Gldoc è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item effettura l'accesso in PragmaDB;
+	\item selezionare la voce "Glossario"
+	\item inserire i campi richiesti.
+\end{itemize}
+\paragraph{Produzione automatica del documento \Gldoc}
+Per produrre automaticamente il \Gldoc è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item effettura l'accesso in PragmaDB;
+	\item selezionare la voce "Glossario";
+	\item selezionare tutte le voci sotto "Esporta in \LaTeX";
+	\item aprire il file chiamato \Glfile;
+	\item includere il file .tex generato da PragmaDB con il seguente comando
+	\begin{verbatim}
+	input{nomeFile}
+	\end{verbatim}
+	dove "nomeFile" è il nome del file generato a PragmaDB.
+\end{itemize}
 \subsubsection{Strumenti}
 \label{sec:Strumenti}
  \paragraph{\LaTeX{}}
@@ -223,7 +252,18 @@ La stesura dei documenti deve essere effettuata utilizzando il linguaggio di \gl
 \gl{template} separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
-Inoltre è stato reso disponibile uno script \gl{PHP} che per ogni documento \LaTeX{}{} marca tutte  le parole presenti nel \Gldoc{} secondo le regole decise nelle \NPdoc.
+\subparagraph{Template}
+Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
+\subparagraph{Comandi personalizzati}
+Sono stati definiti dei comandi \LaTeX{} personalizzati al fine di poter rendere più semplice ed immediata
+l’applicazione delle norme tipografiche. Questi comandi si occupano delle
+corretta formattazione del testo secondo le norme che sono state definite. La
+lista dei comandi è presente nel file \textit{Docs/template/Comandi.sty}.
+\subparagraph{Riferimenti personalizzati}
+Sono stati definiti dei riferimenti \LaTeX{} personalizzati al fine di poter rendere più semplice ed immediato
+il riferimento a ruoli, documenti, periodi e file. Questi riferimenti si occupano delle
+corretta formattazione del testo secondo le norme che sono state definite. La
+lista dei riferimenti è presente nel file \textit{Docs/template/Riferimenti.sty}.
  \paragraph{\gl{Texmaker}}
 Per la redazione del codice \LaTeX{}{} viene utilizzato l'editor \gl{Texmaker}. Questo
 strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce suggerimenti per il completamento dei comandi \LaTeX{}.
@@ -234,3 +274,8 @@ strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce 
 \end{figure}
  \paragraph{Excel}
 Per la creazione di grafici (istogrammi, diagrammi a torta, ecc.) viene utilizzato Excel di Microsoft Office, nella versione 2013 o successive.
+\paragraph{Script}
+\subparagraph{Gulpease}
+In \textit{Docs/script/gulpease.php} si trova lo script che, per ogni documento, calcola l'indice di Gulpease.
+\subparagraph{Glossarizzazione} 
+In \textit{Docs/script/glossarize2.php} si trova lo script che, per ogni documento, marca come glossarizzate le parole contenute in \textit{Docs/script/terminiGlossario.txt}, le quali poi saranno presenti nel \Gldoc.
