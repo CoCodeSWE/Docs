@@ -13,7 +13,7 @@ del \gl{software};
 In questo documento devono essere redatte tutte le norme e le convenzioni adottate dal gruppo,
 in modo da produrre una documentazione valida e coerente.
 \subsubsection{Struttura dei documenti}
- \paragraph{Frontespizio} 
+ \paragraph{Frontespizio}
 La prima pagina di ogni documento dovrà contenere:
 \begin{itemize}
 	\item logo del gruppo;
@@ -38,23 +38,35 @@ La prima pagina di ogni documento dovrà contenere:
  	\item ruolo ricoperto dall'autore all'interno del \gl{progetto};
  	\item data di modifica.
  \end{itemize}
- \paragraph{Indice}
+ \paragraph{Indici}
  In ogni documento è presente un indice delle sezioni, utile a fornire una visione macroscopica della struttura del documento. Sono previsti, se necessari, gli indici relativi alle tabelle e alle figure presenti nel documento in questo ordine.
+ 
  \paragraph{Intestazione e piè di pagina}
 L'intestazione delle pagine di ogni documento deve contenere:
 \begin{itemize}
 	\item numero e titolo della sezione;
 	\item nome del \gl{progetto}.
-\end{itemize} 
+\end{itemize}
 Il piè di pagina contiene invece:
 \begin{itemize}
 	\item nome del documento con la relativa versione;
 	\item nome del gruppo;
 	\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali del documento.
-\end{itemize} 
+\end{itemize}
+\paragraph{Introduzione}
+In questa sezione vengono fornite le seguenti informazioni: 
+\begin{itemize}
+	\item scopo del documento;
+	\item glossario;
+	\item riferimenti utili;
+	\begin{itemize}
+		\item riferimenti normativi;
+		\item riferimenti informativi.
+	\end{itemize}
+\end{itemize}
 \subsubsection{Norme tipografiche}
 In questa sezione vengono definite le norme ortografiche e tipografiche da rispettare nella stesura di ogni documento.
- \paragraph{Stile del testo} 
+ \paragraph{Stile del testo}
 \begin{itemize}
 	\item \textbf{Grassetto}: viene utilizzato per:
 	\begin{itemize}
@@ -114,11 +126,11 @@ E' previsto l'utilizzo di queste sigle:
 	\item \textbf{PdQ}: per \PQdoc;
 	\item \textbf{ST}: per \STdoc;
 	\item \textbf{Gl}: per \Gldoc;
-	\item \textbf{DP}: per \DPdoc.		
+	\item \textbf{DP}: per \DPdoc.
 \end{itemize}
- 
+
 \subsubsection{Elementi grafici}
- \paragraph{Tabelle} 
+ \paragraph{Tabelle}
  Le tabelle devono essere accompagnate da una didascalia e da un numero incrementale per
 garantirne la tracciabilità.
  \paragraph{Immagini}
@@ -216,11 +228,7 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 È stato creato uno script PHP che permette la glossarizzazione di tutti i documenti, ovvero marca in corsivo e con la g a pedice tutte le parole presenti nel \Gldoc{}. Prima di ogni revisione, lo script dovrà essere lanciato da terminale con il comando \begin{verbatim}
 php glossarize2.php
 \end{verbatim}
-\paragraph{Calcolo dell'indice di Gulpease}
-Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di
-leggibilità con un indice Gulpease superiore a 40 punti. Prima di ogni revisione è necessario lanciare lo script da terminale con il comando \begin{verbatim}
-php gulpease.php
-\end{verbatim}
+
 il quale calcola l'indice di Gulpease di tutti i documenti.
 \paragraph{Inserimento di un termine nel \Gldoc}
 Per inserire un termine nel \Gldoc è necessario seguire la seguente procedura:
@@ -253,39 +261,206 @@ La stesura dei documenti deve essere effettuata utilizzando il linguaggio di \gl
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
 \subparagraph{Template}
-Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto. 
+Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto.
 \subparagraph{Comandi personalizzati}
 Sono stati definiti dei comandi \LaTeX{} personalizzati al fine di poter rendere più semplice ed immediata
 l’applicazione delle norme tipografiche. Questi comandi si occupano delle
 corretta formattazione del testo secondo le norme che sono state definite. La
-lista dei comandi è presente nel file \textit{Docs/template/Comandi.sty}.
+lista dei comandi è presente nel file \file{Docs/template/Comandi.sty}.
 \subparagraph{Riferimenti personalizzati}
 Sono stati definiti dei riferimenti \LaTeX{} personalizzati al fine di poter rendere più semplice ed immediato
 il riferimento a ruoli, documenti, periodi e file. Questi riferimenti si occupano delle
 corretta formattazione del testo secondo le norme che sono state definite. La
-lista dei riferimenti è presente nel file \textit{Docs/template/Riferimenti.sty}.
+lista dei riferimenti è presente nel file \file{Docs/template/Riferimenti.sty}.
  \paragraph{\gl{Texmaker}}
 Per la redazione del codice \LaTeX{}{} viene utilizzato l'editor \gl{Texmaker}. Questo
 strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce suggerimenti per il completamento dei comandi \LaTeX{}.
 \begin{figure}[h]
 \centering
+
 \includegraphics[scale=0.4]{img/texm.png}
 \caption{Texmaker}\label{sec:Figura3}
 \end{figure}
  \paragraph{Excel}
 Per la creazione di grafici (istogrammi, diagrammi a torta, ecc.) viene utilizzato Excel di Microsoft Office, nella versione 2013 o successive.
-\paragraph{Script}
-\subparagraph{Gulpease}
-In \textit{Docs/script/gulpease.php} si trova lo script che, per ogni documento, calcola l'indice di Gulpease.
-\subparagraph{Glossarizzazione} 
-In \textit{Docs/script/glossarize2.php} si trova lo script che, per ogni documento, marca come glossarizzate le parole contenute in \textit{Docs/script/terminiGlossario.txt}, le quali poi saranno presenti nel \Gldoc.
+\paragraph{Script di glossarizzazione}
+
+In \GloScript{} si trova lo script che, per ogni documento, marca come glossarizzate le parole contenute in \GloScript, le quali poi saranno presenti nel \Gldoc.
 \subsection{Qualità}
 \subsubsection{Metriche}
-Le metriche di qualità definite devono rispettare la seguente notazione:\\
-\centerline{M[X][Y][Z]}
+Per garantire la qualità del lavoro del team gli \AMMP{} hanno definito delle metriche, riportandole
+nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{M\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
 dove:
 \begin{itemize}
-	\item \textbf{X} 
+	\item \textbf{X} indica se la metrica si riferisce a prodotti o processi e può assumere
+	i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se la metrica è riferita ai prodotti, indica se il termine \gl{prodotto} si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco della metrica (numero intero incrementale a partire da 1).
 \end{itemize}
 \subsubsection{Obiettivi}
+Per garantire la qualità del lavoro del team, gli \AMMP{} hanno definito degli obiettivi di qualità,
+riportandoli nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{O\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
+dove:
+\begin{itemize}
+	\item \textbf{X} indica se l'obiettivo si riferisce a prodotti o processi e può assumere i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se l'obiettivo è riferito ai prodotti, indica se il termine \gl{prodotto} si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco dell'obiettivo (numero intero incrementale a partire da 1).
+\end{itemize}
+\subsubsection{Procedure}
+
+\paragraph{Calcolo dell'indice di Gulpease}
+Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di
+leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item dirigersi con il terminale in \GulScript;
+	\item dare il comando
+ \begin{verbatim}
+php gulpease.php
+\end{verbatim}
+    \item visualizzare il risultato sul terminale.
+\end{itemize}
+\paragraph{Controllo ortografico}
+Per verificare la correttezza ortografica è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire Texmaker;
+	\item aprire il documento interessato nel formato .tex;
+	\item dal menù a tendina "Modifica", selezionare la voce "verifica ortografia".
+\end{itemize}
+Per rendere ciò possibile, è necessario installare il pacchetto relativo dizionario italiano per Texmaker.
+\paragraph{Resoconto stato metriche}
+Per visualizzare il resoconto corrente dello stato di ciò che le metriche indicano, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item effettuare l'accesso in PragmaDB;
+	\item selezionare la voce "Metriche".
+\end{itemize}
+\subsubsection{Strumenti}
+\paragraph{Script per il calcolo dell'indice di Gulpease}
+In \GulScript{} si trova lo script che calcola l'indice di Gulpease per ogni documento.
+\paragraph{Controllo ortografico}
+Per il controllo ortografico dei documenti si farà utilizzo dello strumento integrato in Texmaker.\\
+Per poterlo utilizzare, è necessario disporre del pacchetto per il dizionario italiano.
+
+\paragraph{Requisiti obbligatori soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Requisiti accettati soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Requisiti non accettati soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Requisiti obbligatori soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Structural Fan-In}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Structural Fan-Out}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Metodi per classe}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare le classi ed associarle ad altre classi correlate e requisiti.
+\paragraph{Parametri per metodo}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Componenti integrate}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di unità eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di integrazione eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di sistema eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di validazione eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test superati}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Completezza implementazione funzionale}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Densità di failure}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
 \subsection{Configurazione}
+\subsubsection{Versionamento}
+\paragraph{Repository}
+Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} \gl{GitHub}, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE}. Tutti i membri del gruppo dovranno creare un proprio account \gl{GitHub}, per poi ricevere i permessi in scrittura sul \gl{repository} da parte dell'\AMM.
+La gestione del \gl{repository} è responsabilità degli \AMMP.
+\paragraph{Struttura del \gl{repository} Docs}
+Al fine di mantenere ordine e coerenza tra i file, il \gl{repository} è così strutturato:
+\begin{itemize}
+	\item Docs
+	\begin{itemize}
+		\item RR
+		\begin{itemize}
+			\item Esterni: contiene i documenti esterni;
+			\item Interni: contiene i documenti interni.
+		\end{itemize}
+		\item RP
+		\begin{itemize}
+			\item Esterni: contiene i documenti esterni;
+			\item Interni: contiene i documenti interni.
+		\end{itemize}
+		\item script: contiene gli script utilizzati;
+		\item \gl{template}: contiene i \gl{template} utilizzati.
+	\end{itemize}
+\end{itemize}
+In futuro verranno aggiunte nuove \gl{repository}, le quali strutture saranno rappresentate come precedentemente fatto con Docs.
+\paragraph{Commit}
+Ogni commit effettuata deve essere accompagnata da un messaggio descrittivo delle modifiche effettuate. L'autore della commit dovrà assicurarsi della correttezza dei file. È sconsigliato effettuare il commit di intere cartelle, al fine di evitare inclusioni di file inutili(ad es: file di compilazione).
+Dovrà inoltre essere segnalata l'eventuale aggiunta di nuovi file.
+\paragraph{Modifiche}
+In caso di modifiche importanti da attuare, si dovrà creare un \gl{branch} apposito nel quale lavorare, al fine di proteggere il branch principale di sviluppo. Una volta apportate, le modifiche dovranno essere applicate al branch principale.
+\paragraph{Procedure}
+\subparagraph{Aggiornamento del repository locale} 
+Per aggiornare il repository in oggetto, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire il terminale nel repository;
+	\item dare il comando \file{git pull}.
+\end{itemize}
+Se l'operazione non è possibile a causa di conflitti sui file, è necessario risolverli a mano per poi riapplicare la procedura precedente.
+\subparagraph{Aggiornamento del repository remoto}
+Per aggiornare il repository in oggetto con le proprie modifiche locali, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire il terminale nel repository;
+	\item dare il comando \file{git add lista\_file} ;
+	\item dare il comando \file{git commit -m "messaggio"}, dove il messaggio dovrà essere un breve testo esplicativo delle modifiche che si stanno apportando;
+	\item dare il comando \file{git push}.
+\end{itemize}
+\subparagraph{Utilizzo di un branch}
+Per creare un branch è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire il terminale nel repository;
+	\item dare il comando \file{git checkout -b nomeBranch}.
+\end{itemize}
+Una volta dato \file{git push}, verrà creato il corrispondente branch in GitHub. \\
+Una volta terminato il suo utilizzo, il branch dovrà essere eliminato seguendo questa procedura:
+\begin{itemize}
+	\item aprire il terminale nel repository;
+	\item se ci si trova sul branch da eliminare, spostarsi da esso con \file{git checkout master};
+	\item dare il comando \file{git checkout -d nomeBranch}.
+\end{itemize}
+\paragraph{Strumenti}
+ \subparagraph{Git}
+ Lo strumento usato per il versionamento è \gl{Git}, in combinazione con il servizio di host GitHub e con GitHub desktop.
+ Git è un software open-source di controllo versione distribuito utilizzabile dal terminale. Come versione si utilizza la 2.7.4 o superiori.
+ \subparagraph{GitHub}
+ \gl{GitHub} è un servizio di hosting per progetti \gl{software}, con il quale è possibile interagire tramite \gl{Git}. \gl{GitHub}
+ offre diversi piani per \gl{repository} privati sia a pagamento, sia gratuiti, molto utilizzati per lo
+ sviluppo di progetti open-source. 
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[scale=0.4]{img/github.png}
+ 	\caption{Github}\label{sec:Figura4}
+ \end{figure}
+ \subparagraph{GitHub desktop}
+ \gl{GitHub} Desktop è l'applicativo desktop per contribuire e collaborare ai progetti del corrispondente servizio web \gl{GitHub}. Esso è disponibile per Windows e MacOS. Per Windows si utilizza la versione 3.3.3 o superiori.
