@@ -15,13 +15,20 @@ Le aspettative del processo sono:
  Il \RESP{} è il rappresentante e il punto di riferimento del gruppo, nonché colui che si assume le responsabilità delle scelte del gruppo.
  Le responsabilità assunte sono:
  \begin{itemize}
-  \item pianificazione e coordinamento delle attività;
-  \item analisi e gestione dei rischi;
+  \item pianificazione, coordinamento e controllo delle attività;
   \item gestione delle risorse;
+  \item analisi e gestione dei rischi;
   \item approvazione dei documenti;
   \item approvazione dell'offerta economica;
-  \item assicurarsi del rispetto delle \NPdoc{} e che vengano rispettate le pianificazioni nel \PPdoc.
- \end{itemize}
+  \item convocazione delle riunioni interne;
+  \item relazioni esterne;
+  \item assegnazione delle attività a persone.
+\end{itemize}
+Per questi motivi ha il compito di:
+\begin{itemize}
+	\item assicurarsi che le attività di verifica e validazione siano svolte seguendo le normediprogetto;
+	\item garantire il rispetto dei ruoli e dei compiti assegnati nel pianodiprogetto.
+\end{itemize}
  \paragraph{Amministratore}
  L'\AMM{} è responsabile dell'efficienza dell'ambiente di lavoro, in particolare si occupa di:
  \begin{itemize}
@@ -30,13 +37,21 @@ Le aspettative del processo sono:
   \item garantire la qualità del \gl{prodotto}, fornendo procedure e strumenti di monitoraggio e segnalazione;
   \item eliminare le difficoltà sulla gestione di processi e risorse.
  \end{itemize}
+ L'\AMM{} non compie scelte gestionali, ma tecnologiche concordate con il \RESP.
  \paragraph{Analista}
  L'\AN{} deve identificare e comprendere il dominio del problema. \\
  In particolare si occupa di:
  \begin{itemize}
   \item mappare le richieste del cliente in specifiche per il \gl{prodotto};
-  \item catalogare e spiegare specifiche comprensibili nell'\ARdoc{} e nello \SFdoc{}.
- \end{itemize}
+  \item catalogare e spiegare specifiche comprensibili nell'\ARdoc{} e nello \SFdoc{};
+  \item classificare i requisiti;
+  \item stendere i diagrammi dei casi d'uso;
+  \item assegnare i requisiti a parti distinte del sistema;
+  \item assicurarsi che i requisiti trovati siano conformi alle richieste del proponente;
+  \item definire test di sistema e di accettazione al fine di verificare i requisiti.
+\end{itemize}
+L'\AN{} non si occupa di trovare una soluzione al problema, ma lo definisce redigendo lo \textit{"Studio di Fattibilità"} e l'\textit{"Analisi dei Requisiti"}. 
+
  \paragraph{Progettista}
  Il \PJ{} ha forti competenze sullo \gl{stack} tecnologico usato. \\
  In particolare deve: 
@@ -45,7 +60,9 @@ Le aspettative del processo sono:
   \item descrivere il funzionamento del \gl{sistema} progettandone l'architettura;
   \item produrre una soluzione fattibile in termini di risorse.
  \end{itemize}
- \paragraph{Programmatore}
+Il \PJ{} redige i documenti di \textit{"Specifica Tecnica"}, \textit{"Definizione di prodotto"} e si occupa delle sezioni del \textit{"Piano di Qualifica"} relative alle metriche di verifica della programmazione.
+\newpage
+\paragraph{Programmatore}
  Il \PR{} si occupa della codifica, in particolare:
  \begin{itemize}
   \item implementa le soluzioni indicate dal \PJ ;
@@ -57,14 +74,31 @@ Le aspettative del processo sono:
  In particolare deve: 
  \begin{itemize}
   \item controllare il rispetto delle \NPdoc durante ogni attività del \gl{progetto}.
- \end{itemize} 
+ \end{itemize}
+ \paragraph{Rotazione dei ruoli}
+ Ogni membro del gruppo dovrà ricoprire ciascuno dei ruoli del progetto. La pianificazione dovrà essere redatta prestando attenzione a quanto segue:
+ \begin{itemize}
+ 	\item ogni membro del gruppo non dovrà mai ricoprire un ruolo che preveda la verifica dell'operato svolto da lui in precedenza poiché questo potrebbe portare ad un conflitto di interesse;
+ 	\item bisogna tener conto dei possibili impegni o interessi dei singoli membri del gruppo;
+ 	\item ciascun membro dovrà assicurare l'esclusivo svolgimento del ruolo a lui assegnato.
+ \end{itemize}  
 \subsubsection{Comunicazioni}
  \paragraph{Interne}
  È stato creato un gruppo Telegram, accessibile solo ai membri del team, per effettuare le comunicazioni interne. In caso siano necessaria maggiore interazione, si farà utilizzo di \gl{Google Hangouts}. 
  \paragraph{Esterne}
- È stata creata un'apposita cartella di posta elettronica per mantenere i contatti con il \gl{proponente}, il committente ed altre eventuali figure esterne.
- La gestione della casella di posta elettronica è compito del \RESP. \\
+ È stata creata un'apposita cartella di posta elettronica per mantenere i contatti con il \gl{proponente}, il committente ed altre eventuali figure esterne.\\
+  Inoltre, su richiesta dell'azienda proponente \PROPONENTE, è stato creato un apposito dominio Slack per permettere una veloce interazione tra i gruppi fornitori e l'azienda. Il dominio è zero12university. \\
+ La gestione della casella di posta elettronica e di Slack è compito del \RESP. \\
  L'indirizzo e-mail è il seguente: \EMAIL.
+ \paragraph{Email}
+ Le mail devono essere scritte nella maniera più chiara e corretta possibile, in particolare ognuna di esse deve essere composta di:
+ \begin{itemize}
+ 	\item destinatario;
+ 	\item oggetto, che deve essere breve e diretto;
+	\item contenuto, che deve essere chiaro ed esaustivo;
+	\item firma del responsabile.
+ \end{itemize}
+ Nel caso si vogliano scambiare dei documenti, si deve a evitare l'invio di allegati tramite email e preferire l'utilizzo di un apposito sito di scambi, quale ad esempio Google Drive.
 \subsubsection{Incontri}
  \paragraph{Interni}
  Ogni membro del team può proporre un incontro interno tramite il \gl{bot} Telegram \gl{VotePoll}, specificando i motivi e l'oggetto dell'incontro. 
@@ -74,6 +108,7 @@ Le aspettative del processo sono:
  Ogni membro del team può proporre un incontro esterno tramite il \gl{Bot} Telegram "\gl{VotePoll}", specificando i motivi e l'oggetto dell'incontro. 
 Se il \RESP{} decide che l'incontro può essere organizzato dovrà accordarsi con la figura esterna, e comunicare gli estremi della riunione ai membri del team.\\
  La verbalizzazione degli incontri esterni è compito del \RESP.
+ 
 \subsubsection{Strumenti di coordinamento}
  \paragraph{\gl{Ticketing}}
  Il \RESP{} ha il compito di assegnare i \gl{task} ai membri del team utilizzando l'applicativo web \gl{Asana}. \\
@@ -91,7 +126,8 @@ Se il \RESP{} decide che l'incontro può essere organizzato dovrà accordarsi co
  Telegram è un \gl{software} libero che fornisce un servizio di messaggistica istantanea erogato senza fini di lucro dalla società Telegram LLC. È stato ritenuto più adatto di Whatsapp.
  \paragraph{\gl{Google Hangouts}}
  Hangouts è un \gl{software} di messaggistica istantanea e di \gl{VoIP}   sviluppato da Google. È disponibile per le piattaforme mobili \gl{Android} e \gl{iOS} e come estensione per il \gl{browser} web Google Chrome. Inoltre, permette la condivisione degli schermi tra i membri della chiamata. È stato ritenuto più adatto di Skype.
-
+ \paragraph{Google Drive}
+ Google Drive è un applicativo web che consente lo scambio di file tra più persone. Il gruppo \GRUPPO dovrà far utilizzo di questo strumento per lo scambio di file con le entità esterne.
  \paragraph{\gl{Asana}}
  \gl{Asana} è un applicativo web e mobile che consente al team di assegnare, tracciare e gestire dei \gl{task}.
 \begin{figure}[h]
@@ -106,4 +142,3 @@ Se il \RESP{} decide che l'incontro può essere organizzato dovrà accordarsi co
 \includegraphics[scale=0.35]{img/gantt.png}
 \caption{GanttProject}\label{sec:Figura6}
 \end{figure} 
- 
