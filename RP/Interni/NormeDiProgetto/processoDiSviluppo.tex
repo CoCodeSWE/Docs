@@ -100,7 +100,7 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  documenti: \textit{"Specifica Tecnica"} e \textit{"Definizione di Prodotto"}. \\
  Compresi pienamente quali siano i requisiti del problema e approfondendo la progettazione a moduli
  abbastanza semplici da essere capiti da una sola persona, si otterranno le
- istruzioni necessarie ai \PRP{} per sviluppare il prodotto g finito.
+ istruzioni necessarie ai \PRP{} per sviluppare il prodotto.
  \paragraph{Aspettative dell'attività}
  Il processo porta alla formazione dei documenti sopracitati, i quali garantiscono affidabilità e
  coerenza.
@@ -156,31 +156,31 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  \paragraph{Stile}
  Al fine di rendere il codice più leggibile possibile, il gruppo dovrà rispettare le seguenti regole:
  \begin{itemize}
- 	\item all'inizio di ogni file dovrà essere presente un'intestazione contenete il nome dell'autore, la data di creazione e l'utilità del file;
+ 	\item all'inizio di ogni file dovrà essere presente un'intestazione contenete il nome dell'autore, la data di creazione, l'utilità del file e il diario delle modifiche;
  	\item ogni modifica apportata dovrà essere descritta nell'intestazione;
  	\item scrivere dei commenti in italiano qualora certe porzioni di codice possano risultare poco chiare o complesse;
  	\item evitare di commentare porzioni di codice dal funzionamento banale;
  	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di quattro spazi, come nell'esempio che segue: \begin{verbatim}
  	if(condition)
  	{
- 	a=b;
- 	b=c;
+ 	    a=b;
+ 	    b=c;
  	}
  	\end{verbatim}
  	\item le parentesi graffe che vanno a delimitare un blocco di codice dovranno trovarsi al di sotto della sua segnatura, come negli esempi che seguono:
  	\begin{verbatim}
  	while(condition)
  	{
- 	operazioni
+ 	    operazioni
  	}
  	
  	void foo()
  	{
- 	operazioni
+     	operazioni
  	}
  	\end{verbatim}
  	\item evitare più di una istruzione per riga;
- 	\item le costante devono essere scritte in maiuscolo;
+ 	\item le costanti devono essere scritte in maiuscolo;
  	\item i nomi delle variabili devono rispettare le seguenti regole:
  	\begin{itemize}
  		\item avere un nome più esplicativo possibile;
@@ -195,35 +195,14 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  		\item evitare un numero eccessivo di parametri.
  	\end{itemize}
  	\item evitare l'eccessivo innestarsi di statement;
- 	\item linee troppo lunghe dovranno essere spezzate in più parti;
+ 	\item linee troppo lunghe dovranno essere spezzate in più parti.
  \end{itemize}
  Il codice che segue vuole essere un esempio delle regole appena descritte.
- \begin{verbatim}
- /* 
- Autore : Mario Rossi
- Data : 2017-04-12
- Questo file contiene la definizione e implementazione della classe Automobile
- Modifiche:
- Luigi Verdi, 2017-04-13, aggiunto metodo getNumeroDiPorte, versione 0.0.2
- Mario Rossi, 2017-04-12, creato il file, versione 0.0.1
- */
- 
- public class Automobile
- {
- private int numero_di_porte;
- private double final PREZZO_BASE=5000;
- /*
- Il metodo seguente ritorna il numero di ruote dell'automobile. 
- In caso il numero di ques'ultime sia negativo, si segnala l'errore ritornando 0.
- */
- public getNumeroDiPorte()
- {
- if(numero_di_porte < 0)
- return 0; // si è verificato un errore
- return numero_di_porte;
- }
- }
- \end{verbatim}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{img/esempioStileCodifica.png}
+	\caption{Esempio di stile di codifica}
+\end{figure} 
  \newpage
  \paragraph{Versionamento}
  La versione del codice viene inserita all’interno dell’intestazione del file e segue il seguente formalismo:\\
