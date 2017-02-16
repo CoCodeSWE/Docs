@@ -1,4 +1,6 @@
 \documentclass[PianoDiProgetto.tex]{subfiles}
+\renewcommand{\arraystretch}{1.5}
+
 \begin{document}
 \section{Analisi dei rischi}
 Al fine di evitare rallentamenti delle fasi di lavoro è stata effettuata una dettagliata analisi dei rischi, in modo da poter evitare le situazioni che portano alla creazione di eventi non pianificati, ove possibile. L'analisi si suddivide in quattro attività:
@@ -27,14 +29,14 @@ Ogni rischio trattato ha una serie di caratteristiche necessarie per comprendern
 				\item possibili conseguenze;
 				\item riconoscimento;
 				\item trattamento;
-				\item attuazione nel periodo.
+				\item attualizzazione nel periodo.
 			\end{itemize}
 	\end{itemize}
 Ogni rischio verrà monitorato nel tempo e ne verrà indicato l'effettivo riscontro nella fase in corso.
 
 \newpage
 
-\begin{table}[t]
+\begin{table}
 \centering
 \label{Analisi dei Rischi}
 \begin{tabular}{cc}
@@ -51,25 +53,31 @@ Requisiti     &   Mancata comprensione \ref{sec:lr}\\ \hline
 \caption{Registro dei rischi}
 \end{table}
 
-\newpage
+\clearpage
 
 \subsection{Livello tecnologico}
 		\subsubsection{Tecnologie adottate sconosciute}
 			\label{sec:tas}
-		\begin{itemize}
-		\item \textbf{Descrizione}: per lo svolgimento e l'implementazione del \gl{progetto}, il team dovrà utilizzare una serie di tecnologie che nessun membro ha mai utilizzato;
-		\item \textbf{Probabilità di occorrenza}: media;
-		\item \textbf{Grado di pericolosità}: alto;
-		\item \textbf{Possibili conseguenze}: l'utilizzo di tecnologie sconosciute richiede tempo per la scelta e l'apprendimento, il che può portare ad un ritardo sulle date di consegna;
-	
-		\item \textbf{Riconoscimento}: il \RESP{} deve verificare il grado di preparazione di ogni membro del gruppo relativo alle tecnologie utilizzate;
-		\item \textbf{Trattamento}: ogni membro del team deve studiare e approfondire autonomamente i documenti forniti dall'\AMM{} che spiegano come utilizzare propriamente le nuove tecnologie adottate;
-		\item \textbf{Attuazione nel periodo}: 
-			\begin{itemize}
-				\item \PerAR : il rischio non si è presentato, in quanto le nuove tecnologie non sono ancora state prese in carico.
-			\end{itemize}
+			
+		\textbf{Descrizione}: per lo svolgimento e l'implementazione del \gl{progetto}, il team dovrà utilizzare una serie di tecnologie che nessun membro ha mai utilizzato;
 
-	\end{itemize}
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline
+				\textbf{Probabilità di occorrenza} & media  \\ \hline
+				\textbf{Grado di pericolosità} & alto \\ \hline
+				\textbf{Possibili conseguenze} & l'utilizzo di tecnologie sconosciute richiede tempo per la scelta e l'apprendimento, il che può portare ad un ritardo sulle date di consegna \\ \hline
+				\textbf{Riconoscimento} & il \RESP{} deve verificare il grado di preparazione di ogni membro del gruppo relativo alle tecnologie utilizzate; \\ \hline
+				\textbf{Trattamento} &  ogni membro del team deve studiare e approfondire autonomamente i documenti forniti dall'\AMM{} che spiegano come utilizzare propriamente le nuove tecnologie adottate; \\ \hline
+				\textbf{Attualizzazione nel periodo} &  il rischio non si è presentato, in quanto le nuove tecnologie non sono ancora state prese in carico \\
+				\hline
+				
+			\end{tabular}
+		\caption{Tecnologie adottate sconsciute}
+		\end{center}	
+	\end{table}
+
 	
 	\subsubsection{Guasti hardware e malfunzionamenti \gl{software}}
 		\label{sec:ghs}
@@ -77,7 +85,7 @@ Requisiti     &   Mancata comprensione \ref{sec:lr}\\ \hline
 		\begin{itemize}
 		\item \textbf{Descrizione}: durante tutto il \gl{progetto} è possibile che si verifichino guasti hardware e/o malfunzionamenti \gl{software} ai computer usati dal team per sviluppare;
 		\item \textbf{Probabilità di occorrenza}: medio;
-		\item \textbf{Grado di pericolosità}: basso;
+		\item : basso;
 		\item \textbf{Possibili conseguenze}: il malfunzionamento di uno dei dispositivi del team può portare a perdita di dati e di conseguenza perdita di tempo in quanto si va a svolgere nuovamente un lavoro già effettuato;
 		\item \textbf{Riconoscimento}: tutti i membri del team devono mantenere un'elevata attenzione sulle condizioni dei propri dispositivi;
 		\item \textbf{Trattamento}: ogni componente del team si impegnerà a fare un backup giornaliero del lavoro effettuato su un dispositivo esterno al computer utilizzato per sviluppare; in caso di rotture hardware ogni membro possiede un altro dispositivo che gli permette di continuare il lavoro;
