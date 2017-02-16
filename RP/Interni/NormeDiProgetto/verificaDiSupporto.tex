@@ -6,6 +6,31 @@ Una corretta implementazione di tale processo permette di individuare:
 	\item una procedura di \gl{verifica};
 	\item i criteri per la \gl{verifica} del \gl{prodotto}.
 \end{itemize}
+\subsubsection{Documenti}
+Il \RESP{} ha il compito di avviare la fase di verifica, assegnando i task ai \VERP{}. Essi dovranno controllare che:
+\begin{itemize}
+	\item la sintassi sia corretta, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
+	\item i periodi non siano troppo lunghi, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
+	\item la struttura sia completa, non complicata e coerente con il contenuto del documento in esame.
+\end{itemize}
+
+\subsubsection{Diagrammi UML}
+I \VERP{} devono controllare tutti i diagrammi UML prodotti, sia che
+venga rispettato lo standard UML, sia che siano corretti semanticamente.
+\paragraph{Diagrammi dei casi d'uso}
+Per tutti i diagrammi d'uso, i \VERP{} dovranno controllare che:
+\begin{itemize}
+	\item rispettino lo standard UML;
+	\item rappresentino ciò che dovrebbero modellare, facendo attenzione a inclusione, estensioni e generalizzazione;
+	\item gli attori correlati siano corretti;
+	\item non ci siano difetti grafici.
+\end{itemize}
+\paragraph{Diagrammi di sequenza}
+Per tutti i diagrammi di sequenza, i \VERP{} dovranno controllare che:
+\paragraph{Diagrammi di attività}
+Per tutti i diagrammi di attività, i \VERP{} dovranno controllare che:
+\paragraph{Diagramma dei package}
+Per tutti i diagrammi dei package, i \VERP{} dovranno controllare che:
 \subsubsection{Attività}
  \paragraph{Analisi statica}
 E' una tecnica di analisi del codice sorgente e della documentazione associata, prevalentemente
@@ -26,46 +51,10 @@ dal team. Le verifiche devono essere effettuate su un insieme finito di casi, co
 ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
 che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia
 applicabile durante l'intero \gl{ciclo di vita} del \gl{software}.
-\subsubsection{Metriche}
- Per garantire la qualità del lavoro del team gli \AMMP{} hanno definito delle metriche, riportandole
-nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
-\centerline{\textbf{M\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
-dove:  
-\begin{itemize}
-	\item \textbf{X} indica se la metrica si riferisce a prodotti o processi e può assumere
-i valori:
-	\begin{itemize}
-		\item \textbf{PC} per indicare i processi;
-		\item \textbf{PD} per indicare i prodotti.
-	\end{itemize}
-	\item \textbf{Y} presente solo se la metrica è riferita ai prodotti, indica se il termine \gl{prodotto} si riferisce a documenti o al software e può assumere i seguenti valori:
-	\begin{itemize}
-		\item \textbf{D} per indicare i documenti;
-		\item \textbf{S} per indicare il software;
-	\end{itemize}
-	\item \textbf{Z} indica il codice univoco della metrica (numero intero incrementale a partire da 1).
-\end{itemize}
-\subsubsection{Obiettivi}
-Per garantire la qualità del lavoro del team, gli \AMMP{} hanno definito degli obiettivi di qualità,
-riportandoli nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
-\centerline{\textbf{O\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
-dove: 
-\begin{itemize}
-	\item \textbf{X} indica se l'obiettivo si riferisce a prodotti o processi e può assumere i valori:
-	\begin{itemize}
-		\item \textbf{PC} per indicare i processi;
-		\item \textbf{PD} per indicare i prodotti.
-	\end{itemize}
-	\item \textbf{Y} presente solo se l'obiettivo è riferito ai prodotti, indica se il termine \gl{prodotto} si riferisce a documenti o al software e può assumere i seguenti valori:
-	\begin{itemize}
-		\item \textbf{D} per indicare i documenti;
-		\item \textbf{S} per indicare il software;
-	\end{itemize}
-	\item \textbf{Z} indica il codice univoco dell'obiettivo (numero intero incrementale a partire da 1).
-\end{itemize}
-\subsubsection{Issue tracking}
+\subsubsection{Procedure}
+\paragraph{Issue tracking}
 L'\gl{issue} tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
- \paragraph{Gestione delle \gl{issue}}
+ \subparagraph{Gestione delle \gl{issue}}
 Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del \gl{ticketing} di una \gl{issue} è la seguente:
 \begin{enumerate}
 	\item il \VER{} dovrà aprire una nuova \gl{issue} assegnandole una label che si riferisca al problema trovato;
@@ -80,3 +69,19 @@ Viene utilizzata la \gl{verifica} in tempo reale dell'ortografia, integrata in T
 sottolineando in rosso, le parole errate secondo la lingua italiana.
 \paragraph{Indice di Gulpease}
 Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.
+ \subsection{Validazione}
+ \subsubsection{Scopo}
+ Lo scopo di questo processo è verificare il prodotto ottenuto sia coerente rispetto gli obiettivi prefissati.
+ \subsubsection{Aspettative}
+ Le aspettative di questo processo sono che:
+ \begin{itemize}
+ 	\item il prodotto finale rispetti i parametri di qualità imposti;
+ 	\item il prodotto finale sia conforme rispetto le aspettative;
+ 	\item il prodotto finale sia corretto.
+ \end{itemize}
+ \subsubsection{Descrizione}
+ Le responsabilità sono così distribuite:
+ \begin{itemize}
+ 	\item i \VERP{} hanno il compito di eseguire i test, tracciandone i risultati;
+ 	\item il \RESP{} revisiona i risultati dei test, decidendo se ritenerli accettabili o meno. Inoltre, si assume la responsabilità con il committente della conformità del prodotto finale rispetto le aspettative.
+ \end{itemize}
