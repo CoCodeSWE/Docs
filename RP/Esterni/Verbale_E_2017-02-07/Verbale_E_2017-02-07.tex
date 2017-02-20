@@ -1,0 +1,68 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2016-12-18}
+\def\VERSIONE{1.0.0}
+\def\DATA{2016-12-18}
+\def\REDATTORE{Simeone Pizzi}
+\def\VERIFICATORE{Mattia Bottaro}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
+\def\SOMMARIO{Verbale dell'incontro esterno in data 2016-12-17 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+  \modifica{Simeone Pizzi}{\RESP}{Approvazione del documento}{2016-12-18}{1.0.0}
+  \modifica{Mattia Bottaro}{\VER}{Verifica del documento}{2016-12-18}{0.3.0}
+  \modifica{Simeone Pizzi}{\RESP}{Corretti errori in base a segnalazione verificatori}{2016-12-18}{0.2.1}
+  \modifica{Mattia Bottaro}{\VER}{Verifica del documento}{2016-12-17}{0.2.0}
+  \modifica{Simeone Pizzi}{\RESP}{Corretti errori data ora e durata}{2016-12-17}{0.1.1}
+  \modifica{Simeone Pizzi}{\RESP}{Stesura documento e verbalizzazione della riunione}{2016-12-17}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: aula 1BC45, Torre Archimede, Padova.
+  \item \textbf{Data}: 2017-02-07.
+  \item \textbf{Orario di inizio}: 10:00.
+  \item \textbf{Orario di fine}: 10:50.
+  \item \textbf{Durata}: 50m.
+  \item \textbf{Oggetto}: discussione sull'analisi dei requisiti e sulle strategie di progettazione.
+  \item \textbf{Partecipanti}: Luca Bertolini, Mattia Bottaro, Nicola Tintorri, Simeone Pizzi, gruppo anSWEr, gruppo Kern3lP4nic.
+  \item \textbf{Segretario}: Mattia Bottaro.
+
+\end{itemize}
+\section{Riassunto della riunione}
+\label{sec:RiassuntoRiunione}
+ \subsection{Descrizione}
+La riunione è avvenuta presso Torre Archimede a Padova, in particolare nell'aula 1BC45. Erano presenti il \gl{proponente} Stefano Dindo, accompagnato da Stefano Meneguzzo, quattro componenti del gruppo \GRUPPO{}, sei componenti componenti del gruppo Kern3lP4nic e tre componenti del gruppo anSWEr. Sono state poste diverse domande al proponente in merito all'analisi dei requisiti consegnata e ad alcune strategie da adottare nel periodo di progettazione.
+ \subsection{Decisioni}
+ \begin{itemize}
+  \item DE1.1 - Il proponente ha espresso una forte preferenza per un'interfaccia amministrativa vocale piuttosto che grafica, ma questa scelta è lasciata ad ogni singolo gruppo. 
+
+ \end{itemize}
+
+\subsection{Tematiche in sospeso}
+  \begin{itemize}
+  \item SE1.1 - Disponibilità \gl{Amazon Echo}.
+  \item SE1.2 - Salvataggio conversazioni.
+  \item SE1.3 - Domande aggiuntive durante l'interazione.
+  \item SE1.4 - Interfaccia vocale.
+  \end{itemize}
+\end{document}
