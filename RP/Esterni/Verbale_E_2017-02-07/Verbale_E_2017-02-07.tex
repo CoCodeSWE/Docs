@@ -8,27 +8,24 @@
 \usepackage{Riferimenti}
 \usepackage{Stile}
 
-\def\NOME{Verbale 2016-12-18}
+\def\NOME{Verbale 2017-02-07}
 \def\VERSIONE{1.0.0}
-\def\DATA{2016-12-18}
-\def\REDATTORE{Simeone Pizzi}
-\def\VERIFICATORE{Mattia Bottaro}
-\def\RESPONSABILE{Simeone Pizzi}
+\def\DATA{2017-02-07}
+\def\REDATTORE{Mattia Bottaro}
+\def\VERIFICATORE{Simeone Pizzi}
+\def\RESPONSABILE{Mattia Bottaro}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
-\def\SOMMARIO{Verbale dell'incontro esterno in data 2016-12-17 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+\def\SOMMARIO{Verbale dell'incontro esterno in data 2017-02-07 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
 
 
 \begin{document}
 
 \maketitle
 \begin{diario}
-  \modifica{Simeone Pizzi}{\RESP}{Approvazione del documento}{2016-12-18}{1.0.0}
-  \modifica{Mattia Bottaro}{\VER}{Verifica del documento}{2016-12-18}{0.3.0}
-  \modifica{Simeone Pizzi}{\RESP}{Corretti errori in base a segnalazione verificatori}{2016-12-18}{0.2.1}
-  \modifica{Mattia Bottaro}{\VER}{Verifica del documento}{2016-12-17}{0.2.0}
-  \modifica{Simeone Pizzi}{\RESP}{Corretti errori data ora e durata}{2016-12-17}{0.1.1}
-  \modifica{Simeone Pizzi}{\RESP}{Stesura documento e verbalizzazione della riunione}{2016-12-17}{0.0.1}
+  \modifica{Mattia Bottaro}{\RESP}{Approvazione del documento}{2017-02-07}{1.0.0}
+  \modifica{Simeone Pizzi}{\VER}{Verifica del documento}{2017-02-07}{0.0.2}
+  \modifica{Mattia Bottaro}{\RESP}{Stesura documento e verbalizzazione della riunione}{2017-02-07}{0.0.1}
 \end{diario}
 \newpage
 \tableofcontents
@@ -51,14 +48,15 @@
 \section{Riassunto della riunione}
 \label{sec:RiassuntoRiunione}
  \subsection{Descrizione}
-La riunione è avvenuta presso Torre Archimede a Padova, in particolare nell'aula 1BC45. Erano presenti il \gl{proponente} Stefano Dindo, accompagnato da Stefano Meneguzzo, quattro componenti del gruppo \GRUPPO{}, sei componenti componenti del gruppo Kern3lP4nic e tre componenti del gruppo anSWEr. Sono state poste diverse domande al proponente in merito all'analisi dei requisiti consegnata e ad alcune strategie da adottare nel periodo di progettazione.
+La riunione è avvenuta presso Torre Archimede a Padova, in particolare nell'aula 1BC45. Erano presenti il \gl{proponente} Stefano Dindo, accompagnato da Francesco Meneguzzo, quattro componenti del gruppo \GRUPPO{}, sei componenti del gruppo Kern3lP4nic e tre componenti del gruppo anSWEr. Sono state poste diverse domande al proponente in merito all'analisi dei requisiti consegnata e ad alcune strategie da adottare nel periodo di progettazione.
  \subsection{Decisioni}
  \begin{itemize}
   \item DE1.1 - Il proponente ha espresso una forte preferenza per un'interfaccia amministrativa vocale piuttosto che grafica, ma questa scelta è lasciata ad ogni singolo gruppo. 
   \item DE1.2 - Il proponente ha assicurato l'attivazione di seminari formativi su NodeJS e AWS, probabilmente dal 2017-03-07.
-  \item DE1.3 - Il proponente suggerisce un pattern "personalizzato" per modellare il sistema da progettare. Tuttavia, dopo consulenza con il docente Riccardo Cardin, si e` deciso di non seguire questa strategia ed adottare pattern studiati o comunque esistenti.
+  \item DE1.3 - Il proponente suggerisce un pattern "personalizzato" per modellare il sistema da progettare. Tuttavia, dopo consulenza con il docente Riccardo Cardin, si e` deciso di non seguire questa strategia ed adottare pattern esistenti.
   \item DE1.4 - Il proponente ha confermato che Amazon Echo non sara` disponibile.
   \item DE1.5 - Il proponente preferisce che la notifica di un ospite in visita all'azienda sia comunicata su un canale Slack utilizzato da piu` persone piuttosto che avvertirne una sola.
+  \item DE1.6 - Il proponente suggerisce di adottare un'architettura serverless facendo utilizzo di AWS Lambda.
  \end{itemize}
 
 \subsection{Tematiche in sospeso}
