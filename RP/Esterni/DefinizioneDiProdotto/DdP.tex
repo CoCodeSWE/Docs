@@ -1,0 +1,40 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Definizione di Prodotto}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-02-02}
+\def\REDATTORE{}
+\def\VERIFICATORE{}
+\def\RESPONSABILE{}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\}
+\def\SOMMARIO{Questo documento specifica e descrive strumenti, regole e convenzioni utilizzate dal gruppo \GRUPPO{} nel corso della realizzazione del \gl{progetto} \PROGETTO.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+
+\end{diario}
+
+\newpage
+\tableofcontents
+\listoffigures
+\newpage
+\include{introduzione}
+\include{standardprogetto}
+\include{architetturappl}
+\include{riassuntopackage}
+\include{componenti}
+\include{sequenza}
+\include{tracciamento}
+\end{document}
