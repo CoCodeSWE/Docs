@@ -1,6 +1,6 @@
 \subsection{Qualità}
-
-\subsubsection{Metriche}
+\subsubsection{Notazione}
+\paragraph{Metriche}
 Per garantire la qualità del lavoro del team gli \AMMP{} hanno definito delle metriche, riportandole
 nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
 \centerline{\textbf{M\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
@@ -19,7 +19,7 @@ dove:
 	\end{itemize}
 	\item \textbf{Z} indica il codice univoco della metrica (numero intero incrementale a partire da 1).
 \end{itemize}
-\subsubsection{Obiettivi}
+\paragraph{Obiettivi}
 Per garantire la qualità del lavoro del team, gli \AMMP{} hanno definito degli obiettivi di qualità,
 riportandoli nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
 \centerline{\textbf{O\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
@@ -37,6 +37,47 @@ dove:
 	\end{itemize}
 	\item \textbf{Z} indica il codice univoco dell'obiettivo (numero intero incrementale a partire da 1).
 \end{itemize}
+\subsubsection{Definizione metriche}
+Di seguito sono definite le metriche utilizzate nel documento \PQdocRP{}. Ad ogni metrica è stata assegnato un codice identificativo per facilitare il tracciamento.
+\paragraph{Qualità di processo}
+\subparagraph{Percentuale di accessi avvenuti correttamente a PragmaDB - MPC1}
+Indica il numero  di accessi avvenuti correttamente espresso in percentuale.\\
+\textbf{Misurazione:}\begin{equation}
+Percentuale accessi = \frac{Accessi avvenuti}{Richieste d'accesso}*100
+\end{equation}
+\subparagraph{Schedule Variance - MPC2}
+Indica se si è in linea, in anticipo o in ritardo rispetto ai tempi pianificati.\\
+\textbf{Misurazione:}\begin{equation}
+Schedule Variance = TP - TR 
+\end{equation}
+Dove TP è il tempo pianificato per terminare un attività e TR è il tempo reale che è stato impiegato.
+\subparagraph{Cost Variance in percentuale - MPC3}
+Indica se alla data corrente i costi corrispondono alla pianificazione, espressi in percentuale.
+\textbf{Misurazione:}\begin{equation}
+Cost Variance = \frac{CP - CR}{CP}*100 
+\end{equation}
+Dove CP sono i costi pianificati per la data corrente e CR sono i costi reali sostenuti.
+\subparagraph{Indice rischi non preventivati - MPC4}
+Indicatore che evidenzia i rischi non preventivati.
+\textbf{Misurazione:} è un indice che viene incrementato ogniqualvolta si manifesta un rischio non individuato nell'attività di analisi dei rischi.
+\subparagraph{Numero requisiti obbligatori soddisfatti - MPC5}
+Indica la percentuale di requisiti obbligatori soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti obbligatori soddisfatti}{requisiti obbligatori totali}*100
+\end{equation}
+\subparagraph{Numero requisiti desiderabili soddisfatti - MPC6}
+Indica la percentuale di requisiti desiderabili soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti desiderabili soddisfatti}{requisiti desiderabili totali}*100
+\end{equation}
+\subparagraph{Numero requisiti opzionali soddisfatti - MPC7}
+Indica la percentuale di requisiti opzionali soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti opzionali soddisfatti}{requisiti opzionalii totali}*100
+\end{equation}
+
+
+\paragraph{Qualità di prodotto}
 \subsubsection{Procedure}
 
 \paragraph{Calcolo dell'indice di Gulpease}
