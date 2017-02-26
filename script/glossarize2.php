@@ -28,7 +28,7 @@
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
-$rev = ('../RR/'); //al cambio di revisione modificare questa variabile
+$rev = ('../RP/'); //al cambio di revisione modificare questa variabile
 $revisione = 'Revisione dei requisiti';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
@@ -38,16 +38,16 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  'Glo' => 'Glossario/',
+  //'Glo' => 'Glossario/',
   'NdP' => 'NormeDiProgetto/',
-  'SdF' => 'StudioDiFattibilita/',
+  /*'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
   '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
   '2VI' => 'Verbale_I_2016-12-19',
   '1VE' => 'Verbale_E_2016-12-17/',
   'PdQ' => 'PianoDiQualifica/',
-  'SDK' => 'AnalisiSDK/'
+  'SDK' => 'AnalisiSDK/'*/
   //'LdP' => 'LetteraDiPresentazione/'
 );
 
@@ -59,7 +59,7 @@ echo <<< EOF
 ______                            _
 |  __ \ | by Enrico Ceron        (_) v1.1
 | |  \/ | ___  ___ ___  __ _ _ __ _ _______
-| | __| |/ _ \/ __/ __|/ _` | '__| |_  / _ \
+| | __| |/ _ \/ __/ __|/ _' | '__| |_  / _ \
 | |_\ \ | (_) \__ \__ \ (_| | |  | |/ /  __/
  \____/_|\___/|___/___/\__,_|_|  |_/___\___|
 
@@ -126,9 +126,9 @@ function glossarizeDoc($path) {
       /**
        * ...e la (de)glossarizza!
        */
-      if (preg_match("/\b$voce\b/", $line)) {
+      if (preg_match("/\b$voce\b/", $line) && $voce!="") {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
-          //echo $path." ".$voce."\n";
+          echo $path." ".$voce."\n";
 
           if($voce=="casi d'uso" || $voce=="Casi d'uso"){
             $Vvoce=$voce;
@@ -137,7 +137,10 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce="casi duso";
           }
-          shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
+          $file_contents = file_get_contents($filename);
+          $file_contents = preg_replace(" $voce "," \\gl{".$voce."} ",$file_contents,1);
+          file_put_contents($filename,$file_contents);
+          //shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
           if($voce=="casi duso"){
             $file_contents = file_get_contents($filename);
             $file_contents = str_replace("casi duso",$Vvoce,$file_contents);
@@ -148,11 +151,11 @@ function glossarizeDoc($path) {
           //echo "";
         } else { // deglo
         //  echo $linesToIgnore." ".$voce."\n";
-          shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
+        //  shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
       //    echo $path." \n";
         }
-
       }
+  //  break; // questo break permette di glossarizzare solo la prima occorrenza
     }
   }
 
