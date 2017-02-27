@@ -2,6 +2,52 @@
 
 \begin{document}
 
-\section{Test}
- L'analisi dinamica è un argomento non ancora trattato a lezione, pertanto la stesura di questa sezione avverrà in successive versioni del documento. 
+\section{Specifica dei test}
+Al fine di produrre software di qualità, il gruppo ha strutturato dei test atti a verificare che le funzionalità del software prodotto corrispondano alle attese.
+Tali test sono ottenuti dall'applicazione delle tecniche di analisi dinamica descritte nel documento \NPdocRP{}. Inoltre, devono possedere le seguenti caratteristiche:
+\begin{itemize}
+	\item devono essere ripetibili al fine di fornire informazioni utili per poter eseguire operazioni di correzione, ove sia necessario;
+	\item devono essere tracciabili al fine di classificare le informazioni ottenute per garantire una più facile consultazione;
+\end{itemize}
+
+	\subsection{Tipi di test}
+		Sono stati individuati quattro livelli di testing, ovvero:
+		\begin{itemize}
+			\item \textbf{Test di unità [TU]}: consiste nell'attività di testing delle unità software, ovvero le più piccole parti dotate di funzionamento proprio prodotte dai \PRP{}.
+			Questo si traduce solitamente nel verificare i metodi e le classi scritte;
+			\item \textbf{Test di integrazione [TI]}: consiste nell'attività di testing delle componenti del sistema. Nel dettaglio, l'obiettivo è quello di testare i vari package
+			prodotti dall'unione delle unità;
+			\item \textbf{Test di sistema [TS]}: consiste nell'attività di testing del sistema. In particolare, l'obiettivo è quello di verificare che il comportamento del sistema,
+			nella sua interezza, sia corretto;
+			\item \textbf{Test di validazione [TV]}: consiste nel verificare che il prodotto software soddisfi le richieste del proponente.
+		\end{itemize}
+	
+		\subsubsection{Test di validazione}
+		I test di validazione hanno lo scopo di verificare che tutte le funzionalità richieste dal proponente siano soddisfatte. A questo scopo, attraverso una serie di
+		azioni, si andrà a simulare il comportamento generale del software e dell'utente che interagisce con esso. \\
+		I test di validazione saranno organizzati nel modo seguente:
+		\begin{center} TV\{TipoRequisito\}\{Importanza\}\{Codice\} \end{center}
+		dove:
+		\begin{itemize}
+			\item TipoRequisito può assumere uno dei seguenti valori:
+			\begin{itemize}
+				\item F: per i requisiti funzionali;
+				\item Q: per i requisiti di qualità;
+				\item V: per i requisiti di vincolo;
+			\end{itemize}
+			\item Importanza può assumere uno dei seguenti valori:
+			\begin{itemize}
+				\item O: per i requisiti obbligatori;
+				\item D: per i requisiti desiderabili;
+				\item F: per i requisiti facoltativi;
+			\end{itemize}
+			\item Codice assume un valore numerico univoco che identifica il singolo requisito.
+		\end{itemize}
+		
+		\subsubsection{Test di unità}
+		
+		\subsubsection{Test di integrazione}
+		
+		\subsubsection{Test di sistema}
+
 \end{document}
