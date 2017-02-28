@@ -43,6 +43,7 @@ Di seguito sono definite le metriche utilizzate nel documento \PQdocRP{}. Ad ogn
 \subparagraph{Percentuale di accessi avvenuti correttamente a PragmaDB - MPC1}
 Indica il numero  di accessi avvenuti correttamente espresso in percentuale.\\
 \textbf{Misurazione:}\begin{equation}
+
 Percentuale accessi = \frac{Accessi avvenuti}{Richieste d'accesso} * 100
 \end{equation}
 \subparagraph{Schedule Variance - MPC2}
@@ -50,6 +51,7 @@ Indica se si è in linea, in anticipo o in ritardo rispetto ai tempi pianificati
 \textbf{Misurazione:}\begin{equation}
 Schedule Variance = TP - TR 
 \end{equation}
+<<<<<<< HEAD
 \begin{itemize}
 	\item \textbf{TP} è il tempo pianificato per terminare un attività;
 	\item \textbf{TR} è il tempo reale che è stato impiegato.
@@ -177,6 +179,35 @@ Rami decisionali percorsi = \frac{Numero rami decisionali percorsi}{Numero rami 
 Indica il numero di funzioni chiamate nel test di unità utilizzato.
 \subparagraph{Numero di istruzioni nei test - MPC28}
 Indica il numero di istruzioni eseguite nel test di unità utilizzato.
+=======
+Dove TP è il tempo pianificato per terminare un attività e TR è il tempo reale che è stato impiegato.
+\subparagraph{Cost Variance in percentuale - MPC3}
+Indica se alla data corrente i costi corrispondono alla pianificazione, espressi in percentuale.
+\textbf{Misurazione:}\begin{equation}
+Cost Variance = \frac{CP - CR}{CP}*100 
+\end{equation}
+Dove CP sono i costi pianificati per la data corrente e CR sono i costi reali sostenuti.
+\subparagraph{Indice rischi non preventivati - MPC4}
+Indicatore che evidenzia i rischi non preventivati.
+\textbf{Misurazione:} è un indice che viene incrementato ogniqualvolta si manifesta un rischio non individuato nell'attività di analisi dei rischi.
+\subparagraph{Numero requisiti obbligatori soddisfatti - MPC5}
+Indica la percentuale di requisiti obbligatori soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti obbligatori soddisfatti}{requisiti obbligatori totali}*100
+\end{equation}
+\subparagraph{Numero requisiti desiderabili soddisfatti - MPC6}
+Indica la percentuale di requisiti desiderabili soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti desiderabili soddisfatti}{requisiti desiderabili totali}*100
+\end{equation}
+\subparagraph{Numero requisiti opzionali soddisfatti - MPC7}
+Indica la percentuale di requisiti opzionali soddisfatti del prodotto.
+\textbf{Misurazione:}\begin{equation}
+Numero requisiti = \frac{requisiti opzionali soddisfatti}{requisiti opzionalii totali}*100
+\end{equation}
+
+
+>>>>>>> 514256ed2a6a91d825a6a2fa884eeb865faceff9
 \paragraph{Qualità di prodotto}
 \subsubsection{Procedure}
 
