@@ -163,9 +163,8 @@ Halstead Effort = Halsted Difficulty * Halstead Volume
 \end{equation}	
 \subparagraph{Indice di manutenibilità - MPC19}
 Indica quanto sarà semplice mantenere il codice prodotto.
-\textbf{Misurazione:}\begin{equation}
-Manutenibilità = 171 - 5,2 * \ln(Halstead Volume) - 0.23 * (Complessità ciclomatica) - 16.2 * \ln(Linee di codice)
-\end{equation}
+\textbf{Misurazione:}
+Manutenibilità = $171 - 5,2 * \ln(Halstead Volume) - 0.23 * (Complessita ciclomatica) - 16.2 * \ln(Linee di codice)$
 \subparagraph{Percentuale di componenti integrate nel sistema - MPC20}
 Indica la percentuale di componenti attualmente implementate e correttamente integrate nel sistema.
 \textbf{Misurazione:}\begin{equation}
@@ -174,7 +173,8 @@ Componenti integrate = \frac{Numero componenti integrate}{Numero componenti tota
 \subparagraph{Percentuale di test di unità eseguiti - MPC21}
 Indica la percentuale di test di unità eseguiti.
 \textbf{Misurazione:}\begin{equation}
-Test di unità eseguiti = \frac{Numero test di unità eseguiti}{Numero test di unità pianificati} * 100
+\begin{equation} 
+\frac{Numero test di unità eseguiti}{Numero test di unità pianificati} * 100
 \end{equation}
 \subparagraph{Percentuale di test di integrazione eseguiti - MPC22}
 Indica la percentuale di test di integrazione eseguiti.
@@ -304,7 +304,7 @@ $I=\frac{N_{FRF}}{N_{FR}} \cdot 100$
 \paragraph{Calcolo dell'indice di Gulpease}
 Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
 \begin{itemize}
-	\item dirigersi con il terminale in \GulScript;
+	\item dirigersi con il terminale in \GulScript{};
 	\item dare il comando \file{php gulpease.php};
 	\item visualizzare il risultato sul terminale.
 \end{itemize}
