@@ -1,0 +1,137 @@
+\section{Design Patterns}
+  \subsection{Architetturali}
+    \subsubsection{Architettura a microservizi}
+      \begin{itemize}
+       \item \textbf{Scopo:}l'architettura a microservizi è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una HTTP API;
+       \item \textbf{Vantaggi:}
+	      \begin{itemize}
+	       \item ogni microservizio è relativamente piccolo, quindi più semplice da implementare e da capire per gli sviluppatori;
+	       \item ogni microservizio è indipendente dagli altri; è quindi possibile distribuire nuove versioni più frequentemente e isolare i possibili errori.
+	      \end{itemize}
+
+       \item \textbf{Svantaggi:}
+	\begin{itemize}
+	 \item l'architettura risulta maggiormente complessa perchè risulta essere un sistema distribuito;
+	 \item la gestione di più microservizi potrebbe risultare in un carico di lavoro maggiore rispetto ad una sua versione monolitica.
+	\end{itemize}
+       \item \textbf{Utilizzo:}
+      \end{itemize}
+      
+    \subsubsection{Architettura event-driven}
+      \begin{itemize}
+       \item \textbf{Scopo:}anche se non è un vero e proprio pattern, l'architettura event-driven è un particolare tipo di architettura asicrona per sistemi distribuiti basata sugli eventi.
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item per definizione, questo tipo di architettura è particolarmente adatto ad ambienti di tipo asicrono basati sugli eventi, come l'interazione con gli utenti.
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item i sistemi che utilizzano tale architettura sono spesso distribuiti: ciò comporta un maggiore livello di complessità.
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+     
+     \subsubsection{Client-side discovery}
+      \begin{itemize}
+       \item \textbf{Scopo:}all'interno di un'architettura a microservizi, questi ultimi si trovano spesso in posizioni non fissate in quanto decise dinamicamente. Un metodo per la loro localizzazione consiste nel pattern Client-side discovery, che consiste nella richiesta della posizione di uno specifico microservizio da parte del client ad un registro, che conosce le posizioni di tutte le istanze dei servizi. 
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item permette di allocare dinamicamente diverse istanze di diversi servizi.
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item crea dipendenze tra il registro e il client.
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+
+    
+   \subsubsection{Data Access Object}
+      \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+	
+    \subsubsection{Dependency Injection?}
+     \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+  
+  \subsection{Strutturali}
+  
+    \subsubsection{Facade}
+      \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+	
+    \subsubsection{Adapter}
+      \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+	
+  \subsection{Creazionali}
+  
+    \subsubsection{Singleton}
+      \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
+	
+  \subsection{Comportamentali}
+  
+    \subsubsection{Observer}
+      \begin{itemize}
+       \item \textbf{Scopo:}
+	\item \textbf{Vantaggi:}
+	  \begin{itemize}
+	   \item 
+	  \end{itemize}
+	\item \textbf{Svantaggi:}
+	  \begin{itemize}
+	   \item .
+	  \end{itemize}
+	\item \textbf{Utilizzo:}
+	\end{itemize}
