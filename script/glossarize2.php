@@ -138,13 +138,13 @@ function glossarizeDoc($path) {
             $voce="casi duso";
           }
           $file_contents = file_get_contents($filename);
-          $file_contents = preg_replace("/$voce/i"," \\gl{".$voce."} ",$file_contents,1);
+          $file_contents = preg_replace(" $voce "," \\gl{".$voce."} ",$file_contents,1);
           file_put_contents($filename,$file_contents);
           /*
-+           * $test= "prodotto prodotto prodotto Prodotto progetto progetto progetto";
-+             $test=preg_replace("/Prodotto/i", " gl{prodotto } ", $test, 1);
-+             echo $test;
-+           */
+           * $test= "prodotto prodotto prodotto Prodotto progetto progetto progetto";
+             $test=preg_replace("/Prodotto/i", " gl{prodotto } ", $test, 1);
+             echo $test;
+           */
           //shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
           if($voce=="casi duso"){
             $file_contents = file_get_contents($filename);
