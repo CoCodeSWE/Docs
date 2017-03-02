@@ -1,0 +1,47 @@
+Software Metrics Volume V = N * log2 η The unit of measurement of volume is the common unit for size “bits”. It is the actual size of a program if a uniform binary encoding
+for the vocabulary is used. Program Level L = V* / V The value of L ranges between zero and one, with L=1 representing a program written at the highest possible leve
+
+Software Metrics Program Difficulty D=1/L As the volume of an implementation of a program increases, the program level decreases and the difficulty increases. Thus,
+programming practices such as redundant usage of operands, or the failure to use higher-level control constructs will tend to increase the volume as well as the difficulty.
+Effort E=V/L=D*V The unit of measurement of E is elementary mental discriminations.
+
+Il 'volume' è comunemente misurato in numero di bit. Indica l'attuale dimensione di un programma se è stata usata una codifica binaria come vocabolario.
+
+
+
+
+
+The programming vocabulary n = n1 + n2 (set of unique operators and operands) used in writing a program, leads to another size measure which may be defined as
+
+V = N log2> n
+
+It is called as the volume of the program. It may be interpreted as the number of mental comparisons needed to write a program of length N. The unit of measurement for program
+volume, V, is binary digit i.e. bit. Thus, total number of bits required to represent a program of length N would be N. log2 n.
+
+It is assumed that during programming process, the human mind follows binary search technique in selecting the next token from the vocabulary of size n.
+
+
+As already stated, the total number of mental comparisons required for writing a program of length N is N.log2 n. Further, for one mental comparison, the human mind has to perform
+a number of elementary mental discriminations (e.m.d.). Therefore, the effort required to implement a computer program increases as the size of the program increases.
+The programming effort E measure can be defined as:
+
+E = V/L
+
+The unit of measurement of E is e.m.d. (Elementary Mental Discriminations).
+
+It is clear that more effort is required to implement a program at a lower level (higher difficulty) than another equivalent implementation at a higher level (lower difficulty).
+
+
+https://www.slideshare.net/NurIslam5/halstedsc
+
+http://www.verifysoft.com/en_halstead_metrics.html
+
+
+I documenti prodotti forniscono informazioni sulle strategie e i modi di lavorare del gruppo. Inoltre, contengono tutte le informazioni sul software,
+la progettazione per la sua realizzazione e la qualità che si vuole soddisfare. La tipologia di documenti si divide 
+
+I documenti prodotti dal gruppo \GRUPPO{} si dividono in interni ed esterni. I primi definiscono il metodo di lavoro (ways of working) del gruppo affinchè i membri
+realizzino prodotti simili tra loro secondo delle regole definite. I secondi definiscono tutto ciò che riguarda il software prodotto, partendo dalla
+progettazione fino a giungere all'analisi dei requisiti e la definizione di prodotto. \\
+Poichè i documenti interni devono essere compresi da tutti i membri del gruppo e quelli esterni devono essere comprensibili per poter informare correttamente
+proponente e committente, il gruppo ha deciso di perseguire le strategie e gli obiettivi di qualità definiti di seguito.
