@@ -15,12 +15,13 @@
 *
 * Diaro delle modifiche:
 * 2016-12-12 - adattamento dello script al gruppo Co.Code, Mattia Bottaro
-* 2017-12-17 - pesanti modifiche effettuate da Mattia Bottaro del gruppo Co.Code(formatosi
+* 2016-12-17 - pesanti modifiche effettuate da Mattia Bottaro del gruppo Co.Code(formatosi
   per il progetto di SWE dell'uniPD) -> UPDATE alla versione 2.0 by Mattia Bottaro
   Nelle versioni 1.x lo script funzionava solo per un file, dato in input. Quindi per
   glossarizzare n files bisognava eseguire n volte lo script.
   Ora, in base alla organizzazione del repository di Co.Code, lo script cerca tutti i file .tex
   e li glossarizza.
+  2017-03-02 - Ora viene glossarizzata solo la prima occorrenza.
 */
 
 
@@ -28,7 +29,7 @@
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
-$rev = ('../RR/'); //al cambio di revisione modificare questa variabile
+$rev = ('../RP/'); //al cambio di revisione modificare questa variabile
 $revisione = 'Revisione dei requisiti';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
@@ -38,16 +39,16 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  'Glo' => 'Glossario/',
+  //'Glo' => 'Glossario/',
   'NdP' => 'NormeDiProgetto/',
-  'SdF' => 'StudioDiFattibilita/',
+  /*'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
   '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
   '2VI' => 'Verbale_I_2016-12-19',
   '1VE' => 'Verbale_E_2016-12-17/',
   'PdQ' => 'PianoDiQualifica/',
-  'SDK' => 'AnalisiSDK/'
+  'SDK' => 'AnalisiSDK/'*/
   //'LdP' => 'LetteraDiPresentazione/'
 );
 
@@ -59,7 +60,7 @@ echo <<< EOF
 ______                            _
 |  __ \ | by Enrico Ceron        (_) v1.1
 | |  \/ | ___  ___ ___  __ _ _ __ _ _______
-| | __| |/ _ \/ __/ __|/ _` | '__| |_  / _ \
+| | __| |/ _ \/ __/ __|/ _' | '__| |_  / _ \
 | |_\ \ | (_) \__ \__ \ (_| | |  | |/ /  __/
  \____/_|\___/|___/___/\__,_|_|  |_/___\___|
 
@@ -126,9 +127,9 @@ function glossarizeDoc($path) {
       /**
        * ...e la (de)glossarizza!
        */
-      if (preg_match("/\b$voce\b/", $line)) {
+      if (preg_match("/\b$voce\b/", $line) && $voce!="") {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
-          //echo $path." ".$voce."\n";
+          echo $path." ".$voce."\n";
 
           if($voce=="casi d'uso" || $voce=="Casi d'uso"){
             $Vvoce=$voce;
@@ -137,22 +138,32 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce="casi duso";
           }
-          shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
+          //echo "gl{".$voce."}";
+          $file_contents = file_get_contents($filename);
+          $file_contents = preg_replace("/$voce/"," \gl{".$voce."} ",$file_contents,1);
+          file_put_contents($filename,$file_contents);
+          // /* DEGLO NON FUNFIA
+          /*
+          $file_contents = file_get_contents($filename);
+          $file_contents = preg_replace(" \gl{".$voce."} "," $voce ",$file_contents,-1);
+          file_put_contents($filename,$file_contents);*/
+          //shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})|(\<$voce\>)/\\\gl\{$voce\}/g' $filename") . "\n";
           if($voce=="casi duso"){
             $file_contents = file_get_contents($filename);
             $file_contents = str_replace("casi duso",$Vvoce,$file_contents);
             file_put_contents($filename,$file_contents);
             $voce=$Vvoce;
           }
+          break;
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
           //echo "";
         } else { // deglo
         //  echo $linesToIgnore." ".$voce."\n";
-          shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
+        //  shell_exec("sed -r -i '$lineNumber!b;s/(\\\gl\{\<$voce\>\})/$voce/g' $filename") . "\n";
       //    echo $path." \n";
         }
-
       }
+  //  break; // questo break permette di glossarizzare solo la prima occorrenza
     }
   }
 
