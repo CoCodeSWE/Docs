@@ -1,0 +1,95 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "0.0.0"
+  title: Endpoints AtAvi
+  description: Accoglienza tramite assstente virtuale
+
+# Describe your paths here
+paths:
+  /auth/users:
+    get:
+      description: |
+        Get lista utenti
+        
+      tags: 
+        - auth
+        
+      responses:
+        # Response code
+        200:
+          description: Invia la lista degli utenti
+          schema:
+            title: ArrayOfUsers
+            type: array
+            items:
+               $ref: '#/definitions/User'
+        default:
+          description: Errore
+          schema:
+            $ref: '#/definitions/Error'       
+    post:
+      summary: invio dati per la registrazione
+      description: invia username, frase per autenticazione tramite SR, e altri dati
+      parameters:
+      - name: username
+        in: query
+        description: username dell'utente
+        required: true
+        type: string
+         
+      - name: frase
+        in: query
+        description: frase usata per l'autenticazione tramite SR
+        required: true
+        type: string
+        
+      - name: altro
+        in: query
+        description: altri dati, da completare
+        required: false
+        type: string  
+      tags: 
+        - auth
+      responses: 
+        200:
+          description: Restituisce l'id dell'utente appena creato
+          schema:
+            title: IdUser
+            type: string
+              
+        default:
+          description: Errore
+          schema:
+            $ref: '#/definitions/Error' 
+            
+  /auth/users/:username
+    put:
+      summary: modifica dati utente
+      description: vengono inviati i nuovi dati dell'utente per sovrascrivere i dati vecchi
+  
+definitions:               
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+      surname:
+        type: string
+      id:
+        type: string
+  
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string       
