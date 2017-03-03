@@ -15,7 +15,7 @@
 	che definisce una scala, suddivisa in cinque livelli, per misurarne la maturità. \\
 	Le misurazioni ottenute vengono utilizzate all'interno della strategia di miglioramento continuo della
 	qualità, realizzata tramite Plan-Do-Check-Act (PDCA). \\
-	Per maggiori informazioni su CMM e PDCA consultare le rispettive appendici A e B. \\
+	Per maggiori informazioni su CMM e PDCA consultare le rispettive appendici \hyperlink{CMM}{A} e \hyperlink{PDCA}{B}. \\
 	Inoltre, sono stati individuati dallo standard ISO/IEC 12207:2008 i processi ritenuti più importanti
 	nel ciclo di vita del prodotto. Per ciascuno di essi sono stati individuati gli obiettivi di qualità
 	e i rispettivi intervalli di accettabilità e ottimalità. \\
@@ -34,7 +34,7 @@
 		Per tutto l'arco del progetto l'infrastruttura dovrà possedere le seguenti caratteristiche:
 		\begin{itemize}
 			\item tutti gli strumenti e le procedure per utilizzarli verranno descritti esaustivamente nel documento \NPdocRP{};
-			\item la piattaforma PragmaDB sarà disponibile ogni qual volta un componente del gruppo ne richiedesse l'accesso;
+			\item la piattaforma PragmaDB sarà disponibile ogni qual volta un componente del gruppo ne richiederà l'accesso;
 			\item i dati contenuti in PragmaDB saranno sempre coerenti e aggiornati;
 			\item la piattaforma PragmaDB estenderà le proprie funzionalità in base alle esigenze del progetto;
 		\end{itemize}
@@ -68,11 +68,9 @@
 				Indica se i tempi pianificati sono stati rispettati.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: Schedule Variance (MPC2);
-					\item \textbf{Soglia di accettabilità}: \begin{math}\geq 0\end{math};
-					\item \textbf{Soglia di ottimalità}: \begin{math}\geq 0\end{math}.
+					\item \textbf{Soglia di accettabilità}: \begin{math}\geq -5\%\end{math};
+					\item \textbf{Soglia di ottimalità}: \begin{math}\geq 0\%\end{math}.
 				\end{itemize}
-				Eventuali ritardi (espressi con valori negativi) dovranno essere compensati entro la fine dell'attività di progetto
-				in quanto non è permesso eccedere le ore di attività finali.
 			
 			\paragraph{Rispetto dei costi - OPC3}
 				Indica se i costi pianificati, in data corrente, sono rispettati.
@@ -100,7 +98,7 @@
 			\paragraph{Rischi non preventivati - OPC4}
 				Evidenzia il numero dei rischi presentati e non preventivati nell'arco del progetto; un valore molto alto potrebbe indicare una povera analisi dei rischi.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: Indice dei rischi non preventivati (MPC4);
+					\item \textbf{Metrica utilizzata}: numero dei rischi non preventivati (MPC4);
 					\item \textbf{Soglia di accettabilità}: 0 - 3;
 					\item \textbf{Soglia di ottimalità}: 0.
 				\end{itemize}
@@ -180,7 +178,7 @@
 			\begin{itemize}
 			\item il livello di dettaglio della progettazione dovrà guidare la codifica e l'esecuzione dei test senza bisogno di informazioni aggiuntive;
 			\item la progettazione di dettaglio, che include architettura di basso livello,  relazioni fra le varie unità software concepite e la definizione dettagliata delle interfacce dovrà essere esposta chiaramente nel documento \DPdoc{};
-			\item per ogni elemento dell'architettura a basso livello dovrà essere possibile tracciare il requisito e l'elemento dell'architettura di alto livello associati.
+			\item per ogni elemento dell'architettura a basso livello dovrà essere possibile tracciare il requisito associato.
 			\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
@@ -214,9 +212,8 @@
 			
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Complessità ciclomatica - OPC13}
-				Indica la complessità di funzioni, moduli, metodi o classi di un programma. Alti valori di complessità
-				ciclomatica implicano una ridotta manutenibilità del codice. Valori bassi di complessità ciclomatica potrebbero
-				però determinare scarsa efficienza dei metodi.
+				Indica la complessità di funzioni, moduli, metodi o classi di un programma. Alti valori di complessità ciclomatica implicano una ridotta
+				manutenibilità del codice.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: indice di complessità ciclomatica (MPC13);
 					\item \textbf{Soglia di accettabilità}: 1 - 20;
@@ -224,20 +221,22 @@
 				\end{itemize}
 			
 			\paragraph{Livelli di annidamento - OPC14}
-				Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno di altre procedure o funzioni.
+				Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno di altre procedure o funzioni. Più livelli di annidamento
+				potrebbero rendere il codice di difficile comprensione e potrebbero portare a commettere errori logici durante la realizzazione del codice.
+				In caso di troppi livelli di annidamento sarebbe opportuno riscrivere il metodo, o la funzione, affinchè sia facilmente comprensibile.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: numero di livelli di annidamento (MPC14);
-					\item \textbf{Soglia di accettabilità}: 1 - 5;
-					\item \textbf{Soglia di ottimalità}: 1 - 3.
+					\item \textbf{Soglia di accettabilità}: 1 - ;
+					\item \textbf{Soglia di ottimalità}: 1 - 2.
 				\end{itemize}
 			
 			\paragraph{Linee di commento per linee di codice - OPC15}
-				Indica il numero di linee di commento rispetto alle linee totali del codice. Un valore alto indica un codice maggiormente comprensibile
-				e, di conseguenza, facilmente manutenibile.
+				Indica il numero di linee di commento rispetto alle linee totali del codice. Un valore basso indica un codice poco comprensibile
+				e, di conseguenza, difficilmente manutenibile. Un valore troppo alto indica un eccesso di commenti e un appesantimento dei file.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale linee di commento per linee di codice (MPC15);
-					\item \textbf{Soglia di accettabilità}: \begin{math} \geq 25\% \end{math};
-					\item \textbf{Soglia di ottimalità}: \begin{math} \geq 30\% \end{math}.
+					\item \textbf{Soglia di accettabilità}: 10\% - 40\%;
+					\item \textbf{Soglia di ottimalità}: 20\% - 30\%.
 				\end{itemize}
 			
 			\paragraph{Complessità di una funzione - OPC16}
@@ -279,13 +278,16 @@
 		\subsubsection{Strategie}
 		Le attività previste da questo processo dovranno puntare a raggiungere un alto livello di automazione, in particolare:
 		\begin{itemize}
-			\item l’integrazione delle varie parti del sistema sarà completamente automatizzata utilizzando lo strumento di continuous integration Jenkins;
-			\item il livello di integrazione raggiunto del sistema sarà sempre consultabile grazie all’utilizzo dello strumento di continuous integration Jenkins.
+			\item l’integrazione delle varie parti del sistema sarà completamente automatizzata utilizzando lo strumento di continuous integration Jenkins,
+			come definito nel documento \NPdocRP{};
+			\item il livello di integrazione raggiunto del sistema sarà sempre consultabile grazie all’utilizzo dello strumento di continuous integration Jenkins,
+			come definito nel documento \NPdocRP{}.
 		\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Componenti integrate - OPC20}
-				Indica il numero di componenti definite in progettazione che sono attualmente implementate e integrate nel sistema.
+				Indica il numero di componenti definite in progettazione che sono attualmente implementate e integrate nel sistema. Nel nostro caso, tutte le
+				componenti progettate andranno a costituire il sistema.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale di componenti integrate nel sistema (MPC20);
 					\item \textbf{Soglia di accettabilità}: 100\%;
@@ -359,7 +361,8 @@
 		
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Branch coverage - OPC26}
-				Indica il numero di rami decisionali percorsi nei test utilizzati.
+				Indica il numero di rami decisionali percorsi nei test utilizzati. Questo obiettivo assicura che i branch derivanti da una condizione siano
+				eseguiti da almeno un test.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale di rami decisionali percorsi (MPC26);
 					\item \textbf{Soglia di accettabilità}: 75\% - 100\%;
@@ -375,7 +378,8 @@
 				\end{itemize}
 				
 			\paragraph{Statement coverage - OPC28}
-				Indica il numero di istruzioni che sono state eseguite nei test utilizzati.
+				Indica il numero di istruzioni che sono state eseguite nei test utilizzati. Maggiore è il valore maggiore sarà il numero di statement eseguiti almeno
+				una volta dai test.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: numero di istruzioni nei test (MPC28);
 					\item \textbf{Soglia di accettabilità}: 75\% - 100\%;

@@ -10,7 +10,11 @@
 	è descritto nel documento \NPdocRP{}.
 	
 	\subsection{Documenti}
-		I documenti prodotti dal gruppo \GRUPPO{} contengono le informazioni sul software prodotte dai vari processi attuati.
+		I documenti prodotti dal gruppo \GRUPPO{} si dividono in interni ed esterni. I primi definiscono le strategie, gli strumenti e il metodo di lavoro (ways of working)
+		del gruppo affinchè i membri realizzino prodotti simili tra loro secondo delle regole definite. I secondi definiscono tutto ciò che riguarda il software prodotto,
+		partendo dalla progettazione fino a giungere all'analisi dei requisiti e la definizione di prodotto. \\
+		Poichè i documenti interni devono essere letti e compresi da tutti i membri del gruppo e quelli esterni devono essere comprensibili affinchè proponente e committente
+		siano informati correttamente, il gruppo ha deciso di perseguire le strategie e gli obiettivi di qualità definiti di seguito.
 	
 		\subsubsection{Strategie}
 		Tutti i documenti prodotti devono avere le seguenti caratteristiche:
@@ -23,7 +27,7 @@
 		
 		\subsubsection{Obiettivi di qualità - OPDD1}
 			\paragraph{Leggibilità e comprensibilità}
-			Indica il livello di leggibilità e comprensibilità del documento.
+			Indica il livello di leggibilità e comprensibilità del documento. Maggiore è il valore dell'indice maggiore sarà la leggibilità del documento.
 			\begin{itemize}
 				\item \textbf{Metrica utilizzata}: indice Gulpease (MPDD1);
 				\item \textbf{Soglia di accettabilità}: 40 - 100;
@@ -63,7 +67,8 @@
 				\end{itemize}
 				
 				\subparagraph{Controllo degli accessi - OPDS3}
-				Indica quante operazioni illegali non sono state bloccate.
+				Indica quante operazioni illegali non sono state bloccate. Valori grandi indicano un sistema poco sicuro e facilmenete violabile.
+				Valori bassi sono d'obbligo per poter garantire la sicurezza dei dati.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale operazioni illegali non bloccate (MPDS3);
 					\item \textbf{Soglia di accettabilità}: 0\% - 10\%;
@@ -84,13 +89,13 @@
 				\subparagraph{Densità di failure - OPDS4}
 				Indica quante operazioni di testing sono concluse in failure.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale failure su test - case (MPDS4);
+					\item \textbf{Metrica utilizzata}: percentuale failure su test (MPDS4);
 					\item \textbf{Soglia di accettabilità}: 0\% - 10\%;
 					\item \textbf{Soglia di ottimalità}: 0\%.
 				\end{itemize}
 				
 				\subparagraph{Blocco di operazioni non corrette - OPDS5}
-				Indica quante funzionalità sono in grado di gestire correttamente gli errori che potrebbero verificarsi.
+				Indica quante funzionalità sono in grado di gestire correttamente gli errori che potrebbero verificarsi. Un valore alto è sinonimo di robustezza.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: numero di failure evitati (MPDS5);
 					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
@@ -112,7 +117,9 @@
 			\paragraph{Obiettivi di qualità}
 			
 				\subparagraph{Comprensibilità delle funzioni offerte - OPDS6}
-				Indica quante funzionalità sono state comprese immediatamente dall'utente senza la consultazione del manuale.
+				Indica quante funzionalità sono state comprese immediatamente dall'utente senza la consultazione del manuale. L'assistente virtuale dovrebbe essere
+				il più user friendly possibile. Infatti, l'interazione dell'utente dovrebbe essere il più fluida possibile senza dover consultare il manuale
+				ad ogni operazione da eseguire.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale delle funzionalità comprese (MPDS6);
 					\item \textbf{Soglia di accettabilità}: 85\% - 100\%;
@@ -143,8 +150,8 @@
 				Indica il periodo temporale medio trascorso tra la richiesta al software di una determinata funzionalità e la risposta all'utente.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: tempo medio di risposta (MPDS8);
-					\item \textbf{Soglia di accettabilità}: 0 - 12;
-					\item \textbf{Soglia di ottimalità}: 0 - 5;
+					\item \textbf{Soglia di accettabilità}: 0 - 20 secondi;
+					\item \textbf{Soglia di ottimalità}: 0 - 7 secondi;
 				\end{itemize}
 		
 		\subsubsection{Maintainability}
@@ -163,7 +170,8 @@
 			\paragraph{Obiettivi di qualità}
 			
 				\subparagraph{Capacità analisi di failure - OPDS9}
-				Indica il numero di failure di cui sono state individuate le cause. 
+				Indica il numero di failure di cui sono state individuate le cause.  Maggiore è il valore più facile sarà individuare gli errori nel software 
+				e determinare delle soluzioni per correggerli.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale di failure con cause individuate (MPDS9)
 					\item \textbf{Soglia di accettabilità}: 65\% - 100\%;
@@ -171,7 +179,8 @@
 				\end{itemize}
 				
 				\subparagraph{Impatto delle modifiche - OPDS10}
-				Indica il numero di modifiche effettuate in risposta alle failure che ne hanno introdotte di nuove.
+				Indica il numero di modifiche effettuate in risposta alle failure che ne hanno introdotte di nuove. Valori alti indicano l'individuazione di
+				soluzioni scandenti per la risoluzione delle failure.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale di failure introdotte con modifiche (MPDS10);
 					\item \textbf{Soglia di accettabilità}: 0\% - 20\%;
