@@ -1,4 +1,4 @@
-Amazon Echo
+﻿Amazon Echo
 Amazon echo
 Amazon Web Services
 Android
@@ -133,4 +133,16 @@ VotePoll
 watchOS
 Windows Phone
 Xamarin
-
+API Gateway
+Enrollment
+Endpoint
+Continuous Integration
+DOM
+Adapter
+Event-driven
+Client-side discovery
+Data Access Object
+Dependency Injection
+Facade
+Singleton
+Observer
