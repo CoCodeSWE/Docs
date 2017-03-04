@@ -1,4 +1,5 @@
 ﻿Adapter
+adapter
 Amazon Echo
 Amazon echo
 Amazon Web Services
@@ -11,12 +12,14 @@ Asana
 Astah
 AWS Lambda
 Bitbucket
+bitbucket
 Bolle interattive
 bolle interattive
 Bootstrap
 Bot
 bot
 Botkit
+botkit
 Browser
 browser
 C#
@@ -28,22 +31,32 @@ Casi d'uso
 ciclo di vita
 Ciclo di vita
 Client-side discovery
+client-side discorvery
 Cloud
 cloud
 CMM
 Continuous Integration
+continuos integration
+Continuos integration
 Cordova
 crash
 Crash
 CSS3
 Data Access Object
+Data access object
+data access object
 DBMS
 Dependency Injection
+Dependency injection
+dependency injection
 Design pattern
 design pattern
 Diagramma di Gantt
+diagramma di Gantt
 Direttiva
 direttiva
+Direttive
+direttive
 DOM
 double token
 Double token
@@ -51,9 +64,15 @@ DynamoDB
 ebook
 Ebook
 Endpoint
+endpoint
 Enrollment
+enrollment
 Event-driven
+event-driven
 Facade
+facade
+Façade
+façade
 Flexible And Adaptive Text To Speech
 Framework
 framework
@@ -91,7 +110,6 @@ milestone
 Modello incrementale
 modello incrementale
 MongoDB
-MongoDB
 Node.js
 NoSQL
 OAuth2
@@ -121,15 +139,22 @@ Ruby
 SDK
 Service Level Agreement
 Singleton
+singleton
 Sistema
+sistema
 Slack
 Software
+software
 SQL
 Stack
+stack
 Swift
 Task
+task
 Team
+team
 Template
+template
 Texmaker
 ticketing
 Ticketing
@@ -137,13 +162,17 @@ Tomcat
 tvOS
 UML
 Unità
+unità
 Unity
 Unix
 Validazione
+validazione
 Verifica
+verifica
 VoIP
 VotePoll
 watchOS
 Webhook
+webhook
 Windows Phone
 Xamarin
