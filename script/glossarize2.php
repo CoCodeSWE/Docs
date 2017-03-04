@@ -21,6 +21,10 @@
   glossarizzare n files bisognava eseguire n volte lo script.
   Ora, in base alla organizzazione del repository di Co.Code, lo script cerca tutti i file .tex
   e li glossarizza.
+  2017-03-04 Ora lo script glossarizza solo la prima occorrenza di ogni parola. Inoltre permette la deglossarizzazione.
+  Lo script ora può essere eseguito in ambienti diversi da Linux. -> UPDATE alla versione 3.0 by Mattia Bottaro
+  Per Glossarizzare, dare da terminale php glossarize2.php
+  Per Deglossarizzare, dare php glossarize2.php -d
 */
 
 
@@ -29,7 +33,7 @@
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
 $rev = ('../RP/'); //al cambio di revisione modificare questa variabile
-$revisione = 'Revisione dei requisiti';//e questa
+$revisione = 'Revisione di progettazione';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -38,16 +42,17 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  //'Glo' => 'Glossario/',
+  'Glo' => 'Glossario/',
   'NdP' => 'NormeDiProgetto/',
-  /*'SdF' => 'StudioDiFattibilita/',
+  'SdF' => 'StudioDiFattibilita/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/',
-  '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+/* '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
   '2VI' => 'Verbale_I_2016-12-19',
-  '1VE' => 'Verbale_E_2016-12-17/',
+  '1VE' => 'Verbale_E_2016-12-17/', */
   'PdQ' => 'PianoDiQualifica/',
-  'SDK' => 'AnalisiSDK/'*/
+  'SDK' => 'AnalisiSDK/',
+  'DdP' => 'DefinizioneDiProdotto'
   //'LdP' => 'LetteraDiPresentazione/'
 );
 
@@ -63,7 +68,7 @@ ______                            _
 | |_\ \ | (_) \__ \__ \ (_| | |  | |/ /  __/
  \____/_|\___/|___/___/\__,_|_|  |_/___\___|
 
-  Improved by Mattia Bottaro     v2.0
+  Improved by Mattia Bottaro     v3.0
 
 EOF;
 
@@ -78,6 +83,7 @@ EOF;
 
 
 function glossarizeDoc($path) {
+  //$var_dump($argv);
   if (isset($path)) {
     $docSign = $path;  /*
     if (file_exists($docSign)) {
@@ -110,7 +116,7 @@ function glossarizeDoc($path) {
    * Per ogni voce di glossario...
    */
   while (!feof($voci)) {
-
+    $glo_or_deglo=$_SERVER[ "argv" ][1];
     $voce =trim(fgets($voci));
     $lineNumber = 0;
     rewind($file);
@@ -128,7 +134,7 @@ function glossarizeDoc($path) {
        */
       if (preg_match("/\b$voce\b/", $line) && $voce!="") {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
-          echo $path." ".$voce."\n";
+          //echo $path." ".$voce."\n";
 
           if($voce=="casi d'uso" || $voce=="Casi d'uso"){
             $Vvoce=$voce;
@@ -137,14 +143,26 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce="casi duso";
           }
-          /*
-          $file_contents = file_get_contents($filename);
-          $file_contents = preg_replace(" /$voce/ "," \gl{".$voce."} ",$file_contents,1);
-          file_put_contents($filename,$file_contents);
-          */
-          $file_contents = file_get_contents($filename);
-          $file_contents = preg_replace(" \\\\gl{".$voce."}  "," $voce ",$file_contents,-1);
-          file_put_contents($filename,$file_contents);
+          ///* Attivare qui per GLOSSARIZZARE ----
+
+          if($glo_or_deglo!="-d"){
+              $file_contents = file_get_contents($filename);
+              $file_contents = preg_replace("/$voce/","\gl{".$voce."}",$file_contents,1);
+              file_put_contents($filename,$file_contents);
+          }
+          //-----*/
+          //if(preg_match("/\\\\gl{".$voce."}/",$file_contents)) echo $voce."\n";
+
+          // Attivare qui per DEGLOSSARIZZARE, togliere il break sotto.
+          // ----.-----------------------------
+          //echo "[".$argv[1]."]\n";
+          else{
+              $file_contents = file_get_contents($filename);
+              $file_contents = str_replace("\gl{".$voce."}","$voce",$file_contents);
+              file_put_contents($filename,$file_contents);
+          }
+          //*/
+          // -----------------------------------------
           /*
            * $test= "prodotto prodotto prodotto Prodotto progetto progetto progetto";
              $test=preg_replace("/Prodotto/i", " gl{prodotto } ", $test, 1);
@@ -157,7 +175,7 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce=$Vvoce;
           }
-          //break;
+          if($glo_or_deglo!="-d") break;
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
           //echo "";
         } else { // deglo
@@ -166,7 +184,6 @@ function glossarizeDoc($path) {
       //    echo $path." \n";
         }
       }
-  //  break; // questo break permette di glossarizzare solo la prima occorrenza
     }
   }
 
@@ -210,8 +227,10 @@ foreach ($docs as $doc => $dir) {
       }// else $glossarizzato=false;
       }
     }
+    if($_SERVER[ "argv" ][1]!="-d") $phrases="Glossarizzato";
+    else $phrases="DE-Glossarizzato";
     if(file_exists($rev.$root.$dir)){
-      echo "|        $doc            |    \033[33;32m Glossarizzato";echo"\e[0m   |   \n";
+      echo "|        $doc            |    \033[33;32m $phrases";echo"\e[0m   |   \n";
       echo "+-----------------------+---------------------+\n";
     }else{
       echo "|        $doc            |    \033[33;31m Non esistente";echo"\e[0m   |    \n";
