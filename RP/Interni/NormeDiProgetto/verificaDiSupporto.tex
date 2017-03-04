@@ -373,7 +373,7 @@ Calcola la percentuale di modifiche effettuate in risposta a failure che hanno p
 \paragraph{Calcolo dell'indice di Gulpease}
 Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
 \begin{itemize}
-	\item dirigersi con il terminale in GulScript{};
+	\item dirigersi da terminale in \GulScript{};
 	\item dare il comando \file{php gulpease.php};
 	\item visualizzare il risultato sul terminale.
 \end{itemize}
@@ -391,12 +391,33 @@ Per visualizzare il resoconto corrente dello stato di ciò che le metriche indic
 	\item effettuare l'accesso in PragmaDB;
 	\item selezionare la voce "Metriche".
 \end{itemize}
+\paragraph{Resoconto stato test di unità}
+Per visualizzare il resoconto corrente dello stato dei test di unità è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item entrare nella cartella \texttt{/responsoTest};
+	\item aprire il file corrispondente al test eseguito, identificato con data e ora dell'esecuzione.
+\end{itemize}
+\paragraph{Resoconto stato build}
+Per visualizzare il resoconto corrente dello stato di una delle build eseguite, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item entrare nella cartella \texttt{/statoBuild};
+	\item aprire il file corrispondente al numero della build sulla quale si vogliono informazioni.
+\end{itemize}
+
 \subsubsection{Strumenti}
 \paragraph{Script per il calcolo dell'indice di Gulpease}
-In GulScript{} si trova lo script che calcola l'indice di Gulpease per ogni documento.
+In \GulScript{} si trova lo script che calcola l'indice di Gulpease per ogni documento.
 \paragraph{Controllo ortografico}
 Per il controllo ortografico dei documenti si farà utilizzo dello strumento integrato in Texmaker.\\
 Per poterlo utilizzare, è necessario disporre del pacchetto per il dizionario italiano.
+\paragraph{Integrazione continua - Jenkins}
+Jenkins è uno strumento open source di continuous integration, scritto in linguaggio Java che fornisce dei servizi di integrazione continua per lo sviluppo del software. Viene eseguito lato server all'interno di un server web che supporta la tecnologia Servlet e quindi può essere utilizzato da remoto all'interno di un Web browser.\\
+Questo strumento permetterà al gruppo di automatizzare i test di unità, che verranno eseguiti ad ogni push eseguita da un programmatore, ed il processo di build e deployment del prodotto.
+\subparagraph{Codifica ed esecuzione test di unità - Mocha}
+Mocha è un framework che permette di creare ed eseguire test sia per Node.js che per il browser web.
+\subparagraph{Calcolo della copertura dei test - Istanbul}
+Istanbul è uno strumento che calcola la copertura dei test rispetto a statement, righe, funzioni e branch di un determinato progetto.
+
 
 \paragraph{Requisiti obbligatori soddisfatti}
 Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
