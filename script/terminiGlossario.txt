@@ -59,6 +59,7 @@ Framework
 framework
 Freeze
 freeze
+GanttProject
 gateway
 Gateway 
 Git
@@ -74,6 +75,7 @@ Iterazione
 iterazione
 Java
 JavaScript
+Jenkins
 Jolie
 Kernel
 kernel
@@ -129,6 +131,7 @@ Stack
 Swift
 Task
 Team
+Telegram
 Template
 Texmaker
 ticketing
