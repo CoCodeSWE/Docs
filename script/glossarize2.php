@@ -23,6 +23,8 @@
   e li glossarizza.
   2017-03-04 Ora lo script glossarizza solo la prima occorrenza di ogni parola. Inoltre permette la deglossarizzazione.
   Lo script ora può essere eseguito in ambienti diversi da Linux. -> UPDATE alla versione 3.0 by Mattia Bottaro
+  Per Glossarizzare, dare da terminale php glossarize2.php
+  Per Deglossarizzare, dare php glossarize2.php -d
 */
 
 
@@ -114,7 +116,7 @@ function glossarizeDoc($path) {
    * Per ogni voce di glossario...
    */
   while (!feof($voci)) {
-
+    $glo_or_deglo=$_SERVER[ "argv" ][1];
     $voce =trim(fgets($voci));
     $lineNumber = 0;
     rewind($file);
@@ -142,20 +144,23 @@ function glossarizeDoc($path) {
             $voce="casi duso";
           }
           ///* Attivare qui per GLOSSARIZZARE ----
-          ///*
-          $file_contents = file_get_contents($filename);
-          $file_contents = preg_replace("/$voce/","\gl{".$voce."}",$file_contents,1);
-          file_put_contents($filename,$file_contents);
+
+          if($glo_or_deglo!="-d"){
+              $file_contents = file_get_contents($filename);
+              $file_contents = preg_replace("/$voce/","\gl{".$voce."}",$file_contents,1);
+              file_put_contents($filename,$file_contents);
+          }
           //-----*/
           //if(preg_match("/\\\\gl{".$voce."}/",$file_contents)) echo $voce."\n";
 
           // Attivare qui per DEGLOSSARIZZARE, togliere il break sotto.
           // ----.-----------------------------
           //echo "[".$argv[1]."]\n";
-          /*
-          $file_contents = file_get_contents($filename);
-          $file_contents = str_replace("\gl{".$voce."}","$voce",$file_contents);
-          file_put_contents($filename,$file_contents);
+          else{
+              $file_contents = file_get_contents($filename);
+              $file_contents = str_replace("\gl{".$voce."}","$voce",$file_contents);
+              file_put_contents($filename,$file_contents);
+          }
           //*/
           // -----------------------------------------
           /*
@@ -170,7 +175,7 @@ function glossarizeDoc($path) {
             file_put_contents($filename,$file_contents);
             $voce=$Vvoce;
           }
-           break;
+          if($glo_or_deglo!="-d") break;
         //  echo "\033[33;32m>  riga $lineNumber:\tglossarizzato '$voce'\n";
           //echo "";
         } else { // deglo
@@ -222,8 +227,10 @@ foreach ($docs as $doc => $dir) {
       }// else $glossarizzato=false;
       }
     }
+    if($_SERVER[ "argv" ][1]!="-d") $phrases="Glossarizzato";
+    else $phrases="DE-Glossarizzato";
     if(file_exists($rev.$root.$dir)){
-      echo "|        $doc            |    \033[33;32m Glossarizzato";echo"\e[0m   |   \n";
+      echo "|        $doc            |    \033[33;32m $phrases";echo"\e[0m   |   \n";
       echo "+-----------------------+---------------------+\n";
     }else{
       echo "|        $doc            |    \033[33;31m Non esistente";echo"\e[0m   |    \n";
