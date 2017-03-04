@@ -145,3 +145,70 @@
 	  \end{itemize}
 	\item \textbf{Utilizzo:}
 	\end{itemize}
+	
+	\section{Librerie esterne utilizzate}
+	\subsection{Promise e Observable}
+
+
+JavaScript è un linguaggio single-thread, quindi basato su un singolo thread in esecuzione. Questo significherebbe dover aspettare sempre il termine di un'operazione prima di passare alla
+
+successiva, quindi nel caso di operazioni di lunga durata, il flusso dell'elaborazione principale di un’applicazione JavaScript potrebbe "congelarsi". \\
+
+
+Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una callback alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituisce
+
+il controllo al chiamante. Quando l'operazione sarà terminata, la funzione di callback verrà invocata. \\
+
+
+L'uso di callback, spesso annidate, rendono il codice di difficile comprensione e di difficile manutenzione. Due possibili soluzioni sono l'uso delle Promise di bluebird e gli Observable
+
+di RxJS.
+
+
+\subsubsection{Promise e bluebird}
+
+
+Una Promise è un oggetto che rappresenta il risultato pendente di un’operazione asincrona. Ciò permette ai metodi asincroni di restituire valori alla stessa maniera dei metodi sincroni:
+
+invece del valore finale, il metodo asincrono restituisce una promessa di ottenere un valore in un momento futuro. \\
+
+I principali metodi di una Promise sono:
+
+\begin{itemize}
+
+\item then: ritorna una Promise, in questo modo è possibile concatenere successive chiamate a questo meotodo. È composto da due parametri opzionali che corrispondono a 
+
+due funzioni: onFulfill viene richiamata se la Promise ha avuto successo, onReject se è stata rigettata.  
+
+\item catch: ritorna una Promise e si occupa di gestire eventuali errori generati nella catena dei then.
+
+\end{itemize}
+
+
+Si è deciso di utilizzare bluebird in quanto offre le suguenti caratteristiche:
+
+\begin{itemize}
+
+\item cross-platform: ideale per progetti che prevedono esperienze multipiattaforma;
+
+\item compatibile con le specifiche Promise/A+: bluebird può essere usato come rimpiazzo per Promise nativa offrendo un immediato miglioramento delle prestazioni;
+
+\item debug facile: gli stake trace sono in cui vengono riportati, quando possibile, gli errori non gestiti sono configurabili.
+
+\end{itemize}
+
+
+\subsubsection{Observable e RxJS v5}
+
+Un Observable è una rappresentazione di un qualsiasi insieme di valori durante un qualsiasi periodo di tempo. Viene utilizzata per le implementazioni del pattern Observer.
+
+RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornta
+
+da Microsoft e altri sviluppatori di software open source.
+
+
+\subsection{AWS SDK per JavaScript in Node.js}
+
+Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema è necessario utilizzare SDK per JavaScript in Node.js per
+
+interfacciarsi ai singoli servizi offerti da AWS. In particolare si farà utiizzo di DynamoDb.
