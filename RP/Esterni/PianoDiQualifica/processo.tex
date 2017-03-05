@@ -167,8 +167,6 @@
 					\item \textbf{Soglia di accettabilità}: 0 - 6;
 					\item \textbf{Soglia di ottimalità}: 0 - 2.
 			\end{itemize}
-			\paragraph{Design Structure Quality Index - OPC10}
-			
 			
 	\subsection{Software Detailed Design Process}
 		Questo processo si occupa di fornire, dato un sistema, una sua progettazione di dettaglio che permetta codifica ed esecuzione di test.	
@@ -182,19 +180,19 @@
 			\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
-			\paragraph{Numero di metodi per classe - OPC11}
+			\paragraph{Numero di metodi per classe - OPC10}
 			Indica il numero di metodi definiti in una classe; un valore molto alto potrebbe indicare una cattiva decomposizione delle funzionalità a livello di progettazione.
 			\begin{itemize}
-				\item \textbf{Metrica utilizzata}: numero di metodi per classe (MPC11);
+				\item \textbf{Metrica utilizzata}: numero di metodi per classe (MPC10);
 				\item \textbf{Soglia di accettabilità}: 1 - 10;
 				\item \textbf{Soglia di ottimalità}: 1 - 8.
 			\end{itemize}
 			
-			\paragraph{Numero di parametri per metodo - OPC12}
+			\paragraph{Numero di parametri per metodo - OPC11}
 			Indica il numero di parametri passati ad un metodo; un valore molto alto potrebbe indicare un
 			metodo troppo complesso e ulteriormente scomponibile in metodi più semplici.
 			\begin{itemize}
-				\item \textbf{Metrica utilizzata}: numero di parametri per metodo (MPC12);
+				\item \textbf{Metrica utilizzata}: numero di parametri per metodo (MPC11);
 				\item \textbf{Soglia di accettabilità}: 0 - 6;
 				\item \textbf{Soglia di ottimalità}: 0 - 4.
 			\end{itemize}
@@ -211,62 +209,39 @@
 			\end{itemize}
 			
 		\subsubsection{Obiettivi di qualità}
-			\paragraph{Complessità ciclomatica - OPC13}
+			\paragraph{Complessità ciclomatica - OPC12}
 				Indica la complessità di funzioni, moduli, metodi o classi di un programma. Alti valori di complessità ciclomatica implicano una ridotta
 				manutenibilità del codice.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: indice di complessità ciclomatica (MPC13);
+					\item \textbf{Metrica utilizzata}: indice di complessità ciclomatica (MPC12);
 					\item \textbf{Soglia di accettabilità}: 1 - 20;
 					\item \textbf{Soglia di ottimalità}: 1 - 10.
 				\end{itemize}
 			
-			\paragraph{Livelli di annidamento - OPC14}
+			\paragraph{Livelli di annidamento - OPC13}
 				Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno di altre procedure o funzioni. Più livelli di annidamento
 				potrebbero rendere il codice di difficile comprensione e potrebbero portare a commettere errori logici durante la realizzazione del codice.
 				In caso di troppi livelli di annidamento sarebbe opportuno riscrivere il metodo, o la funzione, affinchè sia facilmente comprensibile.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: numero di livelli di annidamento (MPC14);
+					\item \textbf{Metrica utilizzata}: numero di livelli di annidamento (MPC13);
 					\item \textbf{Soglia di accettabilità}: 1 - ;
 					\item \textbf{Soglia di ottimalità}: 1 - 2.
 				\end{itemize}
 			
-			\paragraph{Linee di commento per linee di codice - OPC15}
+			\paragraph{Linee di commento per linee di codice - OPC14}
 				Indica il numero di linee di commento rispetto alle linee totali del codice. Un valore basso indica un codice poco comprensibile
 				e, di conseguenza, difficilmente manutenibile. Un valore troppo alto indica un eccesso di commenti e un appesantimento dei file.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale linee di commento per linee di codice (MPC15);
+					\item \textbf{Metrica utilizzata}: percentuale linee di commento per linee di codice (MPC14);
 					\item \textbf{Soglia di accettabilità}: 10\% - 40\%;
 					\item \textbf{Soglia di ottimalità}: 20\% - 30\%.
 				\end{itemize}
 			
-			\paragraph{Complessità di una funzione - OPC16}
-				Indica il livello di complessità di una funzione, ovvero la difficoltà della funzione di essere scritta o compresa.
-				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: Halstead Difficulty per funzione (MPC16);
-					\item \textbf{Soglia di accettabilità}: 0 - 25;
-					\item \textbf{Soglia di ottimalità}: 0 - 15.
-				\end{itemize}
-			
-			\paragraph{Dimensione dell'implementazione di una funzione - OPC17}
-				Indica la dimensione dell'implementazione di una funzione.
-				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: Halstead Volume per funzione (MPC17);
-					\item \textbf{Soglia di accettabilità}: 20 - 1500;
-					\item \textbf{Soglia di ottimalità}: 20 - 1000.
-				\end{itemize}
 				
-			\paragraph{Costo di una funzione - OPC18}
-				Rappresenta il costo per scrivere il codice di una funzione.
-				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: Halstead Effort per funzione (MPC18);
-					\item \textbf{Soglia di accettabilità}: 0 - 400;
-					\item \textbf{Soglia di ottimalità}: 0 - 300.
-				\end{itemize}
-				
-			\paragraph{Manutenibilità - OPC19}
+			\paragraph{Manutenibilità - OPC15}
 				Permette di stabilire il grado di manutenibilità del codice prodotto.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: indice di manutenibilità (MPC19);
+					\item \textbf{Metrica utilizzata}: indice di manutenibilità (MPC15);
 					\item \textbf{Soglia di accettabilità}: 10 - 100;
 					\item \textbf{Soglia di ottimalità}: 20 - 100.
 				\end{itemize}
@@ -285,11 +260,11 @@
 		\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
-			\paragraph{Componenti integrate - OPC20}
+			\paragraph{Componenti integrate - OPC16}
 				Indica il numero di componenti definite in progettazione che sono attualmente implementate e integrate nel sistema. Nel nostro caso, tutte le
 				componenti progettate andranno a costituire il sistema.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di componenti integrate nel sistema (MPC20);
+					\item \textbf{Metrica utilizzata}: percentuale di componenti integrate nel sistema (MPC16);
 					\item \textbf{Soglia di accettabilità}: 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
@@ -307,42 +282,42 @@
 			\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
-			\paragraph{Test di unità eseguiti - OPC21}
+			\paragraph{Test di unità eseguiti - OPC17}
 				Indica il numero di test di unità eseguiti tra quelli definiti dal gruppo.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di test di unità eseguiti (MPC21);
+					\item \textbf{Metrica utilizzata}: percentuale di test di unità eseguiti (MPC17);
 					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
 			
-			\paragraph{Test di integrazione eseguiti - OPC22}
+			\paragraph{Test di integrazione eseguiti - OPC18}
 				Indica il numero di test di integrazione eseguiti tra quelli definiti dal gruppo.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di test di integrazione eseguiti (MPC22);
+					\item \textbf{Metrica utilizzata}: percentuale di test di integrazione eseguiti (MPC18);
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
 				
-			\paragraph{Test di sistema eseguiti - OPC23}
+			\paragraph{Test di sistema eseguiti - OPC19}
 				Indica il numero di test di sistema eseguiti in modo automatico tra quelli definiti dal gruppo.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di test di sistema eseguiti (MPC23);
+					\item \textbf{Metrica utilizzata}: percentuale di test di sistema eseguiti (MPC19);
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
 				
-			\paragraph{Test di validazione eseguiti - OPC24}
+			\paragraph{Test di validazione eseguiti - OPC20}
 				Indica il numero di test di validazione eseguiti manualmente tra quelli definiti dal gruppo.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di test di validazione eseguiti (MPC24);
+					\item \textbf{Metrica utilizzata}: percentuale di test di validazione eseguiti (MPC20);
 					\item \textbf{Soglia di accettabilità}: 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
 				
-			\paragraph{Test superati - OPC25}
+			\paragraph{Test superati - OPC21}
 				Indica il numero di test superati.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale dei test superati (MPC25);
+					\item \textbf{Metrica utilizzata}: percentuale dei test superati (MPC21);
 					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
@@ -360,28 +335,28 @@
 			\end{itemize}
 		
 		\subsubsection{Obiettivi di qualità}
-			\paragraph{Branch coverage - OPC26}
+			\paragraph{Branch coverage - OPC22}
 				Indica il numero di rami decisionali percorsi nei test utilizzati. Questo obiettivo assicura che i branch derivanti da una condizione siano
 				eseguiti da almeno un test.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: percentuale di rami decisionali percorsi (MPC26);
+					\item \textbf{Metrica utilizzata}: percentuale di rami decisionali percorsi (MPC22);
 					\item \textbf{Soglia di accettabilità}: 75\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 85\% - 100\%.
 				\end{itemize}
 			
-			\paragraph{Function coverage - OPC27}
+			\paragraph{Function coverage - OPC23}
 				Indica il numero di funzioni che sono state chiamate nei test utilizzati.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: numero di funzioni chiamate nei test (MPC27);
+					\item \textbf{Metrica utilizzata}: numero di funzioni chiamate nei test (MPC23);
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
 				
-			\paragraph{Statement coverage - OPC28}
+			\paragraph{Statement coverage - OPC24}
 				Indica il numero di istruzioni che sono state eseguite nei test utilizzati. Maggiore è il valore maggiore sarà il numero di statement eseguiti almeno
 				una volta dai test.
 				\begin{itemize}
-					\item \textbf{Metrica utilizzata}: numero di istruzioni nei test (MPC28);
+					\item \textbf{Metrica utilizzata}: numero di istruzioni nei test (MPC24);
 					\item \textbf{Soglia di accettabilità}: 75\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 85\% - 100\%.
 				\end{itemize}
