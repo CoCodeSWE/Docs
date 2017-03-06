@@ -1,1 +1,42 @@
 \section{Architettura dell'applicazione}
+L'architettura scelta è quella a microservizi.\\
+\subsection{Microservizi}
+Di seguito verranno esposti e spiegati i funzionamenti di ogni microservizio da implementare.
+\subsubsection{Virtual Assistant}
+\paragraph{Descrizione}
+Il microservizio Virtual Assistant fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, consentendo lo sviluppo di diverse funzionalità da parte di sviluppatori diversi, e l'integrazione di eventuali funzionalità già esistenti senza dover modificare direttamente gli agenti di api.ai. \\
+Per avere un completo controllo sul flusso della conversazione, si dovrà fare utilizzo di un database contenente gli agenti utilizzabili, in maniera tale che gli agenti utilizzabili siano solo quelli definiti e registrati.\\
+Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, dell'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato magari per fini di apprendimento macchina.\\
+Di seguito vengono esposti i vari passaggi:
+\begin{itemize}
+	\item arriva una richiesta;
+	\item interrogo il database, contenente gli agenti, utilizzando il nome dell'applicazione;
+	\item dall'interrogazione precedente ottengo il token dell'agente relativo all'applicazione;
+	\item invio ad api.ai il token e il testo della richiesta;
+	\item api.ai fornisce la risposta, la quale viene "filtrata" da\\ \file{Back-end::VirtualAssistant::ApiAiVAAdapter::query(str: VAQuery): VAResponse}, ottenendo così un formato adatto a \file{Back-end::VirtualAssistant::VAResponse};
+	\item pubblico, tramite il servizio Amazon SNS, la risposta filtrata che verrà quindi inviata al Client.
+\end{itemize}
+\paragraph{Endpoints}
+\subsubsection{Notifications}
+\paragraph{Descrizione}
+Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. La lista dei canali viene restituita come un'array di stringhe, ognuna delle quali rappresenta un canale.\\
+Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile qui \url{https://api.slack.com/docs/message-buttons}.
+\paragraph{Endpoints}
+\subsubsection{Users}
+\paragraph{Descrizione}
+Il microservizio Users si occupa della gestione degli amministratori del nostro sistema. Esso fornisce delle API REST per modificare i dati relativi agli amministratori del nostro sistema presenti in un database. Viene integrato col servizio di Speech Recognition dall'API Gateway, per fornire la possibilità di effettuare il login, tramite impronta vocale, nel sistema.
+\paragraph{Endpoints}
+\subsubsection{Rules}
+\paragraph{Descrizione}
+Il microservizio Rules si occupa della gestione delle direttive del sistema. Una direttiva è un'istruzione che viene data da un amministratore al sistema, la quale permette di modificare il comportamento del sistema stesso al verificarsi di certe condizioni. Tali condizioni possono essere legate alla persona che interagisce col sistema, la sua azienda di provenienza, oppure alla persona desiderata che viene richiesta.\\
+Il sistema fornisce una serie di funzioni per modificare il suo comportamento, le quali indicano il modo in cui esso debba essere cambiato. \\
+Una direttiva è costituita da:
+\begin{itemize}
+	\item una lista di target, che indica gli obbiettivi ai quali deve essere applicata la direttiva;
+	\item un'istanza di funzione, che indica quale delle funzioni disponibili deve essere applicata e, nel caso in cui tale funzione abbia dei parametri modificabili, con quali valori di quest'ultimi deve essere chiamata;
+	\item un nome, il quale permette agli amministratori di identificare le diverse direttive;
+	\item un id, il quale identifica univocamente la funzione all'interno del sistema; 
+	\item una flag di abilitazione, che permette di abilitare e disabilitare l'applicazione della direttiva da parte del sistema.
+\end{itemize}
+  
+\paragraph{Endpoints}
