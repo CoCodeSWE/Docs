@@ -159,7 +159,7 @@
 	\item \textbf{Utilizzo:}
 	\end{itemize}
 	
-	\section{Librerie esterne utilizzate}
+	\section{Tecnologie utilizzate}
 	\subsection{Promise e Observable}
 
 
@@ -259,3 +259,33 @@ Lo Speech to Text Watson converte voce in testo scritto. Per trascrivere la voce
 
 \subsubsection{Request promise}
 E' un modello che implementa l'esistenza delle Promises come risposta a una serie di richieste che non possono essere soddisfatte immediatamente . Una promessa è un risultato che verrà reso disponibile non appena possibile se è possibile mantenere la promessa (fulfilled) oppure è un errore se non la si può mantenere (rejected).
+\subsubsection{AWS Lambda}
+AWS Lambda è un servizio di cloud-computing fornito da Amazon, il quale permette l'implementazione di una architettura serverless. \\
+Esso permette l'esecuzione di codice senza preoccuparsi della gestione di server o di tutte le risorse necessarie all'esecuzione del codice, in termini di tempo, spazio e computabilità. \\
+AWS Lambda permette di eseguire codice su una piattaforma ad alta affidabilità, a patto che il codice sia scritto in un linguaggio supportato. Nel nostro caso, faremo utilizzo di Node.js 4.3.2, supportato da AWS Lambda. \\
+Inoltre, questo servizio può essere utilizzato per eseguire del codice in risposta ad eventi. \\
+La signature delle Lambda Function è la seguente:
+\begin{verbatim}
+function(event, context,) {
+    ...
+}
+\end{verbatim}
+dove:
+\begin{itemize}
+	\item \file{event} è l'oggetto che contiene i dati della richiesta ricevuta dall'API Gateway. In particolare, contiene i seguenti campi:
+	\begin{itemize}
+		\item \file{body}: campo di tipo \file{String} contenente il corpo della richiesta;
+		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'URL;
+		\item \file{urlQueryParameters}: oggetto contenente i parametri passati all'API Gateway attraverso query nell'URL.
+	\end{itemize}
+	\item \file{context} è l'oggetto contenente i dati relativi alla richiesta e, in caso di Lambda Proxy Integration, contiene anche i seguenti metodi:
+	\begin{itemize}
+		\item \file{succeed}: metodo da utilizzare per mandare una risposta all'API Gateway in caso di successo. La risposta dev'essere un oggetto contenente i seguenti campi:
+		\begin{itemize}
+			\item \file{headers}: array associativo nel quale la chiave indica il nome di un header HTTP da mandare nella risposta, il quale valore associato è una stringa contenente il valore di tale header;
+			\item \file{statusCode}: attributo intero contenente il codice HTTP che dovrà avere la risposta;
+			\item \file{body}: stringa contenente il corpo della risposta da mandare.  
+		\end{itemize}
+	\end{itemize} – AWS Lambda uses this parameter to provide your handler the runtime information of the Lambda function that is executing. For more information, see The Context Object (Node.js).
+\end{itemize}
+
