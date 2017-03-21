@@ -17,15 +17,159 @@ Di seguito vengono esposti i vari passaggi:
 	\item pubblico, tramite il servizio Amazon SNS, la risposta filtrata che verrà quindi inviata al Client.
 \end{itemize}
 \paragraph{Endpoints}
+
+Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Virtual Assistant.\\
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+\begin{itemize}
+\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
+\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
+\end{itemize}
+Gli Endpoints sono: 
+\begin{itemize}
+\item \textbf{/query}\\
+\begin{itemize}
+\item \textbf{Method:} POST;
+\item \textbf{Descrizione:} invia al microservizio il testo utilizzato per l'esecuzione di un'interrogazione;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	"VAQuery" : ["array di JSON contenente i dati necessari per l'interrogazione"]
+}
+\end{lstlisting}
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	"VAResponse" : ["array di JSON contenente dati associati alla risposta di Virtual Assistant"]
+}
+\end{lstlisting}
+\end{itemize}
+\end{itemize}
+
+
 \subsubsection{Notifications}
 \paragraph{Descrizione}
 Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. La lista dei canali viene restituita come un'array di stringhe, ognuna delle quali rappresenta un canale.\\
 Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile qui \url{https://api.slack.com/docs/message-buttons}.
 \paragraph{Endpoints}
+
+Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Notifications. \\
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+\begin{itemize}
+\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
+\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
+\end{itemize}
+Gli Endpoints sono: 
+\begin{itemize}
+
+\item \textbf{/}\\
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} restituisce la lista dei possibili destinatari;
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	receiver_array : ["array di stringhe dei possibili destinatari"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} POST;
+\item \textbf{Descrizione:} invia la notifica ad una determinata persona;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	rule : ["array di JSON contente i dati associati alla direttiva da inviare"]
+	sender : ["stringa contenente il mittente della notifica "]
+	receiver : ["stringa contenente il destinatario della notifica "]
+	msg : ["stringa contenente il messaggio da inviare"]
+}
+\end{lstlisting}
+\end{itemize}
+\end{itemize}
+
 \subsubsection{Users}
 \paragraph{Descrizione}
 Il microservizio Users si occupa della gestione degli amministratori del nostro sistema. Esso fornisce delle API REST per modificare i dati relativi agli amministratori del nostro sistema presenti in un database. Viene integrato col servizio di Speech Recognition dall'API Gateway, per fornire la possibilità di effettuare il login, tramite impronta vocale, nel sistema.
 \paragraph{Endpoints}
+
+Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Users. \\
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+\begin{itemize}
+\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
+\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
+\end{itemize}
+
+Gli Endpoints sono:
+ 
+\begin{itemize}
+\item \textbf{/auth/users}\\
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} restituisce la lista degli Users;  
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} POST;
+\item \textbf{Descrizione:} vengono inviati i dati necessari alla registrazione; 
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	user_array : ["array di stringhe degli utenti esistenti"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\item \textbf{/auth/users/:username}\\
+
+\begin{itemize}
+\item \textbf{Method:} PUT;
+\item \textbf{Descrizione:} vengono modificati i dati dell'utente tramite sovrascrittura; 
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	user : ["array di JSON contenente i nuovi dati da inserire"]	
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} DELETE;
+\item \textbf{Descrizione:} viene eliminato un utente; 
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	username : ["stringa contenente l'username dell'utente da eliminare"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente; 
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	username : ["stringa contenente l'username dell'utente desiderato"]
+}
+\end{lstlisting}
+
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	user : ["array di JSON contenente l'utente desiderato"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\end{itemize}
+
 \subsubsection{Rules}
 \paragraph{Descrizione}
 Il microservizio Rules si occupa della gestione delle direttive del sistema. Una direttiva è un'istruzione che viene data da un amministratore al sistema, la quale permette di modificare il comportamento del sistema stesso al verificarsi di certe condizioni. Tali condizioni possono essere legate alla persona che interagisce col sistema, la sua azienda di provenienza, oppure alla persona desiderata che viene richiesta.\\
@@ -40,3 +184,143 @@ Una direttiva è costituita da:
 \end{itemize}
   
 \paragraph{Endpoints}
+
+Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Rules.\\ 
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+\begin{itemize}
+\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
+\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
+\end{itemize}
+Gli Endpoints sono: 
+
+\begin{itemize}
+
+\item \textbf{/impostazioni}\\
+
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} viene ricevuta la lista delle direttive;
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	rule_array : ["array di stringhe contenente la lista delle direttive"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} POST;
+\item \textbf{Descrizione:} viene creata una nuova direttiva
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	rule : ["array di JSON contenente i dati associati alla direttiva da creare"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\item \textbf{/impostazioni/:id}\\
+
+\begin{itemize}
+\item \textbf{Method:} PUT; 
+\item \textbf{Descrizione:} viene modificata una direttiva tramite sovrascrittura;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	rule : ["array di JSON contenente i nuovi dati associati alla direttiva da modificare"]
+}
+\end{lstlisting} 
+
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} vengono richiesti dati relativi ad una specifica direttiva;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	id_rule : ["stringa contenente l'id della direttiva desiderata"]
+}
+\end{lstlisting}
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	rule : ["array di JSON contenente i dati associati alla direttiva desiderata"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} DELETE;
+\item \textbf{Descrizione:} viene eliminata una direttiva;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	id_rule : ["stringa contenente l'id della direttiva da eliminare"]
+}
+\end{lstlisting}
+\end{itemize}
+
+
+\item \textbf{/impostazioni/functions/}\\
+
+\begin{itemize}
+\item \textbf{Method:} GET; 
+\item \textbf{Descrizione:} viene richiesta la lista dei tipi di funzioni presenti nel sistema; 
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	function_array : ["array di stringhe contenente la lista dei tipi di funzioni presenti nel sistema"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} POST;
+\item \textbf{Descrizione:} viene creato un nuovo tipo di funzione;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	function : ["array di JSON contenente il tipo di funzione da creare"]
+}
+\end{lstlisting}  
+\end{itemize}
+
+
+
+\item \textbf{/impostazioni/functions/:type}\\
+
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} viene richiesta la descrizione di una funzione;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	id_function : ["stringa contenente l'id della funzione richiesta"]
+}
+\end{lstlisting}
+\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	description_function : ["stringa contenente la descrizione della funzione richiesta"]
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Method:} PUT;
+\item \textbf{Descrizione:} viene modificata una funzione tramite sovrascrittura;
+\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	function : ["array di JSON contenente i nuovi dati associati alla funzione da modificare"]
+}
+\end{lstlisting}
+
+\end{itemize}
+
+\end{itemize}
+
+\end{document}
+
+
