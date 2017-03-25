@@ -60,7 +60,7 @@ Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnal
 \begin{enumerate}
 	\item il \VER{} dovrà aprire una nuova \gl{issue} assegnandole una label che si riferisca al problema trovato;
 	\item il \RESP{} di \gl{progetto} dovrà valutare la \gl{issue}; se la ritiene appropriata assegnerà ai redattori del documento (o ai \PRP) il compito di risolvere la \gl{issue};
-	\item una volta risolta, e verificata, la \gl{issue} dovrà essere marcata come conlcusa da parte del \RESP{} o del \VER;
+	\item una volta risolta, e verificata, la \gl{issue} dovrà essere marcata come conclusa da parte del \RESP{} o del \VER;
 \end{enumerate}
 \subsubsection{Strumenti}
 \paragraph{Strumenti per l'issue tracking}
@@ -200,13 +200,21 @@ Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno
 \subparagraph{Percentuale di linee di commento per linee di codice - MPC14}
 Indica la percentuale di linee di commento rispetto alle linee di codice.
 \begin{equation*}
-\text{Percentuale linee di commento} = \frac{\text{Linee di commento}}{\text{Linee di codice}} * 100
+\text{Percentuale linee di commento} = \frac{\text{Linee di commento}}{\text{Linee totali di codice}} * 100
 \end{equation*}
 \subparagraph{Indice di manutenibilità - MPC15}
 Indica quanto sarà semplice mantenere il codice prodotto.
 \begin{equation*}
-\text{Manutenibilità} = 171 - 5,2 * \ln(\text{Halstead Volume}) - 0.23 * (\text{Complessita ciclomatica}) - 16.2 * \ln(\text{Linee di codice})
+\text{Manutenibilità} =\frac{(171 - 5,2 * \ln(V) - 0.23 * (\text{Complessita ciclomatica}) - 16.2 * \ln(\text{Linee di codice})*100)}{171}
 \end{equation*}
+dove 
+\begin{equation*}
+\begin{align*}
+\text{V} = & (\text{Numero totale di operatori} + \text{Numero totale di operandi})* \\ 
+& \log_2 (\text{Numero di operatori distinti}+\text{Numero di operandi distinti})
+\end{align*}
+\end{equation*}
+
 \subparagraph{Percentuale di componenti integrate nel sistema - MPC16}
 Indica la percentuale di componenti attualmente implementate e correttamente integrate nel sistema.
 \begin{equation*}
@@ -238,14 +246,22 @@ Indica la percentuale di test superati.
 \text{Test superati} = \frac{\text{Numero test superati}}{\text{Numero test eseguiti}} * 100
 \end{equation*}
 \subparagraph{Percentuale di rami decisionali percorsi - MPC22}
-Indica la percentuale di rami decisionali percorsi dai test di unità utilizzati.
+Indica la percentuale di rami decisionali percorsi dai test utilizzati.
 \begin{equation*}
 \text{Rami decisionali percorsi} = \frac{\text{Numero rami decisionali percorsi}}{\text{Numero rami decisionali totali}} * 100
 \end{equation*}
 \subparagraph{Numero di funzioni chiamate nei test - MPC23}
-Indica il numero di funzioni chiamate nel test di unità utilizzato.
+Indica il numero di funzioni chiamate nei test utilizzati.
+\begin{equation*}
+\text{Numero di funzioni chiamate} = \frac{\text{Funzioni chiamate}}{\text{Numero di funzioni totali}} * 100
+\end{equation*}
+
 \subparagraph{Numero di istruzioni nei test - MPC24}
-Indica il numero di istruzioni eseguite nel test di unità utilizzato.
+Indica il numero di istruzioni eseguite nei test utilizzati.
+
+\begin{equation*}
+\text{Numero di istruzioni} = \frac{\text{Istruzioni eseguite}}{\text{Istruzioni totali}} * 100
+\end{equation*}
 
 
 \paragraph{Qualità di prodotto}
@@ -337,7 +353,7 @@ Calcola la percentuale di modifiche effettuate in risposta a failure che hanno p
 
 \begin{equation*}I=\frac{N_{FRF}}{N_{FR}} \cdot 100 \end{equation*}
 \begin{itemize}
-	\item \textbf{FRF}  è il numero di failure risolte con l'introduzione di nuove failuree;
+	\item \textbf{FRF}  è il numero di failure risolte con l'introduzione di nuove failure;
 	\item \textbf{FR} è il numero di failure risolte;
 \end{itemize}
 
