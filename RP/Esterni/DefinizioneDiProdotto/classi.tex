@@ -9,7 +9,7 @@ Package che contiene tutte le componenti che costituiscono il back-end. Le compo
 	\caption{Back-end:: ConversationsDAO}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Nome}: \file{ ConversationsDAO};
+	\item \textbf{Nome}: \file{ConversationsDAO};
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database contenente le conversazioni;
 	\item \textbf{Utilizzo}: fornisce a \file{ConversationWebhookService} un meccanismo per accedere al database contenente le conversazioni, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di utenti registrati;
@@ -3289,9 +3289,9 @@ Questa classe implementa l'interfaccia della libreria esterna RxJS::Observer;
 		\item[] \file{+ isPaused(): boolean} \\
 		Metodo che permette di ottenere il valore di paused, in modo da capire se l'Observer è in pausa o meno;\\
 		\item[] \file{+ complete(): void} \\
-		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione complete_cb;\\
+		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione complete\_cb;\\
 		\item[] \file{+ error(err: Error): void} \\
-		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error_cb}, passandole come parametro \file{err};\\
+		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error\_cb}, passandole come parametro \file{err};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{err: Error} \\
