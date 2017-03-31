@@ -1,0 +1,433 @@
+\subsubsection{Scopo del processo}
+Si occupa di accertare che lo svolgimento del processo in esame non introduca errori nel prodotto.
+\subsubsection{Aspettative del processo}
+Una corretta implementazione di tale processo permette di individuare:
+\begin{itemize}
+	\item una procedura di verifica;
+	\item i criteri per la verifica del prodotto.
+\end{itemize}
+\subsubsection{Documenti}
+Il \RESP{} ha il compito di avviare la fase di verifica, assegnando i task ai \VERP{}. Essi dovranno controllare che:
+\begin{itemize}
+	\item la sintassi sia corretta, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
+	\item i periodi non siano troppo lunghi, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
+	\item la struttura sia completa, non complicata e coerente con il contenuto del documento in esame.
+\end{itemize}
+
+\subsubsection{Diagrammi UML}
+I \VERP{} devono controllare tutti i diagrammi UML prodotti, sia che
+venga rispettato lo standard UML, sia che siano corretti semanticamente.
+\paragraph{Diagrammi dei casi d'uso}
+Per tutti i diagrammi d'uso, i \VERP{} dovranno controllare che:
+\begin{itemize}
+	\item rispettino lo standard UML;
+	\item rappresentino ciò che dovrebbero modellare, facendo attenzione a inclusione, estensioni e generalizzazione;
+	\item gli attori correlati siano corretti;
+	\item non ci siano difetti grafici.
+\end{itemize}
+\paragraph{Diagrammi di sequenza}
+Per tutti i diagrammi di sequenza, i \VERP{} dovranno controllare che:
+\paragraph{Diagrammi di attività}
+Per tutti i diagrammi di attività, i \VERP{} dovranno controllare che:
+\paragraph{Diagramma dei package}
+Per tutti i diagrammi dei package, i \VERP{} dovranno controllare che:
+\subsubsection{Attività}
+\paragraph{Analisi statica}
+E' una tecnica di analisi del codice sorgente e della documentazione associata, prevalentemente
+usata quando il sistema non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
+richiede l'esecuzione del prodotto software in alcuna sua parte. Può essere applicata tramite una
+delle seguenti strategie:
+\begin{itemize}
+	\item \textbf{Walkthrough}: si legge l'intero documento (o codice) in cerca di tutte le possibili anomalie. E' una tecnica onerosa che richiede l'impegno di più persone e per questo deve essere utilizzata solo durante la prima parte del progetto, dove non tutti i membri hanno piena padronanza e conoscenza delle \NPdoc e del \PQdoc;
+	\item \textbf{Inspection}: questa tecnica dev'essere applicata quando si ha idea della
+	problematica che si sta cercando; consiste in una lettura mirata del
+	documento (o del codice), sulla base di una lista degli errori precedentemente
+	stilata.
+\end{itemize}
+\paragraph{Analisi dinamica}
+L'attività di analisi dinamica è una tecnica di verifica applicabile solamente al software. Tale tecnica può essere utilizzata per analizzare l'intero software o una
+porzione limitata dello stesso. L'attività consiste nell'esecuzione di test automatici realizzati
+dal team. Le verifiche devono essere effettuate su un insieme finito di casi, con valori di
+ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
+che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia
+applicabile durante l'intero ciclo di vita del software.
+<<<<<<< HEAD
+\subsubsection{Procedure}
+\paragraph{Issue tracking}
+L'issue tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
+ \subparagraph{Gestione delle issue}
+Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del ticketing di una issue è la seguente:
+\begin{enumerate}
+	\item il \VER{} dovrà aprire una nuova issue assegnandole una label che si riferisca al problema trovato;
+	\item il \RESP{} di progetto dovrà valutare la issue; se la ritiene appropriata assegnerà ai redattori del documento (o ai \PRP) il compito di risolvere la issue;
+	\item una volta risolta, e verificata, la issue dovrà essere marcata come conlcusa da parte del \RESP{} o del \VER;
+\end{enumerate}
+\subsubsection{Strumenti}
+\paragraph{Strumenti per l'issue tracking}
+Lo strumento utilizzato per l'issue tracking è il servizio Issues messo a disposizione da GitHub.
+\paragraph{Verifica ortografica}
+Viene utilizzata la verifica in tempo reale dell'ortografia, integrata in TexMaker. Essa marca,
+sottolineando in rosso, le parole errate secondo la lingua italiana.
+\paragraph{Indice di Gulpease}
+Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.
+ \subsection{Validazione}
+ \subsubsection{Scopo}
+ Lo scopo di questo processo è verificare il prodotto ottenuto sia coerente rispetto gli obiettivi prefissati.
+ \subsubsection{Aspettative}
+ Le aspettative di questo processo sono che:
+ \begin{itemize}
+ 	\item il prodotto finale rispetti i parametri di qualità imposti;
+ 	\item il prodotto finale sia conforme rispetto le aspettative;
+ 	\item il prodotto finale sia corretto.
+ \end{itemize}
+ \subsubsection{Descrizione}
+ Le responsabilità sono così distribuite:
+ \begin{itemize}
+ 	\item i \VERP{} hanno il compito di eseguire i test, tracciandone i risultati;
+ 	\item il \RESP{} revisiona i risultati dei test, decidendo se ritenerli accettabili o meno. Inoltre, si assume la responsabilità con il committente della conformità del prodotto finale rispetto le aspettative.
+ \end{itemize}
+ \subsubsection{Procedure}
+ La procedura di validazione è composta dai seguenti punti:
+ \begin{itemize}
+ 	\item i \VERP{} effettuano test manuali sul prodotto finale, tracciandone i risultati;
+ 	\item il \RESP{} esamina i risultati e decide se ritenerli buoni o se ripetere i test;
+ 	\item se accettati, il \RESP{} dovrà consegnare i risultati al proponente.
+ \end{itemize}
+ \newpage
+=======
+\subsection{Qualità}
+\subsubsection{Notazione}
+\paragraph{Metriche}
+Per garantire la qualità del lavoro del team gli \AMMP{} hanno definito delle metriche, riportandole
+nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{M\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
+dove:
+\begin{itemize}
+	\item \textbf{X} indica se la metrica si riferisce a prodotti o processi e può assumere
+	i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se la metrica è riferita ai prodotti, indica se il termine prodotto si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco della metrica (numero intero incrementale a partire da 1).
+\end{itemize}
+\paragraph{Obiettivi}
+Per garantire la qualità del lavoro del team, gli \AMMP{} hanno definito degli obiettivi di qualità,
+riportandoli nel \PQdoc, che devono rispettare la seguente notazione:\\ \\
+\centerline{\textbf{O\textbraceleft{}X\textbraceright{}\textbraceleft{}Y\textbraceright{}\textbraceleft{}Z\textbraceright{}}} \\ \\
+dove:
+\begin{itemize}
+	\item \textbf{X} indica se l'obiettivo si riferisce a prodotti o processi e può assumere i valori:
+	\begin{itemize}
+		\item \textbf{PC} per indicare i processi;
+		\item \textbf{PD} per indicare i prodotti.
+	\end{itemize}
+	\item \textbf{Y} presente solo se l'obiettivo è riferito ai prodotti, indica se il termine prodotto si riferisce a documenti o al software e può assumere i seguenti valori:
+	\begin{itemize}
+		\item \textbf{D} per indicare i documenti;
+		\item \textbf{S} per indicare il software;
+	\end{itemize}
+	\item \textbf{Z} indica il codice univoco dell'obiettivo (numero intero incrementale a partire da 1).
+\end{itemize}
+\subsubsection{Definizione metriche}
+Di seguito sono definite le metriche utilizzate nel documento \PQdocRP{}. Ad ogni metrica è stata assegnato un codice identificativo per facilitare il tracciamento.
+\paragraph{Qualità di processo}
+\subparagraph{Percentuale di accessi avvenuti correttamente a PragmaDB - MPC1}
+Indica il numero  di accessi avvenuti correttamente espresso in percentuale.\\
+\begin{equation*}
+\text{Percentuale accessi} = \frac{\text{Accessi avvenuti}}{\text{Richieste d'accesso}} * 100
+\end{equation*}
+\subparagraph{Schedule Variance - MPC2}
+Indica se si è in linea, in anticipo o in ritardo rispetto ai tempi pianificati.\\
+\begin{equation*}
+\text{Schedule Variance = TP - TR}
+\end{equation*}
+\begin{itemize}
+	\item \textbf{TP} è il tempo pianificato per terminare un attività;
+	\item \textbf{TR} è il tempo reale che è stato impiegato.
+\end{itemize}
+\subparagraph{Cost Variance in percentuale - MPC3}
+Indica se alla data corrente i costi corrispondono alla pianificazione, espressi in percentuale.
+\begin{equation*}
+\text{Cost Variance} = \frac{CP - CR}{CP} * 100
+\end{equation*}
+\begin{itemize}
+	\item \textbf{CP} sono i costi pianificati per la data corrente;
+	\item \textbf{CR} sono i costi reali sostenuti.
+\end{itemize}
+\subparagraph{Indice dei rischi non preventivati - MPC4}
+É un indice che viene incrementato ogniqualvolta si manifesta un rischio non individuato nell'attività di analisi dei rischi.
+\subparagraph{Numero di requisiti obbligatori soddisfatti - MPC5}
+Indica la percentuale di requisiti obbligatori soddisfatti del prodotto.
+\begin{equation*}
+Numero requisiti = \frac{\text{requisiti obbligatori soddisfatti}}{\text{requisiti obbligatori totali}} * 100
+\end{equation*}
+\subparagraph{Numero di requisiti desiderabili soddisfatti - MPC6}
+Indica la percentuale di requisiti desiderabili soddisfatti del prodotto.
+\begin{equation*}
+\text{Numero requisiti} = \frac{\text{requisiti desiderabili soddisfatti}}{\text{requisiti desiderabili totali}} * 100
+\end{equation*}
+\subparagraph{Numero di requisiti opzionali soddisfatti - MPC7}
+Indica la percentuale di requisiti opzionali soddisfatti del prodotto.
+\begin{equation*}
+\text{Numero requisiti} = \frac{\text{requisiti opzionali soddisfatti}}{\text{requisiti opzionalii totali}} * 100
+\end{equation*}
+\subparagraph{SF-IN - MPC8}
+Indice numerico che incrementa nel momento in cui viene individuato un modulo che, durante la sua esecuzione, chiama il modulo in oggetto.
+\subparagraph{SF-OUT - MPC9}
+Indice numerico che incrementa nel momento in cui viene individuato un modulo utilizzato dal modulo in oggetto durante la sua esecuzione.
+\subparagraph{???? - MPC10}
+
+\subparagraph{Numero di metodi per classe - MPC11}
+Indica il numero di metodi definiti in ogni classe.
+\subparagraph{Numero di parametri per metodo - MPC12}
+Indica il numero di parametri definiti in ogni metodo.
+\subparagraph{Indice di complessità ciclomatica - MPC13}
+Dato un grafo non fortemente connesso che rappresenta una sezione di codice del software, indica il numero di cammini linearmente indipendenti.
+\begin{equation*}
+\text{Complessità ciclomatica} = E - N + 2P
+\end{equation*}
+\begin{itemize}
+	\item \textbf{E} è il numero di archi del grafo;
+	\item \textbf{N} è il numero di nodi del grafo;
+	\item \textbf{P} è il numero di componenti connesse.
+\end{itemize}
+\subparagraph{Numero di livelli di annidamento - MPC14}
+Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno di altre procedure o funzioni.
+\subparagraph{Percentuale di linee di commento per linee di codice - MPC15}
+Indica la percentuale di linee di commento rispetto alle linee di codice.
+\begin{equation*}
+\text{Percentuale linee di commento} = \frac{\text{Linee di commento}}{\text{Linee di codice}} * 100
+\end{equation*}
+\subparagraph{Halstead Difficulty per funzione - MPC16}
+Indica il livello di complessità di una funzione.
+\begin{equation*}
+\text{Halstead Difficulty} = \frac{UOP}{2} * \frac{OD}{UOD}
+\end{equation*}
+\begin{itemize}
+	\item \textbf{UOP} è il numero di operatori distinti;
+	\item \textbf{OD} è il numero totale di operandi;
+	\item \textbf{UOD} è il numero di operandi distinti.
+\end{itemize}
+\subparagraph{Halstead Volume per funzione - MPC17}
+Indica la dimensione dell'implementazione di un algoritmo.
+\begin{equation*}
+\text{Halstead Volume} = (OP + OD) * \log_2(UOP + UOD)
+\end{equation*}
+\begin{itemize}
+	\item \textbf{OP} è il numero totale di operatori;
+	\item \textbf{UOP} è il numero di operatori distinti;
+	\item \textbf{OD} è il numero totale di operandi;
+	\item \textbf{UOD} è il numero di operandi distinti.
+\end{itemize}
+\subparagraph{Halstead Effort per funzione - MPC18}
+Indica il costo necessario a scrivere il codice di una funzione.
+\begin{equation*}
+\text{Halstead Effort} = \text{Halsted Difficulty} * \text{Halstead Volume}
+\end{equation*}
+\subparagraph{Indice di manutenibilità - MPC19}
+Indica quanto sarà semplice mantenere il codice prodotto.
+\begin{equation*}
+\text{Manutenibilità} = 171 - 5,2 * \ln(\text{Halstead Volume}) - 0.23 * (\text{Complessita ciclomatica}) - 16.2 * \ln(\text{Linee di codice})
+\end{equation*}
+\subparagraph{Percentuale di componenti integrate nel sistema - MPC20}
+Indica la percentuale di componenti attualmente implementate e correttamente integrate nel sistema.
+\begin{equation*}
+\text{Componenti integrate} = \frac{\text{Numero componenti integrate}}{\text{Numero componenti totali progettate}} * 100
+\end{equation*}
+\subparagraph{Percentuale di test di unità eseguiti - MPC21}
+Indica la percentuale di test di unità eseguiti.
+\begin{equation*}
+\text{Test di unità eseguiti} = \frac{\text{Numero test di unita eseguiti}}{\text{Numero test di unita pianificati}} * 100
+\end{equation*}
+\subparagraph{Percentuale di test di integrazione eseguiti - MPC22}
+Indica la percentuale di test di integrazione eseguiti.
+\begin{equation*}
+\text{Test di integrazione eseguiti} = \frac{\text{Numero test di integrazione eseguiti}}{\text{Numero test di integrazione pianificati}} * 100
+\end{equation*}
+\subparagraph{Percentuale di test di sistema eseguiti - MPC23}
+Indica la percentuale di test di sistema eseguiti.
+\begin{equation*}
+\text{Test di sistema eseguiti} = \frac{\text{Numero test di sistema eseguiti}}{\text{Numero test di sistema pianificati}} * 100
+\end{equation*}
+\subparagraph{Percentuale di test di validazione eseguiti - MPC24}
+Indica la percentuale di test di validazione eseguiti.
+\begin{equation*}
+\text{Test di validazione eseguiti} = \frac{\text{Numero test di validazione eseguiti}}{\text{Numero test di validazione pianificati}} * 100
+\end{equation*}
+\subparagraph{Percentuale dei test superati - MPC25}
+Indica la percentuale di test superati.
+\begin{equation*}
+\text{Test superati} = \frac{\text{Numero test superati}}{\text{Numero test eseguiti}} * 100
+\end{equation*}
+\subparagraph{Percentuale di rami decisionali percorsi - MPC26}
+Indica la percentuale di rami decisionali percorsi dai test di unità utilizzati.
+\begin{equation*}
+\text{Rami decisionali percorsi} = \frac{\text{Numero rami decisionali percorsi}}{\text{Numero rami decisionali totali}} * 100
+\end{equation*}
+\subparagraph{Numero di funzioni chiamate nei test - MPC27}
+Indica il numero di funzioni chiamate nel test di unità utilizzato.
+\subparagraph{Numero di istruzioni nei test - MPC28}
+Indica il numero di istruzioni eseguite nel test di unità utilizzato.
+
+
+\paragraph{Qualità di prodotto}
+\subparagraph{Indice Gulpease - MPDD1}
+Permette di calcolare i livello di leggibilità e comprensibilià del documento.
+
+\begin{equation*}\textit{Indice Gulpease} = 89 + \frac{300 * \textit{A} + 10 * B}{C}\end{equation*} \\
+\begin{itemize}
+	\item \textbf{A} è il numero totale di frasi;
+	\item \textbf{B} è il numero totale di lettere
+	\item \textbf{C} è il numero totale di parole;
+\end{itemize}
+\subparagraph{Completezza dell’implementazione funzionale - MPDS1}
+Permette di calcolare i livello di leggibilità e comprensibilià del documento.
+
+\begin{equation*}
+C=(1-\frac{FM}{FI})\cdot 100
+\end{equation*}
+\begin{itemize}
+	\item \textbf{FM} è il numero di funzionalità mancanti nell'implementazione;
+	\item \textbf{FI} è il numero di funzionalità individuate nell'attività di analisi;
+\end{itemize}
+\subparagraph{Percentuale di risultati concordi alle attese - MPDS2}
+Calcola quanti risultati sono concordi alle attese.
+
+\begin{equation*} RC = (1-\frac{N_{RD}}{N_{TE}}) \cdot 100 \end{equation*}
+\begin{itemize}
+	\item \textbf{RD} è il numero di test che producono risultati discordanti rispetto alle attese;
+	\item \textbf{TE}  è il numero di test-case eseguiti;
+\end{itemize}
+\subparagraph{Percentuale di operazioni illegali non bloccate - MPDS3}
+Calcola quante operazioni illegali non sono state bloccate.
+
+\begin{equation*}I=\frac{N_{IE}}{N_{II}} \cdot 100\end{equation*}
+\begin{itemize}
+	\item \textbf{IE} è il numero di operazioni illegali effettuabili dai test;
+	\item \textbf{II} è il numero di operazioni illegali individuate;
+\end{itemize}
+\subparagraph{Percentuale failure su test-case - MPDS4}
+Calcola la percentuale di operazioni di testing che si sono concluse in failure.
+
+\begin{equation*}F=\frac{N_{FR}}{N_{TE}} \cdot 100 \end{equation*}
+\begin{itemize}
+	\item \textbf{FR} è il numero di failure rilevati durante l'attività di testing;
+	\item \textbf{TE} è il numero di test-case eseguiti;
+\end{itemize}
+\subparagraph{Numero di failure evitati - MPDS5}
+Calcola la percentuale di funzionalità in grado di gestire correttamente i fault che potrebbero verificarsi.
+
+\begin{equation*}B=\frac{N_{FE}}{N_{ON}} \cdot 100 \end{equation*}
+\begin{itemize}
+	\item \textbf{FE} è il numero di failure evitati durante i test effettuati;
+	\item \textbf{ON} è il numero di test-case eseguiti che prevedono l'esecuzione di operazioni non corrette, causa di possibili failure;
+\end{itemize}
+\subparagraph{Percentuale delle funzionalità comprese  - MPDS6}
+Calcola la percentuale di operazioni comprese in modo immediato dall'utente, senza la consultazione del manuale.
+
+\begin{equation*}C=\frac{N_{FC}}{N_{FO}} \cdot 100\end{equation*}
+\begin{itemize}
+	\item \textbf{FC} è il numero di funzionalità comprese in modo immediato dall'utente durante l'attività di testing del prodotto;
+	\item \textbf{FO} è il numero di funzionalità offerte dal sistema;
+\end{itemize}
+\subparagraph{Percentuale di funzionalità conformi alle aspettative - MPDS7}
+Calcola la percentuale di funzionalità offerte all'utente che rispettano le sue aspettative riguardo al comportamento del software.
+
+\begin{equation*}C=(1-\frac{N_{MFI}}{N_{MFO}}) \cdot 100\end{equation*}
+\begin{itemize}
+	\item \textbf{MFI} è il numero di messaggi e funzionalità che non rispettano le aspettative dell'utente;
+	\item \textbf{MFO} è il numero di messaggi e funzionalità offerti dal sistema;
+\end{itemize}
+\subparagraph{Tempo medio di risposta - MPDS8}
+Calcola il periodo temporale medio trascorso tra la richiesta al software di una determinata funzionalità e la risposta all’utente.
+
+\begin{equation*}T_{RISP} = \frac{\sum_{i=1}^{n} T_{i}}{n}\end{equation*}
+\begin{itemize}
+	\item \textbf{$T_{RISP}$} espresso in \textit{secondi};
+	\item \textbf{$T_{i}$} è il tempo intercorso fra la richiesta $i$ di una funzionalità ed il completamento delle operazioni necessarie a restituire un risultato a tale richiesta;
+\end{itemize}
+\subparagraph{Percentuale di failure con cause individuate - MPDS9}
+Calcola la percentuale di failure di cui sono state individuate le cause.
+
+\begin{equation*}I=\frac{N_{FI}}{N_{FR}} \cdot 100 \end{equation*}
+\begin{itemize}
+	\item \textbf{FI}  è il numero di failure delle quali sono state individuate le cause;
+	\item \textbf{FR} è il numero di failure rilevate;
+\end{itemize}
+\subparagraph{percentuale di failure introdotte con modifiche - MPDS10}
+Calcola la percentuale di modifiche effettuate in risposta a failure che hanno portato all'introduzione di nuove failure in altre componenti del sistema.
+
+\begin{equation*}I=\frac{N_{FRF}}{N_{FR}} \cdot 100 \end{equation*}
+\begin{itemize}
+	\item \textbf{FRF}  è il numero di failure risolte con l'introduzione di nuove failuree;
+	\item \textbf{FR} è il numero di failure risolte;
+\end{itemize}
+
+\subsubsection{Procedure}
+\paragraph{Calcolo dell'indice di Gulpease}
+Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item dirigersi con il terminale in GulScript{};
+	\item dare il comando \file{php gulpease.php};
+	\item visualizzare il risultato sul terminale.
+\end{itemize}
+\paragraph{Controllo ortografico}
+Per verificare la correttezza ortografica è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire Texmaker;
+	\item aprire il documento interessato nel formato .tex;
+	\item dal menù a tendina "Modifica", selezionare la voce "verifica ortografia".
+\end{itemize}
+Per rendere ciò possibile, è necessario installare il pacchetto relativo dizionario italiano per Texmaker.
+\paragraph{Resoconto stato metriche}
+Per visualizzare il resoconto corrente dello stato di ciò che le metriche indicano, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item effettuare l'accesso in PragmaDB;
+	\item selezionare la voce "Metriche".
+\end{itemize}
+\subsubsection{Strumenti}
+\paragraph{Script per il calcolo dell'indice di Gulpease}
+In GulScript{} si trova lo script che calcola l'indice di Gulpease per ogni documento.
+\paragraph{Controllo ortografico}
+Per il controllo ortografico dei documenti si farà utilizzo dello strumento integrato in Texmaker.\\
+Per poterlo utilizzare, è necessario disporre del pacchetto per il dizionario italiano.
+
+\paragraph{Requisiti obbligatori soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Requisiti accettati soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Requisiti non accettati soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Requisiti obbligatori soddisfatti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
+\paragraph{Structural Fan-In}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Structural Fan-Out}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Metodi per classe}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare le classi ed associarle ad altre classi correlate e requisiti.
+\paragraph{Parametri per metodo}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Componenti integrate}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di unità eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di integrazione eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di sistema eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test di validazione eseguiti}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Test superati}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Completezza implementazione funzionale}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+\paragraph{Densità di failure}
+Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB,
+>>>>>>> c2719d23142880fd4260ba79b31430fc56fc49d6
