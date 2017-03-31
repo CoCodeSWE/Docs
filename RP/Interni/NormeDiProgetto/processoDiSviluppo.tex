@@ -221,7 +221,6 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  \end{itemize}
  \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
- \paragraph{Test} \textbf{DA DEFINIRE}
  \subsubsection{Procedure}
  \paragraph{Inserimento di un attore in PragmaDB}
  Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
@@ -259,7 +258,14 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\item inserire la fonte correlata;
  	\item inserire l'use case correlato.
  \end{itemize}
- \paragraph{Inserimento di un componente in PragmaDB}
+ \paragraph{Inserimento di un package in PragmaDB}
+ Per inserire un package in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Package";
+ 	\item selezionare la voce "Inserisci Package";
+ 	\item popolare tutti i campi richiesti.
+ \end{itemize}
  \paragraph{Inserimento di una classe in PragmaDB}
  Per inserire una classe in PragmaDB è necessario applicare la seguente procedura:
  \begin{itemize}
@@ -277,8 +283,6 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\item selezionare la voce "Modifica" del requisito interessato;
  	\item selezionare e inserire la fonte correlata.
  \end{itemize}
- \paragraph{Tracciamento componenti-requisiti}
- Ancora non so!
  \paragraph{Tracciamento classi-requisiti}
  Per tracciare un requisito su una classe è sufficiente, al momento della creazione della classe, inserire il requisito correlato. Se questo non è stato fatto, è necessario applicare la seguente procedura:
  \begin{itemize}
@@ -287,9 +291,49 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\item selezionare la voce "Modifica" della classe interessata;
  	\item selezionare e inserire il requisito correlato.
  \end{itemize}
- \paragraph{altri tracciamenti x -y ?}
- \paragraph{Produzione automatica del documento \STdoc}
+ \paragraph{Tracciamento package-requisiti}
+ Per realizzare questo tracciamento è sufficiente applicare il tracciamento classi-requisiti, in quanto il relativo package contenitore è dedotto automaticamente da PragmaDB.
  \paragraph{Produzione automatica del documento \DPdoc}
+ Il documento \DPdoc{} è generato automaticamente da PragmaDB, il quale produrrà il relativo codice \LaTeX{} da compilare.
+ Per far ciò, è necessario seguire la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Classi";
+ 	\item selezionare le voci:
+ 	\begin{itemize}
+ 		\item "Genera Classi";
+ 		\item "Tracciamento Classi-Requisiti";
+ 		\item "Tracciamento Requisiti-Classi";
+ 		\item "Tracciamento Componenti-Requisiti";
+ 		\item "Tracciamento Requisiti-Componenti";
+ 		\item "Genera immagini";
+ 		\item "Segnali";
+ 	\end{itemize}
+ 	\item selezionare la voce "Homepage";
+ 	\item selezionare la voce "Package";
+ 	\item selezionare le voci:
+ 	\begin{itemize}
+ 		\item "Genera Package";
+ 		\item "Tracciamento Componenti-Requisiti";
+ 		\item "Tracciamento Requisiti-Componenti";
+ 	\end{itemize}
+ 	\item aprire il file \DPfile;
+ 	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{verbatim}
+ 	input{nomeFile}
+ 	\end{verbatim}
+ 	seguendo questo ordine: 
+ 	\begin{itemize}
+ 		\item package;
+ 		\item classi;
+ 		\item tracciamentoClassiRequisiti;
+ 		\item tracciamentoRequisitiClassi;
+ 		\item tracciamentoClassiComponenti;
+ 		\item tracciamentoComponentiClassi;
+ 		\item tracciamentoComponentiRequisiti;
+ 		\item tracciamentoRequisitiComponenti.
+ 	\end{itemize}
+ \end{itemize}
+ Sarà cura dei \PJP{} produrre e posizionare i diagrammi di sequenza.
 \paragraph{Produzione automatica del documento \ARdoc}
 Il documento \ARdoc{} è generato automaticamente da PragmaDB, il quale produrrà il relativo codice \LaTeX{} da compilare.
 Per far ciò, è necessario seguire la seguente procedura:
@@ -329,7 +373,6 @@ Per far ciò, è necessario seguire la seguente procedura:
 \centering
 \includegraphics[scale=0.3]{img/astah.png}
 \caption{Astah}\label{sec:Figura1}
-\paragraph{...strumenti per il testing...}
 \end{figure}
 
 \newpage
