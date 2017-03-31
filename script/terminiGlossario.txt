@@ -1,4 +1,4 @@
-﻿Adapter
+Adapter
 adapter
 Amazon Echo
 Amazon echo
@@ -20,6 +20,8 @@ Bot
 bot
 Botkit
 botkit
+Broadband
+broadband
 Browser
 browser
 C#
@@ -30,14 +32,14 @@ casi d'uso
 Casi d'uso
 ciclo di vita
 Ciclo di vita
-Client-side discovery
 client-side discorvery
+Client-side discovery
 Cloud
 cloud
 CMM
-Continuous Integration
 continuos integration
 Continuos integration
+Continuous Integration
 Cordova
 crash
 Crash
@@ -79,10 +81,11 @@ framework
 Freeze
 freeze
 gateway
-Gateway 
+Gateway
 Git
 GitHub
 Google Hangouts
+GUID
 HTML5
 HTTP
 HTTPS
@@ -102,6 +105,8 @@ log
 macOS
 markup
 Markup
+Microservizi
+microservizi
 Microservizio
 microservizio
 Microsoft Cortana
@@ -110,6 +115,8 @@ milestone
 Modello incrementale
 modello incrementale
 MongoDB
+narrowband
+Narrowband
 Node.js
 NoSQL
 OAuth2
@@ -133,9 +140,13 @@ Proponente
 proponente
 Raspberry Pi
 Repository
+REST
 Ricorsione
 Rocket.chat
 Ruby
+Rule
+sample
+Sample
 SDK
 Service Level Agreement
 Singleton
@@ -145,6 +156,8 @@ sistema
 Slack
 Software
 software
+speech to text
+Speech to text
 SQL
 Stack
 stack
@@ -156,6 +169,8 @@ team
 Template
 template
 Texmaker
+Text to speech
+text to speech
 ticketing
 Ticketing
 Tomcat
@@ -165,6 +180,7 @@ Unità
 unità
 Unity
 Unix
+URL
 Validazione
 validazione
 Verifica
