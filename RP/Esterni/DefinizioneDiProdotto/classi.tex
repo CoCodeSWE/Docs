@@ -1,6 +1,6 @@
 \section{Specifica delle Componenti}
 \subsection{Back-end}
-Package che contiene tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a microservizi.
+Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a microservizi.
 \subsubsection{Classi}
 \hypertarget{ ConversationsDAO_label}{\paragraph{ ConversationsDAO}}
 \begin{figure}[h]
@@ -9,7 +9,7 @@ Package che contiene tutte le componenti che costituiscono il back-end. Le compo
 	\caption{Back-end:: ConversationsDAO}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Nome}: \file{ConversationsDAO};
+	\item \textbf{Nome}: \file{ ConversationsDAO};
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database contenente le conversazioni;
 	\item \textbf{Utilizzo}: fornisce a \file{ConversationWebhookService} un meccanismo per accedere al database contenente le conversazioni, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di utenti registrati;
@@ -134,9 +134,9 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- rules: RulesDAO} \\
-		Attributo che permette di contattare RulesDAO, il quale fornisce i meccanismi di accesso al database contenente le Rule;
+		Attributo che permette di contattare \file{RulesDAO}, il quale fornisce i meccanismi di accesso al database contenente le \file{Rule};
 		\item[] \file{- users: UsersDAO} \\
-		Attributo che permette di contattare UsersDAO, il quale fornisce i meccanismi di accesso al database contenente gli utenti registrati;
+		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi di accesso al database contenente gli utenti registrati;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -161,9 +161,9 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 		Parametri:
 		\begin{itemize}
 			\item \file{rulesdao: RulesDAO} \\
-			zzz;
+			Attributo contenente il \file{RulesDAO};
 			\item \file{usersdao: UsersDAO} \\
-			zzz;
+			Attributo contenente lo \file{UsersDAO};
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -442,8 +442,8 @@ Nel primo caso, la risposta fornita sarà così organizzata:
 {
     "contexts": [{
         "name":"String",
-        "first_name":"String",
-        "last_name":"String",
+        "first\_name":"String",
+        "last\_name":"String",
         "username":"String"
     }]
 }
@@ -460,10 +460,10 @@ Nel secondo caso, la risposta sarà così organizzata:
 {
     "contexts": [{
         "name":"String",
-        "name_guest":"String",
+        "name\_guest":"String",
         "company":"String",
-        "first_name":"String",
-        "last_name":"String"
+        "first\_name":"String",
+        "last\_name":"String"
     }]
 }
 \end{lstlisting}
@@ -478,15 +478,15 @@ Dove
 \end{itemize};
 		\end{itemize}
 		\item[] \file{+ <<Create>> createConversationWebhookService(conversation: ConversationsDAO, guest: GuestsDAO, user: UsersDAO): ConversationWebhookService} \\
-		zzz;\\
+		Metodo che permette la costruzione di un \file{ConversationWebhookService}. Permette la dependency injection che ha come oggetti un \file{ConversationsDAO}, \file{GuestsDAO} e \file{UsersDAO};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{conversation: ConversationsDAO} \\
-			sss;
+			Attributo contenente il  \file{ConversationsDAO};
 			\item \file{guest: GuestsDAO} \\
-			dssd;
+			Attributo contenente il \file{GuestsDAO};
 			\item \file{user: UsersDAO} \\
-			<<<zzz;
+			Attributo contenente lo \file{UsersDAO};
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -721,7 +721,7 @@ Dove
 \begin{itemize}
 	\item \textbf{Nome}: \file{SNSEvent};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe l'oggetto ricevuto da una lambda function in seguito alla pubblicazione di un messaggio su un topic di SNS a cui tale funzione è iscritta;
+	\item \textbf{Descrizione}: questa classe rappresentaa l'oggetto ricevuto da una lambda function in seguito alla pubblicazione di un messaggio su un topic di SNS a cui tale funzione è iscritta;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una notifica mandata da SNS ad una lambda function iscritta ad un topic sul quale sia stato pubblicato un messaggio;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -740,17 +740,18 @@ Dove
 	\item \textbf{Nome}: \file{SNSMessage};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta un messaggio mandato da SNS in seguito ad un'interazione con l'assistente virtuale;
-	\item \textbf{Utilizzo}: fornisce un meccanismo event-driven per la gestione dei dati relativi alle interazioni col sistema;
+	\item \textbf{Utilizzo}: fornisce un meccanismo event-driven per la gestione dei dati relativi alle interazioni col sistema.\\
+Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ MessageId: String} \\
-		Attributo contenente;
+		Attributo contenente l'identificativo del messaggio;
 		\item[] \file{+ Subject: String} \\
-		Attributo contenente;
+		Attributo contenente il Subject che dev'essere notificato dal sistema SNS;
 		\item[] \file{+ Message: String} \\
-		Attributo contenente;
+		Attributo contenente il messaggio da pubblicare;
 		\item[] \file{+ Timestamp: String} \\
-		Attributo contenente;
+		Attributo contenente il timestamp relativo al momento della pubblicazione del messaggio;
 		\item[] \file{+ MessageAttributes: SnsMessageAttributes} \\
 		Attributo contenente;
 	\end{itemize}
@@ -981,9 +982,9 @@ Di seguito viene riportato un esempio dell'oggetto utilizzato.
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- guests: GuestsDAO} \\
-		Attributo contenente;
+		Attributo che permette di contattare il \file{GuestsDAO};
 		\item[] \file{- conversations: ConversationDAO} \\
-		Attributo contenente;
+		Attributo che permette di contattare il \file{ConversationsDAO};
 	\end{itemize}
 	\item \textbf{Eventi gestiti}:
 	\begin{itemize}
@@ -1060,7 +1061,7 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 		\item[] \file{- stt: STTModule} \\
 		Attributo contenente il modulo utilizzato per contattare le API per il servizio di Watson Speech to Text di IBM;
 		\item[] \file{- sns: AWS::SNS} \\
-		Attributo contenente ???;
+		Attributo che permette di contattare il servizio SNS;
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
@@ -1107,7 +1108,7 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 		Parametri:
 		\begin{itemize}
 			\item \file{enr: Enrollment} \\
-			??????????;
+			Attributo contenente l'\file{Enrollment} (\file{audio} + \file{username}) con il quale tentare il login;
 		\end{itemize}
 		\item[] \file{- removeUser(username: String): Error} \\
 		Metodo che permette di eliminare i dati relativi ad un utente dal sistema. Restituisce un oggetto di tipo Error, con code impostato a 1 nel caso in cui l'utente non esista;\\
@@ -1135,14 +1136,14 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
-			????????????????;
+			Parametro contenente la \file{Rule};
 		\end{itemize}
 		\item[] \file{- getRule(id: String): Rule} \\
 		Metodo che permette di ottenere i dati relativi ad una direttiva del sistema a partire dal suo id. Restituisce la direttiva in questione, oppure un oggetto vuoto nel caso in cui tale direttiva non esista;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			????????????????;
+			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
 		\item[] \file{- getRuleList(): RuleArray} \\
 		Metodo che permette di ottenere la lista delle direttive del sistema.
@@ -1152,14 +1153,14 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
-			?????????????????;
+			Parametro contenente la \file{Rule} aggiornata;
 		\end{itemize}
 		\item[] \file{- removeRule(id: String): Error} \\
 		Metodo che permette di rimuovere una direttiva presente nel sistema. Restituisce un oggetto di tipo Error;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			??????????????????;
+			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
 		\item[] \file{+ queryLambda(event: LambdaEvent, context: LambdaContext): void} \\
 		Metodo che si occupa di chiamare prima il servizio di Speech To Text e, una volta ottenuta risposta da esso, di interrogare l'assistente virtuale. Quando viene ricevuta una risposta dall'assistente virtuale, il metodo controlla il valore del campo \file{action} di tale risposta e, nel caso in cui corrisponda ad una delle action supportate, si occupa di eseguire le azioni necessarie utilizzando i metodi privati di questa classe. Nel caso in cui invece \file{action} non corrisponda ad una delle azioni supportate (ovvero action è un'azione che non richiede operazione da parte del back-end, oppure \file{actionIncomplete} è impostato a true), tale risposta viene rielaborata ed inoltrata. Le azioni supportate ed i relativi compiti da svolgere sono disponibili alla sezione [hyperef a sezione]. \\
@@ -1198,8 +1199,8 @@ Per la relativa documentazione, consultare la pagina \url{https://www.ibm.com/wa
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalLoginModuleConfig};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe viene utilizzata per la configurazione di VocalLoginModule;
-	\item \textbf{Utilizzo}: fornisce gli attributi necessari alla configurazione di VocalLoginModule;
+	\item \textbf{Descrizione}: questa classe viene utilizzata per la configurazione di \file{VocalLoginModule};
+	\item \textbf{Utilizzo}: fornisce gli attributi necessari alla configurazione di \file{VocalLoginModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ min\_confidence: int} \\
@@ -1374,34 +1375,6 @@ Lo stato può essere uno tra i seguenti valori:
 	\end{itemize}
 \end{itemize}
 
-\hypertarget{UserEvent_label}{\paragraph{UserEvent}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserEvent.png}
-	\caption{Back-end::Auth::UserEvent}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{UserEvent};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe permette alle lambda function l'invio dei dati relativi ad un \file{User};
-	\item \textbf{Utilizzo}: fornisce un meccanismo per l'invio alle lambda function di una richiesta contenente i dati relativi ad un \file{User};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ cognome: string} \\
-		Attributo contenente il cognome dell'utente;
-		\item[] \file{+ nome: String} \\
-		Attributo contenente il nome dell'utente;
-		\item[] \file{+ password: String[0..1]} \\
-		Attributo contenente la password dell'utente;
-		\item[] \file{+ slack\_channel: String[0..1]} \\
-		Attributo contenente il nome del canale Slack dell'utente;
-		\item[] \file{+ sr\_id: String[0..1]} \\
-		Attributo contenente l'identificativo del profilo del miscroservizo di Speaker Recognition legato all'utente;
-		\item[] \file{+ username: String} \\
-		Attributo contenente lo username dell'utente;
-	\end{itemize}
-\end{itemize}
-
 \hypertarget{UsersDAODynamoDB_label}{\paragraph{UsersDAODynamoDB}}
 \begin{figure}[h]
 	\centering
@@ -1526,11 +1499,11 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto , sotto forma di stringa in formato JSON, di tipo \file{User}, contenente i dati relativi all'utente ritornato;
 		\end{itemize}
 		\item[] \file{+ <<create>> createUsersService(user: UserDAO): UsersService} \\
-		zzz;\\
+		Metodo che permette di creare uno \file{UsersService}. Permette la dependency injection avente come oggetto uno \file{UsersDAO};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: UserDAO} \\
-			zzz;
+			Attributo contenente lo \file{UsersDAO};
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -1557,7 +1530,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		\item[] \file{+ createUser(): String} \\
 		Metodo che permette di creare un User;\\
 		\item[] \file{+ <<Create>> createVocalLoginModule(conf: VocalLoginModuleConfig): VocalLoginModule} \\
-		Metodo che permette ???;\\
+		Metodo che permette di costruire un \file{VocalLoginModule}. Permette la dependency injection che ha come oggetto un \file{VocalLoginModuleConfig};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{conf: VocalLoginModuleConfig} \\
@@ -1570,7 +1543,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 			\item \file{id: String} \\
 			Parametro relativo a ????;
 			\item \file{audio: Blob} \\
-			Parametro relativo a ???;
+			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
 		\item[] \file{+ deleteUser(id: String): Error} \\
 		Metodo che permette di eliminare un User a partire da un id;\\
@@ -1586,7 +1559,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro relativo a ???;
+			Parametro contenente l'identificativo dello \file{User};
 		\end{itemize}
 		\item[] \file{+ resetEnrollments(id: String): Error} \\
 		Metodo che permette di resettare un enrollment a partire da un id;\\
@@ -1600,9 +1573,9 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro relativo a ???;
+			Parametro contenente l'identificativo ???;
 			\item \file{audio: Blob} \\
-			Parametro relativo a ???;
+			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -1872,7 +1845,7 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- DB: AWS::DynamoDB} \\
-		Attributo contenente ;
+		Attributo che permette di contattare  il database contenente le direttive;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -2211,13 +2184,13 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON, un oggetto di tipo \file{RuleTaskInstance}, contenente i dati relativi alla \file{Task} ritornata;
 		\end{itemize}
 		\item[] \file{+ <<Create>> createRulesService(task: TasksDAO, rules: RulesDAO): RulesService} \\
-		Costruttore per il microservizio;\\
+		Metodo che permette di creare un \file{RulesService}. Permette la dependency injection avente come oggetti un \file{RulesDAO} e \file{TasksDAO};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{task: TasksDAO} \\
-			zzz;
+			Attributo contenente il \file{TasksDAO};
 			\item \file{rules: RulesDAO} \\
-			zzz;
+			Attributo contenente il \file{RulesDAO};
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -2231,17 +2204,17 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 \begin{itemize}
 	\item \textbf{Nome}: \file{RuleTarget};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a un target di una Rule;
-	\item \textbf{Utilizzo}: fornisce gli attributi di un target di una Rule che dovranno essere memorizzati nel database per questo microservizio.
-Viene utilizzata dalla classe Rule per definire un Array di Target ai quali applicare la sua funzione;
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a un target di una \file{Rule}, ovvero la persona alla quale è indirizzata quest'ultima;
+	\item \textbf{Utilizzo}: fornisce gli attributi di un target di una \file{Rule} che dovranno essere memorizzati nel database per questo microservizio.
+Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target} ai quali applicare la sua funzione;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ company: String} \\
 		Attributo contenente il nome dell'azienda;
 		\item[] \file{+ name: String} \\
-		Attributo contenente;
+		Attributo contenente il nome del target;
 		\item[] \file{+ member: String} \\
-		Attributo contenente ;
+		Attributo contenente ??? perchè un target dovrebbe contenenre il nome di uno di zero12?;
 	\end{itemize}
 \end{itemize}
 
@@ -2344,7 +2317,7 @@ Viene utilizzata dalla classe Rule per definire un Array di Target ai quali appl
 \end{itemize}
 
 \subsection{Back-end::STT}
-Package che include le classi che si occupano di fornire le funzinalità di Speech-To-Text.
+Package che include le classi che si occupano di fornire le funzionalità di Speech to text.
 \subsubsection{Classi}
 \hypertarget{ STTModule_label}{\paragraph{ STTModule}}
 \begin{figure}[h]
@@ -2424,26 +2397,8 @@ Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti 
 \end{itemize}
 
 \subsection{Back-end::Utility}
-Classi utili a altri package ??????
+Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del back-end.
 \subsubsection{Classi}
-\hypertarget{EnrollmentEvent_label}{\paragraph{EnrollmentEvent}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassEnrollmentEvent.png}
-	\caption{Back-end::Utility::EnrollmentEvent}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{EnrollmentEvent};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta l'oggetto ricevuto dalla Lambda function in seguito alla richiesta all'API Gateway eseguita dal Client;
-	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad un Enrollment e viene utilizzata come parametro dei metodi \file{AuthAPI::addEnrollment(event: EnrollmentEvent, context: LambdaEnrollmentContext)} e \file{AuthAPI::login(event: EnrollmentEvent, context: LambdaTokenContext)}. ;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ body: Enrollment} \\
-		Attributo contenente l'Enrollment, passato dal Client alla Lambda Function;
-	\end{itemize}
-\end{itemize}
-
 \hypertarget{Error_label}{\paragraph{Error}}
 \begin{figure}[h]
 	\centering
@@ -2997,25 +2952,26 @@ Per chiarire quanto detto, consultare la relativa documentazione \url{https://do
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un MsgObject, il quale definisce un tipo unico tra tutti i messaggi (dal contenuto eterogeneo) contenuti in un \file{Fulfillment};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un MsgObject, il quale sarà contenuto in un \file{Fulfillment}.
-La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente;
+La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ type: int} \\
 		Attributo contenente;
 		\item[] \file{+ speech: String[0..1]} \\
-		Attributo contenente;
+		Attributo contenente la risposta dell'assistente;
 		\item[] \file{+ imageUrl: String[0..1]} \\
 		Attributo contenente;
 		\item[] \file{+ title: String[0..1]} \\
-		Attributo contenente;
+		Attributo contenente il titolo del messaggio;
 		\item[] \file{+ subtitle: String[0..1]} \\
-		Attributo contenente;
+		Attributo contenente il subtitle definito da api.ai;
 		\item[] \file{+ buttons: ButtonObjectArray[0..1]} \\
-		Attributo contenente;
+		Attributo contenente l'array di button definiti da api.ai;
 		\item[] \file{+ replies: StringArray[0..1]} \\
 		Attributo contenente;
 		\item[] \file{+ payload: Object[0..1]} \\
-		Attributo contenente;
+		Attributo contenente il payload;
 	\end{itemize}
 \end{itemize}
 
@@ -3030,8 +2986,7 @@ La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla r
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classi si occupa di rappresentare il corpo della risposta, fornita dall'assistente virtuale, in seguito ad un'interrogazione;
 	\item \textbf{Utilizzo}: fornisce gli attributi necessari per rappresentare il corpo della risposta dell'assistente virtuale. \\
-Viene passata come parametro al metodo \file{cmdHandler} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto.
-DOV'È IL METODO cmdHandler ??? DOV'È IL METODO cmdHandler ??? DOV'È IL METODO cmdHandler ??? DOV'È IL METODO cmdHandler ??? DOV'È IL METODO cmdHandler ???;
+Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text\_request: String} \\
@@ -3041,9 +2996,7 @@ DOV'È IL METODO cmdHandler ??? DOV'È IL METODO cmdHandler ??? DOV'È IL METODO
 		\item[] \file{+ contexts: ObjectAssocArray[0..1]} \\
 		Array contenente i context ricevuti dall'assistente virtuale;
 		\item[] \file{+ data: Object[0..1]} \\
-		Attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo di una determinata risposta nella richiesta successiva. ??? DOVREMMO MENZIONARE IL DISCORSO CHE VIENE PASSATO AVANTI E INDIETRO IL TOKEN
----
-In particolare, questo attributo viene utilizzato per lo scambio del token dello agent in api.ai;
+		Attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo di una determinata risposta nella richiesta successiva. In particolare, questo attributo viene utilizzato per lo scambio del token dello agent in api.ai;
 	\end{itemize}
 \end{itemize}
 
@@ -3131,9 +3084,8 @@ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire i
 		\item[] \file{- agents: AgentsDAO} \\
 		Attributo che permette di contattare \file{AgentsDAO}, il quale fornisce i meccanismi d'accesso al database degli \file{Agent} dispoibili;
 		\item[] \file{- va\_module: VAModule} \\
-		Attributo contenente il \file{VAModule}.
-VAModule è un'interfaccia, implementata da ApiAiVAAdapter. Non dovremmo dire che vengono contattati i metodi implementati in quest'ultima classe ???
------;
+		Attributo contenente il \file{VAModule}. \\
+\file{VAModule} è un'interfaccia, implementata da \file{ApiAiVAAdapter}.  I metodi invocati saranno quelli appartenenti a quest'ultima classe;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3199,8 +3151,8 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 \begin{itemize}
 	\item \textbf{Nome}: \file{ConversationApp};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di;
-	\item \textbf{Utilizzo}: fornisce un meccanismo ;
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare l'applicazione di conversazione tra un utente e l'assistente virtuale;
+	\item \textbf{Utilizzo}: fornisce un meccanismo, tramite i metodi e gli attributi forniti, per rappresentare e gestire la conversazione tra un utente e l'assistente virtuale;
 	\item \textbf{Padre}: \file{Application};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3455,7 +3407,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 		\item[] \file{+ setup: String} \\
 		Attributo contenente il codeice Javascript che deve essere eseguito nel costruttore dell'\file{Application}. Tale codice ha accesso al riferimento this dell'\file{Application}, e può utilizzarlo per definire i metodi e gli attributi dell'\file{Application} implementata;
 		\item[] \file{+ cmdHandler: String} \\
-		Attributo contenente il codice Javascript del metodo runCmd dell'\file{Application} implementata. Tale coeice ha accesso al riferimento this dell'\file{Application};
+		Attributo contenente il codice Javascript del metodo \file{runCmd} dell'\file{Application} implementata. Tale codice ha accesso al riferimento \file{this} dell'\file{Application};
 		\item[] \file{+ ui: String} \\
 		Attributo contenente l'\file{Element} che racchiude l'interfaccia dell'applicazione;
 	\end{itemize}
@@ -3630,9 +3582,6 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di Registr
 	\end{itemize}
 \end{itemize}
 
-\subsection{Client::ApplicationManager::Manager}
-Package contenente le componenti ???
-\subsubsection{Classi}
 \subsection{Client::Logic}
 Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.
 \subsubsection{Classi}
@@ -3845,7 +3794,7 @@ Gli observer collegati sono:
 \end{itemize}
 
 \subsection{Client::Recorder}
-Package Recorder
+Package contenente le classi che realizzano la registrazione audio.
 \subsubsection{Classi}
 \hypertarget{Recorder_label}{\paragraph{Recorder}}
 \begin{figure}[h]
@@ -4134,7 +4083,7 @@ L'observer collegato è LogicObserver;
 \end{itemize}
 
 \subsection{Client::Registry}
-Package contenente i registri.
+Package contenente i registri che vanno a memorizzare le applicazioni.
 \subsubsection{Classi}
 \hypertarget{ApplicationLocalRegistry_label}{\paragraph{ApplicationLocalRegistry}}
 \begin{figure}[h]
@@ -4322,7 +4271,7 @@ Per la relativa documentazione, consultare la pagina \url{https://developer.mozi
 \end{itemize}
 
 \subsection{Client::Utility}
-zzz
+Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del client.
 \subsubsection{Classi}
 \hypertarget{BoolObservable_label}{\paragraph{BoolObservable}}
 \begin{figure}[h]
