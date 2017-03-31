@@ -1,0 +1,243 @@
+\documentclass[PianoDiProgetto.tex]{subfiles}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+\section{Analisi dei rischi}
+Al fine di evitare rallentamenti delle fasi di lavoro è stata effettuata una dettagliata analisi dei rischi, in modo da poter evitare le situazioni che portano alla creazione di eventi non pianificati, ove possibile. L'analisi si suddivide in quattro attività:
+	\begin{itemize}
+		\item \textbf{Identificazione}: individuare quali rischi possono incorrere durante lo sviluppo del \gl{progetto}, analizzarli e provare a intuire quali saranno le conseguenze se questi si verificano;
+		\item \textbf{Analisi di fase}: valutare la probabilità di occorrenza di un rischio e analizzare la criticità delle conseguenze di questo rispetto all'andamento del \gl{progetto} nella fase in corso. Tutte le fasi sono illustrate nella sezione 5 riguardante la Pianificazione. Il \RESP{} di \gl{progetto} è incaricato  di fare una nuova analisi dei rischi ogni qualvolta si cambi fase;
+		\item \textbf{Pianificazione e mitigazione}: identificare un metodo di controllo dei rischi così da renderli evitabili, nel qual caso non lo siano, pianificare delle contromisure per ridurre al minimo i danni; 
+		\item \textbf{Controllo}: monitorare nel tempo ogni rischio, e nel caso si verifichi descriverne il riscontro effettivo e come il team ha reagito per ridurre al minimo i danni. 
+	\end{itemize}
+I rischi trattati vengono suddivisi in 5 sottosezioni per essere analizzati al meglio:
+	\begin{itemize}
+		\item livello tecnologico;
+		\item livello degli strumenti;
+		\item livello del personale;
+		\item livello organizzativo;
+		\item livello dei requisiti.
+	\end{itemize}
+Ogni rischio trattato ha una serie di caratteristiche necessarie per comprenderne la natura:
+	\begin{itemize}
+		\item nome;
+		\item descrizione;
+		\item risultati analisi:
+			\begin{itemize}
+				\item probabilità di occorrenza;
+				\item grado di pericolosità;
+				\item possibili conseguenze;
+				\item riconoscimento;
+				\item trattamento;
+				\item attualizzazione nel periodo.
+			\end{itemize}
+	\end{itemize}
+Ogni rischio verrà monitorato nel tempo e ne verrà indicato l'effettivo riscontro nella fase in corso.
+
+\newpage
+
+\begin{table}[h]
+\centering
+\label{Analisi dei Rischi}
+\begin{tabular}{cc}
+\hline
+\textbf{Livello}       & \textbf{Tipologia} \\ \hline
+Tecnologico   & \begin{tabular}[cl]{ll} Tecnologie adottate sconosciute \ref{sec:tas}
+ \end{tabular}\\  \cline{2-2}
+              & \begin{tabular}[cl]{ll} Guasti hardware e malfunzionamenti \gl{software} \ref{sec:ghs}\end{tabular} \\ \hline
+Organizzativo & \begin{tabular}[cl]{ll} Valutazioni delle risorse \ref{sec:lo}\end{tabular}                   \\ \hline
+Personale     & \begin{tabular}[cl]{ll} Problemi personali dei membri del team \ref{sec:ppdct}\end{tabular}     \\ \cline{2-2}
+              & \begin{tabular}[cl]{ll} Problemi personali tra i membri del team \ref{sec:pptc}\end{tabular}     \\ \hline
+Requisiti     &   Mancata comprensione \ref{sec:lr}\\ \hline 
+\end{tabular}
+\caption{Registro dei rischi}
+\end{table}
+
+
+\subsection{Livello tecnologico}
+		\subsubsection{Tecnologie adottate sconosciute}
+			\label{sec:tas}
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline
+					\textbf{Descrizione}& per lo svolgimento e l'implementazione del \gl{progetto}, il team dovrà utilizzare una serie di tecnologie che nessun membro ha mai utilizzato; \\ \hline
+				\textbf{Probabilità di occorrenza} & media  \\ \hline
+				\textbf{Grado di pericolosità} & alto \\ \hline
+				\textbf{Possibili conseguenze} & l'utilizzo di tecnologie sconosciute richiede tempo per la scelta e l'apprendimento, il che può portare ad un ritardo sulle date di consegna \\ \hline
+				\textbf{Riconoscimento} & il \RESP{} deve verificare il grado di preparazione di ogni membro del gruppo relativo alle tecnologie utilizzate; \\ \hline
+				\textbf{Trattamento} &  ogni membro del team deve studiare e approfondire autonomamente i documenti forniti dall'\AMM{} che spiegano come utilizzare propriamente le nuove tecnologie adottate; \\ \hline
+				\textbf{Attualizzazione nel periodo AR} & \begin{itemize} 
+				\item \PerAR: il rischio non si è presentato, in quanto le nuove tecnologie non sono ancora state prese in carico;
+				\item \PerAD: il rischio non si è presentato, in quanto le nuove tecnologie non sono ancora state prese in carico;
+				\item \PerPA: lo studio delle tecnologie necessarie ha causato ritardi sulle date previste per la stesura della \DPdoc{};
+				\item \PerPD: il tempo impiegato allo studio delle nuove tecnologie, unito ad una valutazione troppo ottimistica delle risorse, hanno portato il team a spostare la data di consegna;
+				\end{itemize} \\
+				\hline
+				
+			\end{tabular}
+		\caption{Tecnologie adottate sconosciute}
+		\end{center}	
+	\end{table}
+
+\clearpage	
+	
+	\subsubsection{Guasti hardware e malfunzionamenti \gl{software}}
+		\label{sec:ghs}
+
+		\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline
+		 \textbf{Descrizione} & durante tutto il \gl{progetto} è possibile che si verifichino guasti hardware e/o malfunzionamenti \gl{software} ai computer usati dal team per sviluppare \\ \hline
+		 \textbf{Probabilità di occorrenza} & basso \\ \hline
+		 \textbf{Grado di pericolosità} & medio \\ \hline
+	 \textbf{Possibili conseguenze} & il malfunzionamento di uno dei dispositivi del team può portare a perdita di dati e di conseguenza perdita di tempo in quanto si va a svolgere nuovamente un lavoro già effettuato \\ \hline
+		 \textbf{Riconoscimento} & tutti i membri del team devono mantenere un'elevata attenzione sulle condizioni dei propri dispositivi \\ \hline
+		 \textbf{Trattamento} & ogni componente del team si impegnerà a fare un backup giornaliero del lavoro effettuato su un dispositivo esterno al computer utilizzato per sviluppare; in caso di rotture hardware ogni membro possiede un altro dispositivo che gli permette di continuare il lavoro \\ \hline
+		 \textbf{Attuazione nel periodo} & 
+			\begin{itemize}
+				\item \PerAR: il rischio non si è presentato;
+				\item \PerAD: il rischio non si è presentato;
+				\item \PerPA: il rischio non si è presentato;
+				\item \PerPD: il rischio non si è presentato;
+			\end{itemize} \\
+			\hline
+			
+			\end{tabular}
+		\caption{Guasti hardware e malfunzionamenti \gl{software}}
+		\end{center}	
+	\end{table}
+
+\clearpage		
+	\subsection{Livello organizzativo}
+	\subsubsection{Valutazione delle risorse}
+		\label{sec:lo}
+		
+		
+\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline		
+		
+		 \textbf{Descrizione} & data la mancanza di esperienza con progetti di questa dimensione il team potrebbe incorrere in stime errate di valutazione delle risorse \\ \hline
+		 \textbf{Probabilità di occorrenza} & alta \\ \hline
+		 \textbf{Grado di pericolosità} & alto \\ \hline
+		 \textbf{Possibili conseguenze} & un'errata stima delle risorse può portare ad uno spreco di queste o a ritardi nelle date di consegna \\ \hline
+		 \textbf{Riconoscimento} & il rischio in questo caso è dinamico, per questo è necessario controllare lo sviluppo delle attività di progettazione periodicamente, tramite  \gl{verifica} da parte del \RESP{}, così da prendere atto di eventuali ritardi \\ \hline
+		 \textbf{Trattamento} & ogni attività ha un periodo di slack, tale che l'eventuale ritardo di un'attività non condizioni le tempistiche delle altre \\ \hline
+		 \textbf{Attuazione nel periodo} &
+			\begin{itemize}
+				\item \PerAR : il rischio non si è presentato;
+				\item \PerAD: il rischio non si è presentato;
+				\item \PerPA: il rischio si è presentato; una valutazione delle risorse troppo ottimistica, unita ad un maggiore tempo del previsto necessario ad imparare le nuove tecnologie richieste, ha infatti causato ai \PJP l'utilizzo di un maggior numero di ore rispetto a quelle previste, causando ritardi;
+				\item \PerPD: anche in questo periodo una valutazione troppo ottimistica delle risorse, unita al ritardo del periodo precedente e al tempo impiegato per l'apprendimento delle nuove tecnologie, è stata la causa di nuovi ritardi che hanno portato il team a spostare la data di consegna; 
+			\end{itemize}
+			\\ \hline
+	
+		\end{tabular}
+		\caption{Valutazione delle risorse}
+		\end{center}	
+	\end{table}	
+	
+	\clearpage	
+	\subsection{Livello personale}
+		\subsubsection{Problemi personali dei componenti del team}
+			\label{sec:ppdct}
+			
+\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline				
+			
+
+		 \textbf{Descrizione} & ogni membro del team avrà le sue necessità e i suoi impegni personali lungo la durata del \gl{progetto}. Risulta inevitabile il verificarsi di problemi organizzativi in seguito a sovrapposizioni di tali impegni \\ \hline
+		 \textbf{Probabilità di occorrenza} & media \\ \hline
+		 \textbf{Grado di pericolosità} & alto \\ \hline
+		 \textbf{Possibili conseguenze} & ritardo nello svolgimento delle attività \\ \hline
+		 \textbf{Riconoscimento} &  per creare un calendario sincronizzato e condiviso tra i membri del gruppo è necessario che vengano notificati al \RESP{} in maniera preventiva e tempestiva gli impegni di ognuno. Grazie a questa pratica è possibile ridurre al minimo tale rischio \\ \hline
+		 \textbf{Trattamento} & nel caso un membro del team abbia un impegno che non gli permetta di proseguire il lavoro, il \RESP{} andrà a modificare la pianificazione prevista in modo da coprire l'assenza creatasi \\ \hline
+		 \textbf{Attuazione nel periodo}& 
+			\begin{itemize}
+				\item \PerAR : i membri si sono impegnati per comunicare anticipatamente gli impegni personali, in questo modo il \RESP{} è riuscito a pianificare al meglio le attività da assegnare. Grazie a questa collaborazione il rischio non si è presentato;
+				\item \PerAD: il rischio non si è presentato;
+				\item \PerPA: il rischio non si è presentato;
+				\item \PerPD: il rischio non si è presentato;
+			\end{itemize}
+			\\ \hline	
+\end{tabular}
+		\caption{Problemi personali dei componenti del team}
+		\end{center}	
+	\end{table}		
+	
+\clearpage	
+	
+		\subsubsection{Problemi personali tra i componenti del team}
+			\label{sec:pptc}
+\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline				
+			
+
+		 \textbf{Descrizione} & essendo la prima volta che i membri del team collaborano, potrebbero sorgere attriti o squilibri interni che andrebbero a danneggiare il clima lavorativo e porterebbero a ritardi nelle consegne \\ \hline
+		 \textbf{Probabilità di occorrenza} & bassa \\ \hline
+		 \textbf{Grado di pericolosità} & alto \\ \hline
+		 \textbf{Possibili conseguenze} & ritardo nello svolgimento delle attività \\ \hline
+		 \textbf{Riconoscimento} & tutti i membri del gruppo devono avere una comunicazione costante con il \RESP{} il quale si occuperà di monitorare i rapporti tra i collaboratori \\ \hline
+		 \textbf{Trattamento} & nel caso di contrasti tra membri del gruppo, il \RESP{} provvederà ad assegnare a tali membri attività differenti con il minimo contatto (nel limite del possibile) \\ \hline
+		 \textbf{Attuazione nel periodo} &
+		\begin{itemize}
+				\item \PerAR : il rischio non si è presentato;
+				\item \PerAD: il rischio non si è presentato;
+				\item \PerPA: il rischio non si è presentato;
+				\item \PerPD: il rischio non si è presentato;
+		\end{itemize}
+		\\ \hline
+	
+\end{tabular}
+		\caption{Problemi personali tra componenti del team}
+		\end{center}	
+	\end{table}		
+
+\clearpage		
+	\subsection{Livello dei Requisiti}
+		\subsubsection{Incomprensione e scelte non ottimali}
+			\label{sec:lr}
+\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{ | c | p{10cm} |}
+				\hline				
+			
+
+		 \textbf{Descrizione} & è possibile che alcuni requisiti individuati dagli \ANP{} siano fraintesi, superficiali o errati rispetto alle aspettative del \gl{proponente} \PROPONENTE{}. Inoltre esiste la probabilità che qualche requisito venga modificato, eliminato o aggiunto durante il corso del \gl{progetto} \\ \hline
+		 \textbf{Probabilità di occorrenza} & alta \\ \hline
+		 \textbf{Grado di pericolosità} & alto \\ \hline
+		 \textbf{Possibili conseguenze} & sviluppo di un \gl{prodotto} non consono alle aspettative del \gl{proponente} \\ \hline
+		 \textbf{Riconoscimento} & avere una costante comunicazione con il \gl{proponente} \PROPONENTE{} durante la fase di \ARdoc{} in modo da chiarire tutte le incomprensioni e assicurare la concordanza sui requisiti del \gl{prodotto} \\ \hline
+		 \textbf{Trattamento} & si dovranno effettuare incontri con il \gl{proponente} \PROPONENTE{} così da poter correggere eventuali errori indicati dal committente durante la revisione \\ \hline
+		 \textbf{Attuazione nel periodo}&
+		\begin{itemize}
+				\item \PerAR : il rischio non si è presentato;
+				\item \PerAD: il rischio si è presentato in minima parte, in quanto dopo la  \RR{} i requisiti sono stati corretti in base alle richieste del committente, per poi essere accettati dal proponente;
+				\item \PerPA: il rischio non si è presentato;
+				\item \PerPD: il rischio non si è presentato;
+		\end{itemize}
+		\\ \hline
+
+\end{tabular}
+		\caption{Incomprensione e scelte non ottimali}
+		\end{center}	
+	\end{table}	
+	
+\end{document}
+
+
+
+
+
+
+
+
+
+
