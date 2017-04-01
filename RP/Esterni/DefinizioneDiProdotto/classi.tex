@@ -5,7 +5,7 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
 \hypertarget{ ConversationsDAO_label}{\paragraph{ ConversationsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class ConversationsDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ ConversationsDAO.png}
 	\caption{Back-end:: ConversationsDAO}
 \end{figure}
 \begin{itemize}
@@ -67,7 +67,7 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
 \hypertarget{ GuestsDAO_label}{\paragraph{ GuestsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class GuestsDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ GuestsDAO.png}
 	\caption{Back-end:: GuestsDAO}
 \end{figure}
 \begin{itemize}
@@ -675,6 +675,29 @@ Dove
 \end{itemize}
 \FloatBarrier
 
+\hypertarget{Member_label}{\paragraph{Member}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMember.png}
+	\caption{Back-end::Member}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{Member};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di raggruppare le informazioni relative ad un membro dell'azienda;
+	\item \textbf{Utilizzo}: fornisce l'accesso ai dati relativi ad un membro dell'azienda;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ id: String} \\
+		Stringa contenente l'id del canale Slack del membro dell'azienda;
+		\item[] \file{+ first\_name: String} \\
+		Nome del membro dell'azienda;
+		\item[] \file{+ last\_name: String} \\
+		Cognome del membro dell'azienda;
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
 \hypertarget{RuleObservable_label}{\paragraph{RuleObservable}}
 \begin{figure}[h]
 	\centering
@@ -1201,7 +1224,10 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 			Parametro contenente, all'interno del campo body sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio da inviare. Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-
+ "app":"String",
+ "audio":"Base64String",
+ "data":"ObjectAssocArray",
+ "session\_id":"String"
 }
 \end{lstlisting};
 			\item \file{context: LambdaContext} \\
@@ -1246,7 +1272,7 @@ Package contenente le componenti del microservizio necessario all'autenticazione
 \hypertarget{ UsersDAO_label}{\paragraph{ UsersDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class UsersDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ UsersDAO.png}
 	\caption{Back-end::Auth:: UsersDAO}
 \end{figure}
 \begin{itemize}
@@ -1880,7 +1906,7 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 \hypertarget{ RulesDAO_label}{\paragraph{ RulesDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class RulesDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ RulesDAO.png}
 	\caption{Back-end::Rules:: RulesDAO}
 \end{figure}
 \begin{itemize}
@@ -1932,7 +1958,7 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 \hypertarget{ TasksDAO_label}{\paragraph{ TasksDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class TasksDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ TasksDAO.png}
 	\caption{Back-end::Rules:: TasksDAO}
 \end{figure}
 \begin{itemize}
@@ -2377,7 +2403,7 @@ Package che include le classi che si occupano di fornire le funzionalità di Spe
 \hypertarget{ STTModule_label}{\paragraph{ STTModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class STTModule.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ STTModule.png}
 	\caption{Back-end::STT:: STTModule}
 \end{figure}
 \begin{itemize}
@@ -2456,6 +2482,53 @@ Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti 
 \subsection{Back-end::Utility}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del back-end.
 \subsubsection{Classi}
+\hypertarget{ MembersDAO_label}{\paragraph{ MembersDAO}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ MembersDAO.png}
+	\caption{Back-end::Utility:: MembersDAO}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{ MembersDAO};
+	\item \textbf{Tipo}: \file{Interface};
+	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'accesso ai dati relativi ai membri dell'azienda;
+	\item \textbf{Utilizzo}: fornisce i meccanismi necessare per inserire, modificare, rimuovere ed ottenere i dati relativi ai membri dell'azienda;
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ addMember(member: Member): ErrorObservable} \\
+		Metodo che permette di aggiungere un membro;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{member: Member} \\
+			Membro da aggiungere;
+		\end{itemize}
+		\item[] \file{+ removeMember(id: String): ErrorObservable} \\
+		Metodo che permette di rimuovere un membro;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Stringa identificativa del membro che si vuole rimuovere;
+		\end{itemize}
+		\item[] \file{+ updateMember(member: Member): ErrorObservable} \\
+		Metodo che permette di modificare un utente inserito in precedenza;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{member: Member} \\
+			Parametro contenente i dati relativi al membro che si vuole modificare;
+		\end{itemize}
+		\item[] \file{+ getMemberList(): MemberObservable} \\
+		Metodo che permette di ottenere la lista dei membri inseriti;\\
+		\item[] \file{+ getMember(id: String): MemberObservable} \\
+		Metodo che permette di ottenere i dati relativi ad un determinato membro;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenete la stringa identificativa del membro del quale si vogliono ottenere i dati;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
 \hypertarget{Error_label}{\paragraph{Error}}
 \begin{figure}[h]
 	\centering
@@ -2658,7 +2731,7 @@ Package contenente le componenti del microservizio dell'assistente virtuale.
 \hypertarget{ AgentsDAO_label}{\paragraph{ AgentsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class AgentsDAO.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ AgentsDAO.png}
 	\caption{Back-end::VirtualAssistant:: AgentsDAO}
 \end{figure}
 \begin{itemize}
@@ -2710,7 +2783,7 @@ Package contenente le componenti del microservizio dell'assistente virtuale.
 \hypertarget{ VAModule_label}{\paragraph{ VAModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class VAModule.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ VAModule.png}
 	\caption{Back-end::VirtualAssistant:: VAModule}
 \end{figure}
 \begin{itemize}
@@ -2735,7 +2808,7 @@ Package contenente le componenti del microservizio dell'assistente virtuale.
 \hypertarget{ WebhookService_label}{\paragraph{ WebhookService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class WebhookService.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ WebhookService.png}
 	\caption{Back-end::VirtualAssistant:: WebhookService}
 \end{figure}
 \begin{itemize}
@@ -3267,6 +3340,11 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 			Parametro contenente il nome dell'applicazione da rimuovere;
 		\end{itemize}
 	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{ApplicationRegistryLocalClient_label}{\file{ApplicationRegistryLocalClient}}
+		\item OUT \hyperlink{ApplicationPackage_label}{\file{ApplicationPackage}}
+	\end{itemize}
 \end{itemize}
 \FloatBarrier
 
@@ -3324,6 +3402,10 @@ I comandi supportati sono:
 			\item \file{params: ResponseBody} \\
 			Parametro contenente l'array dei parametri del comando da somministrare all'applicazione;
 		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item OUT \hyperlink{Application_label}{\file{Application}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3441,7 +3523,7 @@ Package contenente le classi che si occupano della gestione delle applicazioni c
 \hypertarget{ ApplicationRegistryClient_label}{\paragraph{ ApplicationRegistryClient}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class ApplicationRegistryClient.png}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ ApplicationRegistryClient.png}
 	\caption{Client::ApplicationManager:: ApplicationRegistryClient}
 \end{figure}
 \begin{itemize}
@@ -3519,6 +3601,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{State_label}{\file{State}}
+		\item IN \hyperlink{ConversationApp_label}{\file{ConversationApp}}
 		\item OUT \hyperlink{ApplicationPackage_label}{\file{ApplicationPackage}}
 	\end{itemize}
 \end{itemize}
@@ -3549,7 +3632,8 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item OUT \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
+		\item IN \hyperlink{Manager_label}{\file{Manager}}
+		\item IN \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3580,6 +3664,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 	\begin{itemize}
 		\item IN \hyperlink{Application_label}{\file{Application}}
 		\item IN \hyperlink{<<interface>> ApplicationRegistryClient_label}{\file{<<interface>> ApplicationRegistryClient}}
+		\item IN \hyperlink{ApplicationLocalRegistry_label}{\file{ApplicationLocalRegistry}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3630,6 +3715,7 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di Registr
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item OUT \hyperlink{<<interface>> ApplicationRegistryClient_label}{\file{<<interface>> ApplicationRegistryClient}}
+		\item OUT \hyperlink{ApplicationLocalRegistry_label}{\file{ApplicationLocalRegistry}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3688,6 +3774,7 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di Registr
 	\begin{itemize}
 		\item OUT \hyperlink{State_label}{\file{State}}
 		\item OUT \hyperlink{<<interface>> ApplicationRegistryClient_label}{\file{<<interface>> ApplicationRegistryClient}}
+		\item OUT \hyperlink{ApplicationManagerObserver_label}{\file{ApplicationManagerObserver}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3751,9 +3838,9 @@ Package contenente le classi che gestiscono la logica del client e che si occupa
 	\item \textbf{Utilizzo}: fornisce il meccanismo che permette agli observer di iscriversi per essere notificati quando arriva una risposta dall'API Gateway. Viene creata a partire dal \file{DataArrivedSubject}, per evitare di dover condividere quest'ultimo;
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item IN \hyperlink{ApplicationManagerObserver_label}{\file{ApplicationManagerObserver}}
-		\item IN \hyperlink{PlayerObserver_label}{\file{PlayerObserver}}
-		\item OUT \hyperlink{DataArrivedSubject_label}{\file{DataArrivedSubject}}
+		\item IN \hyperlink{Logic_label}{\file{Logic}}
+		\item OUT \hyperlink{ApplicationManagerObserver_label}{\file{ApplicationManagerObserver}}
+		\item OUT \hyperlink{PlayerObserver_label}{\file{PlayerObserver}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3794,9 +3881,7 @@ Gli observer collegati sono:
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item IN \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
 		\item IN \hyperlink{Logic_label}{\file{Logic}}
-		\item OUT \hyperlink{Logic_label}{\file{Logic}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3866,7 +3951,6 @@ Gli observer collegati sono:
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{Logic_label}{\file{Logic}}
-		\item IN \hyperlink{LogicObserver_label}{\file{LogicObserver}}
 		\item OUT \hyperlink{HttpError_label}{\file{HttpError}}
 	\end{itemize}
 \end{itemize}
@@ -3913,10 +3997,10 @@ Gli observer collegati sono:
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item IN \hyperlink{DataArrivedSubject_label}{\file{DataArrivedSubject}}
 		\item OUT \hyperlink{HttpError_label}{\file{HttpError}}
-		\item OUT \hyperlink{HttpPromise_label}{\file{HttpPromise}}
 		\item OUT \hyperlink{DataArrivedSubject_label}{\file{DataArrivedSubject}}
+		\item OUT \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
+		\item OUT \hyperlink{HttpPromise_label}{\file{HttpPromise}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3946,8 +4030,7 @@ Gli observer collegati sono:
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item OUT \hyperlink{SpeechEndObservable_label}{\file{SpeechEndObservable}}
-		\item OUT \hyperlink{HttpPromise_label}{\file{HttpPromise}}
+		\item IN \hyperlink{SpeechEndObservable_label}{\file{SpeechEndObservable}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4005,11 +4088,11 @@ Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i rela
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item IN \hyperlink{BoolObserver_label}{\file{BoolObserver}}
+		\item OUT \hyperlink{RecorderConfig_label}{\file{RecorderConfig}}
 		\item OUT \hyperlink{RecorderMsg_label}{\file{RecorderMsg}}
 		\item OUT \hyperlink{RecorderWorker_label}{\file{RecorderWorker}}
 		\item OUT \hyperlink{RecorderWorkerMsg_label}{\file{RecorderWorkerMsg}}
-		\item OUT \hyperlink{SpeechEndSubject_label}{\file{SpeechEndSubject}}
+		\item OUT \hyperlink{BoolObserver_label}{\file{BoolObserver}}
 	\end{itemize}
 	\item \textbf{Eventi gestiti}:
 	\begin{itemize}
@@ -4036,6 +4119,10 @@ Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i rela
 		indica il tempo in ms che deve trascorrere prima che il Recorder smetta di registrare a causa di un silenzio (volume al di sotto di threshold). In caso il valore sia -1 (default), il recorder continuerà a registrare per un tempo indefinito;
 		\item[] \file{+ max\_listen: Integer} \\
 		indica il tempo massimo di registrazione, indicato in millisecondi;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{Recorder_label}{\file{Recorder}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4152,7 +4239,6 @@ In caso il canale sia uno, allora questo attributo dovrà contenere il valore tr
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{RecorderWorker_label}{\file{RecorderWorker}}
-		\item IN \hyperlink{RecorderWorkerMsg_label}{\file{RecorderWorkerMsg}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4177,7 +4263,6 @@ In caso il canale sia uno, allora questo attributo dovrà contenere il valore tr
 	\begin{itemize}
 		\item IN \hyperlink{RecorderWorker_label}{\file{RecorderWorker}}
 		\item IN \hyperlink{Recorder_label}{\file{Recorder}}
-		\item OUT \hyperlink{RecorderWorkerConfig_label}{\file{RecorderWorkerConfig}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4205,8 +4290,7 @@ In caso il canale sia uno, allora questo attributo dovrà contenere il valore tr
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item IN \hyperlink{LogicObserver_label}{\file{LogicObserver}}
-		\item OUT \hyperlink{SpeechEndSubject_label}{\file{SpeechEndSubject}}
+		\item OUT \hyperlink{LogicObserver_label}{\file{LogicObserver}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4240,11 +4324,6 @@ L'observer collegato è LogicObserver;
 			\item \file{obs: BoolObserver} \\
 			Parametro contenente il valore con il quale il LogicObserver dev'essere iscritto;
 		\end{itemize}
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{Recorder_label}{\file{Recorder}}
-		\item IN \hyperlink{SpeechEndObservable_label}{\file{SpeechEndObservable}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4322,8 +4401,8 @@ Questo attributo serve per disattivare il \file{Recorder} durante la riproduzion
 	\begin{itemize}
 		\item IN \hyperlink{PlayerObserver_label}{\file{PlayerObserver}}
 		\item OUT \hyperlink{TTSConfig_label}{\file{TTSConfig}}
-		\item OUT \hyperlink{BoolObservable_label}{\file{BoolObservable}}
 		\item OUT \hyperlink{BoolSubject_label}{\file{BoolSubject}}
+		\item OUT \hyperlink{BoolObservable_label}{\file{BoolObservable}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4353,8 +4432,8 @@ Questo attributo serve per disattivare il \file{Recorder} durante la riproduzion
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
+		\item IN \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
 		\item OUT \hyperlink{Player_label}{\file{Player}}
-		\item OUT \hyperlink{DataArrivedObservable_label}{\file{DataArrivedObservable}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4418,8 +4497,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{Player_label}{\file{Player}}
-		\item IN \hyperlink{BoolObserver_label}{\file{BoolObserver}}
-		\item OUT \hyperlink{BoolSubject_label}{\file{BoolSubject}}
+		\item OUT \hyperlink{BoolObserver_label}{\file{BoolObserver}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4448,8 +4526,9 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
-		\item OUT \hyperlink{Recorder_label}{\file{Recorder}}
-		\item OUT \hyperlink{BoolObservable_label}{\file{BoolObservable}}
+		\item IN \hyperlink{Recorder_label}{\file{Recorder}}
+		\item IN \hyperlink{BoolObservable_label}{\file{BoolObservable}}
+		\item IN \hyperlink{BoolSubject_label}{\file{BoolSubject}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -4485,7 +4564,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{Player_label}{\file{Player}}
-		\item IN \hyperlink{BoolObservable_label}{\file{BoolObservable}}
+		\item OUT \hyperlink{BoolObserver_label}{\file{BoolObserver}}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier

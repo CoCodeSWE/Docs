@@ -1,6 +1,67 @@
 
 \section{Architettura dell'applicazione}
-L'architettura scelta è quella a microservizi.\\
+\subsection{Descrizione generale}
+L'architettura scelta per il sistema dell'applicazione è quella a microservizi.\\
+I motivi che hanno spinto il team a questa scelta sono stati i seguenti:
+\begin{itemize}
+	\item i servizi utilizzati di AWS permettono l'implementazione di un'architettura serverless, la quale consente una migliore gestione dei microservizi, guadagnandone in facilità d'implementazione e di scalabilità di quest'ultimi;
+	\item api.ai, il software development kit (SDK) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estrae il testo in esso pronunciato;
+	\item il proponente ha richiesto anche un lato amministrazione, il quale accesso dovrà essere regolamentato da un servizio differente e indipendente di riconoscimento vocale.
+\end{itemize}
+
+Ogni microservizio rende disponibili degli endpoints, tramite i quali è possibile lo scambio di dati. \\
+Per poter creare, pubblicare, mantenere e monitorare le API che consentono di usufruire delle funzionalità supportate dal back-end, è necessario realizzare un API Gateway che si interpone tra client e back-end, permettendo al primo di comunicare con il secondo.
+Esso permette inoltre la creazione di endpoint disponibili all'esterno del back-end, che verranno poi mappati negli endpoints supportati dal back-end, in particolare dai microservizi.\\
+Con lo scopo di semplificare al client l'uso del back-end, è stato deciso di rendere disponibile un solo endpoint esterno per ogni tipo di client. Allo stato attuale un solo tipo di client è supportato, ovvero quello vocale richiesto dal proponente.\\
+I motivi che hanno spinto il team a questa scelta sono stati i seguenti:
+\begin{itemize}
+	\item dal punto di vista del client è molto più semplice fare utilizzo di un solo endpoint, demandando all'API Gateway la responsabilità di mappare la richiesta del client negli endpoints supportati dal backend;
+	\item qualora si volesse aggiungere un client di tipo differente, ad esempio uno puramente testuale, sarà sufficiente pubblicare un solo nuovo endpoint esterno, mantenendo quindi semplice l'interfaccia dell'API Gateway;
+	\item in caso ci siano dei cambiamenti nel back-end, la complessità del cambio di mappatura tra gli endpoint interni e l'endpoint esterno sarà contenuta in quest'ultimo;
+	\item in caso più tipi di client vengano supportati, sarà necessario vincolare essi ad utilizzare l'unico endpoint predisposto per il loro tipo, impedendo quindi l'accesso a quelli restanti. È chiaro che meno endpoints esistono, più è facile realizzare quanto appena detto.
+\end{itemize}
+
+In figura \ref{fig:apig1} si ha una rappresentazione generale, non specifica del progetto \PROGETTO, del ruolo di un API Gateway.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/apigateway1.png}
+	\caption{Il ruolo di un API Gateway}\label{fig:apig1}
+\end{figure}
+\newpage
+Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'approccio architetturale REST, i quali sono consultabili alla pagina \url{https://en.wikipedia.org/wiki/Representational_state_transfer}.
+\subsection{Endpoints client}
+
+	Ora verranno definiti gli endpoints esterni utilizzati dai vari tipi di client.\\
+	Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+	\begin{itemize}
+		\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
+		\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
+	\end{itemize}
+	L'endpoint utilizzato dal client vocale è: 
+	\begin{itemize}
+		\item \textbf{/query}\\
+		\begin{itemize}
+			\item \textbf{Method:} POST;
+			\item \textbf{Descrizione:} invia all'API Gateway dei dati ??? ???;
+			\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::APIGateway::VARequestAPIBody}:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+ "app":"String",
+ "audio":"Base64String",
+ "data":"ObjectAssocArray",
+ "session_id":"String"	
+}
+\end{lstlisting}
+			\item \textbf{Response:} la risposta deve contenere i campi organizzati così:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+			
+}
+\end{lstlisting}
+		\end{itemize}
+	\end{itemize}
+
 \subsection{Microservizi}
 Di seguito verranno esposti e spiegati i funzionamenti di ogni microservizio da implementare.
 \subsubsection{Virtual Assistant}
@@ -43,7 +104,7 @@ Gli Endpoints sono:
  "text":"String" /*Alternativo a "event"*/
 }
 \end{lstlisting}
-\item \textbf{Response:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
  "action":"String",
