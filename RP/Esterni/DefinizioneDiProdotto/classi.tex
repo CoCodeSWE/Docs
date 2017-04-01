@@ -1699,7 +1699,7 @@ Un canale è archiviato se non è più parte delle conversazioni attive;
 		Attributo contenente il numero dei partecipanti al canale Slack;
 		\item[] \file{+ topic: Topic} \\
 		Attributo contenente l'argomento di discussione del canale Slack;
-		\item[] \file{+ purpose: Purspose} \\
+		\item[] \file{+ purpose: Purpose} \\
 		Attributo contenente lo scopo per il quale il canale Slack è stato creato;
 	\end{itemize}
 \end{itemize}
@@ -2232,7 +2232,7 @@ Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target}
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ task: String} \\
-		Attributo contenente il task da applicare;
+		Attributo contenente il task, ovvero una funzione, da applicare;
 		\item[] \file{+ params: Array} \\
 		Attributo contenente l'array dei parametri relativi alla funzione;
 	\end{itemize}
@@ -3142,6 +3142,52 @@ Dove:
 \subsection{Client}
 Package che racchiude tutte le componenti del client. Il pattern utilizzato per organizzare le componenti è quello di un'architettura event-driven.
 \subsubsection{Classi}
+\hypertarget{ApplicationLocalRegistry_label}{\paragraph{ApplicationLocalRegistry}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationLocalRegistry.png}
+	\caption{Client::ApplicationLocalRegistry}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{ApplicationLocalRegistry};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di mantenere una lista degli \file{ApplicationPackage} disponibili. ;
+	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari ad inserire, rimuovere ed ottenere degli \file{ApplicationPackage}. Implementa un Registry all'interno del client, semplificando il compito del \file{RegistryClient} ed eliminando la necessità di effettuare richieste HTTP per recuperare un \file{ApplicationPackage}. ;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- pkgs: ApplicationPackageAssocArray} \\
+		Attributo contenente l'Array dei nomi delle applicazioni contenute nel registry;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ <<Create>> createLocalRegistry(): ApplicationLocalRegistry} \\
+		Metodo che permette di istanziare un ApplicationLocalRegistry;\\
+		\item[] \file{+ query(name: String): ApplicationPackage} \\
+		Metodo che permette di interrogare il \file{LocalRegistry} a partire dal nome dell'applicazione, ottenendo l' \file{ApplicationPackage} relativo ad essa;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{name: String} \\
+			Parametro contenente il nome dell'applicazione da recuperare;
+		\end{itemize}
+		\item[] \file{+ register(name: String, pkg: ApplicationPackage): void} \\
+		Metodo che permette la registrazione di una applicazione nel LocalRegistry;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{name: String} \\
+			Parametro contenente il nome dell'applicazione da registrare;
+			\item \file{pkg: ApplicationPackage} \\
+			Parametro contenente il package relativo all'applicazione da registrare;
+		\end{itemize}
+		\item[] \file{+ remove(name: String): void} \\
+		Metodo che permette di rimuovere un'applicazione a partire dal suo nome;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{name: String} \\
+			Parametro contenente il nome dell'applicazione da rimuovere;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
 \hypertarget{ConversationApp_label}{\paragraph{ConversationApp}}
 \begin{figure}[h]
 	\centering
@@ -3196,6 +3242,37 @@ I comandi supportati sono:
 			\item \file{params: ResponseBody} \\
 			Parametro contenente l'array dei parametri del comando da somministrare all'applicazione;
 		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\hypertarget{IndexView_label}{\paragraph{IndexView}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassIndexView.png}
+	\caption{Client::IndexView}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{IndexView};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che rappresenta la pagina web all'interno della quale verranno mostrate le applicazioni dell'assistente virtuale. ;
+	\item \textbf{Utilizzo}: questa classe è composta dal codice HTML della pagina web che costituisce l'interfaccia dell'assistente virtuale;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- logic: String} \\
+		Stringa contenente l'URL del file relativo al package \file{Logic};
+		\item[] \file{- manager: String} \\
+		Stringa contenente l'URL del file relativo al package \file{ApplicationManager};
+		\item[] \file{- tts: String} \\
+		Stringa contenente l'URL del file relativo al package \file{TTS};
+		\item[] \file{- recorder: String} \\
+		Stringa contenente l'URL del file relativo al package \file{Recorder};
+		\item[] \file{- utility: String} \\
+		Stringa contenente l'URL del file relativo al package \file{Utility};
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ start(): void} \\
+		Metodo che permette di avviare le funzionalità dell'assistente virtuale;\\
 	\end{itemize}
 \end{itemize}
 
@@ -4079,55 +4156,6 @@ L'observer collegato è LogicObserver;
 	\begin{itemize}
 		\item IN \hyperlink{Recorder_label}{\file{Recorder}}
 		\item IN \hyperlink{SpeechEndObservable_label}{\file{SpeechEndObservable}}
-	\end{itemize}
-\end{itemize}
-
-\subsection{Client::Registry}
-Package contenente i registri che vanno a memorizzare le applicazioni.
-\subsubsection{Classi}
-\hypertarget{ApplicationLocalRegistry_label}{\paragraph{ApplicationLocalRegistry}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationLocalRegistry.png}
-	\caption{Client::Registry::ApplicationLocalRegistry}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{ApplicationLocalRegistry};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di mantenere una lista degli \file{ApplicationPackage} disponibili. ;
-	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari ad inserire, rimuovere ed ottenere degli \file{ApplicationPackage}. Implementa un Registry all'interno del client, semplificando il compito del \file{RegistryClient} ed eliminando la necessità di effettuare richieste HTTP per recuperare un \file{ApplicationPackage}. ;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- pkgs: ApplicationPackageAssocArray} \\
-		Attributo contenente l'Array dei nomi delle applicazioni contenute nel registry;
-	\end{itemize}
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ <<Create>> createLocalRegistry(): ApplicationLocalRegistry} \\
-		Metodo che permette di istanziare un ApplicationLocalRegistry;\\
-		\item[] \file{+ query(name: String): ApplicationPackage} \\
-		Metodo che permette di interrogare il \file{LocalRegistry} a partire dal nome dell'applicazione, ottenendo l' \file{ApplicationPackage} relativo ad essa;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{name: String} \\
-			Parametro contenente il nome dell'applicazione da recuperare;
-		\end{itemize}
-		\item[] \file{+ register(name: String, pkg: ApplicationPackage): void} \\
-		Metodo che permette la registrazione di una applicazione nel LocalRegistry;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{name: String} \\
-			Parametro contenente il nome dell'applicazione da registrare;
-			\item \file{pkg: ApplicationPackage} \\
-			Parametro contenente il package relativo all'applicazione da registrare;
-		\end{itemize}
-		\item[] \file{+ remove(name: String): void} \\
-		Metodo che permette di rimuovere un'applicazione a partire dal suo nome;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{name: String} \\
-			Parametro contenente il nome dell'applicazione da rimuovere;
-		\end{itemize}
 	\end{itemize}
 \end{itemize}
 

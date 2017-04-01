@@ -5,13 +5,13 @@ L'architettura scelta è quella a microservizi.\\
 Di seguito verranno esposti e spiegati i funzionamenti di ogni microservizio da implementare.
 \subsubsection{Virtual Assistant}
 \paragraph{Descrizione}
-Il microservizio Virtual Assistant fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, consentendo lo sviluppo di diverse funzionalità da parte di sviluppatori diversi, e l'integrazione di eventuali funzionalità già esistenti senza dover modificare direttamente gli agenti di api.ai. \\
+Il microservizio Virtual Assistant (VA) fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti (ciò che trasforma il linguaggio naturale in dati capibili per un'applicazione) durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, consentendo lo sviluppo di diverse funzionalità da parte di sviluppatori diversi, e l'integrazione di eventuali funzionalità già esistenti senza dover modificare direttamente gli agenti di api.ai. \\
 Per avere un completo controllo sul flusso della conversazione, si dovrà fare utilizzo di un database contenente gli agenti utilizzabili, in maniera tale che gli agenti utilizzabili siano solo quelli definiti e registrati.\\
-Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, dell'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato magari per fini di apprendimento macchina.\\
+Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, dell'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato magari per fini di machine learning.\\
 Di seguito vengono esposti i vari passaggi:
 \begin{itemize}
 	\item arriva una richiesta;
-	\item interrogo il database, contenente gli agenti, utilizzando il nome dell'applicazione;
+	\item interrogo il database, contenente gli agenti, utilizzando il nome dell'applicazione come chiave;
 	\item dall'interrogazione precedente ottengo il token dell'agente relativo all'applicazione;
 	\item invio ad api.ai il token e il testo della richiesta;
 	\item api.ai fornisce la risposta, la quale viene "filtrata" da\\ \file{Back-end::VirtualAssistant::ApiAiVAAdapter::query(str: VAQuery): VAResponse}, ottenendo così un formato adatto a \file{Back-end::VirtualAssistant::VAResponse};
@@ -30,17 +30,30 @@ Gli Endpoints sono:
 \item \textbf{/query}\\
 \begin{itemize}
 \item \textbf{Method:} POST;
-\item \textbf{Descrizione:} invia al microservizio il testo utilizzato per l'esecuzione di un'interrogazione;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} invia al microservizio una richiesta per interrogare l'assistente virtuale;
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAQuery}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	"VAQuery" : ["array di JSON contenente i dati necessari per l'interrogazione"]
+ "data":"Object",
+ "event":{ /*Alternativo a "text", oggetto di tipo VAEventObject*/
+  "data":"Object",
+  "name":"String"
+ },
+ "session_id":"String",
+ "text":"String" /*Alternativo a "event"*/
 }
 \end{lstlisting}
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\item \textbf{Response:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	"VAResponse" : ["array di JSON contenente dati associati alla risposta di Virtual Assistant"]
+ "action":"String",
+ "res":{/*oggetto di tipo ResponseBody*/
+  "contexts":"ObjectArray",
+  "data":"Object",
+  "text_request":"String",
+  "text_response":"String"
+ },
+ "session_id":"String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -62,14 +75,22 @@ Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSO
 Gli Endpoints sono: 
 \begin{itemize}
 
-\item \textbf{/}\\
+\item \textbf{/notifications}\\
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} restituisce la lista dei possibili destinatari;
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} restituisce la lista dei possibili canali destinatari;
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Notifications::NotificationChannel}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	receiver_array : ["array di stringhe dei possibili destinatari"]
+  "created": "String",
+  "creator": "String",
+  "id": "String",
+  "is_archived": "boolean",
+  "is_member": "boolean",
+  "name": "String"
+  "num_members": "int",
+  "purpose": "Purpose",
+  "topic": "Topic",
 }
 \end{lstlisting}
 \end{itemize}
@@ -77,13 +98,22 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} POST;
 \item \textbf{Descrizione:} invia la notifica ad una determinata persona;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Notifications::NotificationMsg}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule : ["array di JSON contente i dati associati alla direttiva da inviare"]
-	sender : ["stringa contenente il mittente della notifica "]
-	receiver : ["stringa contenente il destinatario della notifica "]
-	msg : ["stringa contenente il messaggio da inviare"]
+  "msg": [
+	"attachments_array":[
+	{
+				
+	},
+	{
+			
+	}
+	],
+	"response_type":"String",
+	"text":"String"
+	],
+  "send_to": "String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -107,22 +137,44 @@ Gli Endpoints sono:
 \item \textbf{/auth/users}\\
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} restituisce la lista degli Users;  
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} restituisce la lista degli \file{User} presenti nel database;  
+\item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	
+  user_array : [
+  {
+   "first_name":"String",
+   "last_name":"String",
+   "password":"String",
+   "slack_channel":"String",
+   "sr_id":"String",
+   "username":"String"
+  },
+  {
+   "first_name":"String",
+   "last_name":"String",
+   "password":"String",
+   "slack_channel":"String",
+   "sr_id":"String",
+   "username":"String"
+  }
+ ]	
 }
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} POST;
-\item \textbf{Descrizione:} vengono inviati i dati necessari alla registrazione; 
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} vengono inviati i dati necessari all'aggiunta di un nuovo \file{User} al database; 
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in\\ \file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	user_array : ["array di stringhe degli utenti esistenti"]
+  "first_name":"String",
+  "last_name":"String",
+  "password":"String",
+  "slack_channel":"String",
+  "sr_id":"String",
+  "username":"String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -132,10 +184,15 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} PUT;
 \item \textbf{Descrizione:} vengono modificati i dati dell'utente tramite sovrascrittura; 
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	user : ["array di JSON contenente i nuovi dati da inserire"]	
+  "first_name":"String",
+  "last_name":"String",
+  "password":"String",
+  "slack_channel":"String",
+  "sr_id":"String",
+  "username":"String"	
 }
 \end{lstlisting}
 \end{itemize}
@@ -143,28 +200,21 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} DELETE;
 \item \textbf{Descrizione:} viene eliminato un utente; 
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-	username : ["stringa contenente l'username dell'utente da eliminare"]
-}
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} GET;
 \item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente; 
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	username : ["stringa contenente l'username dell'utente desiderato"]
-}
-\end{lstlisting}
-
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-	user : ["array di JSON contenente l'utente desiderato"]
+  "first_name":"String",
+  "last_name":"String",
+  "password":"String",
+  "slack_channel":"String",
+  "sr_id":"String",
+  "username":"String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -177,7 +227,7 @@ Il microservizio Rules si occupa della gestione delle direttive del sistema. Una
 Il sistema fornisce una serie di funzioni per modificare il suo comportamento, le quali indicano il modo in cui esso debba essere cambiato. \\
 Una direttiva è costituita da:
 \begin{itemize}
-	\item una lista di target, che indica gli obbiettivi ai quali deve essere applicata la direttiva;
+	\item una lista di target, che indica gli obiettivi (persone) ai quali deve essere applicata la direttiva;
 	\item un'istanza di funzione, che indica quale delle funzioni disponibili deve essere applicata e, nel caso in cui tale funzione abbia dei parametri modificabili, con quali valori di quest'ultimi deve essere chiamata;
 	\item un nome, il quale permette agli amministratori di identificare le diverse direttive;
 	\item un id, il quale identifica univocamente la funzione all'interno del sistema; 
@@ -201,10 +251,42 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} GET;
 \item \textbf{Descrizione:} viene ricevuta la lista delle direttive;
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule_array : ["array di stringhe contenente la lista delle direttive"]
+ rule_array : [
+ {
+  "ac_list":[
+	"adm1":"String",
+	"adm2":"String",
+	...
+   ],
+  "ac_mode":"int",
+  "enabled":"boolean",
+  "id":"int",
+  "name":"String",
+  "targets":[ /*oggetti di tipo Back-end::Rules::RuleTarget*/
+  {
+   "company":"String",
+   "member":"String",
+   "name":"String"
+  },
+  {
+   "company":"String",
+   "member":"String",
+   "name":"String"
+  }
+  ],
+  "task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
+   "params":{
+	"par1":"Object",
+	"par2":"Object",
+	...
+   }
+   "task":"String"
+  }
+ }
+ ]
 }
 \end{lstlisting}
 \end{itemize}
@@ -212,10 +294,40 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} POST;
 \item \textbf{Descrizione:} viene creata una nuova direttiva
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule : ["array di JSON contenente i dati associati alla direttiva da creare"]
+	rule : {
+	  "ac_list":[
+	    "adm1":"String",
+	    "adm2":"String",
+		...
+	  ],
+	  "ac_mode":"int",
+	  "enabled":"boolean",
+	  "id":"int",
+	  "name":"String",
+	  "targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
+	  {
+		"company":"String",
+		"member":"String",
+		"name":"String"
+      },
+	  {
+		"company":"String",
+		"member":"String",
+		"name":"String"
+	  }
+	  ],
+	  "task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
+		"params":{
+		  "par1":"Object",
+		  "par2":"Object",
+		  ...
+	   }
+	  "task":"String"
+	  }
+	}
 }
 \end{lstlisting}
 \end{itemize}
@@ -225,10 +337,40 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} PUT; 
 \item \textbf{Descrizione:} viene modificata una direttiva tramite sovrascrittura;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule : ["array di JSON contenente i nuovi dati associati alla direttiva da modificare"]
+  rule : {
+	"ac_list":[
+	 "adm1":"String",
+	 "adm2":"String",
+	...
+    ],
+	"ac_mode":"int",
+	"enabled":"boolean",
+	"id":"int",
+	"name":"String",
+	"targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
+	{
+	 "company":"String",
+	 "member":"String",
+	 "name":"String"
+	},
+	{
+	 "company":"String",
+	 "member":"String",
+	 "name":"String"
+	}
+	],
+	"task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
+	 "params":{
+	  "par1":"Object",
+	  "par2":"Object",
+	  ...
+	 }
+	"task":"String"
+   }
+  }
 }
 \end{lstlisting} 
 
@@ -237,52 +379,92 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} GET;
 \item \textbf{Descrizione:} vengono richiesti dati relativi ad una specifica direttiva;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	id_rule : ["stringa contenente l'id della direttiva desiderata"]
+	rule : {
+	 "ac_list":[
+	  "adm1":"String",
+	  "adm2":"String",
+	  ...
+	  ],
+	"ac_mode":"int",
+	"enabled":"boolean",
+	"id":"int",
+	"name":"String",
+	"targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
+	{
+	 "company":"String",
+	 "member":"String",
+	 "name":"String"
+	},
+	{
+	 "company":"String",
+	 "member":"String",
+	 "name":"String"
+	}
+	],
+	"task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
+	 "params":{
+	  "par1":"Object",
+	  "par2":"Object",
+	  ...
+	 }
+	"task":"String"
+	}
+  }
 }
 \end{lstlisting}
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-	rule : ["array di JSON contenente i dati associati alla direttiva desiderata"]
-}
+
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
 \item \textbf{Descrizione:} viene eliminata una direttiva;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-	id_rule : ["stringa contenente l'id della direttiva da eliminare"]
-}
+
 \end{lstlisting}
 \end{itemize}
 
 
-\item \textbf{/impostazioni/functions/}\\
+\item \textbf{/impostazioni/tasks}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET; 
 \item \textbf{Descrizione:} viene richiesta la lista dei tipi di funzioni presenti nel sistema; 
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	function_array : ["array di stringhe contenente la lista dei tipi di funzioni presenti nel sistema"]
+ function_array : [
+ {
+  "function":"String",
+  "id":"int"
+ },
+ {
+  "function":"String",
+  "id":"int"
+ }
+]
 }
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} POST;
-\item \textbf{Descrizione:} viene creato un nuovo tipo di funzione;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} viene creato un nuovo tipo di \file{Task};
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	function : ["array di JSON contenente il tipo di funzione da creare"]
+ function_array : [
+ {
+  "function":"String",
+  "id":"int"
+ },
+ {
+  "function":"String",
+  "id":"int"
+ }
+ ]
 }
 \end{lstlisting}  
 \end{itemize}
@@ -293,28 +475,41 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} viene richiesta la descrizione di una funzione;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} viene richiesto un \file{Task} in base al tipo di funzione applicata;
+
+\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	id_function : ["stringa contenente l'id della funzione richiesta"]
-}
-\end{lstlisting}
-\item \textbf{Response:} la risposta deve contenere i seguenti campi:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-	description_function : ["stringa contenente la descrizione della funzione richiesta"]
+ function_array : [
+ {
+  "function":"String",
+  "id":"int"
+ },
+ {
+  "function":"String",
+  "id":"int"
+ }
+ ]
 }
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} viene modificata una funzione tramite sovrascrittura;
-\item \textbf{Request:} la richiesta deve contenere i seguenti campi:
+\item \textbf{Descrizione:} viene modificata un \file{Task} tramite sovrascrittura;
+\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	function : ["array di JSON contenente i nuovi dati associati alla funzione da modificare"]
+ function_array : [
+ {
+  "function":"String",
+  "id":"int"
+ },
+ {
+  "function":"String",
+  "id":"int"
+ }
+ ]
 }
 \end{lstlisting}
 
