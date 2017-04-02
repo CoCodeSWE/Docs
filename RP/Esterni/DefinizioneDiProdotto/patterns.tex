@@ -14,56 +14,67 @@
 	 \item l'architettura risulta maggiormente complessa perchè risulta essere un sistema distribuito;
 	 \item la gestione di più microservizi potrebbe risultare in un carico di lavoro maggiore rispetto ad una sua versione monolitica.
 	\end{itemize}
-       \item \textbf{Utilizzo:}
       \end{itemize}
       \begin{figure}[h]
       	\centering
-      	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/apigateway1.png}
+      	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/micros.png}
       	\caption{Architettura a microservizi}\label{fig:micr1}
       \end{figure}
+      \newpage
     \subsubsection{Architettura event-driven}
       \begin{itemize}
        \item \textbf{Scopo:} anche se non è un vero e proprio pattern, l'architettura event-driven è un particolare tipo di architettura asincrona per sistemi distribuiti basata sugli eventi.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
-	   \item per definizione, questo tipo di architettura è particolarmente adatto ad ambienti di tipo asincrono basati sugli eventi, come ad esempio l'interazione con degli utenti in tempo reale.
+	   \item per definizione, questo tipo di architettura è particolarmente adatto ad ambienti di tipo asincrono basati sugli eventi, come ad esempio l'interazione con degli utenti in tempo reale;
+	   \item permette un alto disaccoppiamento tra le componenti.
 	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
 	   \item i sistemi che utilizzano tale architettura sono spesso distribuiti: ciò comporta un maggiore livello di complessità.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
      
      \subsubsection{Client-side discovery}
       \begin{itemize}
-       \item \textbf{Scopo:} all'interno di un'architettura a microservizi, i singoli microservizi si trovano spesso in posizioni non fissate in quanto decise dinamicamente. Un metodo per la loro localizzazione consiste nel pattern Client-side discovery, che consiste nella richiesta della posizione di uno specifico microservizio da parte del client ad un registro, che conosce le posizioni di tutte le istanze dei microservizi. 
+       \item \textbf{Scopo:} questo pattern, utilizzato in un'architettura a microservizi, permette ad un client la localizzazione dei microservizi interrogando un registro che ne conosce le posizioni. \\
+       Nel contesto della progettazione dell'architettura per il progetto \PROGETTO, questo pattern è stato riadattato (vedi figura \ref{fig:sidedisc}) per uno scopo ben diverso, ovvero quello di ottenere delle applicazioni interrogando un registro che le contiene, tramite un'interfaccia per quest'ultimo. \\ Come appena detto, lo scopo del pattern adottato è ben diverso da quello dell'originale, ma l'organizzazione delle classi del pattern Client-side discovery (vedi figura \ref{fig:sidediscorig}) modella bene la soluzione progettuale per l'ottenimento delle applicazioni;
 	\item \textbf{Vantaggi:}
-	  \begin{itemize}
-	   \item permette di allocare dinamicamente diverse istanze di diversi servizi.
+     \begin{itemize}
+	   \item \textbf{Originale}: permette di allocare dinamicamente diverse istanze di diversi servizi;
+	   \item \textbf{Riadattato}: permette di demandare la ricerca e recupero dell'applicazione a classi apposite, nel rispetto del single responsibility principle.
 	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
-	   \item crea dipendenze tra il registro e il client.
+	   \item \textbf{Originale}: crea dipendenze tra il registro e il client;
+	   \item \textbf{Riadattato}: aggiunge una leggera complessità al sistema.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
-
-    
+	 \begin{figure}[h]
+	 	\centering
+	 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/sidedisc.png}
+	 	\caption{Pattern client-side discovery adattato alle esigenze del gruppo}\label{fig:sidedisc}
+	 \end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client-side-discovery.jpg}
+		\caption{Pattern client-side discovery}\label{fig:sidediscorig}
+	\end{figure}
+    \newpage
+    \newpage
    \subsubsection{Data Access Object}
       \begin{itemize}
-       \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di ua sorgente di dati, o più in generale per la gestione della persistenza.
+       \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di una sorgente di dati, o più in generale per la gestione della persistenza.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item separazione tra logica di business e dati;
-	   \item modifiche sul dati non comportano modifiche sul client cche utilizza DAO.
+	   \item modifiche sul dati non comportano modifiche sul client che utilizza DAO.
 	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
 	   \item un'interfaccia di questo tipo potrebbe nascondere i costi di accesso ad un database;
-	   \item potrebbe essere necessarie molte più operazioni rispetto all'esecuzione diretta di una query su un database.
+	   \item potrebbero essere necessarie molte più operazioni rispetto all'esecuzione diretta di una query su un database.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
 	\begin{figure}[h]
 		\centering
@@ -84,26 +95,29 @@
 	   \item eventuali errori legati alla risoluzione delle dipendenze o alla loro implementazione vengono rilevati solamente a runtime;
 	   \item rende più difficile il tracciamento del codice in quanto ne separa la costruzione dal comportamento.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
   
   \subsection{Strutturali}
   
-    \subsubsection{Facade}
+    \subsubsection{Façade}
       \begin{itemize}
-       \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. 
+       \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. \\
+       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un API Gateway, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come facade semplificando l'operazione;
 	   \item permette di diminuire le dipendenze tra sottosistemi;
-	  \end{itemize}
+	  \end{itemize}\newpage
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
 	   \item i sottosistemi risultano essere collegati al facade: modifiche alla struttura dei sottosistemi comportano una serie di modifiche al facade stesso;
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
-	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/patternfacade.jpg}
+		\caption{pattern Façade}\label{fig:facade}
+	\end{figure}
     \subsubsection{Adapter}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern permette la comunicazione tra due interfacce completamente differenti tramite l'utilizzo di un Adapter.
@@ -117,29 +131,18 @@
 	   \item aumenta la dimensione del codice;
 	   \item a volte per interconnettere due interfacce sono necessari più Adapter.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
-	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/adapterpattern.png}
+		\caption{Pattern Adapter}\label{fig:adapter1}
+	\end{figure}
+	\newpage
   \subsection{Creazionali}
-  
-    \subsubsection{Singleton}
-      \begin{itemize}
-       \item \textbf{Scopo:} questo pattern ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale ad essa.
-	\item \textbf{Vantaggi:}
-	  \begin{itemize}
-	   \item questo pattern risulta molto utile ogni qual volta è necessaria una sola istanza di una classe.
-	  \end{itemize}
-	\item \textbf{Svantaggi:}
-	  \begin{itemize}
-	   \item la classe Singleton risulta essere globale, e di conseguenza rende più difficile la definizione di test di unità;
-	   \item aumenta il livello di accoppiamento del codice.
-	  \end{itemize}
-	\item \textbf{Utilizzo:}
-	\end{itemize}
 	
 	 \subsubsection{Module}
       \begin{itemize}
-       \item \textbf{Scopo:} questo pattern ha lo scopo di introdurre il concetto di modularità nel linguaggi di programmazione che non lo possiedono.
+       \item \textbf{Scopo:} questo pattern ha lo scopo di introdurre il concetto di modularità nei linguaggi di programmazione che non lo possiedono.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item come da definizione, questo pattern permette l'implementazione della modularità in ambienti privi di supporto ad essa.
@@ -154,19 +157,24 @@
   
     \subsubsection{Observer}
       \begin{itemize}
-       \item \textbf{Scopo:} questo pattern permette la definizione di una o più classi Observer le quali "osservano" una classe Soggetto e ne gestiscono gli eventi.
+       \item \textbf{Scopo:} questo pattern, adottato nella variante offerta da ReactiveX, permette la definizione di una o più classi Observer le quali "osservano" una classe Observable e ne gestiscono gli eventi.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item permette la gestione di eventi tramite l'invio di dati ad altre classi in modo efficiente;
-	   \item la definizione di classi Observer non causa modifiche alla classe Soggetto. 
+	   \item la definizione di classi Observer non causa modifiche alla classe Observable. 
 	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
 	   \item una cattiva implementazione comporta un aumento della complessità del codice;
 	   \item l'interfaccia Observer deve essere implementata, e ciò comporta ereditarietà.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/observerpattern.png}
+		\caption{Pattern Observer}\label{fig:obs1}
+	\end{figure}
 	
 	\section{Tecnologie utilizzate}
 	\subsection{Promise e Observable}
