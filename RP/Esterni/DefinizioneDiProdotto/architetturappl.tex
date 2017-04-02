@@ -43,7 +43,7 @@ Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'a
 		\item \textbf{/query}\\
 		\begin{itemize}
 			\item \textbf{Method:} POST;
-			\item \textbf{Descrizione:} invia all'API Gateway dei dati ??? ???;
+			\item \textbf{Descrizione:} invia all'API Gateway dei dati;
 			\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::APIGateway::VARequestAPIBody}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -53,10 +53,17 @@ Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'a
  "session_id":"String"	
 }
 \end{lstlisting}
-			\item \textbf{Response:} la risposta deve contenere i campi organizzati così:
-\begin{lstlisting}[language=json,firstnumber=1]
+			\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
+\begin{lstlisting}[language=json,firstnumber=1] 
 {
-			
+"action":"String",
+"res":{
+ "contexts":"ObjectAssocArray",
+ "data":"Object",
+ "text_request":"String",
+ "text_response":"String"
+ },
+"session_id":"String"
 }
 \end{lstlisting}
 		\end{itemize}

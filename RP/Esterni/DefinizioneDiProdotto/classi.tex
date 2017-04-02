@@ -75,11 +75,6 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa interfaccia si occupa di astrarre le modalità d'interazione al database contenente gli ospiti conosciuti;
 	\item \textbf{Utilizzo}: fornisce i metodi per accedere al database contenente i dati relativi agli ospiti conosciuti, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di ospiti conosciuti;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- db: AWS::DynamoDB} \\
-		Attributo contenente;
-	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getGuestList(): GuestObservable} \\
@@ -136,9 +131,11 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- rules: RulesDAO} \\
-		Attributo che permette di contattare \file{RulesDAO}, il quale fornisce i meccanismi di accesso al database contenente le \file{Rule};
+		Attributo che permette di contattare \file{RulesDAO}, il quale fornisce i meccanismi di accesso al dati relativi alle direttive;
 		\item[] \file{- users: UsersDAO} \\
-		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi di accesso al database contenente gli utenti registrati;
+		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi di accesso ai dati relativi agli utenti registrati;
+		\item[] \file{- jwt: JSONWebTokenModule} \\
+		Attributo contenente un riferimento al modulo di Node.js per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno. ;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -158,14 +155,16 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 			\item \file{context: LambdaContext} \\
 			Parametro contenente;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createAdministrationWebhookService(rulesdao: RulesDAO, usersdao: UsersDAO): AdministrationWebhookService} \\
-		zzz;\\
+		\item[] \file{+ <<Create>> createAdministrationWebhookService(rulesdao: RulesDAO, usersdao: UsersDAO, jwt: JSONWebTokenModule): AdministrationWebhookService} \\
+		Costruttore che si occupa di effettuare la dependency injection di \file{UsersDAO}, \file{JSONWebTokenModule}, \file{RulesDAO};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rulesdao: RulesDAO} \\
 			Attributo contenente il \file{RulesDAO};
 			\item \file{usersdao: UsersDAO} \\
 			Attributo contenente lo \file{UsersDAO};
+			\item \file{jwt: JSONWebTokenModule} \\
+			Parametro contenente il riferimento al modulo Node.js per la gestione dei JSON Web Tokens;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -698,6 +697,58 @@ Dove
 \end{itemize}
 \FloatBarrier
 
+\hypertarget{MembersSlackDAO_label}{\paragraph{MembersSlackDAO}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMembersSlackDAO.png}
+	\caption{Back-end::MembersSlackDAO}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{MembersSlackDAO};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe implementa \file{MembersDAO}, ottenendo i dati da Slack;
+	\item \textbf{Utilizzo}: implementa i metodi definiti dall'interfaccia, utilizzando \file{Slack::WebClient} per recuperare i dati relativi ai membri dell'azienda. ;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- client: Slack::WebClient} \\
+		Questo attributo è utilizzato per interrogare le API Web di Slack;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ addMember(member: Member): ErrorObservable} \\
+		Implementazione del metodo del'interfaccia. L'Observable restituita genererà sempre un errore, in quanto non è possibile aggiungere membri;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{member: Member} \\
+			Parametro contenente i dati relativi al membro che si vuole aggiungere;
+		\end{itemize}
+		\item[] \file{+ removeMember(id: String): ErrorObservable} \\
+		Implementazione del metodo del'interfaccia. L'Observable restituita genererà sempre un errore, in quanto non è possibile rimuovere membri;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente la stringa identificativa del membro che si vuole eliminare;
+		\end{itemize}
+		\item[] \file{+ updateMember(member: Member): ErrorObservable} \\
+		Implementazione del metodo del'interfaccia. L'Observable restituita genererà sempre un errore, in quanto non è possibile aggiornare i dati dei membri;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{member: Member} \\
+			Parametro contenente i dati relativi al membro che si vuole aggiornare;
+		\end{itemize}
+		\item[] \file{+ getMember(id: String): MemberObservable} \\
+		Implementazione del metodo del'interfaccia. Utilizza il metodo \file{users.info} per ottenere le informazioni necessarie da Slack;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			parametro contenente la stringa identificativa del membro del quale si vogliono ottenere i dati;
+		\end{itemize}
+		\item[] \file{+ getMemberList(): MemberObservable} \\
+		Implementazione del metodo del'interfaccia. Utilizza il metodo \file{users.list} per ottenere le informazioni necessarie da Slack;\\
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
 \hypertarget{RuleObservable_label}{\paragraph{RuleObservable}}
 \begin{figure}[h]
 	\centering
@@ -795,8 +846,8 @@ Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon
 		Attributo contenente il messaggio da pubblicare;
 		\item[] \file{+ Timestamp: String} \\
 		Attributo contenente il timestamp relativo al momento della pubblicazione del messaggio;
-		\item[] \file{+ MessageAttributes: SnsMessageAttributes} \\
-		Attributo contenente;
+		\item[] \file{+ MessageAttributes: Object} \\
+		Attributo contenente le coppie chiave-valore degli attributi del messaggio che è stato pubblicato su SNS;
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -1234,10 +1285,14 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "transcript":"String",
-  "confidence":"Number",
-  "timestamps":"StringArray",
-  "word\_confidence":"StringArray"
+"action":"String",
+"res":{
+ "contexts":"ObjectAssocArray",
+ "data":"Object",
+ "text\_request":"String",
+ "text\_response":"String"
+},
+"session\_id":"String"
 }
 \end{lstlisting}
 Per la relativa documentazione, consultare la pagina \url{https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/#recognize\_sessionless\_nonmp12}.
@@ -1604,7 +1659,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro relativo a ????;
+			Parametro contenente la stringa identificativa dell'utente al quale si vuole aggiungere un enrollment;
 			\item \file{audio: Blob} \\
 			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
@@ -1613,7 +1668,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro relativo a ??;
+			Parametro contenente l'identificativo dell'utente che si vuole eliminare;
 		\end{itemize}
 		\item[] \file{+ getList(): SRUserArray} \\
 		Metodo che ritorna una lista di SRUser;\\
@@ -1629,14 +1684,14 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro relativo a ???;
+			Parametro contenente l'identificativo dell'utente dei quali relativi enrollment verrà effettuato il reset;
 		\end{itemize}
 		\item[] \file{+ doLogin(id: String, audio: Blob): Error} \\
 		Metodo che permette di effettuare il login a partire da un id e da un audio di identificazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
-			Parametro contenente l'identificativo ???;
+			Parametro contenente l'identificativo dell'utente che vuole effettuare il login;
 			\item \file{audio: Blob} \\
 			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
@@ -1814,8 +1869,8 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie per notificare la persona desiderata sul relativo canale Slack;
 	\item \textbf{Attributi}:
 	\begin{itemize}
-		\item[] \file{- BOT\_TOKEN: String} \\
-		Attributo utilizzato per autenticarsi come bot;
+		\item[] \file{- client: Slack::WebClient} \\
+		Questo attributo è utilizzato per interagire con le API Web di Slack;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -1844,6 +1899,13 @@ Tali dati sono:
 Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \file{LambaResponse::statusCode};
+		\end{itemize}
+		\item[] \file{+ <<Create>> createNotificationService(client: Slack::WebClient): NotificationService} \\
+		Costruttore, si occupa di gestire la dependency injection di \file{Slack::WebClient};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{client: Slack::WebClient} \\
+			Parametro contenente l'istanza di \file{Slack::WebClient} di cui viene effettuata la dependency injection;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -2291,7 +2353,7 @@ Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target}
 		\item[] \file{+ name: String} \\
 		Attributo contenente il nome del target;
 		\item[] \file{+ member: String} \\
-		Attributo contenente ??? perchè un target dovrebbe contenenre il nome di uno di zero12?;
+		Attributo contenente il nome del membro dell'azienda interessato dalla direttiva;
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -2437,12 +2499,7 @@ Package che include le classi che si occupano di fornire le funzionalità di Spe
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di convertire l'interfaccia fornita dal servizio di Speech to Text di IBM in una più adatta alle esigenze dell'applicazione, definita da \file{STTModule}. \\
 Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e l'interfaccia \file{STTModule} (target) utilizzata da \file{APIGateway::VocalAPI}, permette l'interoperabilità tra queste due interfacce;
-	\item \textbf{Utilizzo}:
-Fornisce a \file{STTModule} un meccanismo che permette di interrogare le API del servizio Watson Speech to Text di IBM, in modo da consentire a \file{APIGateway::VocalAPI} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze. \\ È soggetta ad una constructor-based dependency injection, la quale ha come oggetti:
-\begin{itemize}
-   \item uno \file{StreamBufferModule} contenente ... ??? ;
-   \item uno \file{SpeechToTextV1} ???
-\end{itemize}
+	\item \textbf{Utilizzo}: fornisce a \file{STTModule} un meccanismo che permette di interrogare le API del servizio Watson Speech to Text di IBM, in modo da consentire a \file{APIGateway::VocalAPI} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze.
 Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
 \begin{itemize}
     \item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/};
@@ -2739,11 +2796,6 @@ Package contenente le componenti del microservizio dell'assistente virtuale.
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità di accesso al database contenente gli \file{Agent} disponibili;
 	\item \textbf{Utilizzo}: fornisce a \file{WebhookService} un meccanismo per accedere ai dati relativi agli \file{Agent}, senza conoscerne le modalità di implementazioni e di persistenza del database. A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione degli \file{Agent};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- db: AWS::DynamoDB} \\
-		Da fare;
-	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getAgentsList(): AgentObservable} \\
@@ -2960,16 +3012,16 @@ Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule
 		\item[] \file{- agent: Agent} \\
 		Attributo contenente lo \file{Agent} al quale inviare le richieste;
 		\item[] \file{- VERSION: String} \\
-		Da fare;
+		Attributo contenente il campo \file{versioning} da inviare in una richiesta ad api.ai. Per chiarire quanto appena detto, consultare la pagina \url{https://docs.api.ai/docs/versioning};
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ <<Create>> createApiAiVAAdapter(agent: Agent): ApiAiVAAdapter} \\
-		Da fare;\\
+		Costruttore che realizza una dependency injection avente come oggetto un \file{Agent};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{agent: Agent} \\
-			Da fare;
+			Paramentro contenente l'\file{Agent};
 		\end{itemize}
 		\item[] \file{+ query(str: VAQuery): VAResponse} \\
 		Metodo che permette di interrogare lo Agent in api.ai;\\
@@ -3101,25 +3153,34 @@ Per chiarire quanto detto, consultare la relativa documentazione \url{https://do
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un MsgObject, il quale definisce un tipo unico tra tutti i messaggi (dal contenuto eterogeneo) contenuti in un \file{Fulfillment};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un MsgObject, il quale sarà contenuto in un \file{Fulfillment}.
 La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages};
+Per la relativa documentazione, consultare le seguenti pagine: \\
+\url{https://docs.api.ai/docs/rich-messages} \\
+\url{https://docs.api.ai/docs/query#section-message-objects};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ type: int} \\
-		Attributo contenente;
+		Attributo il quale valore indica il tipo del messaggio. I possibili valori ed i relativi messaggi sono:
+\begin{itemize}
+  \item 0: messaggio testuale, prevede la presenza del campo \file{speech};
+  \item 3: immagine, prevede la presenza del campo \file{imgUrl};
+  \item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
+  \item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
+  \item 4: payload, prevede la presenza del campo \file{payload}.
+\end{itemize};
 		\item[] \file{+ speech: String[0..1]} \\
-		Attributo contenente la risposta dell'assistente;
+		Attributo contenente il testo di un messaggio di tipo messaggio testuale;
 		\item[] \file{+ imageUrl: String[0..1]} \\
-		Attributo contenente;
+		Attributo contenente l'url dell'immagine di un messaggio di tipo immagine;
 		\item[] \file{+ title: String[0..1]} \\
-		Attributo contenente il titolo del messaggio;
+		Attributo contenente il titolo di un messaggio di tipo card o quick replies;
 		\item[] \file{+ subtitle: String[0..1]} \\
-		Attributo contenente il subtitle definito da api.ai;
+		Attributo contenente il sottotitolo di un messaggio di tipo card;
 		\item[] \file{+ buttons: ButtonObjectArray[0..1]} \\
-		Attributo contenente l'array di button definiti da api.ai;
+		Attributo contenente l'array di button di un messaggio di tipo card;
 		\item[] \file{+ replies: StringArray[0..1]} \\
-		Attributo contenente;
+		Attributo contenente l'array delle risposte rapide di un messaggio di tipo quick replies;
 		\item[] \file{+ payload: Object[0..1]} \\
-		Attributo contenente il payload;
+		Attributo contenente il payload di un messaggio di tipo payload;
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -3247,9 +3308,9 @@ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire i
 		Parametri:
 		\begin{itemize}
 			\item \file{agents: AgentsDAO} \\
-			Da fare;
+			Parametro contenente l'\file{AgentsDAO};
 			\item \file{va: VAModule} \\
-			Da fare;
+			Parametro contenente il \file{VAModule};
 		\end{itemize}
 		\item[] \file{+ query(event: LambdaEvent, context: LambdaContext): void} \\
 		Questo metodo implementa la lambda function che si occupa dell'interrogazione dell'assistente virtuale. A partire da una richiesta contenente il testo della richiesta dell'utente, questo metodo esegue una chiamata all'endpoint /query di api.ai e, a partire dalla risposta ricevuta, manda la risposta utilizzando il context;\\
@@ -3534,7 +3595,7 @@ Package contenente le classi che si occupano della gestione delle applicazioni c
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ register(name: String, pkg: ApplicationPackage): boolean} \\
-		Metodo che permette la registrazione di una applicazione nell'IApplicationRegistryClient. Questo metodo deve però impedire l'inserimento di package "Parziali" di RegistryPackage, ovvero un package di tipo ApplicationPackage. ;\\
+		Metodo che permette la registrazione di una applicazione nell'IApplicationRegistryClient. Questo metodo deve però impedire l'inserimento di package "Parziali" di RegistryPackage, ovvero un package di tipo \file{ApplicationPackage}. ;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -4613,6 +4674,23 @@ Libreria esterna
 	\item \textbf{Descrizione}: rxJS5;
 	\item \textbf{Utilizzo}: ;
 	\item \textbf{Figli}: \file{SpeechEndSubject}, \file{DataArrivedSubject};
+\end{itemize}
+\FloatBarrier
+
+\subsection{Slack}
+Package contenente tutte le classi che fanno parte dell'SDK per Node.js di Slack.
+\subsubsection{Classi}
+\hypertarget{WebClient_label}{\paragraph{WebClient}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassWebClient.png}
+	\caption{Slack::WebClient}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{WebClient};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe rappresenta il modulo node.js che si occupa di comunicare con le API Web di Slack;
+	\item \textbf{Utilizzo}: fornisce i metodi necessari ad usufruire delle funzionalità offerte dalle API Web di slack. Per ulterioir informazioni, fare riferimento alla documentazione dei slack (\url{https://api.slack.com/});
 \end{itemize}
 \FloatBarrier
 
