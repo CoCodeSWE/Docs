@@ -105,7 +105,7 @@
        Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un API Gateway, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
-	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come facade semplificando l'operazione;
+	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come façade semplificando l'operazione;
 	   \item permette di diminuire le dipendenze tra sottosistemi;
 	  \end{itemize}\newpage
 	\item \textbf{Svantaggi:}
@@ -181,38 +181,31 @@
 
 
 JavaScript è un linguaggio single-thread, quindi basato su un singolo thread in esecuzione. Questo significherebbe dover aspettare sempre il termine di un'operazione prima di passare alla
-
 successiva, quindi nel caso di operazioni di lunga durata, il flusso dell'elaborazione principale di un’applicazione JavaScript potrebbe "congelarsi". \\
-
-
 Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una callback alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituisce
-
 il controllo al chiamante. Quando l'operazione sarà terminata, la funzione di callback verrà invocata. \\
 
 
 L'uso di callback, spesso annidate, rendono il codice di difficile comprensione e di difficile manutenzione. Due possibili soluzioni sono l'uso delle Promise di bluebird e gli Observable
-
 di RxJS.
 
 
 \subsubsection{Promise e bluebird}
 
 Una Promise è un oggetto che rappresenta il risultato pendente di un’operazione asincrona. Ciò permette ai metodi asincroni di restituire valori alla stessa maniera dei metodi sincroni:
-invece del valore finale, il metodo asincrono restituisce una promessa di ottenere un valore in un momento futuro. \\
+invece del valore finale, il metodo asincrono restituisce una Promise, ovvero una promessa di ottenere un valore in un momento futuro. \\
 I principali metodi di una Promise sono:
 
 \begin{itemize}
 
-\item then: ritorna una Promise, in questo modo è possibile concatenere successive chiamate a questo meotodo. È composto da due parametri opzionali che corrispondono a 
+\item \file{then}: ritorna una Promise, in questo modo è possibile concatenere successive chiamate a questo metodo. È composto da due parametri opzionali che corrispondono a 
+due funzioni: \file{onFulfill} viene richiamata se la Promise ha avuto successo, \file{onReject} se è stata rigettata.  
 
-due funzioni: onFulfill viene richiamata se la Promise ha avuto successo, onReject se è stata rigettata.  
-
-\item catch: ritorna una Promise e si occupa di gestire eventuali errori generati nella catena dei then.
+\item \file{catch}: ritorna una Promise e si occupa di gestire eventuali errori generati nella catena dei \file{then}.
 
 \end{itemize}
 
-
-Si è deciso di utilizzare bluebird in quanto offre le suguenti caratteristiche:
+Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \begin{itemize}
 
@@ -226,53 +219,29 @@ Si è deciso di utilizzare bluebird in quanto offre le suguenti caratteristiche:
 
 
 \subsubsection{Observable e RxJS v5}
+ReactiveX è un insieme di API per estendere la programmazione asincrona facendo uso di Observable.\\
+In base al linguaggio di programmazione che si vuole utilizzare, vengono fornite differenti librerie specifiche.
+La scelta quindi ricade su RxJS, ReactiveX library per JavaScript.
+
 
 Un Observable è una rappresentazione di un qualsiasi insieme di valori durante un qualsiasi periodo di tempo. Viene utilizzata per le implementazioni del pattern Observer.
-
-RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornta
-
+RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornata
 da Microsoft e altri sviluppatori di software open source.
-
 
 \subsection{AWS SDK per JavaScript in Node.js}
 
-Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema è necessario utilizzare SDK per JavaScript in Node.js per
-
-interfacciarsi ai singoli servizi offerti da AWS. In particolare si farà utiizzo di DynamoDb.
-
+Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema, è necessario utilizzare l'AWS SDK per JavaScript in Node.js per
+interfacciarsi ai singoli servizi offerti da AWS.
 
 \subsubsection{Node.js}
 La parte Back-End è stata sviluppata tramite la piattaforma event-driven Node.Js, basata sul motore JavaScript V8. Esso permette di realizzare applicazioni Web utilizzando JavaScript, tipicamente client-side, per la scrittura server-side. La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità event-driven non sfruttando il classico modello basato su processi o thread concorrenti, utilizzato dai classici web server.
 
-\subsubsection{AWS Lambda}
-AWS Lambda è un servizio di elaborazione serverless che esegue codice in risposta a determinati eventi e gestisce automaticamente le risorse di elaborazione in uso. Può essere usato per estendere altri servizi AWS con logica personalizzata oppure creare servizi di back-end.  
-
-\subsubsection{Serverless Framework}
-Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.
-
-\subsubsection{DynamoDB}
-Amazon DynamoDB è un servizio database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.
-
-\subsubsection{API.AI}
-API.AI è una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.
-Le applicazioni sviluppate su questa piattaforma sono costuite da Agent, i quali si occupano di trasformare il linguaggio naturale in dati processabili. Tali Agent sono a loro volta costituiti da Intent, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed Entity, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.
-
-\subsubsection{JWT}
-JWTè uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.
-
-\subsubsection{Web Speech API}
-Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come text to speech o tts).
-Il riconoscimento vocale è acceduto attraverso l'interfaccia SpeechRecognition, la quale fornisce la possibilità di riconoscere il contesto vocale da un input vocale e risponde appropriatamente. 
-La sintesi vocale è acceduta tramite l'interfaccia SpeechSynthesis, una componente text-to-speech che permette ai programmi di leggere testo.
-
-\subsubsection{Speaker recognition}
-Speaker Recognition API è un servizio Microsoft che identifica utenti individual, e li autentica per mezzo della voce. Al suo interno utilizza JSON per lo scambio dei dati e API Keys per l'autenticazione.
-
-\subsubsection{STT IBM Watson}
-Lo Speech to Text Watson converte voce in testo scritto. Per trascrivere la voce umana accuratamente il servizio utilizza il machine learning per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
-
 \subsubsection{Request promise}
-E' un modello che implementa l'esistenza delle Promises come risposta a una serie di richieste che non possono essere soddisfatte immediatamente . Una promessa è un risultato che verrà reso disponibile non appena possibile se è possibile mantenere la promessa (fulfilled) oppure è un errore se non la si può mantenere (rejected).
+E' un modello che implementa l'esistenza delle Promises come risposta a una serie di richieste che non possono essere soddisfatte immediatamente. Una promessa è un risultato che verrà reso disponibile non appena possibile se è possibile mantenere la promessa (fulfilled) oppure è un errore se non la si può mantenere (rejected).
+\\
+\subsection{Amazon Web Services}
+Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
+
 \subsubsection{AWS Lambda}
 AWS Lambda è un servizio di cloud-computing fornito da Amazon, il quale permette l'implementazione di una architettura serverless. \\
 Esso permette l'esecuzione di codice senza preoccuparsi della gestione di server o di tutte le risorse necessarie all'esecuzione del codice, in termini di tempo, spazio e computabilità. \\
@@ -280,7 +249,7 @@ AWS Lambda permette di eseguire codice su una piattaforma ad alta affidabilità,
 Inoltre, questo servizio può essere utilizzato per eseguire del codice in risposta ad eventi. \\
 La signature delle Lambda Function è la seguente:
 \begin{verbatim}
-function(event, context,) {
+function(event, context) {
     ...
 }
 \end{verbatim}
@@ -292,7 +261,7 @@ dove:
 		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'URL;
 		\item \file{urlQueryParameters}: oggetto contenente i parametri passati all'API Gateway attraverso query nell'URL.
 	\end{itemize}
-	\item \file{context} è l'oggetto contenente i dati relativi alla richiesta e, in caso di Lambda Proxy Integration, contiene anche i seguenti metodi:
+	\item \file{context} è l'oggetto contenente i dati relativi alla risposta e, in caso di Lambda Proxy Integration, contiene anche i seguenti metodi:
 	\begin{itemize}
 		\item \file{succeed}: metodo da utilizzare per mandare una risposta all'API Gateway in caso di successo. La risposta dev'essere un oggetto contenente i seguenti campi:
 		\begin{itemize}
@@ -300,6 +269,90 @@ dove:
 			\item \file{statusCode}: attributo intero contenente il codice HTTP che dovrà avere la risposta;
 			\item \file{body}: stringa contenente il corpo della risposta da mandare.  
 		\end{itemize}
-	\end{itemize} – AWS Lambda uses this parameter to provide your handler the runtime information of the Lambda function that is executing. For more information, see The Context Object (Node.js).
+	\end{itemize}
 \end{itemize}
+\subsubsection{DynamoDB}
+Amazon DynamoDB è un servizio che fornisce un database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
+È un servizio di database NoSQL cloud interamente gestito, è quindi sufficiente creare una tabella di database, impostare il throughput desiderato e lasciare che il servizio si occupi del resto. \\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item prestazioni rapidi e costanti, in media non oltre una decida di millisecondi;
+	\item alta scalabilità, in quanto è possibile ridimensionare i requisiti di throughput,
+	\item sicurezza, in quanto vengono forniti dei meccanismi per il controllo granulare degli accessi degli utenti;
+	\item flessibilità, in quanto sono supportate sia le strutture di dati di tipo documento sia quelle di tipo chiave-valore;
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item non è un servizio gratuito, ma i costi sono legati a tariffe basate sul consumo effettivo, senza pagamenti anticipati né impegni di lungo termine.
+\end{itemize}
+\subsubsection{API Gateway}
+Amazon API Gateway è un servizio completamente gestito che semplifica agli sviluppatori la creazione, la pubblicazione, la manutenzione, il monitoraggio e la protezione delle API su qualsiasi scala.\\
+In questo modo, si può fornire una porta d'entrata attraverso la quale le applicazioni possono accedere a dati, logica di business o funzionalità dei servizi di back-end.\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item alte prestazioni e scalabilità, offrendo una bassa latenza sulle richieste API e relative risposte;
+	\item un pannello di controllo che consente di monitorare visivamente le chiamate al servizio;
+	\item esecuzione simultanea di diverse versioni della stessa API, consentendo di iterare, testare e rilasciare nuove versioni in tempi brevi;
+	\item strumenti per concedere le autorizzazioni di accesso alle API e controllare l'accesso alla gestione dei servizi;
+	\item creazione di endpoint REST, permettendo di creare API avanzate basate sulle risorse, impiegando poi le dinamiche e flessibili funzionalità di trasformazione dei dati per generare le richieste nel linguaggio dei servizi a cui le richieste sono rivolte;
+	\item esecuzione di API serverless, ista l'integrazione con AWS Lambda.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item non è un servizio gratuito, ma i costi di Amazon API Gateway sono bassi e calcolati esclusivamente sulle chiamate effettuate per le tue API e sui trasferimenti di dati in uscita.
+\end{itemize}
+\subsubsection{SNS}
+Amazon Simple Notification Service (Amazon SNS) è un servizio di notifiche push rapido, flessibile e completamente gestito che ti consente di inviare messaggi individuali o collettivi a un numero elevato di destinatari. \\
+Con Amazon SNS è possibile inviare notifiche a dispositivi Apple, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle lambda function  altri endpoint HTTP. \\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item alte prestazioni e affidabilità, infatti oltre ad avere una bassa latenza di risposta, tutti i messaggi pubblicati in Amazon SNS vengono memorizzati in modo ridondante su più server e data center;
+	\item scalabilità, in quanto è consentita la pubblicazione di un altissimo numero di messaggi in qualsiasi momento;
+	\item sicurezza, in quanto sono forniti meccanismi di controllo che permettono di proteggere argomenti e messaggi da accessi non autorizzati.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item non è un servizio gratuito, ma i costi sono legati a tariffe basate sul consumo effettivo, senza pagamenti anticipati né impegni di lungo termine.
+\end{itemize}
+\subsubsection{CloudWatch}
+Amazon CloudWatch è un servizio di monitoraggio per le risorse cloud AWS e le applicazioni in esecuzione su AWS. Inoltre, tramite una semplice richiesta API, è possibile inviare parametri personalizzati generati dalle proprie applicazioni per monitorarli tramite questo servizio.
+\subsection{Serverless Framework}
+Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.
+\subsection{JWT}
+JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.
 
+\subsection{Web Speech API}
+Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come text to speech o tts).
+Il riconoscimento vocale è acceduto attraverso l'interfaccia SpeechRecognition, la quale fornisce la possibilità di riconoscere il contesto vocale da un input vocale e risponde appropriatamente. 
+La sintesi vocale è acceduta tramite l'interfaccia SpeechSynthesis, una componente text-to-speech che permette ai programmi di leggere testo.
+
+\subsection{Speaker recognition}
+Speaker Recognition API è un servizio Microsoft che, dopo aver costruito l'impronta vocale di un individuo, permette l'autenticazione per mezzo della voce. Al suo interno utilizza JSON per lo scambio dei dati e API Keys per l'autenticazione.
+
+\subsection{STT IBM Watson}
+Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il machine learning per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
+
+\subsection{api.ai}
+È una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.\\
+Le applicazioni sviluppate su questa piattaforma sono costuite da Agent, i quali si occupano di trasformare il linguaggio naturale in dati processabili. Tali Agent sono a loro volta costituiti da Intent, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed Entity, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item lo sviluppo di un assistente avanzato è piuttosto semplice.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item accetta solo input di tipo testuale.
+\end{itemize}
+\subsection{HTML5}
+HTML5 è un linguaggio di markup per la strutturazione di pagine web, pubblicato dal W3C nell’ottobre del 2014 con lo scopo di migliorare l’HTML4, permettendo supporto a nuovi file multimediali, mantenendo la leggibilità da parte di uomini e computer.
+I vantaggi offerti sono:
+\begin{itemize}
+	\item è uno stantard W3C.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item non è supportato da tutti i vecchi browser.
+\end{itemize}
+\subsection{CSS3}
+Pubblicata nel novembre 2014 dal W3C, CSS3 è una versione di CSS che va a correggere alcuni bug di interpretazione di Internet Explorer, migliorare la gestione degli sfondi e una soluzione per realizzare i bordi arrotondati.\\
+CSS3 è suddiviso in moduli, al contrario delle versioni monolitiche precedenti, contenenti le vecchie specifiche CSS e nuove caratteristiche. Ciascun modulo tratta un tema diverso inerente i fogli di stile e, di conseguenza, ciascun tema è sviluppato in tempistiche differenti.
