@@ -27,11 +27,19 @@ Per tutti i diagrammi d'uso, i \VERP{} dovranno controllare che:
 \end{itemize}
 \paragraph{Diagrammi di sequenza}
 Per tutti i diagrammi di sequenza, i \VERP{} dovranno controllare che:
-\paragraph{Diagrammi di attività}
-Per tutti i diagrammi di attività, i \VERP{} dovranno controllare che:
+\begin{itemize}
+	\item rispettino lo standard UML;
+	\item rappresentino esattamente la sequenza di azioni che il diagramma deve mostrare;
+	\item non ci siano difetti grafici.
+\end{itemize}
 \paragraph{Diagramma dei package}
 Per tutti i diagrammi dei package, i \VERP{} dovranno controllare che:
-\subsubsection{Attività}
+\begin{itemize}
+	\item rispettino lo standard UML;
+	\item contengano tutte le classi e sotto-package definiti nella fase di progettazione;
+	\item non ci siano difetti grafici.
+\end{itemize}
+\subsubsection{Analisi}
 \paragraph{Analisi statica}
 E' una tecnica di analisi del codice sorgente e della documentazione associata, prevalentemente
 usata quando il \gl{sistema} non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
@@ -51,6 +59,74 @@ dal team. Le verifiche devono essere effettuate su un insieme finito di casi, co
 ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
 che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia
 applicabile durante l'intero \gl{ciclo di vita} del \gl{software}.
+
+\subsubsection{Test}
+\paragraph{Test di unità}
+L'obiettivo primario del test di unità consiste nell'isolare la parte più piccola di software testabile
+nell'applicazione, chiamata unità, dal resto del codice per stabilire se funziona esattamente come previsto. Ogni singola unità viene sottoposta a test prima di essere integrata in moduli per
+l'esecuzione del test delle interfacce tra i diversi moduli.\\
+I test di unità saranno organizzati nel modo seguente: \\
+\begin{center}TU\{Codice\}\end{center}
+dove:
+\begin{itemize}
+	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
+\end{itemize}
+\paragraph{Test di integrazione}
+Il test di integrazione rappresenta l'estensione logica del test di unità. Il più semplice di questo
+tipo di test consiste nella combinazione di due unità, già sottoposte a test, in un solo componente
+e nel test dell'interfaccia presente tra le due. Il concetto che è alla base di questo approccio
+consiste nell'esecuzione del test delle combinazioni di parti ed, eventualmente, nell'espansione
+del processo al test dei moduli di un gruppo con quelli di altri gruppi. Alla fine, tutti i moduli
+che compongono un processo vengono sottoposti al test contemporaneamente.\\
+I test di integrazione saranno organizzati nel modo seguente: \\
+\begin{center}TI\{Codice\}\end{center}
+dove:
+\begin{itemize}
+	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
+\end{itemize}
+\paragraph{Test di sistema}
+Il test di sistema rappresenta la validazione del prodotto software finale, ovvero quando lo si
+ritiene giunto ad una versione definitiva. Viene quindi verificato il completo soddisfacimento dei
+requisiti da parte del prodotto.\\
+I test di sistema saranno organizzati nel modo seguente: \\
+\begin{center}TS\{TipoRequisito\}\{Importanza\}\{Codice\}\end{center}
+dove:
+\begin{itemize}
+	\item TipoRequisito può assumere uno dei seguenti valori:
+	\begin{itemize}
+		\item F: per i requisiti funzionali;
+		\item Q: per i requisiti di qualità;
+		\item V: per i requisiti di vincolo;
+	\end{itemize}
+	\item Importanza può assumere uno dei seguenti valori:
+	\begin{itemize}
+		\item O: per i requisiti obbligatori;
+		\item D: per i requisiti desiderabili;
+		\item F: per i requisiti facoltativi;
+	\end{itemize}
+	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
+\end{itemize}
+\paragraph{Test di validazione}
+Il test di validazione rappresenta il collaudo del prodotto in presenza del proponente. Al
+superamento di tale collaudo segue il rilascio ufficiale del prodotto sviluppato.\\
+I test di validazione saranno organizzati nel modo seguente: \\
+\begin{center} TV\{TipoRequisito\}\{Importanza\}\{Codice\} \end{center}
+dove:
+\begin{itemize}
+	\item TipoRequisito può assumere uno dei seguenti valori:
+	\begin{itemize}
+		\item F: per i requisiti funzionali;
+		\item Q: per i requisiti di qualità;
+		\item V: per i requisiti di vincolo;
+	\end{itemize}
+	\item Importanza può assumere uno dei seguenti valori:
+	\begin{itemize}
+		\item O: per i requisiti obbligatori;
+		\item D: per i requisiti desiderabili;
+		\item F: per i requisiti facoltativi;
+	\end{itemize}
+	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
+\end{itemize}
 
 \subsubsection{Procedure}
 \paragraph{Issue tracking}
@@ -208,12 +284,12 @@ Indica quanto sarà semplice mantenere il codice prodotto.
 \text{Manutenibilità} =\frac{(171 - 5,2 * \ln(V) - 0.23 * (\text{Complessita ciclomatica}) - 16.2 * \ln(\text{Linee di codice})*100)}{171}
 \end{equation*}
 dove 
-\begin{equation*}
+
 \begin{align*}
 \text{V} = & (\text{Numero totale di operatori} + \text{Numero totale di operandi})* \\ 
 & \log_2 (\text{Numero di operatori distinti}+\text{Numero di operandi distinti})
 \end{align*}
-\end{equation*}
+
 
 \subparagraph{Percentuale di componenti integrate nel sistema - MPC16}
 Indica la percentuale di componenti attualmente implementate e correttamente integrate nel sistema.
