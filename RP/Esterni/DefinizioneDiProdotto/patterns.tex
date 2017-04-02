@@ -16,7 +16,11 @@
 	\end{itemize}
        \item \textbf{Utilizzo:}
       \end{itemize}
-      
+      \begin{figure}[h]
+      	\centering
+      	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/apigateway1.png}
+      	\caption{Architettura a microservizi}\label{fig:micr1}
+      \end{figure}
     \subsubsection{Architettura event-driven}
       \begin{itemize}
        \item \textbf{Scopo:} anche se non è un vero e proprio pattern, l'architettura event-driven è un particolare tipo di architettura asincrona per sistemi distribuiti basata sugli eventi.
@@ -48,7 +52,7 @@
     
    \subsubsection{Data Access Object}
       \begin{itemize}
-       \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di un database, o più in generale per la gestione della persistenza.
+       \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di ua sorgente di dati, o più in generale per la gestione della persistenza.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item separazione tra logica di business e dati;
@@ -61,7 +65,12 @@
 	  \end{itemize}
 	\item \textbf{Utilizzo:}
 	\end{itemize}
-	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/DAOpattern.jpg}
+		\caption{pattern Data Access Object (DAO)}\label{fig:dao1}
+	\end{figure}
+	\newpage	
     \subsubsection{Dependency Injection}
      \begin{itemize}
        \item \textbf{Scopo:} consiste nella separazione del comportamento di una componente dalla risoluzione delle sue dipendenze.
@@ -180,11 +189,8 @@ di RxJS.
 
 \subsubsection{Promise e bluebird}
 
-
 Una Promise è un oggetto che rappresenta il risultato pendente di un’operazione asincrona. Ciò permette ai metodi asincroni di restituire valori alla stessa maniera dei metodi sincroni:
-
 invece del valore finale, il metodo asincrono restituisce una promessa di ottenere un valore in un momento futuro. \\
-
 I principali metodi di una Promise sono:
 
 \begin{itemize}
