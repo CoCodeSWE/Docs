@@ -1,4 +1,4 @@
-Adapter
+﻿Adapter
 adapter
 Amazon Echo
 Amazon echo
@@ -99,6 +99,7 @@ iterazione
 Java
 JavaScript
 Jolie
+JSON
 Kernel
 kernel
 Linux
