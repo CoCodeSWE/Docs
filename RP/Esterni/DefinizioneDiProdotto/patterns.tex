@@ -151,10 +151,9 @@
 	  \begin{itemize}
 	   \item la sua implementazione richiede un maggiore carico di lavoro.
 	  \end{itemize}
-	\item \textbf{Utilizzo:}
 	\end{itemize}
+	  \newpage
   \subsection{Comportamentali}
-  
     \subsubsection{Observer}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern, adottato nella variante offerta da ReactiveX, permette la definizione di una o più classi Observer le quali "osservano" una classe Observable e ne gestiscono gli eventi.
@@ -175,7 +174,7 @@
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/observerpattern.png}
 		\caption{Pattern Observer}\label{fig:obs1}
 	\end{figure}
-	
+	\newpage
 	\section{Tecnologie utilizzate}
 	\subsection{Promise e Observable}
 
@@ -204,7 +203,6 @@ due funzioni: \file{onFulfill} viene richiamata se la Promise ha avuto successo,
 \item \file{catch}: ritorna una Promise e si occupa di gestire eventuali errori generati nella catena dei \file{then}.
 
 \end{itemize}
-
 Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \begin{itemize}
@@ -217,7 +215,7 @@ Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \end{itemize}
 
-
+\newpage
 \subsubsection{Observable e RxJS v5}
 ReactiveX è un insieme di API per estendere la programmazione asincrona facendo uso di Observable.\\
 In base al linguaggio di programmazione che si vuole utilizzare, vengono fornite differenti librerie specifiche.
@@ -228,17 +226,34 @@ Un Observable è una rappresentazione di un qualsiasi insieme di valori durante 
 RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornata
 da Microsoft e altri sviluppatori di software open source.
 
+I vantaggi sono:
+\begin{itemize}
+	\item semplifica la stesura del codice asincrono e la sua sintassi, migliorandone la leggibilità.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item RxJS v5 è una libreria non ancora molto popolare, ma gode comunque di un buon supporto.
+\end{itemize}
+
 \subsection{AWS SDK per JavaScript in Node.js}
 
 Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema, è necessario utilizzare l'AWS SDK per JavaScript in Node.js per
 interfacciarsi ai singoli servizi offerti da AWS.
 
 \subsubsection{Node.js}
-La parte Back-End è stata sviluppata tramite la piattaforma event-driven Node.Js, basata sul motore JavaScript V8. Esso permette di realizzare applicazioni Web utilizzando JavaScript, tipicamente client-side, per la scrittura server-side. La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità event-driven non sfruttando il classico modello basato su processi o thread concorrenti, utilizzato dai classici web server.
+La parte Back-End è stata sviluppata tramite la piattaforma event-driven Node.Js, basata sul motore JavaScript V8. Esso permette di realizzare applicazioni Web utilizzando JavaScript, tipicamente client-side, per la scrittura server-side. La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità event-driven non sfruttando il classico modello basato su processi o thread concorrenti, utilizzato dai classici web server.\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item approccio modulare, permettendo così un’organizzazione semplice del lavoro grazie alla combinazione di librerie con moduli importati.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item approccio asincrono, il quale può dare delle difficoltà nell'apprendimento;
+\end{itemize}
 
 \subsubsection{Request promise}
-E' un modello che implementa l'esistenza delle Promises come risposta a una serie di richieste che non possono essere soddisfatte immediatamente. Una promessa è un risultato che verrà reso disponibile non appena possibile se è possibile mantenere la promessa (fulfilled) oppure è un errore se non la si può mantenere (rejected).
-\\
+E' un modello che implementa l'esistenza delle Promises come risposta a una serie di richieste che non possono essere soddisfatte immediatamente. Una promessa è un risultato che verrà reso disponibile non appena possibile se è possibile mantenere la promessa (\file{fulfilled}) oppure è un errore se non la si può mantenere (\file{rejected}).
+\newpage
 \subsection{Amazon Web Services}
 Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
 
@@ -271,6 +286,7 @@ dove:
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
+\newpage
 \subsubsection{DynamoDB}
 Amazon DynamoDB è un servizio che fornisce un database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
 È un servizio di database NoSQL cloud interamente gestito, è quindi sufficiente creare una tabella di database, impostare il throughput desiderato e lasciare che il servizio si occupi del resto. \\
@@ -301,6 +317,7 @@ Gli svantaggi sono:
 \begin{itemize}
 	\item non è un servizio gratuito, ma i costi di Amazon API Gateway sono bassi e calcolati esclusivamente sulle chiamate effettuate per le tue API e sui trasferimenti di dati in uscita.
 \end{itemize}
+\newpage
 \subsubsection{SNS}
 Amazon Simple Notification Service (Amazon SNS) è un servizio di notifiche push rapido, flessibile e completamente gestito che ti consente di inviare messaggi individuali o collettivi a un numero elevato di destinatari. \\
 Con Amazon SNS è possibile inviare notifiche a dispositivi Apple, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle lambda function  altri endpoint HTTP. \\
@@ -317,10 +334,27 @@ Gli svantaggi sono:
 \subsubsection{CloudWatch}
 Amazon CloudWatch è un servizio di monitoraggio per le risorse cloud AWS e le applicazioni in esecuzione su AWS. Inoltre, tramite una semplice richiesta API, è possibile inviare parametri personalizzati generati dalle proprie applicazioni per monitorarli tramite questo servizio.
 \subsection{Serverless Framework}
-Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.
+Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item semplifica lo sviluppo delle lambda function e dell'API Gateway di AWS.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item è un framework molto recente, ma gode di una rilevante community di supporto.
+\end{itemize}
+\newpage
 \subsection{JWT}
-JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.
-
+JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item alto grado di sicurezza nella trasmissione delle informazioni in formato JSON;
+	\item la gestione dei token è notevolmente semplificata.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item l'algoritmo crittografico per verifica i dati è molto complesso.
+\end{itemize}
 \subsection{Web Speech API}
 Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come text to speech o tts).
 Il riconoscimento vocale è acceduto attraverso l'interfaccia SpeechRecognition, la quale fornisce la possibilità di riconoscere il contesto vocale da un input vocale e risponde appropriatamente. 
@@ -328,10 +362,25 @@ La sintesi vocale è acceduta tramite l'interfaccia SpeechSynthesis, una compone
 
 \subsection{Speaker recognition}
 Speaker Recognition API è un servizio Microsoft che, dopo aver costruito l'impronta vocale di un individuo, permette l'autenticazione per mezzo della voce. Al suo interno utilizza JSON per lo scambio dei dati e API Keys per l'autenticazione.
-
+\\
+I vantaggi offerti sono:
+\begin{itemize}
+	\item l'affidabilità del riconoscimento vocale è molto alta.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item dopo le 10.000 chiamate al servizio al mese, il servizio non è più gratuito, ma i costi sono molto bassi. Inoltre, un numero di chiamate del genere è più che sufficiente.
+\end{itemize}
 \subsection{STT IBM Watson}
 Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il machine learning per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
-
+I vantaggi offerti sono:
+\begin{itemize}
+	\item l'affidabilità del riconoscimento vocale è molto alta.
+\end{itemize}
+Gli svantaggi sono:
+\begin{itemize}
+	\item dopo 1000 minuti di utilizzo  al mese, il servizio non è più gratuito, ma i costi sono molto bassi. Inoltre, un numero di minuti del genere è più che sufficiente.
+\end{itemize}
 \subsection{api.ai}
 È una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.\\
 Le applicazioni sviluppate su questa piattaforma sono costuite da Agent, i quali si occupano di trasformare il linguaggio naturale in dati processabili. Tali Agent sono a loro volta costituiti da Intent, che hanno il compito di associare la richiesta dell'utente ad una determinata azione del software, ed Entity, che sono strumenti per estrarre dal linguaggio naturale i parametri attesi.\\
