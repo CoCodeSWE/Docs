@@ -25,6 +25,8 @@ broadband
 Browser
 browser
 C#
+callback
+Callback
 Capitolato
 capitolato
 CarPlay
@@ -102,6 +104,8 @@ kernel
 Linux
 Log
 log
+Machine learning
+machine learning
 macOS
 markup
 Markup
@@ -127,6 +131,8 @@ Open source
 open source
 Package
 package
+payload
+Payload 
 PDCA
 PDF
 PHP
@@ -148,9 +154,10 @@ Rule
 sample
 Sample
 SDK
+serverless
 Service Level Agreement
-Singleton
-singleton
+single responsibility principle
+Single sign-on
 Sistema
 sistema
 Slack
@@ -171,6 +178,7 @@ template
 Texmaker
 Text to speech
 text to speech
+thorughput
 ticketing
 Ticketing
 Tomcat
@@ -192,3 +200,4 @@ Webhook
 webhook
 Windows Phone
 Xamarin
+
