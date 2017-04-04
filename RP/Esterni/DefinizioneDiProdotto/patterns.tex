@@ -35,7 +35,7 @@
 	  \end{itemize}
 	\end{itemize}
      
-     \subsubsection{Client-side discovery}
+     \subsubsection{Client-side discovery}\label{CS}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern, utilizzato in un'architettura a microservizi, permette ad un client la localizzazione dei microservizi interrogando un registro che ne conosce le posizioni. \\
        Nel contesto della progettazione dell'architettura per il progetto \PROGETTO, questo pattern è stato riadattato (vedi figura \ref{fig:sidedisc}) per uno scopo ben diverso, ovvero quello di ottenere delle applicazioni interrogando un registro che le contiene, tramite un'interfaccia per quest'ultimo. \\ Come appena detto, lo scopo del pattern adottato è ben diverso da quello dell'originale, ma l'organizzazione delle classi del pattern Client-side discovery (vedi figura \ref{fig:sidediscorig}) modella bene la soluzione progettuale per l'ottenimento delle applicazioni;
