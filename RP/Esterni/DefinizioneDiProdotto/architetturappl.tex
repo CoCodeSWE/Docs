@@ -33,7 +33,7 @@ Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'a
 \subsection{Client}
 \subsubsection{Client vocale}
 L'architettura con la quale è organizzato il client vocale è quella event-driven.\\
-La motivazione che ha spinto il gruppo a prendere tale decisione è che ciò che dev'essere descritto e realizzato è facilmente modellabile con questo concetto. Infatti, ci sono delle componenti che "aspettano" l'avvenimento di un qualcosa; altre invece che "notificano" dell'avvenimento di un qualcosa.\\ 
+La motivazione che ha spinto il gruppo a prendere tale decisione è che ciò che dev'essere descritto e realizzato è facilmente modellabile con questo concetto. Infatti, ci sono delle componenti che "aspettano" l'avvenimento di un qualcosa; altre invece che "notificano" dell'avvenimento di un qualcosa.\\
 A tal fine, si è fatto utilizzo del pattern comportamentale Observer.\\
 Ad esempio, la componente \file{Recorder} (che si occupa della registrazione audio), deve prima "aspettare" che qualche individuo parli per potersi attivare, oppure deve "aspettare" che il riproduttore audio abbia terminato la riproduzione prima di potersi rimettere in ascolto di un qualche individuo che parli.\\
 Il client vocale è composto da diverse componenti, le quali realizzano diverse funzionalità.\\
@@ -47,12 +47,12 @@ Queste componenti sono:
 \end{itemize}
 \subsubsection{Endpoints}
 	Ora verranno definiti gli endpoints esterni utilizzati dai vari tipi di client.\\
-	Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+	Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 	\begin{itemize}
 		\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
 		\item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
 	\end{itemize}
-	L'endpoint utilizzato dal client vocale è: 
+	L'endpoint utilizzato dal client vocale è:
 	\begin{itemize}
 		\item \textbf{/query}\\
 		\begin{itemize}
@@ -64,11 +64,11 @@ Queste componenti sono:
  "app":"String",
  "audio":"Base64String",
  "data":"ObjectAssocArray",
- "session_id":"String"	
+ "session_id":"String"
 }
 \end{lstlisting}
 			\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
-\begin{lstlisting}[language=json,firstnumber=1] 
+\begin{lstlisting}[language=json,firstnumber=1]
 {
 "action":"String",
 "res":{
@@ -102,12 +102,12 @@ Di seguito vengono esposti i vari passaggi:
 \paragraph{Endpoints}
 
 Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Virtual Assistant.\\
-Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
 \item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
 \end{itemize}
-Gli Endpoints sono: 
+Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{/query}\\
 \begin{itemize}
@@ -149,12 +149,12 @@ Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaf
 \paragraph{Endpoints}
 
 Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Notifications. \\
-Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
 \item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
 \end{itemize}
-Gli Endpoints sono: 
+Gli Endpoints sono:
 \begin{itemize}
 
 \item \textbf{/notifications}\\
@@ -184,14 +184,7 @@ Gli Endpoints sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
   "msg": [
-	"attachments_array":[
-	{
-				
-	},
-	{
-			
-	}
-	],
+	"attachments_array":[{},{}], /*Array di Back-end::Notifications::Attachment*/
 	"response_type":"String",
 	"text":"String"
 	],
@@ -207,19 +200,19 @@ Il microservizio Users si occupa della gestione degli amministratori del nostro 
 \paragraph{Endpoints}
 
 Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Users. \\
-Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
 \item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
 \end{itemize}
 
 Gli Endpoints sono:
- 
+
 \begin{itemize}
 \item \textbf{/auth/users}\\
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} restituisce la lista degli \file{User} presenti nel database;  
+\item \textbf{Descrizione:} restituisce la lista degli \file{User} presenti nel database;
 \item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -240,14 +233,14 @@ Gli Endpoints sono:
    "sr_id":"String",
    "username":"String"
   }
- ]	
+ ]
 }
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} POST;
-\item \textbf{Descrizione:} vengono inviati i dati necessari all'aggiunta di un nuovo \file{User} al database; 
+\item \textbf{Descrizione:} vengono inviati i dati necessari all'aggiunta di un nuovo \file{User} al database;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in\\ \file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -265,7 +258,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} vengono modificati i dati dell'utente tramite sovrascrittura; 
+\item \textbf{Descrizione:} vengono modificati i dati dell'utente tramite sovrascrittura;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -274,20 +267,19 @@ Gli Endpoints sono:
   "password":"String",
   "slack_channel":"String",
   "sr_id":"String",
-  "username":"String"	
+  "username":"String"
 }
 \end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
-\item \textbf{Descrizione:} viene eliminato un utente; 
-\end{lstlisting}
+\item \textbf{Descrizione:} viene eliminato un utente;
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente; 
+\item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente;
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -312,19 +304,19 @@ Una direttiva è costituita da:
 	\item una lista di target, che indica gli obiettivi (persone) ai quali deve essere applicata la direttiva;
 	\item un'istanza di funzione, che indica quale delle funzioni disponibili deve essere applicata e, nel caso in cui tale funzione abbia dei parametri modificabili, con quali valori di quest'ultimi deve essere chiamata;
 	\item un nome, il quale permette agli amministratori di identificare le diverse direttive;
-	\item un id, il quale identifica univocamente la funzione all'interno del sistema; 
+	\item un id, il quale identifica univocamente la funzione all'interno del sistema;
 	\item una flag di abilitazione, che permette di abilitare e disabilitare l'applicazione della direttiva da parte del sistema.
 \end{itemize}
-  
+
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Rules.\\ 
-Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON: 
+Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Rules.\\
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
 \item \textbf{Response:} rappresenta l’oggetto JSON che fornirà in risposta la risorsa REST.
 \end{itemize}
-Gli Endpoints sono: 
+Gli Endpoints sono:
 
 \begin{itemize}
 
@@ -417,7 +409,7 @@ Gli Endpoints sono:
 \item \textbf{/impostazioni/:id}\\
 
 \begin{itemize}
-\item \textbf{Method:} PUT; 
+\item \textbf{Method:} PUT;
 \item \textbf{Descrizione:} viene modificata una direttiva tramite sovrascrittura;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -454,7 +446,7 @@ Gli Endpoints sono:
    }
   }
 }
-\end{lstlisting} 
+\end{lstlisting}
 
 \end{itemize}
 
@@ -498,22 +490,20 @@ Gli Endpoints sono:
 }
 \end{lstlisting}
 
-\end{lstlisting}
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
 \item \textbf{Descrizione:} viene eliminata una direttiva;
 
-\end{lstlisting}
 \end{itemize}
 
 
 \item \textbf{/impostazioni/tasks}\\
 
 \begin{itemize}
-\item \textbf{Method:} GET; 
-\item \textbf{Descrizione:} viene richiesta la lista dei tipi di funzioni presenti nel sistema; 
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} viene richiesta la lista dei tipi di funzioni presenti nel sistema;
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -548,7 +538,7 @@ Gli Endpoints sono:
  }
  ]
 }
-\end{lstlisting}  
+\end{lstlisting}
 \end{itemize}
 
 
@@ -598,6 +588,3 @@ Gli Endpoints sono:
 \end{itemize}
 
 \end{itemize}
-
-
-

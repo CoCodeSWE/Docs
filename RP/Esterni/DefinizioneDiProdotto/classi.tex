@@ -13,52 +13,44 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database contenente le conversazioni;
 	\item \textbf{Utilizzo}: fornisce a \file{ConversationWebhookService} un meccanismo per accedere al database contenente le conversazioni, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di utenti registrati;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- db: AWS::DynamoDB} \\
-		Attributo che permette di contattare il database contenente le conversazioni;
-		\item[] \file{- guest\_id: String} \\
-		Attributo contenente l'id dell'ospite identificato;
-	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ getConversationList(): ConversationObservable} \\
+		\item[] \file{+ getConversationList(guest\_id: String): ConversationObservable} \\
 		L'\file{Observable} restituito manderà agli \file{Observer} le conversazioni ottenute, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ getConversation(session\_id: String, timestamp: String): ConversationObservable} \\
-		Metodo che permette di ottenere una conversazione a partire dall'identificativo della sessione e dal suo timestamp. \\ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Conversation}, e verrà completato. Nel caso in cui la conversazione richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{guest\_id: String} \\
+			Stringa identificativa dell'ospite del quale si vogliono ottenere le conversazioni. Nel caso in cui venga passata una stringa vuota, il metodo deve restituire un array contenente tutte le conversazioni avvenute con tutti gli ospiti;
+		\end{itemize}
+		\item[] \file{+ getConversation(session\_id: String): ConversationObservable} \\
+		Metodo che permette di ottenere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Conversation}, e verrà completato. Nel caso in cui la conversazione richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione da ricevere;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp relativo all'inizio della conversazione;
 		\end{itemize}
 		\item[] \file{+ addConversation(conversation: Conversation): ErrorObservable} \\
-		Metodo che permette di aggiungere una conversazione al database.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		Metodo che permette di aggiungere una conversazione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{conversation: Conversation} \\
 			Parametro contente la conversazione da inserire;
 		\end{itemize}
-		\item[] \file{+ addMessage(msg: ConversationMessage, timestamp: String, session\_id: String): ErrorObservable} \\
-		Metodo che permette di aggiungere un messaggio relativo ad una conversazione al database a partire da un messaggio, un timestamp relativo e l'identificativo della relativa conversazione.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del messaggio avvenuta con successo. In caso di errore durante l'aggiunta del messaggio, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addMessage(msg: ConversationMessage, session\_id: String): ErrorObservable} \\
+		Metodo che permette di aggiungere un messaggio di una conversazione a partire dal messaggio stesso e l'identificativo della conversazione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del messaggio avvenuta con successo. In caso di errore durante l'aggiunta del messaggio, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{msg: ConversationMessage} \\
 			Parametro contenente il messaggio;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp relativo all'inizio della conversazione;
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione alla quale aggiungere il messaggio;
 		\end{itemize}
-		\item[] \file{+ removeConversation(session\_id: String, timestamp: String): ErrorObservable} \\
-		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione e dal suo timestamp.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\
+		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione da eliminare;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp del messaggio da eliminare;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -130,10 +122,6 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 	\item \textbf{Padre}: \file{<<interface>> WebhookService};
 	\item \textbf{Attributi}:
 	\begin{itemize}
-		\item[] \file{- rules: RulesDAO} \\
-		Attributo che permette di contattare \file{RulesDAO}, il quale fornisce i meccanismi di accesso al dati relativi alle direttive;
-		\item[] \file{- users: UsersDAO} \\
-		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi di accesso ai dati relativi agli utenti registrati;
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente un riferimento al modulo di Node.js per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno. ;
 	\end{itemize}
@@ -147,7 +135,7 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 			Parametro contenente il JWT per l'autenticazione;
 		\end{itemize}
 		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\
-		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Viene chiamato ad ogni interazione dell'agente di amministrazione, e per prima cosa si occupa di verificare che nella richiesta sia presente un JSON Web Token (JWT) che confermi un'autenticazione avvenuta con successo. In caso di mancata autenticazione, lo stato della risposta sarà impostato a 403.  Nel caso in cui il token sia presente e valido (la firma sia valida ed il token non sia scaduto), si occupa di eseguire l'operazione richiesta dall'assistente virtuale. Tale operazione è specificata in fulfillment.messages (vedi classi \file{ProcessingResult}, \file{Fullfillement} e \file{MsgObject} per eventuali chiarimenti riguardanti il formato della richiesta fatta da api.ai al microservizio). In particolare, all'interno di \file{messages} sarà presente un messaggio con \file{type=4}, il quale relativo attributo \file{payload} consisterà in un oggetto di tipo \file{WebhookCmd}. In base al campo \file{cmd} di tale oggetto questo metodo interpreterà il formato del campo \file{params}, ricavando i parametri necessari ad eseguire il comando specificato e poi eseguendo l'azione richiesta. In caso di successo verrà richiesto all'utente se vuole compiere qualche altra azione utilizzando il campo speech dell'oggeto \file{WebhookResponse} utilizzato per rispondere. In caso di mancanza del comando (nessun messaggio con \file{type=4} in \file{fulfillment.messages}), il campo speech della risposta sarà copiato da \file{fulfillment.speech} della richiesta, risultando quindi in una risposta uguale a quella fornita da api.ai in assenza di webhook;\\
+		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Viene chiamato ad ogni interazione dell'agente di amministrazione, e si occupa di verificare che nella richiesta sia presente un JSON Web Token (JWT) che confermi un'autenticazione avvenuta con successo. In caso di mancata autenticazione, il campo \file{status} della risposta sarà impostato a 403.  Nel caso in cui il token sia presente e valido (la firma sia valida ed il token non sia scaduto), tale campo sarà invece impostato a 200, ed il campo \file{speech} sarà copiato da \file{fulfillment.speech} della richiesta, risultando quindi in una risposta uguale a quella definita nell'agente di api.ai;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -155,14 +143,10 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 			\item \file{context: LambdaContext} \\
 			Parametro contenente;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createAdministrationWebhookService(rulesdao: RulesDAO, usersdao: UsersDAO, jwt: JSONWebTokenModule): AdministrationWebhookService} \\
+		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule): AdministrationWebhookService} \\
 		Costruttore che si occupa di effettuare la dependency injection di \file{UsersDAO}, \file{JSONWebTokenModule}, \file{RulesDAO};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{rulesdao: RulesDAO} \\
-			Attributo contenente il \file{RulesDAO};
-			\item \file{usersdao: UsersDAO} \\
-			Attributo contenente lo \file{UsersDAO};
 			\item \file{jwt: JSONWebTokenModule} \\
 			Parametro contenente il riferimento al modulo Node.js per la gestione dei JSON Web Tokens;
 		\end{itemize}
@@ -243,8 +227,6 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 		Attributo contenente l'array dei messaggi contenuti in una conversazione;
 		\item[] \file{+ session\_id: String} \\
 		Attributo contenente l'id della sessione relativa alla conversazione;
-		\item[] \file{+ timestamp: String} \\
-		Attributo contenente il timestamp relativo alla conversazione. Tutti i messaggi di una conversazione  hanno lo stesso timestamp, il quale indica l'inizio della conversazione;
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -353,44 +335,41 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 			\item \file{conversation: Conversation} \\
 			Parametro contenente la conversazione da inserire;
 		\end{itemize}
-		\item[] \file{+ getConversation(session\_id: String, timestamp: String): ConversationObservable} \\
+		\item[] \file{+ getConversation(session\_id: String): ConversationObservable} \\
 		Implementazione del metodo definito nell'interfaccia \file{ConversationsDAO}. Utilizza il metodo get del \file{DocumentClient} per ottenere i dati relativi ad una \file{Conversation} dal database;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione da ricevere;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp relativo all'inizio della conversazione;
 		\end{itemize}
-		\item[] \file{+ getConversationList(): ConversationObservable} \\
+		\item[] \file{+ getConversationList(guest\_id: String): ConversationObservable} \\
 		Implementazione del metodo dell'interfaccia \file{ConversationsDAO}. Utilizza il metodo scan del \file{DocumentClient} per ottenere la lista delle conversazioni dal database;\\
-		\item[] \file{+ removeConversation(session\_id: String, timestamp: String): ErrorObservable} \\
+		Parametri:
+		\begin{itemize}
+			\item \file{guest\_id: String} \\
+			Parametro contenente il'identificativo dell'ospite del quale si vogliono ottenenre le conversazioni. Nel caso in cui sia vuoto, verranno restituite le conversazioni di tutti gli ospiti;
+		\end{itemize}
+		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\
 		Implementazione del metodo dell'interfaccia \file{ConversationsDAO}. Utilizza il metodo delete del \file{DocumentClient} per eliminare una conversazione dal database;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione da eliminare;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp relativo all'inizio della conversazione;
 		\end{itemize}
-		\item[] \file{+ <> createConversationsDAODynamoDB(guest\_id: String, db: AWS::DynamoDB): ConversationsDAODynamoDB} \\
+		\item[] \file{+ <> createConversationsDAODynamoDB(db: AWS::DynamoDB): ConversationsDAODynamoDB} \\
 		Constructor della classe \file{ConversationsDAODynamoDB}. Permette di effettuare la dependency injection di \file{AWS::DynamoDB};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{guest\_id: String} \\
-			sdadnoadnaosd;
 			\item \file{db: AWS::DynamoDB} \\
 			Parametro contenente un riferimento al modulo di Node.js da utilizzare per l'accesso al database DynamoDB contenente la tabella delle conversazioni;
 		\end{itemize}
-		\item[] \file{+ addMessage(msg: ConversationMsg, timestamp: String, session\_id: String): ErrorObservable} \\
+		\item[] \file{+ addMessage(msg: ConversationMsg, session\_id: String): ErrorObservable} \\
 		Implementazione del metodo definito nell'interfaccia \file{ConversationsDAO}. Utilizza il metodo put del \file{DocumentClient} per aggiungere un messaggio ad una conversazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{msg: ConversationMsg} \\
 			Parametro contenente il messaggio.
 ;
-			\item \file{timestamp: String} \\
-			Parametro contenente il timestamp relativo all'inizio della conversazione;
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione dove aggiungere il messaggio;
 		\end{itemize}
@@ -408,7 +387,7 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 	\item \textbf{Nome}: \file{ConversationWebhookService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di implementare l'interfaccia \file{WebhookService}, implementando un Webhook che fornisce una risposta ad api.ai;
-	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al microservizio da parte di api.ai;
+	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate fatte al webhook da parte di api.ai;
 	\item \textbf{Padre}: \file{<<interface>> WebhookService};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -421,11 +400,11 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ webhook(event: LambaEvent, context: LambdaContext): void} \\
+		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\
 		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Si occupa di cercare nei database la presenza di interazioni passate con la persona con cui sta avvenendo l'interazione, e di verificare se la persona in questione può essere un amministratore del sistema. Nel caso di interazioni passate il context accoglienza viene riempito con azienda e dati della persona con cui l'ospite ha avuto il maggior numero di incontri in passato, e viene chiesto di confermare se la persona indicata è quella a cui l'ospite è effettivamente interessato. Nel caso di amministratore viene impostato il context admin, in modo che api.ai riconosca l'utente come un potenziale amministratore e gli chieda se vuole entrare nell'area di amministrazione;\\
 		Parametri:
 		\begin{itemize}
-			\item \file{event: LambaEvent} \\
+			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad una richiesta di api.ai al \file{ConversationWebhookService}. Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -451,8 +430,8 @@ Nel primo caso, la risposta fornita sarà così organizzata:
 {
     "contexts": [{
         "name":"String",
-        "first\_name":"String",
-        "last\_name":"String",
+        "first_name":"String",
+        "last_name":"String",
         "username":"String"
     }]
 }
@@ -469,10 +448,10 @@ Nel secondo caso, la risposta sarà così organizzata:
 {
     "contexts": [{
         "name":"String",
-        "name\_guest":"String",
+        "name_guest":"String",
         "company":"String",
-        "first\_name":"String",
-        "last\_name":"String"
+        "first_name":"String",
+        "last_name":"String"
     }]
 }
 \end{lstlisting}
@@ -510,9 +489,14 @@ Dove
 \begin{itemize}
 	\item \textbf{Nome}: \file{ErrorObservable};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ????;
-	\item \textbf{Utilizzo}: ????;
+	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione di \file{ErrorObserver};
+	\item \textbf{Utilizzo}: fornisce i meccanismi necessari per la notifica ad un Observer interessato dell'esito di una chiamata asincrona che non deve restituire alcun valore. Chiama il metodo \file{complete} dell'observer nel caso in cui sia andato tutto a buon fine, altrimenti chiama il metodo \file{error} con i dettagli dell'errore che si è verificato;
 	\item \textbf{Padre}: \file{Observable};
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ subscribe(): Subscription} \\
+		Metodo che permette ad un \file{ErrorObserver} di iscriversi all'\file{Observable};\\
+	\end{itemize}
 \end{itemize}
 \FloatBarrier
 
@@ -525,8 +509,13 @@ Dove
 \begin{itemize}
 	\item \textbf{Nome}: \file{ErrorObserver};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ????;
-	\item \textbf{Utilizzo}: ????;
+	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati relativi all'esito di una chiamata asincrona;
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} in modo che venga sollevata un'eccezione alla sua chiamata;
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ next(): void} \\
+		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
+	\end{itemize}
 \end{itemize}
 \FloatBarrier
 
@@ -543,7 +532,7 @@ Dove
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad un ospite;
 	\item \textbf{Attributi}:
 	\begin{itemize}
-		\item[] \file{+ conversations: ConversationIdArray} \\
+		\item[] \file{+ conversations: StringArray} \\
 		Attributo contenente l'array delle conversazioni avute con l'ospite;
 		\item[] \file{+ name: String} \\
 		Attributo contenente il nome dell'ospite;
@@ -596,8 +585,8 @@ Dove
 \begin{itemize}
 	\item \textbf{Nome}: \file{GuestObserver};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Guest};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next()} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Guest};
+	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta oggetti di tipo \file{Guest};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next} di \file{Observer}, in modo che riceva dati di tipo \file{Guest};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(guest: Guest): void} \\
@@ -689,10 +678,64 @@ Dove
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
 		Stringa contenente l'id del canale Slack del membro dell'azienda;
-		\item[] \file{+ first\_name: String} \\
+		\item[] \file{+ name: String} \\
 		Nome del membro dell'azienda;
-		\item[] \file{+ last\_name: String} \\
-		Cognome del membro dell'azienda;
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{MemberObservable_label}{\paragraph{MemberObservable}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObservable.png}
+	\caption{Back-end::MemberObservable}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{MemberObservable};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione di \file{MemberObserver};
+	\item \textbf{Utilizzo}: fornisce i meccanismi necessari per il passaggio di una serie di \file{Member} ad un \file{Observer} interessato;
+	\item \textbf{Padre}: \file{Observable};
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ <<Create>> createMemberObservable(onSubscription: function(observer: AgentObserver) : void): MemberObservable} \\
+		Constructor di \file{MemberObservable};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{onSubscription: function(observer: AgentObserver) : void} \\
+			Funzione che verrà eseguita quando un \file{Observer} si iscrive all'\file{Observable}. Si occupa di passare i dati all'\file{Observer}, chiamando il metodo \file{next(member: Member)}. Quando non ci sono più dati da restituire, si occupa di chiamare il metodo \file{complete()}. Nel caso in cui si verificasse un errore, si occupa di chiamare il metodo \file{error(err: Object)} con i dati relativi all'errore verificatosi;
+		\end{itemize}
+		\item[] \file{+ subscribe(observer: MemberObserver): Subscription} \\
+		Metodo che permette ad uno \file{MemberObserver} interessato di iscriversi a questo \file{Observable};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{observer: MemberObserver} \\
+			\file{Observer} che si vuole iscrivere;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{MemberObserver_label}{\paragraph{MemberObserver}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObserver.png}
+	\caption{Back-end::MemberObserver}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{MemberObserver};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Member};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next()} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Member};
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ next(member: Member): void} \\
+		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Member}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{member: Member} \\
+			Parametro contenente l'\file{Member} mandato dall'\file{Observable};
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -745,6 +788,13 @@ Dove
 		\end{itemize}
 		\item[] \file{+ getMemberList(): MemberObservable} \\
 		Implementazione del metodo del'interfaccia. Utilizza il metodo \file{users.list} per ottenere le informazioni necessarie da Slack;\\
+		\item[] \file{+ <<Create>> createMembersSlackDAO(client: Slack::WebClient): MembersSlackDAO} \\
+		Costruttore che permette di effettuare la dependency injection di \file{Slack::WebClient};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{client: Slack::WebClient} \\
+			Parametro contenente un riferimento all'oggetto di tipo \file{Slack::WebClient} del quale si vuole effettuare la dependency injection;
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -998,7 +1048,7 @@ Setting speaker\_labels to true forces the continuous and timestamps parameters 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObservable.png}
-	\caption{Back-end::UserObservable}
+	\caption{Back-end::UsersObservable}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{UserObservable};
@@ -1030,7 +1080,7 @@ Setting speaker\_labels to true forces the continuous and timestamps parameters 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObserver.png}
-	\caption{Back-end::UserObserver}
+	\caption{Back-end::UsersObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{UserObserver};
@@ -1060,21 +1110,39 @@ Setting speaker\_labels to true forces the continuous and timestamps parameters 
 	\item \textbf{Nome}: \file{VAMessageListener};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di registrare i dati relativi alle interazioni degli ospiti col nostro sistema;
-	\item \textbf{Utilizzo}: fornisce un meccanismo per registrare i dialoghi che gli ospiti hanno con il sitema. Fornisce una lambda function che quando viene generato un evento \file{SNSMessage} in seguito all'arrivo di una risposta da parte dell'assistente virtuale, si occupa di registrare i dati della relativa interazione tramite \file{ConvarsationsDAO}, ed eventualmente di aggiornare i dati relativi all'ospite utilizzando \file{GuestsDAO}. \\
-SNS chiama tale lambda function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato. \\
+	\item \textbf{Utilizzo}: fornisce un meccanismo per registrare i dialoghi che gli ospiti hanno con il sitema. Fornisce una lambda function che quando viene generato un evento \file{SNSMessage} in seguito all'arrivo di una risposta da parte dell'assistente virtuale, si occupa di registrare i dati della relativa interazione tramite \file{ConvarsationsDAO}, ed eventualmente di aggiornare i dati relativi all'ospite utilizzando \file{GuestsDAO}. Inoltre si occupa di notificare la persona interessata dell'arrivo di un ospite e delle richieste da lui fatte. \\
+SNS chiama tale lambda function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
 Di seguito viene riportato un esempio dell'oggetto utilizzato.
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "Records":
+  Records:
   [
     {
-      "Sns":
+      Sns:
       {
-        "Message": "Corpo del messaggio pubblicato sul topic di SNS",
-        "MessageAttributes":{"key": "value", "key2": "value2"},
-        "MessageId":"stringa-contenente-id-del-messaggio",
-        "Subject":"oggetto del messaggio",
-        "Timestamp":"2017-03-26T20:39:48.599Z"
+        Message: '
+        {
+          "action":"nome.azione",
+          "res":
+          {
+            "contexts":
+            [
+              {
+                "name": "nome_contesto",
+                "parameters":
+                {
+                  "nome1": "valore",
+                  "nome2": "altro valore"
+                }
+              }
+            ]
+          },
+          "session_id": "idUnico.timestamp"
+        }',
+        MessageAttributes: {"key": "value", "key2": "value2"},
+        MessageId: "stringa-contenente-id-del-messaggio",
+        Subject: "oggetto del messaggio",
+        Timestamp: "2017-03-26T20:39:48.599Z"
       }
     }
   ]
@@ -1084,8 +1152,35 @@ Di seguito viene riportato un esempio dell'oggetto utilizzato.
 	\begin{itemize}
 		\item[] \file{- guests: GuestsDAO} \\
 		Attributo che permette di contattare il \file{GuestsDAO};
-		\item[] \file{- conversations: ConversationDAO} \\
+		\item[] \file{- conversations: ConversationsDAO} \\
 		Attributo che permette di contattare il \file{ConversationsDAO};
+		\item[] \file{- notification: NotificationModule} \\
+		Attributo contenente un riferimento al modulo di Node.js che permette l'invio di notifiche ai membri da parte del sistema;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ <<Create>> VAMessageListener(conv\_dao: ConversationsDAO, guests\_dao: GuestsDAO, notification: NotificationModule): VAMessageListener} \\
+		Costruttore che permette di effettuare la dependency injection dei moduli utilizzati da questa classe;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{conv\_dao: ConversationsDAO} \\
+			Parametro contenente il \file{ConversationsDAO} del quale si vuole effettuare la dependency injection;
+			\item \file{guests\_dao: GuestsDAO} \\
+			Parametro contenente il \file{GuestDAO} del quale si vuole effettuare la dependency injection;
+			\item \file{notification: NotificationModule} \\
+			Parametro contenente il \file{NotificationModule} del quale si vuole effettuare la dependency injection;
+		\end{itemize}
+		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function(error: String, success: String): void): void} \\
+		Metodo che implementa la Lambda function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: SNSEvent} \\
+			Parametro contenente i date relativi al messaggio pubblicato sul topic di SNS;
+			\item \file{context: LambdaContext} \\
+			Parametro contenente il \file{LambdaContext} relativo alla chiamata ricevuta dalla lambda function. Non verrà utilizzato all'interno della funzione;
+			\item \file{callback: function(error: String, success: String): void} \\
+			Parametro contenente la funzione di callback da utilizzare per comunicare al chiamante l'esito dell'esecuzione. Viene chiamata alla fine dell'esecuzione per comunicare che la chiamata è andata a buon fine con \file{null} come primo parametro. Nel caso in cui si sia verificato un errore, viene chiamata con un unico parametro contenente un messaggio di errore;
+		\end{itemize}
 	\end{itemize}
 	\item \textbf{Eventi gestiti}:
 	\begin{itemize}
@@ -1094,7 +1189,12 @@ Di seguito viene riportato un esempio dell'oggetto utilizzato.
 \FloatBarrier
 
 \subsection{Back-end::APIGateway}
-Package contenente le componenti necessarie a gestire le richieste ricevute dal backend.
+Package contenente le classi necessarie a gestire:
+\begin{itemize}
+ \item diversi tipi di  dispositivi client;
+ \item l'interazione tra \file{Client} e \file{Back-end};
+ \item la combinazione tra i servizi supportati dal \file{Back-end}.
+\end{itemize}
 \subsubsection{Classi}
 \hypertarget{Enrollment_label}{\paragraph{Enrollment}}
 \begin{figure}[h]
@@ -1117,17 +1217,17 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 \end{itemize}
 \FloatBarrier
 
-\hypertarget{VARequestAPIBody DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE_label}{\paragraph{VARequestAPIBody DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE}}
+\hypertarget{VARequestAPIBody_label}{\paragraph{VARequestAPIBody}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVARequestAPIBody DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE.png}
-	\caption{Back-end::APIGateway::VARequestAPIBody DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVARequestAPIBody.png}
+	\caption{Back-end::APIGateway::VARequestAPIBody}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Nome}: \file{VARequestAPIBody DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE};
+	\item \textbf{Nome}: \file{VARequestAPIBody};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al client per effettuare una richiesta all'API REST del back-end;
-	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una richiesta all'API REST del back-end e viene utilizzata dalla classe \file{VARequestAPIEvent}. DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE DA MODIFICARE (manca la classe VARequestAPIEvent);
+	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una richiesta all'API REST del back-end e viene utilizzata dalla classe \file{VARequestAPIEvent}. FORSE DA SPOSTARE NEL CLIENT;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ app: String} \\
@@ -1157,7 +1257,8 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
   \item permette di dedurre, tramite i microservizi di STT e di assistente virtuale, il servizio necessario al client vocale, utilizzando il metodo \file{queryLambda};
   \item permette al client vocale di usufruire delle funzionalità, supportate dal \file{Backend}, tramite i metodi privati che questa classe fornisce.
 \end{itemize}
-;
+----
+Fornisce un metodo pubblico che si occupa di implementare l'handler per la lambda function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- vocal: VocalLoginModule} \\
@@ -1173,8 +1274,8 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ <<Create>> createAuthAPI(vocal: VocalLoginModule, jwt: JSONWebTokenModule, rp: RequestPromiseModule): AuthAPI} \\
-		Costruttore della classe \file{AuthAPI} che permette la dependency injection di \file{VocalLoginModule};\\
+		\item[] \file{+ <<Create>> createAuthAPI(vocal: VocalLoginModule, jwt: JSONWebTokenModule, rp: RequestPromiseModule, stt: STTModule, sns: AWS::SNS): AuthAPI} \\
+		Costruttore della classe \file{AuthAPI} che permette la dependency injection dei moduli richiesti;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{vocal: VocalLoginModule} \\
@@ -1183,6 +1284,10 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 			Parametro che permette di effettuare la dependency injection di \file{JSONWebTokenModule};
 			\item \file{rp: RequestPromiseModule} \\
 			Parametro che permette di effettuare la dependency injection di \file{RequestPromiseModule};
+			\item \file{stt: STTModule} \\
+			Parametro contenente l'\file{STTModule} di cui si vuole fare la dependency injection;
+			\item \file{sns: AWS::SNS} \\
+			Parametro contenente il modulo \file{AWS::SNS} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
 		\item[] \file{- addUserEnrollment(enr: Enrollment): Error} \\
 		Metodo che permette di aggiungere un enrollment ad un utente del sistema. Restituisce un oggetto di tipo Error, con code impostato a 1 nel caso in cui l'utente non esista;\\
@@ -1268,19 +1373,21 @@ Package contenente le componenti necessarie a gestire le richieste ricevute dal 
 		\end{itemize}
 		\item[] \file{+ queryLambda(event: LambdaEvent, context: LambdaContext): void} \\
 		Metodo che si occupa di chiamare prima il servizio di Speech To Text e, una volta ottenuta risposta da esso, di interrogare l'assistente virtuale. Quando viene ricevuta una risposta dall'assistente virtuale, il metodo controlla il valore del campo \file{action} di tale risposta e, nel caso in cui corrisponda ad una delle action supportate, si occupa di eseguire le azioni necessarie utilizzando i metodi privati di questa classe. Nel caso in cui invece \file{action} non corrisponda ad una delle azioni supportate (ovvero action è un'azione che non richiede operazione da parte del back-end, oppure \file{actionIncomplete} è impostato a true), tale risposta viene rielaborata ed inoltrata. Le azioni supportate ed i relativi compiti da svolgere sono disponibili alla sezione [hyperef a sezione]. \\
-Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish()}, in modo che sia possibile registrare i dati relativi a tali interazioni;\\
+Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish()}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
-			Parametro contenente, all'interno del campo body sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio da inviare. Tali dati sono:
+			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio ricevuto da API Gateway. Tali dati saranno nel seguent formato:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
  "app":"String",
- "audio":"Base64String",
- "data":"ObjectAssocArray",
- "session\_id":"String"
+ "audio": "Base64String",
+ "data": "ObjectAssocArray",
+ "session_id":"String"
 }
-\end{lstlisting};
+\end{lstlisting}
+
+Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -1289,14 +1396,12 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 "res":{
  "contexts":"ObjectAssocArray",
  "data":"Object",
- "text\_request":"String",
- "text\_response":"String"
+ "text_request":"String",
+ "text_response":"String"
 },
-"session\_id":"String"
+"session_id":"String"
 }
-\end{lstlisting}
-Per la relativa documentazione, consultare la pagina \url{https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/#recognize\_sessionless\_nonmp12}.
-;
+\end{lstlisting};
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -1321,386 +1426,11 @@ Per la relativa documentazione, consultare la pagina \url{https://www.ibm.com/wa
 \end{itemize}
 \FloatBarrier
 
-\subsection{Back-end::Auth}
-Package contenente le componenti del microservizio necessario all'autenticazione.
-\subsubsection{Classi}
-\hypertarget{ UsersDAO_label}{\paragraph{ UsersDAO}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ UsersDAO.png}
-	\caption{Back-end::Auth:: UsersDAO}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{ UsersDAO};
-	\item \textbf{Tipo}: \file{Interface};
-	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database per questo microservizio. ;
-	\item \textbf{Utilizzo}: fornisce a \file{UsersService} un meccanismo per accedere al database contenente gli utenti registrati, senza conoscerne le modalità di implementazione e di persistenza di quest'ultimo.
-A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
-	\item \textbf{Figlio}: \file{UsersDAODynamoDB};
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ addUser(user: User): ErrorObservable} \\
-		Metodo che permette di aggiungere un utente. \\
-L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{user: User} \\
-			Parametro contenente un utente registrato;
-		\end{itemize}
-		\item[] \file{+ removeUser(id: String): ErrorObservable} \\
-		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'id dello \file{User} che si vuole eliminare;
-		\end{itemize}
-		\item[] \file{+ getUser(username: String): UserObservable} \\
-		Metodo che permette di ottenere i dati relativi ad un utente. \\
-L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{username: String} \\
-			Parametro contenente lo username dello \file{User} che si vuole ottenere;
-		\end{itemize}
-		\item[] \file{+ getUserList(): UserObservable} \\
-		L'\file{Observable} restituito manderà agli \file{Observer} gli utenti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ updateUser(user: User): ErrorObservable} \\
-		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{user: User} \\
-			Parametro contenente lo \file{User} aggiornato;
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{SRUser_label}{\paragraph{SRUser}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSRUser.png}
-	\caption{Back-end::Auth::SRUser}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SRUser};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri dell'autenticazione tramite Speaker Recognition (SR);
-	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare, tramite SR, un utente sottoposto alla procedura di Enrollment del servizio di Speaker Recognition.
-Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}.
-;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ id: String} \\
-		Attributo contenente l'identificativo del profilo utente del microservizio di Speaker Recognition;
-		\item[] \file{+ enrollmentCount: int} \\
-		Attributo contenente il numero di Enrollment dello \file{User};
-		\item[] \file{+ createdDateTime: String} \\
-		Attributo contenente la data di creazione del profilo utente nel microservizio esterno di Speaker Recognition;
-		\item[] \file{+ enrollmentStatus: String} \\
-		Attributo contenente lo stato dell'Enrollment.\\
-Lo stato può essere uno tra i seguenti valori:
-\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize};
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{User_label}{\paragraph{User}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUser.png}
-	\caption{Back-end::Auth::User}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{User};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un utente registrato;
-	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad un utente registrato, i quali dovranno essere memorizzati nel database per questo microservizio.\\
-È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- username: String} \\
-		Attributo contenente l'username dell'utente registrato;
-		\item[] \file{- first\_name: String} \\
-		Attributo contenente il nome dell'utente registrato;
-		\item[] \file{- last\_name: String} \\
-		Attributo contenente il cognome dell'utente registrato;
-		\item[] \file{- password: String[0..1]} \\
-		Attributo contenente la password dell'utente registrato;
-		\item[] \file{- slack\_channel: String[0..1]} \\
-		Attributo contenente il canale Slack dell'utente registrato;
-		\item[] \file{- sr\_id: String[0..1]} \\
-		Attributo contenente l'id del profilo utente nel microservizio esterno di Speaker Recognition;
-	\end{itemize}
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ getId(): String} \\
-		Metodo che permette di ottenere l'id dell'utente registrato;\\
-		\item[] \file{+ setId(id: String): void} \\
-		Metodo che permette di impostare l'id dell'utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'id;
-		\end{itemize}
-		\item[] \file{+ getUsername(): String} \\
-		Metodo che permette di ottenere lo username dell'utente registrato;\\
-		\item[] \file{+ setUsername(username: String): void} \\
-		Metodo che permette di impostare lo username dell'utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{username: String} \\
-			Parametro relativo all'username da settare;
-		\end{itemize}
-		\item[] \file{+ getNome(): String} \\
-		Metodo che permette di ottenere il nome dell'utente registrato;\\
-		\item[] \file{+ setNome(nome: String): void} \\
-		Metodo che permette di impostare il nome dell'utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{nome: String} \\
-			Parametro contenente il nome;
-		\end{itemize}
-		\item[] \file{+ getPassword(): String[0..1]} \\
-		Metodo che permette di ottenere la password dell'utente registrato;\\
-		\item[] \file{+ setPassword(password: String[0..1]): void} \\
-		Metodo che permette di impostare la password dell'utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{password: String[0..1]} \\
-			Parametro relativo alla password da settare;
-		\end{itemize}
-		\item[] \file{+ getSlackChannel(): String[0..1]} \\
-		Metodo che permette di ottenere il canale Slack dell'utente registrato;\\
-		\item[] \file{+ setSlackChannel(slack\_channel: String[0..1]): void} \\
-		Metodo che permette di impostare il canale Slack dell'utente registrato necessario per contattarlo;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{slack\_channel: String[0..1]} \\
-			Parametro relativo al canale Slack da settare;
-		\end{itemize}
-		\item[] \file{+ getSrId(): String[0..1]} \\
-		Metodo che permette di ottenere l'id del profilo utente nel microservizio esterno di Speaker Recognition;\\
-		\item[] \file{+ setSrId(sr\_id: String[0..1]): void} \\
-		Metodo che permette di impostare l'id dello Speaker Recognition associato all'utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{sr\_id: String[0..1]} \\
-			Parametro relativo all'id dello Speaker Recognition da settare;
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{UsersDAODynamoDB_label}{\paragraph{UsersDAODynamoDB}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAODynamoDB.png}
-	\caption{Back-end::Auth::UsersDAODynamoDB}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{UsersDAODynamoDB};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che si occupa di implementare l'interfaccia \file{UsersDAO}, utilizzando un database DynamoDB come supporto per la memorizzazione dei dati;
-	\item \textbf{Utilizzo}: implementa i metodi dell'interfaccia \file{UsersDAO} interrogando un database DynamoDB. Utilizza \file{AWS::DynamoDB::DocumentClient} per l'accesso al database. La dependency injection dell'oggetto \file{AWS::DynamoDB} viene fatta utilizzando il costruttore;
-	\item \textbf{Padre}: \file{<<interface>> UsersDAO};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- db: AWS::DynamoDB} \\
-		Attributo contenente un riferimento al modulo di Node.js utilizzato per l'accesso al database DynamoDB contenente la tabella degli utenti;
-	\end{itemize}
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ addUser(user: User): ErrorObservable} \\
-		Implementazione del metodo definito nell'interfaccia \file{UsersDAO}. Utilizza il metodo put del \file{DocumentClient} per aggiungere l'utente al database;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{user: User} \\
-			Utente che si vuole aggiungere al sistema;
-		\end{itemize}
-		\item[] \file{+ getUser(username: String): UserObservable} \\
-		Implementazione del metodo definito nell'interfaccia \file{UsersDAO}. Utilizza il metodo get del \file{DocumentClient} per ottenere i dati relativi ad uno \file{User} dal database;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{username: String} \\
-			Parametro contenente lo username dello \file{User} che si vuole ottenere;
-		\end{itemize}
-		\item[] \file{+ getUserList(): UserObservable} \\
-		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo scan del \file{DocumentClient} per ottenere la lista degli utenti dal database;\\
-		\item[] \file{+ removeUser(username: String): ErrorObservable} \\
-		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo delete del \file{DocumentClient} per eliminare un utente dal database;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{username: String} \\
-			Usernaname dell'utente che si vuole rimuovere dal sistema;
-		\end{itemize}
-		\item[] \file{+ updateUser(user: User): ErrorObservable} \\
-		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo update del \file{DocumentClient} per aggiornare i dati relativi ad un utente presente all'interno del database;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{user: User} \\
-			Parametro contenente i dati relativi all'utente che si vuole modificare;
-		\end{itemize}
-		\item[] \file{+ <<Create>> createUsersDAODynamoDB(db : AWS::DynamoDB): UsersDAODynamoDB} \\
-		Constructor della classe \file{UsersDAODynamoDB}. Permette di effettuare la dependency injection di \file{AWS::DynamoDB};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{db : AWS::DynamoDB} \\
-			Parametro contenente un riferimento al modulo di Node.js da utilizzare per l'accesso al database DynamoDB contenente la tabella degli utenti;
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{UsersService_label}{\paragraph{UsersService}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersService.png}
-	\caption{Back-end::Auth::UsersService}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{UsersService};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Auth} e, tramite \file{UsersDAO}, di interagire con il database degli utenti registrati;
-	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie alla gestione degli utenti.
-Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- users: UsersDAO} \\
-		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi d'accesso al database degli utenti registrati;
-	\end{itemize}
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ getUserList(event: LambdaEvent, context: LambdaContext): void} \\
-		Metodo che implementa la lambda function che si occupa di restituire l'array degli utenti registrati;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaEvent} \\
-			Parametro che rappresenta la richiesta ricevuta dal \file{VocalAPI}. Il campo \file{body} di questo attributo conterrà una stringa vuota;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà un Array di oggetti di tipo \file{User};
-		\end{itemize}
-		\item[] \file{+ addUser(event: LambdaEvent, context: LambdaContext): void} \\
-		Metodo che implementa la lambda function che si occupa di aggiungere un utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaEvent} \\
-			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto \file{User} contenente tutti i dati relativi ad un utente da inserire;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \file{LambaResponse::statusCode};
-		\end{itemize}
-		\item[] \file{+ removeUser(event: LambdaIdEvent, context: LambdaContext): void} \\
-		Metodo che implementa la lambda function che si occupa di rimuovere un utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaIdEvent} \\
-			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato che si vuole eliminare;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
-		\end{itemize}
-		\item[] \file{+ updateUser(event: LambdaIdEvent, context: LambdaContext): void} \\
-		Metodo che implementa la lambda function che si occupa di aggiornare i dati di un utente registrato;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaIdEvent} \\
-			Parametro contenente all'interno del campo \file{body}, sotto forma di stringa in formato JSON, un oggetto di tipo \file{User} contente i dati da aggiornare e, all'interno del campo \file{pathParameters}, lo username dell'utente da modificare;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
-		\end{itemize}
-		\item[] \file{+ getUser(event: LambdaIdEvent, context: LambdaContext): void} \\
-		Metodo che implementa la lambda function che si occupa di restituire i dati relativi ad un utente a partire dal suo username;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaIdEvent} \\
-			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato del quale si vogliono ottenere i dati;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto , sotto forma di stringa in formato JSON, di tipo \file{User}, contenente i dati relativi all'utente ritornato;
-		\end{itemize}
-		\item[] \file{+ <<create>> createUsersService(user: UserDAO): UsersService} \\
-		Metodo che permette di creare uno \file{UsersService}. Permette la dependency injection avente come oggetto uno \file{UsersDAO};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{user: UserDAO} \\
-			Attributo contenente lo \file{UsersDAO};
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{VocalLoginModule_label}{\paragraph{VocalLoginModule}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModule.png}
-	\caption{Back-end::Auth::VocalLoginModule}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{VocalLoginModule};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di realizzare e raggruppare tutte le operazioni necessarie all'identificazione di un utente registrato, tramite il microservizio di Speaker Recognition (SR). ;
-	\item \textbf{Utilizzo}: fornisce un meccanismo per creare, eliminare ed ottenere un utente registrato associato ad un Enrollment, il quale è necessario all'identificazione di un utente tramite il microservizio di Speak Recognition (SR). Permette quindi di associare i parametri relativi ad un \file{Enrollment} ad un utente registrato.\\
-È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{VocalLoginModulConfig};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- min\_confidence: int} \\
-		Attributo contenente il grado di confidenza minimo accettabile nel confronto tra ciò che l'utente comunica, al fine di effettuare l'accesso come utente registrato, e quella che dovrebbe essere la sua impronta vocale precedentemente costruita tramite il meccanismo di Enrollment;
-	\end{itemize}
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ createUser(): String} \\
-		Metodo che permette di creare un User;\\
-		\item[] \file{+ <<Create>> createVocalLoginModule(conf: VocalLoginModuleConfig): VocalLoginModule} \\
-		Metodo che permette di costruire un \file{VocalLoginModule}. Permette la dependency injection che ha come oggetto un \file{VocalLoginModuleConfig};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{conf: VocalLoginModuleConfig} \\
-			Parametro attraverso il quale viene passata la configurazione di VocalLoginModule;
-		\end{itemize}
-		\item[] \file{+ addEnrollment(id: String, audio: Blob): Error} \\
-		Metodo che permette di aggiungere un Enrollment;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente la stringa identificativa dell'utente al quale si vuole aggiungere un enrollment;
-			\item \file{audio: Blob} \\
-			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
-		\end{itemize}
-		\item[] \file{+ deleteUser(id: String): Error} \\
-		Metodo che permette di eliminare un User a partire da un id;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'identificativo dell'utente che si vuole eliminare;
-		\end{itemize}
-		\item[] \file{+ getList(): SRUserArray} \\
-		Metodo che ritorna una lista di SRUser;\\
-		\item[] \file{+ getUser(id: String): SRUser} \\
-		Metodo che ritorna un SRUser a partire da un id;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'identificativo dello \file{User};
-		\end{itemize}
-		\item[] \file{+ resetEnrollments(id: String): Error} \\
-		Metodo che permette di resettare un enrollment a partire da un id;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'identificativo dell'utente dei quali relativi enrollment verrà effettuato il reset;
-		\end{itemize}
-		\item[] \file{+ doLogin(id: String, audio: Blob): Error} \\
-		Metodo che permette di effettuare il login a partire da un id e da un audio di identificazione;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{id: String} \\
-			Parametro contenente l'identificativo dell'utente che vuole effettuare il login;
-			\item \file{audio: Blob} \\
-			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
 \subsection{Back-end::Notifications}
-Package che contiene le componenti relative al microservizio che si occupa delle notifiche.
+Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle notifiche da inviare alla persona desiderata su una certa piattaforma di messaggistica.\\
+
+
+
 \subsubsection{Classi}
 \hypertarget{Action_label}{\paragraph{Action}}
 \begin{figure}[h]
@@ -1893,7 +1623,7 @@ Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
     "msg":"NotificationMessage",
-    "send\_to":"String"
+    "send_to":"String"
 }
 \end{lstlisting}
 Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
@@ -1963,7 +1693,15 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 \FloatBarrier
 
 \subsection{Back-end::Rules}
-Package che contiene le componenti necessarie alla gestione delle impostazioni (direttive) dell'assistente virtuale.
+Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle direttive per l'assistente virtuale.\\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item l'aggiunta di una nuova direttiva;
+\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
+\item la gestione delle direttive esistenti;
+\item la gestione dei compiti esistenti.
+\end{itemize}
+
 \subsubsection{Classi}
 \hypertarget{ RulesDAO_label}{\paragraph{ RulesDAO}}
 \begin{figure}[h]
@@ -1976,11 +1714,6 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità di accesso al database per questo microservizio, contenente le Rule;
 	\item \textbf{Utilizzo}: fornisce a \file{RuleService} un meccanismo per accedere al database, contenente le \file{Rule}, senza conoscerne le modalità di implementazioni e di persistenza del database. A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione delle \file{Rule};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{- DB: AWS::DynamoDB} \\
-		Attributo che permette di contattare  il database contenente le direttive;
-	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ addRule(rule: Rule): ErrorObservable} \\
@@ -2012,6 +1745,13 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 		\begin{itemize}
 			\item \file{rule: Rule} \\
 			Parametro contenente la Rule;
+		\end{itemize}
+		\item[] \file{+ query(target: RuleTarget): RuleArray} \\
+		Metodo che permette di interrogare il DAO e richiedere la lista delle direttive che si applicano ad un determinato target. ;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{target: RuleTarget} \\
+			Parametro contenente il target del quale si vogliono ottenere le direttive;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -2330,6 +2070,16 @@ Package che contiene le componenti necessarie alla gestione delle impostazioni (
 			\item \file{rules: RulesDAO} \\
 			Attributo contenente il \file{RulesDAO};
 		\end{itemize}
+		\item[] \file{+ queryRule(event: LambdaEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che permette di interrogare il microservizio ed ottenere una lista di direttive che si applicano in un determinato caso.
+Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaEvent} \\
+			Parametro contenente, all'interno del campo \file{body}, un oggetto di tipo \file{RuleTarget} che verrà utilizzato per individuare le direttive che si applicano. ;
+			\item \file{context: LambdaContext} \\
+			Oggetto che permette alla lambda function di restituire una risposta. il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un'array di oggetti di tipo \file{Rule} in formato JSON. Tali oggetti rappresenteranno le direttive da applicare;
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
@@ -2531,6 +2281,391 @@ Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti 
 			Parametro contenente l'audio dal quale si vuole estrarre il testo;
 			\item \file{type: String} \\
 			Parametro contenente il formato in cui sono memorizzati i dati all'interno di \file{audio};
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\subsection{Back-end::Users}
+Package contenente le classi e le interfacce che realizzano il microservizio di autenticazione e registrazione di un amministratore nel sistema.\\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la registrazione di un nuovo amministratore;
+\item l'autenticazione di un amministratore;
+\item gestione degli amministratori esistenti.
+\end{itemize}
+
+\subsubsection{Classi}
+\hypertarget{ UsersDAO_label}{\paragraph{ UsersDAO}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/Class__interface__ UsersDAO.png}
+	\caption{Back-end::Users:: UsersDAO}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{ UsersDAO};
+	\item \textbf{Tipo}: \file{Interface};
+	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database per questo microservizio. ;
+	\item \textbf{Utilizzo}: fornisce a \file{UsersService} un meccanismo per accedere al database contenente gli utenti registrati, senza conoscerne le modalità di implementazione e di persistenza di quest'ultimo.
+A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
+	\item \textbf{Figlio}: \file{UsersDAODynamoDB};
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ addUser(user: User): ErrorObservable} \\
+		Metodo che permette di aggiungere un utente. \\
+L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{user: User} \\
+			Parametro contenente un utente registrato;
+		\end{itemize}
+		\item[] \file{+ removeUser(id: String): ErrorObservable} \\
+		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'id dello \file{User} che si vuole eliminare;
+		\end{itemize}
+		\item[] \file{+ getUser(username: String): UserObservable} \\
+		Metodo che permette di ottenere i dati relativi ad un utente. \\
+L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{username: String} \\
+			Parametro contenente lo username dello \file{User} che si vuole ottenere;
+		\end{itemize}
+		\item[] \file{+ getUserList(): UserObservable} \\
+		L'\file{Observable} restituito manderà agli \file{Observer} gli utenti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateUser(user: User): ErrorObservable} \\
+		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{user: User} \\
+			Parametro contenente lo \file{User} aggiornato;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{SRUser_label}{\paragraph{SRUser}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSRUser.png}
+	\caption{Back-end::Users::SRUser}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{SRUser};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri dell'autenticazione tramite Speaker Recognition (SR);
+	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare, tramite SR, un utente sottoposto alla procedura di Enrollment del servizio di Speaker Recognition.
+Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}.
+;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ id: String} \\
+		Attributo contenente l'identificativo del profilo utente del microservizio di Speaker Recognition;
+		\item[] \file{+ enrollmentCount: int} \\
+		Attributo contenente il numero di Enrollment dello \file{User};
+		\item[] \file{+ createdDateTime: String} \\
+		Attributo contenente la data di creazione del profilo utente nel microservizio esterno di Speaker Recognition;
+		\item[] \file{+ enrollmentStatus: String} \\
+		Attributo contenente lo stato dell'Enrollment.\\
+Lo stato può essere uno tra i seguenti valori:
+\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize};
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{User_label}{\paragraph{User}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUser.png}
+	\caption{Back-end::Users::User}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{User};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un utente registrato;
+	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad un utente registrato, i quali dovranno essere memorizzati nel database per questo microservizio.\\
+È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- username: String} \\
+		Attributo contenente l'username dell'utente registrato;
+		\item[] \file{- first\_name: String} \\
+		Attributo contenente il nome dell'utente registrato;
+		\item[] \file{- last\_name: String} \\
+		Attributo contenente il cognome dell'utente registrato;
+		\item[] \file{- password: String[0..1]} \\
+		Attributo contenente la password dell'utente registrato;
+		\item[] \file{- slack\_channel: String[0..1]} \\
+		Attributo contenente il canale Slack dell'utente registrato;
+		\item[] \file{- sr\_id: String[0..1]} \\
+		Attributo contenente l'id del profilo utente nel microservizio esterno di Speaker Recognition;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ getId(): String} \\
+		Metodo che permette di ottenere l'id dell'utente registrato;\\
+		\item[] \file{+ setId(id: String): void} \\
+		Metodo che permette di impostare l'id dell'utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'id;
+		\end{itemize}
+		\item[] \file{+ getUsername(): String} \\
+		Metodo che permette di ottenere lo username dell'utente registrato;\\
+		\item[] \file{+ setUsername(username: String): void} \\
+		Metodo che permette di impostare lo username dell'utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{username: String} \\
+			Parametro relativo all'username da settare;
+		\end{itemize}
+		\item[] \file{+ getNome(): String} \\
+		Metodo che permette di ottenere il nome dell'utente registrato;\\
+		\item[] \file{+ setNome(nome: String): void} \\
+		Metodo che permette di impostare il nome dell'utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{nome: String} \\
+			Parametro contenente il nome;
+		\end{itemize}
+		\item[] \file{+ getPassword(): String[0..1]} \\
+		Metodo che permette di ottenere la password dell'utente registrato;\\
+		\item[] \file{+ setPassword(password: String[0..1]): void} \\
+		Metodo che permette di impostare la password dell'utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{password: String[0..1]} \\
+			Parametro relativo alla password da settare;
+		\end{itemize}
+		\item[] \file{+ getSlackChannel(): String[0..1]} \\
+		Metodo che permette di ottenere il canale Slack dell'utente registrato;\\
+		\item[] \file{+ setSlackChannel(slack\_channel: String[0..1]): void} \\
+		Metodo che permette di impostare il canale Slack dell'utente registrato necessario per contattarlo;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{slack\_channel: String[0..1]} \\
+			Parametro relativo al canale Slack da settare;
+		\end{itemize}
+		\item[] \file{+ getSrId(): String[0..1]} \\
+		Metodo che permette di ottenere l'id del profilo utente nel microservizio esterno di Speaker Recognition;\\
+		\item[] \file{+ setSrId(sr\_id: String[0..1]): void} \\
+		Metodo che permette di impostare l'id dello Speaker Recognition associato all'utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{sr\_id: String[0..1]} \\
+			Parametro relativo all'id dello Speaker Recognition da settare;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{UsersDAODynamoDB_label}{\paragraph{UsersDAODynamoDB}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAODynamoDB.png}
+	\caption{Back-end::Users::UsersDAODynamoDB}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{UsersDAODynamoDB};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che si occupa di implementare l'interfaccia \file{UsersDAO}, utilizzando un database DynamoDB come supporto per la memorizzazione dei dati;
+	\item \textbf{Utilizzo}: implementa i metodi dell'interfaccia \file{UsersDAO} interrogando un database DynamoDB. Utilizza \file{AWS::DynamoDB::DocumentClient} per l'accesso al database. La dependency injection dell'oggetto \file{AWS::DynamoDB} viene fatta utilizzando il costruttore;
+	\item \textbf{Padre}: \file{<<interface>> UsersDAO};
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- db: AWS::DynamoDB} \\
+		Attributo contenente un riferimento al modulo di Node.js utilizzato per l'accesso al database DynamoDB contenente la tabella degli utenti;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ addUser(user: User): ErrorObservable} \\
+		Implementazione del metodo definito nell'interfaccia \file{UsersDAO}. Utilizza il metodo put del \file{DocumentClient} per aggiungere l'utente al database;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{user: User} \\
+			Utente che si vuole aggiungere al sistema;
+		\end{itemize}
+		\item[] \file{+ getUser(username: String): UserObservable} \\
+		Implementazione del metodo definito nell'interfaccia \file{UsersDAO}. Utilizza il metodo get del \file{DocumentClient} per ottenere i dati relativi ad uno \file{User} dal database;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{username: String} \\
+			Parametro contenente lo username dello \file{User} che si vuole ottenere;
+		\end{itemize}
+		\item[] \file{+ getUserList(): UserObservable} \\
+		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo scan del \file{DocumentClient} per ottenere la lista degli utenti dal database;\\
+		\item[] \file{+ removeUser(username: String): ErrorObservable} \\
+		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo delete del \file{DocumentClient} per eliminare un utente dal database;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{username: String} \\
+			Usernaname dell'utente che si vuole rimuovere dal sistema;
+		\end{itemize}
+		\item[] \file{+ updateUser(user: User): ErrorObservable} \\
+		Implementazione del metodo dell'interfaccia \file{UsersDAO}. Utilizza il metodo update del \file{DocumentClient} per aggiornare i dati relativi ad un utente presente all'interno del database;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{user: User} \\
+			Parametro contenente i dati relativi all'utente che si vuole modificare;
+		\end{itemize}
+		\item[] \file{+ <<Create>> createUsersDAODynamoDB(db : AWS::DynamoDB): UsersDAODynamoDB} \\
+		Constructor della classe \file{UsersDAODynamoDB}. Permette di effettuare la dependency injection di \file{AWS::DynamoDB};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{db : AWS::DynamoDB} \\
+			Parametro contenente un riferimento al modulo di Node.js da utilizzare per l'accesso al database DynamoDB contenente la tabella degli utenti;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{UsersService_label}{\paragraph{UsersService}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersService.png}
+	\caption{Back-end::Users::UsersService}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{UsersService};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Auth} e, tramite \file{UsersDAO}, di interagire con il database degli utenti registrati;
+	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie alla gestione degli utenti.
+Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- users: UsersDAO} \\
+		Attributo che permette di contattare \file{UsersDAO}, il quale fornisce i meccanismi d'accesso al database degli utenti registrati;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ getUserList(event: LambdaEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che si occupa di restituire l'array degli utenti registrati;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaEvent} \\
+			Parametro che rappresenta la richiesta ricevuta dal \file{VocalAPI}. Il campo \file{body} di questo attributo conterrà una stringa vuota;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà un Array di oggetti di tipo \file{User};
+		\end{itemize}
+		\item[] \file{+ addUser(event: LambdaEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che si occupa di aggiungere un utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaEvent} \\
+			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto \file{User} contenente tutti i dati relativi ad un utente da inserire;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \file{LambaResponse::statusCode};
+		\end{itemize}
+		\item[] \file{+ removeUser(event: LambdaIdEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che si occupa di rimuovere un utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaIdEvent} \\
+			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato che si vuole eliminare;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
+		\end{itemize}
+		\item[] \file{+ updateUser(event: LambdaIdEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che si occupa di aggiornare i dati di un utente registrato;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaIdEvent} \\
+			Parametro contenente all'interno del campo \file{body}, sotto forma di stringa in formato JSON, un oggetto di tipo \file{User} contente i dati da aggiornare e, all'interno del campo \file{pathParameters}, lo username dell'utente da modificare;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
+		\end{itemize}
+		\item[] \file{+ getUser(event: LambdaIdEvent, context: LambdaContext): void} \\
+		Metodo che implementa la lambda function che si occupa di restituire i dati relativi ad un utente a partire dal suo username;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{event: LambdaIdEvent} \\
+			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato del quale si vogliono ottenere i dati;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto , sotto forma di stringa in formato JSON, di tipo \file{User}, contenente i dati relativi all'utente ritornato;
+		\end{itemize}
+		\item[] \file{+ <<create>> createUsersService(user: UserDAO): UsersService} \\
+		Metodo che permette di creare uno \file{UsersService}. Permette la dependency injection avente come oggetto uno \file{UsersDAO};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{user: UserDAO} \\
+			Attributo contenente lo \file{UsersDAO};
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{VocalLoginModule_label}{\paragraph{VocalLoginModule}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModule.png}
+	\caption{Back-end::Users::VocalLoginModule}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{VocalLoginModule};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di realizzare e raggruppare tutte le operazioni necessarie all'identificazione di un utente registrato, tramite il microservizio di Speaker Recognition (SR). ;
+	\item \textbf{Utilizzo}: fornisce un meccanismo per creare, eliminare ed ottenere un utente registrato associato ad un Enrollment, il quale è necessario all'identificazione di un utente tramite il microservizio di Speak Recognition (SR). Permette quindi di associare i parametri relativi ad un \file{Enrollment} ad un utente registrato.\\
+È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{VocalLoginModulConfig};
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{- min\_confidence: int} \\
+		Attributo contenente il grado di confidenza minimo accettabile nel confronto tra ciò che l'utente comunica, al fine di effettuare l'accesso come utente registrato, e quella che dovrebbe essere la sua impronta vocale precedentemente costruita tramite il meccanismo di Enrollment;
+	\end{itemize}
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ createUser(): String} \\
+		Metodo che permette di creare un User;\\
+		\item[] \file{+ <<Create>> createVocalLoginModule(conf: VocalLoginModuleConfig): VocalLoginModule} \\
+		Metodo che permette di costruire un \file{VocalLoginModule}. Permette la dependency injection che ha come oggetto un \file{VocalLoginModuleConfig};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{conf: VocalLoginModuleConfig} \\
+			Parametro attraverso il quale viene passata la configurazione di VocalLoginModule;
+		\end{itemize}
+		\item[] \file{+ addEnrollment(id: String, audio: Blob): Error} \\
+		Metodo che permette di aggiungere un Enrollment;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente la stringa identificativa dell'utente al quale si vuole aggiungere un enrollment;
+			\item \file{audio: Blob} \\
+			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
+		\end{itemize}
+		\item[] \file{+ deleteUser(id: String): Error} \\
+		Metodo che permette di eliminare un User a partire da un id;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'identificativo dell'utente che si vuole eliminare;
+		\end{itemize}
+		\item[] \file{+ getList(): SRUserArray} \\
+		Metodo che ritorna una lista di SRUser;\\
+		\item[] \file{+ getUser(id: String): SRUser} \\
+		Metodo che ritorna un SRUser a partire da un id;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'identificativo dello \file{User};
+		\end{itemize}
+		\item[] \file{+ resetEnrollments(id: String): Error} \\
+		Metodo che permette di resettare un enrollment a partire da un id;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'identificativo dell'utente dei quali relativi enrollment verrà effettuato il reset;
+		\end{itemize}
+		\item[] \file{+ doLogin(id: String, audio: Blob): Error} \\
+		Metodo che permette di effettuare il login a partire da un id e da un audio di identificazione;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{id: String} \\
+			Parametro contenente l'identificativo dell'utente che vuole effettuare il login;
+			\item \file{audio: Blob} \\
+			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -2783,7 +2918,12 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 \FloatBarrier
 
 \subsection{Back-end::VirtualAssistant}
-Package contenente le componenti del microservizio dell'assistente virtuale.
+Package contenente le classi e le interfacce che realizzano il microservizio di assistente virtuale .\\
+Vengono offerte funzionalità che permettono di:
+\begin{itemize}
+\item interrogare l'assistemte virtuale.
+\end{itemize}
+
 \subsubsection{Classi}
 \hypertarget{ AgentsDAO_label}{\paragraph{ AgentsDAO}}
 \begin{figure}[h]
@@ -3321,7 +3461,7 @@ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire i
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "app":"nome\_applicazione",
+    "app":"nome_applicazione",
     "query": "VAQuery"
 }
 \end{lstlisting}
@@ -3336,10 +3476,10 @@ con \file{app} stringa che corrisponde al nome dell'applicazione che manda la ri
    {
     "contexts":"ObjectAssocArray",
      "data":"Object",
-     "text\_request":"String",
-     "text\_response":"String"
+     "text_request":"String",
+     "text_response":"String"
    },
-  "session\_id":"String"
+  "session_id":"String"
 }
 \end{lstlisting}
 Dove:
@@ -3540,8 +3680,17 @@ Questa classe implementa l'interfaccia della libreria esterna RxJS::Observer;
 		Metodo che permette di mettere in pausa l'Observer;\\
 		\item[] \file{+ resume(): void} \\
 		Metodo che permette di riavviare l'Observer;\\
-		\item[] \file{+ <<Create>> createPausableObserver(): PausableObserver} \\
+		\item[] \file{+ <<Create>> createPausableObserver(onError: function(error: Error) : void, onNext: function(data: Object) : void, onComplete: function(): void): PausableObserver} \\
 		Costruttore che imposta il valore di paused a false;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{onError: function(error: Error) : void} \\
+			Parametro contenente la funzione di callback da chiamare nel caso in cui si verifichi un errore;
+			\item \file{onNext: function(data: Object) : void} \\
+			Parametro contenente la funzione di callback da chiamare per notificare l'\file{Observer} dell'arrivo di dati;
+			\item \file{onComplete: function(): void} \\
+			Parametro contenente la funzione di callback da chiamare quando l'\file{Observable} è completata, ossia quando non ci sono più dati disponibili;
+		\end{itemize}
 		\item[] \file{+ isPaused(): boolean} \\
 		Metodo che permette di ottenere il valore di paused, in modo da capire se l'Observer è in pausa o meno;\\
 		\item[] \file{+ complete(): void} \\
@@ -3579,7 +3728,14 @@ Questa classe implementa l'interfaccia della libreria esterna RxJS::Observer;
 \FloatBarrier
 
 \subsection{Client::ApplicationManager}
-Package contenente le classi che si occupano della gestione delle applicazioni con le quali l'utente può interagire.
+Package contenente le classi che si occupano della gestione delle applicazioni con le quali l'utente può interagire.\\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la reazione a dei dati di risposta arrivati dal \file{Back-end};
+\item la definizione di ciò che va a comporre una applicazione;
+\item il salvataggio dello stato di un'applicazione;
+\item il cambio di un'applicazione con un'altra.
+\end{itemize}
 \subsubsection{Classi}
 \hypertarget{ ApplicationRegistryClient_label}{\paragraph{ ApplicationRegistryClient}}
 \begin{figure}[h]
@@ -3719,7 +3875,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 		\item[] \file{+ cmdHandler: String} \\
 		Attributo contenente il codice Javascript del metodo \file{runCmd} dell'\file{Application} implementata. Tale codice ha accesso al riferimento \file{this} dell'\file{Application};
 		\item[] \file{+ ui: String} \\
-		Attributo contenente l'\file{Element} che racchiude l'interfaccia dell'applicazione;
+		Attributo contenente il codice HTML dell'interfaccia dell'applicazione;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3884,7 +4040,13 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di Registr
 \FloatBarrier
 
 \subsection{Client::Logic}
-Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.
+Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.\\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la reazione a dei dati arrivati come richiesta dal registratore vocale;
+\item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}.
+\end{itemize}
+
 \subsubsection{Classi}
 \hypertarget{DataArrivedObservable_label}{\paragraph{DataArrivedObservable}}
 \begin{figure}[h]
@@ -4097,7 +4259,13 @@ Gli observer collegati sono:
 \FloatBarrier
 
 \subsection{Client::Recorder}
-Package contenente le classi che realizzano la registrazione audio.
+Package contenente le classi che realizzano la registrazione audio.\\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la registrazione audio delle richieste espresse dall'utente;
+\item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
+\end{itemize}
+
 \subsubsection{Classi}
 \hypertarget{Recorder_label}{\paragraph{Recorder}}
 \begin{figure}[h]
@@ -4391,6 +4559,12 @@ L'observer collegato è LogicObserver;
 
 \subsection{Client::TTS}
 Package contenente le componenti che realizzano il text to speech.
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
+\item la riproduzione audio del testo fornito come risposta dall'assistente virtuale.
+\end{itemize}
+
 \subsubsection{Classi}
 \hypertarget{Player_label}{\paragraph{Player}}
 \begin{figure}[h]
@@ -4572,7 +4746,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \begin{itemize}
 	\item \textbf{Nome}: \file{BoolObserver};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe;
+	\item \textbf{Descrizione}: questa classe ridefinisce il metodo \file{next}, facendo in modo che accetti valori di tipo \file{boolean};
 	\item \textbf{Utilizzo}: fornisce un meccanismo per eseguire una funzione all'arrivo di una notifica dal BoolObservable;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4644,7 +4818,7 @@ Libreria esterna
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: observable di RxJs;
 	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figli}: \file{UserObservable}, \file{ConversationObservable}, \file{GuestObservable}, \file{TaskObservable}, \file{RuleObservable}, \file{AgentObservable}, \file{ErrorObservable};
+	\item \textbf{Figli}: \file{UserObservable}, \file{ConversationObservable}, \file{GuestObservable}, \file{TaskObservable}, \file{RuleObservable}, \file{AgentObservable}, \file{ErrorObservable}, \file{MemberObservable};
 \end{itemize}
 \FloatBarrier
 
