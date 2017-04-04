@@ -32,10 +32,10 @@ requisiti si utilizza la tecnica dei \gl{casi d'uso}. Il tracciamento dei requis
  Il \RESP{} di \gl{progetto} deve organizzare delle riunioni preventive, per permettere lo scambio
 di opinioni tra i membri del gruppo sui capitolati proposti. Il documento \gl{prodotto} da queste
 riunioni è lo \SFdocRR , il quale viene realizzato dagli \ANP{}. Essi devono
-descrivere i seguenti punti: 
+descrivere i seguenti punti:
 \begin{itemize}
  \item \textbf{Dominio tecnologico e applicativo}: si dà una valutazione prendendo in   considerazione
- la conoscenza attuale delle tecnologie richieste dal \gl{capitolato} in analisi da parte dei membri  
+ la conoscenza attuale delle tecnologie richieste dal \gl{capitolato} in analisi da parte dei membri
 del gruppo;
  \item \textbf{Interesse strategico}: si valuta l'interesse strategico del gruppo di \gl{progetto} in relazione
 al \gl{capitolato} in analisi;
@@ -93,75 +93,294 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  \end{itemize}
  \paragraph{\gl{UML}}
  Viene utilizzata la versione corrente alla stesura del documento, ovvero la 2.5.
-
-\subsubsection{Progettazione}
+ \subsubsection{Progettazione}
  \paragraph{Scopo dell'attività}
-L'attività di progettazione definisce le linee essenziali della struttura del \gl{prodotto} \gl{software} in
-funzione dei requisiti individuati dall'analisi. L'obiettivo del processo consiste nella stesura dei
-documenti: \textit{"Specifica Tecnica"} e \textit{"Definizione di \gl{Prodotto}"}.
+ L'attività di progettazione definisce le linee essenziali della struttura del \gl{prodotto} \gl{software} in
+ funzione dei requisiti individuati dall'analisi. L'obiettivo del processo consiste nella stesura dei
+ documenti: \textit{"Specifica Tecnica"} e \textit{"Definizione di Prodotto"}. \\
+ Compresi pienamente quali siano i requisiti del problema e approfondendo la progettazione a moduli
+ abbastanza semplici da essere capiti da una sola persona, si otterranno le
+ istruzioni necessarie ai \PRP{} per sviluppare il prodotto.
  \paragraph{Aspettative dell'attività}
-Il processo porta alla formazione dei documenti sopracitati, i quali garantiscono affidabilità e
-coerenza.
+ Il processo porta alla formazione dei documenti sopracitati, i quali garantiscono affidabilità e
+ coerenza.
  \paragraph{Descrizione dell'attività}
-La progettazione deve rispettare tutti i vincoli e i requisiti concordati tra i componenti del gruppo
-e i proponenti. I documenti derivati da questa attività sono:
-\begin{itemize}
-	\item \textbf{Specifica tecnica}: descrive la progettazione ad alto livello relativa all'architettura dell'applicazione
-e dei singoli componenti. Il documento specifica i diagrammi \gl{UML} ed i design
-pattern utilizzati per realizzare l'architettura definendo inoltre i test necessari alla \gl{verifica};
-	\item \textbf{Definizione di \gl{prodotto}}: descrive in dettaglio la progettazione di \gl{sistema}, integrando
-quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi \gl{UML} e le
-definizioni delle classi definendo inoltre i test necessari alla \gl{verifica}.
-\end{itemize}
+ La progettazione deve rispettare tutti i vincoli e i requisiti concordati tra i componenti del gruppo
+ e i proponenti. I documenti derivati da questa attività sono:
+ \begin{itemize}
+ 	\item \textbf{Specifica tecnica}: descrive la progettazione ad alto livello relativa all'architettura dell'applicazione
+ 	e dei singoli componenti. Il documento specifica i diagrammi \gl{UML} ed i design
+ 	pattern utilizzati per realizzare l'architettura definendo inoltre i test necessari alla \gl{verifica};
+ 	\item \textbf{Definizione di \gl{prodotto}}: descrive in dettaglio la progettazione di \gl{sistema}, integrando
+ 	quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi \gl{UML} e le
+ 	definizioni delle classi definendo inoltre i test necessari alla \gl{verifica}.
+ \end{itemize}
  \paragraph{Specifica tecnica}
-\begin{itemize} 
-	\item \textbf{Diagrammi \gl{UML}}:
-	\begin{itemize}
-	\item diagrammi delle classi;
-	\item diagrammi dei \gl{package};
-	\item diagrammi di attività;
-	\item diagrammi di sequenza.
-	\end{itemize}
-	\item \textbf{\gl{Design pattern}}: devono essere descritti i \gl{design pattern} utilizzati per realizzare l'architettura. Ogni design
-pattern deve essere accompagnato da una descrizione ed un diagramma, che ne esponga il
-significato e la struttura;
-	\item \textbf{Tracciamento delle componenti}:
-	\item \textbf{Test di integrazione}: devono essere definite delle classi di \gl{verifica}, utili a verificare che ogni componente del
-\gl{sistema} funzioni nella maniera appropriata.
-\end{itemize}
+ \begin{itemize}
+ 	\item \textbf{Diagrammi \gl{UML}}:
+ 	\begin{itemize}
+ 		\item diagrammi delle classi;
+ 		\item diagrammi dei \gl{package};
+ 		\item diagrammi di attività;
+ 		\item diagrammi di sequenza.
+ 	\end{itemize}
+ 	\item \textbf{\gl{Design pattern}}: devono essere descritti i \gl{design pattern} utilizzati per realizzare l'architettura. Ogni design
+ 	pattern deve essere accompagnato da una descrizione ed un diagramma, che ne esponga il
+ 	significato e la struttura;
+ 	\item \textbf{Test di integrazione}: devono essere definite delle classi di \gl{verifica}, utili a verificare che ogni componente del
+ 	\gl{sistema} funzioni nella maniera appropriata.
+ \end{itemize}
  \paragraph{Definizione di \gl{prodotto}}
-\begin{itemize}
-	\item \textbf{Diagrammi \gl{UML}}:
-	\begin{itemize}
-		\item diagrammi delle classi;
-		\item diagrammi di attività;
-		\item diagrammi di sequenza.
-	\end{itemize}
-	\item \textbf{Definizioni delle classi}: ogni classe progettata deve essere descritta in modo da spiegarne lo scopo e definirne le
-funzionalità ad essa associate.
-	\item \textbf{Tracciamento delle classi}: ogni requisito deve essere tracciato, in modo da poter risalire alle classi ad esso associate. 
-	\item \textbf{Test di unità}: devono essere definiti dei test di unità utili a verificare che le componenti del \gl{sistema} funzionino nel modo previsto.
-\end{itemize}
+ \begin{itemize}
+ 	\item \textbf{Diagrammi \gl{UML}}:
+ 	\begin{itemize}
+ 		\item diagrammi delle classi;
+ 		\item diagrammi di attività;
+ 		\item diagrammi di sequenza.
+ 	\end{itemize}
+ 	\item \textbf{Definizioni delle classi}: ogni classe progettata deve essere descritta in modo da spiegarne lo scopo e definirne le
+ 	funzionalità ad essa associate.
+ 	\item \textbf{Tracciamento delle classi}: ogni requisito deve essere tracciato, in modo da poter risalire alle classi ad esso associate.
+ 	\item \textbf{Test di unità}: devono essere definiti dei test di unità utili a verificare che le componenti del \gl{sistema} funzionino nel modo previsto.
+ \end{itemize}
 
-\subsubsection{Codifica}
+
+ \subsubsection{Codifica}
  \paragraph{Scopo dell'attività}
- Lo scopo dell'attività è l'implementazione del \gl{prodotto}, concretizzando la soluzione tramite la codifica.  
+ Lo scopo dell'attività è l'implementazione del \gl{prodotto}, concretizzando la soluzione tramite la codifica.
  \paragraph{Aspettative dell'attività}
- L'aspettativa dell'attività è un \gl{prodotto} corretto, ovvero stabile, affidabile, funzionale e che soddisfi i requisiti. 
+ L'aspettativa dell'attività è un \gl{prodotto} corretto, ovvero stabile, affidabile, funzionale e che soddisfi i requisiti.
  \paragraph{Descrizione dell'attività}
- L'attività deve rispettare i compiti e gli strumenti espressi nel \PPdocRR.
+ L'attività deve rispettare i compiti e gli strumenti espressi nel \PPdocRP.
  \paragraph{Stile}
-Le norme di stile saranno specificate in versioni successive di questo documento.
+ Al fine di rendere il codice più leggibile possibile, il gruppo dovrà rispettare le seguenti regole:
+ \begin{itemize}
+ 	\item all'inizio di ogni file dovrà essere presente un'intestazione contenete il nome dell'autore, la data di creazione, l'utilità del file e il diario delle modifiche;
+ 	\item ogni modifica apportata dovrà essere descritta nell'intestazione;
+ 	\item scrivere dei commenti in italiano qualora certe porzioni di codice possano risultare poco chiare o complesse;
+ 	\item evitare di commentare porzioni di codice dal funzionamento banale;
+ 	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di quattro spazi, come nell'esempio che segue: \begin{verbatim}
+ 	if(condition)
+ 	{
+ 	    a=b;
+ 	    b=c;
+ 	}
+ 	\end{verbatim}
+ 	\item le parentesi graffe che vanno a delimitare un blocco di codice dovranno trovarsi al di sotto della sua segnatura, come negli esempi che seguono:
+ 	\begin{verbatim}
+ 	while(condition)
+ 	{
+ 	    operazioni
+ 	}
+
+ 	void foo()
+ 	{
+     	operazioni
+ 	}
+ 	\end{verbatim}
+ 	\item evitare più di una istruzione per riga;
+ 	\item le costanti devono essere scritte in maiuscolo;
+ 	\item i nomi delle variabili devono rispettare le seguenti regole:
+ 	\begin{itemize}
+ 		\item avere un nome più esplicativo possibile;
+ 		\item se il nome è composto da più parole, esse devono essere divise da un carattere di underscore ' \textbf{\_} ';
+ 		\item essere, se possibile, inizializzate ad un valore.
+ 	\end{itemize}
+ 	\item i nomi dei metodi e funzioni devono rispettare le seguenti regole:
+ 	\begin{itemize}
+ 		\item avere un nome più esplicativo possibile;
+ 		\item se composto da più parole, il nome deve seguire la notazione camelCase;
+ 		\item essere associati ad un contratto, il quale ne spiega l'utilità;
+ 		\item evitare un numero eccessivo di parametri.
+ 	\end{itemize}
+ 	\item evitare l'eccessivo innestarsi di statement;
+ 	\item linee troppo lunghe dovranno essere spezzate in più parti.
+ \end{itemize}
+ Il codice che segue vuole essere un esempio delle regole appena descritte.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{img/esempioStileCodifica.png}
+	\caption{Esempio di stile di codifica}
+\end{figure}
+ \newpage
  \paragraph{Versionamento}
- Lo stile di rappresentazione della versione del codice verrà trattato e descritto in versioni successive di questo documento.
- \paragraph{\gl{Ricorsione}}
+ La versione del codice viene inserita all’interno dell’intestazione del file e segue il seguente formalismo:\\
+ \centerline{\textbf{x.y.z}} dove:
+  \begin{itemize}
+ 	\item x: è l’indice di versione principale, un incremento di tale indice rappresenta un avanzamento
+ 	della versione stabile, di conseguenza i valori degli indici y e z devono essere azzerati;
+ 	\item y: è l’indice di verifica del file, un incremento di tale indice comporta l’azzeramento
+ 	dell’indice z;
+ 	\item z: è l’indice di modifica parziale, un incremento di tale indice rappresenta una modifica
+ 	rilevante, come per esempio la rimozione o l’aggiunta di una istruzione. La versione 1.0.0
+ 	deve rappresentare la prima versione del file completo e stabile, cioè quando le sue fun-
+ 	zionalità obbligatorie sono state definite e si considerano funzionanti. Solo dalla versione
+ 	1.0.0 è possibile testare il file, con degli appositi test definiti, per verificarne l’effettivo
+ 	funzionamento.
+ \end{itemize}
+ \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
+ \subsubsection{Procedure}
+ \paragraph{Inserimento di un attore in PragmaDB}
+ Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Attori";
+ 	\item selezionare la voce "Inserisci Attore";
+ 	\item inserire nome e descrizione dell'attore.
+ \end{itemize}
+ \paragraph{Inserimento di un caso d'uso in PragmaDB}
+ Per inserire un caso d'uso in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Use Case";
+ 	\item selezionare la voce "Inserisci Use Case";
+ 	\item popolare tutti i campi richiesti;
+ 	\item inserire gli attori coinvolti;
+ 	\item inserire i requisiti correlati.
+ \end{itemize}
+ \paragraph{Inserimento di una fonte in PragmaDB}
+ Per inserire una fonte in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Fonti";
+ 	\item selezionare la voce "Inserisci Fonte";
+ 	\item inserire nome e descrizione della fonte.
+ \end{itemize}
+ \paragraph{Inserimento di un requisito in PragmaDB}
+ Per inserire un requisito in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Requisiti";
+ 	\item selezionare la voce "Inserisci Requisito";
+ 	\item popolare tutti i campi richiesti;
+ 	\item inserire la fonte correlata;
+ 	\item inserire l'use case correlato.
+ \end{itemize}
+ \paragraph{Inserimento di un package in PragmaDB}
+ Per inserire un package in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Package";
+ 	\item selezionare la voce "Inserisci Package";
+ 	\item popolare tutti i campi richiesti.
+ \end{itemize}
+ \paragraph{Inserimento di una classe in PragmaDB}
+ Per inserire una classe in PragmaDB è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Classi";
+ 	\item selezionare la voce "Inserisci Classe";
+ 	\item popolare i campi richiesti;
+ 	\item inserire i requisiti correlati.
+ \end{itemize}
+ \paragraph{Tracciamento requisiti-fonti}
+ Per tracciare una fonte su un requisito è sufficiente, al momento della creazione del requisito, inserire la fonte correlata. Se questo non è stato fatto, è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Requisiti";
+ 	\item selezionare la voce "Modifica" del requisito interessato;
+ 	\item selezionare e inserire la fonte correlata.
+ \end{itemize}
+ \paragraph{Tracciamento classi-requisiti}
+ Per tracciare un requisito su una classe è sufficiente, al momento della creazione della classe, inserire il requisito correlato. Se questo non è stato fatto, è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Classe";
+ 	\item selezionare la voce "Modifica" della classe interessata;
+ 	\item selezionare e inserire il requisito correlato.
+ \end{itemize}
+ \paragraph{Tracciamento package-requisiti}
+ Per realizzare questo tracciamento è sufficiente applicare il tracciamento classi-requisiti, in quanto il relativo package contenitore è dedotto automaticamente da PragmaDB.
+ \paragraph{Produzione automatica del documento \DPdoc}
+ Il documento \DPdoc{} è generato automaticamente da PragmaDB, il quale produrrà il relativo codice \LaTeX{} da compilare.
+ Per far ciò, è necessario seguire la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso in PragmaDB;
+ 	\item selezionare la voce "Classi";
+ 	\item selezionare le voci:
+ 	\begin{itemize}
+ 		\item "Genera Classi";
+ 		\item "Tracciamento Classi-Requisiti";
+ 		\item "Tracciamento Requisiti-Classi";
+ 		\item "Tracciamento Componenti-Requisiti";
+ 		\item "Tracciamento Requisiti-Componenti";
+ 		\item "Genera immagini";
+ 		\item "Segnali";
+ 	\end{itemize}
+ 	\item selezionare la voce "Homepage";
+ 	\item selezionare la voce "Package";
+ 	\item selezionare le voci:
+ 	\begin{itemize}
+ 		\item "Genera Package";
+ 		\item "Tracciamento Componenti-Requisiti";
+ 		\item "Tracciamento Requisiti-Componenti";
+ 	\end{itemize}
+ 	\item aprire il file \DPfile;
+ 	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{verbatim}
+ 	input{nomeFile}
+ 	\end{verbatim}
+ 	seguendo questo ordine:
+ 	\begin{itemize}
+ 		\item package;
+ 		\item classi;
+ 		\item tracciamentoClassiRequisiti;
+ 		\item tracciamentoRequisitiClassi;
+ 		\item tracciamentoClassiComponenti;
+ 		\item tracciamentoComponentiClassi;
+ 		\item tracciamentoComponentiRequisiti;
+ 		\item tracciamentoRequisitiComponenti.
+ 	\end{itemize}
+ \end{itemize}
+ Sarà cura dei \PJP{} produrre e posizionare i diagrammi di sequenza.
+\paragraph{Produzione automatica del documento \ARdoc}
+Il documento \ARdoc{} è generato automaticamente da PragmaDB, il quale produrrà il relativo codice \LaTeX{} da compilare.
+Per far ciò, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item effettuare l'accesso in PragmaDB;
+	\item selezionare la voce "Use Case";
+	\item selezionare tutte le voci sotto "Esporta in \LaTeX";
+	\item tornare nella home page;
+	\item selezionare la voce "Requisiti";
+	\item selezionare tutte le voci sotto "Esporta in \LaTeX";
+	\item aprire il file \ARfile;
+	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{verbatim}
+	input{nomeFile}
+	\end{verbatim}
+	seguendo questo ordine:
+	\begin{itemize}
+		\item useCase;
+		\item requisiti;
+		\item tracciamentoFontiRequisiti;
+		\item tracciamentoRequisitiFonti;
+		\item riepilogoRequisiti;
+	\end{itemize}
+\end{itemize}
+\paragraph{Inserimento di un Agent in API.AI}
+ Per inserire un Agent in API.AI è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso, tramite l'account Google del gruppo \GRUPPO, in \url{https://api.ai};
+ 	\item selezionare la voce ;
+ \end{itemize}
+ \paragraph{Inserimento di un Intents in API.AI}
+ Per inserire un Agent in API.AI è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso, tramite l'account Google del gruppo \GRUPPO, in \url{https://api.ai};
+ 	\item selezionare la voce ;
+ \end{itemize}
+ \paragraph{Inserimento di un Entities in API.AI}
+ Per inserire un Agent in API.AI è necessario applicare la seguente procedura:
+ \begin{itemize}
+ 	\item effettuare l'accesso, tramite l'account Google del gruppo \GRUPPO, in \url{https://api.ai};
+ 	\item selezionare la voce ;
+ \end{itemize}
 \subsubsection{Strumenti}
- \paragraph{PragmaDB} 
-  PragmaDB è uno strumento \gl{open source} di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti. In particolare, una volta inseriti \gl{casi d'uso}, attori, requisiti e relative fonti, PragmaDB genera: 
+ \paragraph{PragmaDB}
+  PragmaDB è uno strumento \gl{open source} di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti e di progettazione. In particolare, una volta inseriti \gl{casi d'uso}, attori, requisiti, fonti, classi e package, PragmaDB genera:
   \begin{itemize}
   \item il codice \LaTeX{} relativo a \gl{casi d'uso} e requisiti in forma tabellare;
   \item i diagrammi \gl{UML} associati ai \gl{casi d'uso}.
+
   \end{itemize}
   Essendo \gl{open source}, questo strumento è stato adattato dal team \GRUPPO{} in base alle proprie necessità.
   \paragraph{\gl{Astah}}
@@ -172,7 +391,12 @@ Le norme di stile saranno specificate in versioni successive di questo documento
 \caption{Astah}\label{sec:Figura1}
 \end{figure}
 
+\paragraph{api.ai}
+api.ai è lo strumento che verrà adottato per lo sviluppo dell'assistente virtuale, per gestire le interazione con gli utenti del sistema.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{img/api_ai.png}
+\caption{api.ai}\label{sec:Figura1}
+\end{figure}
+
 \newpage
-
-
-  
