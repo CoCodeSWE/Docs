@@ -1,11 +1,10 @@
-
 \section{Architettura dell'applicazione}
 \subsection{Descrizione generale}
 L'architettura scelta per il sistema dell'applicazione è quella a microservizi.\\
 I motivi che hanno spinto il team a questa scelta sono stati i seguenti:
 \begin{itemize}
 	\item i servizi utilizzati di AWS permettono l'implementazione di un'architettura serverless, la quale consente una migliore gestione dei microservizi, guadagnandone in facilità d'implementazione e di scalabilità di quest'ultimi;
-	\item api.ai, il software development kit (SDK) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estrae il testo in esso pronunciato;
+	\item api.ai, il software development kit (SDK) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estragga un testo corrisondente al suo contenuto;
 	\item il proponente ha richiesto anche un lato amministrazione, il quale accesso dovrà essere regolamentato da un servizio differente e indipendente di riconoscimento vocale.
 \end{itemize}
 
@@ -33,11 +32,10 @@ Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'a
 \subsection{Client}
 \subsubsection{Client vocale}
 L'architettura con la quale è organizzato il client vocale è quella event-driven.\\
-La motivazione che ha spinto il gruppo a prendere tale decisione è che ciò che dev'essere descritto e realizzato è facilmente modellabile con questo concetto. Infatti, ci sono delle componenti che "aspettano" l'avvenimento di un qualcosa; altre invece che "notificano" dell'avvenimento di un qualcosa.\\
+La motivazione che ha spinto il gruppo a prendere tale decisione è che ciò che dev'essere descritto e realizzato è facilmente modellabile con questo concetto. Infatti, ci sono delle componenti che "aspettano" il verificarsi di un evento; altre invece che "notificano"  il verificarsi di un evento.\\
 A tal fine, si è fatto utilizzo del pattern comportamentale Observer.\\
-Ad esempio, la componente \file{Recorder} (che si occupa della registrazione audio), deve prima "aspettare" che qualche individuo parli per potersi attivare, oppure deve "aspettare" che il riproduttore audio abbia terminato la riproduzione prima di potersi rimettere in ascolto di un qualche individuo che parli.\\
-Il client vocale è composto da diverse componenti, le quali realizzano diverse funzionalità.\\
-Queste componenti sono:
+Ad esempio, la componente \file{Recorder} (che si occupa della registrazione audio), deve prima "aspettare" che qualche individuo parli per potersi attivare, oppure deve "aspettare" che il riproduttore audio abbia terminato la riproduzione prima di potersi rimettere in ascolto.\\
+Il client vocale è composto da diverse componenti, le quali sono:
 \begin{itemize}
 	\item \textbf{Recorder}: questa componente si occupa di realizzare le funzionalità di registrazione. Tramite la classe \file{Utility::BoolObserver}, facente parte del pattern comportamentale Observer utilizzato per modellare ciò, il registratore avrà modo di sapere se il riproduttore audio è in funzione, in maniera tale da non registrare le risposte fornite dal sistema. Una volta terminata la registrazione, il relativo audio verrà inviato alla componente \file{Logic};
 	\newpage
@@ -87,15 +85,15 @@ Queste componenti sono:
 Di seguito verranno esposti e spiegati i funzionamenti di ogni microservizio da implementare.
 \subsubsection{Virtual Assistant}
 \paragraph{Descrizione}
-Il microservizio Virtual Assistant (VA) fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti (ciò che trasforma il linguaggio naturale in dati capibili per un'applicazione) durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, consentendo lo sviluppo di diverse funzionalità da parte di sviluppatori diversi, e l'integrazione di eventuali funzionalità già esistenti senza dover modificare direttamente gli agenti di api.ai. \\
-Per avere un completo controllo sul flusso della conversazione, si dovrà fare utilizzo di un database contenente gli agenti utilizzabili, in maniera tale che gli agenti utilizzabili siano solo quelli definiti e registrati.\\
-Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, dell'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato magari per fini di machine learning.\\
-Di seguito vengono esposti i vari passaggi:
+Il microservizio Virtual Assistant (VA) fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti (ciò che trasforma il linguaggio naturale in dati processabili per un'applicazione) durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, affidando la realizzazione e l'integrazione di queste a diversi sviluppatori, senza dover modificare direttamente gli agenti di api.ai. \\
+Per avere un completo controllo sul flusso della conversazione, si dovrà fare utilizzo di un database contenente gli agenti utilizzabili, in maniera tale che vengano usati solo quelli definiti e registrati.\\
+Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, l'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato per fini di machine learning.\\
+Di seguito vengono esposti i vari passaggi affrontati all'arrivo di una richiesta:
 \begin{itemize}
 	\item arriva una richiesta;
 	\item interrogo il database, contenente gli agenti, utilizzando il nome dell'applicazione come chiave;
 	\item dall'interrogazione precedente ottengo il token dell'agente relativo all'applicazione;
-	\item invio ad api.ai il token e il testo della richiesta;
+	\item invio ad api.ai il token, e il testo della richiesta;
 	\item api.ai fornisce la risposta, la quale viene "filtrata" da\\ \file{Back-end::VirtualAssistant::ApiAiVAAdapter::query(str: VAQuery): VAResponse}, ottenendo così un formato adatto a \file{Back-end::VirtualAssistant::VAResponse};
 	\item pubblico, tramite il servizio Amazon SNS, la risposta filtrata che verrà quindi inviata al Client.
 \end{itemize}
@@ -130,7 +128,7 @@ Gli Endpoints sono:
 {
  "action":"String",
  "res":{/*oggetto di tipo ResponseBody*/
-  "contexts":"ObjectArray",
+  "contexts":"ObjectAssocArray",
   "data":"Object",
   "text_request":"String",
   "text_response":"String"
@@ -145,7 +143,7 @@ Gli Endpoints sono:
 \subsubsection{Notifications}
 \paragraph{Descrizione}
 Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. La lista dei canali viene restituita come un'array di stringhe, ognuna delle quali rappresenta un canale.\\
-Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile qui \url{https://api.slack.com/docs/message-buttons}.
+Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile alla pagina \url{https://api.slack.com/docs/message-buttons}.
 \paragraph{Endpoints}
 
 Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Notifications. \\
@@ -232,6 +230,14 @@ Gli Endpoints sono:
    "slack_channel":"String",
    "sr_id":"String",
    "username":"String"
+  },
+  {
+   "first_name":"String",
+   "last_name":"String",
+   "password":"String",
+   "slack_channel":"String",
+   "sr_id":"String",
+   "username":"String"
   }
  ]
 }
@@ -258,7 +264,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} vengono modificati i dati dell'utente tramite sovrascrittura;
+\item \textbf{Descrizione:} vengono modificati i dati dell'utente, il quale identificativo è specificato nel path, tramite sovrascrittura;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -274,12 +280,12 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
-\item \textbf{Descrizione:} viene eliminato un utente;
+\item \textbf{Descrizione:} viene eliminato un utente, il quale identificativo è specificato nel path;
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente;
+\item \textbf{Descrizione:} vengono ricevuti i dati relativi ad un utente, il quale identificativo è specificato nel path;
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -367,7 +373,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} POST;
-\item \textbf{Descrizione:} viene creata una nuova direttiva
+\item \textbf{Descrizione:} viene creata una nuova direttiva;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -410,7 +416,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} viene modificata una direttiva tramite sovrascrittura;
+\item \textbf{Descrizione:} viene modificata una direttiva, il quale identificativo è specificato nel path, tramite sovrascrittura;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -452,7 +458,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} vengono richiesti dati relativi ad una specifica direttiva;
+\item \textbf{Descrizione:} vengono richiesti dati relativi ad una specifica direttiva, il quale identificativo è specificato nel path;
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -494,7 +500,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
-\item \textbf{Descrizione:} viene eliminata una direttiva;
+\item \textbf{Descrizione:} viene eliminata una direttiva, il quale identificativo è specificato nel path;
 
 \end{itemize}
 
@@ -547,7 +553,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} viene richiesto un \file{Task} in base al tipo di funzione applicata;
+\item \textbf{Descrizione:} viene richiesto un \file{Task} in base al tipo di funzione applicata, , il quale identificativo è specificato nel path;
 
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -568,7 +574,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} viene modificata un \file{Task} tramite sovrascrittura;
+\item \textbf{Descrizione:} viene modificata un \file{Task}, il quale identificativo è specificato nel path tramite sovrascrittura;
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
