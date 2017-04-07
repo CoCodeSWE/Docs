@@ -24,3 +24,5 @@
 *.alg
 *.loa
 *.lock
+*.bak
+
