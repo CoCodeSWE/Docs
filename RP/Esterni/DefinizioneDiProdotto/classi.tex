@@ -102,7 +102,7 @@ Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sa
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
-			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai al \file{ConversationWebhookService}. Tali dati sono:
+			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad una richiesta di api.ai al \file{ConversationWebhookService}. Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
   "id":"String",
@@ -1007,6 +1007,7 @@ Di seguito viene riportato un esempio dell'oggetto utilizzato.
     }
   ]
 }
+
 \end{lstlisting}
 Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
 		Parametri:
@@ -1606,6 +1607,7 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 		\item[] \file{+ name: String} \\
 		Attributo contenente il nome del canale Slack;
 		\item[] \file{+ type: String} \\
+
 		Attributo che indica il tipo del canale. \\ Può assumere i seguenti valori:
 \begin{itemize}
   \item user: il canale rappresenta un utente Slack;
@@ -4223,6 +4225,7 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 	\begin{itemize}
 		\item[] \file{+ runCmd(cmd: String, params: ResponseBody): void} \\
 		Metodo che si occupa di chiamare il metodo file{dispatcher.dispatch} inoltrando i parametri ricevuti;\\
+
 		Parametri:
 		\begin{itemize}
 			\item \file{cmd: String} \\
@@ -5087,6 +5090,7 @@ Vengono offerte funzionalità che permettono:
 \begin{itemize}
 \item la registrazione audio delle richieste espresse dall'utente;
 \item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
+
 \end{itemize}
 
 \subsubsection{Classi}
@@ -5225,6 +5229,7 @@ Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i rela
 	\item \textbf{Descrizione}: questa classe è una classe Worker che si occupa dell'effettiva registrazione dell'audio;
 	\item \textbf{Utilizzo}: fornisce a Recorder un thread che si occupa di registrare effettivamente l'audio in modo da non appesantire il thread dell'interfaccia grafica.
 Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e)  (tutti i metodi sono privati perchè vengono usati messaggi per comunicare);
+
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
@@ -5402,6 +5407,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di riprodurre la risposta, fornita dal sistema, all'ospite;
 	\item \textbf{Utilizzo}: fornisce al client funzionalità di riproduzione dei file audio di risposta del \file{Back-end} alle richieste dell'utente.
+
 Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare il volume.
 ;
 	\item \textbf{Attributi}:
