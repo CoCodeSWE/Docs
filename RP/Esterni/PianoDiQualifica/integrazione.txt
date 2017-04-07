@@ -84,3 +84,9 @@ Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Member}
 Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Guests}, interagiscano tra loro correttamente: \file{Guest}, \file{GuestDAODynamoDB}.
 
 Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Conversations}, interagiscano tra loro correttamente: \file{ConversationDAODynamoDB}, \file{Conversation}, \file{ConversationMsg}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Events}, interagiscano tra loro correttamente: \file{SNSRecord}, \file{SNSMessage}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Notifications}, interagiscano tra loro correttamente: \file{NotificationChannel}, \file{Purpose}, \file{Topic}, \file{NotificationMessage}, \file{Attachment}, \file{Action}, \file{ConfirmationFields}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Utility}, interagiscano tra loro correttamente: \file{WebhookRequest}, \file{ProcessingResult}, \file{LamdaIdEvent}, \file{PathIdParam}.
