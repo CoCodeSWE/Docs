@@ -28,7 +28,13 @@ In figura \ref{fig:apig1} si ha una rappresentazione generale, non specifica del
 	\caption{Architettura a microservizi e API Gateway}\label{fig:apig1}
 \end{figure}
 \newpage
-Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'approccio architetturale REST, i quali sono consultabili alla pagina \url{https://en.wikipedia.org/wiki/Representational_state_transfer}.
+Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'approccio architetturale REST, i quali sono consultabili alla pagina \url{https://en.wikipedia.org/wiki/Representational_state_transfer} (visitato in data 2017-03-26).
+\subsection{Sicurezza API Gateway ed endpoints}
+Con lo scopo di garantire una certa sicurezza, l'accesso agli endpoints pubblicati sull'API Gateway deve essere controllato e regolato. \\Questo è necessario in quanto tramite essi è possibili fare operazioni sensibili sul sistema, quindi un utente malintenzionato potrebbe comprometterne il corretto funzionamento.\\ 
+Il servizio AWS API Gateway fornisce sofisticati ed avanzati meccanismi per la protezione degli endpoint, i quali sono esposti e spiegati alla pagina \url{http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html} (visitato in data 2017-03-26). \\
+
+Il sistema progettato prevede due tipologie di utenti (ospite e amministratore), caratterizzati da diverse interazioni con l'assistente virtuale. Vengono quindi supportate dal \file{Back-end} differenti operazioni, invocabili tramite appositi endpoints, in base alla tipologia d'utente. Nasce di conseguenza la necessità di vincolare ogni tipologia d'utente ai soli endpoints ad essa dedicati. \\
+Per soddisfare questa esigenza, non sono necessari ulteriori strumenti e meccanismi di AWS API Gateway, in quanto un amministratore è associato ad un JSON Web Tokens (JWT) valido. Per capire quindi quali endpoints dovranno essere bloccati all'utente, sarà sufficiente controllare l'esistenza e la validità di questo JWT.
 \subsection{Client}
 \subsubsection{Client vocale}
 L'architettura con la quale è organizzato il client vocale è quella event-driven.\\
@@ -41,6 +47,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 	\newpage
 	\item \textbf{TTS}: questa componente si occupa di realizzare le funzionalità di text-to-speech, ovvero di riprodurre sotto forma di audio il testo fornito come risposta dall'assistente virtuale. Inoltre, quando la riproduzione audio si attiva/disattiva, le componenti interessate verranno notificate di ciò. Tutto ciò è reso possibile dal pattern comportamentale Observer;
 	\item \textbf{ApplicationManager}: questa componente si occupa realizzare le funzionalità di gestione delle applicazioni con le quali l'utente interagisce, permettendo la definizione di esse, la definizione comandi accettati, del salvataggio di stato e del cambio tra un'applicazione e l'altra. Tutto ciò è reso possibile dal pattern Client-side discovery riadattato, la quale descrizione è consultabile nell'appendice \ref{CS}. Grazie all'utilizzo del pattern comportamentale Observer, questa componente viene notificata dell'arrivo di dati dal \file{Back-end};
+	\item \textbf{ConversationApp}: questa componente si occupa di realizzare l'applicazione ConversationApp, ovvero quella che, tramite interfaccia utente, permette l'interazione con l'assistente virtuale. Per modellare la disposizione delle sue classi, si è fatto utilizzo del pattern Flux descritto nella libreria React, la quale verrà utilizzata per realizzare quanto appena descritto. 
 	\item \textbf{Logic}: questa componente si occupa di realizzare le funzionalità che permettono l'interazione, tramite API Gateway, con il \file{Back-end}. Inoltre, quando arrivano dei dati da quest'ultimo, questa componente si occupa di notificare le componenti interessate. Ancora una volta, tutto ciò è organizzato secondo il pattern comportamentale Observer.
 \end{itemize}
 \subsubsection{Endpoints}
@@ -55,7 +62,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 		\item \textbf{/query}\\
 		\begin{itemize}
 			\item \textbf{Method:} POST;
-			\item \textbf{Descrizione:} invia all'API Gateway dei dati;
+			\item \textbf{Descrizione:} invia all'API Gateway l'audio contenente la richiesta dell'utente;
 			\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::APIGateway::VARequestAPIBody}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -143,7 +150,7 @@ Gli Endpoints sono:
 \subsubsection{Notifications}
 \paragraph{Descrizione}
 Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. La lista dei canali viene restituita come un'array di stringhe, ognuna delle quali rappresenta un canale.\\
-Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile alla pagina \url{https://api.slack.com/docs/message-buttons}.
+Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è Slack e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile alla pagina \url{https://api.slack.com/docs/message-buttons} (visitato in data 2017-03-26).
 \paragraph{Endpoints}
 
 Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Notifications. \\
@@ -258,6 +265,7 @@ Gli Endpoints sono:
   "username":"String"
 }
 \end{lstlisting}
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
 \item \textbf{/auth/users/:username}\\
@@ -276,11 +284,13 @@ Gli Endpoints sono:
   "username":"String"
 }
 \end{lstlisting}
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP.
 \end{itemize}
 
 \begin{itemize}
 \item \textbf{Method:} DELETE;
 \item \textbf{Descrizione:} viene eliminato un utente, il quale identificativo è specificato nel path;
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
 \begin{itemize}
@@ -410,6 +420,7 @@ Gli Endpoints sono:
 	}
 }
 \end{lstlisting}
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
 \item \textbf{/impostazioni/:id}\\
@@ -453,7 +464,7 @@ Gli Endpoints sono:
   }
 }
 \end{lstlisting}
-
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
 \begin{itemize}
@@ -501,7 +512,7 @@ Gli Endpoints sono:
 \begin{itemize}
 \item \textbf{Method:} DELETE;
 \item \textbf{Descrizione:} viene eliminata una direttiva, il quale identificativo è specificato nel path;
-
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
 
@@ -545,6 +556,7 @@ Gli Endpoints sono:
  ]
 }
 \end{lstlisting}
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP.
 \end{itemize}
 
 
@@ -590,7 +602,7 @@ Gli Endpoints sono:
  ]
 }
 \end{lstlisting}
-
+\item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP.
 \end{itemize}
 
 \end{itemize}
