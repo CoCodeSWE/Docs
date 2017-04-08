@@ -2,7 +2,9 @@
 I test di validazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
+
 \hline
+
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -88,6 +90,7 @@ I test di validazione saranno identificati secondo quanto riportato nel document
 I test di sistema saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
+
 \hline
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
@@ -117,7 +120,7 @@ I test di sistema saranno identificati secondo quanto riportato nel documento \N
 I test di integrazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline
+\hline 
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -131,7 +134,9 @@ I test di integrazione saranno identificati secondo quanto riportato nel documen
 \hypertarget{TI8}{TI8} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::APIGateway}, interagiscano tra loro correttamente: \file{VocalAPI}, \file{Enrollement}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI9}{TI9} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Users}, interagiscano tra loro correttamente: \file{UsersDAODynamoDB}, \file{User}, \file{UsersService}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI10}{TI10} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Rules}, interagiscano tra loro correttamente: \file{Rule}, \file{RulesDAODynamoDB}, \file{RuleTarget}, \file{RuleTaskInstance}, \file{RulesService}, \file{TasksDAODynamoDB}, \file{Task}. & \textit{Non Implementato}\\ \hline
-\hypertarget{TI11}{TI11} &
+
+\hypertarget{TI11}{TI11} & 
+
 Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::VirtualAssistant}, interagiscano tra loro correttamente: \file{VAService}, \file{ApiAIVAAdapter}, \file{VAQuery}, \file{Agent}, \file{AgentDAODynamoDB}, \file{VAEventObject}, \file{Fulfillment}, \file{MsgObject}, \file{ButtonObject}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI12}{TI12} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Member}, interagiscano tra loro correttamente: \file{MembersSlackDAO}, \file{Member}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI13}{TI13} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Guests}, interagiscano tra loro correttamente: \file{Guest}, \file{GuestDAODynamoDB}. & \textit{Non Implementato}\\ \hline
@@ -150,7 +155,7 @@ Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Virtual
 I test di unita saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline
+\hline 
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -327,7 +332,8 @@ I test di unita saranno identificati secondo quanto riportato nel documento \NPd
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TU164}{TU164} & Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400.
  & \textit{Non Implementato}\\ \hline
-\hypertarget{TU165}{TU165} &
+\hypertarget{TU165}{TU165} & 
+
 Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500.
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TU166}{TU166} & Vogliamo testare che, se la chiamata al metodo va a buon fine, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 200 e campo \file{body} contenente l’\file{User} cercato. & \textit{Non Implementato}\\ \hline
@@ -340,9 +346,9 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \hypertarget{TU173}{TU173} & Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU174}{TU174} & Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU175}{TU175} & Vogliamo testare che, se la chiamata al metodo va a buon fine, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 200. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU176}{TU176} &
+\hypertarget{TU176}{TU176} & 
 Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU177}{TU177} &
+\hypertarget{TU177}{TU177} & 
 Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU178}{TU178} & Se la chiamata al microservizio \file{Rules} genera un errore, viene chiamata la funzione di callback con un solo parametro diverso da null. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU179}{TU179} & Se la chiamata al microservizio \file{Notification} genera un errore, viene chiamata la funzione di callback con un solo parametro diverso da null. & \textit{Non Implementato}\\ \hline
@@ -386,3 +392,4 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \label{tabella:test3}
 \end{longtable}
 \clearpage
+

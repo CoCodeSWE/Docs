@@ -3,5 +3,32 @@
 \begin{document}
 
 \section{Test}
- L'analisi dinamica è un argomento non ancora trattato a lezione, pertanto la stesura di questa sezione avverrà in successive versioni del documento. 
+Al fine di produrre software di qualità, il gruppo ha strutturato dei test atti a verificare che le funzionalità del software prodotto corrispondano alle attese.
+Tali test sono ottenuti dall'applicazione delle tecniche di analisi dinamica descritte nel documento \NPdocRP{}. Inoltre, devono possedere le seguenti caratteristiche:
+\begin{itemize}
+	\item devono essere ripetibili al fine di fornire informazioni utili per poter eseguire operazioni di correzione, ove sia necessario;
+	\item devono essere tracciabili al fine di classificare le informazioni ottenute per garantire una più facile consultazione;
+\end{itemize}
+Le tipologie di test che verranno eseguiti sono:
+\begin{itemize}
+\item \textbf{Test di validazione:} test che hanno lo scopo di verificare che tutte le funzionalità richieste dal proponente siano soddisfatte. A questo scopo, attraverso una serie di
+azioni, si andrà a simulare il comportamento generale del software e dell'utente che interagisce con esso;
+\item \textbf{Test di unità: } test che  hanno lo scopo di verificare il corretto funzionamento delle unità. Le unità, individuate durante la fase di progettazione, sono le
+		più piccole parti del sistema dotate di funzionamento proprio. Questo si traduce nel verificare metodi e classi scritte dai \PRP{};
+\item \textbf{Test di integrazione: } test che hanno lo scopo di verificare il corretto funzionamento delle varie componenti. In particolare, l'obiettivo è quello di testare le varie componenti prodotte dall'unione delle unità;
+\item \textbf{Test di sistema: }test che hanno lo scopo di verificare il corretto funzionamento del prodotto software. Inoltre verranno verificate la sua robustezza in presenza di
+		possibili malfunzionamenti e il suo comportamento di fronte a possibili violazioni;
+\item \textbf{Test di regressione: } test che hanno lo scopo di verificare che una modifica dell'implementazione del software non ne comprometta la qualità. Consistono nella ripetizione di test di unità o integrazione sul componente modificato.			
+\end{itemize}
+	\input{sezioni/tabelleTest}
+	\input{sezioni/tracciamentoTVRequisiti}
+	\input{sezioni/tracciamentoComponentiTI}
+	\input{sezioni/tracciamentoMetodiTU}
+	\input{sezioni/tracciamentoRequisitiTS}
+	\input{sezioni/tracciamentoRequisitiTV}
+	\input{sezioni/tracciamentoTIComponenti}
+	\input{sezioni/tracciamentoTSRequisiti}
+	\input{sezioni/tracciamentoTUMetodi}
+	\input{sezioni/tracciamentoTVRequisiti}
 \end{document}
+
