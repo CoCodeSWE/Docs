@@ -52,11 +52,9 @@ $docs = array(
   '1VE' => 'Verbale_E_2016-12-17/', */
   'PdQ' => 'PianoDiQualifica/',
   'SDK' => 'AnalisiSDK/',
-  'DdP' => 'DefinizioneDiProdotto'
+  'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );
-
-
 echo <<< EOF
 
 ###  Software sotto licenza MIT ###
