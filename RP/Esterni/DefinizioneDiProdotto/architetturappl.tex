@@ -8,8 +8,8 @@ I motivi che hanno spinto il \gl{team} a questa scelta sono stati i seguenti:
 	\item il \gl{proponente} ha richiesto anche un lato amministrazione, il quale accesso dovrà essere regolamentato da un servizio differente e indipendente di riconoscimento vocale.
 \end{itemize}
 
-Ogni \gl{microservizio} rende disponibili degli \gl{endpoint}s, tramite i quali è possibile lo scambio di dati. \\
-Per poter creare, pubblicare, mantenere e monitorare le \gl{API} che consentono di usufruire delle funzionalità supportate dal back-end, è necessario realizzare un \gl{API \gl{Gateway}} che si interpone tra client e back-end, permettendo al primo di comunicare con il secondo.
+Ogni microservizio rende disponibili degli \gl{endpoints}, tramite i quali è possibile lo scambio di dati. \\
+Per poter creare, pubblicare, mantenere e monitorare le \gl{API} che consentono di usufruire delle funzionalità supportate dal back-end, è necessario realizzare un \gl{API Gateway} che si interpone tra client e back-end, permettendo al primo di comunicare con il secondo.
 Esso permette inoltre la creazione di endpoint disponibili all'esterno del back-end, che verranno poi mappati negli endpoints supportati dal back-end, in particolare dai microservizi.\\
 Con lo scopo di semplificare al client l'uso del back-end, è stato deciso di rendere disponibile un solo endpoint esterno per ogni tipo di client. Allo stato attuale un solo tipo di client è supportato, ovvero quello vocale richiesto dal proponente.\\
 I motivi che hanno spinto il team a questa scelta sono stati i seguenti:
@@ -311,9 +311,9 @@ Gli Endpoints sono:
 
 \end{itemize}
 
-\subsubsection{\gl{Rule}s}
+\subsubsection{Rules}
 \paragraph{Descrizione}
-Il microservizio Rules si occupa della gestione delle \gl{direttive} del sistema. Una \gl{direttiva} è un'istruzione che viene data da un amministratore al sistema, la quale permette di modificare il comportamento del sistema stesso al verificarsi di certe condizioni. Tali condizioni possono essere legate alla persona che interagisce col sistema, la sua azienda di provenienza, oppure alla persona desiderata che viene richiesta.\\
+Il microservizio Rules si occupa della gestione delle \gl{direttive} del sistema. Una direttiva è un'istruzione che viene data da un amministratore al sistema, la quale permette di modificare il comportamento del sistema stesso al verificarsi di certe condizioni. Tali condizioni possono essere legate alla persona che interagisce col sistema, la sua azienda di provenienza, oppure alla persona desiderata che viene richiesta.\\
 Il sistema fornisce una serie di funzioni per modificare il suo comportamento, le quali indicano il modo in cui esso debba essere cambiato. \\
 Una direttiva è costituita da:
 \begin{itemize}
@@ -367,7 +367,7 @@ Gli Endpoints sono:
    "name":"String"
   }
   ],
-  "\gl{task}":{ /* oggetto di tipo Back-end::Rules::Rule\gl{Task}Instance*/
+  "task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
    "params":{
 	"par1":"Object",
 	"par2":"Object",
@@ -623,7 +623,7 @@ I metodi citati appartengono alla classe \file{Back-end::APIGateway::VocalAPI}.
 
 \item \file{user.remove}: utilizza il metodo privato \file{removeUser(username: String)} per rimuovere un utente registrato;
 
-\item \file{user.add\gl{Enrollment}}: utilizza il metodo privato \file{addUserEnrollment(enr: Enrollment)} per aggiungere un Enrollment ad un utente registrato;
+\item \file{user.addEnrollment}: utilizza il metodo privato \file{addUserEnrollment(enr: Enrollment)} per aggiungere un Enrollment ad un utente registrato;
 
 \item \file{user.resetEnrollments}: utilizza il metodo privato \file{resetUserEnrollment(username: String):} per resettare gli Enrollment relativi ad un utente registrato;
 
