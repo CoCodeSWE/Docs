@@ -1,17 +1,17 @@
 \section{Design Patterns}
   \subsection{Architetturali}
-    \subsubsection{Architettura a microservizi}
+    \subsubsection{Architettura a \gl{microservizi}}
       \begin{itemize}
-       \item \textbf{Scopo:} l'architettura a microservizi è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una HTTP API;
+       \item \textbf{Scopo:} l'architettura a microservizi è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una \gl{HTTP} \gl{API};
        \item \textbf{Vantaggi:}
 	      \begin{itemize} 
-	       \item ogni microservizio è relativamente piccolo, quindi più semplice da implementare e da capire per gli sviluppatori;
+	       \item ogni \gl{microservizio} è relativamente piccolo, quindi più semplice da implementare e da capire per gli sviluppatori;
 	       \item ogni microservizio è indipendente dagli altri; è quindi possibile distribuire nuove versioni più frequentemente e isolare i possibili errori.
 	      \end{itemize}
 
        \item \textbf{Svantaggi:}
 	\begin{itemize}
-	 \item l'architettura risulta maggiormente complessa perchè risulta essere un sistema distribuito;
+	 \item l'architettura risulta maggiormente complessa perchè risulta essere un \gl{sistema} distribuito;
 	 \item la gestione di più microservizi potrebbe risultare in un carico di lavoro maggiore rispetto ad una sua versione monolitica.
 	\end{itemize}
       \end{itemize}
@@ -21,7 +21,7 @@
       	\caption{Architettura a microservizi}\label{fig:micr1}
       \end{figure}
       \newpage
-    \subsubsection{Architettura event-driven}
+    \subsubsection{Architettura \gl{event-driven}}
       \begin{itemize}
        \item \textbf{Scopo:} anche se non è un vero e proprio pattern, l'architettura event-driven è un particolare tipo di architettura asincrona per sistemi distribuiti basata sugli eventi;
 	\item \textbf{Vantaggi:}
@@ -40,7 +40,7 @@
     	\item \textbf{Vantaggi:} 
     	\begin{itemize}
     		\item è totalmente indipendente dal linguaggio di programmazione utilizzato;
-    		\item facilita il riuso delle componenti DOM.
+    		\item facilita il riuso delle componenti \gl{DOM}.
     	\end{itemize}
     	\item \textbf{Svantaggi:}
     	\begin{itemize}
@@ -56,14 +56,14 @@
  
     \end{figure}
     \newpage
-     \subsubsection{Client-side discovery}\label{CS}
+     \subsubsection{\gl{Client-side discovery}}\label{CS}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern, utilizzato in un'architettura a microservizi, permette ad un client la localizzazione dei microservizi interrogando un registro che ne conosce le posizioni. \\
-       Nel contesto della progettazione dell'architettura per il progetto \PROGETTO, questo pattern è stato riadattato (vedi figura \ref{fig:sidedisc}) per uno scopo ben diverso, ovvero quello di ottenere delle applicazioni interrogando un registro che le contiene, tramite un'interfaccia per quest'ultimo. \\ Come appena detto, lo scopo del pattern adottato è ben diverso da quello dell'originale, ma l'organizzazione delle classi del pattern Client-side discovery (vedi figura \ref{fig:sidediscorig}) modella bene la soluzione progettuale per l'ottenimento delle applicazioni;
+       Nel contesto della progettazione dell'architettura per il \gl{progetto} \PROGETTO, questo pattern è stato riadattato (vedi figura \ref{fig:sidedisc}) per uno scopo ben diverso, ovvero quello di ottenere delle applicazioni interrogando un registro che le contiene, tramite un'interfaccia per quest'ultimo. \\ Come appena detto, lo scopo del pattern adottato è ben diverso da quello dell'originale, ma l'organizzazione delle classi del pattern Client-side discovery (vedi figura \ref{fig:sidediscorig}) modella bene la soluzione progettuale per l'ottenimento delle applicazioni;
 	\item \textbf{Vantaggi:}
      \begin{itemize}
 	   \item \textbf{Originale}: permette di allocare dinamicamente diverse istanze di diversi servizi;
-	   \item \textbf{Riadattato}: permette di demandare la ricerca e recupero dell'applicazione a classi apposite, nel rispetto del single responsibility principle.
+	   \item \textbf{Riadattato}: permette di demandare la ricerca e recupero dell'applicazione a classi apposite, nel rispetto del \gl{single responsibility principle}.
 	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
@@ -82,7 +82,7 @@
 		\caption{Pattern client-side discovery}\label{fig:sidediscorig}
 	\end{figure}
     \newpage
-   \subsubsection{Data Access Object}
+   \subsubsection{\gl{Data Access Object}}
       \begin{itemize}
        \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di una sorgente di dati, o più in generale per la gestione della persistenza.
 	\item \textbf{Vantaggi:}
@@ -102,7 +102,7 @@
 		\caption{pattern Data Access Object (DAO)}\label{fig:dao1}
 	\end{figure}
 		\newpage
-    \subsubsection{Dependency Injection}
+    \subsubsection{\gl{Dependency Injection}}
      \begin{itemize}
        \item \textbf{Scopo:} consiste nella separazione del comportamento di una componente dalla risoluzione delle sue dipendenze.
 	\item \textbf{Vantaggi:}
@@ -119,13 +119,13 @@
   
   \subsection{Strutturali}
   
-    \subsubsection{Façade}
+    \subsubsection{\gl{Façade}}
       \begin{itemize}
        \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. \\
-       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un API Gateway, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
+       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API \gl{Gateway}}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
-	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come façade semplificando l'operazione;
+	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come \gl{façade} semplificando l'operazione;
 	   \item permette di diminuire le dipendenze tra sottosistemi;
 	  \end{itemize}\newpage
 	\item \textbf{Svantaggi:}
@@ -174,7 +174,7 @@
 	\end{itemize}
 	  \newpage
   \subsection{Comportamentali}
-    \subsubsection{Observer}
+    \subsubsection{\gl{Observer}}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern, adottato nella variante offerta da ReactiveX, permette la definizione di una o più classi Observer le quali "osservano" una classe Observable e ne gestiscono gli eventi.
 	\item \textbf{Vantaggi:}
@@ -199,9 +199,9 @@
 	\subsection{Promise e Observable}
 
 
-JavaScript è un linguaggio single-thread, quindi basato su un singolo thread in esecuzione. Questo significherebbe dover aspettare sempre il termine di un'operazione prima di passare alla
+\gl{JavaScript} è un linguaggio single-thread, quindi basato su un singolo thread in esecuzione. Questo significherebbe dover aspettare sempre il termine di un'operazione prima di passare alla
 successiva, quindi nel caso di operazioni di lunga durata, il flusso dell'elaborazione principale di un’applicazione JavaScript potrebbe "congelarsi". \\
-Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una callback alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituisce
+Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una \gl{callback} alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituisce
 il controllo al chiamante. Quando l'operazione sarà terminata, la funzione di callback verrà invocata. \\
 
 
@@ -244,7 +244,7 @@ La scelta quindi ricade su RxJS, ReactiveX library per JavaScript.
 
 Un Observable è una rappresentazione di un qualsiasi insieme di valori durante un qualsiasi periodo di tempo. Viene utilizzata per le implementazioni del pattern Observer.
 RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornata
-da Microsoft e altri sviluppatori di software open source.
+da Microsoft e altri sviluppatori di \gl{software} \gl{open source}.
 
 I vantaggi sono:
 \begin{itemize}
@@ -255,9 +255,9 @@ Gli svantaggi sono:
 	\item RxJS v5 è una libreria non ancora molto popolare, ma gode comunque di un buon supporto.
 \end{itemize}
 
-\subsection{AWS SDK per JavaScript in Node.js}
+\subsection{AWS \gl{SDK} per JavaScript in \gl{Node.js}}
 
-Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema, è necessario utilizzare l'AWS SDK per JavaScript in Node.js per
+Siccome il gruppo ha deciso di appoggiarsi all'infrastruttura \gl{Amazon Web Services} (AWS) per lo sviluppo del sistema, è necessario utilizzare l'AWS SDK per JavaScript in Node.js per
 interfacciarsi ai singoli servizi offerti da AWS.
 
 \subsubsection{Node.js}
@@ -277,8 +277,8 @@ E' un modello che implementa l'esistenza delle Promises come risposta a una seri
 \subsection{Amazon Web Services}
 Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
 
-\subsubsection{AWS Lambda}
-AWS Lambda è un servizio di cloud-computing fornito da Amazon, il quale permette l'implementazione di una architettura serverless. \\
+\subsubsection{\gl{AWS Lambda}}
+AWS Lambda è un servizio di \gl{cloud}-computing fornito da Amazon, il quale permette l'implementazione di una architettura \gl{serverless}. \\
 Esso permette l'esecuzione di codice senza preoccuparsi della gestione di server o di tutte le risorse necessarie all'esecuzione del codice, in termini di tempo, spazio e computabilità. \\
 AWS Lambda permette di eseguire codice su una piattaforma ad alta affidabilità, a patto che il codice sia scritto in un linguaggio supportato. Nel nostro caso, faremo utilizzo di Node.js 4.3.2, supportato da AWS Lambda. \\
 Inoltre, questo servizio può essere utilizzato per eseguire del codice in risposta ad eventi. \\
@@ -293,7 +293,7 @@ dove:
 	\item \file{event} è l'oggetto che contiene i dati della richiesta ricevuta dall'API Gateway. In particolare, contiene i seguenti campi:
 	\begin{itemize}
 		\item \file{body}: campo di tipo \file{String} contenente il corpo della richiesta;
-		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'URL;
+		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'\gl{URL};
 		\item \file{urlQueryParameters}: oggetto contenente i parametri passati all'API Gateway attraverso query nell'URL.
 	\end{itemize}
 	\item \file{context} è l'oggetto contenente i dati relativi alla risposta e, in caso di Lambda Proxy Integration, contiene anche i seguenti metodi:
@@ -307,8 +307,8 @@ dove:
 	\end{itemize}
 \end{itemize}
 \newpage
-\subsubsection{DynamoDB}
-Amazon DynamoDB è un servizio che fornisce un database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
+\subsubsection{\gl{DynamoDB}}
+Amazon DynamoDB è un servizio che fornisce un database \gl{NoSQL}, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
 È un servizio di database NoSQL cloud interamente gestito, è quindi sufficiente creare una tabella di database, impostare il throughput desiderato e lasciare che il servizio si occupi del resto. \\
 I vantaggi offerti sono:
 \begin{itemize}
@@ -330,7 +330,7 @@ I vantaggi offerti sono:
 	\item un pannello di controllo che consente di monitorare visivamente le chiamate al servizio;
 	\item esecuzione simultanea di diverse versioni della stessa API, consentendo di iterare, testare e rilasciare nuove versioni in tempi brevi;
 	\item strumenti per concedere le autorizzazioni di accesso alle API e controllare l'accesso alla gestione dei servizi;
-	\item creazione di endpoint REST, permettendo di creare API avanzate basate sulle risorse, impiegando poi le dinamiche e flessibili funzionalità di trasformazione dei dati per generare le richieste nel linguaggio dei servizi a cui le richieste sono rivolte;
+	\item creazione di \gl{endpoint} \gl{REST}, permettendo di creare API avanzate basate sulle risorse, impiegando poi le dinamiche e flessibili funzionalità di trasformazione dei dati per generare le richieste nel linguaggio dei servizi a cui le richieste sono rivolte;
 	\item esecuzione di API serverless, ista l'integrazione con AWS Lambda.
 \end{itemize}
 Gli svantaggi sono:
@@ -340,7 +340,7 @@ Gli svantaggi sono:
 \newpage
 \subsubsection{SNS}
 Amazon Simple Notification Service (Amazon SNS) è un servizio di notifiche push rapido, flessibile e completamente gestito che ti consente di inviare messaggi individuali o collettivi a un numero elevato di destinatari. \\
-Con Amazon SNS è possibile inviare notifiche a dispositivi Apple, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle lambda function  altri endpoint HTTP. \\
+Con Amazon SNS è possibile inviare notifiche a dispositivi \gl{Apple}, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle lambda function  altri endpoint HTTP. \\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item alte prestazioni e affidabilità, infatti oltre ad avere una bassa latenza di risposta, tutti i messaggi pubblicati in Amazon SNS vengono memorizzati in modo ridondante su più server e data center;
@@ -353,8 +353,8 @@ Gli svantaggi sono:
 \end{itemize}
 \subsubsection{CloudWatch}
 Amazon CloudWatch è un servizio di monitoraggio per le risorse cloud AWS e le applicazioni in esecuzione su AWS. Inoltre, tramite una semplice richiesta API, è possibile inviare parametri personalizzati generati dalle proprie applicazioni per monitorarli tramite questo servizio.
-\subsection{Serverless Framework}
-Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.\\
+\subsection{Serverless \gl{Framework}}
+Serverless Framework è un web \gl{framework} gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche lambda functions per portare a termine semplici tasks o da molte lambda functions per creare ad esempio un intero back-end.\\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item semplifica lo sviluppo delle lambda function e dell'API Gateway di AWS.
@@ -365,7 +365,7 @@ Gli svantaggi sono:
 \end{itemize}
 \newpage
 \subsection{JWT}
-JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
+JWT è uno standard basato su \gl{JSON} per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può \gl{verifica}re se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti \gl{Single sign-on} (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item alto grado di sicurezza nella trasmissione delle informazioni in formato JSON;
@@ -376,7 +376,7 @@ Gli svantaggi sono:
 	\item l'algoritmo crittografico per verifica i dati è molto complesso.
 \end{itemize}
 \subsection{Web Speech API}
-Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come text to speech o tts).
+Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come \gl{text to speech} o tts).
 Il riconoscimento vocale è acceduto attraverso l'interfaccia SpeechRecognition, la quale fornisce la possibilità di riconoscere il contesto vocale da un input vocale e risponde appropriatamente. 
 La sintesi vocale è acceduta tramite l'interfaccia SpeechSynthesis, una componente text-to-speech che permette ai programmi di leggere testo.
 
@@ -392,7 +392,7 @@ Gli svantaggi sono:
 	\item dopo le 10.000 chiamate al servizio al mese, il servizio non è più gratuito, ma i costi sono molto bassi. Inoltre, un numero di chiamate del genere è più che sufficiente.
 \end{itemize}
 \subsection{STT IBM Watson}
-Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il machine learning per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
+Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il \gl{machine learning} per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
 I vantaggi offerti sono:
 \begin{itemize}
 	\item l'affidabilità del riconoscimento vocale è molto alta.
@@ -426,16 +426,16 @@ Gli svantaggi sono:
 	\item l'integrazione con altri pattern tradizionali, ad esempio Model-View-Controller (MVC), risulta complessa;
 	\item non ha una buona curva d'apprendimento.
 \end{itemize}
-\subsection{HTML5}
-HTML5 è un linguaggio di markup per la strutturazione di pagine web, pubblicato dal W3C nell’ottobre del 2014 con lo scopo di migliorare l’HTML4, permettendo supporto a nuovi file multimediali, mantenendo la leggibilità da parte di uomini e computer.
+\subsection{\gl{HTML5}}
+HTML5 è un linguaggio di \gl{markup} per la strutturazione di pagine web, pubblicato dal W3C nell’ottobre del 2014 con lo scopo di migliorare l’HTML4, permettendo supporto a nuovi file multimediali, mantenendo la leggibilità da parte di uomini e computer.
 I vantaggi offerti sono:
 \begin{itemize}
 	\item è uno stantard W3C.
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
-	\item non è supportato da tutti i vecchi browser.
+	\item non è supportato da tutti i vecchi \gl{browser}.
 \end{itemize}
-\subsection{CSS3}
+\subsection{\gl{CSS3}}
 Pubblicata nel novembre 2014 dal W3C, CSS3 è una versione di CSS che va a correggere alcuni bug di interpretazione di Internet Explorer, migliorare la gestione degli sfondi e una soluzione per realizzare i bordi arrotondati.\\
 CSS3 è suddiviso in moduli, al contrario delle versioni monolitiche precedenti, contenenti le vecchie specifiche CSS e nuove caratteristiche. Ciascun modulo tratta un tema diverso inerente i fogli di stile e, di conseguenza, ciascun tema è sviluppato in tempistiche differenti.

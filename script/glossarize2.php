@@ -42,16 +42,14 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  'Glo' => 'Glossario/',
-  'NdP' => 'NormeDiProgetto/',
-  'SdF' => 'StudioDiFattibilita/',
+  'Glo' => 'Glossario/sezioni/',
+  'NdP' => 'NormeDiProgetto/sezioni/',
   'PdP' => 'PianoDiProgetto/',
-  'AdR' => 'AnalisiDeiRequisiti/',
+  'AdR' => 'AnalisiDeiRequisiti/sezioni/',
 /* '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
   '2VI' => 'Verbale_I_2016-12-19',
   '1VE' => 'Verbale_E_2016-12-17/', */
-  'PdQ' => 'PianoDiQualifica/',
-  'SDK' => 'AnalisiSDK/',
+  'PdQ' => 'PianoDiQualifica/sezioni/',
   'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );
@@ -130,10 +128,11 @@ function glossarizeDoc($path) {
       /**
        * ...e la (de)glossarizza!
        */
+       // Alcuni file non dovrebbero essere glossarizzati (tipo quelli che contengono solo tabelle di tracciamento)
       if (preg_match("/\b$voce\b/", $line) && $voce!="") {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
           //echo $path." ".$voce."\n";
-
+          echo $filename."-".$voce."\n";
           if($voce=="casi d'uso" || $voce=="Casi d'uso"){
             $Vvoce=$voce;
             $file_contents = file_get_contents($filename);

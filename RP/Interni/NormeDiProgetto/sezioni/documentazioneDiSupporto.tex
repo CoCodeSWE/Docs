@@ -4,8 +4,8 @@ la documentazione, durante il \gl{ciclo di vita} del \gl{software}.
 \subsubsection{Aspettative}
 Le aspettative della corretta implementazione di tale processo sono:
 \begin{itemize}
-	\item una chiara visione della documentazione prodotta durante il \gl{ciclo di vita}
-del \gl{software};
+	\item una chiara visione della documentazione prodotta durante il ciclo di vita
+del software;
 	\item una serie di norme per la stesura di documenti coerenti e validi;
 	\item una documentazione formale e coerente.
 \end{itemize}
@@ -22,7 +22,7 @@ La prima pagina di ogni documento dovrà contenere:
 	\item sommario;
 	\item data di redazione;
 	\item nome e cognome dei redattori del documento;
-	\item nome e cognome dei verificatori del documento;
+	\item nome e cognome dei \gl{verifica}tori del documento;
 	\item nome e cognome del responsabile per l'approvazione del documento;
 	\item uso del documento (interno o esterno);
 	\item lista di distribuzione del documento.
@@ -35,7 +35,7 @@ La prima pagina di ogni documento dovrà contenere:
  	\item numero di versione;
  	\item breve riepilogo delle modifiche apportate;
  	\item autore delle modifiche;
- 	\item ruolo ricoperto dall'autore all'interno del \gl{progetto};
+ 	\item ruolo ricoperto dall'autore all'interno del progetto;
  	\item data di modifica.
  \end{itemize}
  \paragraph{Indici}
@@ -45,7 +45,7 @@ La prima pagina di ogni documento dovrà contenere:
 L'intestazione delle pagine di ogni documento deve contenere:
 \begin{itemize}
 	\item numero e titolo della sezione;
-	\item nome del \gl{progetto}.
+	\item nome del progetto.
 \end{itemize}
 Il piè di pagina contiene invece:
 \begin{itemize}
@@ -88,7 +88,7 @@ In questa sezione vengono definite le norme ortografiche e tipografiche da rispe
 	\begin{itemize}
 		\item frammenti di codice;
 		\item comandi;
-		\item URL.
+		\item \gl{URL}.
 	\end{itemize}
 	\item \textbf{Glossario}: le parole che hanno un riferimento nel glossario sono in corsivo e hanno una 'g' a pedice.
 \end{itemize}
@@ -146,7 +146,7 @@ Il seguente esempio vuole chiarire la differenziazione grafica tra i vari livell
 	Ad esempio, 15:05 è un orario scritto secondo le norme stabilite;
 	\item \textbf{Nomi ricorrenti}:
 	\begin{itemize}
-		\item \textbf{Ruoli di \gl{progetto}}: ogni nome di un ruolo di \gl{progetto} deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando \file{\textbackslash{CodiceRuolo}};
+		\item \textbf{Ruoli di progetto}: ogni nome di un ruolo di progetto deve essere scritto con la lettera iniziale maiuscola e con lo stile corsivo. Questo viene automatizzato utilizzando il comando \file{\textbackslash{CodiceRuolo}};
 		\item \textbf{Nomi propri}: ogni nome deve essere espresso nella forma "Nome Cognome";
 		\item \textbf{Nomi dei documenti}: ogni nome di documento viene scritto con lo stile corsivo, con l'iniziale di ogni parola maiuscola e con la versione corrente. Questo viene automatizzato richiamando il comando \file{\textbackslash{SiglaDocumentodoc}}.
 	\end{itemize}
@@ -209,10 +209,10 @@ Al fine di facilitarne la tracciabilità, le immagini devono essere:
 \end{itemize}
 \subsubsection{Classificazione dei documenti}
  \paragraph{Documenti informali}
- Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di \gl{progetto}, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
+ Tutti i documenti sono da ritenersi informali fino all'approvazione da parte del \RESP{} di progetto, ed in quanto tali sono da considerarsi esclusivamente ad uso interno.
  \paragraph{Documenti formali}
- Un documento viene definito formale quando viene validato dal \RESP{} di \gl{progetto}. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
-documento deve aver passato la \gl{verifica} e la \gl{validazione}.
+ Un documento viene definito formale quando viene validato dal \RESP{} di progetto. Solo i documenti formali possono essere distribuiti all'esterno del gruppo. Per arrivare a tale stato il
+documento deve aver passato la verifica e la \gl{validazione}.
  \paragraph{Glossario}
 Il glossario nasce dall'esigenza di chiarire il significato di parole che possono risultare ambigue all'interno di determinati contesti. Saranno quindi presenti parole che:
 \begin{itemize}
@@ -265,7 +265,7 @@ La formalizzazione di un documento segue la seguente procedura:
 	\item il documento viene redatto da coloro che sono incaricati della sua stesura ed eventuale correzione di errori;
 	\item per ogni significativa modifica del documento, i \VERP{} avranno il compito di controllare la presenza di errori o imprecisioni;
 	\item se i \VERP{} riscontrano degli errori, dovranno notificarlo ai redattori del documento tramite una specifica \gl{issue}, tornando così al punto 1, altrimenti, se completo, il documento viene consegnato al \RESP{};
-	\item il \RESP{} di \gl{progetto} decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
+	\item il \RESP{} di progetto decide se approvare, e quindi formalizzare il documento, oppure se rifiutarlo comunicando la motivazione e le modifiche da apportare, tornando così al punto 1.
 \end{enumerate}
 \begin{figure}[h]
 	\centering
@@ -280,12 +280,12 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\item \textbf{X}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di \gl{progetto} approva il documento.
+		\item viene incrementato quando il \RESP{} di progetto approva il documento.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato dal \VER{} ad ogni \gl{verifica};
+		\item viene incrementato dal \VER{} ad ogni verifica;
 		\item quando viene modificato X, viene riportato a 0.
 	\end{itemize}
 	\item \textbf{Z}:
@@ -296,7 +296,7 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\end{itemize}
 \end{itemize}
 \paragraph{Glossarizzazione}
-È stato creato uno script PHP che permette la glossarizzazione di tutti i documenti, ovvero marca in corsivo e con la g a pedice tutte le parole presenti nel \Gldoc{}. Prima di ogni revisione, lo script dovrà essere lanciato da terminale con il comando \begin{verbatim}
+È stato creato uno script \gl{PHP} che permette la glossarizzazione di tutti i documenti, ovvero marca in corsivo e con la g a pedice tutte le parole presenti nel \Gldoc{}. Prima di ogni revisione, lo script dovrà essere lanciato da terminale con il comando \begin{verbatim}
 php glossarize2.php
 \end{verbatim}
 
@@ -327,11 +327,11 @@ La stesura dei documenti deve essere effettuata utilizzando il linguaggio di \gl
 \begin{itemize}
 	\item creazione di documenti formali in modo rapido ed efficiente;
 	\item possibilità di separare contenuto e formattazione, definendo l'aspetto delle pagine in un file
-\gl{template} separato e condiviso da tutti i documenti;
+template separato e condiviso da tutti i documenti;
 	\item creazione e gestione automatica dell'indice del documento.
 \end{itemize}
 \subparagraph{Template}
-Per garantire omogeneità tra i documenti è stato creato un \gl{template} \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto.
+Per garantire omogeneità tra i documenti è stato creato un template \LaTeX{}, dove sono state definite tutte le regole di formattazione da applicare al documento. Questo permette a tutti i componenti del gruppo di concentrarsi solo nella stesura del contenuto, senza doversi preoccupare dell'aspetto.
 \subparagraph{Comandi personalizzati}
 Sono stati definiti dei comandi \LaTeX{} personalizzati al fine di poter rendere più semplice ed immediata
 l’applicazione delle norme tipografiche. Questi comandi si occupano delle
@@ -343,7 +343,7 @@ il riferimento a ruoli, documenti, periodi e file. Questi riferimenti si occupan
 corretta formattazione del testo secondo le norme che sono state definite. La
 lista dei riferimenti è presente nel file \file{Docs/template/Riferimenti.sty}.
  \paragraph{\gl{Texmaker}}
-Per la redazione del codice \LaTeX{}{} viene utilizzato l'editor \gl{Texmaker}. Questo
+Per la redazione del codice \LaTeX{}{} viene utilizzato l'editor Texmaker. Questo
 strumento oltre ad integrare un compilatore e visualizzatore \gl{PDF}, fornisce suggerimenti per il completamento dei comandi \LaTeX{}.
 \begin{figure}[h]
 \centering
@@ -359,10 +359,10 @@ In \GloScript{} si trova lo script che, per ogni documento, marca come glossariz
 \subsection{Configurazione}
 \subsubsection{Versionamento}
 \paragraph{Repository}
-Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} \gl{GitHub}, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE}. Tutti i membri del gruppo dovranno creare un proprio account \gl{GitHub}, per poi ricevere i permessi in scrittura sul \gl{repository} da parte dell'\AMM.
+Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} \gl{Git}Hub, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE}. Tutti i membri del gruppo dovranno creare un proprio account \gl{GitHub}, per poi ricevere i permessi in scrittura sul \gl{repository} da parte dell'\AMM.
 La gestione del \gl{repository} è responsabilità degli \AMMP.
 \paragraph{Struttura del repository Docs}
-Questo repository è dedicato all'archiviazione dei file per generare tutta la documentazione che il team vuole produrre.\\
+Questo repository è dedicato all'archiviazione dei file per generare tutta la documentazione che il \gl{team} vuole produrre.\\
 Al fine di mantenere ordine e coerenza tra i file, il \gl{repository} è così strutturato:
 \begin{itemize}
 	\item Docs
@@ -382,7 +382,7 @@ Al fine di mantenere ordine e coerenza tra i file, il \gl{repository} è così s
 	\end{itemize}
 \end{itemize}
 \paragraph{Struttura del repository \PROGETTO}
-Questo repository è dedicato all'archiviazione dei file contenenti il codice sorgente per realizzare il prodotto.\\
+Questo repository è dedicato all'archiviazione dei file contenenti il codice sorgente per realizzare il \gl{prodotto}.\\
 Al fine di mantenere ordine e coerenza tra i file, il repository è così strutturato:
 \begin{itemize}
 	\item \PROGETTO
@@ -392,7 +392,7 @@ Al fine di mantenere ordine e coerenza tra i file, il repository è così strutt
 		\item back-end: contiene il codice sorgente che realizza la parte \file{Client} del prodotto.
 	\end{itemize}
 \end{itemize}
-Questo repository dovrà seguire la gerarchia dei package descritta nel documento \DPdoc.
+Questo repository dovrà seguire la gerarchia dei \gl{package} descritta nel documento \DPdoc.
 \paragraph{Commit}
 Ogni commit effettuata deve essere accompagnata da un messaggio descrittivo delle modifiche effettuate. L'autore della commit dovrà assicurarsi della correttezza dei file. È sconsigliato effettuare il commit di intere cartelle, al fine di evitare inclusioni di file inutili(ad es: file di compilazione).
 Dovrà inoltre essere segnalata l'eventuale aggiunta di nuovi file.
@@ -429,10 +429,10 @@ Una volta terminato il suo utilizzo, il branch dovrà essere eliminato seguendo 
 \end{itemize}
 \paragraph{Strumenti}
  \subparagraph{Git}
- Lo strumento usato per il versionamento è \gl{Git}, in combinazione con il servizio di host GitHub e con GitHub desktop.
+ Lo strumento usato per il versionamento è Git, in combinazione con il servizio di host GitHub e con GitHub desktop.
  Git è un software open-source di controllo versione distribuito utilizzabile dal terminale. Come versione si utilizza la 2.7.4 o superiori.
  \subparagraph{GitHub}
- \gl{GitHub} è un servizio di hosting per progetti \gl{software}, con il quale è possibile interagire tramite \gl{Git}. \gl{GitHub}
+ GitHub è un servizio di hosting per progetti software, con il quale è possibile interagire tramite Git. GitHub
  offre diversi piani per \gl{repository} privati sia a pagamento, sia gratuiti, molto utilizzati per lo
  sviluppo di progetti open-source. 
  \begin{figure}[h]
@@ -441,4 +441,4 @@ Una volta terminato il suo utilizzo, il branch dovrà essere eliminato seguendo 
  	\caption{Github}\label{sec:Figura4}
  \end{figure}
  \subparagraph{GitHub desktop}
- \gl{GitHub} Desktop è l'applicativo desktop per contribuire e collaborare ai progetti del corrispondente servizio web \gl{GitHub}. Esso è disponibile per Windows e MacOS. Per Windows si utilizza la versione 3.3.3 o superiori.
+ GitHub Desktop è l'applicativo desktop per contribuire e collaborare ai progetti del corrispondente servizio web GitHub. Esso è disponibile per Windows e MacOS. Per Windows si utilizza la versione 3.3.3 o superiori.

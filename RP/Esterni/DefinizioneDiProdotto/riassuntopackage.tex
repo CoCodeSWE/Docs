@@ -1,9 +1,9 @@
-\section{Diagrammi riassuntivi dei package}
+\section{Diagrammi riassuntivi dei \gl{package}}
 Di seguito sono riportati tutti i package dell’applicativo per chiarire la relazione tra le componenti e le classi al suo interno. Per chiarezza ed esigenza di spazio le classi rappresentate all’interno dei package sono rappresentate senza metodi e attributi.
 
 
 \subsection{Back-end}
-Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a microservizi.
+\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 \caption{Package Back-end}
 \end{figure}
@@ -19,7 +19,7 @@ Package contenente le classi necessarie a gestire: \begin{itemize} \item diversi
 
 
 \subsection{Back-end::Conversations}
-Package contenente le classi relative alle Conversations del sistema.
+Package contenente le classi relative alle Conversations del \gl{sistema}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Conversations.png}
 \caption{Package Back-end::Conversations}
 \end{figure}
@@ -47,21 +47,21 @@ Package contenente le classi relative ai membri del sistema
 \newpage
 
 \subsection{Back-end::Notifications}
-Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle notifiche da inviare alla persona desiderata su una certa piattaforma di messaggistica.
+Package contenente le classi e le interfacce che realizzano il \gl{microservizio} relativo alla gestione delle notifiche da inviare alla persona desiderata su una certa piattaforma di messaggistica.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Notifications.png}
 \caption{Package Back-end::Notifications}
 \end{figure}
 \newpage
 
 \subsection{Back-end::Rules}
-Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle direttive per l'assistente virtuale.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item l'aggiunta di una nuova direttiva; \item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire; \item la gestione delle direttive esistenti; \item la gestione dei compiti esistenti. \end{itemize}
+Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle \gl{direttive} per l'assistente virtuale.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item l'aggiunta di una nuova \gl{direttiva}; \item l'aggiunta di un nuovo compito (\file{\gl{Task}}) che una direttiva deve eseguire; \item la gestione delle direttive esistenti; \item la gestione dei compiti esistenti. \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Rules.png}
 \caption{Package Back-end::Rules}
 \end{figure}
 \newpage
 
 \subsection{Back-end::STT}
-Package che include le classi che si occupano di fornire le funzionalità di Speech to text.
+Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/STT.png}
 \caption{Package Back-end::STT}
 \end{figure}
@@ -89,7 +89,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio di 
 \newpage
 
 \subsection{Client}
-Package che racchiude tutte le componenti del client. Il pattern utilizzato per organizzare le componenti è quello di un'architettura event-driven.
+Package che racchiude tutte le componenti del client. Il pattern utilizzato per organizzare le componenti è quello di un'architettura \gl{event-driven}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Client.png}
 \caption{Package Client}
 \end{figure}
@@ -121,7 +121,7 @@ Package contenente le classi che realizzano la registrazione audio.\\ Vengono of
 
 
 \subsection{Client::TTS}
-Package contenente le componenti che realizzano il text to speech. Vengono offerte funzionalità che permettono: \begin{itemize} \item la reazione a dei dati arrivati come riposta dal \file{Back-end}; \item la riproduzione audio del testo fornito come risposta dall'assistente virtuale. \end{itemize}
+Package contenente le componenti che realizzano il \gl{text to speech}. Vengono offerte funzionalità che permettono: \begin{itemize} \item la reazione a dei dati arrivati come riposta dal \file{Back-end}; \item la riproduzione audio del testo fornito come risposta dall'assistente virtuale. \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/TTS.png}
 \caption{Package Client::TTS}
 \end{figure}
@@ -149,15 +149,15 @@ Libreria esterna
 \end{figure}
 \newpage
 
-\subsection{Slack}
-Package contenente tutte le classi che fanno parte dell'SDK per Node.js di Slack.
+\subsection{\gl{Slack}}
+Package contenente tutte le classi che fanno parte dell'\gl{SDK} per \gl{Node.js} di Slack.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Slack.png}
 \caption{Package Slack}
 \end{figure}
 \newpage
 
 \subsection{WatsonDeveloperCloud}
-SDK node.js per l'accesso ai servizi cloud IBM Watson. CAMBIARE IMAMOWAMIOAWTJHOTAWOJIAWT
+SDK node.js per l'accesso ai servizi \gl{cloud} IBM Watson. CAMBIARE IMAMOWAMIOAWTJHOTAWOJIAWT
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Utility.png}
 \caption{Package Client::Utility}
 \end{figure}

@@ -1,5 +1,5 @@
 \subsection{Test di Validazione}
-I test di validazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.
+I test di \gl{validazione} saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
 
@@ -8,7 +8,7 @@ I test di validazione saranno identificati secondo quanto riportato nel document
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
-\hypertarget{TVFO1}{TVFO1} & L'utente deve verificare che il sistema riesca a riconoscerlo come ospite o possibile amministratore. All'utente viene richiesto di:
+\hypertarget{TVFO1}{TVFO1} & L'utente deve \gl{verifica}re che il \gl{sistema} riesca a riconoscerlo come ospite o possibile amministratore. All'utente viene richiesto di:
 \begin{itemize}
 \item fornire nome e cognome;
 \end{itemize} & \textit{Non Implementato}\\ \hline
@@ -20,7 +20,7 @@ I test di validazione saranno identificati secondo quanto riportato nel document
 \item comunicare la frase per lo Speaker Recognition;
 \item verificare l'accesso all'area amministrativa.
 \end{itemize} & \textit{Non Implementato}\\ \hline
-\hypertarget{TVFO2.1}{TVFO2.1} & L'utente deve verificare che il sistema permetta la creazione di una nuova direttiva. All'utente viene richiesto di:
+\hypertarget{TVFO2.1}{TVFO2.1} & L'utente deve verificare che il sistema permetta la creazione di una nuova \gl{direttiva}. All'utente viene richiesto di:
 \begin{itemize}
 \item autenticarsi come amministratore;
 \item comunicare l'intento di voler creare una nuova direttiva;
@@ -98,18 +98,18 @@ I test di sistema saranno identificati secondo quanto riportato nel documento \N
 \hypertarget{TSFO1.1.2.1}{TSFO1.1.2.1} & Il sistema deve permettere all'utente di autenticarsi come amministratore tramite frase di riconoscimento. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO2.1.1}{TSFO2.1.1} & Il sistema deve permettere all'amministratore di poter creare una nuova direttiva. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO2.1.2}{TSFO2.1.2} & Il sistema deve permettere all'amministratore di poter eliminare una direttiva di cui ha i privilegi. & \textit{Non Implementato}\\ \hline
-\hypertarget{TSFO2.1.4}{TSFO2.1.4} & Il sistema deve permettere all'amministratore di poter visualizzare le direttive di cui ha i privilegi. & \textit{Non Implementato}\\ \hline
+\hypertarget{TSFO2.1.4}{TSFO2.1.4} & Il sistema deve permettere all'amministratore di poter visualizzare le \gl{direttive} di cui ha i privilegi. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO2.2.1}{TSFO2.2.1} & L'amministratore deve poter modificare il nome e cognome del suo profilo. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO3.1}{TSFO3.1} & Il sistema deve permettere all'ospite di richiedere la persona desiderata. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO5}{TSFO5} & Il sistema deve richiedere nuovamente le informazioni nel caso in cui non fossero state comprese. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO7}{TSFO7} & Il sistema deve essere in grado di riconoscere ospiti già stati in visita all'azienda. In questo caso, l'assistente virtuale deve poter prevedere le sue necessità. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSFO8}{TSFO8} & Il sistema deve sollecitare la persona desiderata o eventualmente avvisare gli altri membri dell'azienda su richiesta dell'ospite. & \textit{Non Implementato}\\ \hline
-\hypertarget{TSFO13}{TSFO13} & Il sistema deve comunicare nell'opportuno canale di Slack le informazioni raccolte durante l'interazione con l'ospite. & \textit{Non Implementato}\\ \hline
-\hypertarget{TSVO1.1}{TSVO1.1} & Vogliamo testare che il software funzioni correttamente in un PC con sistema operativo Windows 7 o superiore.
+\hypertarget{TSFO13}{TSFO13} & Il sistema deve comunicare nell'opportuno canale di \gl{Slack} le informazioni raccolte durante l'interazione con l'ospite. & \textit{Non Implementato}\\ \hline
+\hypertarget{TSVO1.1}{TSVO1.1} & Vogliamo testare che il \gl{software} funzioni correttamente in un PC con sistema operativo Windows 7 o superiore.
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TSVO4}{TSVO4} & Le pagine HTML devono essere validate. & \textit{Non Implementato}\\ \hline
 \hypertarget{TSVO5}{TSVO5} & I fogli di stile CSS devono essere validati. & \textit{Non Implementato}\\ \hline
-\hypertarget{TSVO10}{TSVO10} & Vogliamo testare che il software funzioni correttamente con il browser Google Chrome versione 53 o superiore. & \textit{Non Implementato}\\ \hline
+\hypertarget{TSVO10}{TSVO10} & Vogliamo testare che il software funzioni correttamente con il \gl{browser} Google Chrome versione 53 o superiore. & \textit{Non Implementato}\\ \hline
 \caption[Test di Sistema]{Test di Sistema}
 \label{tabella:test1}
 \end{longtable}
@@ -130,15 +130,15 @@ Segue il diagramma di attività relativo ai test d'integrazione.
 \hline
 \endhead
 \hypertarget{TI1}{TI1} & Vogliamo verificare che \file{Recorder}, \file{Logic}, \file{Utility}, \file{Recorder}, \file{TTS}, \file{ConversationApp} e \file{ApplicationManager} interagiscano correttamente fra loro. & \textit{Non Implementato}\\ \hline
-\hypertarget{TI2}{TI2} & Vogliamo verificare che \file{APIGateway}, \file{STT}, \file{VirtualAssistant},  \file{Users}, \file{Guests}, \file{Rules}, \file{Members}, \file{Conversations} e \file{Events} interagiscano correttamente tra di loro. Inoltre, vogliamo verificare che interagiscano correttamente con i servizi e librerie esterne AWS, Speaker Recognition, Speech to text IBM Watson, api.ai, Slack e \file{WebAPI}. & \textit{Non Implementato}\\ \hline
-\hypertarget{TI3}{TI3} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::ApplicationManager}, interagiscano tra loro correttamente: \file{ApplicationManagerObserver}, \file{ApplicationRegistryClient}, \file{ApplicationRegistryLocalClient}, \file{ApplicationLocalRegistry}, \file{Manager}, \file{State}, \file{Application}, \file{ApplicationPackage}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI2}{TI2} & Vogliamo verificare che \file{APIGateway}, \file{STT}, \file{VirtualAssistant},  \file{Users}, \file{Guests}, \file{\gl{Rule}s}, \file{Members}, \file{Conversations} e \file{Events} interagiscano correttamente tra di loro. Inoltre, vogliamo verificare che interagiscano correttamente con i servizi e librerie esterne AWS, Speaker Recognition, \gl{Speech to text} IBM Watson, api.ai, Slack e \file{WebAPI}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI3}{TI3} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::ApplicationManager}, interagiscano tra loro correttamente: \file{ApplicationManager\gl{Observer}}, \file{ApplicationRegistryClient}, \file{ApplicationRegistryLocalClient}, \file{ApplicationLocalRegistry}, \file{Manager}, \file{State}, \file{Application}, \file{ApplicationPackage}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI4}{TI4} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::Logic}, interagiscano tra loro correttamente: \file{DataArrivedSubject}, \file{DataArrivedObservable}, \file{Logic}, \file{HttpError}, \file{HttpPromise}, \file{LogicObserver}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI5}{TI5} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::Recorder}, interagiscano tra loro correttamente: \file{Recorder}, \file{RecorderWorker}, \file{RecorderMsg}, \file{RecorderWorkerMsg}, \file{RecorderWorkerConfig}, \file{RecorderConfig}, \file{SpeechEndSubject}, \file{SpeechEndObservable}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI6}{TI6} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::TTS}, interagiscano tra loro correttamente: \file{TTSConfig}, \file{Player}, \file{PlayerObserver}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI7}{TI7} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::Utility}, interagiscano tra loro correttamente: \file{BoolSubject}, \file{BoolObservable}, \file{BoolObserver}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI8}{TI8} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::APIGateway}, interagiscano tra loro correttamente: \file{VocalAPI}, \file{Enrollement}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI9}{TI9} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Users}, interagiscano tra loro correttamente: \file{UsersDAODynamoDB}, \file{User}, \file{UsersService}. & \textit{Non Implementato}\\ \hline
-\hypertarget{TI10}{TI10} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Rules}, interagiscano tra loro correttamente: \file{Rule}, \file{RulesDAODynamoDB}, \file{RuleTarget}, \file{RuleTaskInstance}, \file{RulesService}, \file{TasksDAODynamoDB}, \file{Task}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI10}{TI10} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Rules}, interagiscano tra loro correttamente: \file{Rule}, \file{RulesDAODynamoDB}, \file{RuleTarget}, \file{Rule\gl{Task}Instance}, \file{RulesService}, \file{TasksDAODynamoDB}, \file{Task}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI11}{TI11} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::VirtualAssistant}, interagiscano tra loro correttamente: \file{VAService}, \file{ApiAIVAAdapter}, \file{VAQuery}, \file{Agent}, \file{AgentDAODynamoDB}, \file{VAEventObject}, \file{Fulfillment}, \file{MsgObject}, \file{ButtonObject}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI12}{TI12} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Member}, interagiscano tra loro correttamente: \file{MembersSlackDAO}, \file{Member}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI13}{TI13} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Guests}, interagiscano tra loro correttamente: \file{Guest}, \file{GuestDAODynamoDB}. & \textit{Non Implementato}\\ \hline
@@ -172,7 +172,7 @@ I test di unita saranno identificati secondo quanto riportato nel documento \NPd
 \hypertarget{TU7}{TU7} & Vogliamo testare che se lo \file{status} della risposta ricevuta dall'assistente virtuale sia diverso da 200, venga chiamato il metodo \file{succeed} di \file{context} con un oggetto di tipo \file{LambdaResponse} come parametro, avente il campo \file{statusCode} uguale a quello ricevuto e corpo del messaggio "Errore nel contattare l'assistente virtuale". & \textit{Non Implementato}\\ \hline
 \hypertarget{TU8}{TU8} & Vogliamo testare che se action del body della risposta è uguale a \file{"rule.add"} venga chiamato il metodo privato \file{addRule}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU9}{TU9} & Vogliamo testare che se action del body della risposta è uguale a \file{"user.add"} venga chiamato il metodo privato \file{addUser}. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU10}{TU10} & Vogliamo testare che se action del body della risposta è uguale a \file{"user.addEnrollment"} venga chiamato il metodo privato \file{addUserEnrollment}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU10}{TU10} & Vogliamo testare che se action del body della risposta è uguale a \file{"user.add\gl{Enrollment}"} venga chiamato il metodo privato \file{addUserEnrollment}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU11}{TU11} & Vogliamo testare che se action del body della risposta è uguale a \file{"rule.get"} venga chiamato il metodo privato \file{getRule}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU12}{TU12} & Vogliamo testare che se action del body della risposta è uguale a \file{"rule.getList"} venga chiamato il metodo privato \file{getRuleList}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU13}{TU13} & Vogliamo testare che se action del body della risposta è uguale a \file{"user.get"} venga chiamato il metodo privato \file{getUser}. & \textit{Non Implementato}\\ \hline
@@ -195,8 +195,8 @@ I test di unita saranno identificati secondo quanto riportato nel documento \NPd
 \hypertarget{TU30}{TU30} & Vogliamo testare che, se durante la chiamata al metodo privato \file{resetUserEnrollment} si verifica un errore, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU31}{TU31} & Vogliamo testare che, se durante la chiamata al metodo privato \file{updateRule} si verifica un errore, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU32}{TU32} & Vogliamo testare che, se durante la chiamata al metodo privato \file{updateUser} si verifica un errore, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU33}{TU33} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al microservizio \file{Rules} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU34}{TU34} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al microservizio \file{Users} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU33}{TU33} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al \gl{microservizi}o \file{Rules} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU34}{TU34} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al \gl{microservizio} \file{Users} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU35}{TU35} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al microservizio \file{Users} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU36}{TU36} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al microservizio \file{Rules} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU37}{TU37} & Vogliamo testare che, se la risposta ricevuta dalla chiamata al microservizio \file{Rules} ha uno status code diverso da 200, il metodo solleva un'eccezione di tipo \file{Exception} con campo \file{code} pari allo status code della risposta. & \textit{Non Implementato}\\ \hline
@@ -244,10 +244,10 @@ I test di unita saranno identificati secondo quanto riportato nel documento \NPd
 \hypertarget{TU79}{TU79} & Vogliamo testare che, anche se viene passato un \file{Member} corretto, il metodo ritorna un \file{ErrorObservable} ovvero la chiamata al metodo fallisce sempre. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU80}{TU80} & Vogliamo testare che, anche se viene passato l'username di un \file{Member}, il metodo ritorna un \file{ErrorObservable}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU81}{TU81} & Vogliamo testare che, se si verifica un errore, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU82}{TU82} & Vogliamo testare che il metodo imposti il campo \file{statusCode} della risposta a 200 e il campo \file{body} contenga la lista dei canali di Slack informato JSON. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU82}{TU82} & Vogliamo testare che il metodo imposti il campo \file{statusCode} della risposta a 200 e il campo \file{body} contenga la lista dei canali di Slack informato \gl{JSON}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU83}{TU83} & Vogliamo testare che il metodo imposti il campo \file{statusCode} della risposta a 200 e il campo \file{body} sia vuoto. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU84}{TU84} & Vogliamo testare che, se si verifica un errore, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU85}{TU85} & Vogliamo testare che alla chiamata del metodo venga chiamata la funzione di callback \file{complete\_cb}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU85}{TU85} & Vogliamo testare che alla chiamata del metodo venga chiamata la funzione di \gl{callback} \file{complete\_cb}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU86}{TU86} & Vogliamo testare che alla chiamata del metodo venga chiamata la funzione di callback \file{error\_cb}, passandole come parametro l'errore ricevuto. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU87}{TU87} & Vogliamo testare che alla chiamata del metodo venga chiamata la funzione di callback \file{next\_cb}, passandole come parametro i dati ricevuti. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU88}{TU88} & Vogliamo testare che il metodo accetti un parametro di tipo \file{Rule} senza generare eccezioni. & \textit{Non Implementato}\\ \hline
@@ -359,7 +359,7 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \hypertarget{TU181}{TU181} & Se la chiamata ai metodi di \file{ConversationsDAO} genera un errore, viene chiamata la funzione di callback con un solo parametro diverso da null.
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TU182}{TU182} & Se le chiamata ai microservizi e le chiamate ai DAO non generano alcun errore, viene chiamata la funzione di callback con due parametri, il primo uguale a null e il secondo contenente la risposta. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU183}{TU183} & Vogliamo verificare che, se la richiesta HTTP genera un errore, viene chiamato il metodo \file{reject} della Promise. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU183}{TU183} & Vogliamo verificare che, se la richiesta \gl{HTTP} genera un errore, viene chiamato il metodo \file{reject} della Promise. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU184}{TU184} & Vogliamo verificare che, se la richiesta HTTP va a buon fine, viene chiamato il metodo \file{fulfill} della Promise. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU185}{TU185} & Vogliamo testare che, se la richiesta HTTP ad api.ai genera un errore, nel caso in cui status code oppure \file{status.code} sia diverso da 200, venga chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} il quale campo \file{statusCode} è impostato a 500.
  & \textit{Non Implementato}\\ \hline
