@@ -1,0 +1,58 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-02-07}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-02-07}
+\def\REDATTORE{Mattia Bottaro}
+\def\VERIFICATORE{Simeone Pizzi}
+\def\RESPONSABILE{Mattia Bottaro}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO}
+\def\SOMMARIO{Verbale dell'incontro interno in data 2017-02-28 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+    \modifica{Luca Bertolini}{\RESP}{Stesura documento e verbalizzazione della riunione}{2017-02-28}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: aula 1C150, Torre Archimede, Padova.
+  \item \textbf{Data}: 2017-02-28.
+  \item \textbf{Orario di inizio}: 11:00.
+  \item \textbf{Orario di fine}: 11:20.
+  \item \textbf{Durata}: 20m.
+  \item \textbf{Oggetto}: discussione sulle critiche avanzate sulla progettazione da parte del professor Riccardo Cardin.
+  \item \textbf{Partecipanti}: Luca Bertolini, Mattia Bottaro, Mauro Carlin, Andrea Magnan, Simeone Pizzi, Nicola Tintorri, Pier Paolo Tricomi.
+  \item \textbf{Segretario}: Luca Bertolini.
+
+\end{itemize}
+\section{Riassunto della riunione}
+\label{sec:RiassuntoRiunione}
+ \subsection{Descrizione}
+La riunione è avvenuta presso Torre Archimede a Padova, in particolare nell'aula 1C150, dopo il termine dell'incontro avvenuto tra diversi gruppi e il professor Riccardo Cardin per esporre e avere un primo riscontro sulla bontà della progettazione fino ad ora eseguita. Il gruppo \GRUPPO{} ha analizzato le criticità avanzate dal professore e ha preso decisioni su come rimediarvi.
+ \subsection{Decisioni}
+ \begin{itemize}
+  \item DE1.1 - Utilizzare una classe per ogni lambda function e raggrupparle per packages invece di avere una sola classe per più lambda function;
+  \item DE1.2 - Proteggere l'APIGateway dall'esposizione al Client;
+  \item DE1.3 - Se librerie esterne vengono modificate dal gruppo \GRUPPO{} allora diventeranno componente interna del sistema;
+  \item DE1.4 - Nella signatura dei metodi che utilizzano un oggetto anonimo espresso in JSON non bisogna utilizzare il tipo Object, poichè troppo generico, bensì un proprio tipo specifico;
+  \item DE1.5 - Distinguere bene il concetto di Facade e Adapter.
+ \end{itemize}
+\end{document}
