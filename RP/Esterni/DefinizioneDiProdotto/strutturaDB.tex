@@ -1,0 +1,118 @@
+\section{Struttura del database DynamoDB}
+In questa appendice descriviamo la struttura del database DynamoDB, come richiesto dal proponente \PROPONENTE.
+\\ \\La tabella \textbf{Conversation} descrive l'intera interazione tra un utente del sistema e l'assistente virtuale, dove "messages" memorizza tutti i messaggi che vengono scambiati tra i due attori.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Conversation",
+KeySchema: [
+{
+	AttributeName: "guest_id",
+	KeyType: "HASH"
+},
+{
+	AttributeName: "session_id",
+	KeyType: "RANGE"	
+}
+],
+"guest_id": {"S"},
+"session_id": {"S"},
+"messages":
+{
+	M:
+	{
+		"sender": {"S"},
+		"text": {"S"},
+		"timestamp": {"S"}
+	}
+}
+\end{lstlisting}
+
+La tabella \textbf{Guest} descrive gli ospiti che hanno fatto visita all'azienda.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Guest",
+KeySchema: [
+{
+	AttributeName: "company",
+	KeyType: "HASH"
+},
+{
+	AttributeName: "name",
+	KeyType: "RANGE"	
+}
+],
+"company": {"S"},
+"name": {"S"},
+"conversations": [{"Conversation"}],
+"met": [{"S"}]
+\end{lstlisting}
+\newpage
+La tabella \textbf{Rule} descrive le direttive che gli amministratori hanno inserito per modificare il comportamento dell'assistente virtuale. Ogni direttiva contiene un array di "target", ossia il gruppo di persone a cui deve essere applicata.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Rule",
+KeySchema: [
+{
+	AttributeName: "id",
+	KeyType: "HASH"
+}
+],
+"id": {"N"},
+"name": {"S"},
+"targets": {
+	M:
+	{
+		"company": {"S"},
+       	"member": {"S"},
+       	"name": {"S"}
+	}
+},
+"task":
+{
+	M:
+	{
+		"params": {"B"},
+       	"task": {"S"}
+	}
+},
+"enabled": {"BOOL"}
+\end{lstlisting}
+
+La tabella \textbf{Task} descrive il compito assegnato ad ogni direttiva.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Task",
+KeySchema: [
+{
+	AttributeName: "type",
+	KeyType: "HASH"	
+}
+],
+"type": {"S"}
+\end{lstlisting}
+
+La tabella \textbf{User} descrive gli utenti registrati dal sistema. 
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "User",
+KeySchema: [
+{
+	AttributeName: "username",
+	KeyType: "HASH"
+}	
+],
+"username": {"S"},
+"name": {"S"},
+"password": {"S"},
+"slack_channel": {"S"},
+"sr_id": {"S"}
+\end{lstlisting}
+
+La tabella \textbf{Agent} descrive gli agenti di api.ai che fanno riferimento alle varie applicazioni.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Agent",
+KeySchema: [
+{
+	AttributeName: "token",
+	KeyType: "HASH"
+}	
+],
+"token": {"S"},
+"name": {"S"},
+"lang": {"S"}
+\end{lstlisting}
