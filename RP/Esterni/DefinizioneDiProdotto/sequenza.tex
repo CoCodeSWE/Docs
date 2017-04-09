@@ -5,6 +5,7 @@ Il diagramma qui riportato rappresenta la chiamata al \gl{webhook} da parte di a
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Interazionipassateconlapersonainteragente.png}
 \caption{Interazioni passate con la persona interagente}
 \end{figure}
+\newpage
 \subsection{Interazione tra service e client}
 Il diagramma qui riportato rappresenta l'interazione tra service e client per mezzo della chiamata al metodo \file{queryLambda} fornito dalla classe \file{VocalAPI}, il quale permette di dedurre il servizio necessario al client vocale e successivamente offrire il servizio qualora il service ne sia in grado. Per il riconoscimento dell'azione viene invocato il metodo \file{speechToText} della classe \file{STTModule}, che ritorna l'azione necessaria al client vocale a partire da un file audio. Una volta ottenuta l'azione viene controllato il valore del campo \file{action} di tale risposta. Nel caso in cui \file{action} non corrisponda ad una delle azioni supportate, ovvero action è un'azione che non richiede operazione da parte del back-end oppure \file{actionIncomplete} è impostato a true, tale risposta viene rielaborata ed inoltrata al client. Se invece l'action è supportata, il metodo si occupa di eseguire le azioni necessarie utilizzando i metodi privati della classe \file{VocalAPI}. In quest'ultimo caso viene inoltre pubblicato un messaggio su un topic di \file{SNS}, utilizzando il metodo \file{publish}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati. 
  \begin{figure}[h]
@@ -148,6 +149,7 @@ Il diagramma qui riportato rappresenta la modifica di un \file{Guest} del databa
 Il diagramma qui riportato rappresenta la richiesta dei canali disponibili al servizio esterno \file{\gl{Slack}}, utilizzando il metodo \file{channels.list} messo a disposizione da \file{Slack}.
  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endNotificationsNotificationServicegetChannelList.png} 	\caption{Back-end::Notifications::NotificationService::getChannelList}
 \end{figure}
+\newpage
 
 \subsection{Back-end::Notifications::NotificationService::sendMsg}
 Il diagramma qui riportato rappresenta l'invio di un messaggio al servizio esterno \file{Slack}.
@@ -261,8 +263,3 @@ Il diagramma qui riportato rappresenta la modifica di una \file{Rule} del databa
  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endRulesRulesDAODynamoDBupdateRule.png} 	\caption{Back-end::Rules::RulesDAODynamoDB::updateRule}
 \end{figure}
 \newpage
-
-\subsection{Back-end::STT::STTWatsonAdapter::speechToText}
-Il diagramma qui riportato rappresenta il riconoscimento di un file audio per mezzo del metodo \file{recognize} fornito dallo \file{SpeechToTextV1} di \file{WatsonDeveloperCloud}.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endSTTSTTWatsonAdapterspeechToText.png} 	\caption{Back-end::STT::STTWatsonAdapter::speechToText}
-\end{figure}
