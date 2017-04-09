@@ -11,32 +11,6 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
 %gerarchia attori
 \input{attori}
 \newpage
-\subsection{UCG: Scenario principale}
-\label{UCG}
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/UseCaseUCG.png}
-\caption{UCG: Scenario principale}
-\end{figure}
-\begin{longtable}{l|p{10cm}}
-\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
-\rowcolor[gray]{0.8} \multicolumn{2}{c}{\textbf{UCG - Scenario principale}} \\
-\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
-\hline
-&\\
-\textbf{Attori} & Utente, Amministratore, Super Amministratore, Ospite;\\[7pt]
-\textbf{Descrizione} & Il sistema deve offrire tutte le funzionalità previste per ogni tipo di attore.\\[7pt]
-\textbf{Precondizione} & Il sistema è avviato.\\[7pt]
-\textbf{Postcondizione} & Gli attori hanno usufruito delle funzionalità offerte dal sistema.\\[7pt]
-\textbf{Scenario principale} & L'attore usufruisce delle funzionalità a lui offerte dal sistema.\\[7pt]
-\textbf{Scenari alternativi} & 
-\begin{enumerate}
- \item Nel caso in cui il sistema non riesca ad interpretare le informazioni fornite dall'utente, comunica l'errore chiedendo nuovamente l'informazione.
- \item Nel caso in cui l'utente non interagisca con il sistema nel tempo stabilito, il sistema deve visualizzare un messaggio d'errore adeguato.
-\end{enumerate}\\[7pt]\hline
-\end{longtable}
-
-\newpage
 \subsection{UC0: Funzionalità sistema}
 \label{UC0}
 \begin{figure}[h]
