@@ -361,7 +361,8 @@ In \GloScript{} si trova lo script che, per ogni documento, marca come glossariz
 \paragraph{Repository}
 Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} \gl{GitHub}, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE}. Tutti i membri del gruppo dovranno creare un proprio account \gl{GitHub}, per poi ricevere i permessi in scrittura sul \gl{repository} da parte dell'\AMM.
 La gestione del \gl{repository} è responsabilità degli \AMMP.
-\paragraph{Struttura del \gl{repository} Docs}
+\paragraph{Struttura del repository Docs}
+Questo repository è dedicato all'archiviazione dei file per generare tutta la documentazione che il team vuole produrre.\\
 Al fine di mantenere ordine e coerenza tra i file, il \gl{repository} è così strutturato:
 \begin{itemize}
 	\item Docs
@@ -369,18 +370,29 @@ Al fine di mantenere ordine e coerenza tra i file, il \gl{repository} è così s
 		\item RR
 		\begin{itemize}
 			\item Esterni: contiene i documenti esterni;
-			\item Interni: contiene i documenti interni.
+			\item Interni: contiene i documenti interni;
 		\end{itemize}
 		\item RP
 		\begin{itemize}
 			\item Esterni: contiene i documenti esterni;
-			\item Interni: contiene i documenti interni.
+			\item Interni: contiene i documenti interni;
 		\end{itemize}
 		\item script: contiene gli script utilizzati;
-		\item \gl{template}: contiene i \gl{template} utilizzati.
+		\item template: contiene i template utilizzati;
 	\end{itemize}
 \end{itemize}
-In futuro verranno aggiunte nuove \gl{repository}, le quali strutture saranno rappresentate come precedentemente fatto con Docs.
+\paragraph{Struttura del repository \PROGETTO}
+Questo repository è dedicato all'archiviazione dei file contenenti il codice sorgente per realizzare il prodotto.\\
+Al fine di mantenere ordine e coerenza tra i file, il repository è così strutturato:
+\begin{itemize}
+	\item \PROGETTO
+	\begin{itemize}
+		\item libs: contiene il codice sorgente di utilizzo comune tra \file{Client} e \file{Back-end};
+		\item client: contiene il codice sorgente che realizza la parte \file{Client} del prodotto;
+		\item back-end: contiene il codice sorgente che realizza la parte \file{Client} del prodotto.
+	\end{itemize}
+\end{itemize}
+Questo repository dovrà seguire la gerarchia dei package descritta nel documento \DPdoc.
 \paragraph{Commit}
 Ogni commit effettuata deve essere accompagnata da un messaggio descrittivo delle modifiche effettuate. L'autore della commit dovrà assicurarsi della correttezza dei file. È sconsigliato effettuare il commit di intere cartelle, al fine di evitare inclusioni di file inutili(ad es: file di compilazione).
 Dovrà inoltre essere segnalata l'eventuale aggiunta di nuovi file.
