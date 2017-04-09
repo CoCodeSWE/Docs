@@ -1,0 +1,70 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{subfiles}
+
+\def\NOME{Piano di qualifica}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-01-08}
+\def\REDATTORE{Nicola Tintorri \\ & Andrea Magnan}
+\def\VERIFICATORE{Pier Paolo Tricomi}
+\def\RESPONSABILE{Luca Bertolini}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Documento contenente le strategie adottate dal gruppo \GRUPPO{} per garantire la qualità del prodotto \PROGETTO.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+	
+	\modifica{Luca Bertolini}{\RESP}{Approvazione}		{2017-01-08}	{1.0.0}
+    \modifica{Andrea Magnan}{\AMM}{Inseriti dati resoconto fase AR}		{2017-01-07}	{0.2.2}
+	\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-24}	{0.2.1}
+	\modifica{Pier Paolo Tricomi}{\VER}{{Verifica}}							{2016-12-24}	{0.2.0}
+	\modifica{Andrea Magnan}{\AMM}{Aggiunta struttura resoconto fase AR}	{2016-12-23}	{0.1.5}
+	\modifica{Nicola Tintorri}{\AMM}{Aggiunta appendice A}					{2016-12-23}	{0.1.4}
+	\modifica{Nicola Tintorri}{\AMM}{Conclusa stesura sezione 3}			{2016-12-22}	{0.1.3}
+	\modifica{Andrea Magnan}{\AMM}{Aggiunte appendici B}				{2016-12-22}	{0.1.2}
+	\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-22}	{0.1.1}
+	\modifica{Pier Paolo Tricomi}{\VER}{{Verifica}}								{2016-12-22}	{0.1.0}
+	\modifica{Nicola Tintorri}{\AMM}{Inizio stesura sezione 3}				{2016-12-21}	{0.0.5}
+	\modifica{Andrea Magnan}{\AMM}{Conclusa stesura sezione 2}				{2016-12-21}	{0.0.4}
+	\modifica{Andrea Magnan}{\AMM}{Inizio stesura sezione 2}				{2016-12-20}	{0.0.3}
+	\modifica{Nicola Tintorri}{\AMM}{Stesura introduzione}					{2016-12-19}	{0.0.2}
+	\modifica{Nicola Tintorri}{\AMM}{Inizio stesura documento}				{2016-12-19}	{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+
+\subfile{sezioni/introduzione}
+\newpage
+\subfile{sezioni/strategiaGenerale}
+\newpage
+\subfile{sezioni/strategiaDettaglio}
+\newpage
+
+\appendix
+
+\subfile{sezioni/CMM}
+\newpage
+\subfile{sezioni/ISOIEC}
+\newpage
+\subfile{sezioni/PDCA}
+\newpage
+\subfile{sezioni/test}
+\newpage
+\subfile{sezioni/resAR}
+
+\end{document}

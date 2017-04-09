@@ -1,3 +1,4 @@
+\PassOptionsToPackage{bookmarksopen,bookmarksdepth=1}{hyperref}
 \documentclass[a4paper,titlepage]{article}
 
 \makeatletter
@@ -8,9 +9,9 @@
 \usepackage{Riferimenti}
 \usepackage{Stile}
 \usepackage{glossario}
-
+%\usepackage[bookmarksopen,bookmarksdepth=1]{hyperref}
 \def\NOME{Glossario}
-\def\VERSIONE{1.0.0}
+\def\VERSIONE{2.0.0}
 \def\DATA{2017-01-08}
 \def\REDATTORE{Mattia Bottaro \\ & Pier Paolo Tricomi}
 \def\VERIFICATORE{Luca Bertolini}
@@ -25,6 +26,20 @@
 \maketitle
 
 \begin{diario}
+
+	\modifica{Andrea Magnan}{\RESP}{Approvazione del documento}{2017-04-03}{4.0.0}
+	\modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-04-02}{3.1.0}
+	\modifica{Mauro Carlin}{\AMM}{Aggiunti vocaboli}{2017-04-01}{3.0.1}
+
+	\modifica{Mattia Bottaro}{\RESP}{Approvazione del documento}{2017-02-24}{3.0.0}
+	\modifica{Andrea Magnan}{\VER}{Verifica del documento}{2017-02-23}{2.1.0}
+	\modifica{Pier Paolo Tricomi}{\AMM}{Aggiunti vocaboli }{2017-02-23}{2.0.2}
+	\modifica{Luca Bertolini}{\AMM}{Aggiunti vocaboli}{2017-02-23}{2.0.1}
+
+	\modifica{Nicola Tintorri}{\RESP}{Approvazione del documento}{2017-02-01}{2.0.0}
+	\modifica{Pier Paolo Tricomi}{\VER}{Verifica del documento}{2017-01-31}{1.1.0}
+	\modifica{Andrea Magnan}{\AMM}{Aggiunti vocaboli}{2017-01-31}{1.0.1}
+	
     \modifica{Simeone Pizzi}{\RESP}{Approvazione del documento}{2017-01-08}{1.0.0}
     \modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-01-08}{0.1.0}
 	\modifica{Pier Paolo Tricomi}{\AMM}{Aggiunti vocaboli dalla A alla K}{2017-01-08}{0.0.4}
@@ -35,27 +50,27 @@
 
 \newpage
 % è il caso di includere solo le lettere che contengono vocaboli
-\include{A}
-\include{B}
-\include{C}
-\include{D}
-\include{E}
-\include{F}
-\include{G}
-\include{H}
-\include{I}
-\include{J}
-\include{K}
-\include{L}
-\include{M}
-\include{N}
-\include{O}
-\include{P}
-\include{R}
-\include{S}
-\include{T}
-\include{U}
-\include{V}
-\include{W}
-\include{X}
+\include{sezioni/A}
+\include{sezioni/B}
+\include{sezioni/C}
+\include{sezioni/D}
+\include{sezioni/E}
+\include{sezioni/F}
+\include{sezioni/G}
+\include{sezioni/H}
+\include{sezioni/I}
+\include{sezioni/J}
+\include{sezioni/K}
+\include{sezioni/L}
+\include{sezioni/M}
+\include{sezioni/N}
+\include{sezioni/O}
+\include{sezioni/P}
+\include{sezioni/R}
+\include{sezioni/S}
+\include{sezioni/T}
+\include{sezioni/U}
+\include{sezioni/V}
+\include{sezioni/W}
+\include{sezioni/X}
 \end{document}

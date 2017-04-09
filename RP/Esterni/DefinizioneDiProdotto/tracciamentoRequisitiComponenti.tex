@@ -1,0 +1,713 @@
+\subsection{Tracciamento Requisiti-Componenti}
+\normalsize
+\begin{longtable}{|>{\centering}m{3cm}|m{10cm}<{\centering}|}
+\hline 
+\textbf{Requisito} & \textbf{Componenti}\\
+\hline
+\endhead
+RFO1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO1.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO1.1.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO1.1.1.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO1.1.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO1.1.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO1.1.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO2.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.3.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.3.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.3.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.1.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.1.4.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.5 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.1.6 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Utility]{\texttt{Back-end::Utility}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.2.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.2.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.2.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.5 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.5.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.5.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.5.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.5.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.6 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.3.7 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Utility]{\texttt{Back-end::Utility}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.4.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.4.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.1.4.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD2.1.4.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO2.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.2.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.2.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO2.2.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Users]{\texttt{Back-end::Users}}\\
+& \hyperref[Back-end::Utility]{\texttt{Back-end::Utility}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFO3.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFD3.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFD3.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.3.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.3.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.3.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::Utility]{\texttt{Back-end::Utility}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.2.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\
+& \hyperref[Client::TTS]{\texttt{Client::TTS}}\\ \hline
+
+RFD3.3.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD3.3.2.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::APIGateway]{\texttt{Back-end::APIGateway}}\\
+& \hyperref[Back-end::STT]{\texttt{Back-end::STT}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFO4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\ \hline
+
+RFO5 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\
+& \hyperref[Client::Recorder]{\texttt{Client::Recorder}}\\ \hline
+
+RFD6 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::VirtualAssistant]{\texttt{Back-end::VirtualAssistant}}\\
+& \hyperref[Client]{\texttt{Client}}\\
+& \hyperref[Client::ApplicationManager]{\texttt{Client::ApplicationManager}}\\
+& \hyperref[Client::Logic]{\texttt{Client::Logic}}\\ \hline
+
+RFO7 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO7.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Conversations]{\texttt{Back-end::Conversations}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO7.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO10 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\
+& \hyperref[Back-end::Rules]{\texttt{Back-end::Rules}}\\ \hline
+
+RFD11 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12.1.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12.1.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO12.3 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFD12.4 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFD12.5 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Events]{\texttt{Back-end::Events}}\\
+& \hyperref[Back-end::Guests]{\texttt{Back-end::Guests}}\\ \hline
+
+RFO13 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Members]{\texttt{Back-end::Members}}\\
+& \hyperref[Back-end::Notifications]{\texttt{Back-end::Notifications}}\\
+& \hyperref[Slack]{\texttt{Slack}}\\ \hline
+
+RFO13.1 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Notifications]{\texttt{Back-end::Notifications}}\\ \hline
+
+RFD13.2 & \hyperref[Back-end]{\texttt{Back-end}}\\
+& \hyperref[Back-end::Notifications]{\texttt{Back-end::Notifications}}\\ \hline
+
+\caption[Tracciamento Requisiti-Componenti]{Tracciamento Requisiti-Componenti}
+\label{tabella:requi-pack}
+\end{longtable}
+\clearpage

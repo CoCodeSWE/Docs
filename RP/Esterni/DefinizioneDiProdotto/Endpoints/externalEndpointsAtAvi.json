@@ -1,0 +1,788 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Endpoints esterni AtAvi",
+		"description": "Accoglienza tramite assistente virtuale"
+	},
+	"host": "zero12.it",
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/auth/users": {
+			"get": {
+				"description": "Get lista utenti",
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"200": {
+						"description": "Ritorna lista utenti",
+            "schema":{
+  						"title": "ArrayOfUsers",
+  						"type": "array",
+  						"items": {
+  							"$ref": "#/definitions/User"
+  						}
+            }
+					},
+          "400": {
+          "description": "Cannot find users",
+        },
+        "404": {
+          "description": "Cannot find users",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			},
+			"post": {
+				"summary": "invio dati per la registrazione",
+				"description": "invia username, frase per autenticazione tramite SR, e altri dati",
+				"parameters": [
+					{
+						"name": "username",
+						"in": "body",
+						"description": "username dell'utente",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "frase",
+						"in": "body",
+						"description": "frase usata per l'autenticazione tramite SR",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "altro",
+						"in": "body",
+						"description": "altri dati, da completare",
+						"required": false,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"200": {
+						"description": "Restituisce id dell'utente appena creato",
+						"schema": {
+							"title": "IdUser",
+							"type": "string"
+						}
+					}
+				},
+        "400": {
+        "description": "Cannot understand data",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+			}
+		},
+		"/auth/users/:username": {
+			"put": {
+				"summary": "modifica dati utente",
+				"description": "vengono inviati i nuovi dati dell'utente per sovrascrivere i dati vecchi",
+				"parameters": [
+					{
+						"name": "newUser",
+						"in": "path",
+						"description": "nuovi dati User per sovrascrittura",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"201": {
+						"description": "stringa di modifica avvenuta con successo",
+						"schema": {
+							"title": "ModificaAvvenuta",
+							"type": "string"
+						}
+					},
+            "400": {
+          "description": "Cannot find user",
+        },
+        "404": {
+          "description": "Cannot find user",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+					}
+
+			},
+			"delete": {
+				"summary": "elimina utente",
+				"description": "vengono eliminati i dati di un utente",
+				"parameters": [
+					{
+						"name": "idDel",
+						"in": "path",
+						"description": "contiene id dell'utente da eliminare",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"204": {
+						"description": "user deleted"
+					},
+          "400": {
+          "description": "Cannot find user",
+        },
+        "404": {
+          "description": "Cannot find user",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+					}
+
+			},
+			"get": {
+				"description": "riceve dati relativi all'utente",
+				"parameters": [
+					{
+						"name": "idGet",
+						"in": "path",
+						"description": "contiene id dell'utente di cui si vogliono i dati",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"200": {
+						"description": "dati dell'utente richiesto",
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					},
+          "400": {
+          "description": "Cannot find user",
+        },
+        "404": {
+          "description": "Cannot find user",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+					}
+				}
+			}
+		},
+		"/auth/web/username": {
+			"post": {
+				"summary": "autenticazione tramite login",
+				"description": "vengono inviati i dati necessari al login, ovvero username,...",
+				"parameters": [
+					{
+						"name": "UsernameLogin",
+						"in": "body",
+						"description": "contiene l'username dell'utente che si vuole autenticare",
+						"required": true,
+						"type": "string"
+					}
+				]
+			},
+			"tags": [
+				"auth"
+			],
+			"responses": {
+				"200": {
+					"description": "viene inviato un token di sessione all'utente",
+					"schema": {
+						"title": "TokenLogin",
+						"type": "string"
+					}
+				},
+        "400": {
+        "description": "Cannot find user",
+      },
+      "403": {
+        "description": "Login failed",
+      },
+      "404": {
+        "description": "Cannot find user",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+
+			}
+		},
+		"/auth/vocal/username": {
+			"post": {
+				"summary": "autenticazione per via vocale",
+				"description": "vengono inviati i dati per il login per via vocale, ovvero username,file audio,...",
+				"parameters": [
+					{
+						"name": "UsernameVocal",
+						"in": "body",
+						"description": "contiene l'username di un utente che si vuole autenticare",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "AudioLogin",
+						"in": "path",
+						"description": "contiene il blob audio per l'autenticazione per via vocale",
+						"required": true,
+						"type": "binary"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"200": {
+						"description": "viene inviato un token di sessione all'utente",
+						"schema": {
+						"title": "TokenVocalLogin",
+						"type": "string"
+					}
+        },
+        "400": {
+        "description": "Cannot find user",
+      },
+
+      "403":{
+        "description": "Login failed",
+
+      },
+      "404": {
+        "description": "Cannot find user",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+				}
+			}
+		},
+		"/auth/vocal/:username/enrollments": {
+			"post": {
+				"summary": "aggiunta enrollments della frase scelta",
+				"description": "vengono aggiunti enrollments, ovvero file audio della frase scelta nel corpo audio dell'utente",
+				"parameters": [
+					{
+						"name": "IdEnrollment",
+						"in": "path",
+						"description": "contiene l'id di un utente che vuole aggiungere un enrollment",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "AudioEnrollment",
+						"in": "body",
+						"description": "contiene il blob audio dell'enrollments",
+						"required": true,
+						"type": "binary"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"200":{
+					"description": "risposta di avvenuta ricezione",
+					"schema": {
+						"title": "AggiuntoEnrollment",
+						"type": "string"
+					}
+        },
+        "400": {
+        "description": "Cannot find user",
+      },
+      "404": {
+        "description": "Cannot find user",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+				}
+			},
+			"delete": {
+				"description": "eliminazione di tutti gli enrollments di un utente",
+				"parameters": [
+					{
+						"name": "IdDelEnroll",
+						"in": "path",
+						"description": "contiene l'id di un utente che vuole eliminare tutti i suoi enrollments",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"auth"
+				],
+				"responses": {
+					"204": {
+					"description": "enrollments deleted"
+				}
+      },
+      "400": {
+      "description": "Cannot find user",
+    },
+    "404": {
+      "description": "Cannot find user",
+    },
+    "500": {
+      "description": "Unexpected error",
+    }
+			}
+		},
+		"/av": {
+			"post": {
+				"summary": "interrogazione assistente virtuale",
+				"description": "viene inviato un file audio contenente l'interrogazione ad assistente virtuale",
+				"parameters": [
+					{
+						"name": "AudioAv",
+						"in": "body",
+						"description": "contiene il blob audio dell'interrogazione",
+						"required": true,
+						"type": "binary"
+					}
+				],
+				"tags": [
+					"av"
+				],
+				"responses": {
+					"200": {
+						"description": "risposta av",
+						"schema": {
+							"title": "risposta dell'assistente virtuale",
+							"type": "string"
+						}
+					},
+          "400": {
+          "description": "Cannot understand message",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			}
+		},
+		"/webhook": {
+			"post": {
+				"description": "utilizzo webhook",
+				"parameters": [
+					{
+						"name": "webhook",
+						"in": "body",
+						"description": "contiene il webhook",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/webhook"
+						}
+					}
+				],
+				"tags": [
+					"av"
+				],
+				"responses": {
+					"200": {
+						"description": "risposta webhook avvenuto",
+						"schema": {
+							"title": "risposta",
+							"type": "string"
+						}
+					},
+          "400": {
+          "description": "Cannot find webhhok",
+        },
+        "404": {
+          "description": "Cannot find webhook",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			}
+		},
+		"/impostazioni": {
+			"get": {
+				"description": "get lista direttive",
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "invia lista direttive",
+						"schema": {
+							"title": "ArrayOfDirettive",
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/direttiva"
+							}
+						}
+					},
+          "400": {
+          "description": "Cannot find directives",
+        },
+        "404": {
+          "description": "Cannot find directives",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			},
+			"post": {
+				"description": "creazione nuova direttiva",
+				"parameters": [
+					{
+						"name": "newDirettiva",
+						"in": "body",
+						"description": "contiene la nuova direttiva",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/direttiva"
+						}
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "risposta direttiva creata",
+						"schema": {
+						"title": "DirettivaCreata",
+						"type": "string"
+          }
+					},
+          "400": {
+          "description": "Cannot find ???",
+        },
+        "404": {
+          "description": "Cannot find ???",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			}
+		},
+		"/impostazioni/:id": {
+			"put": {
+				"summary": "modifica impostazioni direttiva",
+				"description": "vengono inviati nuove impostazioni direttiva per sovrascrivere le vecchie",
+				"parameters": [
+					{
+						"name": "IdImp",
+						"in": "path",
+						"description": "nuove impostazioni per sovrascrittura",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/direttiva"
+						}
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"201": {
+						"description": "stringa di modifica avvenuta con successo",
+						"schema": {
+						"title": "ModificaImpAvvenuta",
+						"type": "string"
+          }
+					},
+          "400": {
+          "description": "Cannot find old directive",
+        },
+        "404": {
+          "description": "Cannot find old directive",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			},
+			"get": {
+				"description": "get direttiva che corrisponde a id",
+				"parameters": [
+					{
+						"name": "IdDir",
+						"in": "path",
+						"description": "id direttiva",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "direttiva corrispondente a id",
+						"schema": {
+							"$ref": "#/definitions/direttiva"
+						}
+					},
+          "400": {
+          "description": "Cannot find directive",
+        },
+        "404": {
+          "description": "Cannot find directive",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			},
+			"delete": {
+				"description": "delete direttiva che corrisponde a id",
+				"parameters": [
+					{
+						"name": "IdDir",
+						"in": "path",
+						"description": "id direttiva",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+          "204": {
+  					"description": "no content"
+  				},
+          "400": {
+          "description": "Cannot find directive",
+        },
+        "404": {
+          "description": "Cannot find directive",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+      }
+			}
+		},
+		"/impostazioni/functions/": {
+			"get": {
+				"description": "per ricevere tutti i tipi di funzione",
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "array di funzioni",
+						"schema": {
+							"title": "arrayOfFunzioni",
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/funzione"
+							}
+						}
+					},
+          "400": {
+          "description": "Cannot find functions",
+        },
+        "404": {
+          "description": "Cannot find functions",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			},
+			"post": {
+				"description": "aggiunge un nuovo tipo di funzione",
+				"parameters": [
+					{
+						"name": "tipoFunzione",
+						"in": "body",
+						"description": "nuovo tipo di funzione",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "stringa di aggiunta avvenuta",
+						"schema": {
+						"title": "aggiuntaAvvenuta",
+						"type": "stringa"
+					}
+        },
+        "400": {
+        "description": "Cannot find ???",
+      },
+      "404": {
+        "description": "Cannot find ???",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+				}
+			}
+		},
+		"/impostazioni/functions/:type": {
+			"get": {
+				"summary": "riceve la descrizione di una data funzione",
+				"description": "riceve la stringa di una descrizione di una funzione dato l'id della funzione",
+				"parameters": [
+					{
+						"name": "IdFunzione",
+						"in": "path",
+						"description": "id della funzione",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"200": {
+						"description": "descrizione della funzione richiesta",
+						"schema":{
+						"title": "descrizioneFunzione",
+						"type": "string"
+					}
+        },
+        "400": {
+        "description": "Cannot find function",
+      },
+      "404": {
+        "description": "Cannot find function",
+      },
+      "500": {
+        "description": "Unexpected error",
+      }
+				}
+			},
+			"put": {
+				"summary": "modifica funzione",
+				"description": "modifica una funzione sovrascrivendo la funzione vecchia",
+				"parameters": [
+					{
+						"name": "FunzioneDirettiva",
+						"in": "path",
+						"description": "funzione nuova",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/funzione"
+						}
+					}
+				],
+				"tags": [
+					"direttive"
+				],
+				"responses": {
+					"201": {
+						"description": "modifica avvenuta con successo",
+						"schema": {
+							"title": "ModificaAvvenuta",
+							"type": "string"
+						}
+					},
+          "400": {
+          "description": "Cannot find old function",
+        },
+        "404": {
+          "description": "Cannot find old function",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+				}
+			}
+		}
+	},
+	"definitions": {
+		"User": {
+			"type": "object",
+			"properties": {
+				"username": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"surname": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"altro": {
+					"type": "string"
+				}
+			}
+		},
+		"Error": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"type": "string"
+				},
+				"fields": {
+					"type": "string"
+				}
+			}
+		},
+		"webhook": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"direttiva": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				}
+			}
+		},
+		"funzione": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"descrizione": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

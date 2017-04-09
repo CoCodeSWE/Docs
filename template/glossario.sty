@@ -1,10 +1,7 @@
 \newcommand{\lettera}[1]{
-	\begin{center}
-		{\Huge #1}\\
-	\end{center}
-	\rule{15cm}{0.4pt}
-	\vspace{1cm}
+	\section{#1}
 }
+
 
 \newcommand\invisiblesection[1]{%
 	\refstepcounter{section}%
@@ -19,8 +16,7 @@
 }
 
 \newcommand{\parola}[2]{
-	\invisiblesubsection{#1}
-	\textbf{\large{#1}} \\
+	\subsection{#1}
 	\indent #2 
 	\vspace{0.3cm}
 }

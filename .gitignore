@@ -18,8 +18,11 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-
+*.pdf
 ## Auxiliary and intermediate files from other packages:
 # algorithms
 *.alg
 *.loa
+*.lock
+*.bak
+

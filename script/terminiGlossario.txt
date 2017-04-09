@@ -1,23 +1,32 @@
+﻿Adapter
+adapter
 Amazon Echo
 Amazon echo
 Amazon Web Services
 Android
 API
+API Gateway
 Apple
 Apple Watch
 Asana
 Astah
 AWS Lambda
 Bitbucket
+bitbucket
 Bolle interattive
 bolle interattive
 Bootstrap
 Bot
 bot
 Botkit
+botkit
+Broadband
+broadband
 Browser
 browser
 C#
+callback
+Callback
 Capitolato
 capitolato
 CarPlay
@@ -25,34 +34,60 @@ casi d'uso
 Casi d'uso
 ciclo di vita
 Ciclo di vita
+client-side discorvery
+Client-side discovery
 Cloud
 cloud
 CMM
+continuos integration
+Continuos integration
+Continuous Integration
 Cordova
 crash
 Crash
 CSS3
+Data Access Object
+Data access object
+data access object
 DBMS
+Dependency Injection
+Dependency injection
+dependency injection
 Design pattern
 design pattern
 Diagramma di Gantt
+diagramma di Gantt
 Direttiva
 direttiva
+Direttive
+direttive
+DOM
 double token
 Double token
 DynamoDB
 ebook
 Ebook
+Endpoint
+endpoint
+Enrollment
+enrollment
+Event-driven
+event-driven
+Facade
+facade
+Façade
+façade
 Flexible And Adaptive Text To Speech
 Framework
 framework
 Freeze
 freeze
 gateway
-Gateway 
+Gateway
 Git
 GitHub
 Google Hangouts
+GUID
 HTML5
 HTTP
 HTTPS
@@ -64,14 +99,19 @@ iterazione
 Java
 JavaScript
 Jolie
+JSON
 Kernel
 kernel
 Linux
 Log
 log
+Machine learning
+machine learning
 macOS
 markup
 Markup
+Microservizi
+microservizi
 Microservizio
 microservizio
 Microsoft Cortana
@@ -80,16 +120,20 @@ milestone
 Modello incrementale
 modello incrementale
 MongoDB
-MongoDB
+narrowband
+Narrowband
 Node.js
 NoSQL
 OAuth2
+Observer
 On demand
 on demand
 Open source
 open source
 Package
 package
+payload
+Payload 
 PDCA
 PDF
 PHP
@@ -103,34 +147,58 @@ Proponente
 proponente
 Raspberry Pi
 Repository
+REST
 Ricorsione
 Rocket.chat
 Ruby
+Rule
+sample
+Sample
 SDK
+serverless
 Service Level Agreement
+single responsibility principle
+Single sign-on
 Sistema
+sistema
 Slack
 Software
+software
+speech to text
+Speech to text
 SQL
 Stack
+stack
 Swift
 Task
+task
 Team
+team
 Template
+template
 Texmaker
+Text to speech
+text to speech
+thorughput
 ticketing
 Ticketing
 Tomcat
 tvOS
 UML
 Unità
+unità
 Unity
 Unix
+URL
 Validazione
+validazione
 Verifica
+verifica
 VoIP
 VotePoll
 watchOS
+Webhook
+webhook
 Windows Phone
 Xamarin
 

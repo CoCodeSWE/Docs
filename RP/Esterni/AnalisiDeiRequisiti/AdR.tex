@@ -18,7 +18,7 @@
 \def\RESPONSABILE{Simeone Pizzi}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
-\def\SOMMARIO{Documento contenente i requisiti del \gl{progetto} \PROGETTO{} individuati dal gruppo \GRUPPO.}
+\def\SOMMARIO{Documento contenente i requisiti del progetto \PROGETTO{} individuati dal gruppo \GRUPPO.}
 
 \begin{document}
 
@@ -45,7 +45,7 @@
   \modifica{Nicola Tintorri}{\AN}{Completata stesura UC1}{2016-12-23}{0.1.2}
   \modifica{Andrea Magnan}{\AN}{Correzione errori rilevati durante la verifica}{2016-12-22}{0.1.1}
   \modifica{Luca Bertolini}{\VER}{Verifica documento}{2016-12-22}{0.1.0}
-  \modifica{Mattia Bottaro}{\AN}{Completata sezione introduzione e descrizione generale}{2016-12-21}{0.0.2}	
+  \modifica{Mattia Bottaro}{\AN}{Completata sezione introduzione e descrizione generale}{2016-12-21}{0.0.2}
   \modifica{Mauro Carlin}{\AN}{Inizio stesura struttura documento}{2016-12-20}{0.0.1}
 \end{diario}
 
@@ -55,22 +55,24 @@
 \listoftables
 \newpage
 
-\include{introduzione}
+\include{sezioni/introduzione}
  \section{Descrizione generale}
-  \input{descrizione}
+  \input{sezioni/descrizione}
   \newpage
- \section{\gl{Casi d'uso}}
-  \subfile{introUseCase}
-  \input{useCase}
+
+ \section{Casi d'uso}
+  \subfile{sezioni/introUseCase}
+  \input{sezioni/useCase}
+
   \newpage
  \section{Requisiti}
-  \subfile{introRequisiti}
-  \input{requisiti}
+  \subfile{sezioni/introRequisiti}
+  \input{sezioni/requisiti}
   \subsection{Tracciamento fonti-requisiti}
-   \input{tracciamentoFontiRequisiti}
+   \input{sezioni/tracciamentoFontiRequisiti}
   \subsection{Tracciamento requisiti-fonti}
-   \input{tracciamentoRequisitiFonti}
+   \input{sezioni/tracciamentoRequisitiFonti}
   \subsection{Riepilogo requisiti}
-   \input{riepilogoRequisiti}
+   \input{sezioni/riepilogoRequisiti}
 
 \end{document}
