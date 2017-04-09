@@ -9,7 +9,7 @@
 
 \hyperlink{TU2}{TU2} & \texttt{Back-end::AdministrationWebhookService::-\linebreak webhook()}\\ \hline
 
-\hyperlink{TU3}{TU3} & \texttt{Back-end::Utility::ErrorObserver::-\linebreak next()}\\ \hline
+\hyperlink{TU3}{TU3} & \texttt{Libs::ErrorObserver::next()}\\ \hline
 
 \hyperlink{TU4}{TU4} & \texttt{Back-end::VirtualAssistant::AgentObserver::-\linebreak next()}\\ \hline
 
@@ -203,25 +203,25 @@
 
 \hyperlink{TU99}{TU99} & \texttt{Back-end::Rules::RulesDAODynamoDB::-\linebreak updateRule()}\\ \hline
 
-\hyperlink{TU100}{TU100} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addFunction()}\\ \hline
+\hyperlink{TU100}{TU100} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addTask()}\\ \hline
 
-\hyperlink{TU101}{TU101} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addFunction()}\\ \hline
+\hyperlink{TU101}{TU101} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addTask()}\\ \hline
 
-\hyperlink{TU102}{TU102} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunction()}\\ \hline
+\hyperlink{TU102}{TU102} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTask()}\\ \hline
 
-\hyperlink{TU103}{TU103} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunction()}\\ \hline
+\hyperlink{TU103}{TU103} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTask()}\\ \hline
 
-\hyperlink{TU104}{TU104} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunctionList()}\\ \hline
+\hyperlink{TU104}{TU104} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTaskList()}\\ \hline
 
-\hyperlink{TU105}{TU105} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunctionList()}\\ \hline
+\hyperlink{TU105}{TU105} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTaskList()}\\ \hline
 
-\hyperlink{TU106}{TU106} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeFunction()}\\ \hline
+\hyperlink{TU106}{TU106} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeTask()}\\ \hline
 
-\hyperlink{TU107}{TU107} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeFunction()}\\ \hline
+\hyperlink{TU107}{TU107} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeTask()}\\ \hline
 
-\hyperlink{TU108}{TU108} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateFunction()}\\ \hline
+\hyperlink{TU108}{TU108} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateTask()}\\ \hline
 
-\hyperlink{TU109}{TU109} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateFunction()}\\ \hline
+\hyperlink{TU109}{TU109} & \texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateTask()}\\ \hline
 
 \hyperlink{TU110}{TU110} & \texttt{Back-end::STT::STTWatsonAdapter::-\linebreak speechToText()}\\ \hline
 
@@ -381,19 +381,19 @@
 
 \hyperlink{TU188}{TU188} & \texttt{Back-end::ObserverAdapter::pause()}\\ & \texttt{Back-end::ObserverAdapter::resume()}\\ \hline
 
-\hyperlink{TU189}{TU189} & \texttt{Client::ApplicationLocalRegistry::-\linebreak register()}\\ \hline
+\hyperlink{TU189}{TU189} & \texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::register()}\\ \hline
 
-\hyperlink{TU190}{TU190} & \texttt{Client::ApplicationLocalRegistry::-\linebreak query()}\\ \hline
+\hyperlink{TU190}{TU190} & \texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::query()}\\ \hline
 
-\hyperlink{TU191}{TU191} & \texttt{Client::ApplicationLocalRegistry::-\linebreak remove()}\\ \hline
+\hyperlink{TU191}{TU191} & \texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::remove()}\\ \hline
 
 \hyperlink{TU192}{TU192} & \texttt{Client::ApplicationManager::-\linebreak ApplicationRegistryLocalClient::query()}\\ \hline
 
 \hyperlink{TU193}{TU193} & \texttt{Client::ApplicationManager::-\linebreak ApplicationRegistryLocalClient::register()}\\ \hline
 
-\hyperlink{TU194}{TU194} & \texttt{Client::ApplicationManager::ConversationDispatcher::-\linebreak dispatch()}\\ \hline
+\hyperlink{TU194}{TU194} & \texttt{Client::ConversationApp::ConversationDispatcher::-\linebreak dispatch()}\\ \hline
 
-\hyperlink{TU195}{TU195} & \texttt{Client::ApplicationManager::ConversationView::-\linebreak render()}\\ \hline
+\hyperlink{TU195}{TU195} & \texttt{Client::ConversationApp::ConversationView::-\linebreak render()}\\ \hline
 
 \hyperlink{TU196}{TU196} & \texttt{Client::ApplicationManager::Manager::-\linebreak runApplication()}\\ \hline
 
@@ -401,25 +401,23 @@
 
 \hyperlink{TU198}{TU198} & \texttt{Client::ApplicationManager::Manager::-\linebreak setFrame()}\\ \hline
 
-\hyperlink{TU199}{TU199} & \texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()}\\ \hline
+\hyperlink{TU199}{TU199} & \texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()}\\ \hline
 
-\hyperlink{TU200}{TU200} & \texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()}\\ \hline
+\hyperlink{TU200}{TU200} & \texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()}\\ \hline
 
-\hyperlink{TU201}{TU201} & \texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()}\\ \hline
+\hyperlink{TU201}{TU201} & \texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()}\\ \hline
 
-\hyperlink{TU202}{TU202} & \texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()}\\ \hline
+\hyperlink{TU202}{TU202} & \texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()}\\ \hline
 
-\hyperlink{TU203}{TU203} & \texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()}\\ \hline
+\hyperlink{TU203}{TU203} & \texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()}\\ \hline
 
 \hyperlink{TU204}{TU204} & \texttt{Client::ApplicationManager::State::-\linebreak addApp()}\\ \hline
 
 \hyperlink{TU205}{TU205} & \texttt{Client::ApplicationManager::State::-\linebreak getApp()}\\ \hline
 
-\hyperlink{TU206}{TU206} & \texttt{Client::ConversationApp::runCmd()}\\ \hline
+\hyperlink{TU206}{TU206} & \texttt{Client::ConversationApp::ConversationApp::-\linebreak runCmd()}\\ \hline
 
-\hyperlink{TU207}{TU207} & \texttt{Client::ConversationApp::runCmd()}\\ \hline
-
-\hyperlink{TU208}{TU208} & \texttt{Client::ErrorSubject::next()}\\ \hline
+\hyperlink{TU207}{TU207} & \texttt{Client::ConversationApp::ConversationApp::-\linebreak runCmd()}\\ \hline
 
 \hyperlink{TU209}{TU209} & \texttt{Client::Logic::HttpPromise::then()}\\ \hline
 

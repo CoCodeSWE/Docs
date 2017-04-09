@@ -10,62 +10,86 @@
 \usepackage{subfiles}
 
 \def\NOME{Piano di qualifica}
-\def\VERSIONE{1.0.0}
-\def\DATA{2017-01-08}
-\def\REDATTORE{Nicola Tintorri \\ & Andrea Magnan}
-\def\VERIFICATORE{Pier Paolo Tricomi}
+\def\VERSIONE{3.0.0}
+\def\DATA{2017-04-08}
+\def\REDATTORE{Pier Paolo Tricomi \\ & Andrea Magnan}
+\def\VERIFICATORE{Mattia Bottaro}
 \def\RESPONSABILE{Luca Bertolini}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
 \def\SOMMARIO{Documento contenente le strategie adottate dal gruppo \GRUPPO{} per garantire la qualità del prodotto \PROGETTO.}
 
 \begin{document}
-
-\maketitle
-
-\begin{diario}
-	\modifica{Luca Bertolini}{\RESP}{Approvazione}{2017-01-08}{1.0.0}
-    \modifica{Andrea Magnan}{\AMM}{Inseriti dati resoconto fase AR}{2017-01-07}{0.2.2}
-	\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-24}{0.2.1}
-	\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-24}{0.2.0}
-	\modifica{Andrea Magnan}{\AMM}{Aggiunta struttura resoconto fase AR}{2016-12-23}{0.1.5}
-	\modifica{Nicola Tintorri}{\AMM}{Aggiunta appendice A}{2016-12-23}{0.1.4}
-	\modifica{Nicola Tintorri}{\AMM}{Conclusa stesura sezione 3}{2016-12-22}{0.1.3}
-	\modifica{Andrea Magnan}{\AMM}{Aggiunte appendici B}{2016-12-22}{0.1.2}
-	\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-22}{0.1.1}
-	\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-22}{0.1.0}
-	\modifica{Nicola Tintorri}{\AMM}{Inizio stesura sezione 3}{2016-12-21}{0.0.5}
-	\modifica{Andrea Magnan}{\AMM}{Conclusa stesura sezione 2}{2016-12-21}{0.0.4}
-	\modifica{Andrea Magnan}{\AMM}{Inizio stesura sezione 2}{2016-12-20}{0.0.3}
-	\modifica{Nicola Tintorri}{\AMM}{Stesura introduzione}{2016-12-19}{0.0.2}
-	\modifica{Nicola Tintorri}{\AMM}{Inizio stesura documento}{2016-12-19}{0.0.1}
-\end{diario}
-
-\newpage
-\tableofcontents
-\newpage
-\listoftables
-\newpage
-\listoffigures
-\newpage
-
-\subfile{introduzione}
-\newpage
-\subfile{processo}
-\newpage
-\subfile{prodotto}
-\newpage
-
-\appendix
-\subfile{CMM}
-\newpage
-\subfile{PDCA}
-\newpage
-\subfile{test}
-\newpage
-\subfile{resRR}
-\newpage
-\subfile{resRP}
-
-
+	
+	\maketitle
+	
+	\begin{diario}
+		\modifica{Luca Bertolini}{\RESP}{Approvazione}{2017-04-08}{3.0.0}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-04-04}{2.2.1}
+		\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-04-04}{2.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura resoconto RP}{2017-04-03}{2.1.2}
+		\modifica{Pier Paolo Tricomi}{\PJP}{Correzione sezioni segnalate dalla verifica}{2017-04-03}{2.1.1}
+		\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-04-03}{2.1.0}
+		\modifica{Pier Paolo Tricomi}{\PJP}{Aggiunti test di integrazione}{2017-04-02}{2.0.4}
+		\modifica{Andrea Magnan}{\PJP}{Aggiunti test di unità}{2017-03-30}{2.0.3}
+		\modifica{Pier paolo Tricomi}{\PJP}{Aggiunt test di validazione e di sistema}{2017-03-27}{2.0.2}
+		\modifica{Andrea Magnan}{\PJP}{Stesura appendice "Test"}{2017-03-26}{2.0.1}
+		
+		
+		
+		\modifica{Nicola Tintorri}{\RESP}{Approvazione}{2017-01-31}{2.0.0}
+		\modifica{Luca Bertolini}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-01-30}{1.2.1}
+		\modifica{Simeone Pizzi}{\VER}{Verifica}{2017-01-30}{1.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura appendici A,B}{2017-01-29}{1.1.3}
+		\modifica{Luca Bertolini}{\AMM}{Stesura sezione "Qualità di prodotto"}{2017-01-28}{1.1.2}
+		\modifica{Luca Bertolini}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-01-27}{1.1.1}
+		\modifica{Simeone Pizzi}{\VER}{Verifica}{2017-01-26}{1.1.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura sezione "Qualità di processo"}{2017-01-26}{1.0.2}
+		\modifica{Andrea Magnan}{\AMM}{Eliminate sezioni "Visione generale della strategia di gestione della qualità", "La strategia di gestione della qualità nel dettaglio", appendici A, B, C, D}{2017-01-24}{1.0.1}
+		
+		
+		\modifica{Luca Bertolini}{\RESP}{Approvazione}{2017-01-08}{1.0.0}
+		\modifica{Andrea Magnan}{\AMM}{Inseriti dati resoconto AR}{2017-01-07}{0.2.2}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-24}{0.2.1}
+		\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-24}{0.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Aggiunta struttura resoconto AR}{2016-12-23}{0.1.5}
+		\modifica{Nicola Tintorri}{\AMM}{Aggiunta appendice A}{2016-12-23}{0.1.4}
+		\modifica{Nicola Tintorri}{\AMM}{Conclusa stesura sezione 3}{2016-12-22}{0.1.3}
+		\modifica{Andrea Magnan}{\AMM}{Aggiunte appendici B}{2016-12-22}{0.1.2}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-22}{0.1.1}
+		\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-22}{0.1.0}
+		\modifica{Nicola Tintorri}{\AMM}{Inizio stesura sezione 3}{2016-12-21}{0.0.5}
+		\modifica{Andrea Magnan}{\AMM}{Conclusa stesura sezione 2}{2016-12-21}{0.0.4}
+		\modifica{Andrea Magnan}{\AMM}{Inizio stesura sezione 2}{2016-12-20}{0.0.3}
+		\modifica{Nicola Tintorri}{\AMM}{Stesura introduzione}{2016-12-19}{0.0.2}
+		\modifica{Nicola Tintorri}{\AMM}{Inizio stesura documento}{2016-12-19}{0.0.1}
+	\end{diario}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoftables
+	\newpage
+	\listoffigures
+	\newpage
+	
+	\subfile{sezioni/introduzione}
+	\newpage
+	\subfile{sezioni/processo}
+	\newpage
+	\subfile{sezioni/prodotto}
+	\newpage
+	
+	\appendix
+	\subfile{sezioni/CMM}
+	\newpage
+	\subfile{sezioni/PDCA}
+	\newpage
+	\subfile{sezioni/test}
+	\newpage
+	\subfile{sezioni/resRR}
+	\newpage
+	\subfile{sezioni/resRP}
+	
+	
 \end{document}

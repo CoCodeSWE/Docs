@@ -2,7 +2,7 @@
 I test di validazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline 
+\hline
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -88,7 +88,7 @@ I test di validazione saranno identificati secondo quanto riportato nel document
 I test di sistema saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline 
+\hline
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -114,14 +114,20 @@ I test di sistema saranno identificati secondo quanto riportato nel documento \N
 \clearpage
 
 \subsection{Test di Integrazione}
-I test di integrazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.
+I test di integrazione saranno identificati secondo quanto riportato nel documento \NPdoc{}.\\
+Segue il diagramma di attività relativo ai test d'integrazione.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{FlussoIntegrazione.png}
+	\caption{Diagramma di attività dei test d'integrazione}
+\end{figure}
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline 
+\hline
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
-\hypertarget{TI1}{TI1} & Vogliamo verificare che \file{Recorder}, \file{Logic}, \file{Utility}, \file{Recorder}, \file{TTS} e \file{ApplicationManager} interagiscano correttamente fra loro. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI1}{TI1} & Vogliamo verificare che \file{Recorder}, \file{Logic}, \file{Utility}, \file{Recorder}, \file{TTS}, \file{ConversationApp} e \file{ApplicationManager} interagiscano correttamente fra loro. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI2}{TI2} & Vogliamo verificare che \file{APIGateway}, \file{STT}, \file{VirtualAssistant},  \file{Users}, \file{Guests}, \file{Rules}, \file{Members}, \file{Conversations} e \file{Events} interagiscano correttamente tra di loro. Inoltre, vogliamo verificare che interagiscano correttamente con i servizi e librerie esterne AWS, Speaker Recognition, Speech to text IBM Watson, api.ai, Slack e \file{WebAPI}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI3}{TI3} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::ApplicationManager}, interagiscano tra loro correttamente: \file{ApplicationManagerObserver}, \file{ApplicationRegistryClient}, \file{ApplicationRegistryLocalClient}, \file{ApplicationLocalRegistry}, \file{Manager}, \file{State}, \file{Application}, \file{ApplicationPackage}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI4}{TI4} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::Logic}, interagiscano tra loro correttamente: \file{DataArrivedSubject}, \file{DataArrivedObservable}, \file{Logic}, \file{HttpError}, \file{HttpPromise}, \file{LogicObserver}. & \textit{Non Implementato}\\ \hline
@@ -131,7 +137,7 @@ I test di integrazione saranno identificati secondo quanto riportato nel documen
 \hypertarget{TI8}{TI8} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::APIGateway}, interagiscano tra loro correttamente: \file{VocalAPI}, \file{Enrollement}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI9}{TI9} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Users}, interagiscano tra loro correttamente: \file{UsersDAODynamoDB}, \file{User}, \file{UsersService}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI10}{TI10} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Rules}, interagiscano tra loro correttamente: \file{Rule}, \file{RulesDAODynamoDB}, \file{RuleTarget}, \file{RuleTaskInstance}, \file{RulesService}, \file{TasksDAODynamoDB}, \file{Task}. & \textit{Non Implementato}\\ \hline
-\hypertarget{TI11}{TI11} & 
+\hypertarget{TI11}{TI11} &
 Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::VirtualAssistant}, interagiscano tra loro correttamente: \file{VAService}, \file{ApiAIVAAdapter}, \file{VAQuery}, \file{Agent}, \file{AgentDAODynamoDB}, \file{VAEventObject}, \file{Fulfillment}, \file{MsgObject}, \file{ButtonObject}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI12}{TI12} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Member}, interagiscano tra loro correttamente: \file{MembersSlackDAO}, \file{Member}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI13}{TI13} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Guests}, interagiscano tra loro correttamente: \file{Guest}, \file{GuestDAODynamoDB}. & \textit{Non Implementato}\\ \hline
@@ -141,6 +147,8 @@ Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Virtual
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TI16}{TI16} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Notifications}, interagiscano tra loro correttamente: \file{NotificationChannel}, \file{Purpose}, \file{Topic}, \file{NotificationMessage}, \file{Attachment}, \file{Action}, \file{ConfirmationFields}. & \textit{Non Implementato}\\ \hline
 \hypertarget{TI17}{TI17} & Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Utility}, interagiscano tra loro correttamente: \file{WebhookRequest}, \file{ProcessingResult}, \file{LamdaIdEvent}, \file{PathIdParam}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI18}{TI18} & Vogliamo verificare che le seguenti classi, contenute in \file{Client::ConversationApp}, interagiscano tra loro correttamente: \file{ConversationApp}, \file{ConversationActionObserver}, \file{ConversationActionObservable}, \file{ConversaionActionSubject}, \file{ConversationAction}, \file{ConversationDispatcher}, \file{ConversationView}, \file{MessageStore}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TI19}{TI19} & Vogliamo verificare che \file{Client} e \file{Back-end} interagiscano tra loro correttamente. & \textit{Non Implementato}\\ \hline
 \caption[Test di Integrazione]{Test di Integrazione}
 \label{tabella:test2}
 \end{longtable}
@@ -150,7 +158,7 @@ Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Virtual
 I test di unita saranno identificati secondo quanto riportato nel documento \NPdoc{}.
 \normalsize
 \begin{longtable}{|c|>{}m{8cm}|c|}
-\hline 
+\hline
 \textbf{Id Test} & \textbf{Descrizione} & \textbf{Stato}\\
 \hline
 \endhead
@@ -327,7 +335,7 @@ I test di unita saranno identificati secondo quanto riportato nel documento \NPd
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TU164}{TU164} & Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400.
  & \textit{Non Implementato}\\ \hline
-\hypertarget{TU165}{TU165} & 
+\hypertarget{TU165}{TU165} &
 Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500.
  & \textit{Non Implementato}\\ \hline
 \hypertarget{TU166}{TU166} & Vogliamo testare che, se la chiamata al metodo va a buon fine, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 200 e campo \file{body} contenente l’\file{User} cercato. & \textit{Non Implementato}\\ \hline
@@ -340,9 +348,9 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \hypertarget{TU173}{TU173} & Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU174}{TU174} & Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU175}{TU175} & Vogliamo testare che, se la chiamata al metodo va a buon fine, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 200. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU176}{TU176} & 
+\hypertarget{TU176}{TU176} &
 Vogliamo testare che, se la chiamata al metodo viene fatta con un parametro aspettato, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 400. & \textit{Non Implementato}\\ \hline
-\hypertarget{TU177}{TU177} & 
+\hypertarget{TU177}{TU177} &
 Vogliamo testare che, se la chiamata al metodo genera un errore del microservizio, viene chiamato il metodo \file{succeed} del \file{context} con un parametro \file{LambdaResponse} avente campo \file{statusCode} pari a 500. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU178}{TU178} & Se la chiamata al microservizio \file{Rules} genera un errore, viene chiamata la funzione di callback con un solo parametro diverso da null. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU179}{TU179} & Se la chiamata al microservizio \file{Notification} genera un errore, viene chiamata la funzione di callback con un solo parametro diverso da null. & \textit{Non Implementato}\\ \hline
@@ -386,4 +394,3 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \label{tabella:test3}
 \end{longtable}
 \clearpage
-
