@@ -3717,7 +3717,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{ApplicationLocalRegistry};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di mantenere una lista degli \file{ApplicationPackage} disponibili;
-	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari per inserire, rimuovere ed ottenere degli \file{ApplicationPackage}. Implementa un \file{Registry} all'interno del client, semplificando il compito del \file{RegistryClient} ed eliminando la necessità di effettuare richieste HTTP per recuperare un \file{ApplicationPackage};
+	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari per inserire, rimuovere ed ottenere degli \file{ApplicationPackage}.
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- pkgs: ApplicationPackageAssocArray} \\
@@ -3793,7 +3793,7 @@ Vengono offerte funzionalità che permettono:
 \begin{itemize}
 	\item \textbf{Nome}: \file{ApplicationPackage};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e definire il tipo di package che viene restituito da una interrogazione di un registry delle applicazioni;
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e definire il tipo di package che viene restituito da una interrogazione su un registro delle applicazioni;
 	\item \textbf{Utilizzo}: fornisce gli attributi caratterizzanti una \file{Application}, necessari alla sua istanziazione;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -4639,7 +4639,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe è una classe Worker che si occupa dell'effettiva registrazione dell'audio;
 	\item \textbf{Utilizzo}: fornisce a Recorder un thread che si occupa di registrare effettivamente l'audio in modo da non appesantire il thread dell'interfaccia grafica.
-	Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e)  (tutti i metodi sono privati perchè vengono usati messaggi per comunicare);
+	Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
@@ -4945,7 +4945,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		Parametri:
 		\begin{itemize}
 			\item \file{obs: BoolObserver} \\
-			OsservatoreBool;
+			Parametro contenente l'\file{Observer} che si vuole iscrivere;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -5120,7 +5120,12 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Padre}: \file{Observable};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ subscribe(): Subscription} \\		Metodo che permette ad un \file{ErrorObserver} di iscriversi all'\file{Observable};\\
+		\item[] \file{+ subscribe(obs: ErrorObserver): Subscription} \\		Metodo che permette ad un \file{ErrorObserver} di iscriversi all'\file{Observable};\\
+		Parametri:
+		\begin{itemize}
+			\item \file{obs: ErrorObserver}\\
+			Parametro contenente l'\file{Observer} che si vuole iscrivere.
+		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
