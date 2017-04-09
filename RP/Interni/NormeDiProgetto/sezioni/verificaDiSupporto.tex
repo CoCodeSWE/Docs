@@ -457,14 +457,21 @@ Per visualizzare il resoconto corrente dello stato di ciò che le metriche indic
 \paragraph{Resoconto stato test di unità}
 Per visualizzare il resoconto corrente dello stato dei test di unità è necessario seguire la seguente procedura:
 \begin{itemize}
-	\item entrare nella cartella \texttt{/responsoTest};
+	\item entrare nella cartella \texttt{/responsoTest} del repository contenente il codice;
 	\item aprire il file corrispondente al test eseguito, identificato con data e ora dell'esecuzione.
 \end{itemize}
 \paragraph{Resoconto stato build}
 Per visualizzare il resoconto corrente dello stato di una delle build eseguite, è necessario seguire la seguente procedura:
 \begin{itemize}
-	\item entrare nella cartella \texttt{/statoBuild};
+	\item entrare nella cartella \texttt{/statoBuild} del repository contenente il codice;
 	\item aprire il file corrispondente al numero della build sulla quale si vogliono informazioni.
+\end{itemize}
+\paragraph{Eseguire test di unità in locale}
+Per eseguire un test di unità dal proprio computer in locale, è necessario seguire la seguente procedura:
+\begin{itemize}
+	\item aprire il terminale;
+	\item spostarsi nella cartella contenente il test di unità;
+	\item scrivere nel terminale \texttt{mocha nometest.js}.
 \end{itemize}
 
 \subsubsection{Strumenti}
@@ -480,7 +487,10 @@ Questo strumento permetterà al gruppo di automatizzare i test di unità, che ve
 Mocha è un framework che permette di creare ed eseguire test sia per Node.js che per il browser web.
 \subparagraph{Calcolo della copertura dei test - Istanbul}
 Istanbul è uno strumento che calcola la copertura dei test rispetto a statement, righe, funzioni e branch di un determinato progetto.
-
+\subparagraph{Automatizzazione test client-side - PhantomJS}
+PhantomJS è un headless browser, cioè di un tool che consente la manipolazione via JavaScript del DOM, di CSS, JSON, Ajax altre tecnologie Web client-side da riga di comando, senza alcun rendering a video. Utilizzeremo questo framework per automatizzare il processo di test dell'interfaccia grafica client-side.
+\subparagraph{Framework per il testing di applicazioni web - Selenium}
+Selenium è un framework che permette di creare test per applicazioni web.
 
 \paragraph{Requisiti obbligatori soddisfatti}
 Lo strumento scelto per il calcolo del valore di questa metrica è PragmaDB, il quale permette di tracciare i requisiti ed associarli su use case e fonti.
