@@ -61,11 +61,11 @@
 \texttt{Back-end::Rules::RulesService::-\linebreak queryRule()} & \hyperlink{TU157}{TU157}\\ & \hyperlink{TU158}{TU158}\\ & \hyperlink{TU159}{TU159}\\ \hline
 \texttt{Back-end::Rules::RulesService::-\linebreak updateRule()} & \hyperlink{TU160}{TU160}\\ & \hyperlink{TU161}{TU161}\\ & \hyperlink{TU162}{TU162}\\ \hline
 \texttt{Back-end::Rules::TaskObserver::next()} & \hyperlink{TU111}{TU111}\\ & \hyperlink{TU112}{TU112}\\ \hline
-\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addFunction()} & \hyperlink{TU100}{TU100}\\ & \hyperlink{TU101}{TU101}\\ \hline
-\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunction()} & \hyperlink{TU102}{TU102}\\ & \hyperlink{TU103}{TU103}\\ \hline
-\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getFunctionList()} & \hyperlink{TU104}{TU104}\\ & \hyperlink{TU105}{TU105}\\ \hline
-\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeFunction()} & \hyperlink{TU106}{TU106}\\ & \hyperlink{TU107}{TU107}\\ \hline
-\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateFunction()} & \hyperlink{TU108}{TU108}\\ & \hyperlink{TU109}{TU109}\\ \hline
+\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak addTask()} & \hyperlink{TU100}{TU100}\\ & \hyperlink{TU101}{TU101}\\ \hline
+\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTask()} & \hyperlink{TU102}{TU102}\\ & \hyperlink{TU103}{TU103}\\ \hline
+\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak getTaskList()} & \hyperlink{TU104}{TU104}\\ & \hyperlink{TU105}{TU105}\\ \hline
+\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak removeTask()} & \hyperlink{TU106}{TU106}\\ & \hyperlink{TU107}{TU107}\\ \hline
+\texttt{Back-end::Rules::TasksDAODynamoDB::-\linebreak updateTask()} & \hyperlink{TU108}{TU108}\\ & \hyperlink{TU109}{TU109}\\ \hline
 \texttt{Back-end::STT::STTWatsonAdapter::-\linebreak speechToText()} & \hyperlink{TU110}{TU110}\\ \hline
 \texttt{Back-end::Users::<<interface>>VocalLoginModule::-\linebreak addEnrollment()} & \hyperlink{TU125}{TU125}\\ \hline
 \texttt{Back-end::Users::<<interface>>VocalLoginModule::-\linebreak createUser()} & \hyperlink{TU126}{TU126}\\ \hline
@@ -85,7 +85,6 @@
 \texttt{Back-end::Users::UsersService::-\linebreak updateUser()} & \hyperlink{TU175}{TU175}\\ & \hyperlink{TU176}{TU176}\\ & \hyperlink{TU177}{TU177}\\ \hline
 \texttt{Back-end::Users::VocalLoginMicrosoftModule::-\linebreak getList()} & \hyperlink{TU129}{TU129}\\ \hline
 \texttt{Back-end::Users::VocalLoginMicrosoftModule::-\linebreak getUser()} & \hyperlink{TU130}{TU130}\\ \hline
-\texttt{Back-end::Utility::ErrorObserver::-\linebreak next()} & \hyperlink{TU3}{TU3}\\ \hline
 \texttt{Back-end::VirtualAssistant::-\linebreak <<interface>> AgentsDAO::getAgentsList()} & \hyperlink{TU136}{TU136}\\ & \hyperlink{TU137}{TU137}\\ \hline
 \texttt{Back-end::VirtualAssistant::-\linebreak <<interface>> AgentsDAO::removeAgent()} & \hyperlink{TU138}{TU138}\\ & \hyperlink{TU139}{TU139}\\ \hline
 \texttt{Back-end::VirtualAssistant::-\linebreak <<interface>> AgentsDAO::updateAgent()} & \hyperlink{TU140}{TU140}\\ & \hyperlink{TU141}{TU141}\\ \hline
@@ -94,24 +93,24 @@
 \texttt{Back-end::VirtualAssistant::AgentsDAODynamoDB::-\linebreak getAgent()} & \hyperlink{TU134}{TU134}\\ & \hyperlink{TU135}{TU135}\\ \hline
 \texttt{Back-end::VirtualAssistant::ApiAiVAAdapter::-\linebreak query()} & \hyperlink{TU183}{TU183}\\ \hline
 \texttt{Back-end::VirtualAssistant::VAService::-\linebreak query()} & \hyperlink{TU184}{TU184}\\ & \hyperlink{TU185}{TU185}\\ & \hyperlink{TU186}{TU186}\\ & \hyperlink{TU187}{TU187}\\ \hline
-\texttt{Client::ApplicationLocalRegistry::-\linebreak query()} & \hyperlink{TU190}{TU190}\\ \hline
-\texttt{Client::ApplicationLocalRegistry::-\linebreak register()} & \hyperlink{TU189}{TU189}\\ \hline
-\texttt{Client::ApplicationLocalRegistry::-\linebreak remove()} & \hyperlink{TU191}{TU191}\\ \hline
+\texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::query()} & \hyperlink{TU190}{TU190}\\ \hline
+\texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::register()} & \hyperlink{TU189}{TU189}\\ \hline
+\texttt{Client::ApplicationManager::-\linebreak ApplicationLocalRegistry::remove()} & \hyperlink{TU191}{TU191}\\ \hline
 \texttt{Client::ApplicationManager::-\linebreak ApplicationRegistryLocalClient::query()} & \hyperlink{TU192}{TU192}\\ \hline
 \texttt{Client::ApplicationManager::-\linebreak ApplicationRegistryLocalClient::register()} & \hyperlink{TU193}{TU193}\\ \hline
-\texttt{Client::ApplicationManager::ConversationDispatcher::-\linebreak dispatch()} & \hyperlink{TU194}{TU194}\\ \hline
-\texttt{Client::ApplicationManager::ConversationView::-\linebreak render()} & \hyperlink{TU195}{TU195}\\ \hline
 \texttt{Client::ApplicationManager::Manager::-\linebreak runApplication()} & \hyperlink{TU196}{TU196}\\ & \hyperlink{TU197}{TU197}\\ \hline
 \texttt{Client::ApplicationManager::Manager::-\linebreak setFrame()} & \hyperlink{TU198}{TU198}\\ \hline
-\texttt{Client::ApplicationManager::MessageStore::-\linebreak onCmd()} & \hyperlink{TU199}{TU199}\\ & \hyperlink{TU200}{TU200}\\ & \hyperlink{TU201}{TU201}\\ & \hyperlink{TU202}{TU202}\\ & \hyperlink{TU203}{TU203}\\ \hline
 \texttt{Client::ApplicationManager::State::-\linebreak addApp()} & \hyperlink{TU204}{TU204}\\ \hline
 \texttt{Client::ApplicationManager::State::-\linebreak getApp()} & \hyperlink{TU205}{TU205}\\ \hline
-\texttt{Client::ConversationApp::runCmd()} & \hyperlink{TU206}{TU206}\\ & \hyperlink{TU207}{TU207}\\ \hline
-\texttt{Client::ErrorSubject::next()} & \hyperlink{TU208}{TU208}\\ \hline
+\texttt{Client::ConversationApp::ConversationApp::-\linebreak runCmd()} & \hyperlink{TU206}{TU206}\\ & \hyperlink{TU207}{TU207}\\ \hline
+\texttt{Client::ConversationApp::ConversationDispatcher::-\linebreak dispatch()} & \hyperlink{TU194}{TU194}\\ \hline
+\texttt{Client::ConversationApp::ConversationView::-\linebreak render()} & \hyperlink{TU195}{TU195}\\ \hline
+\texttt{Client::ConversationApp::MessageStore::-\linebreak onCmd()} & \hyperlink{TU199}{TU199}\\ & \hyperlink{TU200}{TU200}\\ & \hyperlink{TU201}{TU201}\\ & \hyperlink{TU202}{TU202}\\ & \hyperlink{TU203}{TU203}\\ \hline
 \texttt{Client::Logic::HttpPromise::then()} & \hyperlink{TU209}{TU209}\\ & \hyperlink{TU210}{TU210}\\ \hline
 \texttt{Client::Logic::Logic::sendData()} & \hyperlink{TU211}{TU211}\\ & \hyperlink{TU212}{TU212}\\ \hline
 \texttt{Client::Recorder::Recorder::start()} & \hyperlink{TU213}{TU213}\\ \hline
 \texttt{Client::Recorder::Recorder::stop()} & \hyperlink{TU213}{TU213}\\ \hline
+\texttt{Libs::ErrorObserver::next()} & \hyperlink{TU3}{TU3}\\ \hline
 
 \caption[Tracciamento Metodi-Test di Unità]{Tracciamento Metodi-Test di Unità}
 \label{tabella:met-tu}
