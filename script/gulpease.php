@@ -12,7 +12,7 @@
 
 
 // eseguire lo script direttamente all'interno della cartella "script"
-$rev = ('../RR/'); //al cambio di revisione modificare questa variabile
+$rev = ('../RP/'); //al cambio di revisione modificare questa variabile
 $revisione = 'Revisione dei requisiti';//e questa
 
 $rootE = 'Esterni/';
@@ -21,17 +21,16 @@ $rootI = 'Interni/';
  * Elenco delle directory dei documenti
  */
  $docs = array(
-   'Glo' => 'Glossario/',
-   'NdP' => 'NormeDiProgetto/',
-   'SdF' => 'StudioDiFattibilita/',
+   'Glo' => 'Glossario/sezioni/',
+   'NdP' => 'NormeDiProgetto/sezioni/',
    'PdP' => 'PianoDiProgetto/',
-   'AdR' => 'AnalisiDeiRequisiti/',
-   '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-   '2VI' => 'Verbale_I_2016-12-19/',
-   '1VE' => 'Verbale_E_2016-12-17/',
-   'PdQ' => 'PianoDiQualifica/',
-   'SDK' => 'AnalisiSDK/',
-   'LdP' => 'LetteraDiPresentazione/'
+   'AdR' => 'AnalisiDeiRequisiti/sezioni/',
+ /* '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
+   '2VI' => 'Verbale_I_2016-12-19',
+   '1VE' => 'Verbale_E_2016-12-17/', */
+   'PdQ' => 'PianoDiQualifica/sezioni/',
+   'DdP' => 'DefinizioneDiProdotto/'
+   //'LdP' => 'LetteraDiPresentazione/'
  );
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
