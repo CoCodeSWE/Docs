@@ -4,7 +4,7 @@ L'architettura scelta per il \gl{sistema} dell'applicazione è quella a \gl{micr
 I motivi che hanno spinto il \gl{team} a questa scelta sono stati i seguenti:
 \begin{itemize}
 	\item i servizi utilizzati di AWS permettono l'implementazione di un'architettura \gl{serverless}, la quale consente una migliore gestione dei microservizi, guadagnandone in facilità d'implementazione e di scalabilità di quest'ultimi;
-	\item api.ai, il \gl{software} development kit (\gl{SDK}) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estragga un testo corrisondente al suo contenuto;
+	\item api.ai, il \gl{Software} Development Kit (\gl{SDK}) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estragga un testo corrisondente al suo contenuto;
 	\item il \gl{proponente} ha richiesto anche un lato amministrazione, il quale accesso dovrà essere regolamentato da un servizio differente e indipendente di riconoscimento vocale.
 \end{itemize}
 
@@ -30,7 +30,7 @@ In figura \ref{fig:apig1} si ha una rappresentazione generale, non specifica del
 \newpage
 Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'approccio architetturale \gl{REST}, i quali sono consultabili alla pagina \url{https://en.wikipedia.org/wiki/Representational_state_transfer} (visitato in data 2017-03-26).
 \subsection{Sicurezza API Gateway ed endpoints}
-Con lo scopo di garantire una certa sicurezza, l'accesso agli endpoints pubblicati sull'API Gateway deve essere controllato e regolato. \\Questo è necessario in quanto tramite essi è possibili fare operazioni sensibili sul sistema, quindi un utente malintenzionato potrebbe comprometterne il corretto funzionamento.\\ 
+Con lo scopo di garantire una certa sicurezza, l'accesso agli endpoints pubblicati sull'API Gateway deve essere controllato e regolato. \\Questo è necessario in quanto tramite essi è possibili fare operazioni sensibili sul sistema, quindi un utente malintenzionato potrebbe comprometterne il corretto funzionamento.\\
 Il servizio AWS API Gateway fornisce sofisticati ed avanzati meccanismi per la protezione degli endpoint, i quali sono esposti e spiegati alla pagina \url{http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html} (visitato in data 2017-03-26). \\
 
 Il sistema progettato prevede due tipologie di utenti (ospite e amministratore), caratterizzati da diverse interazioni con l'assistente virtuale. Vengono quindi supportate dal \file{Back-end} differenti operazioni, invocabili tramite appositi endpoints, in base alla tipologia d'utente. Nasce di conseguenza la necessità di vincolare ogni tipologia d'utente ai soli endpoints ad essa dedicati. \\
@@ -47,7 +47,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 	\newpage
 	\item \textbf{TTS}: questa componente si occupa di realizzare le funzionalità di text-to-speech, ovvero di riprodurre sotto forma di audio il testo fornito come risposta dall'assistente virtuale. Inoltre, quando la riproduzione audio si attiva/disattiva, le componenti interessate vengono notificate di ciò. Tutto ciò è reso possibile dal pattern comportamentale Observer;
 	\item \textbf{ApplicationManager}: questa componente si occupa realizzare le funzionalità di gestione delle applicazioni con le quali l'utente interagisce, permettendo la definizione di esse, la definizione comandi accettati, del salvataggio di stato e del cambio tra un'applicazione e l'altra. Tutto ciò è reso possibile dal pattern \gl{Client-side discovery} riadattato, la quale descrizione è consultabile nell'appendice \ref{CS}. Grazie all'utilizzo del pattern comportamentale Observer, questa componente viene notificata dell'arrivo di dati dal \file{Back-end};
-	\item \textbf{ConversationApp}: questa componente si occupa di realizzare l'applicazione ConversationApp, ovvero quella che, tramite interfaccia utente, permette l'interazione con l'assistente virtuale. Per modellare la disposizione delle sue classi, si è fatto utilizzo del pattern Flux descritto nella libreria React, la quale verrà utilizzata per realizzare quanto appena descritto. 
+	\item \textbf{ConversationApp}: questa componente si occupa di realizzare l'applicazione ConversationApp, ovvero quella che, tramite interfaccia utente, permette l'interazione con l'assistente virtuale. Per modellare la disposizione delle sue classi, si è fatto utilizzo del pattern Flux descritto nella libreria React, la quale verrà utilizzata per realizzare quanto appena descritto.
 	\item \textbf{Logic}: questa componente si occupa di realizzare le funzionalità che permettono l'interazione, tramite API Gateway, con il \file{Back-end}. Inoltre, quando arrivano dei dati da quest'ultimo, questa componente si occupa di notificare le componenti interessate. Ancora una volta, tutto ciò è organizzato secondo il pattern comportamentale Observer.
 \end{itemize}
 \subsubsection{Endpoints}
@@ -116,12 +116,12 @@ Gli Endpoints sono:
 {
   "data":"Object",
   "event":
-    { 
+    {
       "data":"Object",
       "name":"String"
     },
   "session_id":"String",
-  "text":"String" 
+  "text":"String"
 }
 \end{lstlisting}
 \newpage
@@ -145,7 +145,7 @@ Gli Endpoints sono:
 
 \subsubsection{Notifications}
 \paragraph{Descrizione}
-Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. 
+Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale.
 Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è \gl{Slack} e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio.
 \paragraph{Endpoints}
 
@@ -342,7 +342,7 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule_array : 
+  rule_array :
   [
     {
       "enabled":"boolean",
@@ -383,13 +383,13 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule : 
+  rule :
   {
     "enabled":"boolean",
     "id":"int",
     "name":"String",
     "targets":
-    [ 
+    [
       {
         "company":"String",
         "member":"String",
@@ -402,7 +402,7 @@ Gli Endpoints sono:
       }
     ],
     "task":
-    { 
+    {
       "params":
       {
         "par1":"Object",
@@ -425,13 +425,13 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule : 
+  rule :
   {
     "enabled":"boolean",
     "id":"int",
     "name":"String",
     "targets":
-    [ 
+    [
       {
         "company":"String",
         "member":"String",
@@ -465,13 +465,13 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule : 
+  rule :
   {
     "enabled":"boolean",
     "id":"int",
     "name":"String",
     "targets":
-    [ 
+    [
       {
         "company":"String",
         "member":"String",
@@ -514,7 +514,7 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array : 
+ function_array :
   [
     {
       "function":"String",
@@ -535,7 +535,7 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  function_array : 
+  function_array :
   [
     {
       "function":"String",
@@ -562,7 +562,7 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  function_array : 
+  function_array :
   [
     {
       "function":"String",
@@ -583,7 +583,7 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  function_array : 
+  function_array :
   [
     {
       "function":"String",
@@ -611,7 +611,7 @@ I metodi citati appartengono alla classe \file{Back-end::APIGateway::VocalAPI}.
 
 \item \file{user.get}: utilizza il metodo privato \file{getUser} per ottenere i dati relativi ad un utente registrato;
 
-\item \file{user.getList}: utilizza il metodo privato \file{getUserList} per ottenere la lista degli utenti registrati; 
+\item \file{user.getList}: utilizza il metodo privato \file{getUserList} per ottenere la lista degli utenti registrati;
 
 \item \file{user.update}: utilizza il metodo privato \file{updateUser} per aggiornare un utente registrato;
 
