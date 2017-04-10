@@ -4,14 +4,14 @@ L'architettura scelta per il \gl{sistema} dell'applicazione è quella a \gl{micr
 I motivi che hanno spinto il \gl{team} a questa scelta sono stati i seguenti:
 \begin{itemize}
 	\item i servizi utilizzati di AWS permettono l'implementazione di un'architettura \gl{serverless}, la quale consente una migliore gestione dei microservizi, guadagnandone in facilità d'implementazione e di scalabilità di quest'ultimi;
-	\item api.ai, il \gl{software} development kit (\gl{SDK}) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estragga un testo corrisondente al suo contenuto;
+	\item api.ai, il \gl{Software} Development Kit (\gl{SDK}) scelto per la realizzazione dell'assistente virtuale, accetta in input solo del testo e non dell'audio, avendo così bisogno di un servizio differente e indipendente che, dato un file audio, estragga un testo corrisondente al suo contenuto;
 	\item il \gl{proponente} ha richiesto anche un lato amministrazione, il quale accesso dovrà essere regolamentato da un servizio differente e indipendente di riconoscimento vocale.
 \end{itemize}
 
 Ogni microservizio rende disponibili degli \gl{endpoints}, tramite i quali è possibile lo scambio di dati. \\
 Per poter creare, pubblicare, mantenere e monitorare le \gl{API} che consentono di usufruire delle funzionalità supportate dal back-end, è necessario realizzare un \gl{API Gateway} che si interpone tra client e back-end, permettendo al primo di comunicare con il secondo.
 Esso permette inoltre la creazione di endpoint disponibili all'esterno del back-end, che verranno poi mappati negli endpoints supportati dal back-end, in particolare dai microservizi.\\
-Allo stato attuale un solo tipo di client è supportato, ovvero quello vocale richiesto dal proponente.\\
+Allo stato attuale un solo tipo di client è supportato, ovvero quello vocale con interfaccia web richiesto dal proponente.\\
 Con lo scopo di semplificare al client l'uso del back-end, è stato deciso di rendere disponibile un solo endpoint esterno per il client. \\
 I motivi che hanno spinto il team a questa scelta sono stati i seguenti:
 \begin{itemize}
@@ -94,15 +94,13 @@ Il client vocale è composto da diverse componenti, le quali sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 403:} Nel caso la richiesta fatta rappresenti un'azione di amministrazione e non venga fornito il JWT di autenticazione, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":403,
-  "msg":"Forbidden"
+  "message":"Forbidden"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -167,15 +165,13 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
-\item \textbf{Response 403:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
+\item \textbf{Response 403:} Nel caso la richiesta fatta rappresenti un'azione di amministrazione e non venga fornito il JWT di autenticazione, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":403,
-  "msg":"Forbidden"
+  "message":"Forbidden"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -210,15 +206,15 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Notifications::NotificationChannel}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "created": "String",
-  "creator": "String",
-  "id": "String",
-  "is_archived": "boolean",
-  "is_member": "boolean",
-  "name": "String"
-  "num_members": "int",
-  "purpose": "Purpose",
-  "topic": "Topic",
+  messages:
+  [
+    {
+      "id": "String",
+      "name": "String",
+      "type": "String"
+    },
+    ...
+  ]
 }
 \end{lstlisting}
 \item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
@@ -248,11 +244,11 @@ Gli Endpoints sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
   "msg":
-  [
+  {
      "attachments_array":[{},{}],
 	 "response_type":"String",
 	 "text":"String"
-   ],
+   },
    "send_to": "String"
 }
 \end{lstlisting}
@@ -265,8 +261,7 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -300,32 +295,16 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  user_array :
+  users :
   [
     {
-      "first_name":"String",
-      "last_name":"String",
+      "name":"String",
       "password":"String",
       "slack_channel":"String",
       "sr_id":"String",
       "username":"String"
     },
-    {
-      "first_name":"String",
-      "last_name":"String",
-      "password":"String",
-      "slack_channel":"String",
-      "sr_id":"String",
-      "username":"String"
-    },
-    {
-      "first_name":"String",
-      "last_name":"String",
-      "password":"String",
-      "slack_channel":"String",
-      "sr_id":"String",
-      "username":"String"
-    }
+    ...
   ]
 }
 \end{lstlisting}
@@ -355,8 +334,7 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in\\ \file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "first_name":"String",
-  "last_name":"String",
+  "name":"String",
   "password":"String",
   "slack_channel":"String",
   "sr_id":"String",
@@ -373,8 +351,7 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -392,8 +369,7 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "first_name":"String",
-  "last_name":"String",
+  "name":"String",
   "password":"String",
   "slack_channel":"String",
   "sr_id":"String",
@@ -410,8 +386,7 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -451,8 +426,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "first_name":"String",
-  "last_name":"String",
+  "name":"String",
   "password":"String",
   "slack_channel":"String",
   "sr_id":"String",
@@ -514,7 +488,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule_array :
+  rules :
   [
     {
       "enabled":"boolean",
@@ -527,11 +501,7 @@ Gli Endpoints sono:
           "member":"String",
           "name":"String"
         },
-        {
-          "company":"String",
-          "member":"String",
-          "name":"String"
-        }
+        ...
       ],
       "task":
       {
@@ -543,7 +513,8 @@ Gli Endpoints sono:
         }
         "task":"String"
       }
-    }
+    },
+    ...
   ]
 }
 \end{lstlisting}
@@ -614,8 +585,7 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -673,8 +643,7 @@ Gli Endpoints sono:
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":400,
-  "msg":"Bad Request"
+  "message":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
@@ -703,11 +672,7 @@ Gli Endpoints sono:
         "member":"String",
         "name":"String"
       },
-      {
-        "company":"String",
-        "member":"String",
-        "name":"String"
-      }
+      ...
     ],
     "task":
     {
@@ -775,16 +740,12 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array :
+ tasks :
   [
     {
-      "function":"String",
-      "id":"int"
+      "type":"String",
     },
-    {
-      "function":"String",
-      "id":"int"
-    }
+    ...
   ]
 }
 \end{lstlisting}
@@ -799,131 +760,6 @@ Gli Endpoints sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
   "message":"Not found"
-}
-\end{lstlisting}
-\item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"Messaggio relativo all'errore"
-}
-\end{lstlisting}
-\end{itemize}
-
-\begin{itemize}
-\item \textbf{Method:} POST;
-\item \textbf{Descrizione:} viene creato un nuovo tipo di \file{Task};
-\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  function_array :
-  [
-    {
-      "function":"String",
-      "id":"int"
-    },
-    {
-      "function":"String",
-      "id":"int"
-    }
-  ]
-}
-\end{lstlisting}
-
-\item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"success"
-}
-\end{lstlisting}
-\item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "status":400,
-  "msg":"Bad Request"
-}
-\end{lstlisting}
-\item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"Messaggio relativo all'errore"
-}
-\end{lstlisting}\end{itemize}
-
-
-
-\item \textbf{/rules/tasks/:type}\\
-
-\begin{itemize}
-\item \textbf{Method:} GET;
-\item \textbf{Descrizione:} viene richiesto un \file{Task} in base al tipo di funzione applicata, , il quale identificativo è specificato nel path;
-
-\item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  function_array :
-  [
-    {
-      "function":"String",
-      "id":"int"
-    },
-    {
-      "function":"String",
-      "id":"int"
-    }
-  ]
-}
-\end{lstlisting}
-\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"Forbidden"
-}
-\end{lstlisting}
-
-\item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"Not found"
-}
-\end{lstlisting}
-\item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"Messaggio relativo all'errore"
-}
-\end{lstlisting}
-\end{itemize}
-
-\begin{itemize}
-\item \textbf{Method:} PUT;
-\item \textbf{Descrizione:} viene modificata un \file{Task}, il quale identificativo è specificato nel path tramite sovrascrittura;
-\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  function_array :
-  [
-    {
-      "function":"String",
-      "id":"int"
-    },
-    {
-      "function":"String",
-      "id":"int"
-    }
-  ]
-}
-\end{lstlisting}
-\item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "message":"success"
-}
-\end{lstlisting}
-\item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "status":400,
-  "msg":"Bad Request"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:

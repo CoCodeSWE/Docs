@@ -123,7 +123,7 @@
 			Nel primo caso, la risposta fornita sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts": 
+  "contexts":
   [
     {
       "name":"String",
@@ -144,7 +144,7 @@
 			Nel secondo caso, la risposta sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts": 
+  "contexts":
   [
     {
       "name":"String",
@@ -248,14 +248,14 @@ Package contenente le classi necessarie a gestire:
 \hypertarget{VocalAPI_label}{\subparagraph{VocalAPI}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalAPI.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalAPI.png}
 	\caption{Back-end::APIGateway::VocalAPI}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di implementare l'\gl{endpoint} dell'\gl{API Gateway} utilizzato dal client vocale;
-	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
+	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
+	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la lambda function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- vocal: VocalLoginModule} \\
@@ -267,7 +267,7 @@ Package contenente le classi necessarie a gestire:
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
-		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste \gl{HTTP} sostituendo \gl{callback}s con promises;
+		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo callbacks con promises;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -285,13 +285,13 @@ Package contenente le classi necessarie a gestire:
 			\item \file{sns: AWS::SNS} \\
 			Parametro contenente il modulo \file{AWS::SNS} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
-		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un \gl{enrollment} ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable}, con code impostato a 1 nel caso in cui l'utente non esista;\\
+		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un enrollment ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{enr: Enrollment} \\
 			Parametro contenente l'enrollment da aggiungere a un utente;
 		\end{itemize}
-		\item[] \file{- addUser(user: User): ErrorObservable} \\		Metodo che permette di aggiungere un utente al sistema. Restituisce un oggetto di tipo \file{ErrorObservable}, con code impostato a 1 in caso di username già esistente, 2 in caso di username non valido (troppo lungo o troppo corto);\\
+		\item[] \file{- addUser(user: User): ErrorObservable} \\		Metodo che permette di aggiungere un utente al sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 in caso di username già esistente, 2 in caso di username non valido (troppo lungo o troppo corto). In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
@@ -310,25 +310,25 @@ Package contenente le classi necessarie a gestire:
 			\item \file{enr: Enrollment} \\
 			Attributo contenente l'\file{Enrollment} (\file{audio} + \file{username}) con il quale tentare il login;
 		\end{itemize}
-		\item[] \file{- removeUser(username: String): ErrorObservable} \\		Metodo che permette di eliminare i dati relativi ad un utente dal sistema. Restituisce un oggetto di tipo \file{ErrorObservable}, con code impostato a 1 nel caso in cui l'utente non esista;\\
+		\item[] \file{- removeUser(username: String): ErrorObservable} \\		Metodo che permette di eliminare i dati relativi ad un utente dal sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{username: String} \\
 			Parametro contenente l'username dell'user da eliminare dal sistema;
 		\end{itemize}
-		\item[] \file{- resetUserEnrollment(username: String): ErrorObservable} \\		Metodo che permette di eliminare tutti gli enrollments di un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable}, con code impostato a 1 nel caso in cui l'utente non esista;\\
+		\item[] \file{- resetUserEnrollment(username: String): ErrorObservable} \\		Metodo che permette di eliminare tutti gli enrollments di un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{username: String} \\
 			Parametro contenente l'username dell utente a cui si vogliono eliminare tutti gli enrollments;
 		\end{itemize}
-		\item[] \file{- updateUser(user: User): ErrorObservable} \\		Metodo che permette di modificare i dati relativi ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable}, con code impostato a 1 nel caso in cui l'utente non esista;\\
+		\item[] \file{- updateUser(user: User): ErrorObservable} \\		Metodo che permette di modificare i dati relativi ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
 			Parametro contenente l'\file{User} da modificare;
 		\end{itemize}
-		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \gl{direttiva} al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
+		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una direttiva al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -340,8 +340,8 @@ Package contenente le classi necessarie a gestire:
 			\item \file{id: String} \\
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
-		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle \gl{direttive} del sistema.
-		;\\
+		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle direttive del sistema.
+;\\
 		\item[] \file{- updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una direttiva presente nel sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
@@ -355,34 +355,33 @@ Package contenente le classi necessarie a gestire:
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
 		\item[] \file{+ queryLambda(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che si occupa di chiamare prima il servizio di Speech To Text e, una volta ottenuta risposta da esso, di interrogare l'assistente virtuale. Quando viene ricevuta una risposta dall'assistente virtuale, il metodo controlla il valore del campo \file{action} di tale risposta e, nel caso in cui corrisponda ad una delle action supportate, si occupa di eseguire le azioni necessarie utilizzando i metodi privati di questa classe. Nel caso in cui invece \file{action} non corrisponda ad una delle azioni supportate (ovvero action è un'azione che non richiede operazione da parte del back-end, oppure \file{actionIncomplete} è impostato a true), tale risposta viene rielaborata ed inoltrata. Le azioni supportate ed i relativi compiti da svolgere sono disponibili alla sezione \ref{action}. \\
-		Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish()}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati;\\
+Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish()}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio ricevuto da API Gateway. Tali dati saranno nel seguent formato:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "app":"String",
-  "audio": "Base64String",
-  "data": "ObjectAssocArray",
-  "session_id":"String"
+ "app":"String",
+ "audio": "Base64String",
+ "data": "ObjectAssocArray",
+ "session\_id":"String"
 }
 \end{lstlisting}
 
 Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
-\item \file{context: LambdaContext} \\
-Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "action":"String",
-  "res":
-  {
-    "contexts":"ObjectAssocArray",
-    "data":"Object",
-    "text_request":"String",
-    "text_response":"String"
-  },
-  "session_id":"String"
+"action":"String",
+"res":{
+ "contexts":"ObjectAssocArray",
+ "data":"Object",
+ "text\_request":"String",
+ "text\_response":"String"
+},
+"session\_id":"String"
 }
 \end{lstlisting};
 		\end{itemize}
@@ -470,7 +469,7 @@ Package contenente le classi relative alle Conversations del sistema.
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione alla quale aggiungere il messaggio;
 		\end{itemize}
-		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
@@ -594,7 +593,7 @@ Package contenente le classi relative alle Conversations del sistema.
 	\item \textbf{Nome}: \file{ConversationObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Conversation};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(conversation: Conversation): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Conversation}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -803,9 +802,9 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
             },
             "session_id": "idUnico.timestamp"
           }',
-          MessageAttributes: 
+          MessageAttributes:
           {
-            "key": "value", 
+            "key": "value",
             "key2": "value2"
           },
           MessageId: "stringa-contenente-id-del-messaggio",
@@ -858,7 +857,7 @@ Package contenente le classi relative ai Guests del sistema.
 	\begin{itemize}
 		\item[] \file{+ getGuestList(): GuestObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli ospiti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		\item[] \file{+ getGuest(name: String, company: String): GuestObservable} \\		Metodo che permette di ottenere un ospite a partire dal nome e l'azienda di provenienza. \\
-		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -866,13 +865,13 @@ Package contenente le classi relative ai Guests del sistema.
 			\item \file{company: String} \\
 			Parametro contenente l'azienda di provenienza dell'ospite;
 		\end{itemize}
-		\item[] \file{+ updateGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiornare un ospite.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiornare un ospite.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{guest: Guest} \\
 			Parametro contenente l'ospite da aggiornare;
 		\end{itemize}
-		\item[] \file{+ removeGuest(name: String, company: String): ErrorObservable} \\\\		Metodo che permette di eliminare un ospite dal database, a partire dal suo nome e azienda di provenienza.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di eliminazione  dell'ospite avvenuta con successo. In caso di errore durante l'eliminazione dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeGuest(name: String, company: String): ErrorObservable} \\\\		Metodo che permette di eliminare un ospite dal database, a partire dal suo nome e azienda di provenienza.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di eliminazione  dell'ospite avvenuta con successo. In caso di errore durante l'eliminazione dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -880,7 +879,7 @@ Package contenente le classi relative ai Guests del sistema.
 			\item \file{company: String} \\
 			Parametro contenente l'azienda di provenienza dell'ospite;
 		\end{itemize}
-		\item[] \file{+ addGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiungere un ospite al database.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiungere un ospite al database.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{guest: Guest} \\
@@ -975,7 +974,7 @@ Package contenente le classi relative ai Guests del sistema.
 	\item \textbf{Nome}: \file{GuestObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta oggetti di tipo \file{Guest};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(guest: Guest): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Guest}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1181,7 +1180,7 @@ Package contenente le classi relative ai membri del sistema.
 	\item \textbf{Nome}: \file{MemberObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Member};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(member: Member): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Member}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1517,26 +1516,26 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Figlio}: \file{RulesDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \file{Rule} al database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiunta della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \file{Rule} al database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiunta della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
 			Parametro contenente la \file{Rule} da aggiungere;
 		\end{itemize}
 		\item[] \file{+ getRulesList(): RuleObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} le direttive ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ removeRule(id: int): ErrorObservable} \\		Metodo che permette di rimuovere una \file{Rule} dal database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione della \file{Rule} avvenuta con successo. In caso di errore durante la rimozione della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeRule(id: int): ErrorObservable} \\		Metodo che permette di rimuovere una \file{Rule} dal database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione della \file{Rule} avvenuta con successo. In caso di errore durante la rimozione della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della \file{Rule};
 		\end{itemize}
-		\item[] \file{+ getRule(id: int): RuleObservable} \\		Metodo che permette di ottenere una \file{Rule} a partire dal suo Id. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Rule}, e verrà completato. Nel caso in cui la \file{Rule} richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		\item[] \file{+ getRule(id: int): RuleObservable} \\		Metodo che permette di ottenere una \file{Rule} a partire dal suo Id. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Rule}, e verrà completato. Nel caso in cui la \file{Rule} richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della \file{Rule} da recuperare;
 		\end{itemize}
-		\item[] \file{+ updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una \file{Rule}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiornamento della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una \file{Rule}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiornamento della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -1577,25 +1576,25 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getTaskList(): TaskObservable} \\		Metodo che permette di ottenere la lista dei compiti. L'\file{Observable} restituito manderà agli \file{Observer} i compiti ottenuti, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ addTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Task} al database. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} avvenuta con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Task} al database. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} avvenuta con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{task: Task} \\
 			Parametro contenente il compito;
 		\end{itemize}
-		\item[] \file{+ removeTask(id: int): ErrorObservable} \\		Metodo che permette di rimuovere un compito dal database a partire dal suo id. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione del \file{Task} avvenuta con successo. In caso di errore durante la rimozione del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeTask(id: int): ErrorObservable} \\		Metodo che permette di rimuovere un compito dal database a partire dal suo id. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione del \file{Task} avvenuta con successo. In caso di errore durante la rimozione del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della funzione;
 		\end{itemize}
-		\item[] \file{+ getTask(id: int): ErrorObservable} \\		Metodo che permette di ottenere un \file{Task} a partire dal suo id. \\ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Task}, e verrà completato. Nel caso in cui il \file{Task} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		\item[] \file{+ getTask(id: int): ErrorObservable} \\		Metodo che permette di ottenere un \file{Task} a partire dal suo id. \\ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Task}, e verrà completato. Nel caso in cui il \file{Task} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della funzione;
 		\end{itemize}
-		\item[] \file{+ updateTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiornare un compito. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiornare un compito. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{task: Task} \\
@@ -1763,7 +1762,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{RuleObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Rule};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(rule: Rule): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Rule}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2070,7 +2069,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{TaskObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Task};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next()} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(task: Task): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Task}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2254,27 +2253,27 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ addUser(user: User): ErrorObservable} \\		Metodo che permette di aggiungere un utente. \\
-		L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
 			Parametro contenente un utente registrato;
 		\end{itemize}
-		\item[] \file{+ removeUser(id: String): ErrorObservable} \\		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeUser(id: String): ErrorObservable} \\		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
 			Parametro contenente l'id dello \file{User} che si vuole eliminare;
 		\end{itemize}
 		\item[] \file{+ getUser(username: String): UserObservable} \\		Metodo che permette di ottenere i dati relativi ad un utente. \\
-		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{username: String} \\
 			Parametro contenente lo username dello \file{User} che si vuole ottenere;
 		\end{itemize}
 		\item[] \file{+ getUserList(): UserObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli utenti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ updateUser(user: User): ErrorObservable} \\		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateUser(user: User): ErrorObservable} \\		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
@@ -2511,7 +2510,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{UserObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{User};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(user: User): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{User}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2968,25 +2967,25 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getAgentsList(): AgentObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli agents ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ updateAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiornare un \file{Agent}.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiornamento dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiornare un \file{Agent}.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiornamento dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{agent: Agent} \\
 			Parametro contenente l'agente da aggiornare;
 		\end{itemize}
-		\item[] \file{+ removeAgent(name: String): ErrorObservable} \\		Metodo che permette di rimuovere un \file{Agent} a partire da un name. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione dell'\file{Agent} avvenuta con successo. In caso di errore durante la rimozione dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeAgent(name: String): ErrorObservable} \\		Metodo che permette di rimuovere un \file{Agent} a partire da un name. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione dell'\file{Agent} avvenuta con successo. In caso di errore durante la rimozione dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
 			Parametro contenente il nome dell'agente da rimuovere;
 		\end{itemize}
-		\item[] \file{+ addAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Agent}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiunta dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Agent}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiunta dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{agent: Agent} \\
 			Parametro contenente l'agente da aggiungere al database;
 		\end{itemize}
-		\item[] \file{+ getAgent(name: String): AgentObservable} \\		Metodo che ritorna un \file{Agent} a partire da un name. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Agent}, e verrà completato. Nel caso in cui l'\file{Agent} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
+		\item[] \file{+ getAgent(name: String): AgentObservable} \\		Metodo che ritorna un \file{Agent} a partire da un name. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Agent}, e verrà completato. Nel caso in cui l'\file{Agent} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -3166,7 +3165,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Nome}: \file{AgentObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Agent};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(agent: Agent): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Agent}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -4044,7 +4043,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 	\item \textbf{Nome}: \file{ConversationActionObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{ConversationAction};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
 	;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -5081,10 +5080,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Nome}: \file{ErrorObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati relativi all'esito di una chiamata asincrona;
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ next(): void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
+		\item[] \file{+ next: void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -5163,14 +5162,14 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{ObserverAdapter_label}{\subparagraph{ObserverAdapter}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserverAdapter.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserverAdapter.png}
 	\caption{Libs::ObserverAdapter}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ObserverAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe fornisce i metodi che permettono di mettere in pausa un \file{Observer}.
-	Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
+Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
 	\item \textbf{Utilizzo}: implementa l'interfaccia \file{Observer}, definendo i metodi \file{next}, \file{complete}, \file{error} in modo che chiamino le rispettive funzioni di callback. Fornisce inoltre un meccanismo per mettere in pausa un \file{Observer}, in modo che ignori gli eventi che gli sono notificati. Nel caso in cui l'\file{Observer} sia messo in pausa, le funzioni di callback impostate non verranno chiamate;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -5178,7 +5177,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		Attributo che indica se l'\file{Observer} è in pausa;
 		\item[] \file{- next\_cb: function(data : Object) : void} \\
 		Funzione di callback da chiamare quando viene chiamato il metodo \file{next};
-		\item[] \file{- error\_cb: function(err: Error): void} \\
+		\item[] \file{- error\_cb: function(err: Exception): void} \\
 		Funzione di callback che viene chiamata quando viene chiamato il metodo \file{error};
 		\item[] \file{- complete\_cb: function(): void } \\
 		Funzione di callback che viene chiamata quando viene chiamato ll metodo \file{complete};
@@ -5193,10 +5192,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		\end{itemize}
 		\item[] \file{+ pause(): void} \\		Metodo che permette di mettere in pausa l'\file{Observer};\\
 		\item[] \file{+ resume(): void} \\		Metodo che permette di riavviare l'\file{Observer};\\
-		\item[] \file{+ <<Create>> createObserverAdapter(onError: function(error: Error)\\ : void, onNext: function(data: Object) : void, onComplete: function(): void): ObserverAdapter}\\ \\		Costruttore che imposta il valore di \file{paused} a false;\\
+		\item[] \file{+ <<Create>> createObserverAdapter(onError: function(error: Exception)\\ : void, onNext: function(data: Object) : void, onComplete: function(): void): ObserverAdapter}\\ \\		Costruttore che imposta il valore di \file{paused} a false;\\
 		Parametri:
 		\begin{itemize}
-			\item \file{onError: function(error: Error) : void} \\
+			\item \file{onError: function(error: Exception) : void} \\
 			Parametro contenente la funzione di callback da chiamare nel caso in cui si verifichi un errore;
 			\item \file{onNext: function(data: Object) : void} \\
 			Parametro contenente la funzione di callback da chiamare per notificare l'\file{Observer} dell'arrivo di dati;
@@ -5205,10 +5204,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		\end{itemize}
 		\item[] \file{+ isPaused(): boolean} \\		Metodo che permette di ottenere il valore di \file{paused}, in modo da capire se l'\file{Observer} è in pausa o meno;\\
 		\item[] \file{+ complete(): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione \file{complete\_cb};\\
-		\item[] \file{+ error(err: Error): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error\_cb}, passandole come parametro \file{err};\\
+		\item[] \file{+ error(err: Exception): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error\_cb}, passandole come parametro \file{err};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{err: Error} \\
+			\item \file{err: Exception} \\
 			Parametro che contiene i dati relativi all'errore verificatosi;
 		\end{itemize}
 		\item[] \file{+ onNext(cb: function(data: Object): void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{next};\\
@@ -5223,10 +5222,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 			\item \file{cb: function(): void} \\
 			Funzione di callback;
 		\end{itemize}
-		\item[] \file{+ onError(cb: function(err: Error) : void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{error};\\
+		\item[] \file{+ onError(cb: function(err: Exception) : void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{cb: function(err: Error) : void} \\
+			\item \file{cb: function(err: Exception) : void} \\
 			Funzione di callback;
 		\end{itemize}
 	\end{itemize}
@@ -5319,4 +5318,3 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\end{itemize}
 \end{itemize}
 \FloatBarrier
-
