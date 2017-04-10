@@ -32,22 +32,24 @@
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai, contenente il token da validare, a \file{AdministrationWebhookService}. Tali dati sono:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"id":"String",
-			"lang":"String",
-			"originalRequest":{
-			"source":"String",
-			"data":{
-			"token":"JWToken"
-			}
-			}
-			"result":"ProcessingResult",
-			"sessionId":"String",
-			"status":"StatusObject",
-			"timestamp":"String"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  id":"String",
+  "lang":"String",
+  originalRequest":
+  {
+    source":"String",
+    data":
+    {
+      token":"JWToken"
+    }
+  }
+  result":"ProcessingResult",
+  sessionId":"String",
+  status":"StatusObject",
+  timestamp":"String"
+}
+\end{lstlisting}
 			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
@@ -99,16 +101,16 @@
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai al \\ \file{ConversationWebhookService}. Tali dati sono:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"id":"String",
-			"lang":"String",
-			"originalRequest":"Object",
-			"result":"ProcessingResult",
-			"sessionId":"String",
-			"status":"StatusObject",
-			"timestamp":"String"
-			}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "id":"String",
+  "lang":"String",
+  "originalRequest":"Object",
+  "result":"ProcessingResult",
+  "sessionId":"String",
+  "status":"StatusObject",
+  "timestamp":"String"
+}
 			\end{lstlisting}
 			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
@@ -119,16 +121,19 @@
 				\item l'utente viene riconosciuto come un ospite conosciuto.
 			\end{itemize}
 			Nel primo caso, la risposta fornita sarà così organizzata:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"contexts": [{
-			"name":"String",
-			"first\_name":"String",
-			"last\_name":"String",
-			"username":"String"
-			}]
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "contexts": 
+  [
+    {
+      "name":"String",
+      "first\_name":"String",
+      "last\_name":"String",
+      "username":"String"
+    }
+  ]
+}
+\end{lstlisting}
 			Dove
 			\begin{itemize}
 				\item \file{name} indica il nome del context, che in questo caso sarà "admin";
@@ -137,16 +142,19 @@
 				\item \file{username} indica lo username dell'amministratore;
 			\end{itemize}
 			Nel secondo caso, la risposta sarà così organizzata:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"contexts": [{
-			"name":"String",
-			"name\_guest":"String",
-			"company":"String",
-			"first\_name":"String",
-			"last\_name":"String"
-			}]
-			}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "contexts": 
+  [
+    {
+      "name":"String",
+      "name_guest":"String",
+      "company":"String",
+      "first_name":"String",
+      "last_name":"String"
+    }
+  ]
+}
 			\end{lstlisting}
 			Dove
 			\begin{itemize}
@@ -352,30 +360,31 @@ Package contenente le classi necessarie a gestire:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio ricevuto da API Gateway. Tali dati saranno nel seguent formato:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"app":"String",
-			"audio": "Base64String",
-			"data": "ObjectAssocArray",
-			"session\_id":"String"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "app":"String",
+  "audio": "Base64String",
+  "data": "ObjectAssocArray",
+  "session_id":"String"
+}
+\end{lstlisting}
 
-			Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"action":"String",
-			"res":{
-			"contexts":"ObjectAssocArray",
-			"data":"Object",
-			"text\_request":"String",
-			"text\_response":"String"
-			},
-			"session\_id":"String"
-			}
-			\end{lstlisting};
+Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
+\item \file{context: LambdaContext} \\
+Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "action":"String",
+  "res":
+  {
+    "contexts":"ObjectAssocArray",
+    "data":"Object",
+    "text_request":"String",
+    "text_response":"String"
+  },
+  "session_id":"String"
+}
+\end{lstlisting};
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -764,44 +773,48 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 		\end{itemize}
 		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function\\(error: String, success: String): void): void} \\		Metodo che implementa la Lambda function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS. SNS chiama tale Lambda Function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
 		Di seguito viene riportato un esempio dell'oggetto utilizzato.
-		\begin{lstlisting}[language=json,firstnumber=1]
-		{
-		Records:
-		[
-		{
-		Sns:
-		{
-		Message: '
-		{
-		"action":"nome.azione",
-		"res":
-		{
-		"contexts":
-		[
-		{
-		"name": "nome_contesto",
-		"parameters":
-		{
-		"nome1": "valore",
-		"nome2": "altro valore"
-		}
-		}
-		],
-		"data": Object,
-		"text_request": "frase pronunciata dall'ospite",
-		"text_response": "risposta dell'assistente"
-		},
-		"session_id": "idUnico.timestamp"
-		}',
-		MessageAttributes: {"key": "value", "key2": "value2"},
-		MessageId: "stringa-contenente-id-del-messaggio",
-		Subject: "oggetto del messaggio",
-		Timestamp: "2017-03-26T20:39:48.599Z"
-		}
-		}
-		]
-		}
-		\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+  {
+  Records:
+    [
+      {
+        Sns:
+        {
+          Message: '
+          {
+            "action":"nome.azione",
+            "res":
+            {
+              "contexts":
+              [
+                {
+                  "name": "nome_contesto",
+                  "parameters":
+                  {
+                    "nome1": "valore",
+                    "nome2": "altro valore"
+                  }
+                }
+              ],
+              "data": Object,
+              "text_request": "frase pronunciata dall'ospite",
+              "text_response": "risposta dell'assistente"
+            },
+            "session_id": "idUnico.timestamp"
+          }',
+          MessageAttributes: 
+          {
+            "key": "value", 
+            "key2": "value2"
+          },
+          MessageId: "stringa-contenente-id-del-messaggio",
+          Subject: "oggetto del messaggio",
+          Timestamp: "2017-03-26T20:39:48.599Z"
+        }
+      }
+    ]
+  }
+\end{lstlisting}
 		Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
 		Parametri:
 		\begin{itemize}
@@ -1451,12 +1464,12 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio da inviare.
 			Tali dati sono:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"msg":"NotificationMessage",
-			"send\_to":"String"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "msg":"NotificationMessage",
+  "send_to":"String"
+}
+\end{lstlisting}
 			Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambaResponse::statusCode};
@@ -3042,16 +3055,16 @@ Vengono offerte funzionalità che permettono di:
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
 			Tali dati sono cosi organizzati:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"contextOut":"ContextArray",
-			"data":"Object",
-			"displayText":"String",
-			"followupEvent":"Object",
-			"source":"String",
-			"speech":"String"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "contextOut":"ContextArray",
+  "data":"Object",
+  "displayText":"String",
+  "followupEvent":"Object",
+  "source":"String",
+  "speech":"String"
+}
+\end{lstlisting}
 			Dove:
 			\begin{itemize}
 				\item \file{contextOut}: attributo contenente l'array dei context che la richiesta ha attivato;
@@ -3533,29 +3546,29 @@ Vengono offerte funzionalità che permettono di:
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente l'evento con i dati relativi alla richiesta di API Gateway. Il campo \file{body} di questo evento conterrà una stringa in formato JSON nel formato seguente:
 
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"app":"nome\_applicazione",
-			"query": "VAQuery"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  app":"nome_applicazione",
+  query": "VAQuery"
+}
+\end{lstlisting}
 
 			con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
-			\begin{lstlisting}[language=json,firstnumber=1]
-			{
-			"action":"String",
-			"res":
-			{
-			"contexts":"ObjectAssocArray",
-			"data":"Object",
-			"text\_request":"String",
-			"text\_response":"String"
-			},
-			"session\_id":"String"
-			}
-			\end{lstlisting}
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "action":"String",
+  "res":
+  {
+    "contexts":"ObjectAssocArray",
+    "data":"Object",
+    "text_request":"String",
+    "text_response":"String"
+  },
+  "session_id":"String"
+}
+\end{lstlisting}
 			Dove:
 			\begin{itemize}
 				\item \file{action}: attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere   eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
