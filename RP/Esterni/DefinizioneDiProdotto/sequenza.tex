@@ -14,7 +14,7 @@ Il diagramma qui riportato rappresenta l'interazione tra service e client per me
  \caption{Interazione tra service e client}
 \end{figure}
 \newpage
-\subsection{\gl{Verifica} autenticazione}
+\subsection{Verifica autenticazione}
 Il diagramma qui riportato rappresenta la \gl{verifica} di un'autenticazione ad ogni interazione dell'agent di amministrazione per via del webhook fornito dalla classe \file{AdministrationWebhookService}. Tale metodo si occupa di verificare che nella richiesta sia presente un \gl{JSON} Web Token (\file{JWT}) che confermi un'autenticazione avvenuta con successo. In caso di mancata autenticazione, il campo \file{status} della risposta sarà impostato a 403. Nel caso in cui il token sia presente e valido, ovvero che la firma sia valida ed il token non sia scaduto, tale campo sarà invece impostato a 200, ed il campo \file{speech} della risposta sarà copiato da \file{fulfillment.speech} della richiesta, risultando quindi in una risposta uguale a quella definita nell'agente di api.ai.
  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Verificaautenticazione.png} 	\caption{Verifica autenticazione}
 \end{figure}
@@ -50,7 +50,7 @@ Il diagramma qui riportato rappresenta l'implementazione della lambda function c
 \end{figure}
 \newpage
 
-\subsection{Back-end::Auth::UsersDAO\gl{DynamoDB}addUser}
+\subsection{Back-end::Auth::UsersDAODynamoDBaddUser}
 Il diagramma qui riportato rappresenta l'aggiunta di un \file{User} al database attraverso il metodo \file{put} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di \gl{callback}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBaddUser.png} 	\caption{Back-end::Auth::UsersDAODynamoDBaddUser}
 \end{figure} 
@@ -159,7 +159,7 @@ Il diagramma qui riportato rappresenta l'invio di un messaggio al servizio ester
 \newpage
 
 
-\subsection{Back-end::\gl{Rule}s::RulesService::addRule}
+\subsection{Back-end::Rules::RulesService::addRule}
 Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di aggiungere una \file{Rule} al sistema attraverso il metodo \file{addRule}. 
  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endRulesRulesServiceaddRule.png} 	\caption{Back-end::Rules::RulesService::addRule}
 \end{figure} 
