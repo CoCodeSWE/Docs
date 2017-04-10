@@ -592,7 +592,7 @@ Package contenente le classi relative alle Conversations del sistema.
 	\item \textbf{Nome}: \file{ConversationObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Conversation};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(conversation: Conversation): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Conversation}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -973,7 +973,7 @@ Package contenente le classi relative ai Guests del sistema.
 	\item \textbf{Nome}: \file{GuestObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta oggetti di tipo \file{Guest};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(guest: Guest): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Guest}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1179,7 +1179,7 @@ Package contenente le classi relative ai membri del sistema.
 	\item \textbf{Nome}: \file{MemberObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Member};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(member: Member): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Member}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1761,7 +1761,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{RuleObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Rule};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(rule: Rule): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Rule}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2068,7 +2068,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{TaskObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Task};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next()} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(task: Task): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Task}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2509,7 +2509,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{UserObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{User};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(user: User): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{User}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -3164,7 +3164,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Nome}: \file{AgentObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Agent};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(agent: Agent): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Agent}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -4042,7 +4042,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 	\item \textbf{Nome}: \file{ConversationActionObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{ConversationAction};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
 	;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -5079,10 +5079,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Nome}: \file{ErrorObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati relativi all'esito di una chiamata asincrona;
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ next(): void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
+		\item[] \file{+ next: void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -5161,14 +5161,14 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{ObserverAdapter_label}{\subparagraph{ObserverAdapter}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserverAdapter.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserverAdapter.png}
 	\caption{Libs::ObserverAdapter}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ObserverAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe fornisce i metodi che permettono di mettere in pausa un \file{Observer}.
-	Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
+Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
 	\item \textbf{Utilizzo}: implementa l'interfaccia \file{Observer}, definendo i metodi \file{next}, \file{complete}, \file{error} in modo che chiamino le rispettive funzioni di callback. Fornisce inoltre un meccanismo per mettere in pausa un \file{Observer}, in modo che ignori gli eventi che gli sono notificati. Nel caso in cui l'\file{Observer} sia messo in pausa, le funzioni di callback impostate non verranno chiamate;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -5176,7 +5176,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		Attributo che indica se l'\file{Observer} è in pausa;
 		\item[] \file{- next\_cb: function(data : Object) : void} \\
 		Funzione di callback da chiamare quando viene chiamato il metodo \file{next};
-		\item[] \file{- error\_cb: function(err: Error): void} \\
+		\item[] \file{- error\_cb: function(err: Exception): void} \\
 		Funzione di callback che viene chiamata quando viene chiamato il metodo \file{error};
 		\item[] \file{- complete\_cb: function(): void } \\
 		Funzione di callback che viene chiamata quando viene chiamato ll metodo \file{complete};
@@ -5191,10 +5191,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		\end{itemize}
 		\item[] \file{+ pause(): void} \\		Metodo che permette di mettere in pausa l'\file{Observer};\\
 		\item[] \file{+ resume(): void} \\		Metodo che permette di riavviare l'\file{Observer};\\
-		\item[] \file{+ <<Create>> createObserverAdapter(onError: function(error: Error)\\ : void, onNext: function(data: Object) : void, onComplete: function(): void): ObserverAdapter}\\ \\		Costruttore che imposta il valore di \file{paused} a false;\\
+		\item[] \file{+ <<Create>> createObserverAdapter(onError: function(error: Exception)\\ : void, onNext: function(data: Object) : void, onComplete: function(): void): ObserverAdapter}\\ \\		Costruttore che imposta il valore di \file{paused} a false;\\
 		Parametri:
 		\begin{itemize}
-			\item \file{onError: function(error: Error) : void} \\
+			\item \file{onError: function(error: Exception) : void} \\
 			Parametro contenente la funzione di callback da chiamare nel caso in cui si verifichi un errore;
 			\item \file{onNext: function(data: Object) : void} \\
 			Parametro contenente la funzione di callback da chiamare per notificare l'\file{Observer} dell'arrivo di dati;
@@ -5203,10 +5203,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		\end{itemize}
 		\item[] \file{+ isPaused(): boolean} \\		Metodo che permette di ottenere il valore di \file{paused}, in modo da capire se l'\file{Observer} è in pausa o meno;\\
 		\item[] \file{+ complete(): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione \file{complete\_cb};\\
-		\item[] \file{+ error(err: Error): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error\_cb}, passandole come parametro \file{err};\\
+		\item[] \file{+ error(err: Exception): void} \\		Implementazione del metodo dell'interfaccia. Si occupa di chiamare la funzione di callback \file{error\_cb}, passandole come parametro \file{err};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{err: Error} \\
+			\item \file{err: Exception} \\
 			Parametro che contiene i dati relativi all'errore verificatosi;
 		\end{itemize}
 		\item[] \file{+ onNext(cb: function(data: Object): void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{next};\\
@@ -5221,10 +5221,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 			\item \file{cb: function(): void} \\
 			Funzione di callback;
 		\end{itemize}
-		\item[] \file{+ onError(cb: function(err: Error) : void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{error};\\
+		\item[] \file{+ onError(cb: function(err: Exception) : void): void} \\		Metodo che permette di impostare la funzione di callback da chiamare quando viene chiamato il metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{cb: function(err: Error) : void} \\
+			\item \file{cb: function(err: Exception) : void} \\
 			Funzione di callback;
 		\end{itemize}
 	\end{itemize}
