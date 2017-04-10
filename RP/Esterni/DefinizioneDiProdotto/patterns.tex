@@ -231,7 +231,7 @@ Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \item compatibile con le specifiche Promise/A+: bluebird può essere usato come rimpiazzo per Promise nativa offrendo un immediato miglioramento delle prestazioni;
 
-\item debug facile: gli stake trace sono in cui vengono riportati, quando possibile, gli errori non gestiti sono configurabili.
+\item debug facile: gli stack trace sono in cui vengono riportati, quando possibile, gli errori non gestiti sono configurabili.
 
 \end{itemize}
 
@@ -361,7 +361,7 @@ I vantaggi offerti sono:
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
-	\item è un framework molto recente, ma gode di una rilevante community di supporto.
+	\item è un framework molto recente, e di conseguenza non molto maturo.
 \end{itemize}
 \newpage
 \subsection{JWT}
@@ -389,7 +389,7 @@ I vantaggi offerti sono:
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
-	\item dopo le 10.000 chiamate al servizio al mese, il servizio non è più gratuito, ma i costi sono molto bassi. Inoltre, un numero di chiamate del genere è più che sufficiente.
+	\item dopo le 10.000 chiamate al servizio al mese, il servizio non è più gratuito. 
 \end{itemize}
 \subsection{STT IBM Watson}
 Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il \gl{machine learning} per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
@@ -399,7 +399,7 @@ I vantaggi offerti sono:
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
-	\item dopo 1000 minuti di utilizzo  al mese, il servizio non è più gratuito, ma i costi sono molto bassi. Inoltre, un numero di minuti del genere è più che sufficiente.
+	\item dopo 1000 minuti di utilizzo  al mese, il servizio non è più gratuito. 
 \end{itemize}
 \subsection{api.ai}
 È una piattaforma di conversazione che permette interazioni sofisticate con il linguaggio naturale.\\
@@ -439,3 +439,21 @@ Gli svantaggi sono:
 \subsection{CSS3}
 Pubblicata nel novembre 2014 dal W3C, CSS3 è una versione di CSS che va a correggere alcuni bug di interpretazione di Internet Explorer, migliorare la gestione degli sfondi e una soluzione per realizzare i bordi arrotondati.\\
 CSS3 è suddiviso in moduli, al contrario delle versioni monolitiche precedenti, contenenti le vecchie specifiche CSS e nuove caratteristiche. Ciascun modulo tratta un tema diverso inerente i fogli di stile e, di conseguenza, ciascun tema è sviluppato in tempistiche differenti.
+\subsection{Sass}
+Sass è un linguaggio di scripting interpretato in CSS. Viene utilizzato per semplificare la lettura e la scrittura di fogli di stile CSS. Fornisce le seguenti funzionalità:
+
+\begin{itemize}
+
+\item definizione di variabili, per il riutilizzo di informazioni;
+
+\item annidamento dei selettori;
+
+\item ereditarietà dei selettori;
+
+\item possibilità di utilizzo di operatori matematici;
+
+\item possibilità di includere file Sass all'interno di altri file Sass che il browser interpreterà come un singolo file CSS, aumentandone la modularità;
+
+\end{itemize}
+
+A causa di queste funzionalità, il gruppo ha deciso di utilizzare tale tecnologia per i fogli di stile, invece di utilizzare direttamente il linguaggio CSS3.

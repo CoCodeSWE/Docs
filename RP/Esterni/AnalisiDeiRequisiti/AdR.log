@@ -1,0 +1,1068 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.4.10)  10 APR 2017 16:07
+entering extended mode
+**./AdR.tex
+(AdR.tex
+LaTeX2e <2016/03/31> patch level 3
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\subfiles\subfiles.sty"
+Package: subfiles 2012/05/23 Federico Garcia
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks14
+\verbatim@line=\toks15
+\verbatim@in@stream=\read1
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+(C:\Users\ptricomi\AppData\Roaming\MiKTeX\2.9\tex\latex\graphics-def\pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks16
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\everycr=\toks17
+\minrowclearance=\skip45
+) (../../../template/Comandi.sty ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucs.sty"
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-global.def"
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count88
+\uc@combtoks=\toks20
+\uc@combtoksb=\toks21
+\uc@temptokena=\toks22
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2016/04/23 3.9r The Babel package
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+)
+(C:\Users\ptricomi\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-italian\italian.ldf
+Language: italian 2015/03/26 v1.3n Italian support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen105
+)
+\it@lettering=\count90
+\it@doublequoteactive=\count91
+\it@ISOcompliance=\count92
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count93
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+\rownum=\count94
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip46
+\LTright=\skip47
+\LTpre=\skip48
+\LTpost=\skip49
+\LTchunksize=\count95
+\LTcapwidth=\dimen106
+\LT@head=\box26
+\LT@firsthead=\box27
+\LT@foot=\box28
+\LT@lastfoot=\box29
+\LT@cols=\count96
+\LT@rows=\count97
+\c@LT@tables=\count98
+\c@LT@chunks=\count99
+\LT@p@ftn=\toks23
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tabu\tabu.sty"
+Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box30
+\sift@deathcycles=\count100
+\@vwid@loff=\dimen107
+\@vwid@roff=\dimen108
+)
+\c@taburow=\count101
+\tabu@nbcols=\count102
+\tabu@cnt=\count103
+\tabu@Xcol=\count104
+\tabu@alloc=\count105
+\tabu@nested=\count106
+\tabu@target=\dimen109
+\tabu@spreadtarget=\dimen110
+\tabu@naturalX=\dimen111
+\tabucolX=\dimen112
+\tabu@Xsum=\dimen113
+\extrarowdepth=\dimen114
+\abovetabulinesep=\dimen115
+\belowtabulinesep=\dimen116
+\tabustrutrule=\dimen117
+\tabu@thebody=\toks24
+\tabu@footnotes=\toks25
+\tabu@box=\box31
+\tabu@arstrutbox=\box32
+\tabu@hleads=\box33
+\tabu@vleads=\box34
+\tabu@cellskip=\skip50
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\parskip.sty"
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\datetime\datetime.sty"
+Package: datetime 2015/03/20 v2.60 Date Time Package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fmtcount\fmtcount.sty"
+Package: fmtcount 2015/05/05 v3.01
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks26
+\XKV@tempa@toks=\toks27
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\keyval.tex"))
+\XKV@depth=\count107
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\fmtcount\fcprefix.sty"
+Package: fcprefix 2012/09/28
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fmtcount\fcnumparser.sty"
+Package: fcnumparser 2012/09/28
+\fc@digit@counter=\count108
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(C:\Users\ptricomi\AppData\Roaming\MiKTeX\2.9\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks28
+\ex@=\dimen118
+)
+\c@padzeroesN=\count109
+\fc@tmpcatcode=\count110
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fmtcount\fc-italian.def"
+File: fc-italian.def 2013/08/17
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\itnumpar\itnumpar.sty"
+Package: itnumpar 2007/04/03 v1.0 Numbers in words for Italian
+))
+\@DT@modctr=\count111
+\@ordinalctr=\count112
+\@orgargctr=\count113
+\@strctr=\count114
+\@tmpstrctr=\count115
+\@DT@loopN=\count116
+\@DT@X=\count117
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\datetime\datetime-defaults.sty"
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count118
+\@month=\count119
+\@year=\count120
+\c@HOUR=\count121
+\c@HOURXII=\count122
+\c@MINUTE=\count123
+\c@TOHOUR=\count124
+\c@TOMINUTE=\count125
+\c@SECOND=\count126
+\currenthour=\count127
+\currentminute=\count128
+\currentsecond=\count129
+Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
+\@dtctr=\count130
+\dayofyear=\count131
+\dayofweek=\count132
+LaTeX Info: Redefining \today on input line 736.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\datetime\dt-italian.def"
+File: dt-italian.def 2015/03/20
+LaTeX Info: Redefining \dateitalian on input line 103.
+)
+\dt@a=\toks29
+\dt@b=\toks30
+)) (../../../template/Riferimenti.sty)
+(../../../template/Stile.sty ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip51
+\f@ncyO@elh=\skip52
+\f@ncyO@erh=\skip53
+\f@ncyO@olh=\skip54
+\f@ncyO@orh=\skip55
+\f@ncyO@elf=\skip56
+\f@ncyO@erf=\skip57
+\f@ncyO@olf=\skip58
+\f@ncyO@orf=\skip59
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+)
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
+Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count133
+\lst@gtempboxa=\box35
+\lst@token=\toks31
+\lst@length=\count134
+\lst@currlwidth=\dimen121
+\lst@column=\count135
+\lst@pos=\count136
+\lst@lostspace=\dimen122
+\lst@width=\dimen123
+\lst@newlines=\count137
+\lst@lineno=\count138
+\lst@maxwidth=\dimen124
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count139
+\lst@skipnumbers=\count140
+\lst@framebox=\box36
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count141
+\Gm@cntv=\count142
+\c@Gm@tempcnt=\count143
+\Gm@bindingoffset=\dimen125
+\Gm@wd@mp=\dimen126
+\Gm@odd@mp=\dimen127
+\Gm@even@mp=\dimen128
+\Gm@layoutwidth=\dimen129
+\Gm@layoutheight=\dimen130
+\Gm@layouthoffset=\dimen131
+\Gm@layoutvoffset=\dimen132
+\Gm@dimlist=\toks32
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2016/06/24 v6.83q Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen133
+\Hy@linkcounter=\count144
+\Hy@pagecounter=\count145
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2016/06/24 v6.83q Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count146
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4486.
+Package hyperref Info: Link nesting OFF on input line 4491.
+Package hyperref Info: Hyper index ON on input line 4494.
+Package hyperref Info: Plain pages OFF on input line 4501.
+Package hyperref Info: Backreferencing OFF on input line 4506.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4735.
+\c@Hy@tempcnt=\count147
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5088.
+\XeTeXLinkMargin=\dimen134
+\Fld@menulength=\count148
+\Field@Width=\dimen135
+\Fld@charsize=\dimen136
+Package hyperref Info: Hyper figures OFF on input line 6342.
+Package hyperref Info: Link nesting OFF on input line 6347.
+Package hyperref Info: Hyper index ON on input line 6350.
+Package hyperref Info: backreferencing OFF on input line 6357.
+Package hyperref Info: Link coloring OFF on input line 6362.
+Package hyperref Info: Link coloring with OCG OFF on input line 6367.
+Package hyperref Info: PDF/A mode OFF on input line 6372.
+LaTeX Info: Redefining \ref on input line 6412.
+LaTeX Info: Redefining \pageref on input line 6416.
+\Hy@abspage=\count149
+\c@Item=\count150
+\c@Hfootnote=\count151
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
+\Fld@listcount=\count152
+\c@bookmark@seq@number=\count153
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
+)
+\Hy@SectionHShift=\skip60
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen137
+\captionmargin@=\dimen138
+\captionwidth=\dimen139
+\caption@tempdima=\dimen140
+\caption@indent=\dimen141
+\caption@parindent=\dimen142
+\caption@hangindent=\dimen143
+)
+\c@ContinuedFloat=\count154
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count155
+\float@exts=\toks33
+\float@box=\box37
+\@float@everytoks=\toks34
+\@floatcapt=\box38
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 25.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box39
+\beforetitleunit=\skip61
+\aftertitleunit=\skip62
+\ttl@plus=\dimen144
+\ttl@minus=\dimen145
+\ttl@toksa=\toks35
+\titlewidth=\dimen146
+\titlewidthlast=\dimen147
+\titlewidthfirst=\dimen148
+)) (AdR.aux (sezioni/introduzione.aux))
+\openout1 = `AdR.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count156
+\scratchdimen=\dimen149
+\scratchbox=\box40
+\nofMPsegments=\count157
+\nofMParguments=\count158
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count159
+\MPscratchDim=\dimen150
+\MPnumerator=\count160
+\makeMPintoPDFobject=\count161
+\everyMPtoPDFconversion=\toks37
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 438.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+LaTeX Info: Redefining \it@ocap on input line 23.
+LaTeX Info: Redefining \it@ccap on input line 23.
+
+File italian.ldf warning: 
+italian.ldf    With OT1 encoding guillemets are poorly faked
+italian.ldf    Use T1 encoding
+italian.ldf    or specify a font with command \CaporaliFrom
+italian.ldf    See the documentation concerning the babel-italian typesetting 
+italian.ldf    on input line 23.
+
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             ! on input line 23.
+\c@lstlisting=\count162
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box41
+Package hyperref Info: Link coloring ON on input line 23.
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count163
+)
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
+ (AdR.out) (AdR.out)
+\@outlinefile=\write3
+\openout3 = `AdR.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+<../../../template/img/logo_full.png, id=439, 239.89626pt x 243.91125pt>
+File: ../../../template/img/logo_full.png Graphic file (type png)
+ <use ../../../template/img/logo_full.png>
+Package pdftex.def Info: ../../../template/img/logo_full.png used on input line 25.
+(pdftex.def)             Requested size: 191.91725pt x 195.12926pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 25.
+
+[0
+
+{C:/Users/ptricomi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../../../template/img/logo_full.png>]
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-0.def")
+Underfull \vbox (badness 10000) detected at line 68
+ []
+
+[1
+
+] [2] (AdR.toc [3] [4])
+\tf@toc=\write4
+\openout4 = `AdR.toc'.
+
+ (AdR.lof)
+\tf@lof=\write5
+\openout5 = `AdR.lof'.
+
+ (AdR.lot)
+\tf@lot=\write6
+\openout6 = `AdR.lot'.
+
+ [5]
+\openout2 = `sezioni/introduzione.aux'.
+
+ (sezioni/introduzione.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-32.def"
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 21--22
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E01a . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 22--23
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E01b . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 23--24
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E02a . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 24--25
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E02b . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 25--26
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E03a . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+
+Overfull \hbox (1.0394pt too wide) in paragraph at lines 26--27
+[][][]$\OT1/cmtt/m/n/10 http : / / www . math . unipd . it / []tullio / IS-[]1 / 2016 / Dispense / E03b . pdf$[][] \OT1/
+cmr/m/n/10 (vi-si-ta-to in da-
+ []
+
+) [6
+
+] (sezioni/descrizione.tex) [7
+
+] (sezioni/introUseCase.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--7
+
+ []
+
+(sezioni/attori.tex <images/Attori.png, id=674, 735.49782pt x 574.39594pt>
+File: images/Attori.png Graphic file (type png)
+ <use images/Attori.png>
+Package pdftex.def Info: images/Attori.png used on input line 4.
+(pdftex.def)             Requested size: 294.19392pt x 229.75429pt.
+) [8 <./images/Attori.png>] <images/UseCase.png, id=680, 734.745pt x 389.95688pt>
+File: images/UseCase.png Graphic file (type png)
+ <use images/UseCase.png>
+Package pdftex.def Info: images/UseCase.png used on input line 18.
+(pdftex.def)             Requested size: 426.80264pt x 226.52025pt.
+
+Underfull \hbox (badness 5924) in paragraph at lines 37--38
+[]\OT1/cmr/m/n/10 L'amministratore puo usu-frui-re del-le fun-zio-na-lita di
+ []
+
+) (sezioni/useCase.tex [9 <./images/UseCase.png>] <images/UseCaseUC1.png, id=693, 979.66pt x 468.75125pt>
+File: images/UseCaseUC1.png Graphic file (type png)
+
+<use images/UseCaseUC1.png>
+Package pdftex.def Info: images/UseCaseUC1.png used on input line 5.
+(pdftex.def)             Requested size: 426.79144pt x 204.21269pt.
+
+Underfull \hbox (badness 2229) in paragraph at lines 15--15
+[]|\OT1/cmr/m/n/10 Il \OT1/cmr/m/it/10 si-ste-ma$[]$ \OT1/cmr/m/n/10 de-ve au-ten-ti-ca-re l'u-ten-te co-me ospi-te o co
+-me
+ []
+
+[10 <./images/UseCaseUC1.png (PNG copy)>] <images/UseCaseUC11.png, id=699, 991.705pt x 411.5375pt>
+File: images/UseCaseUC11.png Graphic file (type png)
+
+<use images/UseCaseUC11.png>
+Package pdftex.def Info: images/UseCaseUC11.png used on input line 25.
+(pdftex.def)             Requested size: 426.78801pt x 177.10838pt.
+ [11 <./images/UseCaseUC11.png (PNG copy)>]
+Underfull \hbox (badness 3199) in paragraph at lines 82--82
+[]|\OT1/cmr/m/n/10 Il si-ste-ma puo per-met-te-re al-l'u-ten-te di iden-ti-fi-car-si co-me
+ []
+
+[12] <images/UseCaseUC13.png, id=713, 993.7125pt x 399.4925pt>
+File: images/UseCaseUC13.png Graphic file (type png)
+ <use images/UseCaseUC13.png>
+Package pdftex.def Info: images/UseCaseUC13.png used on input line 92.
+(pdftex.def)             Requested size: 426.78767pt x 171.57726pt.
+
+Underfull \hbox (badness 1715) in paragraph at lines 121--121
+[]|\OT1/cmr/m/n/10 Il si-ste-ma puo ri-chie-de-re al-l'u-ten-te la fra-se ne-ces-sa-ria per
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 122--122
+[]|\OT1/cmr/m/n/10 Il si-ste-ma ha ri-co-no-sciu-to l'u-ten-te co-me uno dei pos-si-bi-li
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 125--125
+[]|\OT1/cmr/m/n/10 Nel ca-so in cui la fra-se co-mu-ni-ca-ta dal-l'u-ten-te non ven-
+ []
+
+[13 <./images/UseCaseUC13.png (PNG copy)>]
+Underfull \hbox (badness 5417) in paragraph at lines 140--140
+[]|\OT1/cmr/m/n/10 L'utente ha co-mu-ni-ca-to al si-ste-ma la sua pas-sword di
+ []
+
+[14] <images/UseCaseUC2.png, id=727, 991.705pt x 356.33125pt>
+File: images/UseCaseUC2.png Graphic file (type png)
+ <use images/UseCaseUC2.png>
+Package pdftex.def Info: images/UseCaseUC2.png used on input line 148.
+(pdftex.def)             Requested size: 426.78801pt x 153.34993pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]|\OT1/cmr/m/n/10 L'amministratore ha ef-fet-tua-to l'ac-ces-so al-l'a-rea di
+ []
+
+[15 <./images/UseCaseUC2.png (PNG copy)>] <images/UseCaseUC21.png, id=735, 991.705pt x 650.43pt>
+File: images/UseCaseUC21.png Graphic file (type png)
+
+<use images/UseCaseUC21.png>
+Package pdftex.def Info: images/UseCaseUC21.png used on input line 172.
+(pdftex.def)             Requested size: 426.78801pt x 279.91763pt.
+ [16 <./images/UseCaseUC21.png (PNG copy)>]
+<images/UseCaseUC211.png, id=745, 735.49782pt x 453.19313pt>
+File: images/UseCaseUC211.png Graphic file (type png)
+ <use images/UseCaseUC211.png>
+Package pdftex.def Info: images/UseCaseUC211.png used on input line 198.
+(pdftex.def)             Requested size: 426.80228pt x 262.98358pt.
+ [17 <./images/UseCaseUC211.png>] [18] <images/UseCaseUC2113.png, id=763, 992.70876pt x 495.8525pt>
+File: images/UseCaseUC2113.png Graphic file (type png)
+ <use images/UseCaseUC2113.png>
+Package pdftex.def Info: images/UseCaseUC2113.png used on input line 254.
+(pdftex.def)             Requested size: 426.79585pt x 213.18214pt.
+ [19 <./images/UseCaseUC2113.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 331--331
+[]|\OT1/cmr/m/n/10 Il si-ste-ma ha ri-ce-vu-to gli user-na-me co-mu-ni-ca-ti
+ []
+
+[20]
+Underfull \hbox (badness 3724) in paragraph at lines 345--345
+[]|\OT1/cmr/m/n/10 Il si-ste-ma chie-de al-l'am-mi-ni-stra-to-re di con-fer-ma-re i da-ti
+ []
+
+[21] <images/UseCaseUC212.png, id=786, 992.70876pt x 228.855pt>
+File: images/UseCaseUC212.png Graphic file (type png)
+ <use images/UseCaseUC212.png>
+Package pdftex.def Info: images/UseCaseUC212.png used on input line 371.
+(pdftex.def)             Requested size: 426.79585pt x 98.39175pt.
+ [22 <./images/UseCaseUC212.png (PNG copy)>] <images/UseCaseUC213.png, id=793, 734.745pt x 516.42938pt>
+File: images/UseCaseUC213.png Graphic file (type png)
+ <use images/UseCaseUC213.png>
+Package pdftex.def Info: images/UseCaseUC213.png used on input line 407.
+(pdftex.def)             Requested size: 426.80264pt x 299.98628pt.
+
+Underfull \hbox (badness 1052) in paragraph at lines 418--418
+[]|\OT1/cmr/m/n/10 Il si-ste-ma ha ri-chie-sto al-l'am-mi-ni-stra-to-re di mo-di-fi-ca-re una
+ []
+
+[23 <./images/UseCaseUC213.png>] [24] <images/UseCaseUC2132.png, id=811, 969.6225pt x 470.75874pt>
+File: images/UseCaseUC2132.png Graphic file (type png)
+
+<use images/UseCaseUC2132.png>
+Package pdftex.def Info: images/UseCaseUC2132.png used on input line 449.
+(pdftex.def)             Requested size: 426.79796pt x 207.2135pt.
+ [25 <./images/UseCaseUC2132.png (PNG copy)>] [26] [27]
+<images/UseCaseUC2135.png, id=831, 992.70876pt x 372.39125pt>
+File: images/UseCaseUC2135.png Graphic file (type png)
+ <use images/UseCaseUC2135.png>
+Package pdftex.def Info: images/UseCaseUC2135.png used on input line 534.
+(pdftex.def)             Requested size: 426.79585pt x 160.10239pt.
+
+Underfull \hbox (badness 1648) in paragraph at lines 549--550
+[]\OT1/cmr/m/n/10 L'amministratore puo re-vo-ca-re i pri-vi-le-gi di un al-tro
+ []
+
+[28 <./images/UseCaseUC2135.png (PNG copy)>]
+Underfull \hbox (badness 1348) in paragraph at lines 594--594
+[]|\OT1/cmr/m/n/10 Il si-ste-ma ha ri-chie-sto al-l'am-mi-ni-stra-to-re la con-fer-ma del-le
+ []
+
+[29] [30] <images/UseCaseUC22.png, id=853, 737.00343pt x 277.78781pt>
+File: images/UseCaseUC22.png Graphic file (type png)
+ <use images/UseCaseUC22.png>
+Package pdftex.def Info: images/UseCaseUC22.png used on input line 635.
+(pdftex.def)             Requested size: 426.78754pt x 160.8627pt.
+
+Overfull \vbox (4.64203pt too high) has occurred while \output is active []
+
+ [31 <./images/UseCaseUC22.png>]
+<images/UseCaseUC222.png, id=864, 991.705pt x 380.42125pt>
+File: images/UseCaseUC222.png Graphic file (type png)
+ <use images/UseCaseUC222.png>
+Package pdftex.def Info: images/UseCaseUC222.png used on input line 675.
+(pdftex.def)             Requested size: 426.78801pt x 163.71725pt.
+
+Overfull \vbox (2.49658pt too high) has occurred while \output is active []
+
+ [32 <./images/UseCaseUC222.png (PNG copy)>]
+Overfull \vbox (1.04462pt too high) has occurred while \output is active []
+
+ [33]
+<images/UseCaseUC3.png, id=880, 991.705pt x 536.0025pt>
+File: images/UseCaseUC3.png Graphic file (type png)
+ <use images/UseCaseUC3.png>
+Package pdftex.def Info: images/UseCaseUC3.png used on input line 762.
+(pdftex.def)             Requested size: 426.78801pt x 230.67287pt.
+ [34 <./images/UseCaseUC3.png (PNG copy)>] [35] <images/UseCaseUC32.png, id=894, 989.6975pt x 728.7225pt>
+File: images/UseCaseUC32.png Graphic file (type png)
+ <use images/UseCaseUC32.png>
+Package pdftex.def Info: images/UseCaseUC32.png used on input line 802.
+(pdftex.def)             Requested size: 426.78485pt x 314.24524pt.
+
+Underfull \hbox (badness 1127) in paragraph at lines 812--812
+[]|\OT1/cmr/m/n/10 Il si-ste-ma ri-chie-de al-l'o-spi-te se ha par-ti-co-la-ri ne-ces-sita per
+ []
+
+[36 <./images/UseCaseUC32.png (PNG copy)>] [37] <images/UseCaseUC323.png, id=911, 978.65625pt x 285.065pt>
+File: images/UseCaseUC323.png Graphic file (type png)
+
+<use images/UseCaseUC323.png>
+Package pdftex.def Info: images/UseCaseUC323.png used on input line 858.
+(pdftex.def)             Requested size: 426.80215pt x 124.3198pt.
+ [38 <./images/UseCaseUC323.png (PNG copy)>] [39]
+<images/UseCaseUC33.png, id=925, 989.6975pt x 712.6625pt>
+File: images/UseCaseUC33.png Graphic file (type png)
+ <use images/UseCaseUC33.png>
+Package pdftex.def Info: images/UseCaseUC33.png used on input line 926.
+(pdftex.def)             Requested size: 426.78485pt x 307.31972pt.
+ [40 <./images/UseCaseUC33.png (PNG copy)>]
+Underfull \hbox (badness 6445) in paragraph at lines 973--973
+[]|\OT1/cmr/m/n/10 L'ospite puo es-se-re in-trat-te-nu-to dal si-ste-ma tra-mi-te la
+ []
+
+[41] <images/UseCaseUC333.png, id=941, 989.6975pt x 414.54875pt>
+File: images/UseCaseUC333.png Graphic file (type png)
+ <use images/UseCaseUC333.png>
+Package pdftex.def Info: images/UseCaseUC333.png used on input line 983.
+(pdftex.def)             Requested size: 426.78485pt x 178.76485pt.
+
+Underfull \hbox (badness 1436) in paragraph at lines 1010--1010
+[]|\OT1/cmr/m/n/10 L'ospite ha spe-ci-fi-ca-to la ca-te-go-ria di no-ti-zie al-la qua-le e
+ []
+
+[42 <./images/UseCaseUC333.png (PNG copy)>] [43] <images/UseCaseUC334.png, id=954, 992.70876pt x 480.79625pt>
+File: images/UseCaseUC334.png Graphic file (type png)
+
+<use images/UseCaseUC334.png>
+Package pdftex.def Info: images/UseCaseUC334.png used on input line 1033.
+(pdftex.def)             Requested size: 426.79585pt x 206.709pt.
+ [44 <./images/UseCaseUC334.png (PNG copy)>]
+<images/UseCaseUC3341.png, id=960, 989.6975pt x 561.09625pt>
+File: images/UseCaseUC3341.png Graphic file (type png)
+ <use images/UseCaseUC3341.png>
+Package pdftex.def Info: images/UseCaseUC3341.png used on input line 1053.
+(pdftex.def)             Requested size: 426.78485pt x 241.96017pt.
+ [45 <./images/UseCaseUC3341.png (PNG copy)>] [46] <images/UseCaseUC3342.png, id=973, 993.7125pt x 566.115pt>
+File: images/UseCaseUC3342.png Graphic file (type png)
+ <use images/UseCaseUC3342.png>
+Package pdftex.def Info: images/UseCaseUC3342.png used on input line 1120.
+(pdftex.def)             Requested size: 426.78767pt x 243.13963pt.
+ [47 <./images/UseCaseUC3342.png (PNG copy)>] [48] <images/UseCaseUC3343.png, id=987, 990.70125pt x 720.6925pt>
+File: images/UseCaseUC3343.png Graphic file (type png)
+
+<use images/UseCaseUC3343.png>
+Package pdftex.def Info: images/UseCaseUC3343.png used on input line 1185.
+(pdftex.def)             Requested size: 426.79443pt x 310.47456pt.
+ [49 <./images/UseCaseUC3343.png (PNG copy)>] [50]
+<images/UseCaseUC4.png, id=1001, 991.705pt x 336.25626pt>
+File: images/UseCaseUC4.png Graphic file (type png)
+ <use images/UseCaseUC4.png>
+Package pdftex.def Info: images/UseCaseUC4.png used on input line 1265.
+(pdftex.def)             Requested size: 426.78801pt x 144.71051pt.
+ [51 <./images/UseCaseUC4.png (PNG copy)>] <images/UseCaseUC41.png, id=1009, 992.70876pt x 490.83376pt>
+File: images/UseCaseUC41.png Graphic file (type png)
+ <use images/UseCaseUC41.png>
+Package pdftex.def Info: images/UseCaseUC41.png used on input line 1289.
+(pdftex.def)             Requested size: 426.79585pt x 211.02443pt.
+
+Underfull \hbox (badness 1400) in paragraph at lines 1305--1306
+[]\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re puo re-vo-ca-re i pri-vi-le-gi de-gli
+ []
+
+[52 <./images/UseCaseUC41.png (PNG copy)>] <images/UseCaseUC411.png, id=1018, 737.75626pt x 364.36125pt>
+File: images/UseCaseUC411.png Graphic file (type png)
+
+<use images/UseCaseUC411.png>
+Package pdftex.def Info: images/UseCaseUC411.png used on input line 1314.
+(pdftex.def)             Requested size: 426.78445pt x 210.77925pt.
+
+Underfull \hbox (badness 1092) in paragraph at lines 1328--1329
+[]\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re puo in-se-ri-re no-me e co-gno-me
+ []
+
+[53 <./images/UseCaseUC411.png>]
+Underfull \hbox (badness 1400) in paragraph at lines 1377--1377
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re ha in-se-ri-to la pas-sword del nuo-vo
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 1378--1378
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re in-se-ri-sce la pas-sword per il nuo-vo
+ []
+
+[54] [55] <images/UseCaseUC412.png, id=1042, 993.7125pt x 213.79875pt>
+File: images/UseCaseUC412.png Graphic file (type png)
+ <use images/UseCaseUC412.png>
+Package pdftex.def Info: images/UseCaseUC412.png used on input line 1417.
+(pdftex.def)             Requested size: 426.78767pt x 91.824pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1427--1427
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re puo re-set-ta-re la pas-sword
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1429
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re ha re-set-ta-to la pas-sword
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 1433--1434
+[]\OT1/cmr/m/n/10 il su-per am-mi-ni-stra-to-re puo con-fer-ma-re il re-set del-la
+ []
+
+
+Underfull \hbox (badness 3439) in paragraph at lines 1451--1451
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re con-fer-ma il re-set del-la pas-sword
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 1452--1452
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re non con-fer-ma di vo-ler re-set-ta-re la
+ []
+
+[56 <./images/UseCaseUC412.png (PNG copy)>] [57] <images/UseCaseUC413.png, id=1056, 983.675pt x 240.9pt>
+File: images/UseCaseUC413.png Graphic file (type png)
+
+<use images/UseCaseUC413.png>
+Package pdftex.def Info: images/UseCaseUC413.png used on input line 1459.
+(pdftex.def)             Requested size: 426.78445pt x 104.51863pt.
+
+Underfull \hbox (badness 2142) in paragraph at lines 1474--1475
+[]\OT1/cmr/m/n/10 il su-per am-mi-ni-stra-to-re puo con-fer-ma-re l'e-li-mi-na-zio-ne
+ []
+
+
+Underfull \hbox (badness 3884) in paragraph at lines 1492--1492
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re con-fer-ma di vo-le-re eli-mi-na-re un
+ []
+
+[58 <./images/UseCaseUC413.png (PNG copy)>]
+Overfull \hbox (3.7162pt too wide) in paragraph at lines 1496--1496
+|[]\OT1/cmr/bx/n/10 UC4.1.3.2: Vi-sua-liz-za-zio-ne er-ro-re con-fer-ma eli-mi-na-zio-ne am-mi-ni-stra-to-re| 
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 1522--1522
+[]|\OT1/cmr/m/n/10 Il su-per am-mi-ni-stra-to-re si tro-va nel-la se-zio-ne adi-bi-ta al-la
+ []
+
+[59]
+Underfull \hbox (badness 2020) in paragraph at lines 1552--1552
+[]|\OT1/cmr/m/n/10 L'utente non ha in-te-ra-gi-to con il si-ste-ma en-tro il tem-po
+ []
+
+) [60] (sezioni/introRequisiti.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--10
+
+ []
+
+) (sezioni/requisiti.tex [61] [62] [63] [64] [65] [66] [67] [68
+
+] [69
+
+]) (sezioni/tracciamentoFontiRequisiti.tex [70
+
+]
+[71] [72] [73] [74]) (sezioni/tracciamentoRequisitiFonti.tex [75
+
+] [76] [77] [78] [79]) (sezioni/riepilogoRequisiti.tex
+Underfull \vbox (badness 10000) detected at line 12
+ []
+
+[80
+
+]) 
+AED: lastpage setting LastPage
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 94.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 94.
+(AdR.aux (sezioni/introduzione.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
+Package rerunfilecheck Info: File `AdR.out' has not changed.
+(rerunfilecheck)             Checksum: 99112127152C6F6E0C5D3B3F29A7F35E;10185.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 13715 strings out of 493334
+ 197016 string characters out of 3139243
+ 374650 words of memory out of 3000000
+ 16424 multiletter control sequences out of 15000+200000
+ 6623 words of font info for 24 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,12n,94p,1043b,904s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Verbale\040Esterno\0401} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{RFF2.2.1.1} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{RFF2.2.1} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Interno} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Capitolato} has been referenced but does not exist, replaced by a fixed one
+
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmtt10.pfb>
+Output written on AdR.pdf (81 pages, 1957986 bytes).
+PDF statistics:
+ 2217 PDF objects out of 2487 (max. 8388607)
+ 542 named destinations out of 1000 (max. 500000)
+ 1023 words of extra memory for PDF output out of 10000 (max. 10000000)
+

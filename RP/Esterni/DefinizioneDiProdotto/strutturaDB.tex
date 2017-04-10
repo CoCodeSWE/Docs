@@ -1,7 +1,21 @@
 \section{Struttura del database DynamoDB}
 In questa appendice descriviamo la struttura del database DynamoDB, come richiesto dal \gl{proponente} \PROPONENTE. \\
-Sebbene DynamoDB richieda di specificare solamente la primary key (partition key oppure partition key e sort key) per la creazione di una tabella, abbiamo deciso di riportare una struttura più descrittiva all'interno del documento. La descrizione di ciascuna tabella riporta le informazioni relative alla chiave primaria e agli attributi che ogni item possiede quando viene inserito all'interno del DB.
-\\ \\La tabella \textbf{Conversation} descrive l'intera interazione tra un utente del \gl{sistema} e l'assistente virtuale, dove "messages" memorizza tutti i messaggi che vengono scambiati tra i due attori.
+Sebbene DynamoDB richieda di specificare solamente la primary key (partition key oppure partition key e sort key) per la creazione di una tabella, abbiamo deciso di riportare una struttura più descrittiva all'interno del documento. La descrizione di ciascuna tabella riporta le informazioni relative alla chiave primaria e agli attributi che ogni item possiede quando viene inserito all'interno del DB.\\
+Ogni tabella sarà descritta secondo questa struttura:
+\begin{itemize}
+ \item \textbf{TableName}: contiene il nome della tabella;
+ \item \textbf{KeySchema}: definisce quali sono le chiavi della tabella;
+ \item \textbf{AttributeDefinitions}: contiene la descrizione di tutti gli attributi della tabella, con il loro tipo, dove:
+ \begin{itemize}
+  \item \textbf{S} : String;
+  \item \textbf{N} : Number;
+  \item \textbf{M} : Map;
+  \item \textbf{L} : List;
+  \item \textbf{SS} : ArrayString;
+  \item \textbf{BOOL} : Boolean;
+ \end{itemize}
+\end{itemize}
+La tabella \textbf{Conversation} descrive l'intera interazione tra un utente del \gl{sistema} e l'assistente virtuale, dove "messages" memorizza tutti i messaggi che vengono scambiati tra i due attori.
 \begin{lstlisting}[language=json,firstnumber=1]
 TableName: "Conversation",
 KeySchema: 
@@ -17,16 +31,16 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "guest_id": {"S"},
-  "session_id": {"S"},
+  "guest_id": {"S" : "identificativo dell'ospite"},
+  "session_id": {"S" : "identificativo della sessione"},
   "messages":
   {
     "L": 
     [
       {
-        "sender": {"S"},
-        "text": {"S"},
-        "timestamp": {"S"}
+        "sender": {"S" : "mittente del messaggio"},
+        "text": {"S" : "testo del messaggio"},
+        "timestamp": {"S" : "timestamp del messaggio"}
       }
     ]
   }
@@ -49,18 +63,18 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "company": {"S"},
-  "name": {"S"},
+  "company": {"S" : "azienda di provenienza dell'ospite"},
+  "name": {"S" : "nome dell'ospite"},
   "conversations": 
   {
     "L":
     [
       {
-        "session_id": {"S"}
+        "session_id": {"S" : "identificativo della sessione"}
       }
     ]
   },
-  "met": {"SS"}
+  "met": {"SS" : "array associativo del numero di volte in cui l'ospite e' stato accolto in azienda"}
 ]
 \end{lstlisting}
 \newpage
@@ -76,16 +90,16 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "id": {"N"},
-  "name": {"S"},
+  "id": {"N" : "id univoco della rule"},
+  "name": {"S" : "nome della rule"},
   "targets": 
   {
     "L": 
     [
       {
-        "company": {"S"},
-        "member": {"S"},
-        "name": {"S"}
+        "company": {"S" : "nome dell'azienda target"},
+        "member": {"S" : "nome del membro dell'azienda target"},
+        "name": {"S" : "nome della persona target"}
       }
     ]
   },
@@ -93,11 +107,11 @@ AttributeDefinitions:
   {
     "M":
     {
-      "params": {"M"},
-      "task": {"S"}
+      "params": {"M" : "parametri da applicare alla funzione"},
+      "task": {"S" : "nome del task"}
     }
   },
-  "enabled": {"BOOL"}
+  "enabled": {"BOOL" : "valore che determina se la rule e' attiva o meno"}
 ]
 \end{lstlisting}
 
@@ -113,7 +127,7 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "type": {"S"}
+  "type": {"S" : "tipo del task"}
 ]
 \end{lstlisting}
 \newpage
@@ -129,11 +143,11 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "username": {"S"},
-  "name": {"S"},
-  "password": {"S"},
-  "slack_channel": {"S"},
-  "sr_id": {"S"}
+  "username": {"S" : "username dell'utente registrato"},
+  "name": {"S" : "nome e cognome dell'utente registrato"},
+  "password": {"S" : "password dell'utente registrato"},
+  "slack_channel": {"S" : "canale Slack dell'utente registrato"},
+  "sr_id": {"S" : "id dell'utente registrato nel microservizio esterno di Speaker Recognition"}
 ]
 \end{lstlisting}
 
@@ -149,8 +163,8 @@ KeySchema:
 ],
 AttributeDefinitions: 
 [
-  "token": {"S"},
-  "name": {"S"},
-  "lang": {"S"}
+  "token": {"S" : "valore del token associato all'agente"},
+  "name": {"S" : "nome dell'applicazione a cui e' associato l'agente"},
+  "lang": {"S" : "lingua dell'agente"}
 ]
 \end{lstlisting}
