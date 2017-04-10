@@ -5,14 +5,14 @@
 \hypertarget{AdministrationWebhookService_label}{\subparagraph{AdministrationWebhookService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAdministrationWebhookService.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAdministrationWebhookService.png}
 	\caption{Back-end::AdministrationWebhookService}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{AdministrationWebhookService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di implementare l'interfaccia \file{WebhookService}, realizzando un Webhook che fornisce una risposta all'\file{Agent} di amministrazione;
-	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al microservizio da parte dell'\file{Agent} di amministrazione;
+	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al \gl{microservizio} da parte dell'\file{Agent} di amministrazione;
 	\item \textbf{Padre}: \file{<<interface>> WebhookService};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -21,7 +21,7 @@
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{- checkToken(token: String): boolean} \\		Metodo che permette di controllare l'autenticità di un JWT. Utilizzato dal metodo \file{webhook()} per controllare che la richiesta sia stata fatta da un amministratore autenticato prima di compiere qualsiasi altra azione;\\
+		\item[] \file{- checkToken(token: String): boolean} \\		Metodo che permette di controllare l'autenticità di un JWT. Utilizzato dal metodo \file{webhook} per controllare che la richiesta sia stata fatta da un amministratore autenticato prima di compiere qualsiasi altra azione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{token: String} \\
@@ -34,28 +34,26 @@
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai, contenente il token da validare, a \file{AdministrationWebhookService}. Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  id":"String",
+  "id":"String",
   "lang":"String",
-  originalRequest":
-  {
-    source":"String",
-    data":
-    {
-      token":"JWToken"
-    }
+  "originalRequest":{
+    "source":"String",
+    "data":{
+        "token":"JWToken"
+     }
   }
-  result":"ProcessingResult",
-  sessionId":"String",
-  status":"StatusObject",
-  timestamp":"String"
-}
+  "result":"ProcessingResult",
+  "sessionId":"String",
+  "status":"StatusObject",
+  "timestamp":"String"
+ }
 \end{lstlisting}
-			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
-			La risposta può essere organizzata in due modi diversi a seconda se il JWT è valido o meno.\\
-			Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
-			Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403. \\;
+La risposta può essere organizzata in due modi diversi a seconda se il JWT è valido o meno.\\
+Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
+Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403. \\;
 		\end{itemize}
 		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la \gl{dependency injection} di \file{JSONWebTokenModule};\\
 		Parametri:
@@ -76,7 +74,7 @@
 \hypertarget{ConversationWebhookService_label}{\subparagraph{ConversationWebhookService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationWebhookService.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationWebhookService.png}
 	\caption{Back-end::ConversationWebhookService}
 \end{figure}
 \begin{itemize}
@@ -110,61 +108,55 @@
   "sessionId":"String",
   "status":"StatusObject",
   "timestamp":"String"
-}
-			\end{lstlisting}
-			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+ }
+\end{lstlisting}
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
-			La risposta può essere una tra i seguenti tipi:
-			\begin{itemize}
-				\item l'utente viene riconosciuto come un potenziale amministratore;
-				\item l'utente viene riconosciuto come un ospite conosciuto.
-			\end{itemize}
-			Nel primo caso, la risposta fornita sarà così organizzata:
+La risposta può essere una tra i seguenti tipi:
+\begin{itemize}
+    \item l'utente viene riconosciuto come un potenziale amministratore;
+    \item l'utente viene riconosciuto come un ospite conosciuto.
+\end{itemize}
+Nel primo caso, la risposta fornita sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts":
-  [
-    {
-      "name":"String",
-      "first_name":"String",
-      "last_name":"String",
-      "username":"String"
-    }
-  ]
+    "contexts": [{
+        "name":"String",
+        "first\_name":"String",
+        "last\_name":"String",
+        "username":"String"
+    }]
 }
 \end{lstlisting}
-			Dove
-			\begin{itemize}
-				\item \file{name} indica il nome del context, che in questo caso sarà "admin";
-				\item \file{first\_name} indica il nome dell'amministratore;
-				\item \file{last\_name} indica il cognome dell'amministratore;
-				\item \file{username} indica lo username dell'amministratore;
-			\end{itemize}
-			Nel secondo caso, la risposta sarà così organizzata:
+Dove
+\begin{itemize}
+    \item \file{name} indica il nome del context, che in questo caso sarà "admin";
+    \item \file{first\_name} indica il nome dell'amministratore;
+    \item \file{last\_name} indica il cognome dell'amministratore;
+    \item \file{username} indica lo username dell'amministratore;
+\end{itemize}
+Nel secondo caso, la risposta sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts":
-  [
-    {
-      "name":"String",
-      "name_guest":"String",
-      "company":"String",
-      "first_name":"String",
-      "last_name":"String"
-    }
-  ]
+    "contexts": [{
+        "name":"String",
+        "name\_guest":"String",
+        "company":"String",
+        "first\_name":"String",
+        "last\_name":"String"
+    }]
 }
-			\end{lstlisting}
-			Dove
-			\begin{itemize}
-				\item \file{name} indica il nome del context, che in questo caso sarà "welcome";
-				\item \file{name\_guest} indica il nome dell'ospite;
-				\item \file{company} indica l'azienda di provenienza dell'ospite;
-				\item \file{username} indica lo username dell'amministratore;
-				\item \file{first\_name} indica il nome della persona desiderata;
-				\item \file{last\_name} indica il cognome della persona desiderata;
-			\end{itemize};
+\end{lstlisting}
+Dove
+\begin{itemize}
+    \item \file{name} indica il nome del context, che in questo caso sarà "welcome";
+    \item \file{name\_guest} indica il nome dell'ospite;
+    \item \file{company} indica l'azienda di provenienza dell'ospite;
+    \item \file{username} indica lo username dell'amministratore;
+    \item \file{first\_name} indica il nome della persona desiderata;
+    \item \file{last\_name} indica il cognome della persona desiderata;
+\end{itemize};
 		\end{itemize}
 		\item[] \file{+ <<Create>> createConversationWebhookService(conversation: ConversationsDAO\\, guest: GuestsDAO, user: UsersDAO): ConversationWebhookService} \\		Metodo che permette la costruzione di un \file{ConversationWebhookService}. Permette la dependency injection che ha come oggetti un \file{ConversationsDAO}, \file{GuestsDAO} e \file{UsersDAO};\\
 		Parametri:
@@ -191,7 +183,7 @@
 \hypertarget{SNSEvent_label}{\subparagraph{SNSEvent}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSEvent.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSEvent.png}
 	\caption{Back-end::SNSEvent}
 \end{figure}
 \begin{itemize}
@@ -215,15 +207,15 @@
 \subsubsection{Back-end::APIGateway}
 Package contenente le classi necessarie a gestire:
 \begin{itemize}
-	\item diversi tipi di  dispositivi client;
-	\item l'interazione tra \file{Client} e \file{Back-end};
-	\item la combinazione tra i servizi supportati dal \file{Back-end}.
+ \item diversi tipi di  dispositivi client;
+ \item l'interazione tra \file{Client} e \file{Back-end};
+ \item la combinazione tra i servizi supportati dal \file{Back-end}.
 \end{itemize}
 \paragraph{Classi}
 \hypertarget{Enrollment_label}{\subparagraph{Enrollment}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassEnrollment.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassEnrollment.png}
 	\caption{Back-end::APIGateway::Enrollment}
 \end{figure}
 \begin{itemize}
@@ -254,8 +246,8 @@ Package contenente le classi necessarie a gestire:
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
-	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la lambda function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
+	\item \textbf{Descrizione}: questa classe si occupa di implementare l'\gl{endpoint} dell'\gl{API Gateway} utilizzato dal client vocale;
+	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- vocal: VocalLoginModule} \\
@@ -267,7 +259,7 @@ Package contenente le classi necessarie a gestire:
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
-		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo callbacks con promises;
+		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste \gl{HTTP} sostituendo \gl{callback}s con promises;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -285,7 +277,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{sns: AWS::SNS} \\
 			Parametro contenente il modulo \file{AWS::SNS} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
-		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un enrollment ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
+		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un \gl{enrollment} ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{Error\gl{Observer}} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{enr: Enrollment} \\
@@ -328,7 +320,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{user: User} \\
 			Parametro contenente l'\file{User} da modificare;
 		\end{itemize}
-		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una direttiva al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
+		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \gl{direttiva} al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -340,7 +332,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{id: String} \\
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
-		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle direttive del sistema.
+		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle \gl{direttive} del sistema.
 ;\\
 		\item[] \file{- updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una direttiva presente nel sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
@@ -371,7 +363,7 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 
 Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
 "action":"String",
@@ -403,9 +395,8 @@ Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare 
 \hypertarget{VocalLoginModuleConfig_label}{\subparagraph{VocalLoginModuleConfig}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModuleConfig.png}
-	\caption{Back-end::APIGateway::
-		VocalLoginModuleConfig}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModuleConfig.png}
+	\caption{Back-end::APIGateway::VocalLoginModuleConfig}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalLoginModuleConfig};
@@ -432,7 +423,7 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{ ConversationsDAO_label}{\subparagraph{ ConversationsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.60\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationsDAO.png}
+	\includegraphics[scale=0.60,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationsDAO.png}
 	\caption{Back-end::Conversations:: ConversationsDAO}
 \end{figure}
 \begin{itemize}
@@ -443,7 +434,7 @@ Package contenente le classi relative alle Conversations del sistema.
 	\item \textbf{Figlio}: \file{ConversationsDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ getConversationList(guest\_id: String): ConversationObservable}\\ \\		Metodo che permette di ottenere una conversazione a partire dall'identificativo di un \file{Guest}. L'\file{Observable} restituito manderà agli \file{\gl{Observer}} le conversazioni ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, l'\file{Observer} iscritto verrà notificato tramite la chiamata del suo metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ getConversationList(guest\_id: String): ConversationObservable}\\ \\		Metodo che permette di ottenere una conversazione a partire dall'identificativo di un \file{Guest}. L'\file{Observable} restituito manderà agli \file{Observer} le conversazioni ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, l'\file{Observer} iscritto verrà notificato tramite la chiamata del suo metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{guest\_id: String} \\
@@ -469,7 +460,7 @@ Package contenente le classi relative alle Conversations del sistema.
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione alla quale aggiungere il messaggio;
 		\end{itemize}
-		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeConversation(session\_id: String): ErrorObservable} \\		Metodo che permette di rimuovere una conversazione a partire dall'identificativo della sessione. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della conversazione avvenuta con successo. In caso di errore durante l'aggiunta della conversazione, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{session\_id: String} \\
@@ -491,7 +482,7 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{Conversation_label}{\subparagraph{Conversation}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassConversation.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversation.png}
 	\caption{Back-end::Conversations::Conversation}
 \end{figure}
 \begin{itemize}
@@ -521,7 +512,7 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{ConversationMsg_label}{\subparagraph{ConversationMsg}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationMsg.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationMsg.png}
 	\caption{Back-end::Conversations::ConversationMsg}
 \end{figure}
 \begin{itemize}
@@ -550,7 +541,7 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{ConversationObservable_label}{\subparagraph{ConversationObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationObservable.png}
 	\caption{Back-end::Conversations::ConversationObservable}
 \end{figure}
 \begin{itemize}
@@ -586,14 +577,14 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{ConversationObserver_label}{\subparagraph{ConversationObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationObserver.png}
 	\caption{Back-end::Conversations::ConversationObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ConversationObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Conversation};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Conversation};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(conversation: Conversation): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Conversation}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -614,7 +605,7 @@ Package contenente le classi relative alle Conversations del sistema.
 \hypertarget{ConversationsDAODynamoDB_label}{\subparagraph{ConversationsDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationsDAODynamoDB.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationsDAODynamoDB.png}
 	\caption{Back-end::Conversations::ConversationsDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -665,7 +656,7 @@ Package contenente le classi relative alle Conversations del sistema.
 		\begin{itemize}
 			\item \file{msg: ConversationMsg} \\
 			Parametro contenente il messaggio.
-			;
+;
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione dove aggiungere il messaggio;
 		\end{itemize}
@@ -686,7 +677,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 \hypertarget{SNSMessage_label}{\subparagraph{SNSMessage}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSMessage.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSMessage.png}
 	\caption{Back-end::Events::SNSMessage}
 \end{figure}
 \begin{itemize}
@@ -694,7 +685,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta un messaggio mandato da SNS in seguito ad un'interazione con l'assistente virtuale;
 	\item \textbf{Utilizzo}: fornisce un meccanismo \gl{event-driven} per la gestione dei dati relativi alle interazioni col sistema.\\
-	Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
+Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ MessageId: String} \\
@@ -718,7 +709,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 \hypertarget{SNSRecord_label}{\subparagraph{SNSRecord}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSRecord.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSNSRecord.png}
 	\caption{Back-end::Events::SNSRecord}
 \end{figure}
 \begin{itemize}
@@ -742,7 +733,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 \hypertarget{VAMessageListener_label}{\subparagraph{VAMessageListener}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAMessageListener.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAMessageListener.png}
 	\caption{Back-end::Events::VAMessageListener}
 \end{figure}
 \begin{itemize}
@@ -772,50 +763,46 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 			Parametro contenente il \file{RequestPromiseModule} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
 		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function\\(error: String, success: String): void): void} \\		Metodo che implementa la Lambda function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS. SNS chiama tale Lambda Function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
-		Di seguito viene riportato un esempio dell'oggetto utilizzato.
+Di seguito viene riportato un esempio dell'oggetto utilizzato.
 \begin{lstlisting}[language=json,firstnumber=1]
-  {
+{
   Records:
-    [
+  [
+    {
+      Sns:
       {
-        Sns:
+        Message: '
         {
-          Message: '
+          "action":"nome.azione",
+          "res":
           {
-            "action":"nome.azione",
-            "res":
-            {
-              "contexts":
-              [
+            "contexts":
+            [
+              {
+                "name": "nome_contesto",
+                "parameters":
                 {
-                  "name": "nome_contesto",
-                  "parameters":
-                  {
-                    "nome1": "valore",
-                    "nome2": "altro valore"
-                  }
+                  "nome1": "valore",
+                  "nome2": "altro valore"
                 }
-              ],
-              "data": Object,
-              "text_request": "frase pronunciata dall'ospite",
-              "text_response": "risposta dell'assistente"
-            },
-            "session_id": "idUnico.timestamp"
-          }',
-          MessageAttributes:
-          {
-            "key": "value",
-            "key2": "value2"
+              }
+            ],
+            "data": Object,
+            "text_request": "frase pronunciata dall'ospite",
+            "text_response": "risposta dell'assistente"
           },
-          MessageId: "stringa-contenente-id-del-messaggio",
-          Subject: "oggetto del messaggio",
-          Timestamp: "2017-03-26T20:39:48.599Z"
-        }
+          "session_id": "idUnico.timestamp"
+        }',
+        MessageAttributes: {"key": "value", "key2": "value2"},
+        MessageId: "stringa-contenente-id-del-messaggio",
+        Subject: "oggetto del messaggio",
+        Timestamp: "2017-03-26T20:39:48.599Z"
       }
-    ]
-  }
+    }
+  ]
+}
 \end{lstlisting}
-		Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
+Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: SNSEvent} \\
@@ -832,9 +819,6 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 		\item OUT \hyperlink{<<interface>> GuestsDAO_label}{\file{<<interface>> GuestsDAO}}
 		\item OUT \hyperlink{SNSEvent_label}{\file{SNSEvent}}
 	\end{itemize}
-	\item \textbf{Eventi gestiti}:
-	\begin{itemize}
-		\item \file{SNSEvent} \\ Messaggio mandato ad sns quando arriva la risposta dall'assistente virtuale. All'arrivo del messaggio si occupa di salvare i dati dell'interazione nel DAO.	\end{itemize}
 \end{itemize}
 \FloatBarrier
 
@@ -844,7 +828,7 @@ Package contenente le classi relative ai Guests del sistema.
 \hypertarget{ GuestsDAO_label}{\subparagraph{ GuestsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestsDAO.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestsDAO.png}
 	\caption{Back-end::Guests:: GuestsDAO}
 \end{figure}
 \begin{itemize}
@@ -857,7 +841,7 @@ Package contenente le classi relative ai Guests del sistema.
 	\begin{itemize}
 		\item[] \file{+ getGuestList(): GuestObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli ospiti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		\item[] \file{+ getGuest(name: String, company: String): GuestObservable} \\		Metodo che permette di ottenere un ospite a partire dal nome e l'azienda di provenienza. \\
-		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -865,13 +849,13 @@ Package contenente le classi relative ai Guests del sistema.
 			\item \file{company: String} \\
 			Parametro contenente l'azienda di provenienza dell'ospite;
 		\end{itemize}
-		\item[] \file{+ updateGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiornare un ospite.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiornare un ospite.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{guest: Guest} \\
 			Parametro contenente l'ospite da aggiornare;
 		\end{itemize}
-		\item[] \file{+ removeGuest(name: String, company: String): ErrorObservable} \\\\		Metodo che permette di eliminare un ospite dal database, a partire dal suo nome e azienda di provenienza.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di eliminazione  dell'ospite avvenuta con successo. In caso di errore durante l'eliminazione dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeGuest(name: String, company: String): ErrorObservable} \\\\		Metodo che permette di eliminare un ospite dal database, a partire dal suo nome e azienda di provenienza.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di eliminazione  dell'ospite avvenuta con successo. In caso di errore durante l'eliminazione dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -879,7 +863,7 @@ Package contenente le classi relative ai Guests del sistema.
 			\item \file{company: String} \\
 			Parametro contenente l'azienda di provenienza dell'ospite;
 		\end{itemize}
-		\item[] \file{+ addGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiungere un ospite al database.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addGuest(guest: Guest): ErrorObservable} \\		Metodo che permette di aggiungere un ospite al database.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'ospite avvenuta con successo. In caso di errore durante l'aggiunta dell'ospite, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{guest: Guest} \\
@@ -900,7 +884,7 @@ Package contenente le classi relative ai Guests del sistema.
 \hypertarget{Guest_label}{\subparagraph{Guest}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassGuest.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuest.png}
 	\caption{Back-end::Guests::Guest}
 \end{figure}
 \begin{itemize}
@@ -931,7 +915,7 @@ Package contenente le classi relative ai Guests del sistema.
 \hypertarget{GuestObservable_label}{\subparagraph{GuestObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestObservable.png}
 	\caption{Back-end::Guests::GuestObservable}
 \end{figure}
 \begin{itemize}
@@ -967,14 +951,14 @@ Package contenente le classi relative ai Guests del sistema.
 \hypertarget{GuestObserver_label}{\subparagraph{GuestObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestObserver.png}
 	\caption{Back-end::Guests::GuestObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{GuestObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta oggetti di tipo \file{Guest};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in modo che riceva dati di tipo \file{Guest};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(guest: Guest): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Guest}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -995,7 +979,7 @@ Package contenente le classi relative ai Guests del sistema.
 \hypertarget{GuestsDAODynamoDB_label}{\subparagraph{GuestsDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestsDAODynamoDB.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassGuestsDAODynamoDB.png}
 	\caption{Back-end::Guests::GuestsDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -1062,7 +1046,7 @@ Package contenente le classi relative ai membri del sistema.
 \hypertarget{ MembersDAO_label}{\subparagraph{ MembersDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassMembersDAO.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMembersDAO.png}
 	\caption{Back-end::Members:: MembersDAO}
 \end{figure}
 \begin{itemize}
@@ -1111,7 +1095,7 @@ Package contenente le classi relative ai membri del sistema.
 \hypertarget{Member_label}{\subparagraph{Member}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassMember.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMember.png}
 	\caption{Back-end::Members::Member}
 \end{figure}
 \begin{itemize}
@@ -1138,7 +1122,7 @@ Package contenente le classi relative ai membri del sistema.
 \hypertarget{MemberObservable_label}{\subparagraph{MemberObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObservable.png}
 	\caption{Back-end::Members::MemberObservable}
 \end{figure}
 \begin{itemize}
@@ -1173,14 +1157,14 @@ Package contenente le classi relative ai membri del sistema.
 \hypertarget{MemberObserver_label}{\subparagraph{MemberObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMemberObserver.png}
 	\caption{Back-end::Members::MemberObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{MemberObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Member};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Member};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(member: Member): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Member}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1201,7 +1185,7 @@ Package contenente le classi relative ai membri del sistema.
 \hypertarget{MembersDAOSlack_label}{\subparagraph{MembersDAOSlack}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.60\textwidth,height=\textheight,keepaspectratio]{images/ClassMembersDAOSlack.png}
+	\includegraphics[scale=0.60,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMembersDAOSlack.png}
 	\caption{Back-end::Members::MembersDAOSlack}
 \end{figure}
 \begin{itemize}
@@ -1242,7 +1226,7 @@ Package contenente le classi relative ai membri del sistema.
 			parametro contenente la stringa identificativa del membro del quale si vogliono ottenere i dati;
 		\end{itemize}
 		\item[] \file{+ getMemberList(): MemberObservable} \\		Implementazione del metodo del'interfaccia. Utilizza il metodo \file{users.list} per ottenere le informazioni necessarie da Slack;\\
-		\item[] \file{+ <<Create>> createMembersSlackDAO(client: Slack::WebClient): \\ MembersSlackDAO}\\ 	Costruttore che permette di effettuare la dependency injection di \file{Slack::WebClient};\\
+		\item[] \file{+ <<Create>> createMembersSlackDAO(client: Slack::WebClient): MembersSlackDAO}\\ \\		Costruttore che permette di effettuare la dependency injection di \file{Slack::WebClient};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{client: Slack::WebClient} \\
@@ -1266,7 +1250,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{Action_label}{\subparagraph{Action}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassAction.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAction.png}
 	\caption{Back-end::Notifications::Action}
 \end{figure}
 \begin{itemize}
@@ -1274,7 +1258,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad una \file{Action} come descritto nelle API di Slack. Rappresenta un button in un messaggio Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi di una \file{Action}. La classe \file{Attachment} ne contiene un array.
-	Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -1301,17 +1285,17 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{Attachment_label}{\subparagraph{Attachment}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassAttachment.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAttachment.png}
 	\caption{Back-end::Notifications::Attachment}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{Attachment};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un \file{Attachment}
-	;
+;
 	\item \textbf{Utilizzo}: fornisce gli attributi degli \file{Attachment} che dovranno essere aggiunti ad un \\ \file{NotificationMessage}.
-	Un \file{Attachment}, contenuto in un \file{NotificationsMessage}, permette di aggiungere del significato ad un \file{NotificationMessage} ed arricchirlo tramite immagini, colori ed altro.
-	Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Un \file{Attachment}, contenuto in un \file{NotificationsMessage}, permette di aggiungere del significato ad un \file{NotificationMessage} ed arricchirlo tramite immagini, colori ed altro.
+Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1336,7 +1320,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{ConfirmationFields_label}{\subparagraph{ConfirmationFields}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassConfirmationFields.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConfirmationFields.png}
 	\caption{Back-end::Notifications::ConfirmationFields}
 \end{figure}
 \begin{itemize}
@@ -1344,8 +1328,8 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un messaggio di conferma di Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare un messaggio di conferma di Slack.
-	\\
-	Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+\\
+Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1354,7 +1338,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 		Attributo contenente la descrizione dettagliata delle conseguenze della relativa \file{Action} e contestualizza le scelte fornite dal button;
 		\item[] \file{+ ok\_text: String[0..1]} \\
 		Attributo contenente il testo del bottone che serve per confermare la relativa \file{Action}. Il valore di default per questo attributo è "Okay".
-		;
+;
 		\item[] \file{+ dismiss\_text: String[0..1]} \\
 		Attributo contenente il testo del bottone che serve per cancellare la relativa \file{Action}. Il valore di default per questo attributo è "Cancel";
 	\end{itemize}
@@ -1368,7 +1352,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{NotificationChannel_label}{\subparagraph{NotificationChannel}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationChannel.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationChannel.png}
 	\caption{Back-end::Notifications::NotificationChannel}
 \end{figure}
 \begin{itemize}
@@ -1376,7 +1360,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i parametri relativi al canale Slack nel quale spedire il \file{NotificationMessage};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{NotificationChannel}. \\
-	Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-03-21);
+Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
@@ -1385,11 +1369,11 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 		Attributo contenente il nome del canale Slack;
 		\item[] \file{+ type: String} \\
 		Attributo che indica il tipo del canale. \\ Può assumere i seguenti valori:
-		\begin{itemize}
-			\item user: il canale rappresenta un utente Slack;
-			\item channel: il canale rappresenta un canale pubblico Slack;
-			\item group: il canale rappresenta un canale privato Slack.
-		\end{itemize};
+\begin{itemize}
+  \item user: il canale rappresenta un utente Slack;
+  \item channel: il canale rappresenta un canale pubblico Slack;
+  \item group: il canale rappresenta un canale privato Slack.
+\end{itemize};
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -1401,7 +1385,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{NotificationMessage_label}{\subparagraph{NotificationMessage}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationMessage.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationMessage.png}
 	\caption{Back-end::Notifications::NotificationMessage}
 \end{figure}
 \begin{itemize}
@@ -1417,12 +1401,12 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 		Attributo contenente l'array degli attachments del \file{NotificationMessage};
 		\item[] \file{+ response\_type: String[0..1]} \\
 		Attributo contenente il modo con il quale notificare.
-		Questo attributo può assumere uno tra i seguenti valori:
-		\begin{itemize}
-			\item \file{in\_channel}, che mostra il \file{NotificationMessage} ai membri del canale con il message button già cliccato;
-			\item \file{ephemeral}, che mostra il \file{NotificationMessage} ai membri del canale che cliccano sul message button.
-		\end{itemize}
-		Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Questo attributo può assumere uno tra i seguenti valori:
+\begin{itemize}
+\item \file{in\_channel}, che mostra il \file{NotificationMessage} ai membri del canale con il message button già cliccato;
+\item \file{ephemeral}, che mostra il \file{NotificationMessage} ai membri del canale che cliccano sul message button.
+\end{itemize}
+Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -1435,7 +1419,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 \hypertarget{NotificationService_label}{\subparagraph{NotificationService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationService.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassNotificationService.png}
 	\caption{Back-end::Notifications::NotificationService}
 \end{figure}
 \begin{itemize}
@@ -1463,14 +1447,14 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio da inviare.
-			Tali dati sono:
+Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "msg":"NotificationMessage",
-  "send_to":"String"
+    "msg":"NotificationMessage",
+    "send\_to":"String"
 }
 \end{lstlisting}
-			Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
+Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambaResponse::statusCode};
 		\end{itemize}
@@ -1495,17 +1479,17 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle direttive per l'assistente virtuale.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item l'aggiunta di una nuova direttiva;
-	\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
-	\item la gestione delle direttive esistenti;
-	\item la gestione dei compiti esistenti.
+\item l'aggiunta di una nuova direttiva;
+\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
+\item la gestione delle direttive esistenti;
+\item la gestione dei compiti esistenti.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{ RulesDAO_label}{\subparagraph{ RulesDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesDAO.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesDAO.png}
 	\caption{Back-end::Rules:: RulesDAO}
 \end{figure}
 \begin{itemize}
@@ -1516,26 +1500,26 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Figlio}: \file{RulesDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \file{Rule} al database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiunta della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \file{Rule} al database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiunta della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
 			Parametro contenente la \file{Rule} da aggiungere;
 		\end{itemize}
 		\item[] \file{+ getRulesList(): RuleObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} le direttive ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ removeRule(id: int): ErrorObservable} \\		Metodo che permette di rimuovere una \file{Rule} dal database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione della \file{Rule} avvenuta con successo. In caso di errore durante la rimozione della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeRule(id: int): ErrorObservable} \\		Metodo che permette di rimuovere una \file{Rule} dal database. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione della \file{Rule} avvenuta con successo. In caso di errore durante la rimozione della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della \file{Rule};
 		\end{itemize}
-		\item[] \file{+ getRule(id: int): RuleObservable} \\		Metodo che permette di ottenere una \file{Rule} a partire dal suo Id. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Rule}, e verrà completato. Nel caso in cui la \file{Rule} richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+		\item[] \file{+ getRule(id: int): RuleObservable} \\		Metodo che permette di ottenere una \file{Rule} a partire dal suo Id. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Rule}, e verrà completato. Nel caso in cui la \file{Rule} richiesta non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della \file{Rule} da recuperare;
 		\end{itemize}
-		\item[] \file{+ updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una \file{Rule}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiornamento della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una \file{Rule}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento della \file{Rule} avvenuta con successo. In caso di errore durante l'aggiornamento della \file{Rule}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -1547,7 +1531,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{target: RuleTarget} \\
 			Parametro contenente il target del quale si vogliono ottenere le direttive;
 			\item \file{type: StringArray = null} \\
-			Parametro contenente la lista dei tipi di task che devono essere tenuti in considerazione. Se impostato a null, verranno tenuti in considerazione tutti i tipi di task;
+			Parametro contenente la lista dei tipi di \gl{task} che devono essere tenuti in considerazione. Se impostato a null, verranno tenuti in considerazione tutti i tipi di task;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -1564,7 +1548,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{ TasksDAO_label}{\subparagraph{ TasksDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassTasksDAO.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTasksDAO.png}
 	\caption{Back-end::Rules:: TasksDAO}
 \end{figure}
 \begin{itemize}
@@ -1576,25 +1560,25 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getTaskList(): TaskObservable} \\		Metodo che permette di ottenere la lista dei compiti. L'\file{Observable} restituito manderà agli \file{Observer} i compiti ottenuti, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ addTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Task} al database. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} avvenuta con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Task} al database. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} avvenuta con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{task: Task} \\
 			Parametro contenente il compito;
 		\end{itemize}
-		\item[] \file{+ removeTask(id: int): ErrorObservable} \\		Metodo che permette di rimuovere un compito dal database a partire dal suo id. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione del \file{Task} avvenuta con successo. In caso di errore durante la rimozione del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeTask(id: int): ErrorObservable} \\		Metodo che permette di rimuovere un compito dal database a partire dal suo id. \\ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione del \file{Task} avvenuta con successo. In caso di errore durante la rimozione del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della funzione;
 		\end{itemize}
-		\item[] \file{+ getTask(id: int): ErrorObservable} \\		Metodo che permette di ottenere un \file{Task} a partire dal suo id. \\ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Task}, e verrà completato. Nel caso in cui il \file{Task} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+		\item[] \file{+ getTask(id: int): ErrorObservable} \\		Metodo che permette di ottenere un \file{Task} a partire dal suo id. \\ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Task}, e verrà completato. Nel caso in cui il \file{Task} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: int} \\
 			Parametro contenente l'id della funzione;
 		\end{itemize}
-		\item[] \file{+ updateTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiornare un compito. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateTask(task: Task): ErrorObservable} \\		Metodo che permette di aggiornare un compito. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta del \file{Task} con successo. In caso di errore durante l'aggiunta del \file{Task}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{task: Task} \\
@@ -1614,7 +1598,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{Rule_label}{\subparagraph{Rule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.90\textwidth,height=\textheight,keepaspectratio]{images/ClassRule.png}
+	\includegraphics[scale=0.90,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRule.png}
 	\caption{Back-end::Rules::Rule}
 \end{figure}
 \begin{itemize}
@@ -1622,7 +1606,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad una \file{Rule}, ovvero una direttiva definita da un amministratore;
 	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad una direttiva, i quali dovranno essere memorizzati nel database per questo microservizio. Tramite il metodo \file{setTask}, è soggetta ad una setter-based dependency injection che ha come oggetto una \file{RuleTaskInstance}. \\
-	È utilizzata dalla classe \file{RulesDAO} e dalle classi che utilizzano quest'ultima;
+È utilizzata dalla classe \file{RulesDAO} e dalle classi che utilizzano quest'ultima;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- targets: RuleTargetArray} \\
@@ -1638,17 +1622,13 @@ Vengono offerte funzionalità che permettono:
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ <<Create>> Rule(targ: RuleTargetArray, name: String, en: boolean, task: String): Rule} \\		Metodo che permette di instanziare un oggetto \file{Rule} a partire da un nome, una lista dei targets un \file{ac\_mode}, un \file{ac\_list}, un compito da applicare e un valore booleano per abilitarla o meno;\\
+		\item[] \file{+ <<Create>> Rule(targ: RuleTargetArray, name: String, en: boolean, task: String): Rule} \\		Metodo che permette di instanziare un oggetto \file{Rule} a partire da un nome, una lista dei targets, un compito da applicare e un valore booleano per abilitarla o meno;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{targ: RuleTargetArray} \\
 			Parametro contenente l'array dei targets da assegnare alla \file{Rule};
 			\item \file{name: String} \\
 			Parametro contenente il nome da assegnare alla \file{Rule};
-			\item \file{ac\_mode: int} \\
-			Parametro contenente l'ac\_mode da assegnare alla \file{Rule};
-			\item \file{ac\_list: StringArray} \\
-			Parametro contenente l'array di id degli amministratori abilitati/disabilitati da assegnare alla \file{Rule};
 			\item \file{en: boolean} \\
 			Parametro contenente il valore booleano da assegnare alla \file{Rule} per abilitarla o meno;
 			\item \file{task: String} \\
@@ -1672,25 +1652,13 @@ Vengono offerte funzionalità che permettono:
 			\item \file{id: int} \\
 			Parametro contenente l'id da passare;
 		\end{itemize}
-		\item[] \file{+ setAcMode(acm: int): void} \\		Metodo che permette di passare l'\file{ac\_mode} per la \file{Rule};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{acm: int} \\
-			Parametro contenente l'ac\_mode da passare;
-		\end{itemize}
-		\item[] \file{+ setAcList(acl: StringArray): void} \\		Metodo che permette di passare gli id degli amministratori abilitati/disabilitati per la \file{Rule};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{acl: StringArray} \\
-			Parametro contenente l'ac\_list da passare;
-		\end{itemize}
 		\item[] \file{+ setEnabled(en: boolean): void} \\		Metodo che permette di passare un valore da impostare ad \file{enabled} per la \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{en: boolean} \\
 			Parametro contenente il valore booleano da passare;
 		\end{itemize}
-		\item[] \file{+ setTarget(function: RuleTaskInstance): void} \\		Metodo che permette di modificare il compito da applicare alla \file{Rule};\\
+		\item[] \file{+ setTask(function: RuleTaskInstance): void} \\		Metodo che permette di modificare il compito da applicare alla \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{function: RuleTaskInstance} \\
@@ -1699,8 +1667,6 @@ Vengono offerte funzionalità che permettono:
 		\item[] \file{+ getName(): String} \\		Metodo che permette di ottenere il nome della \file{Rule};\\
 		\item[] \file{+ getTargets(): RuleTargetArray} \\		Metodo che permette di ottenere l'array contenente i targets della \file{Rule};\\
 		\item[] \file{+ getId(): int} \\		Metodo che permette di ottenere l'id della \file{Rule};\\
-		\item[] \file{+ getAcMode(): int} \\		Metodo che permette di ottenere l'\file{ac\_mode} della \file{Rule};\\
-		\item[] \file{+ getAcList(): StringArray} \\		Metodo che permette di ottenere la lista degli id degli amministratori abilitati/disabilitati della \file{Rule};\\
 		\item[] \file{+ isEnabled(): boolean} \\		Metodo che permette di capire se la \file{Rule} è abilitata o meno;\\
 		\item[] \file{+ getTask(): void} \\		Metodo che permette di ottenere il \file{Task} applicata dalla \file{Rule};\\
 	\end{itemize}
@@ -1719,7 +1685,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RuleObservable_label}{\subparagraph{RuleObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleObservable.png}
 	\caption{Back-end::Rules::RuleObservable}
 \end{figure}
 \begin{itemize}
@@ -1755,14 +1721,14 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RuleObserver_label}{\subparagraph{RuleObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleObserver.png}
 	\caption{Back-end::Rules::RuleObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{RuleObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Rule};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe ObserverAdapter, in maniera tale che accetti dati di tipo \file{Rule};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(rule: Rule): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Rule}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -1783,7 +1749,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RulesDAODynamoDB_label}{\subparagraph{RulesDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.60\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesDAODynamoDB.png}
+	\includegraphics[scale=0.60,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesDAODynamoDB.png}
 	\caption{Back-end::Rules::RulesDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -1811,7 +1777,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{id: String} \\
 			Parametro contenente l'id della \file{Rule} da recuperare;
 		\end{itemize}
-		\item[] \file{+ getRuleList(): RuleObservable} \\		Implementazione del metodo dell'interfaccia \file{RulesDAO}. Utilizza il metodo scan del \\ \file{DocumentClient} per ottenere la lista delle Rule dal database;\\
+		\item[] \file{+ getRuleList(): RuleObservable} \\		Implementazione del metodo dell'interfaccia \file{RulesDAO}. Utilizza il metodo scan del \file{DocumentClient} per ottenere la lista delle Rule dal database;\\
 		\item[] \file{+ removeRule(id: String): ErrorObservable} \\		Implementazione del metodo dell'interfaccia \file{RulesDAO}. Utilizza il metodo delete del \file{DocumentClient} per eliminare una Rule dal database;\\
 		Parametri:
 		\begin{itemize}
@@ -1843,7 +1809,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RulesService_label}{\subparagraph{RulesService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesService.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRulesService.png}
 	\caption{Back-end::Rules::RulesService}
 \end{figure}
 \begin{itemize}
@@ -1908,14 +1874,6 @@ Vengono offerte funzionalità che permettono:
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON,  un Array di oggetti di tipo \file{Function};
 		\end{itemize}
-		\item[] \file{+ getTask(event: LambdaIdEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che si occupa di ottenere una \file{Task};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{event: LambdaIdEvent} \\
-			Parametro contenente, all'interno del campo \file{pathParameters}, l'identificativo della \file{Rule} della quale si vuole ottenere la \file{Task};
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON, un oggetto di tipo \file{RuleTaskInstance}, contenente i dati relativi alla \file{Task} ritornata;
-		\end{itemize}
 		\item[] \file{+ <<Create>> createRulesService(task: TasksDAO, rules: RulesDAO):\\ RulesService} \\		Metodo che permette di creare un \file{RulesService}. Permette la dependency injection avente come oggetti un \file{RulesDAO} e \file{TasksDAO};\\
 		Parametri:
 		\begin{itemize}
@@ -1925,7 +1883,7 @@ Vengono offerte funzionalità che permettono:
 			Attributo contenente il \file{RulesDAO};
 		\end{itemize}
 		\item[] \file{+ queryRule(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che permette di interrogare il microservizio ed ottenere una lista di direttive che si applicano in un determinato caso.
-		Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
+Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -1948,7 +1906,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RuleTarget_label}{\subparagraph{RuleTarget}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleTarget.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleTarget.png}
 	\caption{Back-end::Rules::RuleTarget}
 \end{figure}
 \begin{itemize}
@@ -1956,7 +1914,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a un target di una \file{Rule}, ovvero la persona alla quale è indirizzata quest'ultima;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un target di una \file{Rule} che dovranno essere memorizzati nel database per questo microservizio.
-	Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target} ai quali applicare la sua funzione;
+Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target} ai quali applicare la sua funzione;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ company: String} \\
@@ -1976,7 +1934,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RuleTaskInstance_label}{\subparagraph{RuleTaskInstance}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleTaskInstance.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRuleTaskInstance.png}
 	\caption{Back-end::Rules::RuleTaskInstance}
 \end{figure}
 \begin{itemize}
@@ -2001,7 +1959,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{Task_label}{\subparagraph{Task}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassTask.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTask.png}
 	\caption{Back-end::Rules::Task}
 \end{figure}
 \begin{itemize}
@@ -2026,7 +1984,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{TaskObservable_label}{\subparagraph{TaskObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTaskObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTaskObservable.png}
 	\caption{Back-end::Rules::TaskObservable}
 \end{figure}
 \begin{itemize}
@@ -2062,14 +2020,14 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{TaskObserver_label}{\subparagraph{TaskObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassTaskObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTaskObserver.png}
 	\caption{Back-end::Rules::TaskObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{TaskObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Task};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next()} dell'interfaccia, in maniera tale che accetti dati di tipo \file{Task};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(task: Task): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Task}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2090,7 +2048,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{TasksDAODynamoDB_label}{\subparagraph{TasksDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{images/ClassTasksDAODynamoDB.png}
+	\includegraphics[scale=0.75,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTasksDAODynamoDB.png}
 	\caption{Back-end::Rules::TasksDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -2150,10 +2108,10 @@ Vengono offerte funzionalità che permettono:
 \subsubsection{Back-end::STT}
 Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.
 \paragraph{Classi}
-\hypertarget{STTModule_label}{\subparagraph{ STTModule}}
+\hypertarget{ STTModule_label}{\subparagraph{ STTModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassSTTModule.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSTTModule.png}
 	\caption{Back-end::STT:: STTModule}
 \end{figure}
 \begin{itemize}
@@ -2183,20 +2141,20 @@ Package che include le classi che si occupano di fornire le funzionalità di \gl
 \hypertarget{STTWatsonAdapter_label}{\subparagraph{STTWatsonAdapter}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSTTWatsonAdapter.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSTTWatsonAdapter.png}
 	\caption{Back-end::STT::STTWatsonAdapter}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{STTWatsonAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di convertire l'interfaccia fornita dal servizio di Speech to Text di IBM in una più adatta alle esigenze dell'applicazione, definita da \file{STTModule}. \\
-	Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e l'interfaccia \file{STTModule} (target) utilizzata da \file{APIGateway::VocalAPI}, permette l'interoperabilità tra queste due interfacce;
+Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e l'interfaccia \file{STTModule} (target) utilizzata da \file{APIGateway::VocalAPI}, permette l'interoperabilità tra queste due interfacce;
 	\item \textbf{Utilizzo}: fornisce a \file{STTModule} un meccanismo che permette di interrogare le API del servizio Watson Speech to Text di IBM, in modo da consentire a \file{APIGateway::VocalAPI} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze.
-	Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
-	\begin{itemize}
-		\item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-03-21);
-		\item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-03-21).
-	\end{itemize};
+Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
+\begin{itemize}
+    \item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-03-21);
+    \item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-03-21).
+\end{itemize};
 	\item \textbf{Padre}: \file{<<interface>> STTModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2231,16 +2189,16 @@ Package che include le classi che si occupano di fornire le funzionalità di \gl
 Package contenente le classi e le interfacce che realizzano il microservizio di autenticazione e registrazione di un amministratore nel sistema.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item la registrazione di un nuovo amministratore;
-	\item l'autenticazione di un amministratore;
-	\item gestione degli amministratori esistenti.
+\item la registrazione di un nuovo amministratore;
+\item l'autenticazione di un amministratore;
+\item gestione degli amministratori esistenti.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{ UsersDAO_label}{\subparagraph{ UsersDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAO.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAO.png}
 	\caption{Back-end::Users:: UsersDAO}
 \end{figure}
 \begin{itemize}
@@ -2248,32 +2206,32 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database per questo microservizio;
 	\item \textbf{Utilizzo}: fornisce a \file{UsersService} un meccanismo per accedere al database contenente gli utenti registrati, senza conoscerne le modalità di implementazione e di persistenza di quest'ultimo.
-	A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
+A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
 	\item \textbf{Figlio}: \file{UsersDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ addUser(user: User): ErrorObservable} \\		Metodo che permette di aggiungere un utente. \\
-		L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
 			Parametro contenente un utente registrato;
 		\end{itemize}
-		\item[] \file{+ removeUser(id: String): ErrorObservable} \\		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeUser(id: String): ErrorObservable} \\		Metodo che permette di rimuovere un utente registrato. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
 			Parametro contenente l'id dello \file{User} che si vuole eliminare;
 		\end{itemize}
 		\item[] \file{+ getUser(username: String): UserObservable} \\		Metodo che permette di ottenere i dati relativi ad un utente. \\
-		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{username: String} \\
 			Parametro contenente lo username dello \file{User} che si vuole ottenere;
 		\end{itemize}
 		\item[] \file{+ getUserList(): UserObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli utenti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ updateUser(user: User): ErrorObservable} \\		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateUser(user: User): ErrorObservable} \\		Metodo che permette di aggiornare un utente registrato.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
@@ -2295,7 +2253,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{VocalLoginModule_label}{\subparagraph{VocalLoginModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModule.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginModule.png}
 	\caption{Back-end::Users::VocalLoginModule}
 \end{figure}
 \begin{itemize}
@@ -2354,7 +2312,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{SRUser_label}{\subparagraph{SRUser}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassSRUser.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSRUser.png}
 	\caption{Back-end::Users::SRUser}
 \end{figure}
 \begin{itemize}
@@ -2362,8 +2320,8 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri dell'autenticazione tramite Speaker Recognition (SR);
 	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare, tramite SR, un utente sottoposto alla procedura di Enrollment del servizio di Speaker Recognition.
-	Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-03-21).
-	;
+Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-03-21).
+;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
@@ -2374,8 +2332,8 @@ Vengono offerte funzionalità che permettono:
 		Attributo contenente la data di creazione del profilo utente nel microservizio esterno di Speaker Recognition;
 		\item[] \file{+ enrollmentStatus: String} \\
 		Attributo contenente lo stato dell'Enrollment.\\
-		Lo stato può essere uno tra i seguenti valori:
-		\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize};
+Lo stato può essere uno tra i seguenti valori:
+\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize};
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -2387,7 +2345,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{User_label}{\subparagraph{User}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassUser.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUser.png}
 	\caption{Back-end::Users::User}
 \end{figure}
 \begin{itemize}
@@ -2395,7 +2353,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un utente registrato;
 	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad un utente registrato, i quali dovranno essere memorizzati nel database per questo microservizio.\\
-	È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
+È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- username: String} \\
@@ -2467,7 +2425,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{UserObservable_label}{\subparagraph{UserObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObservable.png}
 	\caption{Back-end::Users::UserObservable}
 \end{figure}
 \begin{itemize}
@@ -2503,14 +2461,14 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{UserObserver_label}{\subparagraph{UserObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUserObserver.png}
 	\caption{Back-end::Users::UserObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{UserObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{User};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{User};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(user: User): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{User}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -2531,7 +2489,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{UsersDAODynamoDB_label}{\subparagraph{UsersDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAODynamoDB.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersDAODynamoDB.png}
 	\caption{Back-end::Users::UsersDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -2591,7 +2549,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{UsersService_label}{\subparagraph{UsersService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersService.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassUsersService.png}
 	\caption{Back-end::Users::UsersService}
 \end{figure}
 \begin{itemize}
@@ -2599,7 +2557,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Auth} e, tramite \file{UsersDAO}, di interagire con il database degli utenti registrati;
 	\item \textbf{Utilizzo}: fornisce i metodi che implementano le Lambda Function necessarie alla gestione degli utenti.
-	Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
+Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- users: UsersDAO} \\
@@ -2623,7 +2581,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ removeUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di rimuovere un utente registrato;\\
+		\item[] \file{+ deleteUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di rimuovere un utente registrato;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
@@ -2667,7 +2625,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{VocalLoginMicrosoftModule_label}{\subparagraph{VocalLoginMicrosoftModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginMicrosoftModule.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVocalLoginMicrosoftModule.png}
 	\caption{Back-end::Users::VocalLoginMicrosoftModule}
 \end{figure}
 \begin{itemize}
@@ -2675,7 +2633,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare e raggruppare tutte le operazioni necessarie all'identificazione di un utente registrato, tramite il microservizio di Speaker Recognition (SR) di Microsoft;
 	\item \textbf{Utilizzo}: fornisce un meccanismo per creare, eliminare ed ottenere un utente registrato associato ad un \file{Enrollment}, il quale è necessario all'identificazione di un utente tramite il microservizio di Speak Recognition (SR). Permette quindi di associare i parametri relativi ad un \file{Enrollment} ad un utente registrato.\\
-	È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{RequestPromiseModule};
+È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{RequestPromiseModule};
 	\item \textbf{Padre}: \file{<<interface>>VocalLoginModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2694,7 +2652,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{conf: VocalLoginModuleConfig} \\
 			Parametro attraverso il quale viene passata la configurazione di \file{VocalLoginModule};
 			\item \file{rp: RequestPromiseModule} \\
-			Parametro attraverso il quale viene effettuata la dependency injection di \\ \file{RequestPromiseModule};
+			Parametro attraverso il quale viene effettuata la dependency injection di \\  \file{RequestPromiseModule};
 		\end{itemize}
 		\item[] \file{+ addEnrollment(id: String, Audio: Blob): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Create Enrollment} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549c} (visitato in data 2017-03-21);\\
 		Parametri:
@@ -2736,7 +2694,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{LambdaContext_label}{\subparagraph{LambdaContext}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaContext.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaContext.png}
 	\caption{Back-end::Utility::LambdaContext}
 \end{figure}
 \begin{itemize}
@@ -2770,7 +2728,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{LambdaEvent_label}{\subparagraph{LambdaEvent}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaEvent.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaEvent.png}
 	\caption{Back-end::Utility::LambdaEvent}
 \end{figure}
 \begin{itemize}
@@ -2802,7 +2760,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{LambdaIdEvent_label}{\subparagraph{LambdaIdEvent}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaIdEvent.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaIdEvent.png}
 	\caption{Back-end::Utility::LambdaIdEvent}
 \end{figure}
 \begin{itemize}
@@ -2828,7 +2786,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{LambdaResponse_label}{\subparagraph{LambdaResponse}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaResponse.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaResponse.png}
 	\caption{Back-end::Utility::LambdaResponse}
 \end{figure}
 \begin{itemize}
@@ -2855,7 +2813,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{PathIdParam_label}{\subparagraph{PathIdParam}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassPathIdParam.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassPathIdParam.png}
 	\caption{Back-end::Utility::PathIdParam}
 \end{figure}
 \begin{itemize}
@@ -2878,7 +2836,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{ProcessingResult_label}{\subparagraph{ProcessingResult}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassProcessingResult.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassProcessingResult.png}
 	\caption{Back-end::Utility::ProcessingResult}
 \end{figure}
 \begin{itemize}
@@ -2886,7 +2844,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare il campo result della risposta fornita da api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto result relativo ad una risposta di api.ai. \\
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ source: String} \\
@@ -2920,16 +2878,16 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 \hypertarget{StatusObject_label}{\subparagraph{StatusObject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassStatusObject.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassStatusObject.png}
 	\caption{Back-end::Utility::StatusObject}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{StatusObject};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare lo status object della richiesta mandata ad api.ai, che indica se quest'ultima ha avuto successo o meno.
-	;
+;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto status object relativo ad una richiesta mandata ad api.ai. \\
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ code: int} \\
@@ -2948,14 +2906,14 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 Package contenente le classi e le interfacce che realizzano il microservizio di assistente virtuale .\\
 Vengono offerte funzionalità che permettono di:
 \begin{itemize}
-	\item interrogare l'assistemte virtuale.
+\item interrogare l'assistemte virtuale.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{ AgentsDAO_label}{\subparagraph{ AgentsDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentsDAO.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentsDAO.png}
 	\caption{Back-end::VirtualAssistant:: AgentsDAO}
 \end{figure}
 \begin{itemize}
@@ -2967,25 +2925,25 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getAgentsList(): AgentObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli agents ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
-		\item[] \file{+ updateAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiornare un \file{Agent}.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiornamento dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ updateAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiornare un \file{Agent}.  L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiornamento dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiornamento dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{agent: Agent} \\
 			Parametro contenente l'agente da aggiornare;
 		\end{itemize}
-		\item[] \file{+ removeAgent(name: String): ErrorObservable} \\		Metodo che permette di rimuovere un \file{Agent} a partire da un name. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione dell'\file{Agent} avvenuta con successo. In caso di errore durante la rimozione dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ removeAgent(name: String): ErrorObservable} \\		Metodo che permette di rimuovere un \file{Agent} a partire da un name. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di rimozione dell'\file{Agent} avvenuta con successo. In caso di errore durante la rimozione dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
 			Parametro contenente il nome dell'agente da rimuovere;
 		\end{itemize}
-		\item[] \file{+ addAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Agent}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiunta dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ addAgent(agent: Agent): ErrorObservable} \\		Metodo che permette di aggiungere un \file{Agent}. L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'\file{Agent} avvenuta con successo. In caso di errore durante l'aggiunta dell'\file{Agent}, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error()} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{agent: Agent} \\
 			Parametro contenente l'agente da aggiungere al database;
 		\end{itemize}
-		\item[] \file{+ getAgent(name: String): AgentObservable} \\		Metodo che ritorna un \file{Agent} a partire da un name. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Agent}, e verrà completato. Nel caso in cui l'\file{Agent} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+		\item[] \file{+ getAgent(name: String): AgentObservable} \\		Metodo che ritorna un \file{Agent} a partire da un name. L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Agent}, e verrà completato. Nel caso in cui l'\file{Agent} richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error()};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -3002,10 +2960,10 @@ Vengono offerte funzionalità che permettono di:
 \end{itemize}
 \FloatBarrier
 
-\hypertarget{VAModule_label}{\subparagraph{ VAModule}}
+\hypertarget{ VAModule_label}{\subparagraph{ VAModule}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVAModule.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAModule.png}
 	\caption{Back-end::VirtualAssistant:: VAModule}
 \end{figure}
 \begin{itemize}
@@ -3031,10 +2989,10 @@ Vengono offerte funzionalità che permettono di:
 \end{itemize}
 \FloatBarrier
 
-\hypertarget{WebhookService_label}{\subparagraph{ WebhookService}}
+\hypertarget{ WebhookService_label}{\subparagraph{ WebhookService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassWebhookService.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassWebhookService.png}
 	\caption{Back-end::VirtualAssistant:: WebhookService}
 \end{figure}
 \begin{itemize}
@@ -3042,7 +3000,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe definisce l'interfaccia dei moduli che implementano dei webhook conformi alle specifiche di api.ai;
 	\item \textbf{Utilizzo}: fornisce una serie di metodi necessari per definire un servizio che soddisfi i requisiti per webhook di api.ai.
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-03-21);
 	\item \textbf{Figli}: \file{ConversationWebhookService}, \file{AdministrationWebhookService};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3051,32 +3009,32 @@ Vengono offerte funzionalità che permettono di:
 		\begin{itemize}
 			\item \file{event: LambaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati mandati da api.ai al \file{WebhookService}. Tali dati saranno organizzati secondo le esigenze della classe che implementa questa interfaccia.\\
-			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
-			Tali dati sono cosi organizzati:
+Tali dati sono cosi organizzati:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contextOut":"ContextArray",
-  "data":"Object",
-  "displayText":"String",
-  "followupEvent":"Object",
-  "source":"String",
-  "speech":"String"
+    "contextOut":"ContextArray",
+    "data":"Object",
+    "displayText":"String",
+    "followupEvent":"Object",
+    "source":"String",
+    "speech":"String"
 }
 \end{lstlisting}
-			Dove:
-			\begin{itemize}
-				\item \file{contextOut}: attributo contenente l'array dei context che la richiesta ha attivato;
-				\item \file{data}: attributo contenente i dati che saranno inviati al client. Tali dati non sono processati da api.ai e quindi saranno nella forma originale;
-				\item \file{displayText}: attributo contenente il testo che verrà mostrato sullo schermo dell'utente;
-				\item \file{followupEvent}: attributo contenente parametri opzionali che il servizio web utilizzato vuole inviare ad api.ai;
-				\item \file{source}: attributo contenente la risorse dei dati forniti come risposta;
-				\item \file{speech}: attributo contenente la risposta testuale alla richiesta.
-			\end{itemize}
+Dove:
+\begin{itemize}
+    \item \file{contextOut}: attributo contenente l'array dei context che la richiesta ha attivato;
+    \item \file{data}: attributo contenente i dati che saranno inviati al client. Tali dati non sono processati da api.ai e quindi saranno nella forma originale;
+    \item \file{displayText}: attributo contenente il testo che verrà mostrato sullo schermo dell'utente;
+    \item \file{followupEvent}: attributo contenente parametri opzionali che il servizio web utilizzato vuole inviare ad api.ai;
+    \item \file{source}: attributo contenente la risorse dei dati forniti come risposta;
+    \item \file{speech}: attributo contenente la risposta testuale alla richiesta.
+\end{itemize}
 
-			Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-03-21).
-			;
+Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-03-21).
+;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -3089,7 +3047,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{Agent_label}{\subparagraph{Agent}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassAgent.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgent.png}
 	\caption{Back-end::VirtualAssistant::Agent}
 \end{figure}
 \begin{itemize}
@@ -3097,13 +3055,13 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un \file{Agent} di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Agent} che dovranno essere memorizzati nel database per questo microservizio.
-	In api.ai, un \file{Agent} ha lo scopo di trasformare il linguaggio naturale, ricevuto in input, in dati capibili per le applicazioni.
-	Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-03-21);
+In api.ai, un \file{Agent} ha lo scopo di trasformare il linguaggio naturale, ricevuto in input, in dati capibili per le applicazioni.
+Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
 		Nome dell'applicazione a cui è collegato l'agent.
-		Per ogni applicazione, abbiamo un \file{Agent};
+Per ogni applicazione, abbiamo un \file{Agent};
 		\item[] \file{+ token: String} \\
 		Attributo contenente il valore del token associato. Un agent è identificabile tramite esso;
 		\item[] \file{+ lang: String} \\
@@ -3122,7 +3080,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{AgentObservable_label}{\subparagraph{AgentObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentObservable.png}
 	\caption{Back-end::VirtualAssistant::AgentObservable}
 \end{figure}
 \begin{itemize}
@@ -3158,14 +3116,14 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{AgentObserver_label}{\subparagraph{AgentObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentObserver.png}
 	\caption{Back-end::VirtualAssistant::AgentObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{AgentObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Agent};
-	\item \textbf{Utilizzo}: implementa il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
+	\item \textbf{Utilizzo}: implementa il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Agent};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(agent: Agent): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Agent}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -3186,7 +3144,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{AgentsDAODynamoDB_label}{\subparagraph{AgentsDAODynamoDB}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.70\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentsDAODynamoDB.png}
+	\includegraphics[scale=0.70,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassAgentsDAODynamoDB.png}
 	\caption{Back-end::VirtualAssistant::AgentsDAODynamoDB}
 \end{figure}
 \begin{itemize}
@@ -3246,16 +3204,16 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{ApiAiVAAdapter_label}{\subparagraph{ApiAiVAAdapter}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.70\textwidth,height=\textheight,keepaspectratio]{images/ClassApiAiVAAdapter.png}
+	\includegraphics[scale=0.70,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApiAiVAAdapter.png}
 	\caption{Back-end::VirtualAssistant::ApiAiVAAdapter}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ApiAiVAAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di convertire l'interfaccia fornita da api.ai in una più adatta alle esigenze dell'applicazione, definita da \file{VAModule}. \\
-	Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target) utilizzata da \file{VAService}, permette l'interoperabilità tra queste due interfacce;
+Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target) utilizzata da \file{VAService}, permette l'interoperabilità tra queste due interfacce;
 	\item \textbf{Utilizzo}: fornisce a \file{VAModule} un meccanismo che permette di interrogare le API di api.ai, in modo da consentire a \file{VAService} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze. \\ Per fare le richieste HTTP alle API, il metodo \file{query} utilizza il modulo request-promise.
-	È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{Agent} relativo alle richieste da inviare;
+È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{Agent} relativo alle richieste da inviare;
 	\item \textbf{Padre}: \file{<<interface>> VAModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -3290,7 +3248,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{ButtonObject_label}{\subparagraph{ButtonObject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassButtonObject.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassButtonObject.png}
 	\caption{Back-end::VirtualAssistant::ButtonObject}
 \end{figure}
 \begin{itemize}
@@ -3298,7 +3256,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare l'oggetto buttons di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto buttons relativo ad una risposta. \\
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text: String} \\
@@ -3316,7 +3274,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{Context_label}{\subparagraph{Context}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassContext.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassContext.png}
 	\caption{Back-end::VirtualAssistant::Context}
 \end{figure}
 \begin{itemize}
@@ -3324,8 +3282,8 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un \file{Context} in api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Context}.
-	In api.ai, un \file{Context} è una stringa che rappresenta il contesto corrente nel quale un utente somministra una richiesta, in maniera tale da disambiguare il più possibile quest'ultime. \\
-	Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-03-21);
+In api.ai, un \file{Context} è una stringa che rappresenta il contesto corrente nel quale un utente somministra una richiesta, in maniera tale da disambiguare il più possibile quest'ultime. \\
+Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3334,8 +3292,8 @@ Vengono offerte funzionalità che permettono di:
 		Attributo contenente l'array dei parametri che compongono il \file{Context};
 		\item[] \file{+ lifespan: int} \\
 		Attributo contenente il lifespan del \file{Context}.
-		Questo valore indica per quanti altri matched intents bisogna mantenere il \file{Context}.
-		Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \\ \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-03-21);
+Questo valore indica per quanti altri matched intents bisogna mantenere il \file{Context}.
+Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-03-21);
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3347,7 +3305,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{Fulfillment_label}{\subparagraph{Fulfillment}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassFulfillment.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassFulfillment.png}
 	\caption{Back-end::VirtualAssistant::Fulfillment}
 \end{figure}
 \begin{itemize}
@@ -3355,16 +3313,16 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un fulfillment di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un fulfillment.
-	In api.ai un fulfillment è tutto ciò che viene ritornato dalla richiesta di utente. In particolare, è l'adempimento ad una richiesta e può comprendere diversi campi dati.
-	Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21).
-	;
+In api.ai un fulfillment è tutto ciò che viene ritornato dalla richiesta di utente. In particolare, è l'adempimento ad una richiesta e può comprendere diversi campi dati.
+Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21).
+;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ speech: String} \\
 		Attributo contenente il testo relativo alla risposta fornita;
 		\item[] \file{+ messages: MsgObjectArray} \\
 		Attributo contenente l'array di tutti i campi dati presenti nel messages.
-		Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono eterogenei fra loro;
+Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono eterogenei fra loro;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3377,7 +3335,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{Metadata_label}{\subparagraph{Metadata}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassMetadata.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMetadata.png}
 	\caption{Back-end::VirtualAssistant::Metadata}
 \end{figure}
 \begin{itemize}
@@ -3385,7 +3343,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a intents e contexts;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ai dati di intents e contexts e viene utilizzato come attributo della classe \file{ProcessingResult}.
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ intentId: String} \\
@@ -3394,7 +3352,7 @@ Vengono offerte funzionalità che permettono di:
 		Attributo contenente un valore booleano che indica se è stato usato un webhook. Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21);
 		\item[] \file{+ webhookForSlotFillingUsed: String} \\
 		Attributo contenente un valore booleano che indica se è stato usato un webhook per slot filling.
-		Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-03-21);
+Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-03-21);
 		\item[] \file{+ intentName: String} \\
 		Attributo contenente il nome dell'intent;
 	\end{itemize}
@@ -3408,7 +3366,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{MsgObject_label}{\subparagraph{MsgObject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassMsgObject.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMsgObject.png}
 	\caption{Back-end::VirtualAssistant::MsgObject}
 \end{figure}
 \begin{itemize}
@@ -3416,21 +3374,21 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un \file{MsgObject}, il quale definisce un tipo unico tra tutti i messaggi (dal contenuto eterogeneo) contenuti in un \file{Fulfillment};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{MsgObject}, il quale sarà contenuto in un \file{Fulfillment}.
-	La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
-	Per la relativa documentazione, consultare le seguenti pagine: \\
-	\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-03-21)\\
-	\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-03-21);
+La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
+Per la relativa documentazione, consultare le seguenti pagine: \\
+\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-03-21)\\
+\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ type: int} \\
 		Attributo il quale valore indica il tipo del messaggio. I possibili valori ed i relativi messaggi sono:
-		\begin{itemize}
-			\item 0: messaggio testuale, prevede la presenza del campo \file{speech};
-			\item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
-			\item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
-			\item 3: immagine, prevede la presenza del campo \file{imgUrl};
-			\item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
-		\end{itemize};
+\begin{itemize}
+  \item 0: messaggio testuale, prevede la presenza del campo \file{speech};
+  \item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
+  \item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
+  \item 3: immagine, prevede la presenza del campo \file{imgUrl};
+  \item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
+\end{itemize};
 		\item[] \file{+ speech: String[0..1]} \\
 		Attributo contenente il testo di un messaggio di tipo messaggio testuale;
 		\item[] \file{+ imageUrl: String[0..1]} \\
@@ -3457,7 +3415,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{VAEventObject_label}{\subparagraph{VAEventObject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVAEventObject.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAEventObject.png}
 	\caption{Back-end::VirtualAssistant::VAEventObject}
 \end{figure}
 \begin{itemize}
@@ -3465,7 +3423,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta il campo event di una richiesta all'assistente virtuale;
 	\item \textbf{Utilizzo}: fornisce i campi necessari all'interrogazione di un assistente virtuale, utilizzando il nome di un evento e dei parametri al posto della stringa di query \file{VAQuery::text}.
-	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3483,7 +3441,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{VAQuery_label}{\subparagraph{VAQuery}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVAQuery.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAQuery.png}
 	\caption{Back-end::VirtualAssistant::VAQuery}
 \end{figure}
 \begin{itemize}
@@ -3514,7 +3472,7 @@ Vengono offerte funzionalità che permettono di:
 \hypertarget{VAService_label}{\subparagraph{VAService}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.70\textwidth,height=\textheight,keepaspectratio]{images/ClassVAService.png}
+	\includegraphics[scale=0.70,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAService.png}
 	\caption{Back-end::VirtualAssistant::VAService}
 \end{figure}
 \begin{itemize}
@@ -3528,7 +3486,7 @@ Vengono offerte funzionalità che permettono di:
 		Attributo che permette di contattare \file{AgentsDAO}, il quale fornisce i meccanismi d'accesso al database degli \file{Agent} disponibili;
 		\item[] \file{- va\_module: VAModule} \\
 		Attributo contenente il \file{VAModule}. \\
-		\file{VAModule} è un'interfaccia, implementata da \file{ApiAiVAAdapter}.  I metodi invocati saranno quelli appartenenti a quest'ultima classe;
+\file{VAModule} è un'interfaccia, implementata da \file{ApiAiVAAdapter}.  I metodi invocati saranno quelli appartenenti a quest'ultima classe;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3540,7 +3498,7 @@ Vengono offerte funzionalità che permettono di:
 			\item \file{va: VAModule} \\
 			Parametro contenente il \file{VAModule};
 		\end{itemize}
-		\item[] \file{+ query(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo implementa la Lambda Function che si occupa dell'interrogazione dell'assistente virtuale. A partire da una richiesta contenente il testo della richiesta dell'utente, questo metodo esegue una chiamata all'endpoint /query di api.ai e, a partire dalla risposta ricevuta, manda la risposta utilizzando il \file{context};\\
+		\item[] \file{+ query(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo implementa la Lambda Function che si occupa dell'interrogazione dell'assistente virtuale. Per prima cosa utilizza \file{agents} per ottenere, a partire dal nome della applicazione contenuto nella richiesta, il token identificativo dell'Agent che si vuole interrogare. Una volta ottenuto questo token, esegue una chiamata all'endpoint /query di api.ai  utilizzando il testo presente nella richiesta ed infine, a partire dalla risposta ricevuta da tale servizio, invia la risposta utilizzando il \file{context};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -3548,34 +3506,34 @@ Vengono offerte funzionalità che permettono di:
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  app":"nome_applicazione",
-  query": "VAQuery"
+    "app":"nome\_applicazione",
+    "query": "VAQuery"
 }
 \end{lstlisting}
 
-			con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
+con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
-\begin{lstlisting}[language=json,firstnumber=1]
+ \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "action":"String",
+ "action":"String",
   "res":
-  {
+   {
     "contexts":"ObjectAssocArray",
-    "data":"Object",
-    "text_request":"String",
-    "text_response":"String"
-  },
-  "session_id":"String"
+     "data":"Object",
+     "text\_request":"String",
+     "text\_response":"String"
+   },
+  "session\_id":"String"
 }
 \end{lstlisting}
-			Dove:
-			\begin{itemize}
-				\item \file{action}: attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere   eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
-				\item \file{res}: attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \file{Client::ApplicationManager::Application::runCmd} dell'applicazione.\\ In questo oggetto abbiamo i campi \file{contexts} (array contenente i context ricevuti dall'assistente virtuale), \file{data} (attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo  di una determinata risposta nella richiesta successiva. In particolare, questo attributo viene utilizzato per lo scambio, tra client e back-end, del token dell'agent in api.ai), \file{text\_request} (attributo contenente il testo della richiesta dell'utente) e \file{text\_response}(attributo che contiene il testo della risposta dell'assistente virtuale).
-				\item \file{session\_id}: attributo contenente l'id univoco della sessione corrente dell'assistente virtuale.
-			\end{itemize}
-			;
+Dove:
+\begin{itemize}
+   \item \file{action}: attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere   eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
+   \item \file{res}: attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \file{Client::ApplicationManager::Application::runCmd} dell'applicazione.\\ In questo oggetto abbiamo i campi \file{contexts} (array contenente i context ricevuti dall'assistente virtuale), \file{data} (attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo  di una determinata risposta nella richiesta successiva. In particolare, questo attributo viene utilizzato per lo scambio, tra client e back-end, del token dell'agent in api.ai), \file{text\_request} (attributo contenente il testo della richiesta dell'utente) e \file{text\_response}(attributo che contiene il testo della risposta dell'assistente virtuale).
+   \item \file{session\_id}: attributo contenente l'id univoco della sessione corrente dell'assistente virtuale.
+\end{itemize}
+;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -3594,7 +3552,7 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 \hypertarget{IndexView_label}{\subparagraph{IndexView}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassIndexView.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassIndexView.png}
 	\caption{Client::IndexView}
 \end{figure}
 \begin{itemize}
@@ -3626,16 +3584,16 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 Package contenente le classi che si occupano della gestione delle applicazioni con le quali l'utente può interagire.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item la reazione a dei dati di risposta arrivati dal \file{Back-end};
-	\item la definizione di ciò che va a comporre una applicazione;
-	\item il salvataggio dello stato di un'applicazione;
-	\item il cambio di un'applicazione con un'altra.
+\item la reazione a dei dati di risposta arrivati dal \file{Back-end};
+\item la definizione di ciò che va a comporre una applicazione;
+\item il salvataggio dello stato di un'applicazione;
+\item il cambio di un'applicazione con un'altra.
 \end{itemize}
 \paragraph{Classi}
 \hypertarget{ ApplicationRegistryClient_label}{\subparagraph{ ApplicationRegistryClient}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.60\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationRegistryClient.png}
+	\includegraphics[scale=0.60,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationRegistryClient.png}
 	\caption{Client::ApplicationManager:: ApplicationRegistryClient}
 \end{figure}
 \begin{itemize}
@@ -3672,7 +3630,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{Application_label}{\subparagraph{Application}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassApplication.png}
+	\includegraphics[scale=0.50,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplication.png}
 	\caption{Client::ApplicationManager::Application}
 \end{figure}
 \begin{itemize}
@@ -3689,7 +3647,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ <<Create>> createApplication(pkg: ApplicationPackage): Application}\\ \\		Metodo che permette di costruire un \file{Application} a partire da un \file{ApplicationPackage}. \\
-		Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseguendo il binding di this per far sì che tale codice abbia accesso all'oggetto che viene creato, quindi crea il metodo \file{runCmd} a partire dal codice presente all'interno di \file{pkg.cmdHandler}, eseguendo nuovamente il binding di this;\\
+Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseguendo il binding di this per far sì che tale codice abbia accesso all'oggetto che viene creato, quindi crea il metodo \file{runCmd} a partire dal codice presente all'interno di \file{pkg.cmdHandler}, eseguendo nuovamente il binding di this;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{pkg: ApplicationPackage} \\
@@ -3716,14 +3674,14 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{ApplicationLocalRegistry_label}{\subparagraph{ApplicationLocalRegistry}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.60\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationLocalRegistry.png}
+	\includegraphics[scale=0.60,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationLocalRegistry.png}
 	\caption{Client::ApplicationManager::ApplicationLocalRegistry}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ApplicationLocalRegistry};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di mantenere una lista degli \file{ApplicationPackage} disponibili;
-	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari per inserire, rimuovere ed ottenere degli \file{ApplicationPackage}.
+	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari per inserire, rimuovere ed ottenere degli \file{ApplicationPackage};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- pkgs: ApplicationPackageAssocArray} \\
@@ -3764,7 +3722,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{ApplicationManagerObserver_label}{\subparagraph{ApplicationManagerObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationManagerObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationManagerObserver.png}
 	\caption{Client::ApplicationManager::ApplicationManagerObserver}
 \end{figure}
 \begin{itemize}
@@ -3775,7 +3733,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(val: boolean): void} \\		Questo metodo, all'arrivo della notifica dal \file{DataArrivedSubject}, permette di passare all'\file{ApplicationManagerObserver} una funzione da eseguire.
-		;\\
+;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{val: boolean} \\
@@ -3793,7 +3751,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{ApplicationPackage_label}{\subparagraph{ApplicationPackage}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationPackage.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationPackage.png}
 	\caption{Client::ApplicationManager::ApplicationPackage}
 \end{figure}
 \begin{itemize}
@@ -3806,7 +3764,7 @@ Vengono offerte funzionalità che permettono:
 		\item[] \file{+ name: String} \\
 		Attributo contenente il nome dell'applicazione recuperata;
 		\item[] \file{+ setup: String} \\
-		Attributo contenente il codice Javascript che deve essere eseguito nel costruttore \\ dell'\file{Application}. Tale codice ha accesso al riferimento this dell'\file{Application}, e può utilizzarlo per definire i metodi e gli attributi dell'\file{Application} implementata;
+		Attributo contenente il codice Javascript che deve essere eseguito nel costruttore dell'\file{Application}. Tale codice ha accesso al riferimento this dell'\file{Application}, e può utilizzarlo per definire i metodi e gli attributi dell'\file{Application} implementata;
 		\item[] \file{+ cmdHandler: String} \\
 		Attributo contenente il codice Javascript del metodo \file{runCmd} dell'\file{Application} implementata. Tale codice ha accesso al riferimento \file{this} dell'\file{Application};
 		\item[] \file{+ ui: String} \\
@@ -3824,7 +3782,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{ApplicationRegistryLocalClient_label}{\subparagraph{ApplicationRegistryLocalClient}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationRegistryLocalClient.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassApplicationRegistryLocalClient.png}
 	\caption{Client::ApplicationManager::ApplicationRegistryLocalClient}
 \end{figure}
 \begin{itemize}
@@ -3847,7 +3805,7 @@ Vengono offerte funzionalità che permettono:
 			Parametro contenente il nome dell'applicazione che si vuole recuperare;
 		\end{itemize}
 		\item[] \file{+ register(name: String, pkg: ApplicationPackage): boolean} \\		Metodo relativo alla registrazione di un'applicazione nell'\file{ApplicationRegistryClient}.
-		Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{RegistryPackage}, ovvero un package di tipo \file{ApplicationPackage};\\
+Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{RegistryPackage}, ovvero un package di tipo \file{ApplicationPackage};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -3855,7 +3813,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{pkg: ApplicationPackage} \\
 			Parametro contenente l'\file{ApplicationPackage} relativo all'applicazione da registrare;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createApplicationRegistryLocalClient(client: \\ ApplicationLocalRegistry): ApplicationRegistryLocalClient} \\		Costruttore che permette di effettuare una dependency injection di \\ \file{ApplicationLocalRegistry};\\
+		\item[] \file{+ <<Create>> createApplicationRegistryLocalClient(client: ApplicationLocalRegistry)\\: ApplicationRegistryLocalClient} \\		Costruttore che permette di effettuare una dependency injection di \file{ApplicationLocalRegistry};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{client: ApplicationLocalRegistry} \\
@@ -3872,7 +3830,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{Manager_label}{\subparagraph{Manager}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.80\textwidth,height=\textheight,keepaspectratio]{images/ClassManager.png}
+	\includegraphics[scale=0.80,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassManager.png}
 	\caption{Client::ApplicationManager::Manager}
 \end{figure}
 \begin{itemize}
@@ -3928,7 +3886,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{State_label}{\subparagraph{State}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.45\textwidth,height=\textheight,keepaspectratio]{images/ClassState.png}
+	\includegraphics[scale=0.45,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassState.png}
 	\caption{Client::ApplicationManager::State}
 \end{figure}
 \begin{itemize}
@@ -3972,7 +3930,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationAction_label}{\subparagraph{ConversationAction}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationAction.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationAction.png}
 	\caption{Client::ConversationApp::ConversationAction}
 \end{figure}
 \begin{itemize}
@@ -4001,18 +3959,18 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationActionObservable_label}{\subparagraph{ConversationActionObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionObservable.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionObservable.png}
 	\caption{Client::ConversationApp::ConversationActionObservable}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ConversationActionObservable};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione \\ di  \file{ConversationActionObserver};
+	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione \\ di \file{ConversationActionObserver};
 	\item \textbf{Utilizzo}: fornisce i meccanismi necessari per il passaggio di una serie di \file{ConversationAction} ad un \file{Observer} interessato;
 	\item \textbf{Figlio}: \file{ConversationActionSubject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ <<Create>> ConversationActionObservable(onSubscription: function\\(observer: ConversationActionObsever) : void): \\ ConversationActionObservable} \\		Constructor di \file{ConversationActionObservable};\\
+		\item[] \file{+ <<Create>> ConversationActionObservable(onSubscription: function\\(observer: ConversationActionObsever) : void): ConversationActionObservable} \\		Constructor di \file{ConversationActionObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{onSubscription: function(observer: ConversationActionObsever) : void} \\
@@ -4036,15 +3994,15 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationActionObserver_label}{\subparagraph{ConversationActionObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionObserver.png}
+	\includegraphics[scale=0.75,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionObserver.png}
 	\caption{Client::ConversationApp::ConversationActionObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ConversationActionObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{ConversationAction};
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
-	;
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
+;
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(conversation\_action: ConversationAction): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \\ \file{ConversationAction}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -4067,7 +4025,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationActionSubject_label}{\subparagraph{ConversationActionSubject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionSubject.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationActionSubject.png}
 	\caption{Client::ConversationApp::ConversationActionSubject}
 \end{figure}
 \begin{itemize}
@@ -4075,10 +4033,10 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli observer collegati che è stata decisa la \file{ConversationAction};
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio della \file{ConversationAction} una volta che questa è stata decisa dal \file{ConversationDispatcher}.
-	Gli \file{Observer} collegati sono:
-	\begin{itemize}
-		\item ConversationActionObserver.
-	\end{itemize};
+Gli \file{Observer} collegati sono:
+\begin{itemize}
+\item ConversationActionObserver.
+\end{itemize};
 	\item \textbf{Padre}: \file{ConversationActionObservable};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4107,7 +4065,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationApp_label}{\subparagraph{ConversationApp}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationApp.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationApp.png}
 	\caption{Client::ConversationApp::ConversationApp}
 \end{figure}
 \begin{itemize}
@@ -4150,7 +4108,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationDispatcher_label}{\subparagraph{ConversationDispatcher}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationDispatcher.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationDispatcher.png}
 	\caption{Client::ConversationApp::ConversationDispatcher}
 \end{figure}
 \begin{itemize}
@@ -4188,7 +4146,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{ConversationView_label}{\subparagraph{ConversationView}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.85\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationView.png}
+	\includegraphics[scale=0.85,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassConversationView.png}
 	\caption{Client::ConversationApp::ConversationView}
 \end{figure}
 \begin{itemize}
@@ -4223,7 +4181,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 \hypertarget{MessageStore_label}{\subparagraph{MessageStore}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassMessageStore.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassMessageStore.png}
 	\caption{Client::ConversationApp::MessageStore}
 \end{figure}
 \begin{itemize}
@@ -4264,12 +4222,12 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 		\item[] \file{+ <<Create>> createMessageStore(): MessageStore} \\		Costruttore che si occupa di inizializzare l'attributo \file{subject};\\
 		\item[] \file{+ getObservable(): ErrorObservable} \\		Metodo che permette di ottenere un \file{Observable} relativa a \file{subject}, evitando così di esporlo;\\
 		\item[] \file{+ onCmd(action: ConversationAction): void} \\		Metodo che si occupa di controllare il campo \file{cmd} delle action passate da \\ \file{ConversationDispatcher}. Nel caso il suo valore sia uno dei seguenti, si occupa di chiamare l'opportuno metodo privato:
-		\begin{itemize}
-			\item clear
-			\item displayMsgs
-			\item sendMsg
-			\item receiveMsg
-		\end{itemize};\\
+\begin{itemize}
+\item clear
+\item displayMsgs
+\item sendMsg
+\item receiveMsg
+\end{itemize};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{action: ConversationAction} \\
@@ -4290,15 +4248,15 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item la reazione a dei dati arrivati come richiesta dal registratore vocale;
-	\item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}.
+\item la reazione a dei dati arrivati come richiesta dal registratore vocale;
+\item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{DataArrivedObservable_label}{\subparagraph{DataArrivedObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassDataArrivedObservable.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassDataArrivedObservable.png}
 	\caption{Client::Logic::DataArrivedObservable}
 \end{figure}
 \begin{itemize}
@@ -4327,7 +4285,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{DataArrivedSubject_label}{\subparagraph{DataArrivedSubject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassDataArrivedSubject.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassDataArrivedSubject.png}
 	\caption{Client::Logic::DataArrivedSubject}
 \end{figure}
 \begin{itemize}
@@ -4335,11 +4293,11 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli observer collegati che i dati relativi ad una risposta sono arrivati;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio dei dati, il testo della risposta dell'assistente virtuale, una volta che questi ultimi sono stati forniti dal Back-end.
-	Gli observer collegati sono:
-	\begin{itemize}
-		\item \file{ApplicationManagerObserver};
-		\item \file{PlayerObserver}.
-	\end{itemize};
+Gli observer collegati sono:
+\begin{itemize}
+\item \file{ApplicationManagerObserver};
+\item \file{PlayerObserver}.
+\end{itemize};
 	\item \textbf{Padre}: \file{Subject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4347,7 +4305,7 @@ Vengono offerte funzionalità che permettono:
 		Parametri:
 		\begin{itemize}
 			\item \file{val: boolean} \\
-			Parametro contenente il valore con il quale notificare il \file{PlayerObserver} e \\  l'\file{ApplicationManagerObserver};
+			Parametro contenente il valore con il quale notificare il \file{PlayerObserver} e \\ l'\file{ApplicationManagerObserver};
 		\end{itemize}
 		\item[] \file{+ subscribe(obs: BoolObserver): Subscription} \\		Questo metodo permette di iscrivere il \file{PlayerObserver} e l'\file{ApplicationManagerObserver};\\
 		Parametri:
@@ -4366,7 +4324,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{HttpError_label}{\subparagraph{HttpError}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassHttpError.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassHttpError.png}
 	\caption{Client::Logic::HttpError}
 \end{figure}
 \begin{itemize}
@@ -4392,7 +4350,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{HttpPromise_label}{\subparagraph{HttpPromise}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ClassHttpPromise.png}
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassHttpPromise.png}
 	\caption{Client::Logic::HttpPromise}
 \end{figure}
 \begin{itemize}
@@ -4439,7 +4397,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{Logic_label}{\subparagraph{Logic}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLogic.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLogic.png}
 	\caption{Client::Logic::Logic}
 \end{figure}
 \begin{itemize}
@@ -4447,10 +4405,10 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di comunicare con l'API Gateway;
 	\item \textbf{Utilizzo}: fornisce dei meccanismi per:
-	\begin{itemize}
-		\item la comunicazione con l'API \gl{gateway};
-		\item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
-	\end{itemize};
+\begin{itemize}
+\item la comunicazione con l'API \gl{gateway};
+\item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
+\end{itemize};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- subject: DataArrivedSubject} \\
@@ -4481,7 +4439,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{LogicObserver_label}{\subparagraph{LogicObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLogicObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassLogicObserver.png}
 	\caption{Client::Logic::LogicObserver}
 \end{figure}
 \begin{itemize}
@@ -4510,15 +4468,15 @@ Vengono offerte funzionalità che permettono:
 Package contenente le classi che realizzano la registrazione audio.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item la registrazione audio delle richieste espresse dall'utente;
-	\item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
+\item la registrazione audio delle richieste espresse dall'utente;
+\item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{Recorder_label}{\subparagraph{Recorder}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorder.png}
+	\includegraphics[scale=0.75,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorder.png}
 	\caption{Client::Recorder::Recorder}
 \end{figure}
 \begin{itemize}
@@ -4526,7 +4484,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa della registrazione della conversazione;
 	\item \textbf{Utilizzo}: fornisce al client un meccanismo per registrare ciò che l'ospite comunica. \\
-	Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i relativi comandi da mandare al \file{RecorderWorker}. Quando inizia una nuova registrazione, l'audio della registrazione precedente viene eliminato chiamando il comando clear del \file{Worker};
+Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i relativi comandi da mandare al \file{RecorderWorker}. Quando inizia una nuova registrazione, l'audio della registrazione precedente viene eliminato chiamando il comando clear del \file{Worker};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- threshold: real} \\
@@ -4579,7 +4537,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RecorderConfig_label}{\subparagraph{RecorderConfig}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderConfig.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderConfig.png}
 	\caption{Client::Recorder::RecorderConfig}
 \end{figure}
 \begin{itemize}
@@ -4606,7 +4564,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RecorderMsg_label}{\subparagraph{RecorderMsg}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderMsg.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderMsg.png}
 	\caption{Client::Recorder::RecorderMsg}
 \end{figure}
 \begin{itemize}
@@ -4637,7 +4595,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RecorderWorker_label}{\subparagraph{RecorderWorker}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorker.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorker.png}
 	\caption{Client::Recorder::RecorderWorker}
 \end{figure}
 \begin{itemize}
@@ -4645,10 +4603,10 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe è una classe Worker che si occupa dell'effettiva registrazione dell'audio;
 	\item \textbf{Utilizzo}: fornisce a Recorder un thread che si occupa di registrare effettivamente l'audio in modo da non appesantire il thread dell'interfaccia grafica.
-	Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e);
+Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e);
 	\item \textbf{Attributi}:
 	\begin{itemize}
-		\item[] \file{- sample\_rate: int} \\
+		\item[] \file{- \gl{sample}\_rate: int} \\
 		Questo attributo contiene la sample rate della registrazione audio nei buffer;
 		\item[] \file{- buffers: Float32ArrayArray} \\
 		Questo attributo contiene i buffer per i dati dell'audio. sono presenti due buffer, uno per ogni canale;
@@ -4664,7 +4622,7 @@ Vengono offerte funzionalità che permettono:
 			Attributo contienente i dati dei sample audio che verranno utilizzati per la codifica;
 			\item \file{mono: boolean} \\
 			Attributo contenente un valore booleano che indica se il file audio ha uno o due canali. \\
-			In caso il canale sia uno, allora questo attributo dovrà contenere il valore true;
+In caso il canale sia uno, allora questo attributo dovrà contenere il valore true;
 		\end{itemize}
 		\item[] \file{- clear(): void} \\		Metodo che permette di eliminare tutti i dati relativi all'audio registrato fino a quel momento;\\
 		\item[] \file{- init(config: RecorderWorkerConfig): void} \\		Metodo che permette di inizializzare la configurazione del \file{RecorderWorker} in seguito alla ricezione di un messaggio dal \file{Recorder};\\
@@ -4691,7 +4649,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RecorderWorkerConfig_label}{\subparagraph{RecorderWorkerConfig}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorkerConfig.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorkerConfig.png}
 	\caption{Client::Recorder::RecorderWorkerConfig}
 \end{figure}
 \begin{itemize}
@@ -4715,7 +4673,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{RecorderWorkerMsg_label}{\subparagraph{RecorderWorkerMsg}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorkerMsg.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassRecorderWorkerMsg.png}
 	\caption{Client::Recorder::RecorderWorkerMsg}
 \end{figure}
 \begin{itemize}
@@ -4739,7 +4697,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{SpeechEndObservable_label}{\subparagraph{SpeechEndObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechEndObservable.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechEndObservable.png}
 	\caption{Client::Recorder::SpeechEndObservable}
 \end{figure}
 \begin{itemize}
@@ -4766,7 +4724,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{SpeechEndSubject_label}{\subparagraph{SpeechEndSubject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechEndSubject.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechEndSubject.png}
 	\caption{Client::Recorder::SpeechEndSubject}
 \end{figure}
 \begin{itemize}
@@ -4774,7 +4732,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare l'\file{Observer} collegato che l'utente ha finito di parlare;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio del file audio contenente il messaggio dell'utente una volta che quest'ultimo ha terminato di parlare.
-	L'\file{Observer} collegato è \file{LogicObserver};
+L'\file{Observer} collegato è \file{LogicObserver};
 	\item \textbf{Padre}: \file{Subject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4798,15 +4756,15 @@ Vengono offerte funzionalità che permettono:
 Package contenente le componenti che realizzano il \gl{text to speech}.
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-	\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
-	\item la riproduzione audio del testo fornito come risposta dall'assistente virtuale.
+\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
+\item la riproduzione audio del testo fornito come risposta dall'assistente virtuale.
 \end{itemize}
 
 \paragraph{Classi}
 \hypertarget{Player_label}{\subparagraph{Player}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.85\textwidth,height=\textheight,keepaspectratio]{images/ClassPlayer.png}
+	\includegraphics[scale=0.85,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassPlayer.png}
 	\caption{Client::TTS::Player}
 \end{figure}
 \begin{itemize}
@@ -4814,20 +4772,20 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di riprodurre la risposta, fornita dal sistema, all'ospite;
 	\item \textbf{Utilizzo}: fornisce al client funzionalità di riproduzione dei file audio di risposta del Back-end alle richieste dell'utente.
-	Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare il volume.
-	;
+Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare il volume.
+;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- tts: SpeechSynthesis} \\
 		Attributo contenente uno \file{SpeechSynthesis} di JavaScript Web Speech API il quale fornisce dei metodi per la gestione del file audio.
-		Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-03-21);
 		\item[] \file{- subject: BoolSubject} \\
 		Attributo contenente un \file{BoolSubject}, il quale emette item del tipo:
-		\begin{itemize}
-			\item true: quando l'utente sta parlando;
-			\item false: altrimenti.
-		\end{itemize}
-		Questo attributo serve per disattivare il \file{Recorder} durante la riproduzione del file audio relativo alla risposta, fornita dal sistema;
+\begin{itemize}
+\item true: quando l'utente sta parlando;
+\item false: altrimenti.
+\end{itemize}
+Questo attributo serve per disattivare il \file{Recorder} durante la riproduzione del file audio relativo alla risposta, fornita dal sistema;
 		\item[] \file{- options: TTSConfig} \\
 		Attributo contenente l'insieme delle opzioni relative alla configurazione del \file{Player};
 	\end{itemize}
@@ -4873,14 +4831,14 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{PlayerObserver_label}{\subparagraph{PlayerObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassPlayerObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassPlayerObserver.png}
 	\caption{Client::TTS::PlayerObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{PlayerObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di inviare l'audio contenente la risposta fornita dal sistema al \file{Player}.
-	È la classe che funziona da \file{Observer};
+È la classe che funziona da \file{Observer};
 	\item \textbf{Utilizzo}: fornisce un meccanismo per l'invio dell'audio relativo alla risposta fornita dal sistema;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4902,7 +4860,7 @@ Vengono offerte funzionalità che permettono:
 \hypertarget{TTSConfig_label}{\subparagraph{TTSConfig}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassTTSConfig.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassTTSConfig.png}
 	\caption{Client::TTS::TTSConfig}
 \end{figure}
 \begin{itemize}
@@ -4910,7 +4868,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe contiene tutti i parametri relativi alla configurazione di un \file{Player};
 	\item \textbf{Utilizzo}: fornisce al \file{Player} un meccanismo per gestire i parametri relativi alla configurazione per la riproduzione di un file audio.
-	Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ lang: String} \\
@@ -4937,7 +4895,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{BoolObservable_label}{\subparagraph{BoolObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolObservable.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolObservable.png}
 	\caption{Client::Utility::BoolObservable}
 \end{figure}
 \begin{itemize}
@@ -4965,7 +4923,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{BoolObserver_label}{\subparagraph{BoolObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolObserver.png}
 	\caption{Client::Utility::BoolObserver}
 \end{figure}
 \begin{itemize}
@@ -4994,7 +4952,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{BoolSubject_label}{\subparagraph{BoolSubject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolSubject.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassBoolSubject.png}
 	\caption{Client::Utility::BoolSubject}
 \end{figure}
 \begin{itemize}
@@ -5025,13 +4983,14 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \end{itemize}
 \FloatBarrier
 
+
 \subsection{Libs}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri package sia del \file{Client} che del \file{Back-end}.
 \paragraph{Classi}
 \hypertarget{ErrorObservable_label}{\subparagraph{ErrorObservable}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorObservable.png}
+	\includegraphics[scale=0.65,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorObservable.png}
 	\caption{Libs::ErrorObservable}
 \end{figure}
 \begin{itemize}
@@ -5045,8 +5004,8 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 		\item[] \file{+ subscribe(obs: ErrorObserver): Subscription} \\		Metodo che permette ad un \file{ErrorObserver} di iscriversi all'\file{Observable};\\
 		Parametri:
 		\begin{itemize}
-			\item \file{obs: ErrorObserver}\\
-			Parametro contenente l'\file{Observer} che si vuole iscrivere.
+			\item \file{obs: ErrorObserver} \\
+			Parametro contenente l'\file{Observer} che si vuole iscrivere;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -5073,17 +5032,17 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{ErrorObserver_label}{\subparagraph{ErrorObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorObserver.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorObserver.png}
 	\caption{Libs::ErrorObserver}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Nome}: \file{ErrorObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati relativi all'esito di una chiamata asincrona;
-	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter} in modo che venga sollevata un'eccezione alla sua chiamata;
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ next: void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
+		\item[] \file{+ next(): void} \\		Metodo che viene chiamato per mandare dei dati all'\file{Observer}. La chiamata di tale metodo causa il sollevamento di un eccezione, in quanto \file{ErrorObserver} non si aspetta nessun tipo di valore;\\
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -5097,7 +5056,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{ErrorSubject_label}{\subparagraph{ErrorSubject}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.55\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorSubject.png}
+	\includegraphics[scale=0.55,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassErrorSubject.png}
 	\caption{Libs::ErrorSubject}
 \end{figure}
 \begin{itemize}
@@ -5105,10 +5064,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli \file{Observer} collegati che un errore si è verificato;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio di una \file{Exception} una volta che questa si è verificata.\\
-	Gli observer collegati sono:
-	\begin{itemize}
-		\item \file{ErrorObserver}.
-	\end{itemize};
+ Gli observer collegati sono:
+\begin{itemize}
+\item \file{ErrorObserver}.
+\end{itemize};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(val: Exception): void} \\		Questo metodo permette di notificare l'\file{ErrorSubject};\\
@@ -5135,7 +5094,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \hypertarget{Exception_label}{\subparagraph{Exception}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassException.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassException.png}
 	\caption{Libs::Exception}
 \end{figure}
 \begin{itemize}
@@ -5143,8 +5102,8 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un errore che può avvenire;
 	\item \textbf{Utilizzo}: fornisce gli attributi necessari a descrivere gli errori che si possono verificare.
-	L'attributo \file{code} contiene un valore uguale a 0 nel caso non si sia verificato alcun errore, diverso da 0 altrimenti.
-	Nel caso di \file{code} diverso da 0, l'attributo \file{msg} contiene una stringa che descrive l'errore verificatosi;
+L'attributo \file{code} contiene un valore uguale a 0 nel caso non si sia verificato alcun errore, diverso da 0 altrimenti.
+Nel caso di \file{code} diverso da 0, l'attributo \file{msg} contiene una stringa che descrive l'errore verificatosi;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ code: Integer} \\
@@ -5235,7 +5194,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 \hypertarget{ResponseBody_label}{\subparagraph{ResponseBody}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassResponseBody.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassResponseBody.png}
 	\caption{Libs::ResponseBody}
 \end{figure}
 \begin{itemize}
@@ -5243,7 +5202,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classi si occupa di rappresentare il corpo della risposta, fornita dall'assistente virtuale, in seguito ad un'interrogazione;
 	\item \textbf{Utilizzo}: fornisce gli attributi necessari per rappresentare il corpo della risposta dell'assistente virtuale. \\
-	Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto;
+Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text\_request: String} \\
@@ -5265,7 +5224,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 \hypertarget{VARequestAPIBody_label}{\subparagraph{VARequestAPIBody}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVARequestAPIBody.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVARequestAPIBody.png}
 	\caption{Libs::VARequestAPIBody}
 \end{figure}
 \begin{itemize}
@@ -5294,7 +5253,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 \hypertarget{VAResponse_label}{\subparagraph{VAResponse}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassVAResponse.png}
+	\includegraphics[scale=0.35,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassVAResponse.png}
 	\caption{Libs::VAResponse}
 \end{figure}
 \begin{itemize}
@@ -5310,7 +5269,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 		Attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \\ \file{Client::ApplicationManager::Application::runCmd} dell'applicazione;
 		\item[] \file{+ action: String} \\
 		Attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\
-		Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
+Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}

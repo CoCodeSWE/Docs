@@ -49,7 +49,6 @@ Ad esempio, la componente \file{Recorder} (che si occupa della registrazione aud
 Il client vocale è composto da diverse componenti, le quali sono:
 \begin{itemize}
 	\item \textbf{Recorder}: questa componente si occupa di realizzare le funzionalità di registrazione. Tramite la classe \file{Utility::BoolObserver}, facente parte del pattern comportamentale Observer utilizzato per modellare ciò, il registratore avrà modo di sapere se il riproduttore audio è in funzione, in maniera tale da non registrare le risposte fornite dal sistema. Una volta terminata la registrazione, il relativo audio verrà inviato alla componente \file{Logic};
-	\newpage
 	\item \textbf{TTS}: questa componente si occupa di realizzare le funzionalità di text-to-speech, ovvero di riprodurre sotto forma di audio il testo fornito come risposta dall'assistente virtuale. Inoltre, quando la riproduzione audio si attiva/disattiva, le componenti interessate vengono notificate di ciò. Tutto ciò è reso possibile dal pattern comportamentale Observer;
 	\item \textbf{ApplicationManager}: questa componente si occupa realizzare le funzionalità di gestione delle applicazioni con le quali l'utente interagisce, permettendo la definizione di esse, la definizione comandi accettati, del salvataggio di stato e del cambio tra un'applicazione e l'altra. Tutto ciò è reso possibile dal pattern \gl{Client-side discovery} riadattato, la quale descrizione è consultabile nell'appendice \ref{CS}. Grazie all'utilizzo del pattern comportamentale Observer, questa componente viene notificata dell'arrivo di dati dal \file{Back-end};
 	\item \textbf{ConversationApp}: questa componente si occupa di realizzare l'applicazione ConversationApp, ovvero quella che, tramite interfaccia utente, permette l'interazione con l'assistente virtuale. Per modellare la disposizione delle sue classi, si è fatto utilizzo del pattern Flux descritto nella libreria React, la quale verrà utilizzata per realizzare quanto appena descritto.
@@ -147,7 +146,6 @@ Gli Endpoints sono:
   "text":"String"
 }
 \end{lstlisting}
-\newpage
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
