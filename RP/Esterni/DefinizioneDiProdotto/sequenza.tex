@@ -14,6 +14,15 @@ Il diagramma qui riportato rappresenta l'interazione tra service e client per me
  \caption{Interazione tra service e client}
 \end{figure}
 \newpage
+\hypertarget{interazioneVocalAPIVAService}{\subsection{Interazione tra VocalAPI e VAService}}
+Il diagramma qui riportato rappresenta l'interrogazione dell'assistente virtuale per mezzo della chiamata alla Lambda Function \file{query} fornita dalla classe \file{VAService}. Inizialmente viene invocato il metodo \file{getAgent} fornito dalla classe \file{AgentsDAO} per ottenere, a partire dal nome dell'applicazione contenuto nella richiesta, il token identificativo dell'Agent che si vuole interrogare. Una volta ottenuto il token viene eseguita una chiamata all'endpoint \file{/query} di api.ai per mezzo della classe \file{VAModule} utilizzando il testo presente nella richiesta. Infine, a partire dalla risposta ricevuta da tale serivizo, viene inviata la risposta a VocalAPI utilizzando il context della Lambda Function.
+ \begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Interazione tra VocalAPI e VAService.png}
+ \caption{Interazione tra VocalAPI e VAService.png}
+\end{figure}
+\newpage
+
 \subsection{Verifica autenticazione}
 Il diagramma qui riportato rappresenta la \gl{verifica} di un'autenticazione ad ogni interazione dell'agent di amministrazione per via del webhook fornito dalla classe \file{AdministrationWebhookService}. Tale metodo si occupa di verificare che nella richiesta sia presente un \gl{JSON} Web Token (\file{JWT}) che confermi un'autenticazione avvenuta con successo. In caso di mancata autenticazione, il campo \file{status} della risposta sarà impostato a 403. Nel caso in cui il token sia presente e valido, ovvero che la firma sia valida ed il token non sia scaduto, tale campo sarà invece impostato a 200, ed il campo \file{speech} della risposta sarà copiato da \file{fulfillment.speech} della richiesta, risultando quindi in una risposta uguale a quella definita nell'agente di api.ai.
  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Verificaautenticazione.png} 	\caption{Verifica autenticazione}
