@@ -103,8 +103,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -177,8 +176,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -218,18 +216,22 @@ Gli Endpoints sono:
   "topic": "Topic",
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -252,8 +254,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -266,8 +267,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -324,18 +324,22 @@ Gli Endpoints sono:
   ]
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -358,8 +362,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -372,8 +375,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}\end{itemize}
 
@@ -397,8 +399,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -411,8 +412,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -423,22 +423,19 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 404:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -457,18 +454,22 @@ Gli Endpoints sono:
   "username":"String"
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -541,18 +542,22 @@ Gli Endpoints sono:
   ]
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -598,8 +603,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -612,8 +616,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}\end{itemize}
 
@@ -659,8 +662,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -673,8 +675,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -716,18 +717,23 @@ Gli Endpoints sono:
   }
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
+
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -739,22 +745,19 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 404:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}\end{itemize}
 
@@ -780,18 +783,23 @@ Gli Endpoints sono:
   ]
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
+
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -819,8 +827,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -833,8 +840,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}\end{itemize}
 
@@ -862,18 +868,23 @@ Gli Endpoints sono:
   ]
 }
 \end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
+
 \item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":404,
-  "msg":"Not found"
+  "message":"Not found"
 }
 \end{lstlisting}
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
@@ -900,8 +911,7 @@ Gli Endpoints sono:
 \item \textbf{Response 200:} Nel caso la richiesta vada a buon fine, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":200,
-  "msg":"success"
+  "message":"success"
 }
 \end{lstlisting}
 \item \textbf{Response 400:} Nel caso la richiesta fatta non rispetti il formato sopra descritto, la chiamata restituirà la seguente risposta:
@@ -914,8 +924,7 @@ Gli Endpoints sono:
 \item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "status":500,
-  "msg":"Messaggio relativo all'errore"
+  "message":"Messaggio relativo all'errore"
 }
 \end{lstlisting}
 \end{itemize}
