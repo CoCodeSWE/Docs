@@ -36,6 +36,11 @@ Il servizio AWS API Gateway fornisce sofisticati ed avanzati meccanismi per la p
 Il sistema progettato prevede due tipologie di utenti (ospite e amministratore), caratterizzati da diverse interazioni con l'assistente virtuale. Vengono quindi supportate dal \file{Back-end} differenti operazioni, invocabili tramite appositi endpoints, in base alla tipologia d'utente. Nasce di conseguenza la necessità di vincolare ogni tipologia d'utente ai soli endpoints ad essa dedicati. \\
 Per soddisfare questa esigenza, non sono necessari ulteriori strumenti e meccanismi di AWS API Gateway, in quanto un amministratore è associato ad un \gl{JSON} Web Tokens (JWT) valido. Per capire quindi quali endpoints dovranno essere bloccati all'utente, sarà sufficiente controllare l'esistenza e la validità di questo JWT.
 \subsection{Client}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth,height=0.8\textheight,keepaspectratio]{images/mockup.png}
+	\caption{Mockup dell'interfaccia web del Client}
+\end{figure}
 \subsubsection{Client vocale}
 L'architettura con la quale è organizzato il client vocale è quella \gl{event-driven}.\\
 La motivazione che ha spinto il gruppo a prendere tale decisione è che ciò che dev'essere descritto e realizzato è facilmente modellabile utilizzando questo paradigma. Infatti, ci sono delle componenti che "aspettano" il verificarsi di un evento; altre invece che "notificano"  il verificarsi di un evento.\\
