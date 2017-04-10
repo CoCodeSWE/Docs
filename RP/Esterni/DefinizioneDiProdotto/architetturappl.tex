@@ -66,23 +66,24 @@ Il client vocale è composto da diverse componenti, le quali sono:
 			\item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::APIGateway::VARequestAPIBody}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- "app":"String",
- "audio":"Base64String",
- "data":"ObjectAssocArray",
- "session_id":"String"
+  "app":"String",
+  "audio":"Base64String",
+  "data":"ObjectAssocArray",
+  "session_id":"String"
 }
 \end{lstlisting}
 			\item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-"action":"String",
-"res":{
- "contexts":"ObjectAssocArray",
- "data":"Object",
- "text_request":"String",
- "text_response":"String"
- },
-"session_id":"String"
+  "action":"String",
+  "res":
+  {
+    "contexts":"ObjectAssocArray",
+    "data":"Object",
+    "text_request":"String",
+    "text_response":"String"
+  },
+  "session_id":"String"
 }
 \end{lstlisting}
 		\end{itemize}
@@ -113,26 +114,29 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAQuery}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- "data":"Object",
- "event":{ /*Alternativo a "text", oggetto di tipo VAEventObject*/
   "data":"Object",
-  "name":"String"
- },
- "session_id":"String",
- "text":"String" /*Alternativo a "event"*/
+  "event":
+    { 
+      "data":"Object",
+      "name":"String"
+    },
+  "session_id":"String",
+  "text":"String" 
 }
 \end{lstlisting}
+\newpage
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::VirtualAssistant::VAResponse}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- "action":"String",
- "res":{/*oggetto di tipo ResponseBody*/
-  "contexts":"ObjectAssocArray",
-  "data":"Object",
-  "text_request":"String",
-  "text_response":"String"
- },
- "session_id":"String"
+  "action":"String",
+  "res":
+  {
+    "contexts":"ObjectAssocArray",
+    "data":"Object",
+    "text_request":"String",
+    "text_response":"String"
+  },
+  "session_id":"String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -180,12 +184,13 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Notifications::NotificationMsg}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "msg": [
-	"attachments_array":[{},{}], /*Array di Back-end::Notifications::Attachment*/
-	"response_type":"String",
-	"text":"String"
-	],
-  "send_to": "String"
+  "msg":
+  [
+     "attachments_array":[{},{}],
+	 "response_type":"String",
+	 "text":"String"
+   ],
+   "send_to": "String"
 }
 \end{lstlisting}
 \end{itemize}
@@ -213,32 +218,33 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  user_array : [
-  {
-   "first_name":"String",
-   "last_name":"String",
-   "password":"String",
-   "slack_channel":"String",
-   "sr_id":"String",
-   "username":"String"
-  },
-  {
-   "first_name":"String",
-   "last_name":"String",
-   "password":"String",
-   "slack_channel":"String",
-   "sr_id":"String",
-   "username":"String"
-  },
-  {
-   "first_name":"String",
-   "last_name":"String",
-   "password":"String",
-   "slack_channel":"String",
-   "sr_id":"String",
-   "username":"String"
-  }
- ]
+  user_array :
+  [
+    {
+      "first_name":"String",
+      "last_name":"String",
+      "password":"String",
+      "slack_channel":"String",
+      "sr_id":"String",
+      "username":"String"
+    },
+    {
+      "first_name":"String",
+      "last_name":"String",
+      "password":"String",
+      "slack_channel":"String",
+      "sr_id":"String",
+      "username":"String"
+    },
+    {
+      "first_name":"String",
+      "last_name":"String",
+      "password":"String",
+      "slack_channel":"String",
+      "sr_id":"String",
+      "username":"String"
+    }
+  ]
 }
 \end{lstlisting}
 \end{itemize}
@@ -336,39 +342,37 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- rule_array : [
- {
-  "ac_list":[
-	"adm1":"String",
-	"adm2":"String",
-	...
-   ],
-  "ac_mode":"int",
-  "enabled":"boolean",
-  "id":"int",
-  "name":"String",
-  "targets":[ /*oggetti di tipo Back-end::Rules::RuleTarget*/
-  {
-   "company":"String",
-   "member":"String",
-   "name":"String"
-  },
-  {
-   "company":"String",
-   "member":"String",
-   "name":"String"
-  }
-  ],
-  "task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
-   "params":{
-	"par1":"Object",
-	"par2":"Object",
-	...
-   }
-   "task":"String"
-  }
- }
- ]
+  rule_array : 
+  [
+    {
+      "enabled":"boolean",
+      "id":"int",
+      "name":"String",
+      "targets":
+      [
+        {
+          "company":"String",
+          "member":"String",
+          "name":"String"
+        },
+        {
+          "company":"String",
+          "member":"String",
+          "name":"String"
+        }
+      ],
+      "task":
+      {
+        "params":
+        {
+          "par1":"Object",
+          "par2":"Object",
+          ...
+        }
+        "task":"String"
+      }
+    }
+  ]
 }
 \end{lstlisting}
 \end{itemize}
@@ -379,37 +383,35 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule : {
-	  "ac_list":[
-	    "adm1":"String",
-	    "adm2":"String",
-		...
-	  ],
-	  "ac_mode":"int",
-	  "enabled":"boolean",
-	  "id":"int",
-	  "name":"String",
-	  "targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
-	  {
-		"company":"String",
-		"member":"String",
-		"name":"String"
+  rule : 
+  {
+    "enabled":"boolean",
+    "id":"int",
+    "name":"String",
+    "targets":
+    [ 
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
       },
-	  {
-		"company":"String",
-		"member":"String",
-		"name":"String"
-	  }
-	  ],
-	  "task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
-		"params":{
-		  "par1":"Object",
-		  "par2":"Object",
-		  ...
-	   }
-	  "task":"String"
-	  }
-	}
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
+      }
+    ],
+    "task":
+    { 
+      "params":
+      {
+        "par1":"Object",
+        "par2":"Object",
+        ...
+      }
+      "task":"String"
+    }
+  }
 }
 \end{lstlisting}
 \item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
@@ -423,36 +425,34 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  rule : {
-	"ac_list":[
-	 "adm1":"String",
-	 "adm2":"String",
-	...
+  rule : 
+  {
+    "enabled":"boolean",
+    "id":"int",
+    "name":"String",
+    "targets":
+    [ 
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
+      },
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
+      }
     ],
-	"ac_mode":"int",
-	"enabled":"boolean",
-	"id":"int",
-	"name":"String",
-	"targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
-	{
-	 "company":"String",
-	 "member":"String",
-	 "name":"String"
-	},
-	{
-	 "company":"String",
-	 "member":"String",
-	 "name":"String"
-	}
-	],
-	"task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
-	 "params":{
-	  "par1":"Object",
-	  "par2":"Object",
-	  ...
-	 }
-	"task":"String"
-   }
+    "task":
+    {
+      "params":
+      {
+        "par1":"Object",
+        "par2":"Object",
+        ...
+      }
+      "task":"String"
+    }
   }
 }
 \end{lstlisting}
@@ -465,36 +465,34 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Rule}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-	rule : {
-	 "ac_list":[
-	  "adm1":"String",
-	  "adm2":"String",
-	  ...
-	  ],
-	"ac_mode":"int",
-	"enabled":"boolean",
-	"id":"int",
-	"name":"String",
-	"targets":[ /* oggetti di tipo Back-end::Rules::RuleTarget */
-	{
-	 "company":"String",
-	 "member":"String",
-	 "name":"String"
-	},
-	{
-	 "company":"String",
-	 "member":"String",
-	 "name":"String"
-	}
-	],
-	"task":{ /* oggetto di tipo Back-end::Rules::RuleTaskInstance*/
-	 "params":{
-	  "par1":"Object",
-	  "par2":"Object",
-	  ...
-	 }
-	"task":"String"
-	}
+  rule : 
+  {
+    "enabled":"boolean",
+    "id":"int",
+    "name":"String",
+    "targets":
+    [ 
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
+      },
+      {
+        "company":"String",
+        "member":"String",
+        "name":"String"
+      }
+    ],
+    "task":
+    {
+      "params":
+      {
+        "par1":"Object",
+        "par2":"Object",
+        ...
+      }
+      "task":"String"
+    }
   }
 }
 \end{lstlisting}
@@ -516,16 +514,17 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array : [
- {
-  "function":"String",
-  "id":"int"
- },
- {
-  "function":"String",
-  "id":"int"
- }
-]
+ function_array : 
+  [
+    {
+      "function":"String",
+      "id":"int"
+    },
+    {
+      "function":"String",
+      "id":"int"
+    }
+  ]
 }
 \end{lstlisting}
 \end{itemize}
@@ -536,16 +535,17 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array : [
- {
-  "function":"String",
-  "id":"int"
- },
- {
-  "function":"String",
-  "id":"int"
- }
- ]
+  function_array : 
+  [
+    {
+      "function":"String",
+      "id":"int"
+    },
+    {
+      "function":"String",
+      "id":"int"
+    }
+  ]
 }
 \end{lstlisting}
 \item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP.
@@ -562,16 +562,17 @@ Gli Endpoints sono:
 \item \textbf{Response:} la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array : [
- {
-  "function":"String",
-  "id":"int"
- },
- {
-  "function":"String",
-  "id":"int"
- }
- ]
+  function_array : 
+  [
+    {
+      "function":"String",
+      "id":"int"
+    },
+    {
+      "function":"String",
+      "id":"int"
+    }
+  ]
 }
 \end{lstlisting}
 \end{itemize}
@@ -582,16 +583,17 @@ Gli Endpoints sono:
 \item \textbf{Request:} la richiesta deve contenere i campi organizzati come descritto in \\\file{Back-end::Rules::Task}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- function_array : [
- {
-  "function":"String",
-  "id":"int"
- },
- {
-  "function":"String",
-  "id":"int"
- }
- ]
+  function_array : 
+  [
+    {
+      "function":"String",
+      "id":"int"
+    },
+    {
+      "function":"String",
+      "id":"int"
+    }
+  ]
 }
 \end{lstlisting}
 \item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP.
