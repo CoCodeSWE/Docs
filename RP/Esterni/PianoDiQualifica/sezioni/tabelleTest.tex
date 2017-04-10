@@ -391,6 +391,9 @@ Vogliamo testare che, se la chiamata al metodo genera un errore del microservizi
 \hypertarget{TU211}{TU211} & Vogliamo testare che, se la promessa viene soddisfatta (fulfill), viene chiamato il metodo \file{next} del \file{subject} che si occupa di notificare gli \file{Observer} iscritti. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU212}{TU212} & Vogliamo testare che, se la promessa viene respinta (reject), viene chiamato il metodo \file{error} del \file{subject} che si occupa di notificare tale errore agli \file{Observer} iscritti. & \textit{Non Implementato}\\ \hline
 \hypertarget{TU213}{TU213} & Vogliamo testare che, una volta chiamato il metodo \file{start}, venga inviata una serie di oggetti \file{RecorderMsg} a \file{RecorderWorker} con campo \file{command} uguale a “record” e che questa serie di messaggi venga interrotta alla chiamata del metodo \file{stop}. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU214}{TU214} & Vogliamo testare che, nel caso in cui la \file{Rule} richiesta non sia disponibile, il metodo chiami \file{context.success} con una LambdaResponse il cui campo status è impostato a 404. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU215}{TU215} & Vogliamo testare che, nel caso in cui l'\file{User} richiesto non sia disponibile, il metodo chiami \file{context.success} con una LambdaResponse il cui campo status è impostato a 404. & \textit{Non Implementato}\\ \hline
+\hypertarget{TU216}{TU216} & Vogliamo testare che, nel caso in cui l'\file{User} richiesto non sia disponibile, il metodo chiami \file{context.success} con una LambdaResponse il cui campo status è impostato a 404. & \textit{Non Implementato}\\ \hline
 \caption[Test di Unità]{Test di Unità}
 \label{tabella:test3}
 \end{longtable}
