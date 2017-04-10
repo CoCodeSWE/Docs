@@ -30,60 +30,60 @@ Il diagramma qui riportato rappresenta la \gl{verifica} di un'autenticazione ad 
 \newpage
 
 
-\subsection{Back-end::Auth::UsersService::addUser}
+\subsection{Back-end::Users::UsersService::addUser}
 Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di aggiungere un \file{User} al sistema attraverso il metodo \file{addUser}. 
- \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersServiceaddUser.png} 	\caption{Back-end::Auth::UsersService::addUser}
+ \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersServiceaddUser.png} 	\caption{Back-end::Users::UsersService::addUser}
 \end{figure}
 
 \newpage
-\subsection{Back-end::Auth::UsersService::getUser} 
-Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di ottenere un \file{User} del sistema attraverso il metodo \file{getUser}.  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersServicegetUser.png} 	\caption{Back-end::Auth::UsersService::getUser}
+\subsection{Back-end::Users::UsersService::getUser} 
+Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di ottenere un \file{User} del sistema attraverso il metodo \file{getUser}.  \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersServicegetUser.png} 	\caption{Back-end::Users::UsersService::getUser}
 \end{figure} 
 \newpage
 
-\subsection{Back-end::Auth::UsersService::getUserList}
+\subsection{Back-end::Users::UsersService::getUserList}
 Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di ottenere la lista degli \file{User} del sistema attraverso il metodo \file{getUserList}.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersServicegetUserList.png} 	\caption{Back-end::Auth::UsersService::getUserList}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersServicegetUserList.png} 	\caption{Back-end::Users::UsersService::getUserList}
 \end{figure}
 \newpage
 
-\subsection{Back-end::Auth::UsersService::removeUser}
+\subsection{Back-end::Users::UsersService::deleteUser}
 Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di rimuovere un \file{User} dal sistema attraverso il metodo \file{removeUser}.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersServiceremoveUser.png} 	\caption{Back-end::Auth::UsersService::removeUser}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersServicedeleteUser.png} 	\caption{Back-end::Users::UsersService::deleteUser}
 \end{figure} 
 \newpage
 
-\subsection{Back-end::Auth::UsersService::updateUser}
+\subsection{Back-end::Users::UsersService::updateUser}
 Il diagramma qui riportato rappresenta l'implementazione della lambda function che si occupa di modificare un \file{User} del sistema attraverso il metodo \file{updateUser}.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersServiceupdateUser.png} 	\caption{Back-end::Auth::UsersService::updateUser}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersServiceupdateUser.png} 	\caption{Back-end::Users::UsersService::updateUser}
 \end{figure}
 \newpage
 
-\subsection{Back-end::Auth::UsersDAODynamoDBaddUser}
+\subsection{Back-end::Users::UsersDAODynamoDBaddUser}
 Il diagramma qui riportato rappresenta l'aggiunta di un \file{User} al database attraverso il metodo \file{put} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di \gl{callback}.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBaddUser.png} 	\caption{Back-end::Auth::UsersDAODynamoDBaddUser}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersDAODynamoDBaddUser.png} 	\caption{Back-end::Users::UsersDAODynamoDBaddUser}
 \end{figure} 
 \newpage
-\subsection{Back-end::Auth::UsersDAODynamoDBgetUser}
+\subsection{Back-end::Users::UsersDAODynamoDBgetUser}
 Il diagramma qui riportato rappresenta l'ottenimento di un \file{User} dal database attraverso il metodo \file{get} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di callback.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBgetUser.png} 	\caption{Back-end::Auth::UsersDAODynamoDBgetUser}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersDAODynamoDBgetUser.png} 	\caption{Back-end::Users::UsersDAODynamoDBgetUser}
 \end{figure} 
 \newpage
-\subsection{Back-end::Auth::UsersDAODynamoDBgetUserList}
+\subsection{Back-end::Users::UsersDAODynamoDBgetUserList}
 Il diagramma qui riportato rappresenta l'ottenimento della lista di \file{User} dal database attraverso il metodo \file{scan} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di callback. Poichè il metodo \file{scan} del \file{DocumentClient} permette al più il ritorno di una lista delle dimensioni di 1MB, se il campo LastEvaluetedKey è settato allora non tutti gli \file{User} sono stati ritornati, e quindi è necessario rieseguire il metodo scan fornendo come parametro d'ingresso la chiave da cui ripartire per l'estrazione dei dati. Se invece tale campo non è settato allora è stata ritornata l'intera lista.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBgetUserList.png} 	\caption{Back-end::Auth::UsersDAODynamoDBgetUserList}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersDAODynamoDBgetUserList.png} 	\caption{Back-end::Users::UsersDAODynamoDBgetUserList}
 \end{figure}
 \newpage
 
-\subsection{Back-end::Auth::UsersDAODynamoDB::removeUser}
+\subsection{Back-end::Users::UsersDAODynamoDB::removeUser}
 Il diagramma qui riportato rappresenta la rimozione di un \file{User} dal database attraverso il metodo \file{delete} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di callback.
- \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBremoveUser.png} 	\caption{Back-end::Auth::UsersDAODynamoDB::removeUser}
+ \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersDAODynamoDBremoveUser.png} 	\caption{Back-end::Users::UsersDAODynamoDB::removeUser}
 \end{figure} 
 \newpage
 
-\subsection{Back-end::Auth::UsersDAODynamoDB::updateUser}
+\subsection{Back-end::Users::UsersDAODynamoDB::updateUser}
 Il diagramma qui riportato rappresenta la modifica di un \file{User} del database attraverso il metodo \file{update} del \file{DocumentClient} di \file{DynamoDB}, utilizzando la risposta come parametro per chiamare la funzione di callback.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endAuthUsersDAODynamoDBupdateUser.png} 	\caption{Back-end::Auth::UsersDAODynamoDB::updateUser}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Ufficial_Backend/Back-endUsersUsersDAODynamoDBupdateUser.png} 	\caption{Back-end::Users::UsersDAODynamoDB::updateUser}
 \end{figure}
 \newpage
 
