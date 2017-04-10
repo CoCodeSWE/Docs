@@ -1,0 +1,31 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {figure}{\numberline {1}{\ignorespaces Gerarchia degli attori\relax }}{8}{figure.caption.2}
+\contentsline {figure}{\numberline {2}{\ignorespaces UC0: Funzionalit\IeC {\`a} sistema\relax }}{9}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces UC1: Autenticazione\relax }}{10}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces UC1.1: Autenticazione tramite assistente virtuale\relax }}{11}{figure.caption.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces UC1.3: Riconoscimento amministratore tramite assistente\relax }}{13}{figure.caption.6}
+\contentsline {figure}{\numberline {6}{\ignorespaces UC2: Accesso funzionalit\IeC {\`a} amministratore\relax }}{15}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces UC2.1: Gestione direttive\relax }}{16}{figure.caption.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces UC2.1.1: Creazione nuova direttiva\relax }}{17}{figure.caption.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces UC2.1.1.3: Inserimento target direttiva\relax }}{19}{figure.caption.10}
+\contentsline {figure}{\numberline {10}{\ignorespaces UC2.1.2: Eliminazione direttiva \relax }}{22}{figure.caption.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces UC2.1.3: Modifica direttiva\relax }}{23}{figure.caption.12}
+\contentsline {figure}{\numberline {12}{\ignorespaces UC2.1.3.2: Modifica target direttiva\relax }}{25}{figure.caption.13}
+\contentsline {figure}{\numberline {13}{\ignorespaces UC2.1.3.5: Modifica privilegi direttiva\relax }}{28}{figure.caption.14}
+\contentsline {figure}{\numberline {14}{\ignorespaces UC2.2: Gestione profilo amministratore\relax }}{31}{figure.caption.15}
+\contentsline {figure}{\numberline {15}{\ignorespaces UC2.2.2: Modifica password\relax }}{32}{figure.caption.16}
+\contentsline {figure}{\numberline {16}{\ignorespaces UC3: Accoglienza ospite\relax }}{34}{figure.caption.17}
+\contentsline {figure}{\numberline {17}{\ignorespaces UC3.2: Comunicazione necessit\IeC {\`a}\relax }}{36}{figure.caption.18}
+\contentsline {figure}{\numberline {18}{\ignorespaces UC3.2.3: Indicazioni stanza\relax }}{38}{figure.caption.19}
+\contentsline {figure}{\numberline {19}{\ignorespaces UC3.3: Intrattenimento ospite\relax }}{40}{figure.caption.20}
+\contentsline {figure}{\numberline {20}{\ignorespaces UC3.3.3: Notizie\relax }}{42}{figure.caption.21}
+\contentsline {figure}{\numberline {21}{\ignorespaces UC3.3.4: Utilizzo giochi\relax }}{44}{figure.caption.22}
+\contentsline {figure}{\numberline {22}{\ignorespaces UC3.3.4.1: Gioco tris\relax }}{45}{figure.caption.23}
+\contentsline {figure}{\numberline {23}{\ignorespaces UC3.3.4.2: Gioco sasso, carta, forbice, lizard o spock\relax }}{47}{figure.caption.24}
+\contentsline {figure}{\numberline {24}{\ignorespaces UC3.3.4.3: Gioco Mankala\relax }}{49}{figure.caption.25}
+\contentsline {figure}{\numberline {25}{\ignorespaces UC4: Accesso funzionalit\IeC {\`a} super amministratore\relax }}{51}{figure.caption.26}
+\contentsline {figure}{\numberline {26}{\ignorespaces UC4.1: Gestione amministrazione\relax }}{52}{figure.caption.27}
+\contentsline {figure}{\numberline {27}{\ignorespaces UC4.1.1: Creazione nuovo amministratore\relax }}{53}{figure.caption.28}
+\contentsline {figure}{\numberline {28}{\ignorespaces UC4.1.2: Reset password amministratore\relax }}{56}{figure.caption.29}
+\contentsline {figure}{\numberline {29}{\ignorespaces UC4.1.3: Eliminazione amministratore\relax }}{58}{figure.caption.30}
