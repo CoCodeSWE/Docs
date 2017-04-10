@@ -324,7 +324,7 @@ Una direttiva è costituita da:
 
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Rules.\\
+Ora verranno definiti gli Endpoints forniti dal microservizio Rules.\\
 Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -334,7 +334,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 
-\item \textbf{/impostazioni}\\
+\item \textbf{/rules}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -417,7 +417,7 @@ Gli Endpoints sono:
 \item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
-\item \textbf{/impostazioni/:id}\\
+\item \textbf{/rules/:id}\\
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
@@ -506,7 +506,7 @@ Gli Endpoints sono:
 \end{itemize}
 
 
-\item \textbf{/impostazioni/tasks}\\
+\item \textbf{/rules/tasks}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -553,7 +553,7 @@ Gli Endpoints sono:
 
 
 
-\item \textbf{/impostazioni/tasks/:type}\\
+\item \textbf{/rules/tasks/:type}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -607,34 +607,34 @@ Una action è una stringa che indica quale operazione dovrà essere scelta dall'
 I metodi citati appartengono alla classe \file{Back-end::APIGateway::VocalAPI}.
 \subsubsection{User}
 \begin{itemize}
-\item \file{user.add}: utilizza il metodo privato \file{addUser(user: User)} per aggiungere un utente registrato, cioè un amministratore, al sistema;
+\item \file{user.add}: utilizza il metodo privato \file{addUser} per aggiungere un utente registrato, cioè un amministratore, al sistema;
 
-\item \file{user.get}: utilizza il metodo privato \file{getUser(username: String)} per ottenere i dati relativi ad un utente registrato;
+\item \file{user.get}: utilizza il metodo privato \file{getUser} per ottenere i dati relativi ad un utente registrato;
 
-\item \file{user.getList}: utilizza il metodo privato \file{getUserList()} per ottenere la lista degli utenti registrati; 
+\item \file{user.getList}: utilizza il metodo privato \file{getUserList} per ottenere la lista degli utenti registrati; 
 
-\item \file{user.update}: utilizza il metodo privato \file{updateUser(user: User)} per aggiornare un utente registrato;
+\item \file{user.update}: utilizza il metodo privato \file{updateUser} per aggiornare un utente registrato;
 
-\item \file{user.remove}: utilizza il metodo privato \file{removeUser(username: String)} per rimuovere un utente registrato;
+\item \file{user.remove}: utilizza il metodo privato \file{removeUser} per rimuovere un utente registrato;
 
-\item \file{user.addEnrollment}: utilizza il metodo privato \file{addUserEnrollment(enr: Enrollment)} per aggiungere un Enrollment ad un utente registrato;
+\item \file{user.addEnrollment}: utilizza il metodo privato \file{addUserEnrollment} per aggiungere un Enrollment ad un utente registrato;
 
-\item \file{user.resetEnrollments}: utilizza il metodo privato \file{resetUserEnrollment(username: String):} per resettare gli Enrollment relativi ad un utente registrato;
+\item \file{user.resetEnrollments}: utilizza il metodo privato \file{resetUserEnrollment} per resettare gli Enrollment relativi ad un utente registrato;
 
-\item \file{user.login}: utilizza il metodo privato \file{loginUser(enr: Enrollment)} per effettura il login di un utente registrato.
+\item \file{user.login}: utilizza il metodo privato \file{loginUser} per effettura il login di un utente registrato.
 
 \end{itemize}
 \subsubsection{Rule}
 \begin{itemize}
-\item \file{rule.add}: utilizza il metodo privato \file{addRule(rule: Rule)} per aggiungere una direttiva;
+\item \file{rule.add}: utilizza il metodo privato \file{addRule} per aggiungere una direttiva;
 
-\item \file{rule.get}: utilizza il metodo privato \file{getRule(id: String)} per ottenere i dati relativi una direttiva;
+\item \file{rule.get}: utilizza il metodo privato \file{getRule} per ottenere i dati relativi una direttiva;
 
-\item \file{rule.getList}: utilizza il metodo privato \file{getRuleList()} per ottenere la lista delle direttive;
+\item \file{rule.getList}: utilizza il metodo privato \file{getRuleList} per ottenere la lista delle direttive;
 
-\item \file{rule.update}: utilizza il metodo privato \file{updateRule(rule: Rule)} per aggiornare una direttiva;
+\item \file{rule.update}: utilizza il metodo privato \file{updateRule} per aggiornare una direttiva;
 
-\item \file{rule.remove}: utilizza il metodo privato \file{removeRule(id: String)} per rimuovere una direttiva.
+\item \file{rule.remove}: utilizza il metodo privato \file{removeRule} per rimuovere una direttiva.
 
 
 \end{itemize}
