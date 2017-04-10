@@ -51,7 +51,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 	\item \textbf{Logic}: questa componente si occupa di realizzare le funzionalità che permettono l'interazione, tramite API Gateway, con il \file{Back-end}. Inoltre, quando arrivano dei dati da quest'ultimo, questa componente si occupa di notificare le componenti interessate. Ancora una volta, tutto ciò è organizzato secondo il pattern comportamentale Observer.
 \end{itemize}
 \subsubsection{Endpoints}
-	Ora verranno definiti gli endpoints esterni utilizzati dai vari tipi di client.\\
+	Ora verranno definiti gli endpoints esterni forniti per essere utilizzati dai vari tipi di client.\\
 	Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 	\begin{itemize}
 		\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -96,18 +96,10 @@ Di seguito verranno esposti e spiegati i funzionamenti di ogni microservizio da 
 Il microservizio Virtual Assistant (VA) fornisce le funzionalità di un assistente virtuale. Fa affidamento ad api.ai, e si occupa di inoltrare le richieste ricevute a tale infrastruttura. Avvalendosi di un database, permette di utilizzare diversi agenti (ciò che trasforma il linguaggio naturale in dati processabili per un'applicazione) durante la stessa interazione, consentendo quindi di definire diverse "applicazioni". Per ogni applicazione, si dovrà definire un agente.\\ Le richieste fatte all'unico endpoint di questo microservizio richiedono infatti di comunicare anche il nome dell'applicazione a cui è legata la richiesta. Questo permette di separare in diversi agenti di api.ai dialoghi legati a diverse funzionalità, affidando la realizzazione e l'integrazione di queste a diversi sviluppatori, senza dover modificare direttamente gli agenti di api.ai. \\
 Per avere un completo controllo sul flusso della conversazione, si dovrà fare utilizzo di un database contenente gli agenti utilizzabili, in maniera tale che vengano usati solo quelli definiti e registrati.\\
 Il microservizio si occupa anche di notificare, tramite l'utilizzo di AWS SNS, l'avvenuta interazione da parte dell'utente, permettendo così il salvataggio delle conversazioni in un database di supporto, il quale potrebbe essere utilizzato per fini di \gl{machine learning}.\\
-Di seguito vengono esposti i vari passaggi affrontati all'arrivo di una richiesta:
-\begin{itemize}
-	\item arriva una richiesta;
-	\item interrogo il database, contenente gli agenti, utilizzando il nome dell'applicazione come chiave;
-	\item dall'interrogazione precedente ottengo il token dell'agente relativo all'applicazione;
-	\item invio ad api.ai il token, e il testo della richiesta;
-	\item api.ai fornisce la risposta, la quale viene "filtrata" da\\ \file{Back-end::VirtualAssistant::ApiAiVAAdapter::query(str: VAQuery): VAResponse}, ottenendo così un formato adatto a \file{Back-end::VirtualAssistant::VAResponse};
-	\item pubblico, tramite il servizio Amazon SNS, la risposta filtrata che verrà quindi inviata al Client.
-\end{itemize}
+Per una descrizione più approfondita di tale microservizio, fare riferimento anche ai diagramma di sequenza presente alla sezione [SEQUENZA SEZIONE]
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Virtual Assistant.\\
+Ora verranno definiti gli Endpoints forniti dal microservizio Virtual Assistant.\\
 Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -153,11 +145,11 @@ Gli Endpoints sono:
 
 \subsubsection{Notifications}
 \paragraph{Descrizione}
-Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. La lista dei canali viene restituita come un'array di stringhe, ognuna delle quali rappresenta un canale.\\
-Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è \gl{Slack} e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio, nel formato definito dalla piattaforma di messaggistica su cui si appoggia il microservizio. Il formato utilizzato da Slack è consultabile alla pagina \url{https://api.slack.com/docs/message-buttons} (visitato in data 2017-03-26).
+Il microservizio Notifications si occupa di mandare messaggi di notifica nei canali adeguati per notificare gli interessati dell'arrivo di un'ospite in azienda. Fornisce le API per richiedere la lista dei possibili destinatari, e per mandare il messaggio di notifica in un determinato canale. 
+Il microservizio si occupa di interrogare le diverse liste fornite dalla piattaforma di messaggistica scelta e di combinarle in un'unica lista. Nel nostro caso, la piattaforma di messaggistica è \gl{Slack} e le diverse liste fornite riguardano utente, canali e gruppi privati. Quando si vuole mandare un messaggio, il campo \file{Back-end::Notifications::NotificationMessageEvent::send\_to} indica chi è il destinatario di tale messaggio.\\ \file{Back-end::Notifications::NotificationMessageEvent::msg} invece contiene il messaggio vero e proprio.
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Notifications. \\
+Ora verranno definiti gli Endpoints forniti dal microservizio Notifications. \\
 Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -209,7 +201,7 @@ Gli Endpoints sono:
 Il microservizio Users si occupa della gestione degli amministratori del nostro sistema. Esso fornisce delle API REST per modificare i dati relativi agli amministratori del nostro sistema presenti in un database. Viene integrato col servizio di Speech Recognition dall'API Gateway, per fornire la possibilità di effettuare il login, tramite impronta vocale, nel sistema.
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Users. \\
+Ora verranno definiti gli Endpoints forniti dal microservizio Users. \\
 Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -332,7 +324,7 @@ Una direttiva è costituita da:
 
 \paragraph{Endpoints}
 
-Ora verranno definiti gli Endpoints utilizzati per i passaggi di risorse con il microservizio Rules.\\
+Ora verranno definiti gli Endpoints forniti dal microservizio Rules.\\
 Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
 \begin{itemize}
 \item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato alla risorsa REST;
@@ -342,7 +334,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 
-\item \textbf{/impostazioni}\\
+\item \textbf{/rules}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -425,7 +417,7 @@ Gli Endpoints sono:
 \item \textbf{Response}: il corpo della risposta sarà vuoto, ma il risultato di questa operazione sarà comunque deducibile dal valore dello status code HTTP;
 \end{itemize}
 
-\item \textbf{/impostazioni/:id}\\
+\item \textbf{/rules/:id}\\
 
 \begin{itemize}
 \item \textbf{Method:} PUT;
@@ -514,7 +506,7 @@ Gli Endpoints sono:
 \end{itemize}
 
 
-\item \textbf{/impostazioni/tasks}\\
+\item \textbf{/rules/tasks}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -561,7 +553,7 @@ Gli Endpoints sono:
 
 
 
-\item \textbf{/impostazioni/tasks/:type}\\
+\item \textbf{/rules/tasks/:type}\\
 
 \begin{itemize}
 \item \textbf{Method:} GET;
@@ -615,34 +607,34 @@ Una action è una stringa che indica quale operazione dovrà essere scelta dall'
 I metodi citati appartengono alla classe \file{Back-end::APIGateway::VocalAPI}.
 \subsubsection{User}
 \begin{itemize}
-\item \file{user.add}: utilizza il metodo privato \file{addUser(user: User)} per aggiungere un utente registrato, cioè un amministratore, al sistema;
+\item \file{user.add}: utilizza il metodo privato \file{addUser} per aggiungere un utente registrato, cioè un amministratore, al sistema;
 
-\item \file{user.get}: utilizza il metodo privato \file{getUser(username: String)} per ottenere i dati relativi ad un utente registrato;
+\item \file{user.get}: utilizza il metodo privato \file{getUser} per ottenere i dati relativi ad un utente registrato;
 
-\item \file{user.getList}: utilizza il metodo privato \file{getUserList()} per ottenere la lista degli utenti registrati; 
+\item \file{user.getList}: utilizza il metodo privato \file{getUserList} per ottenere la lista degli utenti registrati; 
 
-\item \file{user.update}: utilizza il metodo privato \file{updateUser(user: User)} per aggiornare un utente registrato;
+\item \file{user.update}: utilizza il metodo privato \file{updateUser} per aggiornare un utente registrato;
 
-\item \file{user.remove}: utilizza il metodo privato \file{removeUser(username: String)} per rimuovere un utente registrato;
+\item \file{user.remove}: utilizza il metodo privato \file{removeUser} per rimuovere un utente registrato;
 
-\item \file{user.addEnrollment}: utilizza il metodo privato \file{addUserEnrollment(enr: Enrollment)} per aggiungere un Enrollment ad un utente registrato;
+\item \file{user.addEnrollment}: utilizza il metodo privato \file{addUserEnrollment} per aggiungere un Enrollment ad un utente registrato;
 
-\item \file{user.resetEnrollments}: utilizza il metodo privato \file{resetUserEnrollment(username: String):} per resettare gli Enrollment relativi ad un utente registrato;
+\item \file{user.resetEnrollments}: utilizza il metodo privato \file{resetUserEnrollment} per resettare gli Enrollment relativi ad un utente registrato;
 
-\item \file{user.login}: utilizza il metodo privato \file{loginUser(enr: Enrollment)} per effettura il login di un utente registrato.
+\item \file{user.login}: utilizza il metodo privato \file{loginUser} per effettura il login di un utente registrato.
 
 \end{itemize}
 \subsubsection{Rule}
 \begin{itemize}
-\item \file{rule.add}: utilizza il metodo privato \file{addRule(rule: Rule)} per aggiungere una direttiva;
+\item \file{rule.add}: utilizza il metodo privato \file{addRule} per aggiungere una direttiva;
 
-\item \file{rule.get}: utilizza il metodo privato \file{getRule(id: String)} per ottenere i dati relativi una direttiva;
+\item \file{rule.get}: utilizza il metodo privato \file{getRule} per ottenere i dati relativi una direttiva;
 
-\item \file{rule.getList}: utilizza il metodo privato \file{getRuleList()} per ottenere la lista delle direttive;
+\item \file{rule.getList}: utilizza il metodo privato \file{getRuleList} per ottenere la lista delle direttive;
 
-\item \file{rule.update}: utilizza il metodo privato \file{updateRule(rule: Rule)} per aggiornare una direttiva;
+\item \file{rule.update}: utilizza il metodo privato \file{updateRule} per aggiornare una direttiva;
 
-\item \file{rule.remove}: utilizza il metodo privato \file{removeRule(id: String)} per rimuovere una direttiva.
+\item \file{rule.remove}: utilizza il metodo privato \file{removeRule} per rimuovere una direttiva.
 
 
 \end{itemize}
