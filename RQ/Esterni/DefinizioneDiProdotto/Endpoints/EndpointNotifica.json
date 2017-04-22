@@ -1,0 +1,179 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Endpoints interni AtAvi - Notifiche",
+		"description": "Endpoint interno per le notifiche"
+	},
+	"host": "zero12.it",
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+    "/":{
+      "get":{
+        "description": "Get lista destinatari delle notifiche",
+        "tags": [
+					"notifiche"
+				],
+        "responses" :{
+          "200":{
+            "description": "ritorna la lista di tutti i possibili destinatari",
+            "schema":{
+  						"title": "ArrayOfDestinatari",
+  						"type": "array",
+  						"items": {
+  							"$ref": "#/definitions/User"
+  						}
+            }
+          },
+          "400": {
+						"description": "Destinatari not found",
+					},
+          "404": {
+            "description": "Destinatari not found",
+          },
+          "500": {
+            "description": "Unexpected error",
+          },
+        },
+      },
+      "post":{
+        "description": "notifica una determinata persona, in ingresso direttive, mittente, destinatario, messaggio da inviare",
+        "parameters":[
+        {
+          "name": "Direttive da inviare",
+						"in": "body",
+						"description": "array dele direttive da inviare",
+						"required": true,
+						"schema": {
+							"type": "array",
+              "items":{
+                "$ref": "#/definitions/direttiva"
+              }
+            }
+        },
+        {
+          "name": "Mittente",
+          "in": "body",
+          "description": "utente che invia il messaggio",
+          "required": true,
+          "schema":{
+            "$ref": "#/definitions/User"
+          }
+        },
+        {
+          "name": "Destinatario",
+          "in": "body",
+          "description": "utente che riceve il messaggio",
+          "required": true,
+          "schema":{
+            "$ref": "#/definitions/User"
+          }
+        },
+        {
+          "name": "messaggio",
+          "in": "body",
+          "description": "contiene il messaggio da inviare",
+          "required": true,
+          "type": "string"
+        }
+      ],
+
+        "tags": [
+					"notifiche"
+				],
+
+        "responses":{
+          "200": {
+					"description": "messaggio inviato con successo",
+					"schema": {
+						"title": "rispostaMessaggioInviato",
+						"type": "string"
+					}
+        },
+
+        "400": {
+          "description": "Cannot find user",
+        },
+        "404": {
+          "description": "Cannot find user",
+        },
+        "500": {
+          "description": "Unexpected error",
+        }
+      }
+    }
+  }
+  },
+  "definitions": {
+  		"User": {
+  			"type": "object",
+  			"properties": {
+  				"username": {
+  					"type": "string"
+  				},
+  				"name": {
+  					"type": "string"
+  				},
+  				"surname": {
+  					"type": "string"
+  				},
+  				"id": {
+  					"type": "string"
+  				},
+  				"altro": {
+  					"type": "string"
+  				}
+  			}
+  		},
+      "Error": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"message": {
+					"type": "string"
+				},
+				"fields": {
+					"type": "string"
+				}
+			}
+		},
+		"webhook": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"direttiva": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				}
+			}
+		},
+		"funzione": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"descrizione": {
+					"type": "string"
+				}
+			}
+		}
+}
+}

@@ -1,0 +1,136 @@
+\section{Diagrammi riassuntivi dei package}
+Di seguito sono riportati tutti i package dell’applicativo per chiarire la relazione tra le componenti e le classi al suo interno. Per chiarezza ed esigenza di spazio le classi rappresentate all’interno dei package sono rappresentate senza metodi e attributi.
+
+
+\subsection{Back-end}
+\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
+\caption{Package Back-end}
+\end{figure}
+\newpage
+
+\subsection{Back-end::APIGateway}
+Package contenente le classi necessarie a gestire: \begin{itemize} \item diversi tipi di dispositivi client; \item l'interazione tra \file{Client} e \file{Back-end}; \item la combinazione tra i servizi supportati dal \file{Back-end}. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/APIGateway.png}
+\caption{Package Back-end::APIGateway}
+\end{figure}
+\newpage
+
+
+
+\subsection{Back-end::Conversations}
+Package contenente le classi relative alle Conversations del \gl{sistema}.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Conversations.png}
+\caption{Package Back-end::Conversations}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Events}
+Package contenente le classi relative alla pubblicazione di eventi all'interno del sistema.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Events.png}
+\caption{Package Back-end::Events}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Guests}
+Package contenente le classi relative ai Guests del sistema
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Guest.png}
+\caption{Package Back-end::Guests}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Members}
+Package contenente le classi relative ai membri del sistema
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Member.png}
+\caption{Package Back-end::Members}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Notifications}
+Package contenente le classi e le interfacce che realizzano il \gl{microservizio} relativo alla gestione delle notifiche da inviare alla persona desiderata su una certa piattaforma di messaggistica.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Notifications.png}
+\caption{Package Back-end::Notifications}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Rules}
+Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle \gl{direttive} per l'assistente virtuale.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item l'aggiunta di una nuova \gl{direttiva}; \item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire; \item la gestione delle direttive esistenti; \item la gestione dei compiti esistenti. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Rules.png}
+\caption{Package Back-end::Rules}
+\end{figure}
+\newpage
+
+\subsection{Back-end::STT}
+Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/STT.png}
+\caption{Package Back-end::STT}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Users}
+Package contenente le classi e le interfacce che realizzano il microservizio di autenticazione e registrazione di un amministratore nel sistema.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item la registrazione di un nuovo amministratore; \item l'autenticazione di un amministratore; \item gestione degli amministratori esistenti. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Users.png}
+\caption{Package Back-end::Users}
+\end{figure}
+\newpage
+
+\subsection{Back-end::Utility}
+Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del back-end
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Utility.png}
+\caption{Package Back-end::Utility}
+\end{figure}
+\newpage
+
+\subsection{Back-end::VirtualAssistant}
+Package contenente le classi e le interfacce che realizzano il microservizio di assistente virtuale .\\ Vengono offerte funzionalità che permettono di: \begin{itemize} \item interrogare l'assistemte virtuale. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/VirtualAssistant.png}
+\caption{Package Back-end::VirtualAssistant}
+\end{figure}
+\newpage
+
+\subsection{Client}
+Package che racchiude tutte le componenti del client. Il pattern utilizzato per organizzare le componenti è quello di un'architettura \gl{event-driven}.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Client.png}
+\caption{Package Client}
+\end{figure}
+\newpage
+
+
+\subsection{Client::ApplicationManager}
+Package contenente le classi che si occupano della gestione delle applicazioni con le quali l'utente può interagire.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item la reazione a dei dati di risposta arrivati dal \file{Back-end}; \item la definizione di ciò che va a comporre una applicazione; \item il salvataggio dello stato di un'applicazione; \item il cambio di un'applicazione con un'altra. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ApplicationManager.png}
+\caption{Package Client::ApplicationManager}
+\end{figure}
+\newpage
+
+
+\subsection{Client::Logic}
+Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item la reazione a dei dati arrivati come richiesta dal registratore vocale; \item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Logic.png}
+\caption{Package Client::Logic}
+\end{figure}
+\newpage
+
+
+\subsection{Client::Recorder}
+Package contenente le classi che realizzano la registrazione audio.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item la registrazione audio delle richieste espresse dall'utente; \item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Recorder.png}
+\caption{Package Client::Recorder}
+\end{figure}
+\newpage
+
+
+\subsection{Client::TTS}
+Package contenente le componenti che realizzano il \gl{text to speech}. Vengono offerte funzionalità che permettono: \begin{itemize} \item la reazione a dei dati arrivati come riposta dal \file{Back-end}; \item la riproduzione audio del testo fornito come risposta dall'assistente virtuale. \end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/TTS.png}
+\caption{Package Client::TTS}
+\end{figure}
+\newpage
+
+
+\subsection{Client::Utility}
+Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del client.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Utility.png}
+\caption{Package Client::Utility}
+\end{figure}
+\newpage

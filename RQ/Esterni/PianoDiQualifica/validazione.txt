@@ -1,0 +1,176 @@
+RFO1.1:
+L'utente deve verificare che il sistema riesca a riconoscerlo come ospite o amministratore. All'utente viene richiesto di:
+\begin{itemize}
+\item fornire nome e cognome;
+\item comunicare l'azienda di provenienza;
+\item verificare che i dati comunicati siano stati capiti dall'assistente virtuale.
+\end{itemize}
+
+RFO1.1.2:
+L'utente deve verificare che il sistema ne permetta l'accesso all'area amministrattiva, tramite l'assistente virtuale, avendo le credenziali. All'utente viene richiesto di:
+\begin{itemize}
+\item comunicare i propri dati identificativi;
+\item verificare che il sistema riconosca l'utente come un possibile amministratore non autenticato;
+\item comunicare l'intento di volersi autenticare come amministratore;
+\item comunicare la frase per lo Speaker Recognition;
+\item verificare l'accesso all'area amministrativa.
+\end{itemize}
+
+RFO2.1:
+L'utente deve verificare che il sistema permetta la creazione di una nuova direttiva. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler creare una nuova direttiva;
+\item inserire la funzione della direttiva;
+\item inserire il nome della direttiva;
+\item inserire il target della direttiva;
+\item confermare la creazione della direttiva;
+\item verificare che la direttiva sia stata creata correttamente.
+\end{itemize}
+
+RFO2.1.1.6:
+L'utente deve verificare che, durante la creazione di una direttiva, l'inserimento di dati non validi (funzione o target della direttiva inesistenti) comporti la visualizzazione di un messaggio d'errore. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler creare una nuova direttiva;
+\item inserire una funzione per la direttiva che non sia valida (inesistente);
+\item inserire il nome della direttiva;
+\item inserire un target per la direwttiva che non sia valido (inesistente);
+\item verificare la comparsa di un messaggio d'errore.
+\end{itemize}
+
+RFO2.1.2:
+L'utente deve verificare che il sistema permetta l'eliminazione di una direttiva. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler eliminare una direttiva;
+\item comunicare il nome della direttiva da eliminare;
+\item confermare l'eliminazione della direttiva;
+\item verificare che la direttiva sia stata eliminata correttamente.
+\end{itemize}
+
+RFD2.1.3:
+L'utente deve verificare che il sistema permetta la modifica di una direttiva. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler modificare una direttiva di cui ha i privilegi;
+\item modificare nome, target, funzione o abilitazione della direttiva;
+\item confermare le modifiche;
+\item verificare che le modifiche siano state effettuate correttamente.
+\ned{itemize}
+
+RFO2.1.4:
+L'utente deve verificare che il sistema permetta la visualizzazione di una direttiva. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler visualizzare una direttiva;
+\item verificare che il sistema permetta la visualizzazione di nome, funzione, target,funzionalità e abilitazione della direttiva.
+\end{itemize}
+
+RFO 2.2:
+L'utente deve verificare che il sistema permetta la modifica dei dati del proprio profilo. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler modificare il proprio profilo;
+\item comunicare nome e cognome;
+\item confermare la modifica;
+\item verificare che la modifica sia stata effettuata;
+\end{itemize}
+
+RFO2.2.4:
+L'utente deve verificare che in caso di inserimento di dati nulli o non validi (username non esistente) durante la modifica del proprio profilo il sistema visualizzi un messaggio d'errore. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore;
+\item comunicare l'intento di voler modificare il proprio profilo;
+\item comunicare un username non esistente;
+\item verificare la comparsa di un messaggio d'errore.
+\end{itemize}
+
+RFO3.1:
+L'utente deve verificare che sia possibile comunicare al sistema la persona che si desidera incontrare. All'utente viene richiesto di:
+\begin{itemize}
+\item aver comunicato i propri dati al sistema ed essere riconosciuti come ospiti;
+\item comunicare la persona che si desidera raggiungere;
+\item verificare che il sistema abbia capito le informazioni comunicate;
+\end{itemize}
+
+RFD3.2:
+L'utente deve verificare che sia possibile comunicare particolari necessità per l'incontro al sistema. All'utente viene richiesto di:
+\begin{itemize}
+\item aver comunicato i propri dati al sistema ed essere riconosciuti come ospiti;
+\item richiedere un caffè;
+\item chiedere informazioni riguardanti una particolare stanza;
+\item chiedere le indicazioni necessarie a raggiungere una particolare stanza;
+\item verificare che il sistema visualizzi un errore nel caso richieda informazioni su una stanza inesistente;
+\item richiedere particolare materiale per l'incontro;
+\item verificare che il sistema abbia capito tutte le richieste effettuate;
+\end{itemize}
+
+RFD3.3
+L'utente deve verificare che il sistema offra intrattenimento. All'utente viene richiesto di:
+\begin{itemize}
+\item aver comunicato i propri dati al sistema ed essere riconosciuti come ospiti;
+\item comunicare l'intento di voler essere intrattenuti;
+\item richiedere varie curiosità al sistema;
+\item verificare che il sistema risponda correttamente alle richieste;
+\end{itemize}
+
+RFO5:
+L'utente deve verificare che, nel caso in cui il sistema nel caso non riesca ad interpretare la risposta, chieda nuovamente l'informazione all'utente. All'utente viene richiesto di:
+\begin{itemize}
+\item comunicare al sistema qualcosa che non può essere interpretato da esso;
+\item verificare che il sistema richieda nuovamente l'informazione.
+\end{itemize}
+
+RFO7:
+L'utente deve verificare che, nel caso in cui esso sia già stato un ospite in passato, il sistema lo riconosca. All'utente viene richiesto di:
+\begin{itemize}
+\item aver comunicato i propri dati al sistema ed essere riconosciuti come ospiti;
+\item verificare che il sistema riconosca l'utente come qualcuno che è già stato un ospite in passato.
+\end{itemize}
+
+RFD9.1:
+L'utente deve verificare che il sistema permetta ad un super amministratore la creazione di un amministratore. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore ed essere riconosciuti dal sistema come super amministratore;
+\item comunicare l'intento di voler creare un amministratore;
+\item inserire nome, cognome e username dell'amministratore;
+\item confermare i dati inseriti;
+\item verificare che l'amministratore sia stato creato correttamente.
+\end{itemize}
+
+RFD9.1.1.4:
+L'utente deve verificare che il sistema visualizzi un messaggio d'errore se durante la creazione dell'amministratore venga inserito un username già esistente. All'utente viene richiesto di:
+\begin{itemize}
+\item \item autenticarsi come amministratore ed essere riconosciuti dal sistema come super amministratore;
+\item comunicare l'intento di voler creare un amministratore;
+\item inserire nome e cognome e un username già esistente per l'amministratore;
+\item verificare la comparsa di un messaggio d'errore.
+\end{itemize}
+
+RFD9.1.3:
+L'utente deve verificare che il sistema permetta ad un super amministratore l'eliminazione di un amministratore. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore ed essere riconosciuti dal sistema come super amministratore;
+\item comunicare l'intento di voler eliminare un amministratore;
+\item comunicare l'username dell'amministratore da eliminare;
+\item confermare l'eliminazione;
+\item verificare che l'eliminazione sia avvenuta correttamente;
+\end{itemize}
+
+RFD9.1.3.2:
+L'utente deve verificare che il sistema visualizzi un messaggio d'errore se durante l'eliminazione dell'amministratore venga inserito un username non esistente. All'utente viene richiesto di:
+\begin{itemize}
+\item \item autenticarsi come amministratore ed essere riconosciuti dal sistema come super amministratore;
+\item comunicare l'intento di voler eliminare un amministratore;
+\item comunicare un username non esistente;
+\item verificare la comparsa di un messaggio d'errore.
+\end{itemize}
+
+RFD9.2:
+L'utente deve verificare che il sistema permetta ad un super amministratore l'accesso ai file log. All'utente viene richiesto di:
+\begin{itemize}
+\item autenticarsi come amministratore ed essere riconosciuti dal sistema come super amministratore;
+\item comunicare l'intento di voler accedere ai file log;
+\item verificare che il sistema permetta l'accesso ai file log.
+\end{itemize}
