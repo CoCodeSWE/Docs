@@ -1,0 +1,190 @@
+\documentclass[PdQ.tex]{subfiles}
+
+\begin{document}
+
+\section{Qualità di prodotto}
+	È prevista la realizzazione di due tipologie di prodotto: documenti e \gl{software}. Per ciascuno di essi sono stati individuati
+	degli obiettivi di qualità e i rispettivi intervalli di accettabilità e ottimalità. \\
+	Per quantificare gli obiettivi di qualità vengono utilizzate delle metriche, descritte nel documento \NPdocRP{}. \\
+	Viene assegnato un codice identificativo ad ogni obiettivo al fine di semplificarne il tracciamento. Il metodo di denominazione
+	è descritto nel documento \NPdocRP{}.
+	
+	\subsection{Documenti}
+		I documenti prodotti dal gruppo \GRUPPO{} si dividono in interni ed esterni. I primi definiscono le strategie, gli strumenti e il metodo di lavoro (ways of working)
+		del gruppo affinchè i membri realizzino prodotti simili tra loro secondo delle regole definite. I secondi definiscono tutto ciò che riguarda il software prodotto,
+		partendo dalla progettazione fino a giungere all'analisi dei requisiti e la definizione di prodotto. \\
+		Poichè i documenti interni devono essere letti e compresi da tutti i membri del gruppo e quelli esterni devono essere comprensibili affinchè \gl{proponente} e committente
+		siano informati correttamente, il gruppo ha deciso di perseguire le strategie e gli obiettivi di qualità definiti di seguito.
+	
+		\subsubsection{Strategie}
+		Tutti i documenti prodotti devono avere le seguenti caratteristiche:
+		\begin{itemize}
+			\item devono essere comprensibili da utenti con almeno la licenza superiore;
+			\item i termini con significato ambiguo o poco chiaro dovranno essere inseriti nel \Gldoc{};
+			\item saranno sempre aggiornati e allineati allo stato attuale del processo di sviluppo;
+			\item dovranno essere dotati di numero di versione e diario delle modifiche.
+		\end{itemize}
+		
+		\subsubsection{Obiettivi di qualità - OPDD1}
+			\paragraph{Leggibilità e comprensibilità}
+			Indica il livello di leggibilità e comprensibilità del documento. Maggiore è il valore dell'indice maggiore sarà la leggibilità del documento.
+			\begin{itemize}
+				\item \textbf{Metrica utilizzata}: indice Gulpease (MPDD1);
+				\item \textbf{Soglia di accettabilità}: 40 - 100;
+				\item \textbf{Soglia di ottimalità}: 60 - 100.
+			\end{itemize}
+					
+	\subsection{Software}
+		Sono state individuate dallo standard ISO/IEC 9126:2001 le principali caratteristiche che il software deve soddisfare.
+		Sulla base di esse sono state definiti gli obiettivi di qualità e i relativi intervalli.
+		
+		\subsubsection{Functionality}
+		È la capacità del prodotto software di fornire le funzionalità definite nei requisiti individuati nel documento \ARdocRP{}.
+		
+			\paragraph{Strategie}
+			Il software deve soddisfare le seguenti caratteristiche:
+			\begin{itemize}
+				\item \textbf{Suitability}: fornire un appropriato insieme di funzionalità in base alle richieste dell'utente;
+				\item \textbf{Accuracy}: fornire i corretti risultati con un adeguato grado di precisione;
+				\item \textbf{Security}: proteggere le informazioni e i dati affinchè solo gli utenti autorizzati possano modificarli e/o leggerli.
+			\end{itemize}
+			
+			\paragraph{Obiettivi di qualità}
+				\subparagraph{Implementazione funzionale - OPDS1}
+				Indica quanti requisiti funzionali sono stati implementati.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: completezza dell'implementazione funzionale (MPDS1);
+					\item \textbf{Soglia di accettabilità}: 100\%;
+					\item \textbf{Soglia di ottimalità}: 100\%.
+				\end{itemize}
+				
+				\subparagraph{Accuratezza rispetto alle attese - OPDS2}
+				Indica quanti risultati sono concordi alle attese.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale risultati concordi alle attese (MPDS2);
+					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
+					\item \textbf{Soglia di ottimalità}: 100\%.
+				\end{itemize}
+				
+				\subparagraph{Controllo degli accessi - OPDS3}
+				Indica quante operazioni illegali non sono state bloccate. Valori grandi indicano un \gl{sistema} poco sicuro e facilmenete violabile.
+				Valori bassi sono d'obbligo per poter garantire la sicurezza dei dati.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale operazioni illegali non bloccate (MPDS3);
+					\item \textbf{Soglia di accettabilità}: 0\% - 10\%;
+					\item \textbf{Soglia di ottimalità}: 0\%.
+				\end{itemize}
+		
+		\subsubsection{Reliability}
+		È la capacità del prodotto software di svolgere correttamente le sue funzioni in qualunque situazione, anche in caso di situazioni anomale.
+		
+			\paragraph{Strategie}
+			Il software deve soddisfare le seguenti caratteristiche:
+			\begin{itemize}
+				\item \textbf{Maturity}: evitare che si verifichino malfunzionamenti, operazioni illegali e risultati errati in seguito ad errori;
+				\item \textbf{Fault tolerance}: mantenere un certo livello di performance nonostante siano presenti errori e guasti o come conseguenza di un uso scorretto dell'applicativo.
+			\end{itemize}
+			
+			\paragraph{Obiettivi di qualità}
+				\subparagraph{Densità di failure - OPDS4}
+				Indica quante operazioni di testing sono concluse in failure.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale failure su test (MPDS4);
+					\item \textbf{Soglia di accettabilità}: 0\% - 10\%;
+					\item \textbf{Soglia di ottimalità}: 0\%.
+				\end{itemize}
+				
+				\subparagraph{Blocco di operazioni non corrette - OPDS5}
+				Indica quante funzionalità sono in grado di gestire correttamente gli errori che potrebbero verificarsi. Un valore alto è sinonimo di robustezza.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: numero di failure evitati (MPDS5);
+					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
+					\item \textbf{Soglia di ottimalità}: 100\%;
+				\end{itemize}
+		
+		\subsubsection{Usability}
+		È la capacità del prodotto software di essere capito, compreso e usato dall'utente.
+		
+			\paragraph{Strategie}
+			Il software deve soddisfare le seguenti caratteristiche:
+			\begin{itemize}
+				\item \textbf{Understandability}: permettere all'utente di capire il grado di conformità del software e il suo dominio applicativo;
+				\item \textbf{Learnability}: permettere all'utente di capire come utilizzarlo;
+				\item \textbf{Operability}: permettere all'utente di utilizzarlo e controllarlo;
+				\item \textbf{Attractiveness}: essere piacevole all'utente che lo utilizza.
+			\end{itemize}
+			
+			\paragraph{Obiettivi di qualità}
+			
+				\subparagraph{Comprensibilità delle funzioni offerte - OPDS6}
+				Indica quante funzionalità sono state comprese immediatamente dall'utente senza la consultazione del manuale. L'assistente virtuale dovrebbe essere
+				il più user friendly possibile. Infatti, l'interazione dell'utente dovrebbe essere il più fluida possibile senza dover consultare il manuale
+				ad ogni operazione da eseguire.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale delle funzionalità comprese (MPDS6);
+					\item \textbf{Soglia di accettabilità}: 85\% - 100\%;
+					\item \textbf{Soglia di ottimalità}: 95\% - 100\%.
+				\end{itemize}
+			
+				\subparagraph{Consistenza operazionale in uso - OPDS7}
+				Indica quante funzionalità rispettano le aspettative dell'utente.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale di funzionalità conformi alle aspettative (MPDS7);
+					\item \textbf{Soglia di accettabilità}: 80\% - 100\%;
+					\item \textbf{Soglia di ottimalità}: 90\% - 100\%.
+				\end{itemize}
+		
+		\subsubsection{Efficiency}
+		È la capacità del prodotto software di fornire le proprie funzioni in modo appropriato, in relazione alla quantità di risorse utilizzate.
+		
+			\paragraph{Strategie}
+			Il software deve soddisfare le seguenti caratteristiche:
+			\begin{itemize}
+				\item \textbf{Time behaviour}: svolgere le proprie funzioni in tempi adeguati;
+				\item \textbf{Resource utilisation}: eseguire le proprie funzioni utilizzando un'appropriata quantità di risorse.			
+			\end{itemize}
+			
+			\paragraph{Obiettivi di qualità}
+			
+				\subparagraph{Tempo di risposta - OPDS8}
+				Indica il periodo temporale medio trascorso tra la richiesta al software di una determinata funzionalità e la risposta all'utente.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: tempo medio di risposta (MPDS8);
+					\item \textbf{Soglia di accettabilità}: 0 - 20 secondi;
+					\item \textbf{Soglia di ottimalità}: 0 - 7 secondi;
+				\end{itemize}
+		
+		\subsubsection{Maintainability}
+		È la capacità del prodotto software di essere modificato, ovvero corretto, migliorato o adattato in base a cambiamenti negli ambienti, nei requisiti o
+		nelle specifiche funzionali.
+		
+			\paragraph{Strategie}
+			Il software deve soddisfare le seguenti caratteristiche:
+			\begin{itemize}
+				\item \textbf{Analysability}: poter essere analizzato per poter individuare cause di errori e/o parti da modificare;
+				\item \textbf{Changeability}: permettere cambiamenti in alcune sue parti;
+				\item \textbf{Stability}: evitare comportamenti indesiderati in seguito a modifiche;
+				\item \textbf{Testability}: permettere l'esecuzione di test per validare le modifiche effettuate.
+			\end{itemize}
+			
+			\paragraph{Obiettivi di qualità}
+			
+				\subparagraph{Capacità analisi di failure - OPDS9}
+				Indica il numero di failure di cui sono state individuate le cause.  Maggiore è il valore più facile sarà individuare gli errori nel software 
+				e determinare delle soluzioni per correggerli.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale di failure con cause individuate (MPDS9)
+					\item \textbf{Soglia di accettabilità}: 65\% - 100\%;
+					\item \textbf{Soglia di ottimalità}: 85\% - 100\%;
+				\end{itemize}
+				
+				\subparagraph{Impatto delle modifiche - OPDS10}
+				Indica il numero di modifiche effettuate in risposta alle failure che ne hanno introdotte di nuove. Valori alti indicano l'individuazione di
+				soluzioni scandenti per la risoluzione delle failure.
+				\begin{itemize}
+					\item \textbf{Metrica utilizzata}: percentuale di failure introdotte con modifiche (MPDS10);
+					\item \textbf{Soglia di accettabilità}: 0\% - 20\%;
+					\item \textbf{Soglia di ottimalità}: 0\% - 10\%.
+				\end{itemize}
+				
+\end{document}
