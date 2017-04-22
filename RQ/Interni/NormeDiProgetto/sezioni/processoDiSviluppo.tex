@@ -32,10 +32,10 @@ requisiti si utilizza la tecnica dei casi d'uso. Il tracciamento dei requisiti a
  Il \RESP{} di progetto deve organizzare delle riunioni preventive, per permettere lo scambio
 di opinioni tra i membri del gruppo sui capitolati proposti. Il documento prodotto da queste
 riunioni è lo \SFdoc , il quale viene realizzato dagli \ANP{}. Essi devono
-descrivere i seguenti punti: 
+descrivere i seguenti punti:
 \begin{itemize}
  \item \textbf{Dominio tecnologico e applicativo}: si dà una valutazione prendendo in   considerazione
- la conoscenza attuale delle tecnologie richieste dal capitolato in analisi da parte dei membri  
+ la conoscenza attuale delle tecnologie richieste dal capitolato in analisi da parte dei membri
 del gruppo;
  \item \textbf{Interesse strategico}: si valuta l'interesse strategico del gruppo di progetto in relazione
 al capitolato in analisi;
@@ -93,14 +93,23 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  \end{itemize}
  \paragraph{UML}
  Viene utilizzata la versione corrente alla stesura del documento, ovvero la 2.5.
- \subsubsection{Progettazione}
+ \subsubsection{Progettazione}\label{progettazione}
  \paragraph{Scopo dell'attività}
  L'attività di progettazione definisce le linee essenziali della struttura del prodotto \gl{software} in
  funzione dei requisiti individuati dall'analisi. L'obiettivo del processo consiste nella stesura dei
  documenti: \textit{"Specifica Tecnica"} e \textit{"Definizione di \gl{Prodotto}"}. \\
  Compresi pienamente quali siano i requisiti del problema e approfondendo la progettazione a moduli
  abbastanza semplici da essere capiti da una sola persona, si otterranno le
- istruzioni necessarie ai \PRP{} per sviluppare il prodotto.
+ istruzioni necessarie ai \PRP{} per sviluppare il prodotto.\\
+ La progettazione deve utilizzare le seguenti tipologie di diagrammi UML:
+ \begin{itemize}
+ 	\item \textbf{Diagrammi delle classi}: illustrano una collezione di elementi dichiarativi di un modello	come classi e tipi, assieme ai loro contenuti e alle loro relazioni;
+ 	\item \textbf{Diagrammi dei packages}: raggruppamenti di classi in una unità di livello più alto;
+ 	\item \textbf{Diagrammi di attività}: illustrano il flusso di operazioni relativo ad un’attività; utilizzati	soprattutto per descrivere la logica di un algoritmo. Nel contesto del progetto \PROGETTO, questo tipo di diagramma potrebbe rappresentare bene il flusso del dialogo con l'assistente virtuale;
+ 	\item \textbf{Diagrammi di sequenza}: descrivono una determinata sequenza di azioni dove tutte le
+ 	scelte sono già state effettuate; in pratica nel diagramma non compaiono scelte, né flussi
+ 	alternativi.
+ \end{itemize}
  \paragraph{Aspettative dell'attività}
  Il processo porta alla formazione dei documenti sopracitati, i quali garantiscono affidabilità e
  coerenza.
@@ -116,7 +125,7 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	definizioni delle classi definendo inoltre i test necessari alla verifica.
  \end{itemize}
  \paragraph{Specifica tecnica}
- \begin{itemize} 
+ \begin{itemize}
  	\item \textbf{Diagrammi UML}:
  	\begin{itemize}
  		\item diagrammi delle classi;
@@ -127,8 +136,12 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\item \textbf{\gl{Design pattern}}: devono essere descritti i \gl{design pattern} utilizzati per realizzare l'architettura. Ogni design
  	pattern deve essere accompagnato da una descrizione ed un diagramma, che ne esponga il
  	significato e la struttura;
- 	\item \textbf{Test di integrazione}: devono essere definite delle classi di verifica, utili a verificare che ogni componente del
- 	sistema funzioni nella maniera appropriata.
+ 	\item \textbf{Tracciamento delle componenti}: ogni componente dovrà essere tracciato ed associato
+ 	ad almeno un requisito. In tal modo sarà possibile avere la certezza che tutti i requisiti
+ 	accettati siano soddisfatti e che ogni componente presente nell’architettura soddisfi almeno
+ 	un requisito. Tale tracciamento dovrà essere effettuato tramite PragmaDB, che si occupa
+ 	di generare in modo automatico le relative tabelle;
+ 	\item \textbf{Test di integrazione}: i \PJP{} devono definire delle strategie di verifica per poter dimostrare la corretta integrazione tra le varie componenti definite. Questi test dovranno poi essere inseriti nel \doc{Piano di Qualifica}.
  \end{itemize}
  \paragraph{Definizione di prodotto}
  \begin{itemize}
@@ -139,54 +152,72 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  		\item diagrammi di sequenza.
  	\end{itemize}
  	\item \textbf{Definizioni delle classi}: ogni classe progettata deve essere descritta in modo da spiegarne lo scopo e definirne le
- 	funzionalità ad essa associate.
- 	\item \textbf{Tracciamento delle classi}: ogni requisito deve essere tracciato, in modo da poter risalire alle classi ad esso associate. 
- 	\item \textbf{Test di unità}: devono essere definiti dei test di unità utili a verificare che le componenti del sistema funzionino nel modo previsto.
+ 	funzionalità ad essa associate. Per ogni classe dovranno essere anche definiti i vari metodi e attributi che la caratterizzano;
+ 	\item \textbf{Tracciamento delle classi}: ogni classe deve essere tracciata ed associata ad almeno un requisito, in questo modo è possibile avere la certezza che tutti i requisiti accettati siano	soddisfatti e che ogni classe presente nell’architettura soddisfi almeno un requisito. Questo 	tracciamento dev’essere effettuato tramite PragmaDB, che si occupa di generare in modo automatico le tabelle di tracciamento;
+ 	\item \textbf{Test di unità}: i \PJP{} devono definire le strategie di verifica delle varie classi in modo che durante l’attività di codifica sia possibile verificare che la classe si comporti in modo corretto. Questi test dovranno poi essere inseriti nel \doc{Piano di Qualifica}.
  \end{itemize}
- 
+ \paragraph{Stile di progettazione}
+ Con lo scopo di aumentare la manutenibilità del sistema, i progettisti devono seguire
+ le seguenti regole:
+ \begin{itemize}
+ 	\item la progettazione deve essere corretta rispetto lo standard UML versione 2.5;
+ 	\item l’architettura non deve presentare problemi di progettazione che possano compromettere la qualità del sistema;
+ 	\item ogni libreria esterna deve essere rappresentata come un package di colore arancione, differente quindi dalle componenti interne progettate;
+ 	\item gli attributi di una classe possono essere pubblici solo se essa non definisce nè un costruttore nè alcun metodo per impostarne i valori;
+ 	\item i metodi di una classe possono essere privati solo se sono di supporto ad uno o più metodi pubblici. Un metodo privato può comunque essere di supporto ad un altro metodo privato;
+ 	\item i nomi dei package e delle classi devono essere autoesplicativi e in lingua inglese;
+ 	\item qualora ci si riferisca ad un attributo, metodo, classe o componente, il suo nome deve essere contenuto all'interno del comando \file{\textbackslash file\{\}}. Inoltre, il nome dovrà essere preceduto dal suo scoping nel caso l'oggetto sia di una classe o componente esterne rispetto a quella soggetta.
+ \end{itemize}
+ \subparagraph{Modularizzazione delle componenti}
+ I \PJP{} dovranno definire e adottare delle tecniche di modularizzazione affinchè l’architettura software progettata sia di elevata qualità, permettendo così la scomposizione del sistema in moduli. Inoltre, è necessario fornire una descrizione precisa della struttura modulare e delle relazioni che esistono tra i singoli moduli.
  
  \subsubsection{Codifica}
  \paragraph{Scopo dell'attività}
- Lo scopo dell'attività è l'implementazione del prodotto, concretizzando la soluzione tramite la codifica.  
+ Lo scopo dell'attività è l'implementazione del prodotto, concretizzando la soluzione tramite la codifica.
  \paragraph{Aspettative dell'attività}
- L'aspettativa dell'attività è un prodotto corretto, ovvero stabile, affidabile, funzionale e che soddisfi i requisiti. 
+ L'aspettativa dell'attività è un prodotto corretto, ovvero stabile, affidabile, funzionale e che soddisfi i requisiti.
  \paragraph{Descrizione dell'attività}
  L'attività deve rispettare i compiti e gli strumenti espressi nel \PPdocRP.
  \paragraph{Stile}
+
  Al fine di rendere il codice più leggibile possibile, il gruppo dovrà rispettare le seguenti regole:
  \begin{itemize}
- 	\item all'inizio di ogni file dovrà essere presente un'intestazione contenete il nome dell'autore, la data di creazione, l'utilità del file e il diario delle modifiche;
- 	\item ogni modifica apportata dovrà essere descritta nell'intestazione;
+ 	\item all'inizio di ogni file contenente codice sorgente, dovrà essere presente un'intestazione contenente la versione del file, il nome di chi effettua delle modifiche, la data di quest'ultime e un riepologo di esse, in maniera tale da avere un diario delle modifiche del file. In \ref{intestazione} è presente la struttura dell'intestazione;
  	\item scrivere dei commenti in italiano qualora certe porzioni di codice possano risultare poco chiare o complesse;
  	\item evitare di commentare porzioni di codice dal funzionamento banale;
- 	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di quattro spazi, come nell'esempio che segue: \begin{verbatim}
+ 	\item aggiungere commenti al codice costituito da cicli e diramazioni logiche. Si tratta di aree
+ 	di fondamentale importanza che facilitano la lettura del codice sorgente;
+ 	\item separare i commenti dai delimitatori di commento con spazi vuoti. In questo modo i
+ 	commenti saranno chiari e facili da individuare.
+ 	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di quattro spazi, come nell'esempio che segue: \begin{lstlisting}
  	if(condition)
  	{
  	    a=b;
  	    b=c;
  	}
- 	\end{verbatim}
+ 	\end{lstlisting}
  	\item le parentesi graffe che vanno a delimitare un blocco di codice dovranno trovarsi al di sotto della sua segnatura, come negli esempi che seguono:
- 	\begin{verbatim}
+ 	\begin{lstlisting}
  	while(condition)
  	{
  	    operazioni
  	}
- 	
+
  	void foo()
  	{
      	operazioni
  	}
- 	\end{verbatim}
+ 	\end{lstlisting}
  	\item evitare più di una istruzione per riga;
  	\item le costanti devono essere scritte in maiuscolo;
- 	\item i nomi delle variabili devono rispettare le seguenti regole:
+ 	\item le variabili devono rispettare le seguenti regole:
  	\begin{itemize}
  		\item avere un nome più esplicativo possibile;
  		\item se il nome è composto da più parole, esse devono essere divise da un carattere di underscore ' \textbf{\_} ';
+ 		\item essere composti da una singola lettera, come i o j, esclusivamente per gli indici a ciclo breve;
  		\item essere, se possibile, inizializzate ad un valore.
  	\end{itemize}
- 	\item i nomi dei metodi e funzioni devono rispettare le seguenti regole:
+ 	\item i metodi e funzioni devono rispettare le seguenti regole:
  	\begin{itemize}
  		\item avere un nome più esplicativo possibile;
  		\item se composto da più parole, il nome deve seguire la notazione camelCase;
@@ -196,12 +227,67 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\item evitare l'eccessivo innestarsi di statement;
  	\item linee troppo lunghe dovranno essere spezzate in più parti.
  \end{itemize}
- Il codice che segue vuole essere un esempio delle regole appena descritte.
+In caso di codice seguente il paradigma della programmazione asincrona, devono essere seguite anche le seguenti regole:
+\begin{itemize}
+	\item le funzioni di callback dovranno essere scritte in una solo linea esclusivamente se contengono una sola istruzione. In tal caso, dovranno essere scritte secondo la notazione a freccia (arrow function) descritta in ECMAScript 2015;\\
+	 In caso contrario, si dovranno seguire le regole precedentemente esposte;
+	 \item l'annidamento di funzioni di callback deve essere evitato e sostituito seguendo la notazione Promise descritta in ECMAScript 2015.
+\end{itemize}
+
+I seguenti esempi vogliono essere dei chiarimenti delle regole appena descritte.
+\begin{lstlisting}
+collection_one.forEach((item) => {console.log(item)});
+collection_two.forEach(function(item)
+	{
+		item=Math.random();
+		console.log(item);
+	}
+);
+\end{lstlisting}
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.35]{img/esempioStileCodifica.png}
 	\caption{Esempio di stile di codifica}
-\end{figure} 
+\end{figure}
+ \newpage
+ \paragraph{Intestazione}\label{intestazione}
+ Ogni file contenente del codice sorgente, dovrà contenere un'intestazione formata nel modo seguente:
+ \begin{lstlisting}
+ Diario
+ 
+ Versione        Programmatore         Data
+ ######################################################################
+ numero di        Nome Cognome       AAAA-MM-GG
+ versione
+ ----------------------------------------------------------------------
+                    Riepilogo della modifica
+ ----------------------------------------------------------------------
+ |                                                                    |
+ ######################################################################
+ numero di        Nome Cognome       AAAA-MM-GG
+ versione
+ ----------------------------------------------------------------------
+                    Riepilogo della modifica
+ ----------------------------------------------------------------------
+ ######################################################################
+
+ \end{lstlisting}
+ 
+ Il primo programmatore che compare nel diario delle modifiche è considerato l'autore del file. Alla creazione di un nuovo file sarà quindi necessario creare l'intestazione come segue:
+ \begin{lstlisting}
+ Diario
+ 
+ Versione      Programmatore         Data
+ ######################################################################
+ 0.0.1        Mattia Bottaro       2017-04-15
+ 
+ ----------------------------------------------------------------------
+ Creazione del file.
+ ----------------------------------------------------------------------
+ ######################################################################
+ \end{lstlisting}
+ 
+ L'ordine di inserimento di una nuova modifica nell'intestazione, dovrà essere dal basso verso l'alto. In questo modo, la modifica più recente sarà facilmente visibile all'apertura del file.
  \newpage
  \paragraph{Versionamento}
  La versione del codice viene inserita all’interno dell’intestazione del file e segue il seguente formalismo:\\
@@ -220,10 +306,10 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  \end{itemize}
  \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
- 
+
  \paragraph{Fogli di stile}
  Per la produzione di fogli di stile viene usato \textbf{Sass}, un linguaggio di scripting interpretato in CSS. In particolare vengono usati files con estensione \textit{.scss}, che consiste in un ampliamento del linguaggio CSS.
- 
+
  \subsubsection{Procedure}
  \paragraph{Inserimento di un attore in PragmaDB}
  Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
@@ -321,10 +407,10 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  		\item "Tracciamento Requisiti-Componenti";
  	\end{itemize}
  	\item aprire il file \DPfile;
- 	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{verbatim}
+ 	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{lstlisting}
  	input{nomeFile}
- 	\end{verbatim}
- 	seguendo questo ordine: 
+ 	\end{lstlisting}
+ 	seguendo questo ordine:
  	\begin{itemize}
  		\item package;
  		\item classi;
@@ -348,10 +434,10 @@ Per far ciò, è necessario seguire la seguente procedura:
 	\item selezionare la voce "Requisiti";
 	\item selezionare tutte le voci sotto "Esporta in \LaTeX";
 	\item aprire il file \ARfile;
-	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{verbatim}
+	\item in quest'ultimo file includere i file .tex generati da pragmaDB con il comando \begin{lstlisting}
 	input{nomeFile}
-	\end{verbatim}
-	seguendo questo ordine: 
+	\end{lstlisting}
+	seguendo questo ordine:
 	\begin{itemize}
 		\item useCase;
 		\item requisiti;
@@ -362,12 +448,13 @@ Per far ciò, è necessario seguire la seguente procedura:
 \end{itemize}
 
 \subsubsection{Strumenti}
- \paragraph{PragmaDB} 
-  PragmaDB è uno strumento \gl{open source} di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti e di progettazione. In particolare, una volta inseriti casi d'uso, attori, requisiti, fonti, classi e package, PragmaDB genera: 
+ \paragraph{PragmaDB}
+  PragmaDB è uno strumento \gl{open source} di tracciamento dei requisiti. Verrà quindi utilizzato per semplificare e automatizzare il più possibile l'attività di analisi dei requisiti e di progettazione. In particolare, una volta inseriti casi d'uso, attori, requisiti, fonti, classi e package, PragmaDB genera:
   \begin{itemize}
   \item il codice \LaTeX{} relativo a casi d'uso e requisiti in forma tabellare;
-  \item i diagrammi UML associati ai casi d'uso.
-  
+  \item i diagrammi UML associati ai casi d'uso;
+  \item il diagramma UML di ogni classe.
+
   \end{itemize}
   Essendo open source, questo strumento è stato adattato dal \gl{team} \GRUPPO{} in base alle proprie necessità.
   \paragraph{Astah}
@@ -378,6 +465,8 @@ Per far ciò, è necessario seguire la seguente procedura:
 \caption{Astah}\label{sec:Figura1}
 \end{figure}
 
+\paragraph{Atom ??????? IDE?????}
+
 \paragraph{api.ai}
 api.ai è lo strumento che verrà adottato per lo sviluppo dell'assistente virtuale, per gestire le interazione con gli utenti del sistema.
 \begin{figure}[h]
@@ -387,6 +476,3 @@ api.ai è lo strumento che verrà adottato per lo sviluppo dell'assistente virtu
 \end{figure}
 
 \newpage
-
-
-  

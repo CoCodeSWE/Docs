@@ -8,6 +8,43 @@
 \usepackage{Comandi}
 \usepackage{Riferimenti}
 \usepackage{Stile}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	backgroundcolor=\color{lightgray},
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
 
 \def\NOME{Norme di progetto}
 \def\VERSIONE{4.0.0}
@@ -24,6 +61,10 @@
 \maketitle
 
 \begin{diario}
+	\modifica{CHI}{\AMM}{Estesa la parte riguardante l'attività di progettazione (\ref{progettazione}). Aggiunte norme sullo stile di progettazione.}{2017-04-23}{4.0.4}
+	\modifica{CHI}{\AMM}{Aggiunte norme sull'intestazione dei file contenenti codice sorgente (\ref{intestazione}).}{2017-04-22}{4.0.3}
+	\modifica{CHI}{\AMM}{Aggiunto l'ambiente di sviluppo per la codifica negli strumenti}{2017-04-22}{4.0.2}
+	\modifica{CHI}{\AMM}{Esteso l'elenco contenente le norme per lo stile di codifica}{2017-04-22}{4.0.1}
 	\modifica{Andrea Magnan}{\RESP}{Approvazione del documento}{2017-02-28}{4.0.0}
 	\modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-02-28}{3.2.0}
 	\modifica{Mauro Carlin}{\AMM}{Sistemato errori rilevati durante la verifica}{2017-02-27}{3.1.1}
