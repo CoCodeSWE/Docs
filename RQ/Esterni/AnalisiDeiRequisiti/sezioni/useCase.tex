@@ -12,9 +12,9 @@
 \hline
 &\\
 \textbf{Attori} & Utente.\\[7pt]
-\textbf{Descrizione} & Il \gl{sistema} deve autenticare l'utente come ospite o come amministatore.\\[7pt]
+\textbf{Descrizione} & Il sistema deve autenticare l'utente come ospite o come amministratore.\\[7pt]
 \textbf{Precondizione} & Il sistema è stato avviato.\\[7pt]
-\textbf{Postcondizione} & Il sitema ha riconosciuto l'utente come ospite o amministratore.\\[7pt]
+\textbf{Postcondizione} & Il sistema ha riconosciuto l'utente come ospite o amministratore.\\[7pt]
 \textbf{Scenario principale} &L'utente ha avviato il sistema per poter accedere alle funzionalità a lui dedicate.\\[7pt]\hline
 \end{longtable}
 
@@ -40,7 +40,7 @@
 richiederà all'utente l'accesso all'area di amministrazione tramite riconoscimento vocale.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC1.1.1: Comunicazione nome e cognome}
+\subsubsection{UC1.1.1: Comunicazione nome e cognome}
 \label{UC1.1.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -155,7 +155,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore.\\[7pt]
-\textbf{Descrizione} & L'amministratore deve poter accedere alle funzionalità avanzate messe a disposizione dall'applicazione. Tali funzionalità consentono di fornire al sistema delle \gl{direttive} per modificare l'interazione con determinati ospiti.\\[7pt]
+\textbf{Descrizione} & L'amministratore deve poter accedere alle funzionalità avanzate messe a disposizione dall'applicazione. Tali funzionalità consentono di fornire al sistema delle direttive per modificare l'interazione con determinati ospiti, tramite un'interazione con l'assistente virtuale.\\[7pt]
 \textbf{Precondizione} & L'amministratore ha effettuato l'accesso all'area di amministrazione.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha usufruito delle funzionalità di amministratore fornite dal sistema.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
@@ -179,11 +179,11 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può creare nuove direttive o gestire quelle presenti nel sistema.\\[7pt]
+\textbf{Descrizione} & L'amministratore può creare nuove direttive o gestire quelle presenti nel sistema, tramite un'interazione con l'assistente virtuale.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione adibita alla gestione delle direttive.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha usufruito delle funzionalità di gestione delle direttive.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
-\item  L'amministratore può creare una nuova \gl{direttiva};
+\item  L'amministratore può creare una nuova direttiva;
 \item  L'amministratore può eliminare una direttiva di cui ha i privilegi;
 \item  L'amministratore può modificare una direttiva di cui ha i privilegi;
 \item  L'amministratore può ricercare le direttive di cui ha i privilegi secondo diversi criteri (nome, funzione, target e abilitazione).
@@ -205,7 +205,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può creare una nuova direttiva, la quale sarà salvata nel sistema.\\[7pt]
+\textbf{Descrizione} & L'amministratore può creare una nuova direttiva, tramite un'interazione con l'assistente virtuale, la quale sarà salvata nel sistema.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione dedicata alla creazione di una nuova direttiva.\\[7pt]
 \textbf{Postcondizione} & La direttiva è stata creata e salvata nel sistema.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
@@ -217,7 +217,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC2.1.1.1: Inserimento funzione direttiva}
+\subsubsection{UC2.1.1.1: Inserimento funzione direttiva}
 \label{UC2.1.1.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -378,7 +378,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può eliminare dal sistema una direttiva di cui ha i privilegi. L'eliminazione comporterà la cancellazione dei dati dal sistema.\\[7pt]
+\textbf{Descrizione} & L'amministratore può eliminare dal sistema una direttiva di cui ha i privilegi, tramite un'interazione con l'assistente virtuale. L'eliminazione comporterà la cancellazione dei dati dal sistema.\\[7pt]
 \textbf{Precondizione} & Il sistema ha richesto all'amministratore la direttiva da eliminare.\\[7pt]
 \textbf{Postcondizione} & Il sistema ha ricevuto i dati della direttiva da eliminare.\\[7pt]
 \textbf{Scenario principale} &L'amministratore comunica i dati della direttiva da eliminare.\\[7pt]\hline
@@ -414,7 +414,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può modificare una direttiva di cui ha i privilegi. \\[7pt]
+\textbf{Descrizione} & L'amministratore può modificare una direttiva di cui ha i privilegi, tramite un'interazione con l'assistente virtuale.\\[7pt]
 \textbf{Precondizione} & Il sistema ha richiesto all'amministratore di modificare una direttiva.\\[7pt]
 \textbf{Postcondizione} & Il sistema ha modificato la direttiva in base ai dati comunicati dall'amministratore.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
@@ -427,7 +427,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC2.1.3.1: Modifica nome direttiva}
+\subsubsection{UC2.1.3.1: Modifica nome direttiva}
 \label{UC2.1.3.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -466,7 +466,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC2.1.3.2.1: Inserimento nuovo target}
+\subsubsection{UC2.1.3.2.1: Inserimento nuovo target}
 \label{UC2.1.3.2.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -597,7 +597,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \textbf{Scenari alternativi} & L'amministratore non conferma di voler modificare la direttiva. L'amministratore viene rimandato alla pagina dedicata alla gestione delle direttive.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC2.1.3.7: Visualizzazione errore conferma modifica direttiva}
+\subsubsection{UC2.1.3.7: Visualizzazione errore conferma modifica direttiva}
 \label{UC2.1.3.7}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -622,7 +622,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può visualizzare tutte le direttive per le quali detiene i privilegi.\\[7pt]
+\textbf{Descrizione} & L'amministratore può visualizzare tutte le direttive per le quali detiene i privilegi, tramite un'interazione con l'assistente virtuale.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione dedicata alla visualizzazione delle direttive.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha visualizzato le direttive di cui detiene i privilegi.\\[7pt]
 \textbf{Scenario principale} &L'amministratore visualizza tutte le direttive di cui detiene i privilegi.\\[7pt]\hline
@@ -642,7 +642,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \hline
 &\\
 \textbf{Attori} & Amministratore, Assistente Virtuale.\\[7pt]
-\textbf{Descrizione} & L'amministratore può gestire le impostazioni del proprio profilo tramite le funzionalità  offerte dal sistema.\\[7pt]
+\textbf{Descrizione} & L'amministratore può gestire le impostazioni del proprio profilo, tramite un'interazione con l'assistente virtuale.\\[7pt]
 \textbf{Precondizione} & L'amministratore si trova nella sezione adibita alla gestione delle impostazioni del proprio profilo.\\[7pt]
 \textbf{Postcondizione} & L'amministratore ha usufruito delle funzionalità per gestire le impostazioni del proprio profilo.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
@@ -780,7 +780,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC3.1: Comunicazione persona desiderata}
+\subsubsection{UC3.1: Comunicazione persona desiderata}
 \label{UC3.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -889,7 +889,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Scenario principale} &Il sistema riceve il nome della stanza desiderata dall'ospite.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC3.2.3.2: Visualizzazione messaggio stanza sconosciuta}
+\subsubsection{UC3.2.3.2: Visualizzazione messaggio stanza sconosciuta}
 \label{UC3.2.3.2}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -1272,7 +1272,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \hline
 &\\
 \textbf{Attori} & Super Amministratore.\\[7pt]
-\textbf{Descrizione} & Il super amministratore può gestire gli amministratori ed accedere ai file \gl{log}.\\[7pt]
+\textbf{Descrizione} & Il super amministratore può gestire gli amministratori ed accedere ai file log.\\[7pt]
 \textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla gestione.\\[7pt]
 \textbf{Postcondizione} & Il super amministratore ha usufruito delle funzionalità di gestione.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
@@ -1333,7 +1333,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Scenari alternativi} & Il super amministratore visualizza un messaggio d'errore relativo alla conferma della creazione dell'amministratore.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC4.1.1.1: Inserimento nome e cognome amministratore}
+\subsubsection{UC4.1.1.1: Inserimento nome e cognome amministratore}
 \label{UC4.1.1.1}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -1520,7 +1520,7 @@ I dati non validi sono: username amministratore inesistente.\\[7pt]
 \textbf{Attori} & Assistente Virtuale, Super Amministratore.\\[7pt]
 \textbf{Descrizione} & Il super amministratore può accedere ai file log.\\[7pt]
 \textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla visualizzazione dei file log.\\[7pt]
-\textbf{Postcondizione} & Il super amministratore ha fatto accesso ai file log.\\[7pt]
+\textbf{Postcondizione} & Il super amministratore ha fatto accesso ai file log\\[7pt]
 \textbf{Scenario principale} &Il super amministratore accede e visualizza i file log.\\[7pt]\hline
 \end{longtable}
 
