@@ -359,17 +359,9 @@ Esempio di codice non valido:
   		//...
 	}
 \end{verbatim}
-\subparagraph{Gli indici degli array devono essere numerici}
-JavaScript permette l'utilizzo di stringhe come indici per array, ma indici numerici rendono il codice più chiaro e comprensibile.
-\subparagraph{Evitare le chiamate a variabili non chiamabili}
-In JavaScript è corretto a livello sintattico chiamare variabile come se fossero funzioni, ma ciò potrebbe comportare errori.\\
-Esempio di codice non valido:
-\begin{verbatim}
-	foo = 1;
-	foo(); 
-\end{verbatim}
-\subparagraph{If a cascata dovrebbero essere uniti}
-L'unione di una serie di if a cascata comporta maggiore comprensibilità del codice.\\
+
+\subparagraph{If annidati dovrebbero essere uniti}
+L'unione di una serie di if annidati comporta maggiore comprensibilità del codice.\\
 Esempio di codice non valido:
 \begin{verbatim}
 	if (x !== undefined) 
@@ -387,22 +379,12 @@ Esempio di codice valido:
   		// ...
 	}
 \end{verbatim}
-\subparagraph{Evitare l'assegnazione di valori a variabili che non verranno mai lette}
-Assegnare valori a variabili che non verranno mai lette comporta spreco di risorse ed è segnale di errori presenti nel codice.
 \subparagraph{Evitare statement vuoti}
 La presenza di statement vuoti è spesso conseguenza di errori; è necessaria la presenza di un commento atto a spiegare il ruolo dello statement.
-\subparagraph{Evitare l'inserimento di istruzioni dopo return e throw}
-Istruzioni come throw o return muovono il flusso di controllo, pertanto istruzioni che si trovano subito dopo questi statement non verranno mai eseguite, e di conseguenza andrebbero evitate.
 \subparagraph{Non modificare contatori di loop all'interno di un ciclo}
-La modifica di contatori di loop all'interno di un ciclo è rischiosa perchè può portare a cicli infiniti, e di conseguenza va evitata. Se si vuole far fronte a particolri situazioni all'interno di un ciclo è preferibile l'utilizzo di una variabile flag.
-\subparagraph{Blocchi di codice da più righe devono essere inclusi in \{\}}
-Se un blocco di codice occupa più righe, è necessario includerlo all'interno di \{\} per aumentarne la comprensibilità.
-\subparagraph{Variabili devono essere dichiarate prima di essere usate}
-le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping.
-\subparagraph{Variabili devono essere dichiarate in modo esplicito}
-Le variabili devono essere dichiarate esplicitamente usando le keywords var, let o const.
-\subparagraph{Le variabili che non devono essere modificate vanno marcate con const}
-Le variabili che non devono essere modificate vanno marcate con const, per evitare errori e mantenere il codice chiaro e comprensibile.
+La modifica di contatori di loop all'interno di un ciclo è rischiosa perchè può portare a cicli infiniti, e di conseguenza va evitata. Se si vuole far fronte a particolari situazioni all'interno di un ciclo è preferibile l'utilizzo di una variabile flag.
+\subparagraph{Variabili devono essere dichiarate in modo esplicito prima di essere usate}
+le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare.
  \subsubsection{Procedure}
  \paragraph{Inserimento di un attore in PragmaDB}
  Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
