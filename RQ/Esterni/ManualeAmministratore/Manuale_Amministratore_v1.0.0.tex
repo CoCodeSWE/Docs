@@ -1,0 +1,43 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+\usepackage{subfiles}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Manuale amministratore}
+\def\VERSIONE{1.0.0}
+\def\DATA{05-05-2017}
+\def\REDATTORE{TIZIO}
+\def\VERIFICATORE{CAIO}
+\def\RESPONSABILE{SEMPRONIO}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Questo documento vuole essere una guida all'utilizzo e alla configurazione del sistema \PROGETTO{} per gli amministratori del sistema.}
+
+\begin{document}
+
+\maketitle
+
+\begin{diario}
+  \modifica{TIZIO CAIO}{\AMM}{Stesa la sezione riguardante l'utilizzo del prodotto}{2017-04-28}{0.0.3}
+  \modifica{TIZIO CAIO}{\AMM}{Stesa la sezione di introduzione del documento}{2017-04-28}{0.0.2}
+  \modifica{TIZIO CAIO}{\AMM}{Inizio stesura documento}{2017-04-28}{0.0.1}
+\end{diario}
+
+\newpage
+\tableofcontents
+\listoffigures
+
+\include{sezioni/introduzione}
+\include{sezioni/installazione}
+\include{sezioni/utilizzo}
+\include{sezioni/glossario}
+
+\end{document}
