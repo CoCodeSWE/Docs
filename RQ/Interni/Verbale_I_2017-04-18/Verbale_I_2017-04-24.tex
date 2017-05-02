@@ -1,0 +1,60 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-04-18}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-04-18}
+\def\REDATTORE{Mauro Carlin}
+\def\VERIFICATORE{Pier Paolo Tricomi}
+\def\RESPONSABILE{Mauro Carlin}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
+\def\SOMMARIO{Verbale dell'incontro interno in data 2017-04-18 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+  \modifica{Mauro Carlin}{\RESP}{Approvazione del documento}{2017-04-19}{1.0.0}
+  \modifica{Pier Paolo Tricomi}{\VER}{Verifica del documento}{2017-04-19}{0.1.0}
+  \modifica{Mauro Carlin}{\RESP}{Stesura documento}{2017-04-18}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: Google Hangouts.
+  \item \textbf{Data}: 2017-04-18.
+  \item \textbf{Orario di inizio}: 17:30.
+  \item \textbf{Orario di fine}: 18:30.
+  \item \textbf{Durata}: 1h.
+  \item \textbf{Oggetto}: ripartizione codifica, test di integrazione e revisione documenti.
+  \item \textbf{Partecipanti}: Andrea Magnan, Luca Bertolini, Mattia Bottaro, Mauro Carlin, Nicola Tintorri, Pier Paolo Tricomi, Simeone Pizzi.
+  \item \textbf{Segretario}: Mauro Carlin.
+
+\end{itemize}
+\section{Riassunto della riunione}
+\label{sec:RiassuntoRiunione}
+ \subsection{Descrizione}
+La riunione è avvenuta presso Google Hangouts e sono state affrontate le seguenti tematiche: distribuzione delle unità da assegnare ai singoli programmatori, test di integrazione, assegnamento dei documenti per la loro revisione, correzione e incremento, con relative milestones.
+ \subsection{Decisioni}
+ \begin{itemize}
+  \item DI1.1 - Milestone per la codifica delle unità fissata per il 2017-04-30.
+  \item DI1.2 - Milestone per i test di integrazione fissata per il 2017-05-03.  
+  \item DI1.3 - Milestone per la revisione e incremento dei documenti fissata per il 2017-05-06.
+ \end{itemize}
+
+
+\end{document}
