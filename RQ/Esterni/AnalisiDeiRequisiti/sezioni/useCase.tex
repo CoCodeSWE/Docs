@@ -106,7 +106,37 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \\[7pt]\hline
 \end{longtable}
 
+\subsubsection{UC9.1: Comunicazione frase di riconoscimento amministratore}
+\label{UC9.1}
+\begin{longtable}{l|p{10cm}}
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{\textbf{UC9.1 - Comunicazione frase di riconoscimento amministratore}} \\
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
+\hline
+&\\
+\textbf{Attori} & Assistente Virtuale, Utente.\\[7pt]
+\textbf{Descrizione} & Il sistema può richiedere all'utente la frase necessaria per l'autenticazione come amministratore del sistema. \\[7pt]
+\textbf{Precondizione} & Il sistema ha riconosciuto l'utente come uno dei possibili amministratori del sistema.\\[7pt]
+\textbf{Postcondizione} & L'utente ha comunicato la frase necessaria per l'autenticazione come amministratore del sistema.\\[7pt]
+\textbf{Scenario principale} &L'utente comunica la frase necessaria per l'autenticazione come amministratore del sistema. \\[7pt]
+\textbf{Scenari alternativi} & Nel caso in cui la frase comunicata dall'utente non venga riconosciuta, il sistema richiederà nuovamente all'utente di pronunciarla.\\[7pt]\hline
+\end{longtable}
 
+\subsubsection{UC9.2: Comunicazione password di amministrazione}
+\label{UC9.2}
+\begin{longtable}{l|p{10cm}}
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{\textbf{UC9.2 - Comunicazione password di amministrazione}} \\
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
+\hline
+&\\
+\textbf{Attori} & Assistente Virtuale, Utente.\\[7pt]
+\textbf{Descrizione} & Il sistema offre all'utente la possibilità di autenticarsi come amministratore attraverso la sua password.\\[7pt]
+\textbf{Precondizione} & Il sistema ha riconosciuto l'utente come possibile amministratore del sistema.\\[7pt]
+\textbf{Postcondizione} & Il sistema ha autenticato l'utente come amministratore.\\[7pt]
+\textbf{Scenario principale} &L'utente ha comunicato al sistema la sua password di amministrazione.\\[7pt]
+\textbf{Scenari alternativi} & Nel caso in cui la password non sia corretta, il sistema la richiederà nuovamente.\\[7pt]\hline
+\end{longtable}
 
 \newpage\subsection{UC2: Accesso funzionalità amministratore}
 \label{UC2}
@@ -762,7 +792,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Scenario principale} &L'ospite comunica il nome della persona desiderata.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC3.2: Comunicazione necessità}
+\subsubsection{UC3.2: Comunicazione necessità}
 \label{UC3.2}
 \begin{figure}[h]
 \centering
@@ -803,7 +833,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Scenario principale} &L'ospite può comunicare di volere o meno un caffè.\\[7pt]\hline
 \end{longtable}
 
-\subsubsection{UC3.2.2: Richiesta materiale}
+\newpage\subsubsection{UC3.2.2: Richiesta materiale}
 \label{UC3.2.2}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
@@ -993,7 +1023,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Scenario principale} &L'ospite visualizza la notizia fornita dal sistema.\\[7pt]\hline
 \end{longtable}
 
-\newpage\subsubsection{UC3.3.4: Utilizzo giochi}
+\subsubsection{UC3.3.4: Utilizzo giochi}
 \label{UC3.3.4}
 \begin{figure}[h]
 \centering

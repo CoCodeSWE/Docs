@@ -1,0 +1,60 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-04-20}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-04-20}
+\def\REDATTORE{Mattia Bottaro}
+\def\VERIFICATORE{Simeone Pizzi}
+\def\RESPONSABILE{Mattia Bottaro}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
+\def\SOMMARIO{Verbale dell'incontro esterno in data 2017-04-20 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+  \modifica{Mattia Bottaro}{\RESP}{Approvazione del documento}{2017-04-22}{1.0.0}
+  \modifica{Simeone Pizzi}{\VER}{Verifica del documento}{2017-04-21}{0.1.0}
+  \modifica{Mattia Bottaro}{\RESP}{Stesura documento}{2017-04-20}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: aula Lum250, via Luzzati, Padova.
+  \item \textbf{Data}: 2017-04-20.
+  \item \textbf{Orario di inizio}: 14:30.
+  \item \textbf{Orario di fine}: 14:45.
+  \item \textbf{Durata}: 15m.
+  \item \textbf{Oggetto}: chiarimento dubbi progettazione di dettaglio.
+  \item \textbf{Partecipanti}: Mattia Bottaro, Pier Paolo Tricomi.
+  \item \textbf{Segretario}: Mattia Bottaro.
+
+\end{itemize}
+\section{Riassunto della riunione}
+\label{sec:RiassuntoRiunione}
+ \subsection{Descrizione}
+La riunione è avvenuta presso via Luzzati a Padova, in particolare nell'aula Lum250. Erano presenti tre membri dell'azienda \gl{proponente} e due componenti del gruppo \GRUPPO{}. Sono state poste diverse domande al proponente in merito alla progettazione di dettaglio.
+ \subsection{Decisioni}
+ \begin{itemize}
+  \item DE1.1 - Alla richiesta del gruppo per l'autorizzazione all'utilizzo di IBM Watson come strumento di Speech To Text, il proponente \PROPONENTE{} ha acconsentito dopo aver valutato insieme al gruppo \GRUPPO{} un possibile preventivo e averlo giudicato accettabile, dichiarando di poter stanziare fondi per l'utilizzo.  
+  \item DE1.2 - Il proponente ha richiesto solo la stesura del manuale amministratore con tutte le possibili interazioni con i vari tipi di utente (admin, super admin, ospite) per la Revisione di Qualifica, mentre il manuale utente non risulta necessario per il progetto \PROGETTO{}.
+  \item DE1.3 - Un manuale manutentore è eventualmente richiesto per la Revisione di Accettazione e non per la Revisione di Qualifica.
+ \end{itemize}
+
+
+\end{document}
