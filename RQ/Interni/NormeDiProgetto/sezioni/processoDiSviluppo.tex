@@ -124,7 +124,22 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi UML e le
  	definizioni delle classi definendo inoltre i test necessari alla verifica.
  \end{itemize}
- \paragraph{Specifica tecnica}
+ 
+ \paragraph{Requisiti per i progettisti}\label{req prog}
+ I \PJP{} sono responsabili delle attività di progettazione. Essi sono tenuti ad avere: 
+ \begin{itemize}
+ 	\item profonda conoscenza di tutto ciò che riguarda il processo di sviluppo del software;
+ 	\item capacità di saper anticipare i cambiamenti;
+ 	\item notevole inventiva per riuscire a trovare una soluzione progettuale accettabile anche in
+mancanza di una metodologia che sia sufficientemente espressiva;
+ 	\item capacità di individuare con rapidità e sicurezza le soluzioni più opportune.
+ \end{itemize}
+ 
+ \paragraph{Specifica tecnica}\label{Specifica tecnica}
+ I \PJP{} devono definire la struttura ad alto livello dell'architettura del sistema e dei singoli
+componenti, raccogliendo il tutto nella \textit{"Specifica Tecnica"}. Devono, inoltre, essere definiti i test di
+integrazione tra le varie componenti, che verranno inseriti in appendice al Piano di Qualifica.
+I prodotti di questo task saranno:
  \begin{itemize}
  	\item \textbf{Diagrammi UML}:
  	\begin{itemize}
@@ -143,7 +158,14 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	di generare in modo automatico le relative tabelle;
  	\item \textbf{Test di integrazione}: i \PJP{} devono definire delle strategie di verifica per poter dimostrare la corretta integrazione tra le varie componenti definite. Questi test dovranno poi essere inseriti nel \doc{Piano di Qualifica}.
  \end{itemize}
- \paragraph{Definizione di prodotto}
+ \paragraph{Definizione di prodotto}\label{definizione prodotto}
+ I \PJP, a partire dalla \textit{"Specifica Tecnica"}, devono produrre la \textit{"Definizione di Prodotto"} dove
+viene descritta la progettazione di dettaglio del sistema. Lo scopo di questo documento è quello di
+definire dettagliatamente ogni singola unità di cui è composto il sistema in modo da semplificare
+l'attività di codifica e allo stesso tempo di non fornire alcun grado di libertà al \PR.
+Parallelamente alla progettazione di dettaglio dei componenti software dovranno essere progettati
+i relativi test di unità che verranno descritti nel  \textit{"Piano di Qualifica"}. I prodotti di questo task
+saranno:
  \begin{itemize}
  	\item \textbf{Diagrammi UML}:
  	\begin{itemize}
@@ -189,26 +211,25 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	di fondamentale importanza che facilitano la lettura del codice sorgente;
  	\item separare i commenti dai delimitatori di commento con spazi vuoti. In questo modo i
  	commenti saranno chiari e facili da individuare.
- 	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di quattro spazi, come nell'esempio che segue: \begin{lstlisting}
+ 	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di due spazi (come suggeriscono Google, npm, Node.js, Idiomatic, Felix), come nell'esempio che segue: \begin{lstlisting}
  	if(condition)
  	{
- 	    a=b;
- 	    b=c;
+ 	  a=b;
+ 	  b=c;
  	}
  	\end{lstlisting}
  	\item le parentesi graffe che vanno a delimitare un blocco di codice dovranno trovarsi al di sotto della sua segnatura, come negli esempi che seguono:
  	\begin{lstlisting}
  	while(condition)
  	{
- 	    operazioni
+ 	  operazioni
  	}
 
  	void foo()
  	{
-     	operazioni
+      operazioni
  	}
  	\end{lstlisting}
- 	\item evitare più di una istruzione per riga;
  	\item le costanti devono essere scritte in maiuscolo;
  	\item le variabili devono rispettare le seguenti regole:
  	\begin{itemize}
@@ -221,172 +242,131 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	\begin{itemize}
  		\item avere un nome più esplicativo possibile;
  		\item se composto da più parole, il nome deve seguire la notazione camelCase;
- 		\item essere associati ad un contratto, il quale ne spiega l'utilità;
  		\item evitare un numero eccessivo di parametri.
  	\end{itemize}
- 	\item evitare l'eccessivo innestarsi di statement;
- 	\item linee troppo lunghe dovranno essere spezzate in più parti.
+ 	\item evitare l'eccessivo innestarsi di statement.
  \end{itemize}
 In caso di codice seguente il paradigma della programmazione asincrona, devono essere seguite anche le seguenti regole:
 \begin{itemize}
 	\item le funzioni di callback dovranno essere scritte in una solo linea esclusivamente se contengono una sola istruzione. In tal caso, dovranno essere scritte secondo la notazione a freccia (arrow function) descritta in ECMAScript 2015;\\
 	 In caso contrario, si dovranno seguire le regole precedentemente esposte;
-	 \item l'annidamento di funzioni di callback deve essere evitato e sostituito seguendo la notazione Promise descritta in ECMAScript 2015.
+	 \item l'annidamento di funzioni di callback deve essere evitato e sostituito seguendo il costrutto delle Promise descritto in ECMAScript 2015.
 \end{itemize}
 
 I seguenti esempi vogliono essere dei chiarimenti delle regole appena descritte.
 \begin{lstlisting}
-collection_one.forEach((item) => {console.log(item)});
-collection_two.forEach(function(item)
-	{
-		item=Math.random();
-		console.log(item);
-	}
-);
+collection_one . forEach (( item ) => { console . log ( item )});
+collection_two . forEach ( function ( item )
+{
+  item = Math . random ();
+  console .log( item );
+});
 \end{lstlisting}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.35]{img/esempioStileCodifica.png}
+	\includegraphics[scale=0.45]{img/esempioStileCodifica.png}
 	\caption{Esempio di stile di codifica}
 \end{figure}
  \newpage
- \paragraph{Intestazione}\label{intestazione}
- Ogni file contenente del codice sorgente, dovrà contenere un'intestazione formata nel modo seguente:
+ \paragraph{Intestazione metodi delle classi}\label{intestazione}
+ Ogni metodo di una classe dovrà contenere un'intestazione formata nel modo seguente:
  \begin{lstlisting}
- Diario
- 
- Versione        Programmatore         Data
- ######################################################################
- numero di        Nome Cognome       AAAA-MM-GG
- versione
- ----------------------------------------------------------------------
-                    Riepilogo della modifica
- ----------------------------------------------------------------------
- |                                                                    |
- ######################################################################
- numero di        Nome Cognome       AAAA-MM-GG
- versione
- ----------------------------------------------------------------------
-                    Riepilogo della modifica
- ----------------------------------------------------------------------
- ######################################################################
+/**
+* Breve descrizione del metodo.
+* @param NomeParametro1 {tipo_Parametro1} Descrizione del primomparametro
+* ...
+* @param NomeParametroN {tipo_ParametroN}  Descrizione del N-esimomparametro
+* @return {tipo_ritorno} breve descrizione di cosa il metodo ritorna, se diverso da null.
+*/
 
  \end{lstlisting}
  
- Il primo programmatore che compare nel diario delle modifiche è considerato l'autore del file. Alla creazione di un nuovo file sarà quindi necessario creare l'intestazione come segue:
- \begin{lstlisting}
- Diario
- 
- Versione      Programmatore         Data
- ######################################################################
- 0.0.1        Mattia Bottaro       2017-04-15
- 
- ----------------------------------------------------------------------
- Creazione del file.
- ----------------------------------------------------------------------
- ######################################################################
- \end{lstlisting}
- 
- L'ordine di inserimento di una nuova modifica nell'intestazione, dovrà essere dal basso verso l'alto. In questo modo, la modifica più recente sarà facilmente visibile all'apertura del file.
- \newpage
- \paragraph{Versionamento}
- La versione del codice viene inserita all’interno dell’intestazione del file e segue il seguente formalismo:\\
- \centerline{\textbf{x.y.z}} dove:
-  \begin{itemize}
- 	\item x: è l’indice di versione principale, un incremento di tale indice rappresenta un avanzamento
- 	della versione stabile, di conseguenza i valori degli indici y e z devono essere azzerati;
- 	\item y: è l’indice di verifica del file, un incremento di tale indice comporta l’azzeramento
- 	dell’indice z;
- 	\item z: è l’indice di modifica parziale, un incremento di tale indice rappresenta una modifica
- 	rilevante, come per esempio la rimozione o l’aggiunta di una istruzione. La versione 1.0.0
- 	deve rappresentare la prima versione del file completo e stabile, cioè quando le sue fun-
- 	zionalità obbligatorie sono state definite e si considerano funzionanti. Solo dalla versione
- 	1.0.0 è possibile testare il file, con degli appositi test definiti, per verificarne l’effettivo
- 	funzionamento.
- \end{itemize}
  \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
 
  \paragraph{Fogli di stile}
  Per la produzione di fogli di stile viene usato \textbf{Sass}, un linguaggio di scripting interpretato in CSS. In particolare vengono usati files con estensione \textit{.scss}, che consiste in un ampliamento del linguaggio CSS.
-\paragraph{JavaScript - Regole?}
+\paragraph{Regole JavaScript}
 La parte del prodotto codificata in JavaScript deve seguire le seguenti regole:
-\subparagraph{Non utilizzare == e != al posto di === e !==}
+\subparagraph{Operatori di confronto}
 Gli operatori == e != effettuano conversioni di tipo prima di effettuare il confronto, e ciò potrebbe nascondere errori di tipo. È meglio utilizzare gli operatori === e !== in quanto meno propensi a \textit{side-effects}.
-\subparagraph{Evitare l'utilizzo del metodo alert()}
+\subparagraph{Metodo alert()}
 Il metodo alert() non dovrebbe mai essere utilizzato, in quanto comporta problemi di usabilità e sicurezza.
 \subparagraph{In un ciclo for il contatore deve operare sulla stessa variabile della condizione di loop}
 È quasi sempre un errore quando il contatore opera su una variabile diversa di quella definita nella condizione di loop.\\
 Esempio di codice non valido:
 \begin{verbatim}
-	for (i = 0; i < 10; j++)  // Variabili diverse, codice non valido
-	{  
-  		// ...
-	}
+  for (i = 0; i < 10; j++)  // Variabili diverse, codice non valido
+  {  
+    // ...
+  }
 \end{verbatim}
 
-\subparagraph{I loop for..in devono avere filtri sugli oggetti}
+\subparagraph{Loop for..in}
 Lo statement for..in permette lo scorrimento di tutti i nomi delle proprietà di un certo oggetto. Vengono però incluse anche tutte le proprietà ereditate dai prototipi, rendendo quindi necessaria la presenza di un filtro all'interno del ciclo.\\
 Esempio di codice non valido:
 \begin{verbatim}
-	for (name in object) 
-	{
+  for (name in object) 
+  {
     doSomething(name); 
-	}
+  }
 \end{verbatim}
 Esempio di codice valido:
 \begin{verbatim}
-	for (name in object) 
-	{
-    	if (object.hasOwnProperty(name)) 
-    	{
-    		doSomething(name);
-  		}
-	}
+  for (name in object) 
+  {
+    if (object.hasOwnProperty(name)) 
+    {
+      doSomething(name);
+    }
+  }
 \end{verbatim}
 \subparagraph{Non eseguire confronti con NaN}
 NaN non è uguale a nulla, nemmeno a se stesso. Di conseguenza fare confronti con esso può portare a risultati non previsti.
 \subparagraph{Utilizzo dell' operatore new solo con oggetti con funzioni costruttore}
 L'utilizzo dell'operatore new deve avvenire solo con oggetti che possiedono una funzione che ha il ruolo di costruttore.
-\subparagraph{Lo statement switch deve contenere default}
+\subparagraph{Statement switch}
 Lo statement switch deve contenere default come clausola finale. Questo serve per evitare situazioni anomale.
-\subparagraph{In un ciclo for il contatore deve muoversi nella direzione giusta}
-In un ciclo for il contatore deve muoversi nella direzione giusta, al fine di evitare cicli infiniti. Se l'obiettivo è la creazione di un ciclo  infinito, è meglio utilizzare altri statement, come while.\\
+
+\subparagraph{Contatore nel ciclo for}
+In un ciclo for il contatore deve muoversi nella direzione giusta, al fine di evitare cicli infiniti. Se l'obiettivo è la creazione di un ciclo infinito, è meglio utilizzare altri statement, come while.\\
 Esempio di codice non valido:
 \begin{verbatim}
-	for (var i = 0; i < strings.length; i--) 
-	{ 
-  		//...
-	}
+  for (var i = 0; i < strings.length; i--) 
+  { 
+    //...
+  }
 \end{verbatim}
 
-\subparagraph{If annidati dovrebbero essere uniti}
+\subparagraph{If annidati}
 L'unione di una serie di if annidati comporta maggiore comprensibilità del codice.\\
 Esempio di codice non valido:
 \begin{verbatim}
-	if (x !== undefined) 
-	{
-  		if (x === 2) 
-  		{
-    		// ...
-  		}
-	}
+  if (x !== undefined) 
+  {
+    if (x === 2) 
+    {
+      // ...
+    }
+  }
 \end{verbatim}
 Esempio di codice valido:
 \begin{verbatim}
-	if (x !== undefined && x === 2) 
-	{
-  		// ...
-	}
+  if (x !== undefined && x === 2) 
+  {
+    // ...
+  }
 \end{verbatim}
 \subparagraph{Evitare statement vuoti}
 La presenza di statement vuoti è spesso conseguenza di errori; è necessaria la presenza di un commento atto a spiegare il ruolo dello statement.
+
 \subparagraph{Non modificare contatori di loop all'interno di un ciclo}
 La modifica di contatori di loop all'interno di un ciclo è rischiosa perchè può portare a cicli infiniti, e di conseguenza va evitata. Se si vuole far fronte a particolari situazioni all'interno di un ciclo è preferibile l'utilizzo di una variabile flag.
-\subparagraph{Variabili devono essere dichiarate in modo esplicito prima di essere usate}
-le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare.
+
+\subparagraph{Dichiarazioni delle variabili}
+Le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare.
 \subparagraph{Utilizzo di ;}
-Ogni statement deve terminare con ; , al fine di aumentare la comprensibilità del codice.
+Ogni statement deve terminare con ";", al fine di aumentare la comprensibilità del codice.
  \subsubsection{Procedure}
  \paragraph{Inserimento di un attore in PragmaDB}
  Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
