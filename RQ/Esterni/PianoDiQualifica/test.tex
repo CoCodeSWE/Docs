@@ -1,8 +1,8 @@
-\documentclass[PianoDiQualifica.tex]{subfiles}
+\documentclass[PdQ.tex]{subfiles}
 
 \begin{document}
 
-\section{Test}
+\subsubsection{Test}
 Al fine di produrre \gl{software} di qualità, il gruppo ha strutturato dei test atti a verificare che le funzionalità del software prodotto corrispondano alle attese.
 Tali test sono ottenuti dall'applicazione delle tecniche di analisi dinamica descritte nel documento \NPdocRP{}. Inoltre, devono possedere le seguenti caratteristiche:
 \begin{itemize}
@@ -35,15 +35,27 @@ Questo rigore comporta un maggiore risparmio di risorse in quanto nulla di quell
 
 
 
-	\input{sezioni/tabelleTest}
-	\input{sezioni/tracciamentoTVRequisiti}
-	\input{sezioni/tracciamentoComponentiTI}
-	\input{sezioni/tracciamentoMetodiTU}
-	\input{sezioni/tracciamentoRequisitiTS}
-	\input{sezioni/tracciamentoRequisitiTV}
-	\input{sezioni/tracciamentoTIComponenti}
-	\input{sezioni/tracciamentoTSRequisiti}
-	\input{sezioni/tracciamentoTUMetodi}
-	\input{sezioni/tracciamentoTVRequisiti}
+	\input{tabelleTest}
+	\paragraph{Test implementati}
+	\begin{table}[h]
+				\centering
+				\begin{tabular}{l c c c}
+					\hline
+					\rule[-0.3cm]{0cm}{0.8cm}
+					\textbf{Documento} & \textbf{Test implementati} & \textbf{Test totali} & \textbf{Percentuale}\\
+					\hline
+					\rule[0cm]{0cm}{0.4cm}
+					Test di Unità & x & x & x \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di integrazione & x & x & x \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di sistema & x & x & x \\
+					\rule[0cm]{0cm}{0.4cm}
+					Totale & x & x & x \\
+					\hline
+				\end{tabular}
+				\caption{Numero di test implementati}
+			\end{table}
+			\newpage		
 \end{document}
 
