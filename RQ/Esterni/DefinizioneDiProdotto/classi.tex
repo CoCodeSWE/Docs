@@ -1,6 +1,6 @@
 \section{Specifica delle Componenti}\label{componenti}
 \subsection{Back-end}
-\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.
+Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a microservizi.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
 \end{figure}
@@ -16,12 +16,12 @@
 	\item \textbf{Nome}: \file{AdministrationWebhookService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di implementare l'interfaccia \file{WebhookService}, realizzando un Webhook che fornisce una risposta all'\file{Agent} di amministrazione;
-	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al \gl{microservizio} da parte dell'\file{Agent} di amministrazione;
+	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al microservizio da parte dell'\file{Agent} di amministrazione;
 	\item \textbf{Padre}: \file{<<interface>> WebhookService};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- jwt: JSONWebTokenModule} \\
-		Attributo contenente un riferimento al modulo di \gl{Node.js} per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
+		Attributo contenente un riferimento al modulo di Node.js per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -59,7 +59,7 @@
 			Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
 			Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403.
 		\end{itemize}
-		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la \gl{dependency injection} di \file{JSONWebTokenModule};\\
+		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la dependency injection di \file{JSONWebTokenModule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{jwt: JSONWebTokenModule} \\
@@ -98,7 +98,7 @@
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Si occupa di cercare nei database la presenza di incontri passate con la persona con cui sta avvenendo l'interazione, e di verificare se la persona in questione può essere un amministratore del \gl{sistema}. Nel caso di interazioni passate il \file{context} accoglienza viene riempito con azienda e dati della persona con cui l'ospite ha avuto il maggior numero di incontri in passato, e viene chiesto di confermare se la persona indicata è quella a cui l'ospite è effettivamente interessato. Nel caso di amministratore viene impostato il \file{context} admin, in modo che api.ai riconosca l'utente come un potenziale amministratore e gli chieda se vuole entrare nell'area di amministrazione;\\
+		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Si occupa di cercare nei database la presenza di incontri passate con la persona con cui sta avvenendo l'interazione, e di verificare se la persona in questione può essere un amministratore del sistema. Nel caso di interazioni passate il \file{context} accoglienza viene riempito con azienda e dati della persona con cui l'ospite ha avuto il maggior numero di incontri in passato, e viene chiesto di confermare se la persona indicata è quella a cui l'ospite è effettivamente interessato. Nel caso di amministratore viene impostato il \file{context} admin, in modo che api.ai riconosca l'utente come un potenziale amministratore e gli chieda se vuole entrare nell'area di amministrazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -252,7 +252,7 @@ Package contenente le classi necessarie a gestire:
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di implementare l'\gl{endpoint} dell'\gl{API Gateway} utilizzato dal client vocale;
+	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
 	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -265,7 +265,7 @@ Package contenente le classi necessarie a gestire:
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
-		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste \gl{HTTP} sostituendo \gl{callback}s con promises;
+		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo callbacks con promises;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -283,7 +283,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{sns: AWS::SNS} \\
 			Parametro contenente il modulo \file{AWS::SNS} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
-		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un \gl{enrollment} ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{Error\gl{Observer}} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
+		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un enrollment ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{enr: Enrollment} \\
@@ -326,7 +326,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{user: User} \\
 			Parametro contenente l'\file{User} da modificare;
 		\end{itemize}
-		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \gl{direttiva} al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
+		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una direttiva al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -338,7 +338,7 @@ Package contenente le classi necessarie a gestire:
 			\item \file{id: String} \\
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
-		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle \gl{direttive} del sistema.
+		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle direttive del sistema.
 		;\\
 		\item[] \file{- updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una direttiva presente nel sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
@@ -702,7 +702,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 	\item \textbf{Nome}: \file{SNSMessage};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta un messaggio mandato da SNS in seguito ad un'interazione con l'assistente virtuale;
-	\item \textbf{Utilizzo}: fornisce un meccanismo \gl{event-driven} per la gestione dei dati relativi alle interazioni col sistema.\\
+	\item \textbf{Utilizzo}: fornisce un meccanismo event-driven per la gestione dei dati relativi alle interazioni col sistema.\\
 	Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -1564,7 +1564,7 @@ Vengono offerte funzionalità che permettono:
 			\item \file{target: RuleTarget} \\
 			Parametro contenente il target del quale si vogliono ottenere le direttive;
 			\item \file{type: StringArray = null} \\
-			Parametro contenente la lista dei tipi di \gl{task} che devono essere tenuti in considerazione. Se impostato a null, verranno tenuti in considerazione tutti i tipi di task;
+			Parametro contenente la lista dei tipi di task che devono essere tenuti in considerazione. Se impostato a null, verranno tenuti in considerazione tutti i tipi di task;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -2139,7 +2139,7 @@ Vengono offerte funzionalità che permettono:
 \FloatBarrier
 
 \newpage \subsubsection{Back-end::STT}
-Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.
+Package che include le classi che si occupano di fornire le funzionalità di Speech to text.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/STT.png}
 	\caption{Package Back-end::STT}
 \end{figure}
@@ -2731,7 +2731,7 @@ Vengono offerte funzionalità che permettono:
 \FloatBarrier
 
 \newpage \subsubsection{Back-end::Utility}
-Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl{package} del back-end.
+Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del back-end.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Utility.png}
 	\caption{Package Back-end::Utility}
 \end{figure}
@@ -3312,7 +3312,7 @@ Vengono offerte funzionalità che permettono di:
 		\item[] \file{+ text: String} \\
 		Attributo contenente il testo del button;
 		\item[] \file{+ postback: String} \\
-		Attributo contenente il testo da inviare, ad api.ai o un \gl{URL}, dopo che il button è stato selezionato;
+		Attributo contenente il testo da inviare, ad api.ai o un URL, dopo che il button è stato selezionato;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3437,7 +3437,7 @@ Vengono offerte funzionalità che permettono di:
 			\item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
 			\item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
 			\item 3: immagine, prevede la presenza del campo \file{imgUrl};
-			\item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
+			\item 4: payload, prevede la presenza del campo \file{payload}.
 		\end{itemize}
 		\item[] \file{+ speech: String[0..1]} \\
 		Attributo contenente il testo di un messaggio di tipo messaggio testuale;
@@ -3905,7 +3905,7 @@ Vengono offerte funzionalità che permettono:
 		\item[] \file{- state: State} \\
 		Attributo che tiene traccia delle applicazione già eseguite e del loro stato;
 		\item[] \file{- frame: HTMLElement} \\
-		Attributo che contiene l'elemento del \gl{DOM} al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
+		Attributo che contiene l'elemento del DOM al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4426,7 +4426,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Nome}: \file{HttpPromise};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: promise relativa ad una richiesta HTTP;
-	\item \textbf{Utilizzo}: viene utilizzata per interfacciarsi alle richieste HTTP utilizzando l'approccio delle Promises al posto di quello dei callback fornito dalle API \gl{JavaScript};
+	\item \textbf{Utilizzo}: viene utilizzata per interfacciarsi alle richieste HTTP utilizzando l'approccio delle Promises al posto di quello dei callback fornito dalle API JavaScript;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- xhr: XMLHttpRequest} \\
@@ -4475,7 +4475,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Descrizione}: questa classe si occupa di comunicare con l'API Gateway;
 	\item \textbf{Utilizzo}: fornisce dei meccanismi per:
 	\begin{itemize}
-		\item la comunicazione con l'API \gl{gateway};
+		\item la comunicazione con l'API gateway;
 		\item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
 	\end{itemize}
 	\item \textbf{Attributi}:
@@ -4681,7 +4681,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
-		Questo attributo contiene la \gl{sample} rate della registrazione audio nei buffer;
+		Questo attributo contiene la sample rate della registrazione audio nei buffer;
 		\item[] \file{- buffers: Float32ArrayArray} \\
 		Questo attributo contiene i buffer per i dati dell'audio. sono presenti due buffer, uno per ogni canale;
 		\item[] \file{- length: int} \\
@@ -4828,7 +4828,7 @@ Vengono offerte funzionalità che permettono:
 
 \newpage
 \newpage \subsubsection{Client::TTS}
-Package contenente le componenti che realizzano il \gl{text to speech}.
+Package contenente le componenti che realizzano il text to speech.
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
 	\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
@@ -5321,7 +5321,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \begin{itemize}
 	\item \textbf{Nome}: \file{VARequestAPIBody};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al client per effettuare una richiesta all'API \gl{REST} del back-end;
+	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al client per effettuare una richiesta all'API REST del back-end;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una richiesta all'API REST del back-end e viene utilizzata dalla classe \file{VARequestAPIEvent};
 	\item \textbf{Attributi}:
 	\begin{itemize}

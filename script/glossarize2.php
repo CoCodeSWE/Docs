@@ -13,7 +13,7 @@
 * 2015-05-13 - Aggiunta deglossarizzazione delle $linesToIgnore - Enrico Ceron
 * 2015-04-18 - Creazione dello script - Enrico Ceron
 *
-* Diaro delle modifiche:
+* 
 * 2016-12-12 - adattamento dello script al gruppo Co.Code, Mattia Bottaro
 * 2017-12-17 - pesanti modifiche effettuate da Mattia Bottaro del gruppo Co.Code(formatosi
   per il progetto di SWE dell'uniPD) -> UPDATE alla versione 2.0 by Mattia Bottaro
@@ -32,8 +32,8 @@
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
-$rev = ('../RP/'); //al cambio di revisione modificare questa variabile
-$revisione = 'Revisione di progettazione';//e questa
+$rev = ('../RQ/'); //al cambio di revisione modificare questa variabile
+$revisione = 'Revisione di QUALIFICA';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -46,10 +46,7 @@ $docs = array(
   'NdP' => 'NormeDiProgetto/sezioni/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/sezioni/',
-/* '1VI' => 'Verbale_I_2016-12-10/', // primo verbale interno. 1=primo,V=verbale,I=interno
-  '2VI' => 'Verbale_I_2016-12-19',
-  '1VE' => 'Verbale_E_2016-12-17/', */
-  'PdQ' => 'PianoDiQualifica/sezioni/',
+  'PdQ' => 'PianoDiQualifica/',
   'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );
@@ -132,7 +129,7 @@ function glossarizeDoc($path) {
       if (preg_match("/\b$voce\b/", $line) && $voce!="") {
         if (empty(preg_grep($linesToIgnore, explode("\n", $line)))) { // glo
           //echo $path." ".$voce."\n";
-          echo $filename."-".$voce."\n";
+          //echo $filename."-".$voce."\n";
           if($voce=="casi d'uso" || $voce=="Casi d'uso"){
             $Vvoce=$voce;
             $file_contents = file_get_contents($filename);
