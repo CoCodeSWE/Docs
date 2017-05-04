@@ -207,7 +207,7 @@ saranno:
 
  	void foo()
  	{
-      operazioni
+	  operazioni
  	}
  	\end{lstlisting}
  	\item le costanti devono essere scritte in maiuscolo;
@@ -245,9 +245,9 @@ collection_two . forEach ( function ( item )
 
 
 \paragraph{Documentazione del codice}\label{intestazione}
-Il codice sorgente dovrà rispettare queste regole per renderlo di maggior chiarezza:
+Per facilitare la manutenibilità del codice, i programmatori devono rispettare le seguenti norme sulla documentazione:
 \begin{itemize}
- \item ogni file contenente una classe dovrà avere un'intestazione formata nel seguente modo:
+ \item ogni file dovrà avere un'intestazione formata nel seguente modo:
  \begin{lstlisting}
  /**
  * Descrizione della classe.
@@ -279,14 +279,13 @@ Il codice sorgente dovrà rispettare queste regole per renderlo di maggior chiar
 
  \paragraph{Fogli di stile}
  Per la produzione di fogli di stile viene usato \textbf{Sass}, un linguaggio di scripting interpretato in CSS. In particolare vengono usati files con estensione \textit{.scss}, che consiste in un ampliamento del linguaggio CSS.
+
 \paragraph{Regole JavaScript}
 La parte del prodotto codificata in JavaScript deve seguire le seguenti regole:
-\subparagraph{Operatori di confronto}
-Gli operatori == e != effettuano conversioni di tipo prima di effettuare il confronto, e ciò potrebbe nascondere errori di tipo. È meglio utilizzare gli operatori === e !== in quanto meno propensi a \textit{side-effects}.
-\subparagraph{Metodo alert()}
-Il metodo alert() non dovrebbe mai essere utilizzato, in quanto comporta problemi di usabilità e sicurezza.
-\subparagraph{In un ciclo for il contatore deve operare sulla stessa variabile della condizione di loop}
-È quasi sempre un errore quando il contatore opera su una variabile diversa di quella definita nella condizione di loop.\\
+\begin{itemize}
+	\item gli operatori == e != effettuano conversioni di tipo prima di effettuare il confronto, e ciò potrebbe nascondere errori di tipo. È meglio utilizzare gli operatori === e !== in quanto meno propensi a \textit{side-effects};
+	\item il metodo alert() non dovrebbe mai essere utilizzato, in quanto comporta problemi di usabilità e sicurezza;
+	\item in un ciclo for il contatore deve operare sulla stessa variabile della condizione di loop;\\
 Esempio di codice non valido:
 \begin{verbatim}
   for (i = 0; i < 10; j++)  // Variabili diverse, codice non valido
@@ -294,9 +293,7 @@ Esempio di codice non valido:
     // ...
   }
 \end{verbatim}
-
-\subparagraph{Loop for..in}
-Lo statement for..in permette lo scorrimento di tutti i nomi delle proprietà di un certo oggetto. Vengono però incluse anche tutte le proprietà ereditate dai prototipi, rendendo quindi necessaria la presenza di un filtro all'interno del ciclo.\\
+	\item lo statement for..in permette lo scorrimento di tutti i nomi delle proprietà di un certo oggetto. Vengono però incluse anche tutte le proprietà ereditate dai prototipi, rendendo quindi necessaria la presenza di un filtro all'interno del ciclo.\\
 Esempio di codice non valido:
 \begin{verbatim}
   for (name in object) 
@@ -314,15 +311,10 @@ Esempio di codice valido:
     }
   }
 \end{verbatim}
-\subparagraph{Non eseguire confronti con NaN}
-NaN non è uguale a nulla, nemmeno a se stesso. Di conseguenza fare confronti con esso può portare a risultati non previsti.
-\subparagraph{Utilizzo dell' operatore new solo con oggetti con funzioni costruttore}
-L'utilizzo dell'operatore new deve avvenire solo con oggetti che possiedono una funzione che ha il ruolo di costruttore.
-\subparagraph{Statement switch}
-Lo statement switch deve contenere default come clausola finale. Questo serve per evitare situazioni anomale.
-
-\subparagraph{Contatore nel ciclo for}
-In un ciclo for il contatore deve muoversi nella direzione giusta, al fine di evitare cicli infiniti. Se l'obiettivo è la creazione di un ciclo infinito, è meglio utilizzare altri statement, come while.\\
+	\item NaN non deve essere usato per fare qualunque tipo di confronto;
+	\item l'utilizzo dell'operatore new deve avvenire solo con oggetti che possiedono una funzione che ha il ruolo di costruttore;
+	\item lo statement switch deve contenere default come clausola finale. Questo serve per evitare situazioni anomale;
+	\item in un ciclo for il contatore deve muoversi nella direzione giusta, al fine di evitare cicli infiniti. Se l'obiettivo è la creazione di un ciclo infinito, è meglio utilizzare altri statement, come il while.\\
 Esempio di codice non valido:
 \begin{verbatim}
   for (var i = 0; i < strings.length; i--) 
@@ -330,9 +322,7 @@ Esempio di codice non valido:
     //...
   }
 \end{verbatim}
-
-\subparagraph{If annidati}
-L'unione di una serie di if annidati comporta maggiore comprensibilità del codice.\\
+	\item L'unione di una serie di if annidati comporta maggiore comprensibilità del codice.\\
 Esempio di codice non valido:
 \begin{verbatim}
   if (x !== undefined) 
@@ -350,16 +340,14 @@ Esempio di codice valido:
     // ...
   }
 \end{verbatim}
-\subparagraph{Evitare statement vuoti}
-La presenza di statement vuoti è spesso conseguenza di errori; è necessaria la presenza di un commento atto a spiegare il ruolo dello statement.
+	\item evitare la presenza di statement vuoti. Nel caso in cui siano necessari, bisogna giustificarne la presenza con un commento atto a spiegare il ruolo dello statement;
 
-\subparagraph{Non modificare contatori di loop all'interno di un ciclo}
-La modifica di contatori di loop all'interno di un ciclo è rischiosa perchè può portare a cicli infiniti, e di conseguenza va evitata. Se si vuole far fronte a particolari situazioni all'interno di un ciclo è preferibile l'utilizzo di una variabile flag.
+	\item la modifica dei contatori di loop all'interno di un ciclo è rischiosa perchè può portare a cicli infiniti, e di conseguenza va evitata. Se si vuole far fronte a particolari situazioni all'interno di un ciclo è preferibile l'utilizzo di una variabile flag;
 
-\subparagraph{Dichiarazioni delle variabili}
-Le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare.
-\subparagraph{Utilizzo di ;}
-Ogni statement deve terminare con ";", al fine di aumentare la comprensibilità del codice.
+	\item le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare;
+	\item ogni statement deve terminare con ";", al fine di aumentare la comprensibilità del codice.
+	
+\end{itemize}
 
 \paragraph{Continuous integration}\label{CI}
 I programmatori devono caricare il codice sorgente nel repository pubblico \url{https://github.com/CoCodeSWE/AtAVi}.
