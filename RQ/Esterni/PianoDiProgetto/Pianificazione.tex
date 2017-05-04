@@ -10,10 +10,10 @@
   È composto principalmente dalle seguenti attività:
   \begin{enumerate}
 		\item \textbf{Scelta degli strumenti}: verranno scelti gli strumenti che saranno utilizzati per la stesura dei documenti e per il supporto. La scelta degli strumenti sarà incrementale nel corso del \gl{progetto};
-		\item \textbf{Stesura delle Norme di progetto}: dopo aver scelto i primi strumenti per la produzione di documentazione sarà possibile iniziare la stesura delle \NPdocRR. Questo documento sarà utilizzato indipendentemente dal \gl{capitolato} che verrà preso in appalto, e sarà steso in modo incrementale via via che nuove norme verrano definite;
+		\item \textbf{Stesura delle Norme di progetto}: dopo aver scelto i primi strumenti per la produzione di documentazione sarà possibile iniziare la stesura delle \NPdocRR. Questo documento sarà utilizzato indipendentemente dal \gl{capitolato} che verrà preso in appalto, e sarà steso in modo incrementale via via che nuove norme verranno definite;
 		\item \textbf{Stesura documentazione}: una volta definiti norme e strumenti per la scrittura di un documento, è possibile iniziare la stesura della documentazione;
     \begin{itemize}
-      \item \textbf{Analisi dei Requisiti}: si redige il documento \ARdocRR. Verranno organizzati degli incontri col \gl{proponente}, sia prima che durante la stesura di questo documento, per consolidare i requisiti stesi e per chiarire eventuali dubbi sui requisiti da aggiungere;
+      \item \textbf{Analisi dei Requisiti}: viene effettuata l'analisi dei requisiti, in cui vengono individuati i principali requisiti del progetto, che vengono poi inseriti nel documento \ARdocRR. Verranno organizzati degli incontri col \gl{proponente}, sia prima che durante la stesura di questo documento, per consolidare i requisiti stesi e per chiarire eventuali dubbi sui requisiti da aggiungere;
       \item \textbf{Studio di Fattibilità}: vengono valutati pro e contro di tutti i capitolati proposti e viene redatto il documento \SFdocRR. Viene quindi scelto il capitolato da sviluppare;
       \item \textbf{Piano di Progetto}: viene steso il documento \PPdocRR, il quale regolerà le attività del gruppo;
       \item \textbf{Piano di qualifica}: si stende il documento \PQdocRR per fissare gli standard di qualità ed in che modo il gruppo si prefigge di raggiungerli;
@@ -49,10 +49,10 @@
   \subsection{\PerPA{} (PA)}
   \textbf{Periodo: dal 2017-02-01 al 2017-02-22}
 
-  Questo periodo inizia al termine della \PerAD{} e termina con una \gl{milestone} interna di \label{Revisione} Progettazione minima. Al termine di questa fase verrà fissato un incontro col proponente per presentare l'architettura logica prodotta. Le attività svolte durante questa fase sono:
+  Questo periodo inizia al termine della \PerAD{} e termina con una \gl{milestone} interna di \label{Revisione} Progettazione minima. Al termine di questo periodo verrà fissato un incontro col proponente per presentare l'architettura logica prodotta. Le attività svolte durante questa fase sono:
   \begin{itemize}
-    \item \textbf{Incremento dei documenti}: dove necessario vengono apportate modifiche ai documenti già stilati, in preparazione alla stesura della \textit{Specifica Tecnica};
-    \item \textbf{Specifica Tecnica}: viene steso il documento di \textit{Specifica Tecnica}, nel quale il \PJ{} descrive le scelte progettuali effettuate ed i \gl{design pattern} individuati per la realizzazione del \gl{prodotto}. Viene descritta inoltre l'architettura generale del \gl{Software} e si effettua il tracciamento dei requisiti;
+    \item \textbf{Incremento dei documenti}: dove necessario vengono apportate modifiche ai documenti già stilati, in preparazione alla  \textit{Specifica Tecnica};
+    \item \textbf{Specifica Tecnica}: i \PJP{} effettuano le scelte progettuali atte allo sviluppo del prodotto, definendo l'architettura generale del \gl{Software} che viene poi tracciata con i requisiti; il  tutto viene poi inserito nel documento \textit{Specifica Tecnica};
     \item \textbf{\gl{Verifica}}: viene effettuata la verifica sia dei documenti incrementati sia della \textit{Specifica Tecnica}.
   \end{itemize}
 
@@ -72,8 +72,9 @@
 
   Questo periodo inizia con la fine della \PerPA{} e termina con la consegna dei documenti per la \textbf{Revisione di Progettazione} massima. Le attività che verranno svolte in questo periodo saranno:
   \begin{itemize}
-    \item \textbf{Definizione di prodotto}: viene steso il documento \textit{Definizione di \gl{Prodotto}}. Esso definisce nel dettaglio la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto; include inoltre una descrizione dettagliata di tutti le API del sistema;
-    \item \textbf{Incremento e verifica dei documenti}: se ritenuto necessario vengono apportate modifiche ai documenti già stilati. In particolare sarà certamente necessaria l'aggiunta di un piano di test di unità al \textit{Piano di Qualifica}.
+    \item \textbf{Definizione di prodotto}: viene definita nel dettaglio la struttura interna del sistema e le relazioni tra i diversi moduli del prodotto, oltre ad una descrizione dettagliata di tutti le API del sistema; il tutto viene riportato nel documento \DPdocRP.
+    \item \textbf{Piano dei test}: viene definito un piano dei test di unità, integrazione e sistema atto alla verifica e validazione delle componenti del sistema; esso viene inserito nel \PQdocRP{};
+    \item \textbf{Incremento e verifica dei documenti}: se ritenuto necessario vengono apportate modifiche ai documenti già stilati.
   \end{itemize}
 \newpage
   \subsubsection{Diagramma di Gantt - \PerPD}
@@ -91,7 +92,7 @@
     \item \textbf{Codifica}: in base a quanto definito nel documento di \textit{Definizione di Prodotto}, i \PRP{} sviluppano il codice del prodotto \gl{software}. Si divide in codifica obbligatoria, desiderabile ed opzionale in base all'utilità strategica dei requisiti che vengono soddisfatti dal codice prodotto. A seconda del tempo impiegato dalla codifica obbligatoria, il tempo previsto per codifica desiderabile ed opzionale potrebbe essere ridotto parzialmente o totalmente.
     \item \textbf{Test}: contemporaneamente all'inizio della codifica del sistema, si inizia la stesura dei test di unità, integrazione e sistema come previsto nel \textit{Piano di Qualifica};
     \item \textbf{Automazione}: gli \AMMP{} si occuperanno della predisposizione di sistemi automatizzati per l'esecuzione automatica dei test.
-    \item \textbf{Manuale utente}: verrà steso il manuale utente, destinato agli utilizzatori finali del sistema.
+    \item \textbf{Manuale utente}: verrà steso il \textit{Manuale Utente}, destinato agli utilizzatori finali del sistema.
   \end{itemize}
 
   \newpage
@@ -114,7 +115,7 @@
     \item \textbf{Collaudo}: si esegue un collaudo completo del sistema creato.
   \end{itemize}
 
-  %\newpage
+ \newpage
   \subsubsection{Diagramma di Gantt - \PerV}
     \begin{figure}[!h]
     \centering
