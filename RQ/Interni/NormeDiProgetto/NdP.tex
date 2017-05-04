@@ -47,11 +47,11 @@
 
 
 \def\NOME{Norme di progetto}
-\def\VERSIONE{4.0.0}
-\def\DATA{2017-02-28}
-\def\REDATTORE{Nicola Tintorri}
-\def\VERIFICATORE{Mauro Carlin}
-\def\RESPONSABILE{Nicola Tintorri}
+\def\VERSIONE{5.0.0}
+\def\DATA{QUANDO}
+\def\REDATTORE{CHI}
+\def\VERIFICATORE{CHI}
+\def\RESPONSABILE{CHI}
 \def\USO{Interno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO}
 \def\SOMMARIO{Questo documento specifica e descrive strumenti, regole e convenzioni utilizzate dal gruppo \GRUPPO{} nel corso della realizzazione del progetto \PROGETTO.}
@@ -61,10 +61,14 @@
 \maketitle
 
 \begin{diario}
-	\modifica{CHI}{\AMM}{Aggiunta sezione \ref{req prog} riguardante i \PJP.}{2017-04-23}{4.0.4}
-	\modifica{CHI}{\AMM}{Estesi paragrafi \ref{Specifica tecnica} e \ref{definizione prodotto}.}{2017-04-23}{4.0.4}
+	\modifica{CHI}{\RESP}{Approvazione del documento}{QUANDO}{5.0.0}
+	\modifica{CHI}{\VER}{Verifica del documento}{QUANDO}{4.1.0}
+	\modifica{CHI}{\AMM}{Creata sezione \ref{PF} riguardante i processi di fornitura.}{QUANDO}{4.0.8}	
+	\modifica{CHI}{\AMM}{Aggiunta sezione \ref{CI} riguardante la continuous integration.}{QUANDO}{4.0.7}	
+	\modifica{CHI}{\AMM}{Aggiunta sezione \ref{req prog} riguardante i \PJP.}{QUANDO}{4.0.6}
+	\modifica{CHI}{\AMM}{Estesi paragrafi \ref{Specifica tecnica} e \ref{definizione prodotto}.}{2017-04-23}{4.0.5}
 	\modifica{CHI}{\AMM}{Estesa la parte riguardante l'attività di progettazione (\ref{progettazione}). Aggiunte norme sullo stile di progettazione.}{2017-04-23}{4.0.4}
-	\modifica{CHI}{\AMM}{Aggiunte norme sull'intestazione dei metodi delle classi (\ref{intestazione}).}{2017-04-22}{4.0.3}
+	\modifica{CHI}{\AMM}{Aggiunte norme sula documentazione del codice (\ref{intestazione}).}{2017-04-22}{4.0.3}
 	\modifica{CHI}{\AMM}{Aggiunto l'ambiente di sviluppo per la codifica negli strumenti}{2017-04-22}{4.0.2}
 	\modifica{CHI}{\AMM}{Esteso l'elenco contenente le norme per lo stile di codifica}{2017-04-22}{4.0.1}
 	\modifica{Andrea Magnan}{\RESP}{Approvazione del documento}{2017-02-28}{4.0.0}
@@ -109,6 +113,8 @@
 
 \include{sezioni/introduzione}
 \section{Processi primari}
+ \subsection{Fornitura}
+  \input{sezioni/processoDiFornitura}
  \subsection{Sviluppo}
 
   \input{sezioni/processoDiSviluppo}

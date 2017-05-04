@@ -28,20 +28,7 @@ In accordo con lo standard \iso{ISO/IEC 12207}, il processo di sviluppo è compo
  Tutti i requisiti analizzati, utilizzando le specifiche del capitolato e consultando i proponenti negli
 incontri effettuati, vanno specificati nell'\ARdoc. Per analizzare e trovare i
 requisiti si utilizza la tecnica dei casi d'uso. Il tracciamento dei requisiti avviene tramite l'applicativo PragmaDB.
- \paragraph{Studio di fattibilità}
- Il \RESP{} di progetto deve organizzare delle riunioni preventive, per permettere lo scambio
-di opinioni tra i membri del gruppo sui capitolati proposti. Il documento prodotto da queste
-riunioni è lo \SFdoc , il quale viene realizzato dagli \ANP{}. Essi devono
-descrivere i seguenti punti:
-\begin{itemize}
- \item \textbf{Dominio tecnologico e applicativo}: si dà una valutazione prendendo in   considerazione
- la conoscenza attuale delle tecnologie richieste dal capitolato in analisi da parte dei membri
-del gruppo;
- \item \textbf{Interesse strategico}: si valuta l'interesse strategico del gruppo di progetto in relazione
-al capitolato in analisi;
- \item \textbf{Individuazione dei rischi}: si analizzano i possibili rischi in cui si può incorrere nel
-capitolato in analisi.
-\end{itemize}
+
  \paragraph{Casi d'uso}
  Ogni caso d'uso è così composto:
  \begin{itemize}
@@ -204,13 +191,6 @@ saranno:
 
  Al fine di rendere il codice più leggibile possibile, il gruppo dovrà rispettare le seguenti regole:
  \begin{itemize}
- 	\item all'inizio di ogni file contenente codice sorgente, dovrà essere presente un'intestazione contenente la versione del file, il nome di chi effettua delle modifiche, la data di quest'ultime e un riepologo di esse, in maniera tale da avere un diario delle modifiche del file. In \ref{intestazione} è presente la struttura dell'intestazione;
- 	\item scrivere dei commenti in italiano qualora certe porzioni di codice possano risultare poco chiare o complesse;
- 	\item evitare di commentare porzioni di codice dal funzionamento banale;
- 	\item aggiungere commenti al codice costituito da cicli e diramazioni logiche. Si tratta di aree
- 	di fondamentale importanza che facilitano la lettura del codice sorgente;
- 	\item separare i commenti dai delimitatori di commento con spazi vuoti. In questo modo i
- 	commenti saranno chiari e facili da individuare.
  	\item il codice deve essere identato al meglio, in particolare se uno o più statement sono interni a una porzione di codice, essi dovranno rientrare di due spazi (come suggeriscono Google, npm, Node.js, Idiomatic, Felix), come nell'esempio che segue: \begin{lstlisting}
  	if(condition)
  	{
@@ -268,19 +248,36 @@ collection_two . forEach ( function ( item )
 	\caption{Esempio di stile di codifica}
 \end{figure}
  \newpage
- \paragraph{Intestazione metodi delle classi}\label{intestazione}
- Ogni metodo di una classe dovrà contenere un'intestazione formata nel modo seguente:
+
+\paragraph{Documentazione del codice}\label{intestazione}
+\begin{itemize}
+ \item ogni file contenente una classe dovrà avere un'intestazione formata nel seguente modo:
  \begin{lstlisting}
-/**
-* Breve descrizione del metodo.
-* @param NomeParametro1 {tipo_Parametro1} Descrizione del primomparametro
-* ...
-* @param NomeParametroN {tipo_ParametroN}  Descrizione del N-esimomparametro
-* @return {tipo_ritorno} breve descrizione di cosa il metodo ritorna, se diverso da null.
-*/
+ /**
+ * Descrizione della classe.
+ * @author Autore
+ * @version Versione corrente del file o della classe
+ * @since Versione del prodotto dalla quale e' presente il file o la classe
+ */
+ \end{lstlisting}
+ \item ogni metodo di una classe dovrà contenere un'intestazione formata nel modo seguente:
+ \begin{lstlisting}
+ /**
+ * Breve descrizione del metodo.
+ * @param NomeParametro1 {tipo_Parametro1} Descrizione del primo parametro
+ * ...
+ * @param NomeParametroN {tipo_ParametroN}  Descrizione del N-esimo parametro
+ * @return {tipo_ritorno} breve descrizione di cosa il metodo ritorna, se diverso da null.
+ */
 
  \end{lstlisting}
- 
+ \item scrivere dei commenti in italiano qualora certe porzioni di codice possano risultare poco chiare o complesse;
+ \item evitare di commentare porzioni di codice dal funzionamento banale;
+ \item aggiungere commenti al codice costituito da cicli e diramazioni logiche. Si tratta di aree
+ 	di fondamentale importanza che facilitano la lettura del codice sorgente;
+ \item separare i commenti dai delimitatori di commento con spazi vuoti. In questo modo i
+ 	commenti saranno chiari e facili da individuare.
+\end{itemize}
  \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
 
@@ -367,6 +364,13 @@ La modifica di contatori di loop all'interno di un ciclo è rischiosa perchè pu
 Le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare.
 \subparagraph{Utilizzo di ;}
 Ogni statement deve terminare con ";", al fine di aumentare la comprensibilità del codice.
+
+\paragraph{Continuous integration}\label{CI}
+I programmatori devono caricare il codice sorgente nel repository pubblico \url{https://github.com/CoCodeSWE/AtAVi}.
+Ogni commit deve recare un messaggio che spieghi concisamente le aggiunte o le modifiche che sono state apportate al codice. Gli amministratori hanno configurato un sistema di integrazione continua con Jenkins, in modo che ogni commit scateni
+una build del codice esistente e l'esecuzione di tutti i test di unità, integrazione e sistema. \\
+Nel caso in cui si verifichi un errore, il programmatore che ha effettuato il commit verrà notificato attraverso una mail e dovrà correggere al più presto i problemi del codice.
+
  \subsubsection{Procedure}
  \paragraph{Inserimento di un attore in PragmaDB}
  Per inserire un attore in PragmaDB è necessario applicare la seguente procedura:
