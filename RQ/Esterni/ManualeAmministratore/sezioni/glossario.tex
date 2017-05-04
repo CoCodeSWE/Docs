@@ -1,0 +1,26 @@
+\section{Glossario}
+\subsection*{Agent}
+In api.ai, un agent è ciò che converte il linguagio naturale dell'utente in dati processabili. Nel contesto del progetto \PROGETTO, esiste un agent per ogni tipo di applicazione.\\
+Gli agent esistenti sono:
+\begin{itemize}
+	\item ConversationAppGuest, ovvero l'agent che gestisce la conversazione con l'ospite;
+	\item ConversationAppAdmin, ovvero l'agent che gestisce la conversazione con l'amministratore.
+\end{itemize}
+\subsection*{Enrollment}
+L'enrollment è la fase iniziale del riconoscimento vocale, nella quale la voce dell’utente viene registrata durante la ripetizione di frasi specifiche per estrarne la sua impronta vocale.\\
+Questa impronta verrà utilizzata nella fase di verifica vocale. Tutto ciò è reso possibile dal servizio esterno descritto in \ref{speakerRec}.
+\subsection*{Member}
+Il member del target di una rule è un membro dell'azienda alla quale indirizzare una rule. \\
+Se, per esempio, il tipo del task della rule è \file{send\_to\_slack}, il member della rule sarà quella persona che dovrà essere notificata dell'arrivo del target.
+\subsection*{Rule (direttiva)}
+Una rule (direttiva) è una regola impostata da un amministratore per l'assistente virtuale.
+\subsection*{Target}
+Il target di una rule è la persona alla quale applicare la rule. \\
+Se, per esempio, il tipo del task della rule è \file{send\_to\_slack}, il target della rule sarà la persona il quale arrivo deve essere segnalato al member. In questo contesto, quindi, il target potrebbe essere un ospite che \PROPONENTE{} conosce o prevede che arriverà.\\
+Una direttiva può contenere più di un target.
+\subsection*{Task}\label{task}
+Il task di una direttiva specifica l'effettivo compito che la direttiva deve portare a termine.\\
+I task supportati al momento sono:
+\begin{itemize}
+	\item \file{send\_to\_slack}: il compito della direttiva è notificare il member dell'arrivo del target.
+\end{itemize}
