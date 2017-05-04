@@ -72,11 +72,18 @@
 	   \item potrebbero essere necessarie molte più operazioni rispetto all'esecuzione diretta di una query su un database.
 	  \end{itemize}
 	\end{itemize}
+In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \ref{fig:dao2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per accedere a qualsiasi fonte di dati, ma sempre secondo lo schema in figura \ref{fig:dao2}, pertanto ne viene riportato solo il diagramma relativo all'interazione con la tabella DynamoDB contenente le conversazioni registrate.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/DAOpattern.jpg}
 		\caption{pattern Data Access Object (DAO)}\label{fig:dao1}
 	\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/DAO.png}
+	\caption{DAO utilizzato nell'architettura del progetto \PROGETTO}\label{fig:dao2}
+\end{figure}
 		\newpage
     \subsubsection{Dependency Injection}
      \begin{itemize}
