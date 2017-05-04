@@ -1,4 +1,4 @@
-\section{Specifica delle Componenti}
+\section{Specifica delle Componenti}\label{componenti}
 \subsection{Back-end}
 \gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
@@ -36,28 +36,28 @@
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai, contenente il token da validare, a \file{AdministrationWebhookService}. Tali dati sono:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "id":"String",
-  "lang":"String",
-  "originalRequest":{
-    "source":"String",
-    "data":{
-        "token":"JWToken"
-     }
-  }
-  "result":"ProcessingResult",
-  "sessionId":"String",
-  "status":"StatusObject",
-  "timestamp":"String"
- }
-\end{lstlisting}
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"id":"String",
+			"lang":"String",
+			"originalRequest":{
+			"source":"String",
+			"data":{
+			"token":"JWToken"
+			}
+			}
+			"result":"ProcessingResult",
+			"sessionId":"String",
+			"status":"StatusObject",
+			"timestamp":"String"
+			}
+			\end{lstlisting}
+			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
-La risposta può essere organizzata in due modi diversi a seconda se il JWT è valido o meno.\\
-Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
-Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403.
+			La risposta può essere organizzata in due modi diversi a seconda se il JWT è valido o meno.\\
+			Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
+			Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403.
 		\end{itemize}
 		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la \gl{dependency injection} di \file{JSONWebTokenModule};\\
 		Parametri:
@@ -103,60 +103,60 @@ Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sa
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto con tutti i dati relativi ad una richiesta di api.ai al \\ \file{ConversationWebhookService}. Tali dati sono:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  "id":"String",
-  "lang":"String",
-  "originalRequest":"Object",
-  "result":"ProcessingResult",
-  "sessionId":"String",
-  "status":"StatusObject",
-  "timestamp":"String"
- }
-\end{lstlisting}
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"id":"String",
+			"lang":"String",
+			"originalRequest":"Object",
+			"result":"ProcessingResult",
+			"sessionId":"String",
+			"status":"StatusObject",
+			"timestamp":"String"
+			}
+			\end{lstlisting}
+			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
-La risposta può essere una tra i seguenti tipi:
-\begin{itemize}
-    \item l'utente viene riconosciuto come un potenziale amministratore;
-    \item l'utente viene riconosciuto come un ospite conosciuto.
-\end{itemize}
-Nel primo caso, la risposta fornita sarà così organizzata:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-    "contexts": [{
-        "context_name":"String",
-        "name":"String",
-        "username":"String"
-    }]
-}
-\end{lstlisting}
-Dove
-\begin{itemize}
-    \item \file{context\_name} indica il nome del context, che in questo caso sarà "admin";
-    \item \file{name} indica il nome dell'amministratore;
-    \item \file{username} indica lo username dell'amministratore;
-\end{itemize}
-Nel secondo caso, la risposta sarà così organizzata:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-    "contexts": [{
-        "context_name":"String",
-        "guest_name":"String",
-        "company":"String",
-        "name":"String",
-    }]
-}
-\end{lstlisting}
-Dove
-\begin{itemize}
-    \item \file{context\_name} indica il nome del context, che in questo caso sarà "welcome";
-    \item \file{guest\_name} indica il nome dell'ospite;
-    \item \file{company} indica l'azienda di provenienza dell'ospite;
-    \item \file{username} indica lo username dell'amministratore;
-    \item \file{name} indica il nome della persona desiderata;
-\end{itemize}
+			La risposta può essere una tra i seguenti tipi:
+			\begin{itemize}
+				\item l'utente viene riconosciuto come un potenziale amministratore;
+				\item l'utente viene riconosciuto come un ospite conosciuto.
+			\end{itemize}
+			Nel primo caso, la risposta fornita sarà così organizzata:
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"contexts": [{
+			"context_name":"String",
+			"name":"String",
+			"username":"String"
+			}]
+			}
+			\end{lstlisting}
+			Dove
+			\begin{itemize}
+				\item \file{context\_name} indica il nome del context, che in questo caso sarà "admin";
+				\item \file{name} indica il nome dell'amministratore;
+				\item \file{username} indica lo username dell'amministratore;
+			\end{itemize}
+			Nel secondo caso, la risposta sarà così organizzata:
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"contexts": [{
+			"context_name":"String",
+			"guest_name":"String",
+			"company":"String",
+			"name":"String",
+			}]
+			}
+			\end{lstlisting}
+			Dove
+			\begin{itemize}
+				\item \file{context\_name} indica il nome del context, che in questo caso sarà "welcome";
+				\item \file{guest\_name} indica il nome dell'ospite;
+				\item \file{company} indica l'azienda di provenienza dell'ospite;
+				\item \file{username} indica lo username dell'amministratore;
+				\item \file{name} indica il nome della persona desiderata;
+			\end{itemize}
 		\end{itemize}
 		\item[] \file{+ <<Create>> createConversationWebhookService(conversation: ConversationsDAO\\, guest: GuestsDAO, user: UsersDAO): ConversationWebhookService} \\		Metodo che permette la costruzione di un \file{ConversationWebhookService}. Permette la dependency injection che ha come oggetti un \file{ConversationsDAO}, \file{GuestsDAO} e \file{UsersDAO};\\
 		Parametri:
@@ -204,13 +204,13 @@ Dove
 \end{itemize}
 \FloatBarrier
 
-\newpage
-\subsubsection{Back-end::APIGateway}
+
+\newpage \subsubsection{Back-end::APIGateway}
 Package contenente le classi necessarie a gestire:
 \begin{itemize}
- \item diversi tipi di  dispositivi client;
- \item l'interazione tra \file{Client} e \file{Back-end};
- \item la combinazione tra i servizi supportati dal \file{Back-end}.
+	\item diversi tipi di  dispositivi client;
+	\item l'interazione tra \file{Client} e \file{Back-end};
+	\item la combinazione tra i servizi supportati dal \file{Back-end}.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/APIGateway.png}
 	\caption{Package Back-end::APIGateway}
@@ -339,7 +339,7 @@ Package contenente le classi necessarie a gestire:
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
 		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle \gl{direttive} del sistema.
-;\\
+		;\\
 		\item[] \file{- updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una direttiva presente nel sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
@@ -353,35 +353,35 @@ Package contenente le classi necessarie a gestire:
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
 		\item[] \file{+ queryLambda(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che si occupa di chiamare prima il servizio di Speech To Text e, una volta ottenuta risposta da esso, di interrogare l'assistente virtuale. Quando viene ricevuta una risposta dall'assistente virtuale, il metodo controlla il valore del campo \file{action} di tale risposta e, nel caso in cui corrisponda ad una delle action supportate, si occupa di eseguire le azioni necessarie utilizzando i metodi privati di questa classe. Nel caso in cui invece \file{action} non corrisponda ad una delle azioni supportate (ovvero action è un'azione che non richiede operazione da parte del back-end, oppure \file{actionIncomplete} è impostato a true), tale risposta viene rielaborata ed inoltrata. Le azioni supportate ed i relativi compiti da svolgere sono disponibili alla sezione \ref{action}. \\
-Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati;\\
+		Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, utilizzando il metodo \file{sns.publish}, in modo che sia possibile registrare i dati relativi a tali interazioni e mandare le notifiche ai membri interessati;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio ricevuto da API Gateway. Tali dati saranno nel seguent formato:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
- "app":"String",
- "audio": "Base64String",
- "data": "ObjectAssocArray",
- "sesssion_id":"String"
-}
-\end{lstlisting}
-
-Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"app":"String",
+			"audio": "Base64String",
+			"data": "ObjectAssocArray",
+			"sesssion_id":"String"
+			}
+			\end{lstlisting}
+			
+			Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-"action":"String",
-"res":{
- "contexts":"ObjectAssocArray",
- "data":"Object",
- "text_request":"String",
- "text_response":"String"
-},
-"sesssion_id":"String"
-}
-\end{lstlisting};
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"action":"String",
+			"res":{
+			"contexts":"ObjectAssocArray",
+			"data":"Object",
+			"text_request":"String",
+			"text_response":"String"
+			},
+			"sesssion_id":"String"
+			}
+			\end{lstlisting};
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -423,11 +423,11 @@ Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare 
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Conversations}
+\newpage \subsubsection{Back-end::Conversations}
 Package contenente le classi relative alle Conversations del sistema.
 \begin{figure}[h] \centering 
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Conversations.png}
-\caption{Package Back-end::Conversations}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Conversations.png}
+	\caption{Package Back-end::Conversations}
 \end{figure}
 \newpage
 
@@ -668,7 +668,7 @@ Package contenente le classi relative alle Conversations del sistema.
 		\begin{itemize}
 			\item \file{msg: ConversationMsg} \\
 			Parametro contenente il messaggio.
-;
+
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione dove aggiungere il messaggio;
 		\end{itemize}
@@ -683,11 +683,11 @@ Package contenente le classi relative alle Conversations del sistema.
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Events}
+\newpage \subsubsection{Back-end::Events}
 Package contenente le classi relative alla pubblicazione di eventi all'interno del sistema.
 \begin{figure}[h] \centering 
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Events.png}
-\caption{Package Back-end::Events}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Events.png}
+	\caption{Package Back-end::Events}
 \end{figure}
 \newpage
 
@@ -703,7 +703,7 @@ Package contenente le classi relative alla pubblicazione di eventi all'interno d
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta un messaggio mandato da SNS in seguito ad un'interazione con l'assistente virtuale;
 	\item \textbf{Utilizzo}: fornisce un meccanismo \gl{event-driven} per la gestione dei dati relativi alle interazioni col sistema.\\
-Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
+	Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ MessageId: String} \\
@@ -781,46 +781,46 @@ Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon
 			Parametro contenente il \file{RequestPromiseModule} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
 		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function\\(error: String, success: String): void): void} \\		Metodo che implementa la Lambda function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS. SNS chiama tale Lambda Function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
-Di seguito viene riportato un esempio dell'oggetto utilizzato.
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-  Records:
-  [
-    {
-      Sns:
-      {
-        Message: '
-        {
-          "action":"nome.azione",
-          "res":
-          {
-            "contexts":
-            [
-              {
-                "name": "nome_contesto",
-                "parameters":
-                {
-                  "nome1": "valore",
-                  "nome2": "altro valore"
-                }
-              }
-            ],
-            "data": Object,
-            "text_request": "frase pronunciata dall'ospite",
-            "text_response": "risposta dell'assistente"
-          },
-          "session_id": "idUnico.timestamp"
-        }',
-        MessageAttributes: {"key": "value", "key2": "value2"},
-        MessageId: "stringa-contenente-id-del-messaggio",
-        Subject: "oggetto del messaggio",
-        Timestamp: "2017-03-26T20:39:48.599Z"
-      }
-    }
-  ]
-}
-\end{lstlisting}
-Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
+		Di seguito viene riportato un esempio dell'oggetto utilizzato.
+		\begin{lstlisting}[language=json,firstnumber=1]
+		{
+		Records:
+		[
+		{
+		Sns:
+		{
+		Message: '
+		{
+		"action":"nome.azione",
+		"res":
+		{
+		"contexts":
+		[
+		{
+		"name": "nome_contesto",
+		"parameters":
+		{
+		"nome1": "valore",
+		"nome2": "altro valore"
+		}
+		}
+		],
+		"data": Object,
+		"text_request": "frase pronunciata dall'ospite",
+		"text_response": "risposta dell'assistente"
+		},
+		"session_id": "idUnico.timestamp"
+		}',
+		MessageAttributes: {"key": "value", "key2": "value2"},
+		MessageId: "stringa-contenente-id-del-messaggio",
+		Subject: "oggetto del messaggio",
+		Timestamp: "2017-03-26T20:39:48.599Z"
+		}
+		}
+		]
+		}
+		\end{lstlisting}
+		Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare un ospite (nome e azienda di provenienza), di utilizzare \file{guests} e \file{conversations} per memorizzare l'interazione. Inoltre, dopo aver chiamato il microservizio \file{Rules} per richiedere le direttive da applicare, individua il canale nel quale inviare la notifica ed utilizzando il microservizio \file{Notification} manda un messaggio contenente i dati dell'interazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: SNSEvent} \\
@@ -840,7 +840,7 @@ Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Guests}
+\newpage \subsubsection{Back-end::Guests}
 Package contenente le classi relative ai Guests del sistema.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Guest.png}
 	\caption{Package Back-end::Guests}
@@ -864,7 +864,7 @@ Package contenente le classi relative ai Guests del sistema.
 	\begin{itemize}
 		\item[] \file{+ getGuestList(): GuestObservable} \\		L'\file{Observable} restituito manderà agli \file{Observer} gli ospiti ottenuti, uno alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, gli \file{Observer} iscritti verranno notificati tramite la chiamate del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		\item[] \file{+ getGuest(name: String, company: String): GuestObservable} \\		Metodo che permette di ottenere un ospite a partire dal nome e l'azienda di provenienza. \\
-L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Guest}, e verrà completato. Nel caso in cui l'ospite richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -1063,7 +1063,7 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Gue
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Members}
+\newpage \subsubsection{Back-end::Members}
 Package contenente le classi relative ai membri del sistema.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Member.png}
 	\caption{Package Back-end::Members}
@@ -1268,7 +1268,7 @@ Package contenente le classi relative ai membri del sistema.
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Notifications}
+\newpage \subsubsection{Back-end::Notifications}
 Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle notifiche da inviare alla persona desiderata su una certa piattaforma di messaggistica.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Notifications.png}
 	\caption{Package Back-end::Notifications}
@@ -1287,7 +1287,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio rel
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad una \file{Action} come descritto nelle API di Slack. Rappresenta un button in un messaggio Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi di una \file{Action}. La classe \file{Attachment} ne contiene un array.
-Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -1321,10 +1321,10 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 	\item \textbf{Nome}: \file{Attachment};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un \file{Attachment}
-;
+	;
 	\item \textbf{Utilizzo}: fornisce gli attributi degli \file{Attachment} che dovranno essere aggiunti ad un \\ \file{NotificationMessage}.
-Un \file{Attachment}, contenuto in un \file{NotificationsMessage}, permette di aggiungere del significato ad un \file{NotificationMessage} ed arricchirlo tramite immagini, colori ed altro.
-Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+	Un \file{Attachment}, contenuto in un \file{NotificationsMessage}, permette di aggiungere del significato ad un \file{NotificationMessage} ed arricchirlo tramite immagini, colori ed altro.
+	Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1357,8 +1357,8 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un messaggio di conferma di Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare un messaggio di conferma di Slack.
-\\
-Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+	\\
+	Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1367,7 +1367,7 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 		Attributo contenente la descrizione dettagliata delle conseguenze della relativa \file{Action} e contestualizza le scelte fornite dal button;
 		\item[] \file{+ ok\_text: String[0..1]} \\
 		Attributo contenente il testo del bottone che serve per confermare la relativa \file{Action}. Il valore di default per questo attributo è "Okay".
-;
+		;
 		\item[] \file{+ dismiss\_text: String[0..1]} \\
 		Attributo contenente il testo del bottone che serve per cancellare la relativa \file{Action}. Il valore di default per questo attributo è "Cancel";
 	\end{itemize}
@@ -1389,7 +1389,7 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i parametri relativi al canale Slack nel quale spedire il \file{NotificationMessage};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{NotificationChannel}. \\
-Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-03-21);
+	Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
@@ -1398,11 +1398,11 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 		Attributo contenente il nome del canale Slack;
 		\item[] \file{+ type: String} \\
 		Attributo che indica il tipo del canale. \\ Può assumere i seguenti valori:
-\begin{itemize}
-  \item user: il canale rappresenta un utente Slack;
-  \item channel: il canale rappresenta un canale pubblico Slack;
-  \item group: il canale rappresenta un canale privato Slack.
-\end{itemize}
+		\begin{itemize}
+			\item user: il canale rappresenta un utente Slack;
+			\item channel: il canale rappresenta un canale pubblico Slack;
+			\item group: il canale rappresenta un canale privato Slack.
+		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -1430,12 +1430,12 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 		Attributo contenente l'array degli attachments del \file{NotificationMessage};
 		\item[] \file{+ response\_type: String[0..1]} \\
 		Attributo contenente il modo con il quale notificare.
-Questo attributo può assumere uno tra i seguenti valori:
-\begin{itemize}
-\item \file{in\_channel}, che mostra il \file{NotificationMessage} ai membri del canale con il message button già cliccato;
-\item \file{ephemeral}, che mostra il \file{NotificationMessage} ai membri del canale che cliccano sul message button.
-\end{itemize}
-Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+		Questo attributo può assumere uno tra i seguenti valori:
+		\begin{itemize}
+			\item \file{in\_channel}, che mostra il \file{NotificationMessage} ai membri del canale con il message button già cliccato;
+			\item \file{ephemeral}, che mostra il \file{NotificationMessage} ai membri del canale che cliccano sul message button.
+		\end{itemize}
+		Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -1476,14 +1476,14 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio da inviare.
-Tali dati sono:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-    "msg":"NotificationMessage",
-    "send_to":"String"
-}
-\end{lstlisting}
-Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
+			Tali dati sono:
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"msg":"NotificationMessage",
+			"send_to":"String"
+			}
+			\end{lstlisting}
+			Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambaResponse::statusCode};
 		\end{itemize}
@@ -1504,14 +1504,14 @@ Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{s
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Rules}
+\newpage \subsubsection{Back-end::Rules}
 Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle direttive per l'assistente virtuale.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item l'aggiunta di una nuova direttiva;
-\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
-\item la gestione delle direttive esistenti;
-\item la gestione dei compiti esistenti.
+	\item l'aggiunta di una nuova direttiva;
+	\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
+	\item la gestione delle direttive esistenti;
+	\item la gestione dei compiti esistenti.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Rules.png}
 	\caption{Package Back-end::Rules}
@@ -1639,7 +1639,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad una \file{Rule}, ovvero una direttiva definita da un amministratore;
 	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad una direttiva, i quali dovranno essere memorizzati nel database per questo microservizio. Tramite il metodo \file{setTask}, è soggetta ad una setter-based dependency injection che ha come oggetto una \file{RuleTaskInstance}. \\
-È utilizzata dalla classe \file{RulesDAO} e dalle classi che utilizzano quest'ultima;
+	È utilizzata dalla classe \file{RulesDAO} e dalle classi che utilizzano quest'ultima;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- targets: RuleTargetArray} \\
@@ -1916,7 +1916,7 @@ Vengono offerte funzionalità che permettono:
 			Attributo contenente il \file{RulesDAO};
 		\end{itemize}
 		\item[] \file{+ queryRule(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che permette di interrogare il microservizio ed ottenere una lista di direttive che si applicano in un determinato caso.
-Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
+		Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -1947,7 +1947,7 @@ Tale metodo si occupa di interrogare il DAO ed individuare le direttive da appli
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a un target di una \file{Rule}, ovvero la persona alla quale è indirizzata quest'ultima;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un target di una \file{Rule} che dovranno essere memorizzati nel database per questo microservizio.
-Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target} ai quali applicare la sua funzione;
+	Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target} ai quali applicare la sua funzione;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ company: String} \\
@@ -2138,7 +2138,7 @@ Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target}
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::STT}
+\newpage \subsubsection{Back-end::STT}
 Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/STT.png}
 	\caption{Package Back-end::STT}
@@ -2186,13 +2186,13 @@ Package che include le classi che si occupano di fornire le funzionalità di \gl
 	\item \textbf{Nome}: \file{STTWatsonAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di convertire l'interfaccia fornita dal servizio di Speech to Text di IBM in una più adatta alle esigenze dell'applicazione, definita da \file{STTModule}. \\
-Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e l'interfaccia \file{STTModule} (target) utilizzata da \file{APIGateway::VocalAPI}, permette l'interoperabilità tra queste due interfacce;
+	Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e l'interfaccia \file{STTModule} (target) utilizzata da \file{APIGateway::VocalAPI}, permette l'interoperabilità tra queste due interfacce;
 	\item \textbf{Utilizzo}: fornisce a \file{STTModule} un meccanismo che permette di interrogare le API del servizio Watson Speech to Text di IBM, in modo da consentire a \file{APIGateway::VocalAPI} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze.
-Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
-\begin{itemize}
-    \item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-03-21);
-    \item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-03-21).
-\end{itemize}
+	Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
+	\begin{itemize}
+		\item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-03-21);
+		\item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-03-21).
+	\end{itemize}
 	\item \textbf{Padre}: \file{<<interface>> STTModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2223,13 +2223,13 @@ Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti 
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Users}
+\newpage \subsubsection{Back-end::Users}
 Package contenente le classi e le interfacce che realizzano il microservizio di autenticazione e registrazione di un amministratore nel sistema.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la registrazione di un nuovo amministratore;
-\item l'autenticazione di un amministratore;
-\item gestione degli amministratori esistenti.
+	\item la registrazione di un nuovo amministratore;
+	\item l'autenticazione di un amministratore;
+	\item gestione degli amministratori esistenti.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Users.png}
 	\caption{Package Back-end::Users}
@@ -2248,12 +2248,12 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione al database per questo microservizio;
 	\item \textbf{Utilizzo}: fornisce a \file{UsersService} un meccanismo per accedere al database contenente gli utenti registrati, senza conoscerne le modalità di implementazione e di persistenza di quest'ultimo.
-A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
+	A partire da un identificativo, permette operazioni di lettura, scrittura e rimozione di utenti registrati;
 	\item \textbf{Figlio}: \file{UsersDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ addUser(user: User): ErrorObservable} \\		Metodo che permette di aggiungere un utente. \\
-L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato in caso di aggiunta dell'utente avvenuta con successo. In caso di errore durante l'aggiunta dell'utente, gli \file{Observer} interessati verranno notificati tramite la chiamata del loro metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{user: User} \\
@@ -2266,7 +2266,7 @@ L'\file{Observable} restituito non riceverà alcun valore, ma verrà completato 
 			Parametro contenente l'id dello \file{User} che si vuole eliminare;
 		\end{itemize}
 		\item[] \file{+ getUser(username: String): UserObservable} \\		Metodo che permette di ottenere i dati relativi ad un utente. \\
-L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
+		L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{User}, e verrà completato. Nel caso in cui l'utente richiesto non sia presente nel database, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{username: String} \\
@@ -2362,8 +2362,8 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Use
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri dell'autenticazione tramite Speaker Recognition (SR);
 	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare, tramite SR, un utente sottoposto alla procedura di Enrollment del servizio di Speaker Recognition.
-Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-03-21).
-;
+	Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-03-21).
+	;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
@@ -2374,8 +2374,8 @@ Per la relativa documentazione consultare la pagina \url{https://www.microsoft.c
 		Attributo contenente la data di creazione del profilo utente nel microservizio esterno di Speaker Recognition;
 		\item[] \file{+ enrollmentStatus: String} \\
 		Attributo contenente lo stato dell'Enrollment.\\
-Lo stato può essere uno tra i seguenti valori:
-\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize}
+		Lo stato può essere uno tra i seguenti valori:
+		\begin{itemize} \item Enrolling: indica che la fase di enrollment è in corso; \item Training: indica che il microservizio di Speaker Recognition sta elaborando e organizzando i dati ricevuti (analizza le frasi comunicate e ne costruisce un'impronta vocale); \item Enrolled, ovvero che le due fasi precedenti sono state completate. \end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -2395,7 +2395,7 @@ Lo stato può essere uno tra i seguenti valori:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un utente registrato;
 	\item \textbf{Utilizzo}: fornisce i metodi getter e setter per i parametri relativi ad un utente registrato, i quali dovranno essere memorizzati nel database per questo microservizio.\\
-È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
+	È utilizzata dalla classe \file{UsersDAO} e dalle classi che utilizzano quest'ultima;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- username: String} \\
@@ -2599,7 +2599,7 @@ Lo stato può essere uno tra i seguenti valori:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Users} e, tramite \file{UsersDAO}, di interagire con il database degli utenti registrati;
 	\item \textbf{Utilizzo}: fornisce i metodi che implementano le Lambda Function necessarie alla gestione degli utenti.
-Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
+	Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- users: UsersDAO} \\
@@ -2675,7 +2675,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare e raggruppare tutte le operazioni necessarie all'identificazione di un utente registrato, tramite il microservizio di Speaker Recognition (SR) di Microsoft;
 	\item \textbf{Utilizzo}: fornisce un meccanismo per creare, eliminare ed ottenere un utente registrato associato ad un \file{Enrollment}, il quale è necessario all'identificazione di un utente tramite il microservizio di Speak Recognition (SR). Permette quindi di associare i parametri relativi ad un \file{Enrollment} ad un utente registrato.\\
-È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{RequestPromiseModule};
+	È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{RequestPromiseModule};
 	\item \textbf{Padre}: \file{<<interface>>VocalLoginModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2730,7 +2730,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::Utility}
+\newpage \subsubsection{Back-end::Utility}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl{package} del back-end.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Utility.png}
 	\caption{Package Back-end::Utility}
@@ -2890,7 +2890,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri \gl
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare il campo result della risposta fornita da api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto result relativo ad una risposta di api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ source: String} \\
@@ -2931,9 +2931,9 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 	\item \textbf{Nome}: \file{StatusObject};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare lo status object della richiesta mandata ad api.ai, che indica se quest'ultima ha avuto successo o meno.
-;
+	;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto status object relativo ad una richiesta mandata ad api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ code: int} \\
@@ -2948,11 +2948,11 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Back-end::VirtualAssistant}
+\newpage \subsubsection{Back-end::VirtualAssistant}
 Package contenente le classi e le interfacce che realizzano il microservizio di assistente virtuale .\\
 Vengono offerte funzionalità che permettono di:
 \begin{itemize}
-\item interrogare l'assistemte virtuale.
+	\item interrogare l'assistemte virtuale.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/VirtualAssistant.png}
 	\caption{Package Back-end::VirtualAssistant}
@@ -3050,7 +3050,7 @@ Vengono offerte funzionalità che permettono di:
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe definisce l'interfaccia dei moduli che implementano dei webhook conformi alle specifiche di api.ai;
 	\item \textbf{Utilizzo}: fornisce una serie di metodi necessari per definire un servizio che soddisfi i requisiti per webhook di api.ai.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-03-21);
 	\item \textbf{Figli}: \file{ConversationWebhookService}, \file{AdministrationWebhookService};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3059,32 +3059,32 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		\begin{itemize}
 			\item \file{event: LambaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati mandati da api.ai al \file{WebhookService}. Tali dati saranno organizzati secondo le esigenze della classe che implementa questa interfaccia.\\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+			Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
-Tali dati sono cosi organizzati:
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-    "contextOut":"ContextArray",
-    "data":"Object",
-    "displayText":"String",
-    "followupEvent":"Object",
-    "source":"String",
-    "speech":"String"
-}
-\end{lstlisting}
-Dove:
-\begin{itemize}
-    \item \file{contextOut}: attributo contenente l'array dei context che la richiesta ha attivato;
-    \item \file{data}: attributo contenente i dati che saranno inviati al client. Tali dati non sono processati da api.ai e quindi saranno nella forma originale;
-    \item \file{displayText}: attributo contenente il testo che verrà mostrato sullo schermo dell'utente;
-    \item \file{followupEvent}: attributo contenente parametri opzionali che il servizio web utilizzato vuole inviare ad api.ai;
-    \item \file{source}: attributo contenente la risorse dei dati forniti come risposta;
-    \item \file{speech}: attributo contenente la risposta testuale alla richiesta.
-\end{itemize}
-
-Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-03-21).
-;
+			Tali dati sono cosi organizzati:
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"contextOut":"ContextArray",
+			"data":"Object",
+			"displayText":"String",
+			"followupEvent":"Object",
+			"source":"String",
+			"speech":"String"
+			}
+			\end{lstlisting}
+			Dove:
+			\begin{itemize}
+				\item \file{contextOut}: attributo contenente l'array dei context che la richiesta ha attivato;
+				\item \file{data}: attributo contenente i dati che saranno inviati al client. Tali dati non sono processati da api.ai e quindi saranno nella forma originale;
+				\item \file{displayText}: attributo contenente il testo che verrà mostrato sullo schermo dell'utente;
+				\item \file{followupEvent}: attributo contenente parametri opzionali che il servizio web utilizzato vuole inviare ad api.ai;
+				\item \file{source}: attributo contenente la risorse dei dati forniti come risposta;
+				\item \file{speech}: attributo contenente la risposta testuale alla richiesta.
+			\end{itemize}
+			
+			Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-03-21).
+			;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -3105,13 +3105,13 @@ Per la relativa documentazione, consultare la pagina Per una descrizione dettagl
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un \file{Agent} di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Agent} che dovranno essere memorizzati nel database per questo microservizio.
-In api.ai, un \file{Agent} ha lo scopo di trasformare il linguaggio naturale, ricevuto in input, in dati capibili per le applicazioni.
-Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-03-21);
+	In api.ai, un \file{Agent} ha lo scopo di trasformare il linguaggio naturale, ricevuto in input, in dati capibili per le applicazioni.
+	Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
 		Nome dell'applicazione a cui è collegato l'agent.
-Per ogni applicazione, abbiamo un \file{Agent};
+		Per ogni applicazione, abbiamo un \file{Agent};
 		\item[] \file{+ token: String} \\
 		Attributo contenente il valore del token associato. Un agent è identificabile tramite esso;
 		\item[] \file{+ lang: String} \\
@@ -3261,9 +3261,9 @@ Per ogni applicazione, abbiamo un \file{Agent};
 	\item \textbf{Nome}: \file{ApiAiVAAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di convertire l'interfaccia fornita da api.ai in una più adatta alle esigenze dell'applicazione, definita da \file{VAModule}. \\
-Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target) utilizzata da \file{VAService}, permette l'interoperabilità tra queste due interfacce;
+	Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target) utilizzata da \file{VAService}, permette l'interoperabilità tra queste due interfacce;
 	\item \textbf{Utilizzo}: fornisce a \file{VAModule} un meccanismo che permette di interrogare le API di api.ai, in modo da consentire a \file{VAService} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze. \\ Per fare le richieste HTTP alle API, il metodo \file{query} utilizza il modulo request-promise.
-È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{Agent} relativo alle richieste da inviare;
+	È soggetta ad una constructor-based dependency injection, la quale ha come oggetto un \file{Agent} relativo alle richieste da inviare;
 	\item \textbf{Padre}: \file{<<interface>> VAModule};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -3306,7 +3306,7 @@ Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare l'oggetto buttons di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto buttons relativo ad una risposta. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text: String} \\
@@ -3332,8 +3332,8 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un \file{Context} in api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Context}.
-In api.ai, un \file{Context} è una stringa che rappresenta il contesto corrente nel quale un utente somministra una richiesta, in maniera tale da disambiguare il più possibile quest'ultime. \\
-Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-03-21);
+	In api.ai, un \file{Context} è una stringa che rappresenta il contesto corrente nel quale un utente somministra una richiesta, in maniera tale da disambiguare il più possibile quest'ultime. \\
+	Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3342,8 +3342,8 @@ Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.ap
 		Attributo contenente l'array dei parametri che compongono il \file{Context};
 		\item[] \file{+ lifespan: int} \\
 		Attributo contenente il lifespan del \file{Context}.
-Questo valore indica per quanti altri matched intents bisogna mantenere il \file{Context}.
-Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-03-21);
+		Questo valore indica per quanti altri matched intents bisogna mantenere il \file{Context}.
+		Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-03-21);
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3363,16 +3363,16 @@ Per chiarire quanto appena detto, consultare la relativa documentazione in quest
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un fulfillment di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un fulfillment.
-In api.ai un fulfillment è tutto ciò che viene ritornato dalla richiesta di utente. In particolare, è l'adempimento ad una richiesta e può comprendere diversi campi dati.
-Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21).
-;
+	In api.ai un fulfillment è tutto ciò che viene ritornato dalla richiesta di utente. In particolare, è l'adempimento ad una richiesta e può comprendere diversi campi dati.
+	Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21).
+	;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ speech: String} \\
 		Attributo contenente il testo relativo alla risposta fornita;
 		\item[] \file{+ messages: MsgObjectArray} \\
 		Attributo contenente l'array di tutti i campi dati presenti nel messages.
-Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono eterogenei fra loro;
+		Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono eterogenei fra loro;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3393,7 +3393,7 @@ Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono 
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a intents e contexts;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ai dati di intents e contexts e viene utilizzato come attributo della classe \file{ProcessingResult}.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ intentId: String} \\
@@ -3402,7 +3402,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		Attributo contenente un valore booleano che indica se è stato usato un webhook. Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21);
 		\item[] \file{+ webhookForSlotFillingUsed: String} \\
 		Attributo contenente un valore booleano che indica se è stato usato un webhook per slot filling.
-Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-03-21);
+		Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-03-21);
 		\item[] \file{+ intentName: String} \\
 		Attributo contenente il nome dell'intent;
 	\end{itemize}
@@ -3424,21 +3424,21 @@ Per chiarire quanto detto, consultare la relativa documentazione \url{https://do
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un \file{MsgObject}, il quale definisce un tipo unico tra tutti i messaggi (dal contenuto eterogeneo) contenuti in un \file{Fulfillment};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{MsgObject}, il quale sarà contenuto in un \file{Fulfillment}.
-La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
-Per la relativa documentazione, consultare le seguenti pagine: \\
-\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-03-21)\\
-\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-03-21);
+	La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
+	Per la relativa documentazione, consultare le seguenti pagine: \\
+	\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-03-21)\\
+	\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ type: int} \\
 		Attributo il quale valore indica il tipo del messaggio. I possibili valori ed i relativi messaggi sono:
-\begin{itemize}
-  \item 0: messaggio testuale, prevede la presenza del campo \file{speech};
-  \item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
-  \item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
-  \item 3: immagine, prevede la presenza del campo \file{imgUrl};
-  \item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
-\end{itemize}
+		\begin{itemize}
+			\item 0: messaggio testuale, prevede la presenza del campo \file{speech};
+			\item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
+			\item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
+			\item 3: immagine, prevede la presenza del campo \file{imgUrl};
+			\item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
+		\end{itemize}
 		\item[] \file{+ speech: String[0..1]} \\
 		Attributo contenente il testo di un messaggio di tipo messaggio testuale;
 		\item[] \file{+ imageUrl: String[0..1]} \\
@@ -3473,7 +3473,7 @@ Per la relativa documentazione, consultare le seguenti pagine: \\
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta il campo event di una richiesta all'assistente virtuale;
 	\item \textbf{Utilizzo}: fornisce i campi necessari all'interrogazione di un assistente virtuale, utilizzando il nome di un evento e dei parametri al posto della stringa di query \file{VAQuery::text}.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3536,7 +3536,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		Attributo che permette di contattare \file{AgentsDAO}, il quale fornisce i meccanismi d'accesso al database degli \file{Agent} disponibili;
 		\item[] \file{- va\_module: VAModule} \\
 		Attributo contenente il \file{VAModule}. \\
-\file{VAModule} è un'interfaccia, implementata da \file{ApiAiVAAdapter}.  I metodi invocati saranno quelli appartenenti a quest'ultima classe;
+		\file{VAModule} è un'interfaccia, implementata da \file{ApiAiVAAdapter}.  I metodi invocati saranno quelli appartenenti a quest'ultima classe;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3553,37 +3553,37 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente l'evento con i dati relativi alla richiesta di API Gateway. Il campo \file{body} di questo evento conterrà una stringa in formato JSON nel formato seguente:
-
-\begin{lstlisting}[language=json,firstnumber=1]
-{
-    "app":"nome_applicazione",
-    "query": "VAQuery"
-}
-\end{lstlisting}
-
-con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
+			
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"app":"nome_applicazione",
+			"query": "VAQuery"
+			}
+			\end{lstlisting}
+			
+			con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
- \begin{lstlisting}[language=json,firstnumber=1]
-{
- "action":"String",
-  "res":
-   {
-    "contexts":"ObjectAssocArray",
-     "data":"Object",
-     "text_request":"String",
-     "text_response":"String"
-   },
-  "session_id":"String"
-}
-\end{lstlisting}
-Dove:
-\begin{itemize}
-   \item \file{action}: attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere   eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
-   \item \file{res}: attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \file{Client::ApplicationManager::Application::runCmd} dell'applicazione.\\ In questo oggetto abbiamo i campi \file{contexts} (array contenente i context ricevuti dall'assistente virtuale), \file{data} (attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo  di una determinata risposta nella richiesta successiva. In particolare, questo attributo viene utilizzato per lo scambio, tra client e back-end, del token dell'agent in api.ai), \file{text\_request} (attributo contenente il testo della richiesta dell'utente) e \file{text\_response}(attributo che contiene il testo della risposta dell'assistente virtuale).
-   \item \file{session\_id}: attributo contenente l'id univoco della sessione corrente dell'assistente virtuale.
-\end{itemize}
-;
+			\begin{lstlisting}[language=json,firstnumber=1]
+			{
+			"action":"String",
+			"res":
+			{
+			"contexts":"ObjectAssocArray",
+			"data":"Object",
+			"text_request":"String",
+			"text_response":"String"
+			},
+			"session_id":"String"
+			}
+			\end{lstlisting}
+			Dove:
+			\begin{itemize}
+				\item \file{action}: attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere   eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
+				\item \file{res}: attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \file{Client::ApplicationManager::Application::runCmd} dell'applicazione.\\ In questo oggetto abbiamo i campi \file{contexts} (array contenente i context ricevuti dall'assistente virtuale), \file{data} (attributo che può essere utilizzato per scambiare dati tra client e l'eventuale webhook. Il suo contenuto dipende dal servizio webhook utilizzato. Il client si deve occupare di reinviare i dati presenti in questo campo  di una determinata risposta nella richiesta successiva. In particolare, questo attributo viene utilizzato per lo scambio, tra client e back-end, del token dell'agent in api.ai), \file{text\_request} (attributo contenente il testo della richiesta dell'utente) e \file{text\_response}(attributo che contiene il testo della risposta dell'assistente virtuale).
+				\item \file{session\_id}: attributo contenente l'id univoco della sessione corrente dell'assistente virtuale.
+			\end{itemize}
+			;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -3635,14 +3635,14 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Client::ApplicationManager}
+\newpage \subsubsection{Client::ApplicationManager}
 Package contenente le classi che si occupano della gestione delle applicazioni con le quali l'utente può interagire.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la reazione a dei dati di risposta arrivati dal \file{Back-end};
-\item la definizione di ciò che va a comporre una applicazione;
-\item il salvataggio dello stato di un'applicazione;
-\item il cambio di un'applicazione con un'altra.
+	\item la reazione a dei dati di risposta arrivati dal \file{Back-end};
+	\item la definizione di ciò che va a comporre una applicazione;
+	\item il salvataggio dello stato di un'applicazione;
+	\item il cambio di un'applicazione con un'altra.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ApplicationManager.png}
 	\caption{Package Client::ApplicationManager}
@@ -3707,7 +3707,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ <<Create>> createApplication(pkg: ApplicationPackage): Application}\\ \\		Metodo che permette di costruire un \file{Application} a partire da un \file{ApplicationPackage}. \\
-Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseguendo il binding di this per far sì che tale codice abbia accesso all'oggetto che viene creato, quindi crea il metodo \file{runCmd} a partire dal codice presente all'interno di \file{pkg.cmdHandler}, eseguendo nuovamente il binding di this;\\
+		Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseguendo il binding di this per far sì che tale codice abbia accesso all'oggetto che viene creato, quindi crea il metodo \file{runCmd} a partire dal codice presente all'interno di \file{pkg.cmdHandler}, eseguendo nuovamente il binding di this;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{pkg: ApplicationPackage} \\
@@ -3793,7 +3793,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(val: boolean): void} \\		Questo metodo, all'arrivo della notifica dal \file{DataArrivedSubject}, permette di passare all'\file{ApplicationManagerObserver} una funzione da eseguire.
-;\\
+		;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{val: boolean} \\
@@ -3865,7 +3865,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 			Parametro contenente il nome dell'applicazione che si vuole recuperare;
 		\end{itemize}
 		\item[] \file{+ register(name: String, pkg: ApplicationPackage): boolean} \\		Metodo relativo alla registrazione di un'applicazione nell'\file{ApplicationRegistryClient}.
-Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{RegistryPackage}, ovvero un package di tipo \file{ApplicationPackage};\\
+		Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{RegistryPackage}, ovvero un package di tipo \file{ApplicationPackage};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{name: String} \\
@@ -3984,7 +3984,7 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{R
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Client::ConversationApp}
+\newpage \subsubsection{Client::ConversationApp}
 Package contenente le classi che realizzano l'applicazione di conversazione, la quale fornisce un'interfaccia utente per l'interazione con l'assistente virtuale.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ConversationApp.png}
 	\caption{Package Client::ApplicationManager}
@@ -4067,7 +4067,7 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{ConversationAction};
 	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{ConversationAction}.
-;
+	;
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(conversation\_action: ConversationAction): void} \\		Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \\ \file{ConversationAction}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
@@ -4098,10 +4098,10 @@ Package contenente le classi che realizzano l'applicazione di conversazione, la 
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli observer collegati che è stata decisa la \file{ConversationAction};
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio della \file{ConversationAction} una volta che questa è stata decisa dal \file{ConversationDispatcher}.
-Gli \file{Observer} collegati sono:
-\begin{itemize}
-\item ConversationActionObserver.
-\end{itemize}
+	Gli \file{Observer} collegati sono:
+	\begin{itemize}
+		\item ConversationActionObserver.
+	\end{itemize}
 	\item \textbf{Padre}: \file{ConversationActionObservable};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4287,12 +4287,12 @@ Gli \file{Observer} collegati sono:
 		\item[] \file{+ <<Create>> createMessageStore(): MessageStore} \\		Costruttore che si occupa di inizializzare l'attributo \file{subject};\\
 		\item[] \file{+ getObservable(): ErrorObservable} \\		Metodo che permette di ottenere un \file{Observable} relativa a \file{subject}, evitando così di esporlo;\\
 		\item[] \file{+ onCmd(action: ConversationAction): void} \\		Metodo che si occupa di controllare il campo \file{cmd} delle action passate da \\ \file{ConversationDispatcher}. Nel caso il suo valore sia uno dei seguenti, si occupa di chiamare l'opportuno metodo privato:
-\begin{itemize}
-\item clear
-\item displayMsgs
-\item sendMsg
-\item receiveMsg
-\end{itemize}
+		\begin{itemize}
+			\item clear
+			\item displayMsgs
+			\item sendMsg
+			\item receiveMsg
+		\end{itemize}
 		Parametri:
 		\begin{itemize}
 			\item \file{action: ConversationAction} \\
@@ -4309,12 +4309,12 @@ Gli \file{Observer} collegati sono:
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Client::Logic}
+\newpage \subsubsection{Client::Logic}
 Package contenente le classi che gestiscono la logica del client e che si occupano della comunicazione con il back-end.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la reazione a dei dati arrivati come richiesta dal registratore vocale;
-\item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}.
+	\item la reazione a dei dati arrivati come richiesta dal registratore vocale;
+	\item il notificare alle classi interessate l'arrivo di dati dal \file{Back-end}.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Logic.png}
 	\caption{Package Client::Logic}
@@ -4362,11 +4362,11 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli observer collegati che i dati relativi ad una risposta sono arrivati;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio dei dati, il testo della risposta dell'assistente virtuale, una volta che questi ultimi sono stati forniti dal Back-end.
-Gli observer collegati sono:
-\begin{itemize}
-\item \file{ApplicationManagerObserver};
-\item \file{PlayerObserver}.
-\end{itemize}
+	Gli observer collegati sono:
+	\begin{itemize}
+		\item \file{ApplicationManagerObserver};
+		\item \file{PlayerObserver}.
+	\end{itemize}
 	\item \textbf{Padre}: \file{Subject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4474,10 +4474,10 @@ Gli observer collegati sono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di comunicare con l'API Gateway;
 	\item \textbf{Utilizzo}: fornisce dei meccanismi per:
-\begin{itemize}
-\item la comunicazione con l'API \gl{gateway};
-\item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
-\end{itemize}
+	\begin{itemize}
+		\item la comunicazione con l'API \gl{gateway};
+		\item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
+	\end{itemize}
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- subject: DataArrivedSubject} \\
@@ -4534,12 +4534,12 @@ Gli observer collegati sono:
 \FloatBarrier
 
 \newpage
-\subsubsection{Client::Recorder}
+\newpage \subsubsection{Client::Recorder}
 Package contenente le classi che realizzano la registrazione audio.\\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la registrazione audio delle richieste espresse dall'utente;
-\item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
+	\item la registrazione audio delle richieste espresse dall'utente;
+	\item il notificare alle classi interessate la fine della registrazione audio di una richiesta dell'utente\file{Back-end}.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Recorder.png}
 	\caption{Package Client::Recorder}
@@ -4558,7 +4558,7 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa della registrazione della conversazione;
 	\item \textbf{Utilizzo}: fornisce al client un meccanismo per registrare ciò che l'ospite comunica. \\
-Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i relativi comandi da mandare al \file{RecorderWorker}. Quando inizia una nuova registrazione, l'audio della registrazione precedente viene eliminato chiamando il comando clear del \file{Worker};
+	Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i relativi comandi da mandare al \file{RecorderWorker}. Quando inizia una nuova registrazione, l'audio della registrazione precedente viene eliminato chiamando il comando clear del \file{Worker};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- threshold: real} \\
@@ -4677,7 +4677,7 @@ Utilizza il volume rilevato per capire se l'ospite sta parlando, e genera i rela
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe è una classe Worker che si occupa dell'effettiva registrazione dell'audio;
 	\item \textbf{Utilizzo}: fornisce a Recorder un thread che si occupa di registrare effettivamente l'audio in modo da non appesantire il thread dell'interfaccia grafica.
-Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e);
+	Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Event e);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
@@ -4696,7 +4696,7 @@ Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Even
 			Attributo contienente i dati dei sample audio che verranno utilizzati per la codifica;
 			\item \file{mono: boolean} \\
 			Attributo contenente un valore booleano che indica se il file audio ha uno o due canali. \\
-In caso il canale sia uno, allora questo attributo dovrà contenere il valore true;
+			In caso il canale sia uno, allora questo attributo dovrà contenere il valore true;
 		\end{itemize}
 		\item[] \file{- clear(): void} \\		Metodo che permette di eliminare tutti i dati relativi all'audio registrato fino a quel momento;\\
 		\item[] \file{- init(config: RecorderWorkerConfig): void} \\		Metodo che permette di inizializzare la configurazione del \file{RecorderWorker} in seguito alla ricezione di un messaggio dal \file{Recorder};\\
@@ -4806,7 +4806,7 @@ In caso il canale sia uno, allora questo attributo dovrà contenere il valore tr
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare l'\file{Observer} collegato che l'utente ha finito di parlare;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio del file audio contenente il messaggio dell'utente una volta che quest'ultimo ha terminato di parlare.
-L'\file{Observer} collegato è \file{LogicObserver};
+	L'\file{Observer} collegato è \file{LogicObserver};
 	\item \textbf{Padre}: \file{Subject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4827,12 +4827,12 @@ L'\file{Observer} collegato è \file{LogicObserver};
 \FloatBarrier
 
 \newpage
-\subsubsection{Client::TTS}
+\newpage \subsubsection{Client::TTS}
 Package contenente le componenti che realizzano il \gl{text to speech}.
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
-\item la riproduzione audio del testo fornito come risposta dall'assistente virtuale.
+	\item la reazione a dei dati arrivati come riposta dal \file{Back-end};
+	\item la riproduzione audio del testo fornito come risposta dall'assistente virtuale.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/TTS.png}
 	\caption{Package Client::TTS}
@@ -4852,20 +4852,20 @@ Vengono offerte funzionalità che permettono:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di riprodurre la risposta, fornita dal sistema, all'ospite;
 	\item \textbf{Utilizzo}: fornisce al client funzionalità di riproduzione dei file audio di risposta del Back-end alle richieste dell'utente.
-Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare il volume.
-;
+	Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare il volume.
+	;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- tts: SpeechSynthesis} \\
 		Attributo contenente uno \file{SpeechSynthesis} di JavaScript Web Speech API il quale fornisce dei metodi per la gestione del file audio.
-Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-03-21);
+		Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-03-21);
 		\item[] \file{- subject: BoolSubject} \\
 		Attributo contenente un \file{BoolSubject}, il quale emette item del tipo:
-\begin{itemize}
-\item true: quando l'utente sta parlando;
-\item false: altrimenti.
-\end{itemize}
-Questo attributo serve per disattivare il \file{Recorder} durante la riproduzione del file audio relativo alla risposta, fornita dal sistema;
+		\begin{itemize}
+			\item true: quando l'utente sta parlando;
+			\item false: altrimenti.
+		\end{itemize}
+		Questo attributo serve per disattivare il \file{Recorder} durante la riproduzione del file audio relativo alla risposta, fornita dal sistema;
 		\item[] \file{- options: TTSConfig} \\
 		Attributo contenente l'insieme delle opzioni relative alla configurazione del \file{Player};
 	\end{itemize}
@@ -4918,7 +4918,7 @@ Questo attributo serve per disattivare il \file{Recorder} durante la riproduzion
 	\item \textbf{Nome}: \file{PlayerObserver};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di inviare l'audio contenente la risposta fornita dal sistema al \file{Player}.
-È la classe che funziona da \file{Observer};
+	È la classe che funziona da \file{Observer};
 	\item \textbf{Utilizzo}: fornisce un meccanismo per l'invio dell'audio relativo alla risposta fornita dal sistema;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4948,7 +4948,7 @@ Questo attributo serve per disattivare il \file{Recorder} durante la riproduzion
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe contiene tutti i parametri relativi alla configurazione di un \file{Player};
 	\item \textbf{Utilizzo}: fornisce al \file{Player} un meccanismo per gestire i parametri relativi alla configurazione per la riproduzione di un file audio.
-Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-03-21);
+	Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ lang: String} \\
@@ -4970,7 +4970,7 @@ Per la relativa documentazione, consultare la pagina \url{https://developer.mozi
 \FloatBarrier
 
 \newpage
-\subsubsection{Client::Utility}
+\newpage \subsubsection{Client::Utility}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del client.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Utility.png}
 	\caption{Package Client::Utility}
@@ -5155,10 +5155,10 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di notificare gli \file{Observer} collegati che un errore si è verificato;
 	\item \textbf{Utilizzo}: fornisce un meccanismo che permette l'invio di una \file{Exception} una volta che questa si è verificata.\\
- Gli observer collegati sono:
-\begin{itemize}
-\item \file{ErrorObserver}.
-\end{itemize}
+	Gli observer collegati sono:
+	\begin{itemize}
+		\item \file{ErrorObserver}.
+	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(val: Exception): void} \\		Questo metodo permette di notificare l'\file{ErrorSubject};\\
@@ -5193,8 +5193,8 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un errore che può avvenire;
 	\item \textbf{Utilizzo}: fornisce gli attributi necessari a descrivere gli errori che si possono verificare.
-L'attributo \file{code} contiene un valore uguale a 0 nel caso non si sia verificato alcun errore, diverso da 0 altrimenti.
-Nel caso di \file{code} diverso da 0, l'attributo \file{msg} contiene una stringa che descrive l'errore verificatosi;
+	L'attributo \file{code} contiene un valore uguale a 0 nel caso non si sia verificato alcun errore, diverso da 0 altrimenti.
+	Nel caso di \file{code} diverso da 0, l'attributo \file{msg} contiene una stringa che descrive l'errore verificatosi;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ code: Integer} \\
@@ -5219,7 +5219,7 @@ Nel caso di \file{code} diverso da 0, l'attributo \file{msg} contiene una string
 	\item \textbf{Nome}: \file{ObserverAdapter};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe fornisce i metodi che permettono di mettere in pausa un \file{Observer}.
-Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
+	Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observer};
 	\item \textbf{Utilizzo}: implementa l'interfaccia \file{Observer}, definendo i metodi \file{next}, \file{complete}, \file{error} in modo che chiamino le rispettive funzioni di callback. Fornisce inoltre un meccanismo per mettere in pausa un \file{Observer}, in modo che ignori gli eventi che gli sono notificati. Nel caso in cui l'\file{Observer} sia messo in pausa, le funzioni di callback impostate non verranno chiamate;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -5293,7 +5293,7 @@ Questa classe implementa l'interfaccia della libreria esterna \file{RxJS::Observ
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classi si occupa di rappresentare il corpo della risposta, fornita dall'assistente virtuale, in seguito ad un'interrogazione;
 	\item \textbf{Utilizzo}: fornisce gli attributi necessari per rappresentare il corpo della risposta dell'assistente virtuale. \\
-Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto;
+	Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, il quale si occupa di estrarre i parametri necessari ad eseguire il comando ricevuto;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text\_request: String} \\
@@ -5360,7 +5360,7 @@ Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, i
 		Attributo contenente il corpo della risposta ricevuta dall'assistente virtuale. Il contenuto di questo attributo sarà passato senza modifiche al metodo \\ \file{Client::ApplicationManager::Application::runCmd} dell'applicazione;
 		\item[] \file{+ action: String} \\
 		Attributo contenente l'azione che l'assistente virtuale richiede di compiere al client. La stringa è nel formato \file{[nome\_applicazione.comando]}, dove \file{nome\_applicazione} indica l'applicazione che deve essere eseguita, mentre \file{comando} indica il comando che il client deve far eseguire all'applicazione. \\
-Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
+		Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire il comando \file{displayMsgs} all'applicazione che si occupa di mostrare la conversazione;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}

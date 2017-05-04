@@ -57,14 +57,14 @@ KeySchema:
     KeyType: "HASH"
   },
   {
-    AttributeName: "name",
+    AttributeName: "full_name",
     KeyType: "RANGE"
   }
 ],
 AttributeDefinitions:
 [
   "company": {"S" : "azienda di provenienza dell'ospite"},
-  "name": {"S" : "nome dell'ospite"},
+  "full_name": {"S" : "nome e cognome dell'ospite"},
   "conversations":
   {
     "L":
@@ -91,7 +91,7 @@ KeySchema:
 AttributeDefinitions:
 [
   "id": {"N" : "id univoco della rule"},
-  "name": {"S" : "nome della rule"},
+  "rule_name": {"S" : "nome della rule"},
   "targets":
   {
     "L":
@@ -99,7 +99,7 @@ AttributeDefinitions:
       {
         "company": {"S" : "nome dell'azienda target"},
         "member": {"S" : "nome del membro dell'azienda target"},
-        "name": {"S" : "nome della persona target"}
+        "target_name": {"S" : "nome e cognome della persona target"}
       }
     ]
   },
@@ -144,7 +144,7 @@ KeySchema:
 AttributeDefinitions:
 [
   "username": {"S" : "username dell'utente registrato"},
-  "name": {"S" : "nome e cognome dell'utente registrato"},
+  "full_name": {"S" : "nome e cognome dell'utente registrato"},
   "password": {"S" : "password dell'utente registrato"},
   "slack_channel": {"S" : "canale Slack dell'utente registrato"},
   "sr_id": {"S" : "id dell'utente registrato nel microservizio esterno di Speaker Recognition"}
@@ -157,14 +157,14 @@ TableName: "Agent",
 KeySchema:
 [
   {
-    AttributeName: "token",
+    AttributeName: "application_name",
     KeyType: "HASH"
   }
 ],
 AttributeDefinitions:
 [
   "token": {"S" : "valore del token associato all'agente"},
-  "name": {"S" : "nome dell'applicazione a cui e' associato l'agente"},
+  "application_name": {"S" : "nome dell'applicazione a cui e' associato l'agente"},
   "lang": {"S" : "lingua dell'agente"}
 ]
 \end{lstlisting}
