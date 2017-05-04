@@ -280,7 +280,7 @@ Ciascun documento che verrà redatto dovrà essere versionato, per consentire un
 	\item \textbf{X}:
 	\begin{itemize}
 		\item inizia da 0;
-		\item viene incrementato quando il \RESP{} di progetto approva il documento.
+		\item viene incrementato quando il \RESP{} di progetto approva il documento. Per ogni periodo (vedi RIFERIMENTO PDP, capitolo 3), ci sarà una approvazione di ogni documento.
 	\end{itemize}
 	\item \textbf{Y}:
 	\begin{itemize}
@@ -443,3 +443,31 @@ Una volta terminato il suo utilizzo, il branch dovrà essere eliminato seguendo 
  \end{figure}
  \subparagraph{GitHub desktop}
  GitHub Desktop è l'applicativo desktop per contribuire e collaborare ai progetti del corrispondente servizio web GitHub. Esso è disponibile per Windows e MacOS. Per Windows si utilizza la versione 3.3.3 o superiori.
+\newpage
+\subsection{Ambiente di sviluppo}\label{Sviluppo}
+Per preparare l'ambiente di sviluppo è necessario seguire questa serie di passi:
+\begin{itemize}
+	\item aprire il terminale e digitare \file{git clone} \url{https://github.com/CoCodeSWE/AtAVi.git}, per copiare la repository di AtAVi in locale;
+	\item \file{cd AtAVi} per spostarsi all'interno della cartella creata;
+	\item \file{npm install} per installare tutte le dipendenze e le librerie necessarie;
+	\item \file{npm install -g grunt} e \file{npm install -g mocha} per avere a disposizione le due librerie e i comandi associati;
+	\item \file{grunt build-client} per compilare la prima volta il client;
+	\item installare XAMPP dall'indirizzo \url{https://www.apachefriends.org/it/index.html} (visitato in data 2017-05-04);
+	\item avviare XAMPP e nel file di configurazione di Apache copiare: \\
+\begin{lstlisting}
+<VirtualHost *:80> 
+  ServerName localhost 
+  DocumentRoot "***\AtAVi\dist\client" 
+  <Directory  "***\AtAVi\dist\client"> 
+    Options +Indexes +Includes +FollowSymLinks +MultiViews 
+    AllowOverride All 
+    Require local
+  </Directory> 
+</VirtualHost> 
+\end{lstlisting}
+dove al posto di "***" deve essere inserito il percorso dove è stata scaricata la repository di AtAVi;
+	\item installare l'estensione LiveReload nel proprio browser (ad esempio per Google Chrome dall'indirizzo \url{https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=it}, visitato in data 2017-05-04);
+	\item aprire la pagina del localhost;
+	\item digitare \file{grunt watch} nel terminale per fare in modo che la pagina html si aggiorni in modo automatico ad ogni modifica dei file presenti nella cartella AtAVi;
+	\item premere l'icona dell'estensione LiveReload per essere sicuri che sia connessa.
+\end{itemize}
