@@ -238,7 +238,6 @@ Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \end{itemize}
 
-\newpage
 \subsubsection{Observable e RxJS v5}
 ReactiveX è un insieme di API per estendere la programmazione asincrona facendo uso di Observable.\\
 In base al linguaggio di programmazione che si vuole utilizzare, vengono fornite differenti librerie specifiche.
@@ -276,7 +275,7 @@ Gli svantaggi sono:
 
 \subsubsection{Request promise}
 Modulo di Node.js che offre il supporto alle richieste HTTP con l'approccio delle Promises. Il gruppo ha deciso di ricorrere all'utilizzo di tale modulo per rispettare la decisione di non utilizzare direttamente le funzioni di callback, ma ricorrere alle Promises.
-\newpage
+
 \subsection{Amazon Web Services}
 Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
 
@@ -309,7 +308,7 @@ dove:
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
-\newpage
+
 \subsubsection{DynamoDB}
 Amazon DynamoDB è un servizio che fornisce un database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
 È un servizio di database NoSQL cloud interamente gestito, è quindi sufficiente creare una tabella di database, impostare il throughput desiderato e lasciare che il servizio si occupi del resto. \\
@@ -341,7 +340,7 @@ Gli svantaggi sono:
 \begin{itemize}
 	\item non è un servizio gratuito, ma ha dei costi calcolati in base alle chiamate effettuate alle API ed in base alla mole di dati in uscita trasferiti.
 \end{itemize}
-\newpage
+
 \subsubsection{SNS}
 Amazon Simple Notification Service (Amazon SNS) è un servizio di notifiche push rapido, flessibile e completamente gestito che consente di inviare messaggi individuali o collettivi a un numero elevato di destinatari. \\
 Con Amazon SNS è possibile inviare notifiche a dispositivi Apple, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle Lambda Function  altri endpoint HTTP. \\
@@ -368,7 +367,7 @@ Gli svantaggi sono:
 \begin{itemize}
 	\item è un framework molto recente, e di conseguenza non molto maturo.
 \end{itemize}
-\newpage
+
 \subsection{JWT}
 JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
 I vantaggi offerti sono:
