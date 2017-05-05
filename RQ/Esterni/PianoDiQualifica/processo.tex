@@ -5,31 +5,31 @@
 \section{Qualità di processo}
 	Da processi scadenti derivano prodotti scadenti. La qualità di processo è quindi un fattore
 	indispensabile per garantire la qualità dei prodotti. Assicurarla, inoltre, permette di:
-	\begin{itemize} 
+	\begin{itemize}
 		\item favorire l'ottimizzazione delle risorse;
 		\item migliorare la stima dei rischi;
 		\item ridurre i costi.
 	\end{itemize}
-	
-	Per garantire la qualità di processo abbiamo deciso di adottare il Capability Maturity Model (CMM)
+
+	Per garantire la qualità di processo abbiamo deciso di adottare il Capability Maturity Model (\gl{CMM})
 	che definisce una scala, suddivisa in cinque livelli, per misurarne la maturità. \\
 	Le misurazioni ottenute vengono utilizzate all'interno della strategia di miglioramento continuo della
-	qualità, realizzata tramite Plan-Do-Check-Act (PDCA). \\
+	qualità, realizzata tramite Plan-Do-Check-Act (\gl{PDCA}). \\
 	Per maggiori informazioni su CMM consultare l' appendice \hyperlink{CMM}{A}. \\
 	Inoltre, sono stati individuati dallo standard ISO/IEC 12207:2008 i processi ritenuti più importanti
-	nel ciclo di vita del prodotto. Per ciascuno di essi sono stati individuati gli obiettivi di qualità
+	nel \gl{ciclo di vita} del \gl{prodotto}. Per ciascuno di essi sono stati individuati gli obiettivi di qualità
 	e i rispettivi intervalli di accettabilità e ottimalità. \\
 	Per quantificare gli obiettivi di qualità vengono utilizzate delle metriche, descritte nel documento
 	\NPdocRP{}. \\
 	Viene assegnato un codice identificativo ad ogni obiettivo al fine di semplificarne il tracciamento.
 	Il metodo di denominazione è descritto nel documento \NPdocRP{}.
-	
+
 	\subsection{Infrastructure Management Process}
 		Questo processo si occupa di mantenere, monitorare e modificare l'infrastruttura per assicurare
-		che essa continui ad eseguire i servizi necessari allo svolgimento del progetto.
-		Con infrastruttura si intendono elementi hardware, software, metodi, strumenti, tecniche e standard
+		che essa continui ad eseguire i servizi necessari allo svolgimento del \gl{progetto}.
+		Con infrastruttura si intendono elementi hardware, \gl{software}, metodi, strumenti, tecniche e standard
 		impiegati nello sviluppo del prodotto. \\
-		
+
 		\subsubsection{Strategie}
 		Per tutto l'arco del progetto l'infrastruttura dovrà possedere le seguenti caratteristiche:
 		\begin{itemize}
@@ -38,7 +38,7 @@
 			\item i dati contenuti in PragmaDB saranno sempre coerenti e aggiornati;
 			\item la piattaforma PragmaDB estenderà le proprie funzionalità in base alle esigenze del progetto;
 		\end{itemize}
-	
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Disponibilità PragmaDB - OPC1}
 				Indica la disponibilità di utilizzo della piattaforma di PragmaDB rispetto alla richiesta. Questo valore viene espresso in percentuale.
@@ -47,14 +47,14 @@
 					\item \textbf{Soglia di accettabilità}: \begin{math}80\% \leq X \leq 100\%\end{math};
 					\item \textbf{Soglia di ottimalità}: \begin{math}90\% \leq X \leq 100\%\end{math};
 				\end{itemize}
-		
+
 	\subsection{Project Planning, Assessment \& Control Process}
 		Questo processo (derivante dall’unione dei processi Project Planning Process e Project Assessment
 		\& Control Process) si occupa del necessario per la pianificazione del progetto il quale deve
 		contenere la scelta del modello del ciclo di vita del prodotto, la pianificazione dei tempi e costi da
 		sostenere, la descrizione dei compiti e delle attività associate, l'allocazione dei compiti e delle
 		responsabilità e le metriche atte a misurare lo stato del progetto rispetto la pianificazione.
-		
+
 		\subsubsection{Strategie}
 			Lo sviluppo del progetto dovrà seguire la pianificazione, in particolare:
 			\begin{itemize}
@@ -62,7 +62,7 @@
 				\item il progetto dovrebbe rispettare i costi indicati nel documento \PPdocRP{};
 				\item ruoli e compiti verranno descritti esaustivamente nel documento \PPdocRP{}.
 			\end{itemize}
-		
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Rispetto dei tempi - OPC2}
 				Indica se i tempi pianificati sono stati rispettati.
@@ -71,7 +71,7 @@
 					\item \textbf{Soglia di accettabilità}: \begin{math}\geq -5\%\end{math};
 					\item \textbf{Soglia di ottimalità}: \begin{math}\geq 0\%\end{math}.
 				\end{itemize}
-			
+
 			\paragraph{Rispetto dei costi - OPC3}
 				Indica se i costi pianificati, in data corrente, sono rispettati.
 				\begin{itemize}
@@ -81,10 +81,10 @@
 				\end{itemize}
 				Eventuali costi non accettabili dovranno essere compensati entro la fine dell'attività di progetto in quanto non è
 				permesso eccedere i costi preventivati oltre la soglia definita.
-			
+
 	\subsection{Risk Management Process}
 		Questo processo identifica, analizza, tratta e monitora continuamente i rischi che possono sorgere nel ciclo di vita del progetto.
-		
+
 		\subsubsection{Strategie}
 			Il gruppo dovrà gestire correttamente i rischi, in particolare:
 			\begin{itemize}
@@ -93,7 +93,7 @@
 				\item all'inizio di ogni periodo, l'analisi dei rischi permetterà l'individuazione di eventuali nuovi rischi;
 				\item il livello di probabilità che i rischi si presentino dovrà sempre essere tenuto sotto controllo.
 			\end{itemize}
-			
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Rischi non preventivati - OPC4}
 				Evidenzia il numero dei rischi presentati e non preventivati nell'arco del progetto; un valore molto alto potrebbe indicare una povera analisi dei rischi.
@@ -104,8 +104,8 @@
 				\end{itemize}
 
 	\subsection{System/Software Requirements Analysis Process}
-		Questo processo si occupa di trasformare le idee del proponente in un insieme di requisiti tecnici atti a guidare la progettazione del sistema.
-		
+		Questo processo si occupa di trasformare le idee del \gl{proponente} in un insieme di requisiti tecnici atti a guidare la progettazione del \gl{sistema}.
+
 		\subsubsection{Strategie}
 			I requisiti identificati dal gruppo e successivamente inseriti nel documento \ARdocRP{} dovranno possedere le seguenti caratteristiche:
 			\begin{itemize}
@@ -115,7 +115,7 @@
 				\item dovranno essere approvati dal proponente;
 				\item nessun requisito dovrà risultare superfluo o ambiguo.
 			\end{itemize}
-			
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Requisiti obbligatori soddisfatti - OPC5}
 			Indica il numero dei requisiti obbligatori soddisfatti, espresso in percentuale.
@@ -138,10 +138,10 @@
 					\item \textbf{Soglia di accettabilità}: 0\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 			\end{itemize}
-		
+
 	\subsection{System/Software Architectural Design Process}
 		Questo processo si occupa di identificare la corrispondenza tra requisiti di sistema ed elementi del sistema.
-		
+
 		\subsubsection{Strategie}
 		L'architettura ottenuta svolgendo le attività di questo processo dovrà possedere le seguenti caratteristiche:
 		\begin{itemize}
@@ -149,11 +149,11 @@
 		\item ogni componente dovrà essere progettato puntando su incapsulamento, modularizzazione e riuso di codice;
 		\item per ogni elemento del sistema dovrà essere possibile tracciare il requisito associato.
 		\end{itemize}
-		
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Structural Fan-In - OPC8}
 			In riferimento ad un modulo del software, indica quanti altri moduli lo utilizzano durante la
-			loro esecuzione; tale indicazione permette di stabilire il livello di riuso implementato. 
+			loro esecuzione; tale indicazione permette di stabilire il livello di riuso implementato.
 			\begin{itemize}
 					\item \textbf{Metrica utilizzata}: SF-IN (MPC8);
 					\item \textbf{Soglia di accettabilità}: \begin{math}\geq 2\end{math};
@@ -167,10 +167,10 @@
 					\item \textbf{Soglia di accettabilità}: 0 - 8;
 					\item \textbf{Soglia di ottimalità}: 2 - 3.
 			\end{itemize}
-			
+
 	\subsection{Software Detailed Design Process}
-		Questo processo si occupa di fornire, dato un sistema, una sua progettazione di dettaglio che permetta codifica ed esecuzione di test.	
-	
+		Questo processo si occupa di fornire, dato un sistema, una sua progettazione di dettaglio che permetta codifica ed esecuzione di test.
+
 		\subsubsection{Strategie}
 			Le attività di questo processo dovranno possedere le seguenti caratteristiche:
 			\begin{itemize}
@@ -178,7 +178,7 @@
 			\item la progettazione di dettaglio, che include architettura di basso livello,  relazioni fra le varie unità software concepite e la definizione dettagliata delle interfacce dovrà essere esposta chiaramente nel documento \DPdoc{};
 			\item per ogni elemento dell'architettura a basso livello dovrà essere possibile tracciare il requisito associato.
 			\end{itemize}
-		
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Numero di metodi per classe - OPC10}
 			Indica il numero di metodi definiti in una classe; un valore molto alto potrebbe indicare una cattiva decomposizione delle funzionalità a livello di progettazione.
@@ -187,7 +187,7 @@
 				\item \textbf{Soglia di accettabilità}: 1 -  8;
 				\item \textbf{Soglia di ottimalità}: 1 - 5.
 			\end{itemize}
-			
+
 			\paragraph{Numero di parametri per metodo - OPC11}
 			Indica il numero di parametri passati ad un metodo; un valore molto alto potrebbe indicare un
 			metodo troppo complesso e ulteriormente scomponibile in metodi più semplici.
@@ -196,10 +196,10 @@
 				\item \textbf{Soglia di accettabilità}: 0 - 6;
 				\item \textbf{Soglia di ottimalità}: 0 - 4.
 			\end{itemize}
-		
+
 	\subsection{Software Construction Process}
 		Questo processo si occupa di produrre unità di software eseguibili che riflettono la progettazione effettuata.
-		
+
 		\subsubsection{Strategie}
 			Le unità software prodotte dovranno rispettare le seguenti caratteristiche:
 			\begin{itemize}
@@ -207,7 +207,7 @@
 				\item il codice prodotto dovrà essere facilmente comprensibile e testabile;
 				\item per ogni unità di software dovrà essere possibile tracciare il requisito e l'elemento architetturale associato.
 			\end{itemize}
-			
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Complessità ciclomatica - OPC12}
 				Indica la complessità di funzioni, moduli, metodi o classi di un programma. Alti valori di complessità ciclomatica implicano una ridotta
@@ -217,7 +217,7 @@
 					\item \textbf{Soglia di accettabilità}: 1 - 20;
 					\item \textbf{Soglia di ottimalità}: 1 - 10.
 				\end{itemize}
-			
+
 			\paragraph{Livelli di annidamento - OPC13}
 				Indica il numero di procedure e funzioni annidate, ovvero richiamate all'interno di altre procedure o funzioni. Più livelli di annidamento
 				potrebbero rendere il codice di difficile comprensione e potrebbero portare a commettere errori logici durante la realizzazione del codice.
@@ -227,7 +227,7 @@
 					\item \textbf{Soglia di accettabilità}: 1 - 6;
 					\item \textbf{Soglia di ottimalità}: 1 - 3.
 				\end{itemize}
-			
+
 			\paragraph{Linee di commento per linee di codice - OPC14}
 				Indica il numero di linee di commento rispetto alle linee totali del codice. Un valore basso indica un codice poco comprensibile
 				e, di conseguenza, difficilmente manutenibile. Un valore troppo alto indica un eccesso di commenti e un appesantimento dei file.
@@ -236,8 +236,8 @@
 					\item \textbf{Soglia di accettabilità}: 10\% - 40\%;
 					\item \textbf{Soglia di ottimalità}: 20\% - 30\%.
 				\end{itemize}
-			
-				
+
+
 			\paragraph{Manutenibilità - OPC15}
 				Permette di stabilire il grado di manutenibilità del codice prodotto.
 				\begin{itemize}
@@ -245,11 +245,11 @@
 					\item \textbf{Soglia di accettabilità}: 10 - 100;
 					\item \textbf{Soglia di ottimalità}: 20 - 100.
 				\end{itemize}
-		
+
 	\subsection{System/Software Integration Process}
 		Questo processo si occupa di integrare le unità software tra loro, produrre software coerente con la progettazione e dimostrare che il
 		prodotto soddisfi i requisiti identificati.
-		
+
 		\subsubsection{Strategie}
 		Le attività previste da questo processo dovranno puntare a raggiungere un alto livello di automazione, in particolare:
 		\begin{itemize}
@@ -258,7 +258,7 @@
 			\item il livello di integrazione raggiunto del sistema sarà sempre consultabile grazie all’utilizzo dello strumento di continuous integration Jenkins,
 			come definito nel documento \NPdocRP{}.
 		\end{itemize}
-		
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Componenti integrate - OPC16}
 				Indica il numero di componenti definite in progettazione che sono attualmente implementate e integrate nel sistema. Nel nostro caso, tutte le
@@ -268,21 +268,21 @@
 					\item \textbf{Soglia di accettabilità}: 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
-		
+
 	\subsection{System/Software Qualification Testing Process}
-		Questo processo si occupa di assicurare che ogni requisito individuato sia stato implementato nel prodotto. 
-		
+		Questo processo si occupa di assicurare che ogni requisito individuato sia stato implementato nel prodotto.
+
 		\subsubsection{Strategie}
 			Questo processo deve possedere le seguenti caratteristiche:
 			\begin{itemize}
 				\item le attività di test previste dal processo verranno svolte su un sistema le cui componenti sono verificate e correttamente integrate fra loro;
 				\item le attività di test dovranno raggiungere il maggior livello di automazione nell'esecuzione tramite lo strumento di continuous integration Jenkins;
 				\item le attività di test dovranno essere eseguite in numero sufficiente in modo tale da garantire un'ottima copertura dei requisiti;
-				\item il software dovrà implementare tutti i requisiti obbligatori. 
+				\item il software dovrà implementare tutti i requisiti obbligatori.
 			\end{itemize}
 		\subfile{test}
-					
-		
+
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Test di unità eseguiti - OPC17}
 				Indica il numero di test di unità eseguiti tra quelli definiti dal gruppo.
@@ -291,7 +291,7 @@
 					\item \textbf{Soglia di accettabilità}: 90\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
-			
+
 			\paragraph{Test di integrazione eseguiti - OPC18}
 				Indica il numero di test di integrazione eseguiti tra quelli definiti dal gruppo.
 				\begin{itemize}
@@ -299,7 +299,7 @@
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
-				
+
 			\paragraph{Test di sistema eseguiti - OPC19}
 				Indica il numero di test di sistema eseguiti in modo automatico tra quelli definiti dal gruppo.
 				\begin{itemize}
@@ -307,15 +307,15 @@
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
-				
+
 			\paragraph{Test di validazione eseguiti - OPC20}
-				Indica il numero di test di validazione eseguiti manualmente tra quelli definiti dal gruppo.
+				Indica il numero di test di \gl{validazione} eseguiti manualmente tra quelli definiti dal gruppo.
 				\begin{itemize}
 					\item \textbf{Metrica utilizzata}: percentuale di test di validazione eseguiti (MPC20);
 					\item \textbf{Soglia di accettabilità}: 100\%;
 					\item \textbf{Soglia di ottimalità}: 100\%.
 				\end{itemize}
-				
+
 			\paragraph{Test superati - OPC21}
 				Indica il numero di test superati.
 				\begin{itemize}
@@ -325,7 +325,7 @@
 				\end{itemize}
 	\subsection{Software Verification Process}
 		Questo processo si occupa di controllare che il software prodotto soddisfi correttamente i requisiti identificati.
-		
+
 		\subsubsection{Strategie}
 			Questo processo deve possedere le seguenti caratteristiche:
 			\begin{itemize}
@@ -334,7 +334,7 @@
 				\item i test dinamici sui vari elementi del software copriranno gran parte delle possibili casistiche di utilizzo;
 				\item l'esito di ogni test deve essere tracciabile.
 			\end{itemize}
-		
+
 		\subsubsection{Obiettivi di qualità}
 			\paragraph{Branch coverage - OPC22}
 				Indica il numero di rami decisionali percorsi nei test utilizzati. Questo obiettivo assicura che i branch derivanti da una condizione siano
@@ -344,7 +344,7 @@
 					\item \textbf{Soglia di accettabilità}: 75\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 85\% - 100\%.
 				\end{itemize}
-			
+
 			\paragraph{Function coverage - OPC23}
 				Indica il numero di funzioni che sono state chiamate nei test utilizzati.
 				\begin{itemize}
@@ -352,7 +352,7 @@
 					\item \textbf{Soglia di accettabilità}: 70\% - 100\%;
 					\item \textbf{Soglia di ottimalità}: 80\% - 100\%.
 				\end{itemize}
-				
+
 			\paragraph{Statement coverage - OPC24}
 				Indica il numero di istruzioni che sono state eseguite nei test utilizzati. Maggiore è il valore maggiore sarà il numero di statement eseguiti almeno
 				una volta dai test.

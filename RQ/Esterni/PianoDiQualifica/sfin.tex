@@ -5,7 +5,7 @@
 \hline Client::TTS::Player & 1 & Accettabile \\
 \hline Client::ApplicationManager::Application & 1 & Accettabile \\
 \hline Client::ApplicationManager::State & 1 & Accettabile \\
-\hline Client::TTS::PlayerObserver & 1 & Accettabile \\
+\hline Client::TTS::Player\gl{Observer} & 1 & Accettabile \\
 \hline Client::ApplicationManager::ApplicationManagerObserver & 2 & Accettabile \\
 \hline Client::Logic::DataArrivedSubject & 1 & Accettabile \\
 \hline Client::Logic::LogicObserver & 2 & Accettabile \\
@@ -38,14 +38,14 @@
 \hline Back-end::Notifications::Attachment & 1 & Accettabile \\
 \hline Back-end::Notifications::Action & 1 & Accettabile \\
 \hline Back-end::Users::$<$$<$interface$>$$>$ UsersDAO & 3 & Accettabile \\
-\hline Back-end::Rules::RuleTarget & 1 & Accettabile \\
+\hline Back-end::\gl{Rule}s::RuleTarget & 1 & Accettabile \\
 \hline Back-end::Users::SRUser & 1 & Accettabile \\
-\hline Back-end::Rules::RuleTaskInstance & 1 & Accettabile \\
+\hline Back-end::Rules::Rule\gl{Task}Instance & 1 & Accettabile \\
 \hline Back-end::Rules::Rule & 4 & Ottimale \\
 \hline Back-end::Rules::$<$$<$interface$>$$>$ RulesDAO & 2 & Accettabile \\
 \hline Back-end::Rules::Task & 3 & Accettabile \\
 \hline Back-end::Rules::$<$$<$interface$>$$>$ TasksDAO & 1 & Accettabile \\
-\hline Back-end::APIGateway::Enrollment & 1 & Accettabile \\
+\hline Back-end::APIGateway::\gl{Enrollment} & 1 & Accettabile \\
 \hline Back-end::Guests::$<$$<$interface$>$$>$ GuestsDAO & 2 & Accettabile \\
 \hline Back-end::Conversations::$<$$<$interface$>$$>$ ConversationsDAO & 2 & Accettabile \\
 \hline Back-end::Utility::LambdaContext & 7 & Ottimale \\
@@ -117,7 +117,7 @@
 \hline Back-end::Utility::StatusObject & 0 & Accettabile \\
 \hline Back-end::Utility::ProcessingResult & 0 & Accettabile \\
 \hline Back-end::STT::STTWatsonAdapter & 0 & Accettabile \\
-\hline Slack::WebClient & 0 & Accettabile \\
+\hline \gl{Slack}::WebClient & 0 & Accettabile \\
 \hline Back-end::Members::$<$$<$interface$>$$>$ MembersDAO & 0 & Accettabile \\
 \hline Back-end::Members::MembersDAOSlack & 0 & Accettabile \\
 \hline Back-end::Events::VAMessageListener & 0 & Accettabile \\
