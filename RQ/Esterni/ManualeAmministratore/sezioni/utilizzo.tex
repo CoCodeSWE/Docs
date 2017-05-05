@@ -6,12 +6,11 @@ Vengono considerati tre tipi di utente:
 	\item amministratore;
 	\item super amministratore, ovvero un amministratore che possiede dei privilegi maggiori rispetto un amministratore. Per chiarire quanto appena detto, consultare il paragrafo \ref{superAdmin}.
 \end{itemize}
-
-Qualora alcuni degli aspetti esposti in questa sezione risultassero poco chiari, si potrà segnalare ciò al team di sviluppo \GRUPPO{} all'indirizzo email swe.co.code@gmail.com. 
+ 
 \subsection{Funzionalità diponibili}
 \subsubsection{Ospite}
 Un ospite è un utente particolare in quanto non gode di vere e proprie funzionalità, ma segue e risponde a ciò che \PROGETTO{} propone. Proprio per questo motivo non è pensabile fornire un manuale ad un ospite; inoltre il prodotto ha come scopo l'accoglienza e l'intrattenimento dell'ospite.\\
-Tuttavia, per rendere più chiaro agli amministratori del sistema le possibili interazioni con l'ospite, è possibile visualizzare nel diagramma di sequenza ~\ref{fig:flussoOspite} il flusso dialogo che l'ospite potrebbe affrontare.\\
+Tuttavia, per rendere più chiaro agli amministratori del sistema le possibili interazioni con l'ospite, è possibile visualizzare nel diagramma di sequenza \ref{fig:flussoOspite} il flusso dialogo che l'ospite potrebbe affrontare.\\
 Di seguito si ha un'esposizione verbosa del flusso del dialogo dell'ospite:
 \begin{itemize}
 	\item l'ospite saluta \PROGETTO;
@@ -22,33 +21,33 @@ Di seguito si ha un'esposizione verbosa del flusso del dialogo dell'ospite:
 		\item l'interlocutore potrebbe aver già interagito con \PROGETTO, il quale ha registrato le precedenti interazioni, e viene quindi chiesta conferma sull'identità dell'interlocutore. Nello specifico, \PROGETTO{} chiederà se l'interlocutore proviene dall'azienda associata al nome e cognome di esso. \\
 		Se l'interlocutore \textbf{conferma}, allora:
 		\begin{itemize}
-			\item all'ospite conosciuto viene dato il bentornato e viene proposto di incontrare la persona, membro di \PROPONENTE, con la quale si hanno avuto più interazioni. Se l'ospite conosciuto non conferma ciò, viene chiesta la persona che si vuole incontrare, per poi notificarla dell'arrivo dell'ospite;
+			\item all'ospite conosciuto viene dato il bentornato e viene proposto di incontrare la persona, membro di \PROPONENTE, con la quale si hanno avuto più interazioni. Se l'ospite conosciuto non conferma ciò, viene chiesta la persona che si vuole incontrare, per poi notificarla, tramite Slack, dell'arrivo dell'ospite;
 		\end{itemize}
 		Se l'interlocutore \textbf{non conferma}, allora:
 		\begin{itemize}
 			\item l'ospite è alla sua prima visita all'ufficio di \PROPONENTE, viene quindi chiesta la compagnia di provenienza;
-			\item viene chiesta la persona che si desidera incontrare, per poi notificarla dell'arrivo dell'ospite;
+			\item viene chiesta la persona che si desidera incontrare, per poi notificarla , tramite Slack, dell'arrivo dell'ospite;
 		\end{itemize}
 	\end{itemize}
 	\item \PROGETTO{} chiede all'ospite se gradisce un caffè;
 	\begin{itemize}
-		\item se sì, la persona desiderata viene notificata di questa necessità;
+		\item se sì, la persona desiderata viene notificata tramite Slack di questa necessità;
 	\end{itemize}
 	\item \PROGETTO{} chiede all'ospite se gradisce altro da bere;
 	\begin{itemize}
-		\item se sì, la persona desiderata viene notificata di questa necessità;
+		\item se sì, la persona desiderata viene notificata tramite Slack di questa necessità;
 	\end{itemize}
 	\item \PROGETTO{} chiede all'ospite se ha bisogno di qualsiasi altra cosa;
 	\begin{itemize}
-		\item se sì, la persona desiderata viene notificata di questa necessità;
+		\item se sì, la persona desiderata viene notificata tramite Slack di questa necessità;
 	\end{itemize}
 \end{itemize}
-\begin{figure}[h]\label{fig:flussoOspite}
+\begin{figure}[h]
 	\centerline{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/Utente.png}}
-	\caption{Flusso del dialogo per un ospite}
+	\caption{Flusso del dialogo per un ospite}\label{fig:flussoOspite}
 \end{figure}
 \newpage
-\subsubsection{Amministratore}
+\subsubsection{Amministratore}\label{admin}
 Le funzionalità disponibili ad un amministratore del sistema sono le seguenti:
 \begin{itemize}
 	\item effettuare l'accesso all'area di amministrazione;
@@ -74,7 +73,7 @@ Per effettuare l'accesso, seguire la seguente procedura:
 		\item un solo amministratore esistente è associato ai dati forniti, \PROGETTO{} recupererà dal database l'username e chiederà conferma all'interlocutore;
 		\item più amministratori sono associati ai dati forniti, \PROGETTO{} chiederà quindi che venga comunicato l'username dell'amministratore con il quale effettuare l'accesso. Successivamente, viene chiesta conferma; 
 	\end{itemize}
-	Se no, l'interlocutore viene trattato come un ospite;
+	Altrimenti, l'interlocutore viene trattato come un ospite;
 	\item se corretti, dare conferma dei dati recuperati da \PROGETTO, smentire altrimenti;
 	\item pronunciare la frase di riconoscimento che \PROGETTO{} fornirà.
 \end{itemize}
@@ -163,9 +162,18 @@ Per ottenere i dati di un amministratore, seguire la seguente procedura:
 \end{itemize}
 
 Per ottenere i dati di tutti gli amministratori esistenti (dati sensibili esclusi), pronunciare una frase del tipo "get all users", "get users list" o "I want to retrieve all users".
+
 \subsubsection{Super Amministratore}\label{superAdmin}
 Un super amministratore è un amministratore con privilegi maggiori, in quanto può operare su tutti gli utenti del sistema e le rule indipendentemente da chi le abbia create, e con più funzionalità disponibili rispetto ad un amministratore. \\
-Infatti, in caso un amministratore venga eliminato dal sistema (operazione possibile solo per il super amministratore), le rule da lui create non saranno eliminate, ma saranno comunque sotto il controllo del super amministratore. 
+Infatti, in caso un amministratore venga eliminato dal sistema (operazione possibile solo per il super amministratore), le rule da lui create non saranno eliminate, ma saranno comunque sotto il controllo del super amministratore. \\
+Le funzionalità aggiuntive sono:
+\begin{itemize}
+	\item aggiunta di un amministratore;
+	\item aggiornamento di un amministratore;
+	\item rimozione di un amministratore;
+	\item aggiunta dell'enrollment di un amministratore;
+	\item rimozione dell'enrollment di un amministratore.
+\end{itemize}
 \paragraph{Aggiunta di un amministratore}\label{AddAdmin}
 Per aggiungere un amministratore, seguire la seguente procedura:
 \begin{itemize}
@@ -173,7 +181,7 @@ Per aggiungere un amministratore, seguire la seguente procedura:
 	\item \PROGETTO{} chiederà il nome e il cognome del nuovo amministratore. È importante che vengano forniti sia nome che cognome e non solo uno di essi;
 	\item \PROGETTO{} chiederà l'username del nuovo amministratore;
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al \gl{pannello di amministrazione}.
 \end{itemize}
 
 Vista la natura dell'input di tipo vocale, l'\gl{enrollment} di un amministratore deve essere aggiunto a parte, come spiegato in \ref{addEnrollment}.
@@ -184,7 +192,7 @@ Vista la natura dell'input di tipo vocale, l'\gl{enrollment} di un amministrator
 	\item \PROGETTO{} chiederà l'username dell'amministratore che si vuole aggiornare;
 	\item \PROGETTO{} chiederà l'inserimento dei nuovi dati;
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}
 
 \paragraph{Rimozione di un amministratore}
@@ -193,7 +201,7 @@ Vista la natura dell'input di tipo vocale, l'\gl{enrollment} di un amministrator
 	\item pronunciare una frase del tipo "remove admin" o "I want to remove an admin";
 	\item \PROGETTO{} chiederà l'username dell'amministratore che si vuole rimuovere;
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}
 
 Quando un amministratore viene rimosso, le rule da lui create non vengono rimosse.
@@ -205,7 +213,7 @@ Per aggiungere un enrollment ad un amministratore, per crearne quindi l'impronta
 	\item \PROGETTO{} chiederà l'username dell'amministratore al quale aggiungere l'enrollment;
 	\item \PROGETTO{} mostrerà una frase la quale deve essere pronunciata dall'amministratore da aggiungere \textbf{in persona}; 
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}
 \paragraph{Reset dell'enrollment di un amministratore}
 ???????? ANCORA NON DISPONIBILE ?????????\\
@@ -214,5 +222,5 @@ Per resettare l'enrollment di un amministratore, è necessario seguire la seguen
 	\item pronunciare una frase del tipo "reset enrollment" o "I want to reset an enrollment";
 	\item \PROGETTO{} chiederà l'username dell'amministratore al quale resettare l'enrollment;
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}

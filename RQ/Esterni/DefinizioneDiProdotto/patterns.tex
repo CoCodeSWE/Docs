@@ -2,7 +2,7 @@
   \subsection{Architetturali}
     \subsubsection{Architettura a microservizi}
       \begin{itemize}
-       \item \textbf{Scopo:} l'architettura a \gl{microservizi} è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una \gl{HTTP} \gl{API};
+       \item \textbf{Scopo:} l'architettura a microservizi è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una HTTP API;
        \item \textbf{Vantaggi:}
 	      \begin{itemize}
 	       \item ogni microservizio è relativamente piccolo, quindi più semplice da implementare e da capire per gli sviluppatori;
@@ -11,7 +11,7 @@
 
        \item \textbf{Svantaggi:}
 	\begin{itemize}
-	 \item l'architettura risulta maggiormente complessa perchè risulta essere un \gl{sistema} distribuito;
+	 \item l'architettura risulta maggiormente complessa perchè risulta essere un sistema distribuito;
 	 \item la gestione di più microservizi potrebbe risultare in un carico di lavoro maggiore rispetto ad una sua versione monolitica.
 	\end{itemize}
       \end{itemize}
@@ -40,7 +40,7 @@
     	\item \textbf{Vantaggi:}
     	\begin{itemize}
     		\item è totalmente indipendente dal linguaggio di programmazione utilizzato;
-    		\item facilita il riuso delle componenti \gl{DOM}.
+    		\item facilita il riuso delle componenti DOM.
     	\end{itemize}
     	\item \textbf{Svantaggi:}
     	\begin{itemize}
@@ -48,13 +48,19 @@
     		\item scrivere componenti DOM secondo questo pattern è verboso.
     	\end{itemize}
     \end{itemize}
-    Alla pagina \url{https://github.com/facebook/flux/tree/master/examples/flux-concepts} (visitato in data 2017-03-26) è disponibile la documentazione ufficiale di questo pattern.
+    Alla pagina \url{https://github.com/facebook/flux/tree/master/examples/flux-concepts} (visitato in data 2017-03-26) è disponibile la documentazione ufficiale di questo pattern.\\
+    In figura \ref{fig:flux} si ha il diagramma del pattern Flux, mentre in figura \ref{fig:flux2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per la realizzazione di ConversationApp, la quale rappresenta l'applicazione di conversazione tra un utente e l'assistente virtuale.
     \begin{figure}[h]
     	\centering
     	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/fluxpattern.png}
     	\caption{Pattern flux}\label{fig:flux}
-
     \end{figure}
+    \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/client/Client/Flux.png}
+	\caption{Flux utilizzato nell'architettura del progetto \PROGETTO}\label{fig:flux2}
+\end{figure}
     \newpage
     
     \newpage
@@ -72,11 +78,18 @@
 	   \item potrebbero essere necessarie molte più operazioni rispetto all'esecuzione diretta di una query su un database.
 	  \end{itemize}
 	\end{itemize}
+In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \ref{fig:dao2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per accedere a qualsiasi fonte di dati, ma sempre secondo lo schema in figura \ref{fig:dao2}, pertanto ne viene riportato solo il diagramma relativo all'interazione con la tabella DynamoDB contenente le conversazioni registrate.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/DAOpattern.jpg}
 		\caption{pattern Data Access Object (DAO)}\label{fig:dao1}
 	\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/DAO.png}
+	\caption{DAO utilizzato nell'architettura del progetto \PROGETTO}\label{fig:dao2}
+\end{figure}
 		\newpage
     \subsubsection{Dependency Injection}
      \begin{itemize}
@@ -98,10 +111,10 @@
     \subsubsection{Façade}
       \begin{itemize}
        \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. \\
-       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API Gateway}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
+       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un API Gateway, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
-	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come \gl{façade} semplificando l'operazione;
+	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come façade semplificando l'operazione;
 	   \item permette di diminuire le dipendenze tra sottosistemi;
 	  \end{itemize}\newpage
 	\item \textbf{Svantaggi:}
@@ -128,11 +141,18 @@
 	   \item a volte per interconnettere due interfacce sono necessari più Adapter.
 	  \end{itemize}
 	\end{itemize}
+	In figura \ref{fig:adapter1} si ha il diagramma del pattern Adapter, mentre in figura \ref{fig:adapter2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per convertire l'interfaccia fornita da api.ai in una più adatta alle esigenze dell'applicazione, definita da \file{VAModule}. \\ La classe ApiAiVAAdapter, facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target), permette l'interoperabilità tra queste due interfacce.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/adapterpattern.png}
 		\caption{Pattern Adapter}\label{fig:adapter1}
 	\end{figure}
+\begin{figure}[h]
+		\centering	
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/Official_Backend_0304/Adapter.png}
+	\caption{Adapter utilizzato nell'architettura del progetto \PROGETTO}\label{fig:adapter2}
+\end{figure}
 	\newpage
   \subsection{Creazionali}
 
@@ -164,20 +184,27 @@
 	   \item l'interfaccia Observer deve essere implementata, e ciò comporta ereditarietà.
 	  \end{itemize}
 	\end{itemize}
+	In figura \ref{fig:obs1} si ha il diagramma del pattern Observer, mentre in figura \ref{fig:obs2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato da diverse classi del sistema per osservare e gestire gli eventi generati dalle classi Subject, ma sempre secondo lo schema in figura \ref{fig:obs2}. Pertanto, come esempio, viene riportato solo il diagramma relativo alla relazione tra AgentObserver e AgentObservable.
 
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/observerpattern.png}
 		\caption{Pattern Observer}\label{fig:obs1}
 	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/Official_Backend_0304/Observer.png}
+		\caption{Pattern Observer utilizzato nell'architettura del progetto \PROGETTO}\label{fig:obs2}
+	\end{figure}
 	\newpage
 	\section{Tecnologie utilizzate}
 	\subsection{Promise e Observable}
 
 
-\gl{JavaScript} è un linguaggio single-threaded, quindi basato su un singolo thread in esecuzione. Questo significa dover aspettare sempre il termine di un'operazione prima di passare alla
+JavaScript è un linguaggio single-threaded, quindi basato su un singolo thread in esecuzione. Questo significa dover aspettare sempre il termine di un'operazione prima di passare alla
 successiva, quindi nel caso di operazioni di lunga durata, il flusso dell'elaborazione principale di un’applicazione JavaScript potrebbe "congelarsi". \\
-Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una \gl{callback} alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituire
+Per aggirare questo problema, una delle soluzioni più diffuse è quella di passare una callback alla funzione in questione e, anzichè aspettare il compimento dell'operazione, restituire
 il controllo al chiamante. Al termine dell'operazione, la funzione di callback verrà invocata. \\
 
 
@@ -211,7 +238,6 @@ Si è deciso di utilizzare bluebird in quanto offre i seguenti vantaggi:
 
 \end{itemize}
 
-\newpage
 \subsubsection{Observable e RxJS v5}
 ReactiveX è un insieme di API per estendere la programmazione asincrona facendo uso di Observable.\\
 In base al linguaggio di programmazione che si vuole utilizzare, vengono fornite differenti librerie specifiche.
@@ -220,7 +246,7 @@ La scelta quindi ricade su RxJS, ReactiveX library per JavaScript.
 
 Un Observable è una rappresentazione di un qualsiasi insieme di valori durante un qualsiasi periodo di tempo. Viene utilizzata per le implementazioni del pattern Observer.
 RxJS v5 è ancora in beta ma sostituirà in breve la v4. Si è deciso di utilizzarla perchè è una libreria solida nella gestione degli Observable e sarà ulteriormente aggiornata
-da Microsoft e altri sviluppatori di software \gl{open source}.
+da Microsoft e altri sviluppatori di software open source.
 
 I vantaggi sono:
 \begin{itemize}
@@ -233,7 +259,7 @@ Gli svantaggi sono:
 
 \subsection{AWS SDK per JavaScript in Node.js}
 
-Data la scelta di appoggiarsi all'infrastruttura \gl{Amazon Web Services} (AWS) per lo sviluppo del sistema, il gruppo ha deciso di utilizzare l'AWS SDK per JavaScript in Node.js per
+Data la scelta di appoggiarsi all'infrastruttura Amazon Web Services (AWS) per lo sviluppo del sistema, il gruppo ha deciso di utilizzare l'AWS SDK per JavaScript in Node.js per
 interfacciarsi ai singoli servizi offerti da AWS. Tale strumento permette di semplificare notevolmente l'utilizzo di tali servizi.
 
 \subsubsection{Node.js}
@@ -249,12 +275,12 @@ Gli svantaggi sono:
 
 \subsubsection{Request promise}
 Modulo di Node.js che offre il supporto alle richieste HTTP con l'approccio delle Promises. Il gruppo ha deciso di ricorrere all'utilizzo di tale modulo per rispettare la decisione di non utilizzare direttamente le funzioni di callback, ma ricorrere alle Promises.
-\newpage
+
 \subsection{Amazon Web Services}
 Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
 
 \subsubsection{AWS Lambda}
-AWS Lambda è un servizio di \gl{cloud}-computing fornito da Amazon, il quale permette l'implementazione di una architettura \gl{serverless}. \\
+AWS Lambda è un servizio di cloud-computing fornito da Amazon, il quale permette l'implementazione di una architettura serverless. \\
 Esso permette l'esecuzione di codice senza preoccuparsi della gestione di server o di tutte le risorse necessarie all'esecuzione del codice, in termini di tempo, spazio e computabilità. \\
 AWS Lambda permette di eseguire codice su una piattaforma ad alta affidabilità, a patto che il codice sia scritto in un linguaggio supportato. Nel nostro caso, faremo utilizzo di Node.js 6.10, supportato da AWS Lambda. \\
 Inoltre, questo servizio può essere utilizzato per eseguire del codice in risposta ad eventi. \\
@@ -269,7 +295,7 @@ dove:
 	\item \file{event} è l'oggetto che contiene i dati della richiesta ricevuta dall'API Gateway. In particolare, contiene i seguenti campi:
 	\begin{itemize}
 		\item \file{body}: campo di tipo \file{String} contenente il corpo della richiesta;
-		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'\gl{URL};
+		\item \file{pathParameters}: oggetto contenente i parametri passati all'API Gateway attraverso il path dell'URL;
 		\item \file{urlQueryParameters}: oggetto contenente i parametri passati all'API Gateway attraverso query nell'URL.
 	\end{itemize}
 	\item \file{context} è l'oggetto contenente i dati relativi alla risposta e, in caso di Lambda Proxy Integration, contiene anche i seguenti metodi:
@@ -282,9 +308,9 @@ dove:
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
-\newpage
+
 \subsubsection{DynamoDB}
-Amazon DynamoDB è un servizio che fornisce un database \gl{NoSQL}, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
+Amazon DynamoDB è un servizio che fornisce un database NoSQL, il quale permette di immagazzinare documenti e grafici tra i suoi dati. E' veloce e flessibile, ideato per tutte le applicazioni che richiedono una latenza costante non superiore a una decina di millisecondi, e grazie alle sue caratteristiche si presta perfettamente come supporto per applicazioni Web.\\
 È un servizio di database NoSQL cloud interamente gestito, è quindi sufficiente creare una tabella di database, impostare il throughput desiderato e lasciare che il servizio si occupi del resto. \\
 I vantaggi offerti sono:
 \begin{itemize}
@@ -307,17 +333,17 @@ I vantaggi offerti sono:
 	\item un pannello di controllo che consente di monitorare visivamente le chiamate al servizio;
 	\item esecuzione simultanea di diverse versioni della stessa API, consentendo di iterare, testare e rilasciare nuove versioni in tempi brevi;
 	\item strumenti per concedere le autorizzazioni di accesso alle API e controllare l'accesso alla gestione dei servizi;
-	\item creazione di \gl{endpoint} \gl{REST}, permettendo di creare API avanzate basate sulle risorse, impiegando poi le dinamiche e flessibili funzionalità di trasformazione dei dati per generare le richieste nel linguaggio dei servizi a cui le richieste sono rivolte;
+	\item creazione di endpoint REST, permettendo di creare API avanzate basate sulle risorse, impiegando poi le dinamiche e flessibili funzionalità di trasformazione dei dati per generare le richieste nel linguaggio dei servizi a cui le richieste sono rivolte;
 	\item esecuzione di API serverless, ista l'integrazione con AWS Lambda.
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
 	\item non è un servizio gratuito, ma ha dei costi calcolati in base alle chiamate effettuate alle API ed in base alla mole di dati in uscita trasferiti.
 \end{itemize}
-\newpage
+
 \subsubsection{SNS}
 Amazon Simple Notification Service (Amazon SNS) è un servizio di notifiche push rapido, flessibile e completamente gestito che consente di inviare messaggi individuali o collettivi a un numero elevato di destinatari. \\
-Con Amazon SNS è possibile inviare notifiche a dispositivi \gl{Apple}, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle Lambda Function  altri endpoint HTTP. \\
+Con Amazon SNS è possibile inviare notifiche a dispositivi Apple, Google, Fire OS e Windows. Inoltre, è possibile inviare notifiche push a delle Lambda Function  altri endpoint HTTP. \\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item alte prestazioni e affidabilità, infatti oltre ad avere una bassa latenza di risposta, tutti i messaggi pubblicati in Amazon SNS vengono memorizzati in modo ridondante su più server e data center;
@@ -331,7 +357,7 @@ Gli svantaggi sono:
 \subsubsection{CloudWatch}
 Amazon CloudWatch è un servizio di monitoraggio per le risorse cloud AWS e le applicazioni in esecuzione su AWS. Inoltre, tramite una semplice richiesta API, permette di inviare parametri personalizzati generati dalle proprie applicazioni per monitorarli tramite questo servizio.
 \subsection{Serverless Framework}
-Serverless Framework è un web \gl{framework} gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche Lambda Functions per portare a termine semplici tasks o da molte Lambda Functions per creare ad esempio un intero back-end.\\
+Serverless Framework è un web framework gratuito e open-source scritto tramite Node.js. Serverless è un framework per creare applicazioni esclusivamente su AWS Lambda. Un applicazione Serverless può essere composta da poche Lambda Functions per portare a termine semplici tasks o da molte Lambda Functions per creare ad esempio un intero back-end.\\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item semplifica lo sviluppo delle Lambda Function e dell'API Gateway di AWS;
@@ -341,9 +367,9 @@ Gli svantaggi sono:
 \begin{itemize}
 	\item è un framework molto recente, e di conseguenza non molto maturo.
 \end{itemize}
-\newpage
+
 \subsection{JWT}
-JWT è uno standard basato su \gl{JSON} per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può \gl{verifica}re se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti \gl{Single sign-on} (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
+JWT è uno standard basato su JSON per creare token di accesso che possono sostenere richieste. I token sono firmati dalla chiave del server, quindi il client può verificare se un token è legittimo. I token sono pensati per essere compatti, senza contenere caratteri invalidi per gli URL e usabili principalmente nei contesti Single sign-on (SSO).Le richieste JWT possono essere usate solitamente per passare l'identità di un utente autenticato tra un identity provider e un service provider. I token inoltre possono essere autenticati e criptati.\\
 I vantaggi offerti sono:
 \begin{itemize}
 	\item alto grado di sicurezza nella trasmissione delle informazioni in formato JSON;
@@ -354,7 +380,7 @@ Gli svantaggi sono:
 	\item l'algoritmo crittografico per verifica i dati è molto complesso.
 \end{itemize}
 \subsection{Web Speech API}
-Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come \gl{text to speech} o tts).
+Web Speech API fornisce fornisce due aree distinte di funzionalità, il riconoscimento vocale e la sintesi vocale (conosciuta anche come text to speech o tts).
 Il riconoscimento vocale è acceduto attraverso l'interfaccia SpeechRecognition, la quale fornisce la possibilità di riconoscere il contesto vocale da un input vocale e risponde appropriatamente.
 La sintesi vocale è acceduta tramite l'interfaccia SpeechSynthesis, una componente text-to-speech che permette ai programmi di leggere testo.
 
@@ -370,7 +396,7 @@ Gli svantaggi sono:
 	\item dopo le 10.000 chiamate al servizio al mese, il servizio non è più gratuito.
 \end{itemize}
 \subsection{STT IBM Watson}
-Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il \gl{machine learning} per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
+Lo Speech to Text Watson è un servizio di IBM che, dato un file audio in input, restituisce il testo pronunciato in esso. Per trascrivere la voce umana accuratamente il servizio utilizza il machine learning per combinare informazioni riguardo la grammatica e la struttura del linguaggio con la composizione del segnale audio. Il servizio fornisce trascrizioni sempre migliori in base a quanto dialogo viene ascoltato.
 I vantaggi offerti sono:
 \begin{itemize}
 	\item l'affidabilità del riconoscimento vocale è molto alta.
@@ -405,14 +431,14 @@ Gli svantaggi sono:
 	\item non ha una buona curva d'apprendimento.
 \end{itemize}
 \subsection{HTML5}
-HTML5 è un linguaggio di \gl{markup} per la strutturazione di pagine web, pubblicato dal W3C nell’ottobre del 2014 con lo scopo di migliorare l’HTML4, permettendo supporto a nuovi file multimediali, mantenendo la leggibilità da parte di uomini e computer.
+HTML5 è un linguaggio di markup per la strutturazione di pagine web, pubblicato dal W3C nell’ottobre del 2014 con lo scopo di migliorare l’HTML4, permettendo supporto a nuovi file multimediali, mantenendo la leggibilità da parte di uomini e computer.
 I vantaggi offerti sono:
 \begin{itemize}
 	\item è uno stantard W3C.
 \end{itemize}
 Gli svantaggi sono:
 \begin{itemize}
-	\item non è supportato da tutti i vecchi \gl{browser}.
+	\item non è supportato da tutti i vecchi browser.
 \end{itemize}
 \subsection{CSS3}
 Pubblicata nel novembre 2014 dal W3C, CSS3 è una versione di CSS che va a correggere alcuni bug di interpretazione di Internet Explorer, migliorare la gestione degli sfondi e una soluzione per realizzare i bordi arrotondati.\\

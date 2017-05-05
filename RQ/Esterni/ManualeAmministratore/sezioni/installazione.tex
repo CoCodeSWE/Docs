@@ -71,17 +71,21 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\caption{Registrazione api.ai}
 \end{figure}
 \paragraph{Configurazione}
-Dopo aver effettuato l'accesso, selezionare il menù degli \gl{agent} a sinistra (figura \ref{fig:menuapi}) e scorrerlo fino in fondo, selezionando "Create new agent" (figura). \\
-\begin{figure}[h]\label{fig:menuapi}
-	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/createagent.png}}
-	\caption{nuovo agent api.ai}
-\end{figure}
-\begin{figure}[h]\label{fig:menuapi}
+Dopo aver effettuato l'accesso, selezionare il menù degli \gl{agent} a sinistra (figura \ref{fig:menuapi}) e scorrerlo fino in fondo, selezionando "Create new agent" (figura \ref{fig:newAgent}). \\
+\begin{figure}[h]
 	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/menuapi.png}}
-	\caption{menu agent api.ai}
+	\caption{menu agent api.ai}\label{fig:menuapi}
+\end{figure}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/createagent.png}}
+	\caption{nuovo agent api.ai}\label{fig:newAgent}
 \end{figure}
 
-Inserire nell'apposita schermata (figura) i seguenti dati:
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/saveagent.png}}
+	\caption{save agent api.ai}\label{fig:saveAgent}
+\end{figure}
+Inserire nell'apposita schermata (figura \ref{fig:saveAgent}) i seguenti dati:
 \begin{itemize}
 	\item \textbf{Agent name}: ConversationAppGuest;
 	\item \textbf{Agent type}: Private;
@@ -92,12 +96,12 @@ Cliccare poi "SAVE".\\
 Successivamente, è necessario importare il primo agent applicando la seguente procedura:
 \begin{itemize}
 	\item selezionare l'agent appena creato nel menù a sinistra (figura \ref{fig:menuapi});
-	\item cliccare il simbolo dell'ingranaggio, successivamente la voce "Export and Import" ed infine il pulsante "Import from zip" (figura);
+	\item cliccare il simbolo dell'ingranaggio, successivamente la voce "Export and Import" ed infine il pulsante "Import from zip" (figura \ref{fig:importAgent});
 	\item l'agent da importare si trova nel repository scaricato (\ref{download}) in\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppGuest}
 \end{itemize}
-\begin{figure}[h]\label{fig:menuapi}
+\begin{figure}[h]
 	\centering{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/importagent.png}}
-	\caption{import agent api.ai}
+	\caption{import agent api.ai}\label{fig:importAgent}
 \end{figure}
 
 Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppAdmin}, seguendo le istruzioni appena esposte.
