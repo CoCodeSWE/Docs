@@ -1,20 +1,20 @@
 \subsubsection{Scopo del processo}
-Si occupa di accertare che lo svolgimento del processo in esame non introduca errori nel prodotto.
+Si occupa di accertare che lo svolgimento del processo in esame non introduca errori nel \gl{prodotto}.
 \subsubsection{Aspettative del processo}
 Una corretta implementazione di tale processo permette di individuare:
 \begin{itemize}
-	\item una procedura di verifica;
+	\item una procedura di \gl{verifica};
 	\item i criteri per la verifica del prodotto.
 \end{itemize}
 \subsubsection{Documenti}
-Il \RESP{} ha il compito di avviare la fase di verifica, assegnando i task ai \VERP{}. Essi dovranno controllare che:
+Il \RESP{} ha il compito di avviare la fase di verifica, assegnando i \gl{task} ai \VERP{}. Essi dovranno controllare che:
 \begin{itemize}
 	\item la sintassi sia corretta, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
 	\item i periodi non siano troppo lunghi, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
 	\item la struttura sia completa, non complicata e coerente con il contenuto del documento in esame.
 \end{itemize}
 
-\subsubsection{Diagrammi UML}
+\subsubsection{Diagrammi \gl{UML}}
 I \VERP{} devono controllare tutti i diagrammi UML prodotti, sia che
 venga rispettato lo standard UML, sia che siano corretti semanticamente.
 \paragraph{Diagrammi dei casi d'uso}
@@ -32,7 +32,7 @@ Per tutti i diagrammi di sequenza, i \VERP{} dovranno controllare che:
 	\item rappresentino esattamente la sequenza di azioni che il diagramma deve mostrare;
 	\item non ci siano difetti grafici.
 \end{itemize}
-\paragraph{Diagramma dei package}
+\paragraph{Diagramma dei \gl{package}}
 Per tutti i diagrammi dei package, i \VERP{} dovranno controllare che:
 \begin{itemize}
 	\item rispettino lo standard UML;
@@ -42,11 +42,11 @@ Per tutti i diagrammi dei package, i \VERP{} dovranno controllare che:
 \subsubsection{Analisi}
 \paragraph{Analisi statica}
 E' una tecnica di analisi del codice sorgente e della documentazione associata, prevalentemente
-usata quando il sistema non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
-richiede l'esecuzione del prodotto software in alcuna sua parte. Può essere applicata tramite una
+usata quando il \gl{sistema} non è ancora disponibile e durante tutto l'arco del suo sviluppo. Non
+richiede l'esecuzione del prodotto \gl{software} in alcuna sua parte. Può essere applicata tramite una
 delle seguenti strategie:
 \begin{itemize}
-	\item \textbf{Walkthrough}: si legge l'intero documento (o codice) in cerca di tutte le possibili anomalie. E' una tecnica onerosa che richiede l'impegno di più persone e per questo deve essere utilizzata solo durante la prima parte del progetto, dove non tutti i membri hanno piena padronanza e conoscenza delle \NPdoc e del \PQdoc;
+	\item \textbf{Walkthrough}: si legge l'intero documento (o codice) in cerca di tutte le possibili anomalie. E' una tecnica onerosa che richiede l'impegno di più persone e per questo deve essere utilizzata solo durante la prima parte del \gl{progetto}, dove non tutti i membri hanno piena padronanza e conoscenza delle \NPdoc e del \PQdoc;
 	\item \textbf{Inspection}: questa tecnica dev'essere applicata quando si ha idea della
 	problematica che si sta cercando; consiste in una lettura mirata del
 	documento (o del codice), sulla base di una lista degli errori precedentemente
@@ -55,9 +55,9 @@ delle seguenti strategie:
 \paragraph{Analisi dinamica}
 L'attività di analisi dinamica è una tecnica di verifica applicabile solamente al software. Tale tecnica può essere utilizzata per analizzare l'intero software o una
 porzione limitata dello stesso. L'attività consiste nell'esecuzione di test automatici realizzati
-dal team. Le verifiche devono essere effettuate su un insieme finito di casi, con valori di
+dal \gl{team}. Le verifiche devono essere effettuate su un insieme finito di casi, con valori di
 ingresso, uno stato iniziale e un esito decidibile. Tutti i test producono risultati automatici
-che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia applicabile durante l'intero ciclo di vita del software.
+che inviano notifiche sulla tipologia di problema individuato. Ogni test è ripetibile, ossia applicabile durante l'intero \gl{ciclo di vita} del software.
 
 \subsubsection{Test}
 \paragraph{Test di unità}
@@ -84,7 +84,7 @@ dove:
 	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
 \end{itemize}
 \paragraph{Test di sistema}
-Il test di sistema rappresenta la validazione del prodotto software finale, ovvero quando lo si
+Il test di sistema rappresenta la \gl{validazione} del prodotto software finale, ovvero quando lo si
 ritiene giunto ad una versione definitiva. Viene quindi verificato il completo soddisfacimento dei
 requisiti da parte del prodotto.\\
 I test di sistema saranno organizzati nel modo seguente: \\
@@ -106,7 +106,7 @@ dove:
 	\item Codice assume un valore numerico univoco che identifica il singolo requisito.
 \end{itemize}
 \paragraph{Test di validazione}
-Il test di validazione rappresenta il collaudo del prodotto in presenza del proponente. Al
+Il test di validazione rappresenta il collaudo del prodotto in presenza del \gl{proponente}. Al
 superamento di tale collaudo segue il rilascio ufficiale del prodotto sviluppato.\\
 I test di validazione saranno organizzati nel modo seguente: \\
 \begin{center} TV\{TipoRequisito\}\{Importanza\}\{Codice\} \end{center}
@@ -129,9 +129,9 @@ dove:
 
 \subsubsection{Procedure}
 \paragraph{Issue tracking}
-L'issue tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
+L'\gl{issue} tracking è un'attività di supporto per la figura dei \VERP, ai quali permette di tenere traccia, e contemporaneamente segnalare al \RESP, la presenza di potenziali errori in un documento o nel codice sorgente.
  \subparagraph{Gestione delle issue}
-Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del ticketing di una issue è la seguente:
+Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnalazione e gestione del \gl{ticketing} di una issue è la seguente:
 \begin{enumerate}
 	\item il \VER{} dovrà aprire una nuova issue assegnandole una label che si riferisca al problema trovato;
 	\item il \RESP{} di progetto dovrà valutare la issue; se la ritiene appropriata assegnerà ai redattori del documento (o ai \PRP) il compito di risolvere la issue;
@@ -139,13 +139,13 @@ Qualora un \VER{} dovesse riscontrare delle anomalie, la procedura per la segnal
 \end{enumerate}
 \subsubsection{Strumenti}
 \paragraph{Strumenti per l'issue tracking}
-Lo strumento utilizzato per l'issue tracking è il servizio Issues messo a disposizione da GitHub.
+Lo strumento utilizzato per l'issue tracking è il servizio Issues messo a disposizione da \gl{GitHub}.
 \paragraph{Verifica ortografica}
 Viene utilizzata la verifica in tempo reale dell'ortografia, integrata in TexMaker. Essa marca,
 sottolineando in rosso, le parole errate secondo la lingua italiana.
 \paragraph{Indice di Gulpease}
 Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.
- \subsection{Validazione}
+ \subsection{\gl{Validazione}}
  \subsubsection{Scopo}
  Lo scopo di questo processo è verificare il prodotto ottenuto sia coerente rispetto gli obiettivi prefissati.
  \subsubsection{Aspettative}
@@ -443,7 +443,7 @@ Affinché un documento possa superare la fase di approvazione, è necessario che
 \paragraph{Controllo ortografico}
 Per verificare la correttezza ortografica è necessario seguire la seguente procedura:
 \begin{itemize}
-	\item aprire Texmaker;
+	\item aprire \gl{Texmaker};
 	\item aprire il documento interessato nel formato .tex;
 	\item dal menù a tendina "Modifica", selezionare la voce "verifica ortografia".
 \end{itemize}
@@ -481,14 +481,14 @@ In \GulScript{} si trova lo script che calcola l'indice di Gulpease per ogni doc
 Per il controllo ortografico dei documenti si farà utilizzo dello strumento integrato in Texmaker.\\
 Per poterlo utilizzare, è necessario disporre del pacchetto per il dizionario italiano.
 \paragraph{Integrazione continua - Jenkins}
-Jenkins è uno strumento open source di continuous integration, scritto in linguaggio Java che fornisce dei servizi di integrazione continua per lo sviluppo del software. Viene eseguito lato server all'interno di un server web che supporta la tecnologia Servlet e quindi può essere utilizzato da remoto all'interno di un Web browser.\\
+Jenkins è uno strumento \gl{open source} di continuous integration, scritto in linguaggio \gl{Java} che fornisce dei servizi di integrazione continua per lo sviluppo del software. Viene eseguito lato server all'interno di un server web che supporta la tecnologia Servlet e quindi può essere utilizzato da remoto all'interno di un Web \gl{browser}.\\
 Questo strumento permetterà al gruppo di automatizzare i test di unità, che verranno eseguiti ad ogni push eseguita da un programmatore, ed il processo di build e deployment del prodotto.
 \subparagraph{Codifica ed esecuzione test di unità - Mocha}
-Mocha è un framework che permette di creare ed eseguire test sia per Node.js che per il browser web.
+Mocha è un \gl{framework} che permette di creare ed eseguire test sia per \gl{Node.js} che per il browser web.
 \subparagraph{Calcolo della copertura dei test - Istanbul}
 Istanbul è uno strumento che calcola la copertura dei test rispetto a statement, righe, funzioni e branch di un determinato progetto.
 \subparagraph{Automatizzazione test client-side - PhantomJS}
-PhantomJS è un headless browser, cioè di un tool che consente la manipolazione via JavaScript del DOM, di CSS, JSON, Ajax altre tecnologie Web client-side da riga di comando, senza alcun rendering a video. Utilizzeremo questo framework per automatizzare il processo di test dell'interfaccia grafica client-side.
+PhantomJS è un headless browser, cioè di un tool che consente la manipolazione via \gl{JavaScript} del \gl{DOM}, di CSS, \gl{JSON}, Ajax altre tecnologie Web client-side da riga di comando, senza alcun rendering a video. Utilizzeremo questo framework per automatizzare il processo di test dell'interfaccia grafica client-side.
 \subparagraph{Framework per il testing di applicazioni web - Selenium}
 Selenium è un framework che permette di creare test per applicazioni web.
 \subparagraph{Qualità del codice - SonarQube}
