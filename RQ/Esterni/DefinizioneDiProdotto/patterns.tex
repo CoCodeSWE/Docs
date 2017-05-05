@@ -142,7 +142,7 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 	  \end{itemize}
 	\end{itemize}
 	In figura \ref{fig:adapter1} si ha il diagramma del pattern Adapter, mentre in figura \ref{fig:adapter2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
-È utilizzato per convertire l'interfaccia fornita da api.ai in una più adatta alle esigenze dell'applicazione, definita da \file{VAModule}. \\ La classe ApiAiVAAdapter, facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target), permette l'interoperabilità tra queste due interfacce.
+È utilizzato in più interfacce del sistema, ma sempre secondo lo schema in figura \ref{fig:adapter2}. Pertanto, come esempio, viene riportato solo il diagramma relativo alla classe ApiAiVAAdapter.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/adapterpattern.png}
