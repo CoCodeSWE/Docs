@@ -6,7 +6,7 @@ Tuttavia, viene di seguito esposto come fare il deploy e la configurazione del s
 Per scaricare l'applicativo è sufficiente clonare o scaricare il repository disponibile al link \url{https://github.com/CoCodeSWE/AtAVi} (2017-05-02).
 
 \subsection{Configurazione}\label{configurazione}
-Per il \gl{deploy} dei servizi del prodotto, è necessario prima di tutto creare e configurare alcuni account per il corretto funzionamento del prodotto.
+Per il deploy dei servizi del prodotto, è necessario prima di tutto creare e configurare alcuni account per il corretto funzionamento del prodotto.
 
 \subsubsection{Amazon Web Services}
 \paragraph{Creazione}
@@ -40,13 +40,31 @@ Una volta installato, è necessario applicare la seguente procedura:
 \subsubsection{Microsoft Speaker Recognition}\label{speakerRec}
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità che richiedono il riconoscimento vocale, quali la costruzione dell'impronta vocale (\gl{enrollment}) di un nuovo amministratore e l'accesso al sistema.\\
-È necessario creare un account al link \url{https://www.microsoft.com/cognitive-services} (visitato in data 2017-05-02) cliccando sul pulsante "Get started for free".
+È necessario creare un account al link \url{https://www.microsoft.com/cognitive-services} (visitato in data 2017-05-02) cliccando sul pulsante "Get started for free" (figura \ref{fig:microsoft}). Il trial gratuito ha durata di 90 giorni.
 \begin{figure}[h]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
-	\caption{Registrazione Microsoft Cognitive Services}
+	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
 \end{figure}
 \paragraph{Configurazione}
-
+Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
+\begin{itemize}
+	\item tramite la pagina principale, selezionare "Subscribe to new free trials" per aggiungere un servizio (figura \ref{fig:addMicrosoft});
+	\item scorrere la lista e selezionare "Speaker Recognition - Preview" e "I agree to the Microsoft Cognitive Service Terms" come in figura \ref{fig:speakerRec};
+	\item tornare nella pagina principale per visualizzare le credenziali per utilizzare il nuovo servizio (figura \ref{fig:credMicrosoft});
+	\item ?? SETTARE LE CREDENZIALI NEL SOFTWARE ???
+\end{itemize}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft1.png}}
+	\caption{Aggiungere un servizio Microsoft}\label{fig:addMicrosoft}
+\end{figure}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft2.png}}
+	\caption{Selezionare Speaker Recognition Microsoft}\label{fig:speakerRec}
+\end{figure}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft3.png}}
+	\caption{Ottenere le credenziali Speaker Recognition Microsoft}\label{fig:credMicrosoft}
+\end{figure}
 \subsubsection{IBM Watson Speech to Text}
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità di Speech to Text, ovvero l'estrazione del testo pronunciato in un file audio.\\
