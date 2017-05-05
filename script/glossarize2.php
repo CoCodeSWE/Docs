@@ -42,7 +42,11 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-
+  'Glo' => 'Glossario/sezioni/',
+  'NdP' => 'NormeDiProgetto/sezioni/',
+  'PdP' => 'PianoDiProgetto/',
+  'AdR' => 'AnalisiDeiRequisiti/sezioni/',
+  'PdQ' => 'PianoDiQualifica/',
   'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );

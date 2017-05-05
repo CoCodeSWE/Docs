@@ -3,8 +3,7 @@
 esterno
 \paragraph{Classi}
 \subsubsection{\label{Back-end}}
-Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a microservizi.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
+Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
 \end{figure}
 \paragraph{Classi}
@@ -208,8 +207,7 @@ Dove
 \subsubsection{Back-end::APIGateway}
 In questo package sono contenute le classi che realizzano:
 \begin{itemize}
- \item le funzionalità da API Gateway, permettendo l'interazione \file{Client} - \file{Back-end} tramite la pubblicazione di appositi endpoint;
- \item la mappatura delle richieste del \file{Client} nelle funzionalità supportate dal \file{Back-end};
+ \item le funzionalità da API Gateway, permettendo l'interazione \file{Client} - \file{Back-end} tramite la pubblicazione di appositi \gl{endpoints};    \item la mappatura delle richieste del \file{Client} nelle funzionalità supportate dal \file{Back-end};
  \item la conversione di un audio nel formato accettato dai servizi esterni utilizzati;
  \item la pubblicazione sul topic SNS per notificare la persona desiderata e segnalare la necessità di registrare l'interazione appena avvenuta con l'interlocutore;
  \item il login tramite impronta vocale.
@@ -266,7 +264,7 @@ In questo package sono contenute le classi che realizzano:
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
-		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo callbacks con promises;
+		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo \gl{callback} con promises;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
