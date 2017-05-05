@@ -7,7 +7,7 @@ Una corretta implementazione di tale processo permette di individuare:
 	\item i criteri per la verifica del prodotto.
 \end{itemize}
 \subsubsection{Documenti}
-Il \RESP{} ha il compito di avviare la fase di verifica, assegnando i \gl{task} ai \VERP{}. Essi dovranno controllare che:
+Il \RESP{} ha il compito di avviare l'attività di verifica, assegnando i \gl{task} ai \VERP{}. Essi dovranno controllare che:
 \begin{itemize}
 	\item la sintassi sia corretta, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
 	\item i periodi non siano troppo lunghi, facendo utilizzo degli strumenti automatici preposti e della tecnica walkthrough;
@@ -36,7 +36,7 @@ Per tutti i diagrammi di sequenza, i \VERP{} dovranno controllare che:
 Per tutti i diagrammi dei \gl{package}, i \VERP{} dovranno controllare che:
 \begin{itemize}
 	\item rispettino lo standard UML;
-	\item contengano tutte le classi e sotto-package definiti nella fase di progettazione;
+	\item contengano tutte le classi e sotto-package definiti nel periodo di progettazione;
 	\item non ci siano difetti grafici.
 \end{itemize}
 \subsubsection{Analisi}
@@ -144,7 +144,7 @@ Lo strumento utilizzato per l'issue tracking è il servizio Issues messo a dispo
 Viene utilizzata la verifica in tempo reale dell'ortografia, integrata in TexMaker. Essa marca,
 sottolineando in rosso, le parole errate secondo la lingua italiana.
 \paragraph{Indice di Gulpease}
-Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.
+Affinché un documento possa essere approvato, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti.
  \subsection{Validazione}
  \subsubsection{Scopo}
  Lo scopo di questo processo è verificare il prodotto ottenuto sia coerente rispetto gli obiettivi prefissati.
@@ -434,7 +434,7 @@ Calcola la percentuale di modifiche effettuate in risposta a failure che hanno p
 
 \subsubsection{Procedure}
 \paragraph{Calcolo dell'indice di Gulpease}
-Affinché un documento possa superare la fase di approvazione, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
+Affinché un documento possa essere approvato, è necessario che soddisfi il test di leggibilità con un indice Gulpease superiore a 40 punti. Per valutare questa metrica di qualità, è necessario seguire la seguente procedura:
 \begin{itemize}
 	\item dirigersi da terminale in \GulScript{};
 	\item dare il comando \file{php gulpease.php};
