@@ -5,7 +5,7 @@ Le aspettative della corretta implementazione del processo sono:
 \begin{itemize}
 		\item realizzare un prodotto finale conforme alle richieste del \gl{proponente} e che soddisfi le attività di \gl{validazione} e \gl{verifica};
 		\item fissare gli obiettivi di sviluppo;
-		\item fissare i vincoli tecno\gl{log}ici.
+		\item fissare i vincoli tecnologici.
 \end{itemize}
 
 \subsubsection{Descrizione}
@@ -29,7 +29,7 @@ In accordo con lo standard \iso{ISO/IEC 12207}, il processo di sviluppo è compo
 incontri effettuati, vanno specificati nell'\ARdoc. Per analizzare e trovare i
 requisiti si utilizza la tecnica dei casi d'uso. Il tracciamento dei requisiti avviene tramite l'applicativo PragmaDB.
 
- \paragraph{\gl{Casi d'uso}}
+ \paragraph{Casi d'uso}
  Ogni caso d'uso è così composto:
  \begin{itemize}
   \item \textbf{Codice identificativo}: codice univoco del caso d'uso in esame;
@@ -91,7 +91,7 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  La progettazione deve utilizzare le seguenti tipologie di diagrammi UML:
  \begin{itemize}
  	\item \textbf{Diagrammi delle classi}: illustrano una collezione di elementi dichiarativi di un modello	come classi e tipi, assieme ai loro contenuti e alle loro relazioni;
- 	\item \textbf{Diagrammi dei \gl{package}s}: raggruppamenti di classi in una unità di livello più alto;
+ 	\item \textbf{Diagrammi dei \gl{packages}}: raggruppamenti di classi in una unità di livello più alto;
  	\item \textbf{Diagrammi di attività}: illustrano il flusso di operazioni relativo ad un’attività; utilizzati	soprattutto per descrivere la logica di un algoritmo. Nel contesto del progetto \PROGETTO, questo tipo di diagramma potrebbe rappresentare bene il flusso del dialogo con l'assistente virtuale;
  	\item \textbf{Diagrammi di sequenza}: descrivono una determinata sequenza di azioni dove tutte le
  	scelte sono già state effettuate; in pratica nel diagramma non compaiono scelte, né flussi
@@ -111,9 +111,9 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  	quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi UML e le
  	definizioni delle classi definendo inoltre i test necessari alla verifica.
  \end{itemize}
- 
+
  \paragraph{Requisiti per i progettisti}\label{req prog}
- I \PJP{} sono responsabili delle attività di progettazione. Essi sono tenuti ad avere: 
+ I \PJP{} sono responsabili delle attività di progettazione. Essi sono tenuti ad avere:
  \begin{itemize}
  	\item profonda conoscenza di tutto ciò che riguarda il processo di sviluppo del software;
  	\item capacità di saper anticipare i cambiamenti;
@@ -121,7 +121,7 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
 mancanza di una metodologia che sia sufficientemente espressiva;
  	\item capacità di individuare con rapidità e sicurezza le soluzioni più opportune.
  \end{itemize}
- 
+
  \paragraph{Specifica tecnica}\label{Specifica tecnica}
  I \PJP{} devono definire la struttura ad alto livello dell'architettura del sistema e dei singoli
 componenti, raccogliendo il tutto nella \textit{"Specifica Tecnica"}. Devono, inoltre, essere definiti i test di
@@ -135,7 +135,7 @@ I prodotti di questo \gl{task} saranno:
  		\item diagrammi di attività;
  		\item diagrammi di sequenza.
  	\end{itemize}
- 	\item \textbf{\gl{Design pattern}}: devono essere descritti i \gl{design pattern} utilizzati per realizzare l'architettura. Ogni design
+ 	\item \textbf{\gl{Design pattern}}: devono essere descritti i design pattern utilizzati per realizzare l'architettura. Ogni design
  	pattern deve essere accompagnato da una descrizione ed un diagramma, che ne esponga il
  	significato e la struttura;
  	\item \textbf{Tracciamento delle componenti}: ogni componente dovrà essere tracciato ed associato
@@ -179,7 +179,7 @@ saranno:
  \end{itemize}
  \subparagraph{Modularizzazione delle componenti}
  I \PJP{} dovranno definire e adottare delle tecniche di modularizzazione affinchè l’architettura software progettata sia di elevata qualità, permettendo così la scomposizione del sistema in moduli. Inoltre, è necessario fornire una descrizione precisa della struttura modulare e delle relazioni che esistono tra i singoli moduli.
- 
+
  \subsubsection{Codifica}
  \paragraph{Scopo dell'attività}
  Lo scopo dell'attività è l'implementazione del prodotto, concretizzando la soluzione tramite la codifica.
@@ -274,13 +274,13 @@ Per facilitare la manutenibilità del codice, i programmatori devono rispettare 
  \item separare i commenti dai delimitatori di commento con spazi vuoti. In questo modo i
  	commenti saranno chiari e facili da individuare.
 \end{itemize}
- \paragraph{\gl{Ricorsione}}
+ \paragraph{Ricorsione}
  La \gl{ricorsione} va evitata. Se non risulta accettabile convertirla in \gl{iterazione}, bisogna fornirne la prova di terminazione e l'analisi del costo in termini di spazio.
 
  \paragraph{Fogli di stile}
  Per la produzione di fogli di stile viene usato \textbf{Sass}, un linguaggio di scripting interpretato in CSS. In particolare vengono usati files con estensione \textit{.scss}, che consiste in un ampliamento del linguaggio CSS.
 
-\paragraph{Regole \gl{JavaScript}}
+\paragraph{Regole JavaScript}
 La parte del prodotto codificata in JavaScript deve seguire le seguenti regole:
 \begin{itemize}
 	\item gli operatori == e != effettuano conversioni di tipo prima di effettuare il confronto, e ciò potrebbe nascondere errori di tipo. È meglio utilizzare gli operatori === e !== in quanto meno propensi a \textit{side-effects};
@@ -289,23 +289,23 @@ La parte del prodotto codificata in JavaScript deve seguire le seguenti regole:
 Esempio di codice non valido:
 \begin{verbatim}
   for (i = 0; i < 10; j++)  // Variabili diverse, codice non valido
-  {  
+  {
     // ...
   }
 \end{verbatim}
 	\item lo statement for..in permette lo scorrimento di tutti i nomi delle proprietà di un certo oggetto. Vengono però incluse anche tutte le proprietà ereditate dai prototipi, rendendo quindi necessaria la presenza di un filtro all'interno del ciclo.\\
 Esempio di codice non valido:
 \begin{verbatim}
-  for (name in object) 
+  for (name in object)
   {
-    doSomething(name); 
+    doSomething(name);
   }
 \end{verbatim}
 Esempio di codice valido:
 \begin{verbatim}
-  for (name in object) 
+  for (name in object)
   {
-    if (object.hasOwnProperty(name)) 
+    if (object.hasOwnProperty(name))
     {
       doSomething(name);
     }
@@ -317,17 +317,17 @@ Esempio di codice valido:
 	\item in un ciclo for il contatore deve muoversi nella direzione giusta, al fine di evitare cicli infiniti. Se l'obiettivo è la creazione di un ciclo infinito, è meglio utilizzare altri statement, come il while.\\
 Esempio di codice non valido:
 \begin{verbatim}
-  for (var i = 0; i < strings.length; i--) 
-  { 
+  for (var i = 0; i < strings.length; i--)
+  {
     //...
   }
 \end{verbatim}
 	\item L'unione di una serie di if annidati comporta maggiore comprensibilità del codice.\\
 Esempio di codice non valido:
 \begin{verbatim}
-  if (x !== undefined) 
+  if (x !== undefined)
   {
-    if (x === 2) 
+    if (x === 2)
     {
       // ...
     }
@@ -335,7 +335,7 @@ Esempio di codice non valido:
 \end{verbatim}
 Esempio di codice valido:
 \begin{verbatim}
-  if (x !== undefined && x === 2) 
+  if (x !== undefined && x === 2)
   {
     // ...
   }
@@ -346,7 +346,7 @@ Esempio di codice valido:
 
 	\item le variabili devono essere dichiarate prima di essere usate, al fine di stabilirne lo scoping, usando var se sono variabili con scope globale, let se sono variabili locali e const se sono variabili da non modificare;
 	\item ogni statement deve terminare con ";", al fine di aumentare la comprensibilità del codice.
-	
+
 \end{itemize}
 
 \paragraph{Continuous integration}\label{CI}
@@ -502,7 +502,7 @@ Per far ciò, è necessario seguire la seguente procedura:
 
   \end{itemize}
   Essendo open source, questo strumento è stato adattato dal \gl{team} \GRUPPO{} in base alle proprie necessità.
-  \paragraph{\gl{Astah}}
+  \paragraph{Astah}
   Astah è uno strumento di modellazione UML. Qualora i diagrammi UML generati da PragmaDB non siano soddisfacenti, si ricorrerà all'utilizzo di Astah. Viene utilizzata la versione 7.0 o superiori.
 \begin{figure}[h]
 \centering
