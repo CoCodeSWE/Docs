@@ -48,13 +48,19 @@
     		\item scrivere componenti DOM secondo questo pattern è verboso.
     	\end{itemize}
     \end{itemize}
-    Alla pagina \url{https://github.com/facebook/flux/tree/master/examples/flux-concepts} (visitato in data 2017-03-26) è disponibile la documentazione ufficiale di questo pattern.
+    Alla pagina \url{https://github.com/facebook/flux/tree/master/examples/flux-concepts} (visitato in data 2017-03-26) è disponibile la documentazione ufficiale di questo pattern.\\
+    In figura \ref{fig:flux} si ha il diagramma del pattern Flux, mentre in figura \ref{fig:flux2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per la realizzazione di ConversationApp, la quale rappresenta l'applicazione di conversazione tra un utente e l'assistente virtuale.
     \begin{figure}[h]
     	\centering
     	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/fluxpattern.png}
     	\caption{Pattern flux}\label{fig:flux}
-
     \end{figure}
+    \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/client/Client/Flux.png}
+	\caption{Flux utilizzato nell'architettura del progetto \PROGETTO}\label{fig:flux2}
+\end{figure}
     \newpage
     
     \newpage
@@ -135,11 +141,18 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 	   \item a volte per interconnettere due interfacce sono necessari più Adapter.
 	  \end{itemize}
 	\end{itemize}
+	In figura \ref{fig:adapter1} si ha il diagramma del pattern Adapter, mentre in figura \ref{fig:adapter2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato per convertire l'interfaccia fornita da api.ai in una più adatta alle esigenze dell'applicazione, definita da \file{VAModule}. \\ La classe ApiAiVAAdapter, facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule} (target), permette l'interoperabilità tra queste due interfacce.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/adapterpattern.png}
 		\caption{Pattern Adapter}\label{fig:adapter1}
 	\end{figure}
+\begin{figure}[h]
+		\centering	
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/Official_Backend_0304/Adapter.png}
+	\caption{Adapter utilizzato nell'architettura del progetto \PROGETTO}\label{fig:adapter2}
+\end{figure}
 	\newpage
   \subsection{Creazionali}
 
@@ -171,11 +184,18 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 	   \item l'interfaccia Observer deve essere implementata, e ciò comporta ereditarietà.
 	  \end{itemize}
 	\end{itemize}
+	In figura \ref{fig:obs1} si ha il diagramma del pattern Observer, mentre in figura \ref{fig:obs2} si ha il diagramma dell'effettivo utilizzo del pattern all'interno dell'architettura progettata.\\
+È utilizzato da diverse classi del sistema per osservare e gestire gli eventi generati dalle classi Subject, ma sempre secondo lo schema in figura \ref{fig:obs2}. Pertanto, come esempio, viene riportato solo il diagramma relativo alla relazione tra AgentObserver e AgentObservable.
 
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/observerpattern.png}
 		\caption{Pattern Observer}\label{fig:obs1}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/Official_Backend_0304/Observer.png}
+		\caption{Pattern Observer utilizzato nell'architettura del progetto \PROGETTO}\label{fig:obs2}
 	\end{figure}
 	\newpage
 	\section{Tecnologie utilizzate}
