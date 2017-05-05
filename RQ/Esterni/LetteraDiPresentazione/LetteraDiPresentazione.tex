@@ -1,0 +1,97 @@
+\documentclass[a4paper,12pt]{letteracdp}
+
+\makeatletter
+\def\input@path{{../../../template/}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{Riferimenti}
+
+%\usepackage{Stile}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[margin=3cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[bf]{caption}
+\usepackage{float}
+
+\hypersetup{%
+	colorlinks=true,%
+	linkcolor=link,%
+	urlcolor=url
+}
+
+%end Stile
+\address{
+  \includegraphics[scale=0.20]{img/logo_full.png}\\
+  \vspace{0.2cm}
+  Ingegneria del Software \\
+  Gruppo \GRUPPO{} \\
+}
+
+\signature{
+  Il Responsabile di Progetto \par
+  \includegraphics{firme/maurocarlin.png} \\
+  Mauro Carlin
+}
+\date{2017-05-07}
+\place{Padova}
+
+\pagenumbering{gobble}
+\begin{document}
+  \begin{letter}{
+    Alla C. Att.ne dei committenti: \\
+    \COMMITTENTE \\
+    \CARDIN      \\
+    Dipartimento di Matematica \\
+		Università degli Studi di Padova \\
+		Via Trieste, 63 \\
+		35121 Padova}
+		
+    \opening{Egregio Prof.~Vardanega Tullio,}
+    Con la presente il gruppo \GRUPPO{} intende comunicarLe ufficialmente la partecipazione alla Revisione di Qualifica per la realizzazione del prodotto da Lei commissionato, intitolato:
+    \begin{center}
+      \CAPITOLATO
+    \end{center}
+    proposto dall'azienda \PROPONENTE{}, rappresentata dal sig.re Stefano Dindo.
+    Si allegano alla lettera i seguenti documenti:
+    \begin{itemize}
+      \item \Gldoc{} \Glfile{};
+      \item \NPdoc{} \NPfile{};
+      \item \PPdoc{} \PPfile{};
+      \item \PQdoc{} \PQfile{};
+      \item \ARdoc{} \ARfile{};
+      \item \DPdoc{} \DPfile{};
+      \item \doc{Verbali delle riunioni interne} \file{RP/Interni/Verbali Interni}
+      \item \doc{Verbali delle riunioni esterne} \file{RP/Esterni/Verbali Esterni}
+    \end{itemize}
+    Come specificato nel Piano di Progetto, il gruppo stima di riuscire a
+    consegnare il prodotto richiesto entro il 2017-06-20, ovvero la seconda data
+    fissata per la Revisione di Accettazione, preventivando costi per un importo
+    totale di 14.198,00 \euro.
+    \newpage
+    Di seguito si riporta l'elenco dei componenti del gruppo:\\
+    \begin{center}
+      \begin{tabular}{l c}
+        \textbf{Nominativo} & \textbf{Matricola} \\
+        Luca Bertolini 	 	& 1099549  \\
+        Mattia Bottaro 	 	& 1097723  \\
+        Mauro Carlin 	 	& 1102351  \\
+        Andrea Magnan    	& 1096609  \\
+        Simeone Pizzi    	& 1096826  \\
+        Nicola Tintorri    	& 1102860  \\
+        Pier Paolo Tricomi 	& 1096827  \\
+      \end{tabular}
+    \end{center}
+    \closing{Rimango a Sua completa disposizione per qualsiasi chiarimento. \\
+	RingraziandoLa anticipatamente per la Sua disponibilità, Le porgo distinti saluti.}
+  \end{letter}
+
+\end{document}
