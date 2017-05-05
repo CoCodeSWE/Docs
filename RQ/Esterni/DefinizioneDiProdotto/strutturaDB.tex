@@ -1,5 +1,5 @@
 \section{Struttura del database DynamoDB}
-In questa appendice descriviamo la struttura del database DynamoDB, come richiesto dal proponente \PROPONENTE. \\
+In questa appendice descriviamo la struttura del database \gl{DynamoDB}, come richiesto dal \gl{proponente} \PROPONENTE. \\
 Sebbene DynamoDB richieda di specificare solamente la primary key (partition key oppure partition key e sort key) per la creazione di una tabella, abbiamo deciso di riportare una struttura più descrittiva all'interno del documento. La descrizione di ciascuna tabella riporta le informazioni relative alla chiave primaria e agli attributi che ogni item possiede quando viene inserito all'interno del DB.
 Ogni tabella sarà descritta secondo questa struttura:
 \begin{itemize}
@@ -15,7 +15,7 @@ Ogni tabella sarà descritta secondo questa struttura:
   \item \textbf{BOOL} : Boolean;
  \end{itemize}
 \end{itemize}
-La tabella \textbf{Conversation} descrive l'intera interazione tra un utente del sistema e l'assistente virtuale, dove "messages" memorizza tutti i messaggi che vengono scambiati tra i due attori.
+La tabella \textbf{Conversation} descrive l'intera interazione tra un utente del \gl{sistema} e l'assistente virtuale, dove "messages" memorizza tutti i messaggi che vengono scambiati tra i due attori.
 \begin{lstlisting}[language=json,firstnumber=1]
 TableName: "Conversation",
 KeySchema:
@@ -76,7 +76,7 @@ AttributeDefinitions:
 ]
 \end{lstlisting}
 \newpage
-La tabella \textbf{Rule} descrive le direttive che gli amministratori hanno inserito per modificare il comportamento dell'assistente virtuale. Ogni direttiva contiene un array di "target", ossia il gruppo di persone a cui deve essere applicata.
+La tabella \textbf{\gl{Rule}} descrive le \gl{direttive} che gli amministratori hanno inserito per modificare il comportamento dell'assistente virtuale. Ogni \gl{direttiva} contiene un array di "target", ossia il gruppo di persone a cui deve essere applicata.
 \begin{lstlisting}[language=json,firstnumber=1]
 TableName: "Rule",
 KeySchema:
