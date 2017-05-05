@@ -52,7 +52,7 @@
 \def\RESPONSABILE{Mauro Carlin}
 \def\USO{Esterno}
 \def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
-\def\SOMMARIO{Questo documento contiene le scelte progettuali effettuate dal gruppo \GRUPPO{} per la realizzazione del \gl{progetto} \PROGETTO.}
+\def\SOMMARIO{Questo documento contiene le scelte progettuali effettuate dal gruppo \GRUPPO{} per la realizzazione del progetto \PROGETTO.}
 
 \begin{document}
 	
@@ -104,21 +104,21 @@
 		\modifica{Mauro Carlin}{\PJ}{Definizione struttura del documento}{2017-02-06}{0.0.1}
 		
 	\end{diario}
+	
+	\newpage
+	\tableofcontents
+	\listoffigures
+	\newpage
+	
+	
+	\include{introduzione}
+	\include{standardprogetto}
+	\include{architetturappl}
 
-\newpage
-\tableofcontents
-\listoffigures
-\newpage
-
-
-\include{introduzione}
-\include{standardprogetto}
-\include{architetturappl}
-\include{sequenza}
-\include{classi}
-
-\include{tracciamento}
-\appendix
-\include{patterns}
-\include{strutturaDB}
+	\include{classi}
+	\include{sequenza}
+	\include{tracciamento}
+	\appendix
+	\include{patterns}
+	\include{strutturaDB}
 \end{document}

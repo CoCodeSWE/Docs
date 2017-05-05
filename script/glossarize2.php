@@ -13,7 +13,7 @@
 * 2015-05-13 - Aggiunta deglossarizzazione delle $linesToIgnore - Enrico Ceron
 * 2015-04-18 - Creazione dello script - Enrico Ceron
 *
-* 
+*
 * 2016-12-12 - adattamento dello script al gruppo Co.Code, Mattia Bottaro
 * 2017-12-17 - pesanti modifiche effettuate da Mattia Bottaro del gruppo Co.Code(formatosi
   per il progetto di SWE dell'uniPD) -> UPDATE alla versione 2.0 by Mattia Bottaro
@@ -42,11 +42,7 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  'Glo' => 'Glossario/sezioni/',
-  'NdP' => 'NormeDiProgetto/sezioni/',
-  'PdP' => 'PianoDiProgetto/',
-  'AdR' => 'AnalisiDeiRequisiti/sezioni/',
-  'PdQ' => 'PianoDiQualifica/',
+
   'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );
