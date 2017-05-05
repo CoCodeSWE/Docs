@@ -40,7 +40,7 @@ La prima pagina di ogni documento dovrà contenere:
  \end{itemize}
  \paragraph{Indici}
  In ogni documento è presente un indice delle sezioni, utile a fornire una visione macroscopica della struttura del documento. Sono previsti, se necessari, gli indici relativi alle tabelle e alle figure presenti nel documento in questo ordine.
- 
+
  \paragraph{Intestazione e piè di pagina}
 L'intestazione delle pagine di ogni documento deve contenere:
 \begin{itemize}
@@ -54,7 +54,7 @@ Il piè di pagina contiene invece:
 	\item pagina X di Y, dove X è la pagina corrente e Y è il numero di pagine totali del documento.
 \end{itemize}
 \paragraph{Introduzione}
-In questa sezione vengono fornite le seguenti informazioni: 
+In questa sezione vengono fornite le seguenti informazioni:
 \begin{itemize}
 	\item scopo del documento;
 	\item glossario;
@@ -67,7 +67,7 @@ In questa sezione vengono fornite le seguenti informazioni:
 \subsubsection{Norme tipografiche}
 In questa sezione vengono definite le norme ortografiche e tipografiche da rispettare nella stesura di ogni documento.
  \paragraph{Stile del testo}
- Al fine di migliorare la leggibilità e comprensione di un documento, è d'obbligo preferire uno stile d'esposizione sfruttando elenchi piuttosto che uno stile narrativo, in maniera tale da esporre i contenuti più esplicitamente.	
+ Al fine di migliorare la leggibilità e comprensione di un documento, è d'obbligo preferire uno stile d'esposizione sfruttando elenchi piuttosto che uno stile narrativo, in maniera tale da esporre i contenuti più esplicitamente.
 \begin{itemize}
 	\item \textbf{Grassetto}: viene utilizzato per:
 	\begin{itemize}
@@ -359,7 +359,8 @@ In \GloScript{} si trova lo script che, per ogni documento, marca come glossariz
 \subsection{Configurazione}
 \subsubsection{Versionamento}
 \paragraph{Repository}
-Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} \gl{Git}Hub, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE} (visitato in data 2017-02-24). Tutti i membri del gruppo dovranno creare un proprio account \gl{GitHub}, per poi ricevere i permessi in scrittura sul \gl{repository} da parte dell'\AMM.
+
+Per il versionamento e l'archiviazione dei file, l'\AMM{} ha creato un \gl{repository} GitHub, il quale è disponibile al seguente indirizzo \url{https://github.com/CoCodeSWE} (visitato in data 2017-02-24). Tutti i membri del gruppo dovranno creare un proprio account GitHub, per poi ricevere i permessi in scrittura sul repository da parte dell'\AMM.
 La gestione del repository è responsabilità degli \AMMP.
 \paragraph{Struttura del repository Docs}
 Questo repository è dedicato all'archiviazione dei file per generare tutta la documentazione che il \gl{team} vuole produrre.\\
@@ -400,7 +401,7 @@ Dovrà inoltre essere segnalata l'eventuale aggiunta di nuovi file.
 \paragraph{Modifiche}
 In caso di modifiche importanti da attuare, si dovrà creare un \gl{branch} apposito nel quale lavorare, al fine di proteggere il branch principale di sviluppo. Una volta apportate, le modifiche dovranno essere applicate al branch principale.
 \paragraph{Procedure}
-\subparagraph{Aggiornamento del repository locale} 
+\subparagraph{Aggiornamento del repository locale}
 Per aggiornare il repository in oggetto, è necessario seguire la seguente procedura:
 \begin{itemize}
 	\item aprire il terminale nel repository;
@@ -434,8 +435,8 @@ Una volta terminato il suo utilizzo, il branch dovrà essere eliminato seguendo 
  Git è un software open-source di controllo versione distribuito utilizzabile dal terminale. Come versione si utilizza la 2.7.4 o superiori.
  \subparagraph{GitHub}
  GitHub è un servizio di hosting per progetti software, con il quale è possibile interagire tramite Git. GitHub
- offre diversi piani per \gl{repository} privati sia a pagamento, sia gratuiti, molto utilizzati per lo
- sviluppo di progetti open-source. 
+ offre diversi piani per repository privati sia a pagamento, sia gratuiti, molto utilizzati per lo
+ sviluppo di progetti open-source.
  \begin{figure}[h]
  	\centering
  	\includegraphics[scale=0.4]{img/github.png}
@@ -456,15 +457,15 @@ Per preparare l'ambiente di sviluppo è necessario seguire questa serie di passi
 	\item installare XAMPP dall'indirizzo \url{https://www.apachefriends.org/it/index.html} (visitato in data 2017-05-04);
 	\item avviare XAMPP e nel file di configurazione di Apache copiare: \\
 \begin{lstlisting}
-<VirtualHost *:80> 
-  ServerName localhost 
-  DocumentRoot "***\AtAVi\dist\client" 
-  <Directory  "***\AtAVi\dist\client"> 
-    Options +Indexes +Includes +FollowSymLinks +MultiViews 
-    AllowOverride All 
+<VirtualHost *:80>
+  ServerName localhost
+  DocumentRoot "***\AtAVi\dist\client"
+  <Directory  "***\AtAVi\dist\client">
+    Options +Indexes +Includes +FollowSymLinks +MultiViews
+    AllowOverride All
     Require local
-  </Directory> 
-</VirtualHost> 
+  </Directory>
+</VirtualHost>
 \end{lstlisting}
 dove al posto di "***" deve essere inserito il percorso dove è stata scaricata la repository di AtAVi;
 	\item installare l'estensione LiveReload nel proprio \gl{browser} (ad esempio per Google Chrome dall'indirizzo \url{https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=it}, visitato in data 2017-05-04);
