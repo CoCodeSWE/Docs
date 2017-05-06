@@ -1,7 +1,9 @@
 \section{Installazione}
 Il deploy e la configurazione dell'intero sistema consistono di un numero considerevole di procedure non banali da applicare.\\
 In accordo con il proponente \PROPONENTE, il quale è anche l'utilizzatore del prodotto, verranno fornite da quest'ultimo le credenziali di accesso ai servizi esterni e piattaforme elencate in \ref{configurazione}, in maniera tale che le attività di deploy e configurazione siano realizzate dal team \GRUPPO.\\
-Tuttavia, viene di seguito esposto come fare il deploy e la configurazione del sistema.
+Tuttavia, viene di seguito esposto come fare il deploy e la configurazione del sistema.\\
+I servizi esterni, per essere utilizzati, necessitano di alcune chiavi, le quali dovranno essere impostate nel sistema. Per fare ciò, si farà utilizzo del framework Serverless, tramite il quale verranno impostate le chiavi come variabili d'ambiente in AWS.\\
+Il procedimento dettagliato verrà esposto in versioni successive di questo documento.
 \subsection{Download}\label{download}
 Per scaricare l'applicativo è sufficiente clonare o scaricare il repository disponibile al link \url{https://github.com/CoCodeSWE/AtAVi} (2017-05-02).
 
@@ -18,13 +20,13 @@ I servizi utilizzati dal prodotto sono:
 	\item Lambda;
 	\item DynamoDB.
 \end{itemize}
-Per usufruire di essi, è sufficiente creare un account alla pagina \url{https://aws.amazon.com} (visitato in data 2017-05-02) cliccando sul pulsante "Registrazione". \\
+Per usufruire di essi, è sufficiente creare un account alla pagina \url{https://aws.amazon.com} (visitato in data 2017-05-02) cliccando sul pulsante "Registrazione" (figura \ref{fig:aws}). \\
 Durante la registrazione, verrà chiesto di associare una carta di credito all'account. Questa operazione deve essere fatta, altrimenti non sarebbe possibile fare utilizzo dei servizi offerti.
 \begin{figure}[h]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{sezioni/images/aws.jpg}
-\caption{Registrazione AWS}
+\caption{Registrazione AWS}\label{fig:aws}
 \end{figure}
-
+\newpage
 \subsubsection{Serverless}
 \paragraph{Creazione}
 Serverless è un framework per alcuni servizi di cloud computing, tra i quali quelli di Amazon Web Services. È un progetto molto giovane, ma che gode già di un ottimo supporto.\\
@@ -41,18 +43,18 @@ Una volta installato, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità che richiedono il riconoscimento vocale, quali la costruzione dell'impronta vocale (\gl{enrollment}) di un nuovo amministratore e l'accesso al sistema.\\
 È necessario creare un account al link \url{https://www.microsoft.com/cognitive-services} (visitato in data 2017-05-02) cliccando sul pulsante "Get started for free" (figura \ref{fig:microsoft}). Il trial gratuito ha durata di 90 giorni.
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
-	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
-\end{figure}
+
 \paragraph{Configurazione}
 Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \begin{itemize}
 	\item tramite la pagina principale, selezionare "Subscribe to new free trials" per aggiungere un servizio (figura \ref{fig:addMicrosoft});
 	\item scorrere la lista e selezionare "Speaker Recognition - Preview" e "I agree to the Microsoft Cognitive Service Terms" come in figura \ref{fig:speakerRec};
 	\item tornare nella pagina principale per visualizzare le credenziali per utilizzare il nuovo servizio (figura \ref{fig:credMicrosoft});
-	\item ?? SETTARE LE CREDENZIALI NEL SOFTWARE ???
 \end{itemize}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
+	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
+\end{figure}
 \begin{figure}[h]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft1.png}}
 	\caption{Aggiungere un servizio Microsoft}\label{fig:addMicrosoft}
@@ -65,21 +67,36 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft3.png}}
 	\caption{Ottenere le credenziali Speaker Recognition Microsoft}\label{fig:credMicrosoft}
 \end{figure}
+\newpage
 \subsubsection{IBM Watson Speech to Text}
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità di Speech to Text, ovvero l'estrazione del testo pronunciato in un file audio.\\
-È necessario creare un account su IBM Bluemix al seguente link \url{https://console.ng.bluemix.net/registration/?target=/catalog/\%3fcategory=watson} (visitato in data 2017-05-02). Vengono concessi 30 giorni di utilizzo gratuito, oltre i quali è necessario associare una carta di credito all'account.
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/bluemix.png}}
-	\caption{Registrazione bluemix}
-\end{figure}
+È necessario creare un account su IBM Bluemix (figura \ref{fig:bluemix}) al seguente link \url{https://console.ng.bluemix.net/registration/?target=/catalog/\%3fcategory=watson} (visitato in data 2017-05-02). Vengono concessi 30 giorni di utilizzo gratuito, oltre i quali è necessario associare una carta di credito all'account.
+
 \paragraph{Configurazione}
 Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \begin{itemize}
-	\item accedere alla sezione dei servizi Watson \url{https://console.ng.bluemix.net/catalog/?category=watson} (visitato in data 2017-05-02) e cliccare sul servizio di Speech to Text (figura);
-	\item copiare le credenziali di utilizzo (username e password) e attivare il servizio (figura);
-	\item SETTARE LE CREDENZIALI NEL SOFTWARE
+	\item accedere alla sezione dei servizi Watson \url{https://console.ng.bluemix.net/catalog/?category=watson} (visitato in data 2017-05-02) e cliccare sul servizio di Speech to Text (figura \ref{fig:consoleWatson});
+	\item attivare il servizio cliccando su "Create" (figura \ref{fig:serviceWatson});
+	\item Selezionare "Services" e poi "Dashboard" dal menù a sinistra, in maniera tale da ottenere la lista dei servizi attivati. Cliccare sul servizio di Speech to Text per visualizare le credenziali di utilizzo (username e password, figura \ref{fig:credentialsWatson}).
 \end{itemize}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/bluemix.png}}
+	\caption{Registrazione bluemix}\label{fig:bluemix}
+\end{figure}
+\begin{figure}[h]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson.PNG}}
+	\caption{Catalogo dei servizi IBM Watson}\label{fig:consoleWatson}
+\end{figure}
+\begin{figure}[h]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson-create.PNG}}
+	\caption{Creazione del servizio di STT in IBM Watson}\label{fig:serviceWatson}
+\end{figure}
+\begin{figure}[h]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson-credentials.PNG}}
+	\caption{Visualizzazione delle credenziali di STT in IBM Watson}\label{fig:credentialsWatson}
+\end{figure}
+\newpage
 \subsubsection{api.ai}
 \paragraph{Creazione}
 È il Software Development Kit (SDK) utilizzato per l'effettiva costruzione dell'assistente virtuale.
@@ -90,19 +107,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \end{figure}
 \paragraph{Configurazione}
 Dopo aver effettuato l'accesso, selezionare il menù degli \gl{agent} a sinistra (figura \ref{fig:menuapi}) e scorrerlo fino in fondo, selezionando "Create new agent" (figura \ref{fig:newAgent}). \\
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/menuapi.png}}
-	\caption{menu agent api.ai}\label{fig:menuapi}
-\end{figure}
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/createagent.png}}
-	\caption{nuovo agent api.ai}\label{fig:newAgent}
-\end{figure}
 
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/saveagent.png}}
-	\caption{save agent api.ai}\label{fig:saveAgent}
-\end{figure}
 Inserire nell'apposita schermata (figura \ref{fig:saveAgent}) i seguenti dati:
 \begin{itemize}
 	\item \textbf{Agent name}: ConversationAppGuest;
@@ -117,26 +122,23 @@ Successivamente, è necessario importare il primo agent applicando la seguente p
 	\item cliccare il simbolo dell'ingranaggio, successivamente la voce "Export and Import" ed infine il pulsante "Import from zip" (figura \ref{fig:importAgent});
 	\item l'agent da importare si trova nel repository scaricato (\ref{download}) in\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppGuest}
 \end{itemize}
+
+
+Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppAdmin}, seguendo le istruzioni appena esposte.
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/menuapi.png}}
+	\caption{menu agent api.ai}\label{fig:menuapi}
+\end{figure}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/createagent.png}}
+	\caption{nuovo agent api.ai}\label{fig:newAgent}
+\end{figure}
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/saveagent.png}}
+	\caption{save agent api.ai}\label{fig:saveAgent}
+\end{figure}
 \begin{figure}[h]
 	\centering{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/importagent.png}}
 	\caption{import agent api.ai}\label{fig:importAgent}
 \end{figure}
-
-Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppAdmin}, seguendo le istruzioni appena esposte.
-
-??? SETTARE LE CREDENZIALI NEL SOFTWARE ???
-
-
-\subsection{Deploy}
-Una volta completate le procedure descritte in \ref{configurazione} e \ref{download}, si può procedere al deploy dei microservizi, dell'API Gateway, del Topic SNS e delle Lambda Function create.\\
-Per farlo, è sufficiente dare il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nelle seguenti cartelle:
-\begin{itemize}
-	\item \file{AtAVi/src/Back-end/APIGateway};
-	\item \file{AtAVi/src/Back-end/VirtualAssistant};
-	\item \file{AtAVi/src/Back-end/Notifications};
-	\item \file{AtAVi/src/Back-end/Rules};
-	\item \file{AtAVi/src/Back-end/Users};
-	\item \file{AtAVi/src/Back-end/Events};
-\end{itemize}
-
-??? QUI DOVREMMO SCRIVERE COSE SU TIPO ADMIN DI DEFAULT O INIZIALIZZAZIONI NEI DB ???
+\input{sezioni/deploy.tex}
