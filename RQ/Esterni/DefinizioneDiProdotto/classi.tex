@@ -1,6 +1,6 @@
-\section{Specifica delle Componenti}
+\section{Specifica delle Componenti}\label{componenti}
 \subsection{Back-end}\label{Back-end}
-Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
+\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
 \end{figure}
 \paragraph{Classi}
@@ -19,7 +19,7 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- jwt: JSONWebTokenModule} \\
-		Attributo contenente un riferimento al modulo di Node.js per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
+		Attributo contenente un riferimento al modulo di \gl{Node.js} per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -57,7 +57,7 @@ La risposta può essere organizzata in due modi diversi a seconda se il JWT è v
 Nel caso il JWT sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 200. \\
 Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sarà pari a 403. \\;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la dependency injection di \file{JSONWebTokenModule};\\
+		\item[] \file{+ <<Create>> createAdministrationWebhookService(jwt: JSONWebTokenModule)\\: AdministrationWebhookService} \\		Costruttore che si occupa di effettuare la \gl{dependency injection} di \file{JSONWebTokenModule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{jwt: JSONWebTokenModule} \\
@@ -248,7 +248,7 @@ In questo package sono contenute le classi che realizzano:
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
+	\item \textbf{Descrizione}: questa classe si occupa di implementare l'\gl{endpoint} dell'\gl{API Gateway} utilizzato dal client vocale;
 	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -707,7 +707,7 @@ In questo package sono contenute le classi che realizzano:
 	\item \textbf{Nome}: \file{SNSMessage};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta un messaggio mandato da SNS in seguito ad un'interazione con l'assistente virtuale;
-	\item \textbf{Utilizzo}: fornisce un meccanismo event-driven per la gestione dei dati relativi alle interazioni col sistema.\\
+	\item \textbf{Utilizzo}: fornisce un meccanismo \gl{event-driven} per la gestione dei dati relativi alle interazioni col sistema.\\
 Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon.com/sns/latest/dg/json-formats.html#http-subscription-confirmation-json};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -1601,7 +1601,7 @@ Sono contenute le classi che realizzano:
 \begin{itemize}
 \item la definizione dei dati di una direttiva;
 \item l'interfaccia per l'interazione con il database contenente le direttive;
-\item la definizione dei dati di un task;
+\item la definizione dei dati di un \gl{task};
 \item l'interfaccia per l'interazione con il database contenente i task;
 \item le modalità con le quali i dati devono essere trasmessi dai e ai database;
 \item il microservizio che espone gli endpoint per permetterne il suo utilizzo.
@@ -2244,7 +2244,7 @@ Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target}
 \FloatBarrier
 
 \subsubsection{Back-end::STT}
-Package che include le classi che si occupano di fornire le funzionalità di Speech to text.\\
+Package che include le classi che si occupano di fornire le funzionalità di \gl{Speech to text}.\\
 Le classi contenute realizzano:
 \begin{itemize}
  \item l'interfaccia e le modalità di utilizzo del servizio esterno di Speech to Text.
@@ -3503,7 +3503,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		\item[] \file{+ text: String} \\
 		Attributo contenente il testo del button;
 		\item[] \file{+ postback: String} \\
-		Attributo contenente il testo da inviare, ad api.ai o un URL, dopo che il button è stato selezionato;
+		Attributo contenente il testo da inviare, ad api.ai o un \gl{URL}, dopo che il button è stato selezionato;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3628,7 +3628,7 @@ Per la relativa documentazione, consultare le seguenti pagine: \\
   \item 1: card, rappresenta un messaggio più articolato, con possibile presenza di bottoni. Prevede la presenza dei campi \file{title} e \file{subtitle}. Può essere presente anche il campo \file{buttons};
   \item 2: quick replies, rappresenta una serie di risposte rapide. Prevede la presenza dei campi \file{title} e \file{replies};
   \item 3: immagine, prevede la presenza del campo \file{imgUrl};
-  \item 4: payload, prevede la presenza del campo \file{payload}.
+  \item 4: \gl{payload}, prevede la presenza del campo \file{payload}.
 \end{itemize};
 		\item[] \file{+ speech: String[0..1]} \\
 		Attributo contenente il testo di un messaggio di tipo messaggio testuale;
@@ -4111,7 +4111,7 @@ La classe in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, sfru
 		\item[] \file{- state: State} \\
 		Attributo che tiene traccia delle applicazione già eseguite e del loro stato;
 		\item[] \file{- frame: HTMLElement} \\
-		Attributo che contiene l'elemento del DOM al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
+		Attributo che contiene l'elemento del \gl{DOM} al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
 		\item[] \file{- application: Application} \\
 		Attributo che contiene l'applicazione attualmente in esecuzione;
 		\item[] \file{- ui: HTMLElement} \\
@@ -4533,7 +4533,7 @@ Le classi contenute permettono :
 \begin{itemize}
 \item l'esecuzione una determinata azione in base ai dati arrivati come richiesta dal registratore vocale;
 \item il notificare alle classi interessate l'arrivo del testo di risposta dal \file{Back-end};
-\item l'esecuzione di richieste HTTP sostituendo le funzioni di Callback fornite da Javascript con le Promise che sono più chiare in casi di annidamento;
+\item l'esecuzione di richieste HTTP sostituendo le funzioni di Callback fornite da \gl{Javascript} con le Promise che sono più chiare in casi di annidamento;
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Logic.png}
 	\caption{Package Client::Logic}
@@ -4897,7 +4897,7 @@ Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Even
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
-		Questo attributo contiene la sample rate della registrazione audio nei buffer;
+		Questo attributo contiene la \gl{sample} rate della registrazione audio nei buffer;
 		\item[] \file{- buffers: Float32ArrayArray} \\
 		Questo attributo contiene i buffer per i dati dell'audio. sono presenti due buffer, uno per ogni canale;
 		\item[] \file{- length: int} \\
@@ -5048,7 +5048,7 @@ L'\file{Observer} collegato è \file{LogicObserver};
 \FloatBarrier
 
 \subsubsection{Client::TTS}
-Package contenente le componenti che realizzano il text to speech.
+Package contenente le componenti che realizzano il \gl{text to speech}.
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
 \item la reazione a dei dati arrivati come riposta dal \file{Back-end};
@@ -5531,7 +5531,7 @@ Viene passata come parametro al metodo \file{runCmd} delle varie applicazioni, i
 \begin{itemize}
 	\item \textbf{Nome}: \file{VARequestAPIBody};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al client per effettuare una richiesta all'API REST del back-end;
+	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al client per effettuare una richiesta all'API \gl{REST} del back-end;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una richiesta all'API REST del back-end e viene utilizzata dalla classe \file{VARequestAPIEvent};
 	\item \textbf{Attributi}:
 	\begin{itemize}
