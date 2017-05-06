@@ -1,7 +1,4 @@
 \section{Specifica delle Componenti}
-\subsubsection{api.ai}
-esterno
-\paragraph{Classi}
 \subsubsection{\label{Back-end}}
 Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
@@ -5393,7 +5390,7 @@ Setting speaker\_labels to true forces the continuous and timestamps parameters 
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Libs}
+\subsubsection{\textbf{Libs}}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri package sia del \file{Client} che del \file{Back-end}.
 \paragraph{Classi}
 \hypertarget{ErrorObservable_label}{\subparagraph{ErrorObservable}}
@@ -5684,121 +5681,5 @@ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire i
 	\begin{itemize}
 		\item OUT \hyperlink{ResponseBody_label}{\file{ResponseBody}}
 	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{MicrosoftSpeakerRecognition}
-Pkgs lib esterna
-\paragraph{Classi}
-\subsubsection{React}
-Package per react
-\paragraph{Classi}
-\hypertarget{Component {abstract}_label}{\subparagraph{Component {abstract}}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassComponent {abstract}.png}
-	\caption{React::Component {abstract}}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Component {abstract}};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe astratta;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figlio}: \file{ConversationView};
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{RxJS 5}
-Libreria esterna
-\paragraph{Classi}
-\hypertarget{Observable_label}{\subparagraph{Observable}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObservable.png}
-	\caption{RxJS 5::Observable}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Observable};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: observable di RxJs;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figli}: \file{UserObservable}, \file{ConversationObservable}, \file{GuestObservable}, \file{TaskObservable}, \file{RuleObservable}, \file{AgentObservable}, \file{ErrorObservable}, \file{MemberObservable};
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{Observer_label}{\subparagraph{Observer}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserver.png}
-	\caption{RxJS 5::Observer}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Observer};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: observer di RxJS;
-	\item \textbf{Utilizzo}: ;
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{Subject_label}{\subparagraph{Subject}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSubject.png}
-	\caption{RxJS 5::Subject}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Subject};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: rxJS5;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figli}: \file{SpeechEndSubject}, \file{DataArrivedSubject};
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{Slack}
-Package contenente tutte le classi che fanno parte dell'SDK per Node.js di Slack.
-\paragraph{Classi}
-\hypertarget{WebClient_label}{\subparagraph{WebClient}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassWebClient.png}
-	\caption{Slack::WebClient}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{WebClient};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta il modulo node.js che si occupa di comunicare con le API Web di Slack;
-	\item \textbf{Utilizzo}: fornisce i metodi necessari ad usufruire delle funzionalità offerte dalle API Web di slack. Per ulterioir informazioni, fare riferimento alla documentazione dei slack (\url{https://api.slack.com/}  (visitato in data 2017-03-21));
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{WebSpeechApi}
-Libreria esterna
-\paragraph{Classi}
-\hypertarget{SpeechSyntesis_label}{\subparagraph{SpeechSyntesis}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechSyntesis.png}
-	\caption{WebSpeechApi::SpeechSyntesis}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SpeechSyntesis};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ;
-	\item \textbf{Utilizzo}: ;
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{SpeechSynthesisVoice_label}{\subparagraph{SpeechSynthesisVoice}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechSynthesisVoice.png}
-	\caption{WebSpeechApi::SpeechSynthesisVoice}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SpeechSynthesisVoice};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ;
-	\item \textbf{Utilizzo}: ;
 \end{itemize}
 \FloatBarrier
