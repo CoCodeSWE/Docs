@@ -40,9 +40,10 @@ Package contenente tutte le componenti che costituiscono il back-end. Le compone
   "lang":"String",
   "originalRequest":{
     "source":"String",
-    "data":{
-        "token":"JWToken"
-     }
+    "data":
+    {
+      "token":"JWToken"
+    }
   }
   "result":"ProcessingResult",
   "sessionId":"String",
@@ -123,11 +124,12 @@ La risposta può essere una tra i seguenti tipi:
 Nel primo caso, la risposta fornita sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "contexts": [{
+  "contexts": 
+  [{
     "context\_name":"String",
     "name":"String
     "username":"String"
-    }]
+  }]
 }
 \end{lstlisting}
 Dove
@@ -139,12 +141,13 @@ Dove
 Nel secondo caso, la risposta sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "contexts": [{
-        "context\_name":"String",
-        "guest\_name":"String",
-        "company":"String",
-        "member\_name":"String"
-    }]
+  "contexts": 
+  [{
+    "context\_name":"String",
+    "guest\_name":"String",
+    "company":"String",
+    "member\_name":"String"
+  }]
 }
 \end{lstlisting}
 Dove
@@ -361,10 +364,10 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati relativi ad un messaggio ricevuto da API Gateway. Tali dati saranno nel seguent formato:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
- "app":"String",
- "audio": "Base64String",
- "data": "ObjectAssocArray",
- "session\_id":"String"
+  "app":"String",
+  "audio": "Base64String",
+  "data": "ObjectAssocArray",
+  "session\_id":"String"
 }
 \end{lstlisting}
 
@@ -373,14 +376,15 @@ Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare 
 			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-"action":"String",
-"res":{
- "contexts":"ObjectAssocArray",
- "data":"Object",
- "text\_request":"String",
- "text\_response":"String"
-},
-"session\_id":"String"
+  "action":"String",
+  "res":
+  {
+    "contexts":"ObjectAssocArray",
+    "data":"Object",
+    "text\_request":"String",
+    "text\_response":"String"
+  },
+  "session\_id":"String"
 }
 \end{lstlisting};
 		\end{itemize}
@@ -1563,8 +1567,8 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 Tali dati sono:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "msg":"NotificationMessage",
-    "send\_to":"String"
+  "msg":"NotificationMessage",
+  "send\_to":"String"
 }
 \end{lstlisting}
 Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
@@ -3252,12 +3256,12 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 Tali dati sono cosi organizzati:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "contextOut":"ContextArray",
-    "data":"Object",
-    "displayText":"String",
-    "followupEvent":"Object",
-    "source":"String",
-    "speech":"String"
+  "contextOut":"ContextArray",
+  "data":"Object",
+  "displayText":"String",
+  "followupEvent":"Object",
+  "source":"String",
+  "speech":"String"
 }
 \end{lstlisting}
 Dove:
@@ -3747,8 +3751,8 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-    "app":"nome\_applicazione",
-    "query": "VAQuery"
+  "app":"nome\_applicazione",
+  "query": "VAQuery"
 }
 \end{lstlisting}
 
@@ -3759,12 +3763,12 @@ con \file{app} stringa che corrisponde al nome dell'applicazione che manda la ri
 {
  "action":"String",
   "res":
-   {
+  {
     "contexts":"ObjectAssocArray",
-     "data":"Object",
-     "text\_request":"String",
-     "text\_response":"String"
-   },
+    "data":"Object",
+    "text\_request":"String",
+    "text\_response":"String"
+  },
   "session\_id":"String"
 }
 \end{lstlisting}
