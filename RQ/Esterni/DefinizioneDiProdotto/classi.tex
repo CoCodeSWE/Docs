@@ -1,8 +1,5 @@
 \section{Specifica delle Componenti}
-\subsubsection{api.ai}
-esterno
-\paragraph{Classi}
-\subsubsection{\label{Back-end}}
+\subsection{Back-end}\label{Back-end}
 Package contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
 \end{figure}
@@ -189,12 +186,12 @@ Dove
 \begin{itemize}
 	\item \textbf{Nome}: \file{SNSEvent};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta l'oggetto ricevuto da una lambda function in seguito alla pubblicazione di un messaggio su un topic di SNS a cui tale funzione è iscritta;
-	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una notifica mandata da SNS ad una lambda function iscritta ad un topic sul quale sia stato pubblicato un messaggio;
+	\item \textbf{Descrizione}: questa classe rappresenta l'oggetto ricevuto da una Lambda Function in seguito alla pubblicazione di un messaggio su un topic di SNS a cui tale funzione è iscritta;
+	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad una notifica mandata da SNS ad una Lambda Function iscritta ad un topic sul quale sia stato pubblicato un messaggio;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ Records: SNSRecordArray} \\
-		Array contenente i dati della notifica mandata da SNS alla lambda function. Contiene un unico oggetto di tipo Record;
+		Array contenente i dati della notifica mandata da SNS alla Lambda Function. Contiene un unico oggetto di tipo Record;
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -226,7 +223,7 @@ In questo package sono contenute le classi che realizzano:
 \begin{itemize}
 	\item \textbf{Nome}: \file{Enrollment};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al passaggio di un \file{Enrollment} alle lambda function;
+	\item \textbf{Descrizione}: questa classe fornisce gli attributi necessari al passaggio di un \file{Enrollment} alle Lambda Function;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ad un \file{Enrollment};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -252,7 +249,7 @@ In questo package sono contenute le classi che realizzano:
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
-	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la lambda function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
+	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- vocal: VocalLoginModule} \\
@@ -373,7 +370,7 @@ Ad ogni interazione viene inoltre pubblicato un messaggio su un topic di sns, ut
 
 Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare l'attributo \file{data.speech} e lo utilizzerà come stringa per interrogare l'assistente virtuale, senza passare per il microservizio di Speech To Text. Questo permette di fornire input testuale e non vocale all'assistente virtuale nei casi in cui sia necessario, ad esempio dopo un certo numero di tentativi di comunicare delle informazioni senza successo;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
 "action":"String",
@@ -452,7 +449,7 @@ In questo package sono contenute le classi che realizzano:
 	\item \textbf{Figlio}: \file{ConversationsDAODynamoDB};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ getConversationList(query: ConversationListQueryParameters): ConversationObservable}\\ \\		Metodo che permette di ottenere una conversazione a partire dall'identificativo di un \file{Guest}. L'\file{Observable} restituito manderà agli \file{Observer} le conversazioni ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, l'\file{Observer} iscritto verrà notificato tramite la chiamata del suo metodo \file{error} con i dati relativi all'errore verificatosi;\\
+		\item[] \file{+ getConversationList(query: ConversationListQueryParameters):\\ ConversationObservable}\\ \\		Metodo che permette di ottenere una conversazione a partire dall'identificativo di un \file{Guest}. L'\file{Observable} restituito manderà agli \file{Observer} le conversazioni ottenute, una alla volta, e poi chiama il loro metodo \file{complete}. Nel caso in cui si verifichi un errore, l'\file{Observer} iscritto verrà notificato tramite la chiamata del suo metodo \file{error} con i dati relativi all'errore verificatosi;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{query: ConversationListQueryParameters} \\
@@ -651,7 +648,7 @@ In questo package sono contenute le classi che realizzano:
 			\item \file{session\_id: String} \\
 			Parametro contenente l'id della sessione della conversazione da ricevere;
 		\end{itemize}
-		\item[] \file{+ getConversationList(query: ConversationListQueryParameters): ConversationObservable}\\ \\		Implementazione del metodo dell'interfaccia \file{ConversationsDAO}. Utilizza il metodo \file{scan} del \file{DocumentClient} per ottenere la lista delle conversazioni dal database;\\
+		\item[] \file{+ getConversationList(query: ConversationListQueryParameters): \\ ConversationObservable}\\ \\		Implementazione del metodo dell'interfaccia \file{ConversationsDAO}. Utilizza il metodo \file{scan} del \file{DocumentClient} per ottenere la lista delle conversazioni dal database;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{query: ConversationListQueryParameters} \\
@@ -693,7 +690,7 @@ In questo package sono contenute le classi che realizzano:
 In questo package sono contenute le classi che realizzano:
 \begin{itemize}
  \item la definizione dei messaggi che devono essere pubblicati sul topic SNS dal quale verranno generati degli eventi;
- \item la definizione dei dati che le lambda function, innescate da questi eventi, devono processare;
+ \item la definizione dei dati che le Lambda Function, innescate da questi eventi, devono processare;
  \item l'invio di una notifica alla persona desiderata e il salvataggio dell'interazione avvenuta con il sistema da parte dell'interlocutore.
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Events.png}
@@ -741,8 +738,8 @@ Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon
 \begin{itemize}
 	\item \textbf{Nome}: \file{SNSRecord};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta uno dei records mandati da SNS ad una lambda function;
-	\item \textbf{Utilizzo}: fornisce gli attributi di un record mandato da SNS ad una lambda function;
+	\item \textbf{Descrizione}: questa classe rappresenta uno dei records mandati da SNS ad una Lambda Function;
+	\item \textbf{Utilizzo}: fornisce gli attributi di un record mandato da SNS ad una Lambda Function;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ Sns: SNSMessage} \\
@@ -766,7 +763,7 @@ Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon
 	\item \textbf{Nome}: \file{VAMessageListener};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di registrare i dati relativi alle interazioni degli ospiti col nostro sistema;
-	\item \textbf{Utilizzo}: fornisce un meccanismo per registrare i dialoghi che gli ospiti hanno con il sistema. Fornisce una lambda function che quando viene generato un evento \file{SNSMessage}, in seguito all'arrivo di una risposta da parte dell'assistente virtuale, si occupa di registrare i dati della relativa interazione tramite \file{ConversationsDAO}, ed eventualmente di aggiornare i dati relativi all'ospite utilizzando \file{GuestsDAO}. Inoltre si occupa di notificare la persona interessata dell'arrivo di un ospite e delle richieste da lui fatte;
+	\item \textbf{Utilizzo}: fornisce un meccanismo per registrare i dialoghi che gli ospiti hanno con il sistema. Fornisce una Lambda Function che quando viene generato un evento \file{SNSMessage}, in seguito all'arrivo di una risposta da parte dell'assistente virtuale, si occupa di registrare i dati della relativa interazione tramite \file{ConversationsDAO}, ed eventualmente di aggiornare i dati relativi all'ospite utilizzando \file{GuestsDAO}. Inoltre si occupa di notificare la persona interessata dell'arrivo di un ospite e delle richieste da lui fatte;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- guests: GuestsDAO} \\
@@ -788,7 +785,7 @@ Per la relativa documentazione, consultare la pagina \url{http://docs.aws.amazon
 			\item \file{rp: RequestPromiseModule} \\
 			Parametro contenente il \file{RequestPromiseModule} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
-		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function\\(error: String, success: String): void): void} \\		Metodo che implementa la Lambda function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS. SNS chiama tale lambda function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
+		\item[] \file{+ onMessage(event: SNSEvent, context: LambdaContext, callback: function\\(error: String, success: String): void): void} \\		Metodo che implementa la Lambda Function che viene chiamata in seguito alla pubblicazione di un messaggio sul topic SNS. SNS chiama tale Lambda Function con un oggetto del tipo \file{SNSEvent}, il quale contiene al suo interno un array di \file{SNSRecord}. Questo array in realtà ha un unico oggetto, il quale al suo interno contiene l'\file{SNSMessage} inviato, in questo caso la rappresentazione in JSON di un oggetto di tipo \file{VAResponse}. \\
 Di seguito viene riportato un esempio dell'oggetto utilizzato.
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -834,7 +831,7 @@ Il metodo si occupa, nel caso in cui siano noti i dati necessari ad identificare
 			\item \file{event: SNSEvent} \\
 			Parametro contenente i date relativi al messaggio pubblicato sul topic di SNS;
 			\item \file{context: LambdaContext} \\
-			Parametro contenente il \file{LambdaContext} relativo alla chiamata ricevuta dalla lambda function. Non verrà utilizzato all'interno della funzione;
+			Parametro contenente il \file{LambdaContext} relativo alla chiamata ricevuta dalla Lambda Function. Non verrà utilizzato all'interno della funzione;
 			\item \file{callback: function(error: String, success: String): void} \\
 			Parametro contenente la funzione di callback da utilizzare per comunicare al chiamante l'esito dell'esecuzione. Viene chiamata alla fine dell'esecuzione per comunicare che la chiamata è andata a buon fine con \file{null} come primo parametro. Nel caso in cui si sia verificato un errore, viene chiamata con un unico parametro contenente un messaggio di errore;
 		\end{itemize}
@@ -1302,7 +1299,7 @@ In questo package sono contenute le classi che realizzano:
 			\item \file{query: MemberListQueryParameters} \\
 			Parametro che indica quali members devono essere inclusi nella lista restituita;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createMembersSlackDAO(client: Slack::WebClient): MembersSlackDAO}\\ \\		Costruttore che permette di effettuare la dependency injection di \file{Slack::WebClient};\\
+		\item[] \file{+ <<Create>> createMembersSlackDAO(client: Slack::WebClient): \\ MembersSlackDAO}\\ \\		Costruttore che permette di effettuare la dependency injection di \file{Slack::WebClient};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{client: Slack::WebClient} \\
@@ -1434,7 +1431,7 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un messaggio di conferma di Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare un messaggio di conferma di Slack.
 \\
-Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \\ \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1463,7 +1460,7 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 \begin{itemize}
 	\item \textbf{Nome}: \file{LambdaChannelListEvent};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta l'\file{event} della lambda function implementata da \file{NotificationsService.getChannelList};
+	\item \textbf{Descrizione}: questa classe rappresenta l'\file{event} della Lambda Function implementata da \file{NotificationsService.getChannelList};
 	\item \textbf{Utilizzo}: viene utilizzata dal metodo \file{getChannelList} di \file{NotificationsService}. Rappresenta la richiesta ricevuta dall'endpoint del microservizio Notifications;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -1542,7 +1539,7 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 	\item \textbf{Nome}: \file{NotificationService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Notifications};
-	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie per notificare la persona desiderata sul relativo canale Slack;
+	\item \textbf{Utilizzo}: fornisce i metodi che implementano le Lambda Function necessarie per notificare la persona desiderata sul relativo canale Slack;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- client: Slack::WebClient} \\
@@ -1550,15 +1547,15 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ getChannelList(event: LambdaChannelListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la lambda function che si occupa di restituire l'array dei canali Slack disponibili. Si occupa di chiamare i metodi \file{users.list}, \file{channels.list} e \file{groups.list} delle API di Slack, quindi combina i risultati ottenuti da queste chiamate in un array di \file{NotificationChannel}, eliminando i dati in più;\\
+		\item[] \file{+ getChannelList(event: LambdaChannelListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la Lambda Function che si occupa di restituire l'array dei canali Slack disponibili. Si occupa di chiamare i metodi \file{users.list}, \file{channels.list} e \file{groups.list} delle API di Slack, quindi combina i risultati ottenuti da queste chiamate in un array di \file{NotificationChannel}, eliminando i dati in più;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaChannelListEvent} \\
 			Parametro che rappresenta la richiesta ricevuta dal \file{VocalAPI}. Il campo \file{body} di questo attributo conterrà una stringa vuota;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un array di oggetti di tipo \file{NotificationChannel};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un array di oggetti di tipo \file{NotificationChannel};
 		\end{itemize}
-		\item[] \file{+ sendMsg(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la lambda function che si occupa di inviare il messaggio alla persona desiderata;\\
+		\item[] \file{+ sendMsg(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la Lambda Function che si occupa di inviare il messaggio alla persona desiderata;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -1572,7 +1569,7 @@ Tali dati sono:
 \end{lstlisting}
 Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{send\_to} è una stringa contenente il mittente del messaggio;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambdaResponse::statusCode};
 		\end{itemize}
 		\item[] \file{+ <<Create>> createNotificationService(client: Slack::WebClient):\\ NotificationService} \\		Costruttore, si occupa di gestire la dependency injection di \file{Slack::WebClient};\\
 		Parametri:
@@ -1746,10 +1743,6 @@ Sono contenute le classi che realizzano:
 		Attributo contenente il nome della \file{Rule};
 		\item[] \file{- id: int} \\
 		Attributo contenente l'id della \file{Rule};
-		\item[] \file{- ac\_mode: int} \\
-		Attributo contenente 0 per positivo, 1 per negativo;
-		\item[] \file{- ac\_list: StringArray} \\
-		Attributo contenente l'array di stringhe di id amministratori abilitati/disabilitati in base a valore di \file{ac\_mode};
 		\item[] \file{- enabled: boolean} \\
 		Attributo contenente un valore che dice se la \file{Rule} è abilitata o meno;
 		\item[] \file{- task: RuleTaskInstance} \\
@@ -1757,17 +1750,13 @@ Sono contenute le classi che realizzano:
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ <<Create>> Rule(targ: RuleTargetArray, name: String, ac\_mode: \\int, ac\_list: StringArray, en: boolean, task: String): Rule} \\		Metodo che permette di instanziare un oggetto \file{Rule} a partire da un nome, una lista dei targets un \file{ac\_mode}, un \file{ac\_list}, un compito da applicare e un valore booleano per abilitarla o meno;\\
+		\item[] \file{+ <<Create>> Rule(targ: RuleTargetArray, name: String, en: boolean, task: String): Rule} \\		Metodo che permette di instanziare un oggetto \file{Rule} a partire da un nome, una lista dei targets, un compito da applicare e un valore booleano per abilitarla o meno;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{targ: RuleTargetArray} \\
 			Parametro contenente l'array dei targets da assegnare alla \file{Rule};
 			\item \file{name: String} \\
 			Parametro contenente il nome da assegnare alla \file{Rule};
-			\item \file{ac\_mode: int} \\
-			Parametro contenente l'ac\_mode da assegnare alla \file{Rule};
-			\item \file{ac\_list: StringArray} \\
-			Parametro contenente l'array di id degli amministratori abilitati/disabilitati da assegnare alla \file{Rule};
 			\item \file{en: boolean} \\
 			Parametro contenente il valore booleano da assegnare alla \file{Rule} per abilitarla o meno;
 			\item \file{task: String} \\
@@ -1791,18 +1780,6 @@ Sono contenute le classi che realizzano:
 			\item \file{id: int} \\
 			Parametro contenente l'id da passare;
 		\end{itemize}
-		\item[] \file{+ setAcMode(acm: int): void} \\		Metodo che permette di passare l'\file{ac\_mode} per la \file{Rule};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{acm: int} \\
-			Parametro contenente l'ac\_mode da passare;
-		\end{itemize}
-		\item[] \file{+ setAcList(acl: StringArray): void} \\		Metodo che permette di passare gli id degli amministratori abilitati/disabilitati per la \file{Rule};\\
-		Parametri:
-		\begin{itemize}
-			\item \file{acl: StringArray} \\
-			Parametro contenente l'ac\_list da passare;
-		\end{itemize}
 		\item[] \file{+ setEnabled(en: boolean): void} \\		Metodo che permette di passare un valore da impostare ad \file{enabled} per la \file{Rule};\\
 		Parametri:
 		\begin{itemize}
@@ -1818,8 +1795,6 @@ Sono contenute le classi che realizzano:
 		\item[] \file{+ getName(): String} \\		Metodo che permette di ottenere il nome della \file{Rule};\\
 		\item[] \file{+ getTargets(): RuleTargetArray} \\		Metodo che permette di ottenere l'array contenente i targets della \file{Rule};\\
 		\item[] \file{+ getId(): int} \\		Metodo che permette di ottenere l'id della \file{Rule};\\
-		\item[] \file{+ getAcMode(): int} \\		Metodo che permette di ottenere l'\file{ac\_mode} della \file{Rule};\\
-		\item[] \file{+ getAcList(): StringArray} \\		Metodo che permette di ottenere la lista degli id degli amministratori abilitati/disabilitati della \file{Rule};\\
 		\item[] \file{+ isEnabled(): boolean} \\		Metodo che permette di capire se la \file{Rule} è abilitata o meno;\\
 		\item[] \file{+ getTask(): void} \\		Metodo che permette di ottenere il \file{Task} applicata dalla \file{Rule};\\
 	\end{itemize}
@@ -1930,7 +1905,7 @@ Sono contenute le classi che realizzano:
 			\item \file{id: String} \\
 			Parametro contenente l'id della \file{Rule} da recuperare;
 		\end{itemize}
-		\item[] \file{+ getRuleList(query: RuleListQueryParameters): RuleObservable} \\\\		Implementazione del metodo dell'interfaccia \file{RulesDAO}. Utilizza il metodo scan del \file{DocumentClient} per ottenere la lista delle Rule dal database;\\
+		\item[] \file{+ getRuleList(query: RuleListQueryParameters): RuleObservable} \\\\		Implementazione del metodo dell'interfaccia \file{RulesDAO}. Utilizza il metodo scan del \\ \file{DocumentClient} per ottenere la lista delle Rule dal database;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{query: RuleListQueryParameters} \\
@@ -1974,7 +1949,7 @@ Sono contenute le classi che realizzano:
 	\item \textbf{Nome}: \file{RulesService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Rules} e di interagire con il database delle direttive;
-	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie alla gestione delle \file{Rule} e relative \file{Task}. Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{TasksDAO} e \file{RulesDAO}, le quali nascondono i meccanismi di accesso e persistenza dei dati nel database;
+	\item \textbf{Utilizzo}: fornisce i metodi che implementano le Lambda Function necessarie alla gestione delle \file{Rule} e relative \file{Task}. Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{TasksDAO} e \file{RulesDAO}, le quali nascondono i meccanismi di accesso e persistenza dei dati nel database;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- rules: RulesDAO} \\
@@ -1984,53 +1959,53 @@ Sono contenute le classi che realizzano:
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ addRule(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la lambda function che si occupa di aggiungere una \file{Rule};\\
+		\item[] \file{+ addRule(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la Lambda Function che si occupa di aggiungere una \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo body sotto forma di stringa in formato JSON, un oggetto \file{Rule} contenente tutti i dati relativi ad una Rule da inserire;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo di \file{LambdaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo di \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ deleteRule(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di eliminare una \file{Rule};\\
+		\item[] \file{+ deleteRule(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di eliminare una \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente, all'interno del campo \file{pathParameters}, l'identificativo della \file{Rule} che si vuole eliminare;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambdaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ updateRule(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di aggiornare una \file{Rule};\\
+		\item[] \file{+ updateRule(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di aggiornare una \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente all'interno del campo \file{body}, sotto forma di stringa in formato JSON, un oggetto di tipo \file{Rule} contente i dati da aggiornare e, all'interno del campo \file{pathParameters}, l'identificativo della \file{Rule} da modificare;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ getRule(event: LambdaIdEvent, context: LambdaContext): void} \\\\		Metodo che implementa la lambda function che si occupa di ottenere una \file{Rule};\\
+		\item[] \file{+ getRule(event: LambdaIdEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che si occupa di ottenere una \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente, all'interno del campo pathParameters, l'identificativo della \file{Rule} della quale si vogliono ottenere i dati;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di stringa in formato JSON, un oggetto di tipo \file{Rule}, contenente i dati relativi alla \file{Rule} ritornata;
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di stringa in formato JSON, un oggetto di tipo \file{Rule}, contenente i dati relativi alla \file{Rule} ritornata;
 		\end{itemize}
-		\item[] \file{+ getRuleList(event: LambdaRuleListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la lambda function che si occupa di ottenere l'array delle \file{Rule};\\
+		\item[] \file{+ getRuleList(event: LambdaRuleListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la Lambda Function che si occupa di ottenere l'array delle \file{Rule};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaRuleListEvent} \\
 			Parametro contenente, all'interno del campo body, una stringa vuota;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON,  l'array delle \file{Rule} disponibili;
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON,  l'array delle \file{Rule} disponibili;
 		\end{itemize}
-		\item[] \file{+ getTaskList(event: LambdaTaskListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la lambda function che si occupa ottenere l'array delle \file{Task} disponibili;\\
+		\item[] \file{+ getTaskList(event: LambdaTaskListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la Lambda Function che si occupa ottenere l'array delle \file{Task} disponibili;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaTaskListEvent} \\
 			Parametro contenente, all'interno del campo body, una stringa vuota;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON,  un Array di oggetti di tipo \file{Function};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di una stringa in formato JSON,  un Array di oggetti di tipo \file{Function};
 		\end{itemize}
 		\item[] \file{+ <<Create>> createRulesService(task: TasksDAO, rules: RulesDAO):\\ RulesService} \\		Metodo che permette di creare un \file{RulesService}. Permette la dependency injection avente come oggetti un \file{RulesDAO} e \file{TasksDAO};\\
 		Parametri:
@@ -2040,14 +2015,14 @@ Sono contenute le classi che realizzano:
 			\item \file{rules: RulesDAO} \\
 			Attributo contenente il \file{RulesDAO};
 		\end{itemize}
-		\item[] \file{+ queryRule(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che implementa la lambda function che permette di interrogare il microservizio ed ottenere una lista di direttive che si applicano in un determinato caso.
+		\item[] \file{+ queryRule(event: LambdaEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che permette di interrogare il microservizio ed ottenere una lista di direttive che si applicano in un determinato caso.
 Tale metodo si occupa di interrogare il DAO ed individuare le direttive da applicare. Nel caso nessuna delle direttive ottenute dal DAO sia applicabile, verrà restituita una direttiva vuota;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body}, un oggetto di tipo \file{RuleTarget} che verrà utilizzato per individuare le direttive che si applicano;
 			\item \file{context: LambdaContext} \\
-			Oggetto che permette alla lambda function di restituire una risposta. il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un'array di oggetti di tipo \file{Rule} in formato JSON. Tali oggetti rappresenteranno le direttive da applicare;
+			Oggetto che permette alla Lambda Function di restituire una risposta. il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un'array di oggetti di tipo \file{Rule} in formato JSON. Tali oggetti rappresenteranno le direttive da applicare;
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
@@ -2510,7 +2485,7 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Use
 \begin{itemize}
 	\item \textbf{Nome}: \file{LambdaUserListEvent};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta l'\file{event} della lambda function implementata da \file{UsersService.getUserList};
+	\item \textbf{Descrizione}: questa classe rappresenta l'\file{event} della Lambda Function implementata da \file{UsersService.getUserList};
 	\item \textbf{Utilizzo}: viene utilizzata dal metodo \file{getUserList} di \file{UsersService}. Rappresenta la richiesta ricevuta dall'endpoint del microservizio Users;
 	\item \textbf{Padre}: \file{LambdaEvent};
 	\item \textbf{Attributi}:
@@ -2794,7 +2769,7 @@ Lo stato può essere uno tra i seguenti valori:
 	\item \textbf{Nome}: \file{UsersService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Users} e, tramite \file{UsersDAO}, di interagire con il database degli utenti registrati;
-	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie alla gestione degli utenti.
+	\item \textbf{Utilizzo}: fornisce i metodi che implementano le Lambda Function necessarie alla gestione degli utenti.
 Questa classe non interagisce direttamente con il database, ma fa utilizzo di \file{UsersDAO}, il quale nasconde i meccanismi di accesso e persistenza dei dati nel database;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2803,45 +2778,45 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ getUserList(event: LambdaUserListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la lambda function che si occupa di restituire l'array degli utenti registrati;\\
+		\item[] \file{+ getUserList(event: LambdaUserListEvent, context: LambdaContext)\\: void} \\		Metodo che implementa la Lambda Function che si occupa di restituire l'array degli utenti registrati;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaUserListEvent} \\
 			Parametro che rappresenta la richiesta ricevuta dal \file{VocalAPI}. Il campo \file{body} di questo attributo conterrà una stringa vuota;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà un Array di oggetti di tipo \file{User};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà un Array di oggetti di tipo \file{User};
 		\end{itemize}
-		\item[] \file{+ addUser(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la lambda function che si occupa di aggiungere un utente registrato;\\
+		\item[] \file{+ addUser(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che implementa la Lambda Function che si occupa di aggiungere un utente registrato;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto \file{User} contenente tutti i dati relativi ad un utente da inserire;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambdaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà una stringa vuota. Il risultato delle operazioni di questo metodo sarà deducibile tramite il valore dell'attributo \\ \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ deleteUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di rimuovere un utente registrato;\\
+		\item[] \file{+ deleteUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di rimuovere un utente registrato;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato che si vuole eliminare;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ updateUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di aggiornare i dati di un utente registrato;\\
+		\item[] \file{+ updateUser(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la Lambda Function che si occupa di aggiornare i dati di un utente registrato;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente all'interno del campo \file{body}, sotto forma di stringa in formato JSON, un oggetto di tipo \file{User} contente i dati da aggiornare e, all'interno del campo \file{pathParameters}, lo username dell'utente da modificare;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambaResponse::statusCode};
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà una stringa vuota e il risultato di questa operazione sarà deducibile dal valore dell'attributo \file{LambdaResponse::statusCode};
 		\end{itemize}
-		\item[] \file{+ getUser(event: LambdaIdEvent, context: LambdaContext): void} \\\\		Metodo che implementa la lambda function che si occupa di restituire i dati relativi ad un utente a partire dal suo \file{username};\\
+		\item[] \file{+ getUser(event: LambdaIdEvent, context: LambdaContext): void} \\\\		Metodo che implementa la Lambda Function che si occupa di restituire i dati relativi ad un utente a partire dal suo \file{username};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaIdEvent} \\
 			Parametro contenente, all'interno del campo \file{pathParameters}, lo username dell'utente registrato del quale si vogliono ottenere i dati;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, di tipo \file{User}, contenente i dati relativi all'utente ritornato;
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, di tipo \file{User}, contenente i dati relativi all'utente ritornato;
 		\end{itemize}
 		\item[] \file{+ <<create>> createUsersService(user: UserDAO): UsersService} \\		Metodo che permette di creare uno \file{UsersService}. Permette la dependency injection avente come oggetto uno \file{UsersDAO};\\
 		Parametri:
@@ -2951,7 +2926,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \begin{itemize}
 	\item \textbf{Nome}: \file{LambdaContext};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare un oggetto context passato alle lambda function;
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare un oggetto context passato alle Lambda Function;
 	\item \textbf{Utilizzo}: fornisce un metodo che permette di inviare una risposta all'API Gateway;
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -2986,7 +2961,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Nome}: \file{LambdaEvent};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta l'oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
-	\item \textbf{Utilizzo}: fornisce i parametri necessari alla lambda function per gestire le richieste che arrivano all'API Gateway;
+	\item \textbf{Utilizzo}: fornisce i parametri necessari alla Lambda Function per gestire le richieste che arrivano all'API Gateway;
 	\item \textbf{Figli}: \file{LambdaIdEvent}, \file{LambdaUserListEvent};
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -3017,7 +2992,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \begin{itemize}
 	\item \textbf{Nome}: \file{LambdaIdEvent};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che rappresenta un oggetto event che viene passato alle Lambda function dall'API Gateway con l'integrazione Lambda Proxy;
+	\item \textbf{Descrizione}: classe che rappresenta un oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
 	\item \textbf{Utilizzo}: eredita da LambdaEvent ed aggiunge l'attributo \file{pathParameters};
 	\item \textbf{Padre}: \file{LambdaEvent};
 	\item \textbf{Attributi}:
@@ -3043,8 +3018,8 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \begin{itemize}
 	\item \textbf{Nome}: \file{LambdaResponse};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare la risposta di una lambda function;
-	\item \textbf{Utilizzo}: fornisce alle lambda function gli attributi necessari per inviare una risposta ad API Gateway;
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare la risposta di una Lambda Function;
+	\item \textbf{Utilizzo}: fornisce alle Lambda Function gli attributi necessari per inviare una risposta ad API Gateway;
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ statusCode: int} \\
@@ -3266,14 +3241,14 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 	\item \textbf{Figli}: \file{ConversationWebhookService}, \file{AdministrationWebhookService};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ webhook(event: LambaEvent, context: LambdaContext): void} \\		Metodo che fornisce l'interfaccia di una lambda function compatibile con i requisiti per webhook di api.ai;\\
+		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\		Metodo che fornisce l'interfaccia di una Lambda Function compatibile con i requisiti per webhook di api.ai;\\
 		Parametri:
 		\begin{itemize}
-			\item \file{event: LambaEvent} \\
+			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati mandati da api.ai al \file{WebhookService}. Tali dati saranno organizzati secondo le esigenze della classe che implementa questa interfaccia.\\
 Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
+			Parametro utilizzato dalle Lambda Function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
 Tali dati sono cosi organizzati:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -3494,7 +3469,7 @@ Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule
 			\item \file{agent: Agent} \\
 			Paramentro contenente l'\file{Agent};
 			\item \file{rp: RequestPromiseModule} \\
-			Parametro che permette di effettuare la dependency injection di \file{RequestPromiseModule};
+			Parametro che permette di effettuare la dependency injection di \\ \file{RequestPromiseModule};
 		\end{itemize}
 		\item[] \file{+ query(str: VAQuery): VAResponsePromise} \\		Metodo che permette di interrogare l'\file{Agent} in api.ai;\\
 		Parametri:
@@ -3764,7 +3739,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 			\item \file{va: VAModule} \\
 			Parametro contenente il \file{VAModule};
 		\end{itemize}
-		\item[] \file{+ query(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo implementa la lambda function che si occupa dell'interrogazione dell'assistente virtuale. Per prima cosa utilizza \file{agents} per ottenere, a partire dal nome della applicazione contenuto nella richiesta, il token identificativo dell'Agent che si vuole interrogare. Una volta ottenuto questo token, esegue una chiamata all'endpoint /query di api.ai  utilizzando il testo presente nella richiesta ed infine, a partire dalla risposta ricevuta da tale servizio, invia la risposta utilizzando il \file{context};\\
+		\item[] \file{+ query(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo implementa la Lambda Function che si occupa dell'interrogazione dell'assistente virtuale. Per prima cosa utilizza \file{agents} per ottenere, a partire dal nome della applicazione contenuto nella richiesta, il token identificativo dell'Agent che si vuole interrogare. Una volta ottenuto questo token, esegue una chiamata all'endpoint /query di api.ai  utilizzando il testo presente nella richiesta ed infine, a partire dalla risposta ricevuta da tale servizio, invia la risposta utilizzando il \file{context};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -3779,7 +3754,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 
 con \file{app} stringa che corrisponde al nome dell'applicazione che manda la richiesta, e \file{query} oggetto del tipo \file{VAQuery} contenente i dati relativi alla query da mandare all'assistente virtuale;
 			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
+			Parametro utilizzato dalle Lambda Function per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse} parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON, organizzando i dati nel seguente modo:
  \begin{lstlisting}[language=json,firstnumber=1]
 {
  "action":"String",
@@ -3812,7 +3787,7 @@ Dove:
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{Client}
+\subsection{Client}
 Package che racchiude tutte le componenti del client. Il pattern utilizzato per organizzare le componenti è quello di un'architettura event-driven.
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Client.png}
 	\caption{Package Client}
@@ -3959,7 +3934,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di mantenere una lista degli \file{ApplicationPackage} disponibili;
 	\item \textbf{Utilizzo}: fornisce a \file{LocalApplicationRegistryClient} i metodi necessari per inserire, rimuovere ed ottenere degli \file{ApplicationPackage}.
-Essa è legata all'interfaccia \file{ApplicationRegistryClient} e alle classi \file{ApplicationRegistryLocalClient} e \file{Manager}. Insieme, queste classi, permettono il recupero di una applicazione dal registro. \\
+Essa è legata all'interfaccia \file{ApplicationRegistryClient} e alle classi \\ \file{ApplicationRegistryLocalClient} e \file{Manager}. Insieme, queste classi, permettono il recupero di una applicazione dal registro. \\
 La classe in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, è il registro che viene interrogato da \file{Manager} tramite l'interfaccia \file{ApplicationRegistryClient}.
 ;
 	\item \textbf{Attributi}:
@@ -4044,7 +4019,7 @@ La classe in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, è i
 		\item[] \file{+ name: String} \\
 		Attributo contenente il nome dell'applicazione recuperata;
 		\item[] \file{+ setup: String} \\
-		Attributo contenente il codice Javascript che deve essere eseguito nel costruttore dell'\file{Application}. Tale codice ha accesso al riferimento this dell'\file{Application}, e può utilizzarlo per definire i metodi e gli attributi dell'\file{Application} implementata;
+		Attributo contenente il codice Javascript che deve essere eseguito nel costruttore \\ dell'\file{Application}. Tale codice ha accesso al riferimento this dell'\file{Application}, e può utilizzarlo per definire i metodi e gli attributi dell'\file{Application} implementata;
 		\item[] \file{+ cmdHandler: String} \\
 		Attributo contenente il codice Javascript del metodo \file{runCmd} dell'\file{Application} implementata. Tale codice ha accesso al riferimento \file{this} dell'\file{Application};
 		\item[] \file{+ ui: String} \\
@@ -4096,7 +4071,7 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{R
 			\item \file{pkg: ApplicationPackage} \\
 			Parametro contenente l'\file{ApplicationPackage} relativo all'applicazione da registrare;
 		\end{itemize}
-		\item[] \file{+ <<Create>> createApplicationRegistryLocalClient(registry: ApplicationLocalRegistry)\\: ApplicationRegistryLocalClient} \\		Costruttore che permette di effettuare una dependency injection di \file{ApplicationLocalRegistry};\\
+		\item[] \file{+ <<Create>> createApplicationRegistryLocalClient(registry: \\ ApplicationLocalRegistry)\\: ApplicationRegistryLocalClient} \\		Costruttore che permette di effettuare una dependency injection di \\ \file{ApplicationLocalRegistry};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{registry: ApplicationLocalRegistry} \\
@@ -4120,7 +4095,7 @@ Questo metodo deve però impedire l'inserimento di package "Parziali" di \file{R
 	\item \textbf{Nome}: \file{Manager};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di gestire il cambio delle applicazioni nel client.\\
-Essa è legata all'interfaccia \file{ApplicationRegistryClient} e alle classi \file{ApplicationRegistryLocalClient} e \file{ApplicationLocalRegistry}. Insieme, queste classi, permettono il recupero di una applicazione dal registro. \\
+Essa è legata all'interfaccia \file{ApplicationRegistryClient} e alle classi \\ \file{ApplicationRegistryLocalClient} e \file{ApplicationLocalRegistry}. Insieme, queste classi, permettono il recupero di una applicazione dal registro. \\
 La classe in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, sfrutta l'interfaccia sul registro per interagire con quest'ultimo.
 
  \begin{figure}[h]
@@ -4278,7 +4253,7 @@ Le classi contenute in questo package permettono di:
 	\item \textbf{Figlio}: \file{ConversationActionSubject};
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ <<Create>> ConversationActionObservable(onSubscription: function\\(observer: ConversationActionObsever) : void): ConversationActionObservable} \\		Constructor di \file{ConversationActionObservable};\\
+		\item[] \file{+ <<Create>> ConversationActionObservable(onSubscription: function\\(observer: ConversationActionObsever) : void): \\ ConversationActionObservable} \\		Constructor di \file{ConversationActionObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{onSubscription: function(observer: ConversationActionObsever) : void} \\
@@ -5309,91 +5284,8 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 \end{itemize}
 \FloatBarrier
 
-\subsubsection{IBMWatson}
-	SDK node.js per l'accesso ai servizi cloud IBM Watson.
-\paragraph{Classi}
-\hypertarget{SpeechToTextV1_label}{\subparagraph{SpeechToTextV1}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechToTextV1.png}
-	\caption{IBMWatson::SpeechToTextV1}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SpeechToTextV1};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che rappresenta il modulo node.js che permette l'utilizzo del servizio di STT di IBM;
-	\item \textbf{Utilizzo}: viene utlizzata per accedere al servizio STT fornito da IBM. Permette di interrogare tale servizio utilizzando dei callback oppure utilizzando gli streams di node.js. Per ulteriori informazioni, consultare la seguente pagina: \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text} (visitato in data 2017-03-21);
-\end{itemize}
-\FloatBarrier
 
-\hypertarget{STTParams_label}{\subparagraph{STTParams}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSTTParams.png}
-	\caption{IBMWatson::STTParams}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{STTParams};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri necessari a richiamare le API Watson Speech to Text;
-	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare un audio, nel formato richiesto dall'API Watson Speech to Text, che verrà poi convertito in testo.
-Per la relativa documentazione, consultare la pagina \url{https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/#recognize_audio_websockets}  (visitato in data 2017-03-21);
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ audio: ReadStream} \\
-		Attributo contenente lo stream per la lettura del file audio;
-		\item[] \file{+ content\_type: String} \\
-		Attributo contenente il formato dell'audio;
-		\item[] \file{+ max\_alternatives: Integer[0..1]} \\
-		Attributo contenente il numero massimo di alternative testuali che devono essere fornite per il relativo audio. Il valore di default di questo attributo è uguale a 1;
-		\item[] \file{+ timestamps: Boolean[0..1]} \\
-		Attributo contenente un valore booleano che indica se ottenere un timestamp per ogni parola. Il valore di default per questo attributo è false;
-		\item[] \file{+ word\_confidence: Boolean[0..1]} \\
-		Attributo contenente un valore booleano che indica se ottenere il grado di confidenza, contenuto nell'intervallo [0,1], per ogni parola. Il valore di default per questo attributo è false;
-		\item[] \file{+ inactivity\_timeout: Integer[0..1]} \\
-		Attributo contenente il tempo in secondi dopo il quale, se nell'audio viene rilevato solo del silenzio, la connessione deve essere chiusa. Il valore di default di questo attributo è 30 secondi. \\
-Per non chiudere mai la connessione, si può impostare questo attributo a -1;
-		\item[] \file{+ model: String[0..1]} \\
-		Attributo contenente il nome del model relativo all'audio da trascrivere.\\
-Un model è un parametro che indica la lingua e il tipo di sampling rates usato per essa.
-Il tipo del sampling rates supportato può assumere uno tra i seguenti valori:
-\begin{itemize}
-\item broadband;
-\item narrowband.
-\end{itemize}
-Si rimanda alla relativa documentazione (\url{https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/?curl#get_models}  (visitato in data 2017-03-21)) per ulteriori chiarimenti;
-		\item[] \file{+ interim\_results: Boolean[0..1]} \\
-		Attributo contenente un valore booleano che indica se posso essere ritornati risultati parziali o meno. Se impostato a true, i risultati parziali sono ritornati come uno stream di oggetti JSON ed ognuno di essi rappresenta un singolo SpeechRecognitionEvent. Se impostato a false, verrà ritornato un unico SpeechRecognitionEvent contenente il risultato finale. \\
-Questro attributo ha valore di default uguale a false;
-		\item[] \file{+ keywords: StringArray[0..1]} \\
-		Attributo contenente l'array delle parole da ricercare nell'audio. Ogni cella di questo array può contenere una o più parole da cercare.
-;
-		\item[] \file{+ keywords\_threshold: Real[0..1]} \\
-		Attributo contenente un valore di confidenza, contenuto nell'intervallo [0,1], che è il limite inferiore per una keyword trovata. Una parola fa match in una keyword se la sua confidenza è maggiore o uguale al valore di questo attributo. \\
-Se questo parametro è omesso, nessuna keyword sarà trovata, altrimenti deve essere fornita almeno una keyword;
-		\item[] \file{+ word\_alternatives\_threshold: Real[0..1]} \\
-		Attributo contenente un valore di confindenza, contenuto nell'intervallo [0,1], che è il limite inferiore per identificare un'ipotetica parola come possibile alternativa. \\
-Una parola alternativa è considerata tale se la sua confidenza è maggiore o uguale al valore di questo attributo. Se questo parametro è omesso, nessuna parola alternativa verrà fornita;
-		\item[] \file{+ profanity\_filter: Boolean[0..1]} \\
-		Attributo contenente un valore booleano che indica se il profanity filter verrà applicato al testo trascritto. \\
-Il profanity filter è un meccanismo che sostituisce parole inappropriate con degli asterischi. Questo filtro può essere applicato solo a trascrizioni in lingua US English. \\
-Il valore di default per questo attributo è uguale a true;
-		\item[] \file{+ smart\_formatting: Boolean[0..1]} \\
-		Attributo contenente un valore booleano che indica se date, orari, serie di numeri e cifre, numeri di telefono, valori monetari e indirizzi Internet devono essere convertiti, nella trascrizione finale, in un formato più leggibile. Questo meccanismo può essere applicato solo a trascrizioni in lingua US English. \\
-Il valore di default per questo attributo è uguale a false;
-		\item[] \file{+ customization\_id: String[0..1]} \\
-		Attributo contenente il GUID relativo al model personalizzato utilizzato. Per default, nessun modello personalizzato è utilizzato;
-		\item[] \file{+ speaker\_labels: Boolean[0..1]} \\
-		Indicates whether labels that identify which words were spoken by which participants in a multi-person exchange are to be included in the response. If true, speaker labels are returned; if false (the default), they are not. Speaker labels can be returned only for the following language models:
-en-US\_NarrowbandModel
-es-ES\_NarrowbandModel
-ja-JP\_NarrowbandModel
-Setting speaker\_labels to true forces the continuous and timestamps parameters to be true, as well, regardless of whether the user specifies false for the parameters. For more information, see Speaker labels;
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{Libs}
+\subsection{\textbf{Libs}}
 Package contenente classi e interfacce, dallo scopo generico, utili ad altri package sia del \file{Client} che del \file{Back-end}.
 \paragraph{Classi}
 \hypertarget{ErrorObservable_label}{\subparagraph{ErrorObservable}}
@@ -5684,121 +5576,5 @@ Ad esempio, \file{conversation.displayMsgs} comunica al client di far eseguire i
 	\begin{itemize}
 		\item OUT \hyperlink{ResponseBody_label}{\file{ResponseBody}}
 	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{MicrosoftSpeakerRecognition}
-Pkgs lib esterna
-\paragraph{Classi}
-\subsubsection{React}
-Package per react
-\paragraph{Classi}
-\hypertarget{Component {abstract}_label}{\subparagraph{Component {abstract}}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassComponent {abstract}.png}
-	\caption{React::Component {abstract}}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Component {abstract}};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe astratta;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figlio}: \file{ConversationView};
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{RxJS 5}
-Libreria esterna
-\paragraph{Classi}
-\hypertarget{Observable_label}{\subparagraph{Observable}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObservable.png}
-	\caption{RxJS 5::Observable}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Observable};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: observable di RxJs;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figli}: \file{UserObservable}, \file{ConversationObservable}, \file{GuestObservable}, \file{TaskObservable}, \file{RuleObservable}, \file{AgentObservable}, \file{ErrorObservable}, \file{MemberObservable};
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{Observer_label}{\subparagraph{Observer}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassObserver.png}
-	\caption{RxJS 5::Observer}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Observer};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: observer di RxJS;
-	\item \textbf{Utilizzo}: ;
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{Subject_label}{\subparagraph{Subject}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSubject.png}
-	\caption{RxJS 5::Subject}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{Subject};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: rxJS5;
-	\item \textbf{Utilizzo}: ;
-	\item \textbf{Figli}: \file{SpeechEndSubject}, \file{DataArrivedSubject};
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{Slack}
-Package contenente tutte le classi che fanno parte dell'SDK per Node.js di Slack.
-\paragraph{Classi}
-\hypertarget{WebClient_label}{\subparagraph{WebClient}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassWebClient.png}
-	\caption{Slack::WebClient}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{WebClient};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta il modulo node.js che si occupa di comunicare con le API Web di Slack;
-	\item \textbf{Utilizzo}: fornisce i metodi necessari ad usufruire delle funzionalità offerte dalle API Web di slack. Per ulterioir informazioni, fare riferimento alla documentazione dei slack (\url{https://api.slack.com/}  (visitato in data 2017-03-21));
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{WebSpeechApi}
-Libreria esterna
-\paragraph{Classi}
-\hypertarget{SpeechSyntesis_label}{\subparagraph{SpeechSyntesis}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechSyntesis.png}
-	\caption{WebSpeechApi::SpeechSyntesis}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SpeechSyntesis};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ;
-	\item \textbf{Utilizzo}: ;
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{SpeechSynthesisVoice_label}{\subparagraph{SpeechSynthesisVoice}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassSpeechSynthesisVoice.png}
-	\caption{WebSpeechApi::SpeechSynthesisVoice}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{SpeechSynthesisVoice};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: ;
-	\item \textbf{Utilizzo}: ;
 \end{itemize}
 \FloatBarrier
