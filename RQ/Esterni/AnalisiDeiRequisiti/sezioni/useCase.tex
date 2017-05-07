@@ -33,7 +33,7 @@
 \textbf{Precondizione} & L'utente utilizza direttamente l'assistente virtuale per la sua autenticazione.\\[7pt]
 \textbf{Postcondizione} & Il sistema ha riconosciuto l'utente come ospite o amministratore.\\[7pt]
 \textbf{Scenario principale} &L'utente viene autenticato tramite l'interazione con l'assistente virtuale.\\[7pt]
-\textbf{Scenari alternativi} & Nel caso in cui nome e cognome dell'utente coincidano con quelli di un amministratore di sistema, l'assistente virtuale 
+\textbf{Scenari alternativi} & Nel caso in cui nome e cognome dell'utente coincidano con quelli di un amministratore di sistema, l'assistente virtuale
 richiederà all'utente l'accesso all'area di amministrazione tramite riconoscimento vocale.\\[7pt]\hline
 \end{longtable}
 
@@ -72,11 +72,11 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \label{UC8}
 \begin{longtable}{l|p{10cm}}
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
-\rowcolor[gray]{0.8} \multicolumn{2}{c}{\textbf{UC8 - Autenticazione tramite Slack}} \\
+\rowcolor[gray]{0.8} \multicolumn{2}{c}{\textbf{UC8 - Autenticazione tramite \gl{Slack}}} \\
 \rowcolor[gray]{0.8} \multicolumn{2}{c}{} \\
 \hline
 &\\
-\textbf{Attori} & \gl{Slack}, Utente.\\[7pt]
+\textbf{Attori} & Slack, Utente.\\[7pt]
 \textbf{Descrizione} & Il sistema può permettere all'utente di identificarsi come amministratore tramite Slack.\\[7pt]
 \textbf{Precondizione} & L'utente vuole autenticarsi come amministratore attraverso Slack.\\[7pt]
 \textbf{Postcondizione} & Il sistema identifica l'utente come amministratore del sistema.\\[7pt]
@@ -210,7 +210,7 @@ richiederà all'utente l'accesso all'area di amministrazione tramite riconoscime
 \item  L'amministratore può inserire il nome della direttiva;
 \item  L'amministratore può inserire il target della direttiva;
 \item  L'amministratore può inserire la funzione della direttiva;
-\item  L'amministratore può confermare la creazione della direttiva. 
+\item  L'amministratore può confermare la creazione della direttiva.
 \end{enumerate}
 \\[7pt]\hline
 \end{longtable}
@@ -812,7 +812,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Postcondizione} & Il sistema ha ricevuto le informazioni relative alle necessità dell'ospite e le ha comunicate alla persona desiderata tramite Slack.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
 \item  Il sistema può chiedere all'ospite se desidera un caffè;
-\item  Il sistema può chiedere all'ospite se desidera informazioni relative alla locazione di una determinata stanza; 
+\item  Il sistema può chiedere all'ospite se desidera informazioni relative alla locazione di una determinata stanza;
 \item  Il sistema può chiedere all'ospite se desidera del materiale particolare per l'incontro;
 \item  Il sistema può chiedere all'ospite se desidera qualche altra necessità.
 \end{enumerate}
@@ -1274,7 +1274,7 @@ I dati non validi sono: username già esistente o la vecchia password non coinci
 \textbf{Precondizione} & Il super amministratore si trova nella sezione adibita alla gestione.\\[7pt]
 \textbf{Postcondizione} & Il super amministratore ha usufruito delle funzionalità di gestione.\\[7pt]
 \textbf{Scenario principale} &\begin{enumerate}
-\item  Il super amministratore può gestire gli amministratori del sistema; 
+\item  Il super amministratore può gestire gli amministratori del sistema;
 \item  Il super amministratore può accedere ai file log.
 \end{enumerate}
 \\[7pt]\hline
@@ -1552,4 +1552,3 @@ I dati non validi sono: username amministratore inesistente.\\[7pt]
 \textbf{Scenario principale} &L'utente visualizza un messaggio opportuno. \\[7pt]
 \textbf{Scenari alternativi} & Nel caso in cui l'utente non confermi la sua presenza il sistema si disattiva.\\[7pt]\hline
 \end{longtable}
-
