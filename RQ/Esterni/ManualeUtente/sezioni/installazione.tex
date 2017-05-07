@@ -1,14 +1,14 @@
 \section{Installazione}
-Il deploy e la configurazione dell'intero sistema consistono di un numero considerevole di procedure non banali da applicare.\\
+Il deploy e la configurazione dell'intero sistema consistono di un numero considerevole di procedure da applicare.\\
 In accordo con il proponente \PROPONENTE, il quale è anche l'utilizzatore del prodotto, verranno fornite da quest'ultimo le credenziali di accesso ai servizi esterni e piattaforme elencate in \ref{configurazione}, in maniera tale che le attività di deploy e configurazione siano realizzate dal team \GRUPPO.\\
 Tuttavia, viene di seguito esposto come fare il deploy e la configurazione del sistema.\\
 I servizi esterni, per essere utilizzati, necessitano di alcune chiavi, le quali dovranno essere impostate nel sistema. Per fare ciò, si farà utilizzo del framework Serverless, tramite il quale verranno impostate le chiavi come variabili d'ambiente in AWS.\\
 Il procedimento dettagliato verrà esposto in versioni successive di questo documento.
 \subsection{Download}\label{download}
-Per scaricare l'applicativo è sufficiente clonare o scaricare il repository disponibile al link \url{https://github.com/CoCodeSWE/AtAVi} (2017-05-02).
+Per scaricare l'applicativo è sufficiente clonare o scaricare il repository disponibile al link \url{https://github.com/CoCodeSWE/AtAVi} (ultima visita 2017-05-07).
 
 \subsection{Configurazione}\label{configurazione}
-Per il deploy dei servizi del prodotto, è necessario prima di tutto creare e configurare alcuni account per il corretto funzionamento del prodotto.
+Per il deploy dei servizi, è necessario prima di tutto creare e configurare alcuni account per il corretto funzionamento del prodotto.
 
 \subsubsection{Amazon Web Services}
 \paragraph{Creazione}
@@ -31,7 +31,7 @@ Durante la registrazione, verrà chiesto di associare una carta di credito all'a
 \paragraph{Creazione}
 Serverless è un framework per alcuni servizi di cloud computing, tra i quali quelli di Amazon Web Services. È un progetto molto giovane, ma che gode già di un ottimo supporto.\\
 Esso permette la realizzazione e il deploy dei servizi in maniera molto più facile e veloce, infatti l'effettivo deploy del sistema è semplificato, velocizzato e automatizzato grazie ad esso. \\
-È necessario installare il framework lanciando il comando \file{npm install serverless -g} nel terminale.
+È necessario installare il framework lanciando il comando \file{npm install serverless -g} dal terminale.
 \paragraph{Configurazione}
 Una volta installato, è necessario applicare la seguente procedura:
 \begin{itemize}
@@ -43,7 +43,10 @@ Una volta installato, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità che richiedono il riconoscimento vocale, quali la costruzione dell'impronta vocale (\gl{enrollment}) di un nuovo amministratore e l'accesso al sistema.\\
 È necessario creare un account al link \url{https://www.microsoft.com/cognitive-services} (visitato in data 2017-05-02) cliccando sul pulsante "Get started for free" (figura \ref{fig:microsoft}). Il trial gratuito ha durata di 90 giorni.
-
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
+	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
+\end{figure}
 \paragraph{Configurazione}
 Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \begin{itemize}
@@ -51,10 +54,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\item scorrere la lista e selezionare "Speaker Recognition - Preview" e "I agree to the Microsoft Cognitive Service Terms" come in figura \ref{fig:speakerRec};
 	\item tornare nella pagina principale per visualizzare le credenziali per utilizzare il nuovo servizio (figura \ref{fig:credMicrosoft});
 \end{itemize}
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
-	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
-\end{figure}
+
 \begin{figure}[h]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft1.png}}
 	\caption{Aggiungere un servizio Microsoft}\label{fig:addMicrosoft}
@@ -72,7 +72,10 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità di Speech to Text, ovvero l'estrazione del testo pronunciato in un file audio.\\
 È necessario creare un account su IBM Bluemix (figura \ref{fig:bluemix}) al seguente link \url{https://console.ng.bluemix.net/registration/?target=/catalog/\%3fcategory=watson} (visitato in data 2017-05-02). Vengono concessi 30 giorni di utilizzo gratuito, oltre i quali è necessario associare una carta di credito all'account.
-
+\begin{figure}[h]
+	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/bluemix.png}}
+	\caption{Registrazione bluemix}\label{fig:bluemix}
+\end{figure}
 \paragraph{Configurazione}
 Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \begin{itemize}
@@ -80,10 +83,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\item attivare il servizio cliccando su "Create" (figura \ref{fig:serviceWatson});
 	\item Selezionare "Services" e poi "Dashboard" dal menù a sinistra, in maniera tale da ottenere la lista dei servizi attivati. Cliccare sul servizio di Speech to Text per visualizare le credenziali di utilizzo (username e password, figura \ref{fig:credentialsWatson}).
 \end{itemize}
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/bluemix.png}}
-	\caption{Registrazione bluemix}\label{fig:bluemix}
-\end{figure}
+
 \begin{figure}[h]
 	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson.PNG}}
 	\caption{Catalogo dei servizi IBM Watson}\label{fig:consoleWatson}
@@ -105,6 +105,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/apiai.png}}
 	\caption{Registrazione api.ai}
 \end{figure}
+\newpage
 \paragraph{Configurazione}
 Dopo aver effettuato l'accesso, selezionare il menù degli \gl{agent} a sinistra (figura \ref{fig:menuapi}) e scorrerlo fino in fondo, selezionando "Create new agent" (figura \ref{fig:newAgent}). \\
 
@@ -115,7 +116,7 @@ Inserire nell'apposita schermata (figura \ref{fig:saveAgent}) i seguenti dati:
 	\item \textbf{Language}: English;
 	\item \textbf{Default time zone}: (GMT+1:00) Europe/Rome.
 \end{itemize}
-Cliccare poi "SAVE".\\
+Cliccare poi "SAVE".
 Successivamente, è necessario importare il primo agent applicando la seguente procedura:
 \begin{itemize}
 	\item selezionare l'agent appena creato nel menù a sinistra (figura \ref{fig:menuapi});
@@ -141,4 +142,6 @@ Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{
 	\centering{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/importagent.png}}
 	\caption{import agent api.ai}\label{fig:importAgent}
 \end{figure}
-\input{sezioni/deploy.tex}
+
+
+
