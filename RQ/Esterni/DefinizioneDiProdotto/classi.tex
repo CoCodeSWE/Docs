@@ -51,7 +51,7 @@
   "timestamp":"String"
  }
 \end{lstlisting}
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-04-22);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
 La risposta può essere organizzata in due modi diversi a seconda se il JWT è valido o meno.\\
@@ -113,7 +113,7 @@ Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sa
   "timestamp":"String"
  }
 \end{lstlisting}
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-04-22);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dal webhook per inviare la risposta. La risposta, contenuta nel \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, possiede un attributo \file{body}, il quale conterrà il corpo di essa sotto forma di una stringa in formato JSON. \\
 La risposta può essere una tra i seguenti tipi:
@@ -124,7 +124,7 @@ La risposta può essere una tra i seguenti tipi:
 Nel primo caso, la risposta fornita sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts": 
+  "contexts":
   [{
     "context\_name":"String",
     "name":"String
@@ -141,7 +141,7 @@ Dove
 Nel secondo caso, la risposta sarà così organizzata:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "contexts": 
+  "contexts":
   [{
     "context\_name":"String",
     "guest\_name":"String",
@@ -1343,7 +1343,7 @@ Sono contenute le classi che realizzano:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad una \file{Action} come descritto nelle API di Slack. Rappresenta un button in un messaggio Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi di una \file{Action}. La classe \file{Attachment} ne contiene un array.
-Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -1351,9 +1351,9 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 		\item[] \file{+ text: String} \\
 		Attributo contenente il testo del bottone dell'azione;
 		\item[] \file{+ style: String[0..1]} \\
-		Attributo che definisce lo stile del bottone. Per una lista degli stili disponibili e una loro descrizione fare riferimento alla documentazione di Slack (\url{https://api.slack.com/docs/message-buttons#action_fields} (visitato in data 2017-03-21));
+		Attributo che definisce lo stile del bottone. Per una lista degli stili disponibili e una loro descrizione fare riferimento alla documentazione di Slack (\url{https://api.slack.com/docs/message-buttons#action_fields} (visitato in data 2017-04-22));
 		\item[] \file{+ type: String} \\
-		Attributo contenente il tipo dell'azione. Al momento l'unico valore accettato è "button". Fare riferimento alle API di   Slack per informazioni aggiornate (\url{https://api.slack.com/docs/message-buttons#action_fields} (visitato in data 2017-03-21));
+		Attributo contenente il tipo dell'azione. Al momento l'unico valore accettato è "button". Fare riferimento alle API di   Slack per informazioni aggiornate (\url{https://api.slack.com/docs/message-buttons#action_fields} (visitato in data 2017-04-22));
 		\item[] \file{+ value: String[0..1]} \\
 		Attributo contenente il valore dell'azione. Se sono presenti diverse azioni con lo stesso nome, può essere utilizzato per distinguere diversi intenti;
 		\item[] \file{+ confirm: ConfirmationFields[0..1]} \\
@@ -1380,7 +1380,7 @@ Per la relativa documentazione, consultare la pagina \url{https://api.slack.com/
 ;
 	\item \textbf{Utilizzo}: fornisce gli attributi degli \file{Attachment} che dovranno essere aggiunti ad un \\ \file{NotificationMessage}.
 Un \file{Attachment}, contenuto in un \file{NotificationsMessage}, permette di aggiungere del significato ad un \file{NotificationMessage} ed arricchirlo tramite immagini, colori ed altro.
-Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1435,7 +1435,7 @@ Per la relativa documentazione, consultare questa pagina \url{https://api.slack.
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un messaggio di conferma di Slack;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare un messaggio di conferma di Slack.
 \\
-Per la relativa documentazione, consultare la pagina \\ \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \\ \url{https://api.slack.com/docs/message-buttons}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ title: String[0..1]} \\
@@ -1485,7 +1485,7 @@ Per la relativa documentazione, consultare la pagina \\ \url{https://api.slack.c
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i parametri relativi al canale Slack nel quale spedire il \file{NotificationMessage};
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{NotificationChannel}. \\
-Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-03-21);
+Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/types/channel} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
@@ -1517,7 +1517,7 @@ Per consultare la relativa documentazione, consultare questa pagina \url{https:/
 	\item \textbf{Nome}: \file{NotificationMessage};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i parametri relativi al messaggio da spedire nel \file{NotificationChannel};
-	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{NotificationChannel}. \\ Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-formatting} (visitato in data 2017-03-21);
+	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{NotificationChannel}. \\ Per consultare la relativa documentazione, consultare questa pagina \url{https://api.slack.com/docs/message-formatting} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text: String} \\
@@ -2301,8 +2301,8 @@ Facendo da Adapter tra le API del servizio di Speech to Text di IBM (adaptee) e 
 	\item \textbf{Utilizzo}: fornisce a \file{STTModule} un meccanismo che permette di interrogare le API del servizio Watson Speech to Text di IBM, in modo da consentire a \file{APIGateway::VocalAPI} l'utilizzo di quest'ultime utilizzando un'interfaccia distinta e più consona alle proprie esigenze.
 Per ulteriori informazioni, consultare le documentazioni presenti alle seguenti pagine:
 \begin{itemize}
-    \item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-03-21);
-    \item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-03-21).
+    \item \url{https://www.ibm.com/watson/developercloud/doc/speech-to-text/}  (visitato in data 2017-04-22);
+    \item \url{https://github.com/watson-developer-cloud/node-sdk#speech-to-text}  (visitato in data 2017-04-22).
 \end{itemize};
 	\item \textbf{Padre}: \file{<<interface>> STTModule};
 	\item \textbf{Attributi}:
@@ -2511,7 +2511,7 @@ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Use
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare ed organizzare i parametri dell'autenticazione tramite Speaker Recognition (SR);
 	\item \textbf{Utilizzo}: fornisce l'insieme dei parametri necessari ad identificare, tramite SR, un utente sottoposto alla procedura di Enrollment del servizio di Speaker Recognition.
-Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-03-21).
+Per la relativa documentazione consultare la pagina \url{https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation}  (visitato in data 2017-04-22).
 ;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -2871,7 +2871,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 			\item \file{rp: RequestPromiseModule} \\
 			Parametro attraverso il quale viene effettuata la dependency injection di \\  \file{RequestPromiseModule};
 		\end{itemize}
-		\item[] \file{+ addEnrollment(id: String, audio: Blob): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Create Enrollment} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549c} (visitato in data 2017-03-21);\\
+		\item[] \file{+ addEnrollment(id: String, audio: Blob): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Create Enrollment} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549c} (visitato in data 2017-04-22);\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
@@ -2879,7 +2879,7 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 			\item \file{audio: Blob} \\
 			Blob contenente il file audio dell'enrollment;
 		\end{itemize}
-		\item[] \file{+ doLogin(id: String, audio: Blob): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che chiama il metodo \file{Speaker Recognition - Verification} delle API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549d}  (visitato in data 2017-03-21);\\
+		\item[] \file{+ doLogin(id: String, audio: Blob): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che chiama il metodo \file{Speaker Recognition - Verification} delle API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549d}  (visitato in data 2017-04-22);\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
@@ -2887,21 +2887,21 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 			\item \file{audio: Blob} \\
 			Parametro contenente l'audio relativo alla frase di riconoscimento pronunciata;
 		\end{itemize}
-		\item[] \file{+ deleteUser(id: String): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Delete Profile} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9655}  (visitato in data 2017-03-21);\\
+		\item[] \file{+ deleteUser(id: String): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Delete Profile} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9655}  (visitato in data 2017-04-22);\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
 			Parametro contenente l'identificativo dell'utente che si vuole eliminare;
 		\end{itemize}
-		\item[] \file{+ createUser(): StringObservable} \\		Implementazione del metodo dell'interfaccia, che chiama il metodo \file{Verification Profile - Create Profile} delle API di Speaker Recognition di Microsoft. Per informazioni su tale metodo, fare riferimento alla pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652}  (visitato in data 2017-03-21);\\
-		\item[] \file{+ getList(): SRUserObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Get All Profiles} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9653}  (visitato in data 2017-03-21);\\
-		\item[] \file{+ getUser(id: String): SRUserObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Get Profile} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56409ee2778daf19706420de}  (visitato in data 2017-03-21);\\
+		\item[] \file{+ createUser(): StringObservable} \\		Implementazione del metodo dell'interfaccia, che chiama il metodo \file{Verification Profile - Create Profile} delle API di Speaker Recognition di Microsoft. Per informazioni su tale metodo, fare riferimento alla pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652}  (visitato in data 2017-04-22);\\
+		\item[] \file{+ getList(): SRUserObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Get All Profiles} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9653}  (visitato in data 2017-04-22);\\
+		\item[] \file{+ getUser(id: String): SRUserObservable} \\		Implementazione del metodo dell'interfaccia, che utilizza il metodo \file{Verification Profile - Get Profile} dell'API di Speaker Recognition di Microsoft. Per ulteriori informazioni, consultare la pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56409ee2778daf19706420de}  (visitato in data 2017-04-22);\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
 			Stringa contenente l'identificativo dell'utente di cui si vogliono ottenere le informazioni;
 		\end{itemize}
-		\item[] \file{+ resetEnrollments(id: String): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, il quale utilizza il metodo \file{Verification Profile - Reset Enrollments} delle API di Speaker Recognition di Microsoft. Per ulteriori informazioni fare riferimento alla seguente pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549b}  (visitato in data 2017-03-21);\\
+		\item[] \file{+ resetEnrollments(id: String): ErrorObservable} \\		Implementazione del metodo dell'interfaccia, il quale utilizza il metodo \file{Verification Profile - Reset Enrollments} delle API di Speaker Recognition di Microsoft. Per ulteriori informazioni fare riferimento alla seguente pagina \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549b}  (visitato in data 2017-04-22);\\
 		Parametri:
 		\begin{itemize}
 			\item \file{id: String} \\
@@ -3074,7 +3074,7 @@ Package contenente classi e interfacce, dallo scopo generico, utili ad altri pac
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare il campo result della risposta fornita da api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto result relativo ad una risposta di api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ source: String} \\
@@ -3117,7 +3117,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare lo status object della richiesta mandata ad api.ai, che indica se quest'ultima ha avuto successo o meno.
 ;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto status object relativo ad una richiesta mandata ad api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ code: int} \\
@@ -3241,7 +3241,7 @@ Sono contenute le classi che realizzano:
 	\item \textbf{Tipo}: \file{Interface};
 	\item \textbf{Descrizione}: questa classe definisce l'interfaccia dei moduli che implementano dei webhook conformi alle specifiche di api.ai;
 	\item \textbf{Utilizzo}: fornisce una serie di metodi necessari per definire un servizio che soddisfi i requisiti per webhook di api.ai.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/webhook} (visitato in data 2017-04-22);
 	\item \textbf{Figli}: \file{ConversationWebhookService}, \file{AdministrationWebhookService};
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -3250,7 +3250,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
 			Parametro contenente, all'interno del campo \file{body} sotto forma di stringa in formato JSON, un oggetto contenente tutti i dati mandati da api.ai al \file{WebhookService}. Tali dati saranno organizzati secondo le esigenze della classe che implementa questa interfaccia.\\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-04-22);
 			\item \file{context: LambdaContext} \\
 			Parametro utilizzato dalle Lambda Function per inviare la risposta dal \file{WebhookService} ad api.ai. Il \file{body} del \file{LambdaResponse}, parametro del metodo \file{LambdaContext::succeed}, conterrà un oggetto, sotto forma di stringa in formato JSON, contenente i dati relativi all'utente ritornato.\\
 Tali dati sono cosi organizzati:
@@ -3274,7 +3274,7 @@ Dove:
     \item \file{speech}: attributo contenente la risposta testuale alla richiesta.
 \end{itemize}
 
-Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-03-21).
+Per la relativa documentazione, consultare la pagina Per una descrizione dettagliata si rimanda alla pagina \\ \url{https://docs.api.ai/docs/webhook#section-format-of-response-from-the-service}  (visitato in data 2017-04-22).
 ;
 		\end{itemize}
 	\end{itemize}
@@ -3297,7 +3297,7 @@ Per la relativa documentazione, consultare la pagina Per una descrizione dettagl
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi ad un \file{Agent} di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Agent} che dovranno essere memorizzati nel database per questo microservizio.
 In api.ai, un \file{Agent} ha lo scopo di trasformare il linguaggio naturale, ricevuto in input, in dati capibili per le applicazioni.
-Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare questa pagina \url{https://docs.api.ai/docs/concept-agents} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3461,7 +3461,7 @@ Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule
 		\item[] \file{+ agent: Agent} \\
 		Attributo contenente l'\file{Agent} al quale inviare le richieste;
 		\item[] \file{- VERSION: String} \\
-		Attributo contenente il campo \file{versioning} da inviare in una richiesta ad api.ai. Per chiarire quanto appena detto, consultare la pagina \url{https://docs.api.ai/docs/versioning}  (visitato in data 2017-03-21);
+		Attributo contenente il campo \file{versioning} da inviare in una richiesta ad api.ai. Per chiarire quanto appena detto, consultare la pagina \url{https://docs.api.ai/docs/versioning}  (visitato in data 2017-04-22);
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
 		Attributo contenente un riferimento al modulo \file{RequestPromise} di Node.js;
 	\end{itemize}
@@ -3501,7 +3501,7 @@ Facendo da Adapter tra le API di api.ai (adaptee) e l'interfaccia \file{VAModule
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare l'oggetto buttons di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto buttons relativo ad una risposta. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/rich-messages} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ text: String} \\
@@ -3528,7 +3528,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un \file{Context} in api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{Context}.
 In api.ai, un \file{Context} è una stringa che rappresenta il contesto corrente nel quale un utente somministra una richiesta, in maniera tale da disambiguare il più possibile quest'ultime. \\
-Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.api.ai/docs/concept-contexts} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3538,7 +3538,7 @@ Per la relativa documentazione, consultare questa pagina \\ \url{https://docs.ap
 		\item[] \file{+ lifespan: int} \\
 		Attributo contenente il lifespan del \file{Context}.
 Questo valore indica per quanti altri matched intents bisogna mantenere il \file{Context}.
-Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-03-21);
+Per chiarire quanto appena detto, consultare la relativa documentazione in questa pagina \url{https://api.ai/blog/2015/11/23/Contexts/}  (visitato in data 2017-04-22);
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -3559,7 +3559,7 @@ Per chiarire quanto appena detto, consultare la relativa documentazione in quest
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare gli attributi relativi ad un fulfillment di api.ai;
 	\item \textbf{Utilizzo}: fornisce gli attributi di un fulfillment.
 In api.ai un fulfillment è tutto ciò che viene ritornato dalla richiesta di utente. In particolare, è l'adempimento ad una richiesta e può comprendere diversi campi dati.
-Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21).
+Per chiarire quanto appena detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-04-22).
 ;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -3588,16 +3588,16 @@ Il tipo è un \file{MsgObject} in quanto i tipi degli elementi di messages sono 
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di rappresentare e organizzare i dati relativi a intents e contexts;
 	\item \textbf{Utilizzo}: fornisce gli attributi relativi ai dati di intents e contexts e viene utilizzato come attributo della classe \file{ProcessingResult}.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ intentId: String} \\
 		Attributo contenente l'identificativo per un intent;
 		\item[] \file{+ webhookUsed: String} \\
-		Attributo contenente un valore booleano che indica se è stato usato un webhook. Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-03-21);
+		Attributo contenente un valore booleano che indica se è stato usato un webhook. Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook}  (visitato in data 2017-04-22);
 		\item[] \file{+ webhookForSlotFillingUsed: String} \\
 		Attributo contenente un valore booleano che indica se è stato usato un webhook per slot filling.
-Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-03-21);
+Per chiarire quanto detto, consultare la relativa documentazione \url{https://docs.api.ai/docs/webhook#webhook-for-slot-filling}  (visitato in data 2017-04-22);
 		\item[] \file{+ intentName: String} \\
 		Attributo contenente il nome dell'intent;
 	\end{itemize}
@@ -3621,8 +3621,8 @@ Per chiarire quanto detto, consultare la relativa documentazione \url{https://do
 	\item \textbf{Utilizzo}: fornisce gli attributi di un \file{MsgObject}, il quale sarà contenuto in un \file{Fulfillment}.
 La classe \file{Fulfillment} fa utilizzo di un array di essi per adempire alla richiesta di un utente.
 Per la relativa documentazione, consultare le seguenti pagine: \\
-\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-03-21)\\
-\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-03-21);
+\url{https://docs.api.ai/docs/rich-messages}  (visitato in data 2017-04-22)\\
+\url{https://docs.api.ai/docs/query#section-message-objects} (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ type: int} \\
@@ -3668,7 +3668,7 @@ Per la relativa documentazione, consultare le seguenti pagine: \\
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe rappresenta il campo event di una richiesta all'assistente virtuale;
 	\item \textbf{Utilizzo}: fornisce i campi necessari all'interrogazione di un assistente virtuale, utilizzando il nome di un evento e dei parametri al posto della stringa di query \file{VAQuery::text}.
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/concept-events}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ name: String} \\
@@ -3699,7 +3699,7 @@ Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/do
 		\item[] \file{+ text: String[0..1]} \\
 		Attributo la cui presenza è obbligatoria a meno che non sia presente l'attributo \file{event}. Contiene il testo della frase che si vuole comunicare all'assistente;
 		\item[] \file{+ event: VAEventObject[0..1]} \\
-		Attributo la cui presenza è obbligatoria, a meno che non sia presente l'attributo \file{text}. Indica l'evento di cui si richiede l'esecuzione. \\ Per una definizione di evento fare riferimento alla documentazione di api.ai alla pagina \url{https://docs.api.ai/docs/concept-events} (visitato in data 2017-03-21);
+		Attributo la cui presenza è obbligatoria, a meno che non sia presente l'attributo \file{text}. Indica l'evento di cui si richiede l'esecuzione. \\ Per una definizione di evento fare riferimento alla documentazione di api.ai alla pagina \url{https://docs.api.ai/docs/concept-events} (visitato in data 2017-04-22);
 		\item[] \file{+ session\_id: String} \\
 		Attributo contenente l'id della sessione dell'assistente virtuale. Deve essere generato dal client;
 		\item[] \file{+ data: Object[0..1]} \\
@@ -3896,7 +3896,7 @@ L'interfaccia in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, 
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- ui: HTMLElement} \\
-		Attributo contenente l'\file{HTMLElement} dell'interfaccia dell'applicazione. Per informazioni sul tipo \file{HTMLElement}, fare riferimento alla pagina seguente:\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
+		Attributo contenente l'\file{HTMLElement} dell'interfaccia dell'applicazione. Per informazioni sul tipo \file{HTMLElement}, fare riferimento alla pagina seguente:\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}  (visitato in data 2017-04-22);
 		\item[] \file{- name: String} \\
 		Attributo contenente il nome assegnato all'applicazione;
 	\end{itemize}
@@ -3917,7 +3917,7 @@ Esegue il codice presente all'interno del campo \file{setup} di \file{pkg}, eseg
 			\item \file{params: ResponseBody} \\
 			Parametro contenente l'array dei parametri del comando da somministrare all'applicazione;
 		\end{itemize}
-		\item[] \file{+ getUI(): HTMLElement} \\		Metodo che permette di restituire l'interfaccia dell'applicazione da eseguire, sotto forma di un oggetto di tipo \file{Element} (\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21)). Questo \file{HTMLElement} verrà poi appeso al proprio frame da \file{Manager};\\
+		\item[] \file{+ getUI(): HTMLElement} \\		Metodo che permette di restituire l'interfaccia dell'applicazione da eseguire, sotto forma di un oggetto di tipo \file{Element} (\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}  (visitato in data 2017-04-22)). Questo \file{HTMLElement} verrà poi appeso al proprio frame da \file{Manager};\\
 	\end{itemize}
 	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
@@ -4115,11 +4115,11 @@ La classe in oggetto, come si può vedere nel diagramma \ref{fig:sidedisc}, sfru
 		\item[] \file{- state: State} \\
 		Attributo che tiene traccia delle applicazione già eseguite e del loro stato;
 		\item[] \file{- frame: HTMLElement} \\
-		Attributo che contiene l'elemento del \gl{DOM} al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-03-21);
+		Attributo che contiene l'elemento del \gl{DOM} al quale verrà appesa la view dell'applicazione. Per informazoni sul tipo \file{HTMLElement} fare riferimento alla pagina \url{https://developer.mozilla.org/en/docs/Web/API/HTMLElement}  (visitato in data 2017-04-22);
 		\item[] \file{- application: Application} \\
 		Attributo che contiene l'applicazione attualmente in esecuzione;
 		\item[] \file{- ui: HTMLElement} \\
-		Attributo contenente l'\file{HTMLElement} dell'interfaccia dell'applicazione. Per informazioni sul tipo \file{HTMLElement}, fare riferimento alla pagina seguente:\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement} (visitato in data 2017-03-21);
+		Attributo contenente l'\file{HTMLElement} dell'interfaccia dell'applicazione. Per informazioni sul tipo \file{HTMLElement}, fare riferimento alla pagina seguente:\url{https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement} (visitato in data 2017-04-22);
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -4626,7 +4626,7 @@ Gli observer collegati sono:
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ status: short} \\
-		Attributo contenente il codice di stato HTTP, come definito nella sezione 6 dello standard rfc7231 (\url{https://tools.ietf.org/html/rfc7231#section-6}  (visitato in data 2017-03-21));
+		Attributo contenente il codice di stato HTTP, come definito nella sezione 6 dello standard rfc7231 (\url{https://tools.ietf.org/html/rfc7231#section-6}  (visitato in data 2017-04-22));
 		\item[] \file{+ status\_text: String} \\
 		Attributo contenente un messaggio descrittivo dell'errore;
 	\end{itemize}
@@ -5080,7 +5080,7 @@ Permette all'ospite di fermare e riavviare la riproduzione audio e di impostare 
 	\begin{itemize}
 		\item[] \file{- tts: SpeechSynthesis} \\
 		Attributo contenente uno \file{SpeechSynthesis} di JavaScript Web Speech API il quale fornisce dei metodi per la gestione del file audio.
-Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare questa pagina \url{https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis} (visitato in data 2017-04-22);
 		\item[] \file{- subject: BoolSubject} \\
 		Attributo contenente un \file{BoolSubject}, il quale emette item del tipo:
 \begin{itemize}
@@ -5170,7 +5170,7 @@ Questo attributo serve per disattivare il \file{Recorder} durante la riproduzion
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe contiene tutti i parametri relativi alla configurazione di un \file{Player};
 	\item \textbf{Utilizzo}: fornisce al \file{Player} un meccanismo per gestire i parametri relativi alla configurazione per la riproduzione di un file audio.
-Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-03-21);
+Per la relativa documentazione, consultare la pagina \url{https://developer.mozilla.org/it/docs/Web/API/SpeechSynthesisUtterance}  (visitato in data 2017-04-22);
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ lang: String} \\
