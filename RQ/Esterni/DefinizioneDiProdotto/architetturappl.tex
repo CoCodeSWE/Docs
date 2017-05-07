@@ -63,7 +63,7 @@ Il client vocale è composto da diverse componenti, le quali sono:
 	\end{itemize}
 	L'endpoint utilizzato dal client vocale è:
 	\begin{itemize}
-		\item \textbf{/query}\\
+		\item \textbf{/vocal-assistant}\\
 		\begin{itemize}
 			\item \textbf{Method:} POST;
 			\item \textbf{Descrizione:} invia all'API Gateway l'audio contenente la richiesta dell'utente;
@@ -129,7 +129,7 @@ Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSO
 \end{itemize}
 Gli Endpoints sono:
 \begin{itemize}
-\item \textbf{/query}\\
+\item \textbf{/virtual-assistant}\\
 \begin{itemize}
 \item \textbf{Method:} POST;
 \item \textbf{Descrizione:} invia al microservizio una richiesta per interrogare l'assistente virtuale;
@@ -197,10 +197,10 @@ Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSO
 Gli Endpoints sono:
 \begin{itemize}
 
-\item \textbf{/notifications}\\
+\item \textbf{/notifications?type=\$type}\\
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} restituisce la lista dei possibili canali destinatari;
+\item \textbf{Descrizione:} restituisce la lista dei possibili canali destinatari. Il parametro nella query string \file{type} indica il tipo dei canali che si vogliono ottenere, il quale può essere channels, users, groups;
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Notifications::NotificationChannel}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -286,10 +286,10 @@ Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSO
 Gli Endpoints sono:
 
 \begin{itemize}
-\item \textbf{/auth/users}\\
+\item \textbf{/auth/users?name=\$name}\\
 \begin{itemize}
 \item \textbf{Method:} GET;
-\item \textbf{Descrizione:} restituisce la lista degli \file{User} presenti nel database;
+\item \textbf{Descrizione:} restituisce la lista degli \file{User} presenti nel database. Il parametro \file{name} nella query string indica il nome degli utenti che si vogliono ottenere;
 \item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere un array contenente i campi organizzati come descritto in \\\file{Back-end::Auth::User}:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -478,7 +478,7 @@ Gli Endpoints sono:
 
 \begin{itemize}
 
-\item \textbf{/rules?enabled=bool\_data\&name=data\_name\&target=data\_target\&task=data\_task}
+\item \textbf{/rules?enabled=\$bool\_data\&name=\$data\_name\&target=\$data\_target\&task=\$data\_task}
 
 \begin{itemize}
 \item \textbf{Method:} GET;
