@@ -1,0 +1,46 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{subfiles}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{eurosym}
+
+\def\NOME{Piano di progetto}
+\def\VERSIONE{5.0.0}
+\def\DATA{2017-05-07}
+\def\REDATTORE{Mauro Carlin}
+\def\VERIFICATORE{Nicola Tintorri}
+\def\RESPONSABILE{Andrea Magnan}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Documento contenente il piano di progetto relativo al \gl{prodotto} \PROGETTO{} determinato dal gruppo \GRUPPO{} nel corso della realizzazione del progetto \PROGETTO.}
+
+\begin{document}
+
+\maketitle
+
+\subfile{diario}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\include{introduzione}
+\subfile{AnalisiRischi}
+\subfile{Modello}
+\subfile{Pianificazione}
+\subfile{Preventivo}
+\subfile{Consuntivo}
+\subfile{Organigramma}
+\end{document}

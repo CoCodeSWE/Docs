@@ -1,0 +1,196 @@
+\subsection{Requisiti Funzionali}
+\normalsize
+\begin{longtable}{|c|>{\centering}m{7cm}|c|}
+	\hline
+	\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endhead\hypertarget{RFO1}{RFO1} & Il \gl{sistema} deve permettere all'utente di autenticarsi come ospite o come amministatore. & \gl{Capitolato}, UC1\\ \hline
+	\hypertarget{RFO1.1}{RFO1.1} & Il sistema deve permettere all'utente di autenticarsi attraverso l'assistente virtuale. & Capitolato, UC1.1\\ \hline
+	\hypertarget{RFO1.1.1}{RFO1.1.1} & Il sistema deve permettere all'utente di inserire i propri dati identificativi. & Capitolato, UC1.1.1\\ \hline
+	\hypertarget{RFO1.1.1.1}{RFO1.1.1.1} & Il sistema deve permettere all'utente di fornire il proprio nome. & Capitolato, UC1.1.1\\ \hline
+	\hypertarget{RFO1.1.1.2}{RFO1.1.1.2} & Il sistema deve permettere all'utente di fornire il proprio cognome. & Capitolato, UC1.1.1\\ \hline
+	\hypertarget{RFO1.1.2}{RFO1.1.2} & L'utente deve poter accedere all'area amministrativa attraverso l'utilizzo dell'assistente virtuale. & Verbale Esterno 1, UC1.3\\ \hline
+	\hypertarget{RFO1.1.2.1}{RFO1.1.2.1} & Il riconoscimento vocale deve avvenire pronunciando la frase prevista per la sua autenticazione. & Verbale Esterno 1, UC1.3.1\\ \hline
+	\hypertarget{RFF1.1.2.2}{RFF1.1.2.2} & L'utente deve poter accedere all'area amministrativa tramite l'inserimento della propria password. & Interno, UC1.3.2\\ \hline
+	\hypertarget{RFO1.1.3}{RFO1.1.3} & L'ospite deve poter comunicare il nome dell'azienda di cui fa parte. & Verbale Esterno 1, UC1.1.2\\ \hline
+	\hypertarget{RFF1.2}{RFF1.2} & L'utente deve poter autenticarsi tramite \gl{Slack}. & Interno, UC1.2\\ \hline
+	\hypertarget{RFF1.2.1}{RFF1.2.1} & Il sistema deve permettere all'utente di accedere all'area di amministrazione tramite Slack. & Interno, UC1.2\\ \hline
+	\hypertarget{RFO2}{RFO2} & L'utente deve poter accedere alla sezione amministrativa. & Verbale Esterno 1, UC2\\ \hline
+	\hypertarget{RFO2.1}{RFO2.1} & L'amministratore deve poter gestire le \gl{direttive} da lui accessibili. & Verbale Esterno 1, UC2.1\\ \hline
+	\hypertarget{RFO2.1.1}{RFO2.1.1} & L'amministratore deve poter creare una nuova \gl{direttiva}. & Interno, UC2.1.1\\ \hline
+	\hypertarget{RFO2.1.1.1}{RFO2.1.1.1} & L'amministratore deve poter inserire la funzione di una direttiva. & Interno, UC2.1.1.1\\ \hline
+	\hypertarget{RFO2.1.1.1.1}{RFO2.1.1.1.1} & La funzione deve contenere il canale Slack dove inviare le informazioni raccolte durante l'interazione con l'ospite. & Interno, UC2.1.1.1\\ \hline
+	\hypertarget{RFO2.1.1.2}{RFO2.1.1.2} & L'amministratore deve poter inserire il nome di una direttiva. & Interno, UC2.1.1.2\\ \hline
+	\hypertarget{RFO2.1.1.3}{RFO2.1.1.3} & L'amministratore deve poter inserire il target di una direttiva. & Interno, UC2.1.1.3\\ \hline
+	\hypertarget{RFO2.1.1.3.1}{RFO2.1.1.3.1} & L'amministratore deve poter comunicare il nome dell'azienda target. & Interno, UC2.1.1.3.1\\ \hline
+	\hypertarget{RFO2.1.1.3.2}{RFO2.1.1.3.2} & L'amministratore deve poter comunicare il nome dell'ospite target. & Interno, UC2.1.1.3.2\\ \hline
+	\hypertarget{RFO2.1.1.3.3}{RFO2.1.1.3.3} & L'amministratore deve poter comunicare il nome della persona target desiderata. & Interno, UC2.1.1.3.3\\ \hline
+	\hypertarget{RFD2.1.1.4}{RFD2.1.1.4} & L'amministratore deve poter concedere i privilegi per la direttiva ad altri amministratori. & Interno, UC2.1.1.4\\ \hline
+	\hypertarget{RFD2.1.1.4.1}{RFD2.1.1.4.1} & L'amministratore deve poter comunicare gli username degli amministratori a cui concede i privilegi per la direttiva. & Interno, UC2.1.1.4\\ \hline
+	\hypertarget{RFO2.1.1.5}{RFO2.1.1.5} & L'amministratore deve poter confermare la creazione di una direttiva. & Interno, UC2.1.1.5\\ \hline
+	\hypertarget{RFO2.1.1.6}{RFO2.1.1.6} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati non validi (funzione o target della direttiva inesistenti) per la creazione di una nuova direttiva. & Interno, UC2.1.1.6\\ \hline
+	\hypertarget{RFO2.1.2}{RFO2.1.2} & L'amministratore deve poter eliminare dal sistema una direttiva di cui ha i privilegi. & Interno, UC2.1.2\\ \hline
+	\hypertarget{RFO2.1.2.1}{RFO2.1.2.1} & L'amministratore deve poter confermare l'eliminazione di una direttiva. & Interno, UC2.1.2.1\\ \hline
+	\hypertarget{RFO2.1.2.2}{RFO2.1.2.2} & L'amministratore deve poter comunicare il nome della direttiva che vuole eliminare. & Interno, UC2.1.2\\ \hline
+	\hypertarget{RFD2.1.3}{RFD2.1.3} & L'amministratore deve poter modificare una direttiva di cui ha i privilegi di modifica. & Interno, UC2.1.3\\ \hline
+	\hypertarget{RFD2.1.3.1}{RFD2.1.3.1} & L'amministratore deve poter modificare il nome di una direttiva. & Interno, UC2.1.3.1\\ \hline
+	\hypertarget{RFD2.1.3.2}{RFD2.1.3.2} & L'amministratore deve poter modificare i target di una direttiva. & Interno, UC2.1.3.2\\ \hline
+	\hypertarget{RFD2.1.3.2.1}{RFD2.1.3.2.1} & L'amministratore deve poter aggiungere un target alla direttiva. & Interno, UC2.1.3.2.1\\ \hline
+	\hypertarget{RFD2.1.3.2.2}{RFD2.1.3.2.2} & L'amministratore deve poter eliminare un target alla direttiva. & Interno, UC2.1.3.2.2\\ \hline
+	\hypertarget{RFD2.1.3.3}{RFD2.1.3.3} & L'amministratore deve poter modificare la funzione di una direttiva. & Interno, UC2.1.3.3\\ \hline
+	\hypertarget{RFD2.1.3.4}{RFD2.1.3.4} & L'amministratore deve poter modificare l'abilitazione di una direttiva. & Interno, UC2.1.3.4\\ \hline
+	\hypertarget{RFD2.1.3.5}{RFD2.1.3.5} & L'amministratore deve poter modificare i privilegi degli altri amministratori per la direttiva. & Interno, UC2.1.3.5\\ \hline
+	\hypertarget{RFD2.1.3.5.1}{RFD2.1.3.5.1} & L'amministratore deve poter concedere ad altri amministratori i privilegi per la direttiva. & Interno, UC2.1.3.5.1\\ \hline
+	\hypertarget{RFD2.1.3.5.2}{RFD2.1.3.5.2} & L'amministratore deve poter revocare i privilegi degli altri amministratori per la direttiva. & Interno, UC2.1.3.5.2\\ \hline
+	\hypertarget{RFD2.1.3.5.3}{RFD2.1.3.5.3} & L'amministratore deve poter comunicare al sistema gli username degli altri amministratori a cui vuole concedere i privilegi per la direttiva. & Interno, UC2.1.3.5\\ \hline
+	\hypertarget{RFD2.1.3.5.4}{RFD2.1.3.5.4} & L'amministratore deve poter comunicare al sistema gli username degli altri amministratori a cui vuole revocare i privilegi per la direttiva. & Interno, UC2.1.3.5\\ \hline
+	\hypertarget{RFD2.1.3.6}{RFD2.1.3.6} & L'amministratore deve poter confermare la modifica di una direttiva. & Interno, UC2.1.3.6\\ \hline
+	\hypertarget{RFD2.1.3.7}{RFD2.1.3.7} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati non validi (funzione o target della direttiva inesistenti) per la modifica di una direttiva. & Interno, UC2.1.3.7\\ \hline
+	\hypertarget{RFO2.1.4}{RFO2.1.4} & L'amministratore deve poter visualizzare tutte le direttive da lui accessibili. & Interno, UC2.1.4\\ \hline
+	\hypertarget{RFD2.1.4.1}{RFD2.1.4.1} & L'amministratore può visualizzare il nome di una direttiva. & Interno, UC2.1.4\\ \hline
+	\hypertarget{RFD2.1.4.2}{RFD2.1.4.2} & L'amministratore può visualizzare il target di una direttiva. & Interno, UC2.1.4\\ \hline
+	\hypertarget{RFO2.1.4.3}{RFO2.1.4.3} & L'amministratore può visualizzare la funzionalità di una direttiva. & Interno, UC2.1.4\\ \hline
+	\hypertarget{RFD2.1.4.4}{RFD2.1.4.4} & L'amministratore può visualizzare l'abilitazione di una direttiva. & Interno, UC2.1.4\\ \hline
+	\hypertarget{RFO2.2}{RFO2.2} & L'amministratore deve poter gestire le impostazioni del proprio profilo. & Interno, UC2.2\\ \hline
+	\hypertarget{RFO2.2.1}{RFO2.2.1} & L'amministratore deve poter modificare il nome e cognome del suo profilo. & Interno, UC2.2.1\\ \hline
+	\hypertarget{RFO2.2.1.1}{RFO2.2.1.1} & L'amministratore deve poter comunicare il proprio nome e il proprio cognome. & Interno, UC2.2.1\\ \hline
+	\hypertarget{RFF2.2.2}{RFF2.2.2} & L'amministratore deve poter modificare la password del suo profilo. & Interno, UC2.2.2\\ \hline
+	\hypertarget{RFF2.2.2.1}{RFF2.2.2.1} & L'amministratore deve poter inserire la vecchia password. & Interno, UC2.2.2.1\\ \hline
+	\hypertarget{RFF2.2.2.2}{RFF2.2.2.2} & L'amministratore deve poter inserire la nuova password. & Interno, UC2.2.2.2\\ \hline
+	\hypertarget{RFO2.2.3}{RFO2.2.3} & L'amministratore deve poter confermare le modifiche al profilo. & Interno, UC2.2.3\\ \hline
+	\hypertarget{RFO2.2.4}{RFO2.2.4} & L'amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati nulli o non validi per la modifica del profilo d'amministratore.
+	I dati non validi sono: username già esistente o la vecchia password non coincide con quella attuale. & Interno, UC2.2.4\\ \hline
+	\hypertarget{RFO3}{RFO3} & L'ospite deve poter essere accolto dal sistema. & Capitolato, UC3\\ \hline
+	\hypertarget{RFO3.1}{RFO3.1} & L'ospite deve poter comunicare al sistema la persona che desidera incontrare. & Capitolato, UC3.1\\ \hline
+	\hypertarget{RFD3.2}{RFD3.2} & L'ospite deve poter comunicare al sistema particolari necessità  per l'incontro. & Capitolato, UC3.2\\ \hline
+	\hypertarget{RFD3.2.1}{RFD3.2.1} & L'ospite deve poter richiedere un caffè. & Capitolato, UC3.2.1\\ \hline
+	\hypertarget{RFD3.2.2}{RFD3.2.2} & L'ospite deve poter chiedere informazioni riguardanti una particolare stanza. & Verbale Esterno 1, UC3.2.4\\ \hline
+	\hypertarget{RFD3.2.3}{RFD3.2.3} & L'ospite deve poter richiedere le indicazioni necessarie a raggiungere una particolare stanza. & Interno, UC3.2.3\\ \hline
+	\hypertarget{RFD3.2.3.1}{RFD3.2.3.1} & L'ospite deve poter comunicare il nome della stanza desiderata al sistema. & Interno, UC3.2.3\\ \hline
+	\hypertarget{RFD3.2.3.2}{RFD3.2.3.2} & L'ospite deve poter visualizzare le informazioni relative alla stanza indicata al sistema. & Interno, UC3.2.3\\ \hline
+	\hypertarget{RFD3.2.3.3}{RFD3.2.3.3} & L'ospite deve poter visualizzare un errore nel caso richieda informazioni su una stanza inesistente. & Interno, UC3.2.3.2\\ \hline
+	\hypertarget{RFD3.2.4}{RFD3.2.4} & L'ospite deve poter richiedere particolare materiale per l'incontro. & Interno, UC3.2.2\\ \hline
+	\hypertarget{RFD3.3}{RFD3.3} & L'ospite deve poter scegliere tra alcuni tipi di intrattenimento forniti dal sistema. & Verbale Esterno 1, UC3.3\\ \hline
+	\hypertarget{RFF3.3.1}{RFF3.3.1} & L'ospite deve poter essere intrattenuto dal sistema con degli indovinelli. & Interno, UC3.3.1\\ \hline
+	\hypertarget{RFF3.3.1.1}{RFF3.3.1.1} & L'ospite deve poter visualizzare un indovinello fornito dal sistema. & Interno, UC3.3.1\\ \hline
+	\hypertarget{RFF3.3.1.2}{RFF3.3.1.2} & L'ospite deve poter rispondere all'indovinello. & Interno, UC3.3.1\\ \hline
+	\hypertarget{RFD3.3.2}{RFD3.3.2} & L'ospite deve poter visualizzare curiosità  di vario genere. & Interno, UC3.3.2\\ \hline
+	\hypertarget{RFD3.3.2.1}{RFD3.3.2.1} & L'ospite deve poter comunicare la volontà di cambiare la curiosità visualizzata dal sistema. & Interno, UC3.3.2\\ \hline
+	\hypertarget{RFF3.3.3}{RFF3.3.3} & Il sistema deve offrire all'ospite la possibilità di richiedere delle notizie di vario genere. & Interno, UC3.3.3\\ \hline
+	\hypertarget{RFF3.3.3.1}{RFF3.3.3.1} & Il sistema deve permettere all'ospite di scegliere la categoria di notizie. & Interno, UC3.3.3.1\\ \hline
+	\hypertarget{RFF3.3.3.2}{RFF3.3.3.2} & Il sistema deve poter offrire all'ospite la possibilità di visualizzare le notizie da lui richieste. & Interno, UC3.3.3.2\\ \hline
+	\hypertarget{RFF3.3.4}{RFF3.3.4} & L'ospite deve poter essere intrattenuto tramite alcuni giochi forniti dal sistema. & Interno, UC3.3.4\\ \hline
+	\hypertarget{RFF3.3.4.1}{RFF3.3.4.1} & Il sistema deve poter permettere all'ospite di giocare a tris. & Interno, UC3.3.4.1\\ \hline
+	\hypertarget{RFF3.3.4.1.1}{RFF3.3.4.1.1} & Il sistema deve poter fornire all'ospite la possibilità di iniziare una nuova partita a tris. & Interno, UC3.3.4.1.1\\ \hline
+	\hypertarget{RFF3.3.4.1.2}{RFF3.3.4.1.2} & Il sistema deve poter offrire all'ospite di visualizzare le statistiche delle partite a tris. & Interno, UC3.3.4.1.2\\ \hline
+	\hypertarget{RFF3.3.4.1.3}{RFF3.3.4.1.3} & Il sistema deve poter offrire all'ospite la possibilità di visualizzare le regole del gioco tris. & Interno, UC3.3.4.1.3\\ \hline
+	\hypertarget{RFF3.3.4.2}{RFF3.3.4.2} & Il sistema deve poter permettere all'ospite di giocare a carta, sasso, forbice, lizard, spock. & Interno, UC3.3.4.2\\ \hline
+	\hypertarget{RFF3.3.4.2.1}{RFF3.3.4.2.1} & Il sistema deve poter fornire all'ospite la possibilità di iniziare una nuova partita a sasso, carta, forbice, lizard o spock. & Interno, UC3.3.4.2.1\\ \hline
+	\hypertarget{RFF3.3.4.2.2}{RFF3.3.4.2.2} & Il sistema deve poter offrire all'ospite di visualizzare le statistiche delle partite a sasso, carta, forbice, lizard o spock. & Interno, UC3.3.4.2.2\\ \hline
+	\hypertarget{RFF3.3.4.2.3}{RFF3.3.4.2.3} & Il sistema deve poter offrire all'ospite la possibilità di visualizzare le regole del gioco sasso, carta, forbice, lizard o spock. & Interno, UC3.3.4.2.3\\ \hline
+	\hypertarget{RFF3.3.4.3}{RFF3.3.4.3} & Il sistema deve permettere all'ospite di giocare a Mankala. & Interno, UC3.3.4.3\\ \hline
+	\hypertarget{RFF3.3.4.3.1}{RFF3.3.4.3.1} & Il sistema deve poter fornire all'ospite la possibilità di iniziare una nuova partita a Mankala. & Interno, UC3.3.4.3.1\\ \hline
+	\hypertarget{RFF3.3.4.3.2}{RFF3.3.4.3.2} & Il sistema deve poter offrire all'ospite di visualizzare le statistiche delle partite di Mankala. & Interno, UC3.3.4.3.2\\ \hline
+	\hypertarget{RFF3.3.4.3.3}{RFF3.3.4.3.3} & Il sistema deve poter offrire all'ospite la possibilità di visualizzare le regole del gioco Mankala. & Interno, UC3.3.4.3.3\\ \hline
+	\hypertarget{RFF3.3.4.3.4}{RFF3.3.4.3.4} & Il sistema deve poter offrire all'ospite la possibilità di scegliere la difficoltà delle partite di Mankala. & Interno, UC3.3.4.3.4\\ \hline
+	\hypertarget{RFF3.3.4.3.4.1}{RFF3.3.4.3.4.1} & Il sistema deve poter offrire all'ospite la possibilità di scegliere la difficoltà difficile. & Interno, UC3.3.4.3.4\\ \hline
+	\hypertarget{RFF3.3.4.3.4.2}{RFF3.3.4.3.4.2} & Il sistema deve poter offrire all'ospite la possibilità di scegliere la difficoltà media. & Interno, UC3.3.4.3.4\\ \hline
+	\hypertarget{RFF3.3.4.3.4.3}{RFF3.3.4.3.4.3} & Il sistema deve poter offrire all'ospite la possibilità di scegliere la difficoltà principiante. & Interno, UC3.3.4.3.4\\ \hline
+	\hypertarget{RFO4}{RFO4} & Una funzione deve contenere una possibile modifica al comportamento del sistema. & Interno, UC2.1.1.1\\ \hline
+	\hypertarget{RFO5}{RFO5} & Il sistema, nel caso in cui non riesca ad interpretare la risposta, deve chiedere nuovamente l'informazione all'utente. & Interno, UC5\\ \hline
+	\hypertarget{RFD6}{RFD6} & Il sistema deve mostrare un opportuno messaggio qualora il tempo trascorso tra due successive interazioni superi un certo limite. & Interno, UC6\\ \hline
+	\hypertarget{RFO7}{RFO7} & Il sistema deve riconoscere gli ospiti passati e modificare il proprio comportamento in base alle interazioni passate. & Capitolato\\ \hline
+	\hypertarget{RFO7.1}{RFO7.1} & Il sistema deve prevedere metodi di apprendimento per migliorare la comunicazione con gli utenti. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO7.2}{RFO7.2} & Il sistema deve poter identificare se un utente è già stato in visita all'azienda verificando il suo nome e cognome. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO8}{RFO8} & Il sistema deve sollecitare la persona desiderata ed eventualmente avvisare gli altri membri dell'azienda su richiesta dell'ospite. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFD9}{RFD9} & Il super amministratore deve poter accedere alla sezione dedicata al super amministratore. & Interno, UC4\\ \hline
+	\hypertarget{RFD9.1}{RFD9.1} & Il super amministratore deve poter gestire gli amministratori del sistema. & Interno, UC4.1\\ \hline
+	\hypertarget{RFD9.1.1}{RFD9.1.1} & Il super amministratore deve poter creare un nuovo amministratore. & Interno, UC4.1.1\\ \hline
+	\hypertarget{RFD9.1.1.1}{RFD9.1.1.1} & Il super amministratore deve poter inserire nome e cognome del nuovo amministratore. & Interno, UC4.1.1.1\\ \hline
+	\hypertarget{RFF9.1.1.2}{RFF9.1.1.2} & Il super amministratore deve poter inserire la password di un nuovo amministratore. & Interno, UC4.1.1.3\\ \hline
+	\hypertarget{RFD9.1.1.3}{RFD9.1.1.3} & Il super amministratore deve poter confermare i dati inseriti per un nuovo amministratore. & Interno, UC4.1.1.4\\ \hline
+	\hypertarget{RFD9.1.1.4}{RFD9.1.1.4} & Il super amministratore deve poter visualizzare un messaggio d'errore se ha comunicato dei dati non validi (username fornito già esistente) per la creazione di un nuovo amministratore. & Interno, UC4.1.1.5\\ \hline
+	\hypertarget{RFD9.1.1.5}{RFD9.1.1.5} & Il super amministratore deve poter inserire lo username di un nuovo amministratore & Interno, UC4.1.1.2\\ \hline
+	\hypertarget{RFF9.1.2}{RFF9.1.2} & Il super amministratore deve poter resettare la password dell'amministratore. & Interno, UC4.1.2\\ \hline
+	\hypertarget{RFF9.1.2.1}{RFF9.1.2.1} & Il super amministratore deve poter confermare il reset della password di un amministratore. & Interno, UC4.1.2.1\\ \hline
+	\hypertarget{RFD9.1.3}{RFD9.1.3} & Il super amministratore deve poter eliminare un amministratore dal sistema. & Interno, UC4.1.3\\ \hline
+	\hypertarget{RFD9.1.3.1}{RFD9.1.3.1} & Il super amministratore deve poter confermare l'eliminazione di un amministratore dal sistema. & Interno, UC4.1.3.1\\ \hline
+	\hypertarget{RFD9.1.3.2}{RFD9.1.3.2} & L'amministratore può visualizzare un messaggio d'errore se ha comunicato dati non validi (nome di amministratore non esistente) per l'eliminazione di un amministratore. & Interno, UC4.1.3.2\\ \hline
+	\hypertarget{RFD9.1.3.3}{RFD9.1.3.3} & Il super amministratore deve poter comunicare l'username dell'amministratore che vuole eliminare dal sistema. & Interno, UC4.1.3\\ \hline
+	\hypertarget{RFD9.2}{RFD9.2} & Il super amministratore può accedere ai file \gl{log}. & Interno, UC4.2\\ \hline
+	\hypertarget{RFO10}{RFO10} & Il sistema deve permettere all'amministratore di definire il comportamento del sistema in base alla persona che sta interagendo con esso. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFD11}{RFD11} & Il sistema deve notificare l'arrivo di ospiti in modo differente in base alla loro azienda di provenienza. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12}{RFO12} & Il sistema deve memorizzare i dati relativi alle interazioni con gli ospiti. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12.1}{RFO12.1} & Il sistema deve registrare i dati identificativi dell'ospite & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12.1.1}{RFO12.1.1} & Il sistema deve registrare il nome dell'ospite. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12.1.2}{RFO12.1.2} & Il sistema deve registrare il cognome dell'ospite. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12.2}{RFO12.2} & Il sistema deve registrare l'azienda di provenienza dell'ospite. & Verbale Esterno 1\\ \hline
+	\hypertarget{RFO12.3}{RFO12.3} & Il sistema deve registrare le diverse persone che l'ospite viene a trovare e con quale frequenza & Verbale Esterno 1\\ \hline
+	\hypertarget{RFD12.4}{RFD12.4} & Il sistema deve registrare i dati relativi alle necessità  dell'ospite. & Interno\\ \hline
+	\hypertarget{RFD12.5}{RFD12.5} & Il sistema deve registrare dati relativi ai metodi di intrattenimento selezionati dall'ospite. & Interno\\ \hline
+	\hypertarget{RFF12.6}{RFF12.6} & Il sistema deve registrare i dati relativi all'ora di arrivo dell'ospite. & Interno\\ \hline
+	\hypertarget{RFF12.7}{RFF12.7} & Il sistema deve registrare dati relativi agli errori verificatisi nell'interazione con l'ospite. & Interno\\ \hline
+	\hypertarget{RFO13}{RFO13} & Il sistema deve interagire con i membri dell'azienda mediante Slack. & Capitolato\\ \hline
+	\hypertarget{RFO13.1}{RFO13.1} & Il sistema deve poter inviare messaggi di testo semplici ai membri dell'azienda. & Capitolato\\ \hline
+	\hypertarget{RFD13.2}{RFD13.2} & Il sistema deve permettere di inviare messaggi interattivi (ossia con possibilità di interazione tramite bottoni) ai membri dell'azienda. & Interno\\ \hline
+	\hypertarget{RFF14}{RFF14} & Il sistema deve permettere all'amministratore di interagire con il sistema anche tramite l'invio di messaggi con Slack. & Interno\\ \hline
+	
+	\caption[Requisiti Funzionali]{Requisiti Funzionali}
+	\label{tabella:req0}
+\end{longtable}
+\clearpage
+\subsection{Requisiti di Qualità}
+\normalsize
+\begin{longtable}{|c|>{\centering}m{7cm}|c|}
+	\hline
+	\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endhead\hypertarget{RQO1}{RQO1} & Il gruppo deve fare un'analisi preliminare degli \gl{SDK} dei principali assistenti virtuali presenti sul mercato. & Capitolato\\ \hline
+	\hypertarget{RQO2}{RQO2} & Il gruppo deve fornire uno schema design per la base di dati \gl{NoSQL}.
+	& Capitolato\\ \hline
+	\hypertarget{RQO3}{RQO3} & Deve essere \gl{prodotto} un piano di test di unità per il sistema. & Capitolato\\ \hline
+	\hypertarget{RQO4}{RQO4} & Deve essere fornita una documentazione dettagliata di tutte le \gl{API}. & Capitolato\\ \hline
+	\hypertarget{RQD5}{RQD5} & Deve essere fornito un manuale utente. & Interno\\ \hline
+	\hypertarget{RQD5.1}{RQD5.1} & Il manuale utente deve contenere una sezione che spiega come utilizzare l'applicazione. & Interno\\ \hline
+	\hypertarget{RQD5.2}{RQD5.2} & Il manuale utente deve contenere una sezione che descriva eventuali errori e possibili cause. & Interno\\ \hline
+	\hypertarget{RQF6}{RQF6} & Deve essere fornito un manuale per l'amministratore. & Interno\\ \hline
+	\hypertarget{RQF6.1}{RQF6.1} & Il manuale per l'amministratore deve contenere una sezione che spiega come installare l'applicazione. & Interno\\ \hline
+	\hypertarget{RQF6.2}{RQF6.2} & Il manuale per l'amministratore deve contenere una sezione che spiega come utilizzare le funzioni da amministratore. & Interno\\ \hline
+	\hypertarget{RQF6.3}{RQF6.3} & Il manuale per l'amministratore deve contenere una sezione che descriva eventuali errori e possibili cause. & Interno\\ \hline
+	
+	\caption[Requisiti di Qualità]{Requisiti di Qualità}
+	\label{tabella:req2}
+\end{longtable}
+\clearpage
+\subsection{Requisiti di Vincolo}
+\normalsize
+\begin{longtable}{|c|>{\centering}m{7cm}|c|}
+	\hline
+	\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endhead\hypertarget{RVO1}{RVO1} & L'interfaccia web deve funzionare su PC. & Capitolato\\ \hline
+	\hypertarget{RVO1.1}{RVO1.1} & Il sistema operativo del PC dev'essere Microsoft Windows con versione 7 o superiore. & Interno\\ \hline
+	\hypertarget{RVO2}{RVO2} & Il sistema deve essere sviluppato utilizzando AWS, con lambda function o server dedicato. & Capitolato\\ \hline
+	\hypertarget{RVO2.1}{RVO2.1} & Le lambda function devono essere sviluppate con la piattaforma \gl{Node.js}. & Capitolato\\ \hline
+	\hypertarget{RVO3}{RVO3} & Il sistema deve utilizzare un database NoSQL per la memorizzazione dei dati. & Capitolato\\ \hline
+	\hypertarget{RVO3.1}{RVO3.1} & Il database deve essere Amazon \gl{DynamoDB}. & Capitolato\\ \hline
+	\hypertarget{RVO4}{RVO4} & L'applicazione deve utilizzare il linguaggio di \gl{markup} HTML. & Capitolato\\ \hline
+	\hypertarget{RVO4.1}{RVO4.1} & La versione del linguaggio di markup deve essere \gl{HTML5}. & Capitolato\\ \hline
+	\hypertarget{RVO5}{RVO5} & L’applicazione deve utilizzare fogli di stile in CSS. & Capitolato\\ \hline
+	\hypertarget{RVO5.1}{RVO5.1} & La versione dei fogli di stile utilizzati deve essere \gl{CSS3}. & Capitolato\\ \hline
+	\hypertarget{RVF6}{RVF6} & L'interfaccia web deve funzionare su tablet. & Interno\\ \hline
+	\hypertarget{RVF6.1}{RVF6.1} & Il sistema operativo del tablet dev'essere \gl{Android} 5.0 Lollipop o superiore. & Interno\\ \hline
+	\hypertarget{RVF6.2}{RVF6.2} & Il sistema operativo del tablet \gl{Apple} dev'essere 8.0 o superiore. & Interno\\ \hline
+	\hypertarget{RVO7}{RVO7} & L'assistente virtuale deve essere sviluppato in lingua inglese. & Capitolato\\ \hline
+	\hypertarget{RVF8}{RVF8} & L'interfaccia web deve funzionare su Apple iMac. & Interno\\ \hline
+	\hypertarget{RVF8.1}{RVF8.1} & Il sistema operativo del dispositivo Apple iMac dev'essere \gl{macOS} Sierra o successivo. & Interno\\ \hline
+	\hypertarget{RVO9}{RVO9} & L'applicazione deve utilizzare il linguaggio \gl{JavaScript}. & Capitolato\\ \hline
+	\hypertarget{RVO10}{RVO10} & L'applicazione deve funzionare sul \gl{browser} Google Chrome versione 53 o superiore. & Interno\\ \hline
+	\hypertarget{RVD11}{RVD11} & L'applicazione deve funzionare sul browser Mozilla Firefox versione 51 o superiore. & Interno\\ \hline
+	\hypertarget{RVF12}{RVF12} & L'applicazione deve funzionare sul browser Opera versione 41 o superiore. & Interno\\ \hline
+	\hypertarget{RVD13}{RVD13} & L'applicazione deve funzionare sul browser Microsoft Edge versione 38 o superiore. & Interno\\ \hline
+	
+	\caption[Requisiti di Vincolo]{Requisiti di Vincolo}
+	\label{tabella:req3}
+\end{longtable}
+\clearpage

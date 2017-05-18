@@ -1,0 +1,78 @@
+\PassOptionsToPackage{bookmarksopen,bookmarksdepth=1}{hyperref}
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{glossario}
+%\usepackage[bookmarksopen,bookmarksdepth=1]{hyperref}
+\def\NOME{Glossario}
+\def\VERSIONE{5.0.0}
+\def\DATA{2017-05-06}
+\def\REDATTORE{Luca Bertolini}
+\def\VERIFICATORE{Nicola Tintorri}
+\def\RESPONSABILE{Mauro Carlin}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Questo documento chiarisce le possibili ambiguità all'interno della documentazione prodotta.}
+
+
+\begin{document}
+	
+\maketitle
+
+\begin{diario}
+	\modifica{Mauro Carlin}{\RESP}{Approvazione del documento}{2017-05-06}{5.0.0}
+	\modifica{Nicola Tintorri}{\VER}{Verifica del documento}{2017-05-06}{4.1.0}
+	\modifica{Luca Bertolini}{\AMM}{Aggiunti vocaboli}{2017-05-06}{4.0.1}
+	\modifica{Andrea Magnan}{\RESP}{Approvazione del documento}{2017-04-03}{4.0.0}
+	\modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-04-02}{3.1.0}
+	\modifica{Mauro Carlin}{\AMM}{Aggiunti vocaboli}{2017-04-01}{3.0.1}
+
+	\modifica{Mattia Bottaro}{\RESP}{Approvazione del documento}{2017-02-24}{3.0.0}
+	\modifica{Andrea Magnan}{\VER}{Verifica del documento}{2017-02-23}{2.1.0}
+	\modifica{Pier Paolo Tricomi}{\AMM}{Aggiunti vocaboli }{2017-02-23}{2.0.2}
+	\modifica{Luca Bertolini}{\AMM}{Aggiunti vocaboli}{2017-02-23}{2.0.1}
+
+	\modifica{Nicola Tintorri}{\RESP}{Approvazione del documento}{2017-02-01}{2.0.0}
+	\modifica{Pier Paolo Tricomi}{\VER}{Verifica del documento}{2017-01-31}{1.1.0}
+	\modifica{Andrea Magnan}{\AMM}{Aggiunti vocaboli}{2017-01-31}{1.0.1}
+	
+    \modifica{Simeone Pizzi}{\RESP}{Approvazione del documento}{2017-01-08}{1.0.0}
+    \modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-01-08}{0.1.0}
+	\modifica{Pier Paolo Tricomi}{\AMM}{Aggiunti vocaboli dalla A alla K}{2017-01-08}{0.0.4}
+	\modifica{Mattia Bottaro}{\AMM}{Aggiunti vocaboli dalla L alla Z}{2017-01-08}{0.0.3}
+    \modifica{Mattia Bottaro}{\AMM}{Aggiunti vocaboli}{2017-01-08}{0.0.2}
+	\modifica{Mattia Bottaro}{\AMM}{Stesura struttura documento e aggiunti primi vocaboli.}{2017-01-08}{0.0.1}
+\end{diario}
+
+\newpage
+% è il caso di includere solo le lettere che contengono vocaboli
+\include{sezioni/A}
+\include{sezioni/B}
+\include{sezioni/C}
+\include{sezioni/D}
+\include{sezioni/E}
+\include{sezioni/F}
+\include{sezioni/G}
+\include{sezioni/H}
+\include{sezioni/I}
+\include{sezioni/J}
+\include{sezioni/K}
+\include{sezioni/L}
+\include{sezioni/M}
+\include{sezioni/N}
+\include{sezioni/O}
+\include{sezioni/P}
+\include{sezioni/R}
+\include{sezioni/S}
+\include{sezioni/T}
+\include{sezioni/U}
+\include{sezioni/V}
+\include{sezioni/W}
+\include{sezioni/X}
+\end{document}

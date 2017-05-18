@@ -1,0 +1,110 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{subfiles}
+\usepackage{color}
+\usepackage{longtable}
+
+\def\NOME{Piano di qualifica}
+\def\VERSIONE{5.0.0}
+\def\DATA{2017-05-07}
+\def\REDATTORE{Mattia Bottaro\\ & Pier Paolo Tricomi \\ & Mauro Carlin}
+\def\VERIFICATORE{Nicola Tintorri}
+\def\RESPONSABILE{Simeone Pizzi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Documento contenente le strategie adottate dal gruppo \GRUPPO{} per garantire la qualità del \gl{prodotto} \PROGETTO.}
+
+\begin{document}
+
+	\maketitle
+
+	\begin{diario}
+
+		\modifica{Simeone Pizzi}{\RESP}{Approvazione}{2017-05-07}{5.0.0}
+		\modifica{Mattia Bottaro}{\AMM}{Inseriti dati resoconto RQ}{2017-05-07}{4.1.2}
+		\modifica{Mattia Bottaro}{\AMM}{Correzione sezioni segnalate dalla \gl{verifica}}{2017-04-20}{4.1.1}
+		\modifica{Nicola Tintorri}{\VER}{\gl{Verifica}}{2017-04-20}{4.1.0}
+		\modifica{Mauro Carlin}{\PJ}{Aggiunti nuovi test di unità in 2.9.2}{2017-04-19}{4.0.4}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Aggiunti nuovi test di unità in 2.9.2}{2017-04-19}{4.0.3}
+		\modifica{Mattia Bottaro}{\AMM}{Stesura struttura resoconto RQ in appendice C}{2017-04-19}{4.0.2}
+		\modifica{Mattia Bottaro}{\AMM}{Spostata sezione 4 "test" in 2.9.2, tolta appendice C, modificati resoconti secondo indicazioni del committente}{2017-04-18}{4.0.1}
+
+		\modifica{Luca Bertolini}{\RESP}{Approvazione}{2017-04-08}{4.0.0}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-04-04}{3.2.1}
+		\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-04-04}{3.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura resoconto RP}{2017-04-03}{3.1.2}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Correzione sezioni segnalate dalla verifica}{2017-04-03}{3.1.1}
+		\modifica{Mattia Bottaro}{\VER}{Verifica}{2017-04-03}{3.1.0}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Aggiunti test di integrazione}{2017-04-02}{3.0.4}
+		\modifica{Andrea Magnan}{\PJ}{Aggiunti test di unità}{2017-03-30}{3.0.3}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Aggiunti test di \gl{validazione} e di \gl{sistema}}{2017-03-27}{3.0.2}
+		\modifica{Andrea Magnan}{\PJ}{Stesura sezione 4 "Test"}{2017-03-26}{3.0.1}
+
+		\modifica{Mattia Bottaro}{\RESP}{Approvazione}{2017-02-22}{3.0.0}
+		\modifica{Simeone Pizzi}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-02-03}{2.1.1}
+		\modifica{Mauro Carlin}{\VER}{Verifica}{2017-02-03}{2.1.0}
+		\modifica{Simeone Pizzi}{\AMM}{Aggiunte metriche legate alla progettazione}{2017-02-03}{2.0.1}
+
+
+
+		\modifica{Nicola Tintorri}{\RESP}{Approvazione}{2017-01-31}{2.0.0}
+		\modifica{Luca Bertolini}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-01-30}{1.2.1}
+		\modifica{Simeone Pizzi}{\VER}{Verifica}{2017-01-30}{1.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura appendici A,B}{2017-01-29}{1.1.3}
+		\modifica{Luca Bertolini}{\AMM}{Stesura sezione 3 "Qualità di prodotto"}{2017-01-28}{1.1.2}
+		\modifica{Luca Bertolini}{\AMM}{Correzione sezioni segnalate dalla verifica}{2017-01-27}{1.1.1}
+		\modifica{Simeone Pizzi}{\VER}{Verifica}{2017-01-26}{1.1.0}
+		\modifica{Andrea Magnan}{\AMM}{Stesura sezione 2 "Qualità di processo"}{2017-01-26}{1.0.2}
+		\modifica{Andrea Magnan}{\AMM}{Eliminate sezioni 2 "Visione generale della strategia di gestione della qualità", 3 "La strategia di gestione della qualità nel dettaglio", appendici A, B, C, D}{2017-01-24}{1.0.1}
+
+
+		\modifica{Luca Bertolini}{\RESP}{Approvazione}{2017-01-08}{1.0.0}
+		\modifica{Andrea Magnan}{\AMM}{Inseriti dati resoconto AR}{2017-01-07}{0.2.2}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-24}{0.2.1}
+		\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-24}{0.2.0}
+		\modifica{Andrea Magnan}{\AMM}{Aggiunta struttura resoconto AR}{2016-12-23}{0.1.5}
+		\modifica{Nicola Tintorri}{\AMM}{Aggiunta appendice A}{2016-12-23}{0.1.4}
+		\modifica{Nicola Tintorri}{\AMM}{Conclusa stesura sezione 3}{2016-12-22}{0.1.3}
+		\modifica{Andrea Magnan}{\AMM}{Aggiunte appendici B}{2016-12-22}{0.1.2}
+		\modifica{Andrea Magnan}{\AMM}{Correzione sezioni segnalate dalla verifica}{2016-12-22}{0.1.1}
+		\modifica{Pier Paolo Tricomi}{\VER}{Verifica}{2016-12-22}{0.1.0}
+		\modifica{Nicola Tintorri}{\AMM}{Inizio stesura sezione 3}{2016-12-21}{0.0.5}
+		\modifica{Andrea Magnan}{\AMM}{Conclusa stesura sezione 2}{2016-12-21}{0.0.4}
+		\modifica{Andrea Magnan}{\AMM}{Inizio stesura sezione 2}{2016-12-20}{0.0.3}
+		\modifica{Nicola Tintorri}{\AMM}{Stesura introduzione}{2016-12-19}{0.0.2}
+		\modifica{Nicola Tintorri}{\AMM}{Inizio stesura documento}{2016-12-19}{0.0.1}
+	\end{diario}
+
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoftables
+	\newpage
+	\listoffigures
+	\newpage
+
+	\subfile{introduzione}
+	\newpage
+	\subfile{processo}
+	\newpage
+	\subfile{prodotto}
+	\newpage
+
+
+	\appendix
+	\subfile{CMM}
+	\newpage
+	\subfile{tracciamentoTest}
+	\newpage
+	\subfile{resoconti}
+
+
+
+\end{document}

@@ -1,0 +1,92 @@
+Vogliamo verificare che il sistema abbia il corretto comportamento nel suo complesso, testando tutte le componenti fra loro.
+
+Vogliamo verificare che il \file{Client} invii correttamente una richiesta al \file{Back-end}. (o VocalAPI??)
+
+Vogliamo verificare che il \file{Back-end} invii correttamente una risposta al \file{Client}. (o Logic??)
+
+(Vogliamo verificare che gli \file{Observer} notifichino correttamente i relativi \file{Observable}.)
+
+
+CLIENT
+
+Vogliamo verificare che il \file{Recorder} invii correttamente un file audio a \file{Logic}.
+
+Vogliamo verificare che \file{Logic} invii correttamente ad \file{ApplicationManager} i dati relativi allo stato di un'applicazione.
+
+Vogliamo verificare che \file{Logic} invii correttamente ad \file{TTS} i dati relativi alla risposta fornita all'utente.
+
+Vogliamo verificare che \file{Utility} informi correttamente \file{Recorder} sull'iniziare la registrazione.
+
+BACK-END
+
+Vogliamo verificare che \file{APIGateway} interagisca correttamente con \file{STT}, ovvero che venga inviato un file audio e fornito correttamente il testo in esso pronunciato.
+
+Vogliamo verificare che \file{APIGateway} interagisca correttamente con \file{VirtualAssistant}, ovvero che invii correttamente una richiesta, in forma testuale, e fornita una risposta.
+
+Vogliamo verificare che \file{APIGateway} interagisca correttamente con \file{Auth}, ovvero che vengano fornite le operazioni CRUD sul database
+ contenente gli \file{User}, tentato il login e fornito correttamente il risultato di questa operazione.
+
+Vogliamo verificare che \file{APIGateway} interagisca correttamente con \file{Rules}, ovvero che vengano eseguite le operazioni CRUD sul database contenente le \file{Rule}.
+
+Vogliamo verificare che \file{Auth} interagisca correttamente con il servizio esterno di Speaker Recognition.
+
+Vogliamo verificare che \file{VirtualAssistant} interagisca correttamente con il servizio esterno api.ai.
+
+Vogliamo verificare che \file{AdministrationWebhookService} interagisca correttamente con il servizio esterno api.ai, ovvero che venga verificata correttamente, tramite un token associato, l'autenticità dell'amministratore autenticato.
+
+Vogliamo verificare che \file{AdministrationnWebhookService} interagisca correttamente con \file{Rules} e \file{Auth}, ovvero utilizzando le operazioni CRUD fornite sul database delle direttive e degli utenti registrati.
+
+Vogliamo verificare che \file{ConversationWebhookService} interagisca correttamente con il servizio esterno api.ai, ovvero che venga controllato correttamente se l'utente è un amministratore, un ospite conosciuto o un ospite nuovo.
+
+Vogliamo verificare che \file{ConversationWebhookService} interagisca correttamente con \file{Conversations}, ovvero utilizzando le operazioni CRUD fornite sul database delle conversazioni.
+
+Vogliamo verificare che \file{VAMessageListener} interagisca correttamente con \file{Guests} e \file{Conversations}, ovvero utilizzando le operazioni CRUD fornite sul database degli ospiti e delle conversazioni.
+
+Vogliamo verificare che \file{STT} interagisca correttamente con il servizio esterno di Speech to text IBM Watson.
+
+Vogliamo verificare che \file{MemberDAOSlack} interagisca correttamente con Slack.
+
+(Vogliamo verificare che il sistema interagisca correttamente con i servizi di AWS utilizzati: Lambda, API Gateway, SNS, DynamoDB.)
+
+(Vogliamo verificare che i \file{DAO} interagiscano correttamente con la sorgente dei dati, gestendo le operazioni CRUD su di essi.)
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+--------------------------------------------- NUOVO --------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+
+CLIENT
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Client::ApplicationManager}, interagiscano tra loro correttamente: \file{ApplicationManagerObserver}, \file{ApplicationRegistryClient}, \file{ApplicationRegistryLocalClient}, \file{ApplicationLocalRegistry}, \file{Manager}, \file{State}, \file{Application}, \file{ApplicationPackage}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Client::Logic}, interagiscano tra loro correttamente: \file{DataArrivedSubject}, \file{DataArrivedObservable}, \file{Logic}, \file{HttpError}, \file{HttpPromise}, \file{LogicObserver}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Client::Recorder}, interagiscano tra loro correttamente: \file{Recorder}, \file{RecorderWorker}, \file{RecorderMsg}, \file{RecorderWorkerMsg}, \file{RecorderWorkerConfig}, \file{RecorderConfig}, \file{SpeechEndSubject}, \file{SpeechEndObservable}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Client::TTS}, interagiscano tra loro correttamente: \file{TTSConfig}, \file{Player}, \file{PlayerObserver}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Client::Utility}, interagiscano tra loro correttamente: \file{BoolSubject}, \file{BoolObservable}, \file{BoolObserver}.
+
+BACK-END
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::APIGateway}, interagiscano tra loro correttamente: \file{VocalAPI}, \file{Enrollement}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Auth}, interagiscano tra loro correttamente: \file{UsersDAODynamoDB}, \file{User}, \file{UsersService}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Rules}, interagiscano tra loro correttamente: \file{Rule}, \file{RulesDAODynamoDB}, \file{RuleTarget}, \file{RuleTaskInstance}, \file{RulesService}, \file{TasksDAODynamoDB}, \file{Task}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::VirtualAssistant}, interagiscano tra loro correttamente: \file{VAService}, \file{ApiAIVAAdapter}, \file{VAQuery}, \file{Agent}, \file{AgentDAODynamoDB}, \file{VAEventObject}, \file{Fulfillment}, \file{MsgObject}, \file{ButtonObject}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Member}, interagiscano tra loro correttamente: \file{MembersSlackDAO}, \file{Member}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Guests}, interagiscano tra loro correttamente: \file{Guest}, \file{GuestDAODynamoDB}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Conversations}, interagiscano tra loro correttamente: \file{ConversationDAODynamoDB}, \file{Conversation}, \file{ConversationMsg}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Events}, interagiscano tra loro correttamente: \file{SNSRecord}, \file{SNSMessage}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Notifications}, interagiscano tra loro correttamente: \file{NotificationChannel}, \file{Purpose}, \file{Topic}, \file{NotificationMessage}, \file{Attachment}, \file{Action}, \file{ConfirmationFields}.
+
+Vogliamo verificare che le seguenti classi, contenute in \file{Back-end::Utility}, interagiscano tra loro correttamente: \file{WebhookRequest}, \file{ProcessingResult}, \file{LamdaIdEvent}, \file{PathIdParam}.

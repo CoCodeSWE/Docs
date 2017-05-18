@@ -1,0 +1,21 @@
+A:=assistente virtuale
+S:=slack
+Se non è indicato nessun attore, allora si intende che dovranno essere aggiunti tutti(S ed A)
+
+UC0
+UC5(A)
+UC1(A)
+UC3
+UC3.1
+UC3.2
+UC3.3(A)
+UC3.2.1
+UC3.2.2(A)
+UC3.2.3(A)
+UC3.2.4
+UC3.2.5(A)
+UC3.3(A) e su tutti i figli
+UC4(A)
+UC6(S)
+
+

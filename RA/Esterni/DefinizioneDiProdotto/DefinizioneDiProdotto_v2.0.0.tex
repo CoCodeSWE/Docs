@@ -1,0 +1,124 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+}
+\usepackage{mdwlist}
+\def\NOME{Definizione di Prodotto}
+\def\VERSIONE{2.0.0}
+\def\DATA{2017-04-22}
+\def\REDATTORE{Simeone Pizzi \\ & Luca Bertolini \\ & Andrea Magnan \\ & Mattia Bottaro}
+\def\VERIFICATORE{Nicola Tintorri}
+\def\RESPONSABILE{Mauro Carlin}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \PROPONENTE}
+\def\SOMMARIO{Questo documento contiene le scelte progettuali effettuate dal gruppo \GRUPPO{} per la realizzazione del \gl{progetto} \PROGETTO.}
+
+\begin{document}
+
+	\maketitle
+
+	\begin{diario}
+		\modifica{Mauro Carlin}{\RESP}{Approvazione del documento}{2017-04-22}{2.0.0}
+		\modifica{Nicola Tintorri}{\VER}{\gl{Verifica} del documento}{2017-04-20}{1.2.0}
+		\modifica{Mattia Bottaro}{\PJ}{Corretti errori rilevati nella \gl{verifica}}{2017-04-19}{1.1.1}
+		\modifica{Nicola Tintorri}{\VER}{Verifica del documento}{2017-04-19}{1.1.0}
+		\modifica{Andrea Magnan}{\PJ}{Modificata la query string dell'\gl{endpoint} con metodo GET del \gl{microservizio} Rules}{2017-04-18}{1.0.4}
+		\modifica{Luca Bertolini}{\PJ}{Migliorate le descrizioni sui diagrammi dei packages}{2017-04-18}{1.0.3}
+		\modifica{Simeone Pizzi}{\PJ}{Spostata la sezione dei diagrammi di sequenza (\ref{sequenza}) dopo quella delle componenti di dettaglio (\ref{componenti})}{2017-04-18}{1.0.2}
+		\modifica{Mattia Bottaro}{\PJ}{Rimosso capitolo "Diagrammi riassuntivi dei package" ed aggiunte immagini package in capitolo \ref{componenti} (Specifica delle componenti)}{2017-04-18}{1.0.1}
+		\modifica{Andrea Magnan}{\RESP}{Approvazione del documento}{2017-03-30}{1.0.0}
+		\modifica{Nicola Tintorri}{\VER}{Verifica del documento}{2017-03-30}{0.6.0}
+		\modifica{Luca Bertolini}{\PJ}{Aggiunta sezione Diagrammi di sequenza}{2017-03-26}{0.5.4}
+		\modifica{Mattia Bottaro}{\PJ}{Aggiunta sezione Design Patterns}{2017-03-25}{0.5.3}
+		\modifica{Simeone Pizzi}{\PJ}{Conclusa stesura classi Client e aggiornamento data ultima visita risorse web volatili}{2017-03-21}{0.5.2}
+		\modifica{Mattia Bottaro}{\PJ}{Correzione errori rilevati durante verifica}{2017-02-21}{0.5.1}
+		\modifica{Mauro Carlin}{\VER}{Verifica del documento}{2017-03-21}{0.5.0}
+		\modifica{Simeone Pizzi}{\PJ}{Conclusa stesura classi Back-end e aggiornamento data ultima visita risorse web volatili}{2017-03-21}{0.4.4}
+		\modifica{Luca Bertolini}{\PJ}{Stesura Back-end::Events e Back-end::APIGateway}{2017-03-20}{0.4.3}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Stesura classi di \gl{Slack}, WatsonDeveloperCloud, React e RxJS}{2017-03-20}{0.4.2}
+		\modifica{Luca Bertolini}{\PJ}{Correzione errori rilevati durante verifica}{2017-03-19}{0.4.1}
+		\modifica{Nicola Tintorri}{\VER}{Verifica del documento}{2017-03-19}{0.4.0}
+		\modifica{Simeone Pizzi}{\PJ}{Stesura Back-end::Users}{2017-03-19}{0.3.4}
+		\modifica{Mattia Bottaro}{\PJ}{Stesura Client::TTS}{2017-03-19}{0.3.3}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Stesura Back-end::STT e Back-end::Notifications}{2017-03-18}{0.3.2}
+		\modifica{Luca Bertolini}{\PJ}{Correzione errori rilevati durante verifica}{2017-03-16}{0.3.1}
+		\modifica{Nicola Tintorri}{\VER}{Verifica del documento}{2017-03-15}{0.3.0}
+		\modifica{Simeone Pizzi}{\PJ}{Stesura Client::Recorder}{2017-03-15}{0.2.5}
+		\modifica{Mattia Bottaro}{\PJ}{Stesura Back-end::Guests}{2017-03-13}{0.2.4}
+		\modifica{Simeone Pizzi}{\PJ}{Stesura Client::Utility}{2017-03-13}{0.2.3}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Stesura Client::ApplicationManager e Client::Logic}{2017-03-12}{0.2.2}
+		\modifica{Luca Bertolini}{\PJ}{Correzione errori rilevati durante verifica}{2017-03-09}{0.2.1}
+		\modifica{Mauro Carlin}{\VER}{Verifica del documento}{2017-03-09}{0.2.0}
+		\modifica{Luca Bertolini}{\PJ}{Aggiunta sezione Tecnologie utilizzate}{2017-03-09}{0.1.6}
+		\modifica{Mattia Bottaro}{\PJ}{Stesura Back-end::Conversation}{2017-03-08}{0.1.5}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Stesura Back-end::APIGateway e Back-end::Rules}{2017-03-08}{0.1.4}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Inizio stesura Client}{2017-03-07}{0.1.3}
+		\modifica{Luca Bertolini}{\PJ}{Inizio stesura Back-end}{2017-03-06}{0.1.2}
+		\modifica{Nicola Tintorri}{\PJ}{Correzione errori rilevati durante verifica}{2017-02-16}{0.1.1}
+		\modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-02-16}{0.1.0}
+		\modifica{Simeone Pizzi}{\PJ}{Conclusa sezione architettura dell'applicazione}{2017-02-15}{0.0.5}
+		\modifica{Simeone Pizzi}{\PJ}{Aggiunta sezione Standard di progetto}{2017-02-13}{0.0.4}
+		\modifica{Pier Paolo Tricomi}{\PJ}{Inizio sezione architettura dell'applicazione}{2017-02-12}{0.0.3}
+		\modifica{Nicola Tintorri}{\PJ}{Inizio stesura introduzione (scopo del documento e riferimenti)}{2017-02-09}{0.0.2}
+		\modifica{Mauro Carlin}{\PJ}{Definizione struttura del documento}{2017-02-06}{0.0.1}
+
+	\end{diario}
+
+	\newpage
+	\tableofcontents
+	\listoffigures
+	\newpage
+
+
+	\include{introduzione}
+	\include{standardprogetto}
+	\include{architetturappl}
+
+	\include{classi}
+	\include{sequenza}
+	\include{tracciamento}
+	\appendix
+	\include{patterns}
+	\include{strutturaDB}
+\end{document}
