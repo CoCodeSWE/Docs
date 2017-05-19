@@ -690,6 +690,242 @@ In questo package sono contenute le classi che realizzano:
 \end{itemize}
 \FloatBarrier
 \newpage
+\subsubsection{Back-end::Curiosity}
+Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle curiosità da comunicare all'ospite. \\
+Vengono offerte funzionalità che permettono:
+\begin{itemize}
+\item la lettura di una singola curiosità, presa a caso tra quelle non ancora comunicate all'ospite nell'interazione corrente, in base al tipo richiesto. 
+\end{itemize}
+
+Sono contenute le classi che realizzano:
+\begin{itemize} 
+ \item la definizione dei dati relativi ad una curiosità; 
+ \item il microservizio che espone gli endpoint per permetterne il suo utilizzo. 
+ \item l'interfaccia per l'interazione con il database contenente le curiosità;
+ \item le modalità con le quali i dati devono essere trasmessi da e al database;
+ \item il microservizio che espone gli endpoint per permetterne il suo utilizzo.
+\end{itemize}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Curiosity.png}
+	\caption{Package Back-end::Curiosity}
+\end{figure}
+\paragraph{Classi}
+\hypertarget{ CuriosityDAO_label}{\subparagraph{ CuriosityDAO}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityDAO.png}
+	\caption{Back-end::Curiosity:: CuriosityDAO}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{CuriosityDAO};
+	\item \textbf{Tipo}: \file{Interface};
+	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione con il database contenente le curiosità;
+	\item \textbf{Utilizzo}: fornisce a \file{CuriosityWebhookService} un meccanismo per accedere al database contenente le curiosità, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di curiosità;
+	\item \textbf{Figlio}: \file{CuriosityDAODynamoDB};
+	\item \textbf{Metodi}: 
+	\begin{itemize}
+		\item[] \file{+ getCuriosity(type: String): CuriosityObservable} \\		Metodo che permette di ottenere una curiosità, la quale sarà casuale e non ancora comunicata all'ospite nell'interazione corrente, in base al tipo di curiosità \file{type}.
+ L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Curiosity}, e verrà completato. Nel caso in cui non sia possibile ottenere una curiosità, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error}.\\
+Questo metodo ha tra i parametri quattro array, ognuno dei quali contenenti le curiosità di un determinato tipo. Quando viene richiesta una curiosità di un certo tipo, essa viene estratta dal relativo array, per poi essere restituita al chiamante;\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{type: String} \\
+			Parametro contente il tipo di curiosità richiesto dall'ospite.\\
+Può assumere uno tra i seguenti valori:
+\begin{itemize}
+ \item "food";
+ \item "general";
+ \item "sport";
+ \item "technology".
+\end{itemize};
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item IN \hyperlink{CuriosityWebhookService_label}{\file{CuriosityWebhookService}}
+		\item IN \hyperlink{CuriosityService_label}{\file{CuriosityService}}
+		\item OUT \hyperlink{CuriosityObservable_label}{\file{CuriosityObservable}}
+		\item OUT \hyperlink{ErrorObservable_label}{\file{ErrorObservable}}
+		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{Curiosity_label}{\subparagraph{Curiosity}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosity.png}
+	\caption{Back-end::Curiosity::Curiosity}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{Curiosity};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di raggruppare le informazioni relative ad una curiosità;
+	\item \textbf{Utilizzo}: fornisce l'accesso ai dati relativi ad una curiosità;
+	\item \textbf{Attributi}: 
+	\begin{itemize}
+		\item[] \file{+ id: String} \\
+		Stringa contenente l'id della curiosità;
+		\item[] \file{+ type: String} \\
+		Stringa contenente il tipo della curiosità;
+		\item[] \file{+ text: String} \\
+		Stringa contenente il testo della curiosità;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item IN \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
+		\item IN \hyperlink{CuriosityObserver_label}{\file{CuriosityObserver}}
+		\item IN \hyperlink{CuriosityDAODynamoDB_label}{\file{CuriosityDAODynamoDB}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{CuriosityDAODynamoDB_label}{\subparagraph{CuriosityDAODynamoDB}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityDAODynamoDB.png}
+	\caption{Back-end::Curiosity::CuriosityDAODynamoDB}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{CuriosityDAODynamoDB};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che si occupa di implementare l'interfaccia \file{CuriosityDAO}, utilizzando un database DynamoDB come supporto per la memorizzazione dei dati;
+	\item \textbf{Utilizzo}: implementa i metodi dell'interfaccia \file{CuriosityDAO} interrogando un database DynamoDB. Utilizza \file{AWS::DynamoDB::DocumentClient} per l'accesso al database. La dependency injection dell'oggetto \file{AWS::DynamoDB} viene fatta utilizzando il costruttore;
+	\item \textbf{Padre}: \file{<<interface>> CuriosityDAO};
+	\item \textbf{Attributi}: 
+	\begin{itemize}
+		\item[] \file{- client: AWS::DynamoDB::DocumentClient} \\
+		Attributo contenente un riferimento al modulo di Node.js utilizzato per l'accesso al database DynamoDB contenente la tabella delle curiosità;
+	\end{itemize}
+	\item \textbf{Metodi}: 
+	\begin{itemize}
+		\item[] \file{+ getCuriosity(type: String): CuriosityObservable} \\		Implementazione del metodo definito nell'interfaccia \file{CuriosityDAO}. Utilizza il metodo \file{get} del \file{DocumentClient} per ottenere i dati relativi ad una \file{Curiosity} dal database;\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{type: String} \\
+			Parametro contente il tipo di curiosità richiesto dall'ospite.\\ Può assumere uno tra i seguenti valori: \begin{itemize} \item "food"; \item "general"; \item "sport"; \item "technology". \end{itemize};
+		\end{itemize}
+		\item[] \file{+ <<Create>> createRulesDAODynamoDB(client: AWS::DynamoDB::DocumentClient)\\: CuriosityDAODynamoDB} \\		Constructor della classe \file{CuriosityDAODynamoDB}. Permette di effettuare la dependency injection di \file{AWS::DynamoDB};\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{client: AWS::DynamoDB::DocumentClient} \\
+			Parametro contenente un riferimento al modulo di Node.js da utilizzare per l'accesso al database DynamoDB contenente la tabella delle rule;
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
+		\item OUT \hyperlink{CuriosityObservable_label}{\file{CuriosityObservable}}
+		\item OUT \hyperlink{ErrorObservable_label}{\file{ErrorObservable}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{CuriosityObservable_label}{\subparagraph{CuriosityObservable}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityObservable.png}
+	\caption{Back-end::Curiosity::CuriosityObservable}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{CuriosityObservable};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione di \\ \file{CuriosityObserver};
+	\item \textbf{Utilizzo}: fornisce i meccanismi necessari per il passaggio di una serie di \file{Curiosity} ad un \file{Observer} interessato;
+	\item \textbf{Padre}: \file{Observable};
+	\item \textbf{Metodi}: 
+	\begin{itemize}
+		\item[] \file{+ <>createCuriosityObservable(onSubscription: function(observer: \\CuriosityObserver) : void): CuriosityObservable} \\		Constructor di \file{CuriosityObservable};\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{onSubscription: function(observer: CuriosityObserver) : void} \\
+			Funzione che verrà eseguita quando un \file{Observer} si iscrive all'\file{Observable}. Si occupa di passare i dati all'\file{Observer}, chiamando il metodo \file{next(curiosity: Curiosity)}. Quando non ci sono più dati da restituire, si occupa di chiamare il metodo \file{complete()}. Nel caso in cui si verificasse un errore, si occupa di chiamare il metodo \file{error(err: Object)} con i dati relativi all'errore verificatosi;
+		\end{itemize}
+		\item[] \file{+ subscribe(observer: CuriosityObserver): Subscription} \\		Metodo che permette ad uno \file{CuriosityObserver} interessato di iscriversi a questo \file{Observable};\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{observer: CuriosityObserver} \\
+			\file{Observer} che si vuole iscrivere;
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item IN \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
+		\item IN \hyperlink{CuriosityDAODynamoDB_label}{\file{CuriosityDAODynamoDB}}
+		\item OUT \hyperlink{CuriosityObserver_label}{\file{CuriosityObserver}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{CuriosityObserver_label}{\subparagraph{CuriosityObserver}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityObserver.png}
+	\caption{Back-end::Curiosity::CuriosityObserver}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{CuriosityObserver};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Curiosity};
+	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Curiosity};
+	\item \textbf{Metodi}: 
+	\begin{itemize}
+		\item[] \file{+ next(curiosity: Curiosity): void} \\		 Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Curiosity}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{curiosity: Curiosity} \\
+			Parametro contenente la \file{Curiosity} mandata dall'\file{Observable};
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item IN \hyperlink{CuriosityObservable_label}{\file{CuriosityObservable}}
+		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{CuriosityService_label}{\subparagraph{CuriosityService}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityService.png}
+	\caption{Back-end::Curiosity::CuriosityService}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{CuriosityService};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Curiosity};
+	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie per ottenere le curiosità presenti nel database;
+	\item \textbf{Attributi}: 
+	\begin{itemize}
+		\item[] \file{- curiosity: CuriosityDAO} \\
+		Attributo che permette di contattare \file{CuriosityDAO}, il quale fornisce i meccanismi d'accesso al database delle curiosità;
+	\end{itemize}
+	\item \textbf{Metodi}: 
+	\begin{itemize}
+		\item[] \file{+ getCuriosity(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di recuperare una curiosità, casuale e non ancora comunicata all'ospite, di un determinato tipo;\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{event: LambdaIdEvent} \\
+			Parametro contenente, all'interno del campo pathParameters, il tipo dal quale scegliere una curiosità;
+			\item \file{context: LambdaContext} \\
+			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di stringa in formato JSON, un oggetto di tipo \file{Curiosity}, contenente i dati relativi alla \file{Curiosity} ritornata;
+		\end{itemize}
+		\item[] \file{+ <<Create>> createCuriosityService(curiosity: CuriosityDAO): CuriosityService}\\ \\		Metodo che permette di creare un \file{CuriosityService}. Permette la dependency injection avente come oggetto un \file{CuriosityDAO};\\
+		Parametri: 
+		\begin{itemize}
+			\item \file{curiosity: CuriosityDAO} \\
+			Attributo contenente il \file{CuriosityDAO};
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}: 
+	\begin{itemize}
+		\item OUT \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
+		\item OUT \hyperlink{LambdaContext_label}{\file{LambdaContext}}
+		\item OUT \hyperlink{LambdaIdEvent_label}{\file{LambdaIdEvent}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+\newpage
 \subsubsection{Back-end::Events}
 In questo package sono contenute le classi che realizzano:
 \begin{itemize}

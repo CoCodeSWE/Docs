@@ -771,6 +771,56 @@ Se, invece, viene passato un certo target, vengono restituite le direttive assoc
 \end{itemize}
 
 \end{itemize}
+\subsubsection{Curiosity}
+\paragraph{Descrizione}
+Il microservizio Curiosity si occupa della gestione delle curiosità disponibili al sistema. Una curiosità viene comunicata all'ospite con lo scopo di intrattenerlo fino all'arrivo della persona desiderata. Allo stato attuale il microservizio espone un solo endpoint che permette il recupero di una curiosità in base al tipo richiesto dall'utente. Tale curiosità sarà comunicata all'utente una sola volta nel corso della stessa interazione.\\
+Una curiosità è costituita da: \begin{itemize}
+\item un id, il quale identifica univocamente una curiosità;
+\item un testo, contenente la frase effettiva della curiosità;
+\item un tipo, che identifica la tipologia della curiosità.
+\end{itemize}
+\paragraph{Endpoints}
+
+Ora verranno definiti gli Endpoints forniti dal microservizio Curiosity.\\
+Per ogni risorsa sono stati specificati i formati per lo scambio dei dati in JSON:
+\begin{itemize}
+\item \textbf{Request:} rappresenta l’oggetto JSON che dovrà essere passato nel corpo della richiesta HTTP;
+\item \textbf{Response xxx:} indica il formato del corpo della risposta, con \file{xxx} come codice di stato della risposta HTTP.
+\end{itemize}
+Gli Endpoints sono:
+\begin{itemize}
+\item \textbf{/curiosity?type=\$type}\\
+\begin{itemize}
+\item \textbf{Method:} GET;
+\item \textbf{Descrizione:} restituisce una curiosità del tipo \file{type} non ancora comunicata all'utente. \file{type} può assumere i seguenti valori: sport, food, technology, general;
+\item \textbf{Response 200:} in caso la chiamata vada a buon fine, la risposta deve contenere i campi organizzati come descritto in \\\file{Back-end::Curiosity::Curiosity}:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "id": "String",
+  "text": "String",
+  "type": "String"
+}
+\end{lstlisting}
+\item \textbf{Response 403:} Nel caso la richiesta non includa un header \file{x-api-key} con una chiave valida per l'accesso al microservizio, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Forbidden"
+}
+\end{lstlisting}
+\item \textbf{Response 404:} Nel caso la risorsa richiesta non sia disponibile, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Not found"
+}
+\end{lstlisting}
+\item \textbf{Response 500:} Nel caso si verifichino degli errori durante il tentativo di soddisfare la richiesta, la chiamata restituirà la seguente risposta:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "message":"Messaggio relativo all'errore"
+}
+\end{lstlisting}
+\end{itemize}
+\end{itemize}
 \newpage
 \subsection{Action supportate} \label{action}
 Di seguito vengono elencate le action, supportate dal \file{Back-end}, che api.ai può ritornare in seguito alla richiesta di un utente. \\
@@ -809,3 +859,6 @@ I metodi citati appartengono alla classe \file{Back-end::APIGateway::VocalAPI}.
 
 
 \end{itemize}
+
+
+

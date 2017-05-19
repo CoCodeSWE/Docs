@@ -166,3 +166,21 @@ AttributeDefinitions:
   "lang": {"S" : "lingua dell'agente"}
 ]
 \end{lstlisting}
+
+La tabella \textbf{Curiosity} descrive le curiosità con cui intrattenere l'utente.
+\begin{lstlisting}[language=json,firstnumber=1]
+TableName: "Curiosity",
+KeySchema:
+[
+  {
+    AttributeName: "id",
+    KeyType: "HASH"
+  }
+],
+AttributeDefinitions:
+[
+  "id": {"S" : "id della curiosity"},
+  "text": {"S" : "testo della curiosity"},  
+  "type": {"S" : "tipologia della curiosity"} 
+]
+\end{lstlisting}
