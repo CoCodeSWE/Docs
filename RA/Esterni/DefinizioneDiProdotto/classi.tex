@@ -709,7 +709,7 @@ Sono contenute le classi che realizzano:
 	\caption{Package Back-end::Curiosity}
 \end{figure}
 \paragraph{Classi}
-\hypertarget{ CuriosityDAO_label}{\subparagraph{ CuriosityDAO}}
+\hypertarget{CuriosityDAO_label}{\subparagraph{CuriosityDAO}}
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityDAO.png}
@@ -884,47 +884,7 @@ Può assumere uno tra i seguenti valori:
 \end{itemize}
 \FloatBarrier
 
-\hypertarget{CuriosityService_label}{\subparagraph{CuriosityService}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityService.png}
-	\caption{Back-end::Curiosity::CuriosityService}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{CuriosityService};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di realizzare il microservizio \file{Curiosity};
-	\item \textbf{Utilizzo}: fornisce i metodi che implementano le lambda function necessarie per ottenere le curiosità presenti nel database;
-	\item \textbf{Attributi}: 
-	\begin{itemize}
-		\item[] \file{- curiosity: CuriosityDAO} \\
-		Attributo che permette di contattare \file{CuriosityDAO}, il quale fornisce i meccanismi d'accesso al database delle curiosità;
-	\end{itemize}
-	\item \textbf{Metodi}: 
-	\begin{itemize}
-		\item[] \file{+ getCuriosity(event: LambdaIdEvent, context: LambdaContext): void}\\ \\		Metodo che implementa la lambda function che si occupa di recuperare una curiosità, casuale e non ancora comunicata all'ospite, di un determinato tipo;\\
-		Parametri: 
-		\begin{itemize}
-			\item \file{event: LambdaIdEvent} \\
-			Parametro contenente, all'interno del campo pathParameters, il tipo dal quale scegliere una curiosità;
-			\item \file{context: LambdaContext} \\
-			Parametro utilizzato dalle lambda function per inviare la risposta. Il \file{body} del \file{LambdaResponse}, ottenuto dal metodo \file{LambdaContext::succeed}, conterrà, sotto forma di stringa in formato JSON, un oggetto di tipo \file{Curiosity}, contenente i dati relativi alla \file{Curiosity} ritornata;
-		\end{itemize}
-		\item[] \file{+ <<Create>> createCuriosityService(curiosity: CuriosityDAO): CuriosityService}\\ \\		Metodo che permette di creare un \file{CuriosityService}. Permette la dependency injection avente come oggetto un \file{CuriosityDAO};\\
-		Parametri: 
-		\begin{itemize}
-			\item \file{curiosity: CuriosityDAO} \\
-			Attributo contenente il \file{CuriosityDAO};
-		\end{itemize}
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
-	\begin{itemize}
-		\item OUT \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
-		\item OUT \hyperlink{LambdaContext_label}{\file{LambdaContext}}
-		\item OUT \hyperlink{LambdaIdEvent_label}{\file{LambdaIdEvent}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
+
 \newpage
 \subsubsection{Back-end::Events}
 In questo package sono contenute le classi che realizzano:
