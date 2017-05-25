@@ -30,7 +30,7 @@ In figura \ref{fig:apig1} si ha una rappresentazione generale, non specifica del
 \newpage
 Nella progettazione dell'architettura, il team ha seguito i vincoli posti dall'approccio architetturale \gl{REST}, i quali sono consultabili alla pagina \url{https://en.wikipedia.org/wiki/Representational_state_transfer} (visitato in data 2017-04-22).
 \subsection{Sicurezza API Gateway ed endpoints}
-Con lo scopo di garantire una certa sicurezza, l'accesso agli endpoints pubblicati sull'API Gateway deve essere controllato e regolato. \\Questo è necessario in quanto tramite essi è possibili fare operazioni sensibili sul sistema, quindi un utente malintenzionato potrebbe comprometterne il corretto funzionamento.\\
+Con lo scopo di garantire una certa sicurezza, l'accesso agli endpoints pubblicati sull'API Gateway deve essere controllato e regolato. \\Questo è necessario in quanto tramite essi è possibile fare operazioni sensibili sul sistema, quindi un utente malintenzionato potrebbe comprometterne il corretto funzionamento.\\
 Il servizio AWS API Gateway fornisce sofisticati ed avanzati meccanismi per la protezione degli endpoint, i quali sono esposti e spiegati alla pagina \url{http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html} (visitato in data 2017-04-22). \\
 
 Il sistema progettato prevede due tipologie di utenti (ospite e amministratore), caratterizzati da diverse interazioni con l'assistente virtuale. Vengono quindi supportate dal \file{Back-end} differenti operazioni, invocabili tramite appositi endpoints, in base alla tipologia d'utente. Nasce di conseguenza la necessità di vincolare ogni tipologia d'utente ai soli endpoints ad essa dedicati. \\

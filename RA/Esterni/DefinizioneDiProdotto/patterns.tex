@@ -93,7 +93,7 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 		\newpage
     \subsubsection{Dependency Injection}
      \begin{itemize}
-       \item \textbf{Scopo:} la \gl{dependency injection }consiste nella separazione del comportamento di una componente dalla risoluzione delle sue dipendenze.
+       \item \textbf{Scopo:} la \gl{dependency injection} consiste nella separazione del comportamento di una componente dalla risoluzione delle sue dipendenze. La \textit{constructor injection} avviene quando le dipendenze vengono dichiarate nel costruttore (figura \ref{fig:constr_dep}), mentre la \textit{setter injection} quando esse vengono dichiarate come metodi setter (figura \ref{fig:setter_dep}).
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item la separazione del comportamento dalle dipendenze rende una componente molto più flessibile;
@@ -105,28 +105,44 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 	   \item rende più difficile il tracciamento del codice in quanto ne separa la costruzione dal comportamento.
 	  \end{itemize}
 	\end{itemize}
-
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{images/constructor_dep.png}
+		\caption{Constructor injection}\label{fig:constr_dep}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/setter_dep.png}
+		\caption{Setter injection}\label{fig:setter_dep}
+	\end{figure}
+\newpage
   \subsection{Strutturali}
-
     \subsubsection{Façade}
       \begin{itemize}
        \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. \\
-       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API Gateway}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta;
+       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API Gateway}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta (figura \ref{fig:facade_atavi});
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come \gl{façade} semplificando l'operazione;
 	   \item permette di diminuire le dipendenze tra sottosistemi;
-	  \end{itemize}\newpage
+	  \end{itemize}
 	\item \textbf{Svantaggi:}
 	  \begin{itemize}
 	   \item i sottosistemi risultano essere collegati al façade: modifiche alla struttura dei sottosistemi comportano una serie di modifiche al façade stesso;
 	  \end{itemize}
 	\end{itemize}
+		\newpage
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/patternfacade.png}
-		\caption{pattern Façade}\label{fig:facade}
+		\caption{Pattern Façade}\label{fig:facade}
 	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/facadepattern.png}
+		\caption{Pattern Façade nella nostra architettura}\label{fig:facade_atavi}
+	\end{figure}
+	\newpage
     \subsubsection{Adapter}
       \begin{itemize}
        \item \textbf{Scopo:} questo pattern permette la comunicazione tra due interfacce completamente differenti tramite l'utilizzo di un Adapter.
@@ -185,7 +201,7 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
 	  \end{itemize}
 	\end{itemize}
 	In figura \ref{fig:obs2} si ha il diagramma del pattern Observer.
-È utilizzato da diverse classi del sistema per osservare e gestire gli eventi generati dalle classi Subject, ma sempre secondo lo schema in figura \ref{fig:obs2}. Pertanto, come esempio, viene riportato solo il diagramma relativo alla relazione tra AgentObserver e AgentObservable.
+È utilizzato da diverse classi del sistema per osservare e gestire gli eventi generati dalle classi Subject, ma sempre secondo lo schema in figura \ref{fig:obs2}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,scale=0.1]{images/diagrams/back-end/Official_Backend_0304/Observer.png}

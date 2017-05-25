@@ -1,6 +1,6 @@
 \section{Specifica delle Componenti}\label{componenti}
 \subsection{Back-end}\label{Back-end}
-\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate secondo il pattern a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
+\gl{Package} contenente tutte le componenti che costituiscono il back-end. Le componenti sono organizzate seguendo un'architettura a \gl{microservizi}.   \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Back-end.png}
 	\caption{Package Back-end}
 \end{figure}
 \paragraph{Classi}
@@ -4033,8 +4033,8 @@ Vengono offerte funzionalità che permettono:
 \item il salvataggio dello stato di un'applicazione;
 \item il cambio di un'applicazione con un'altra.
 \end{itemize}
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ConversationApp.png}
-	\caption{Package Client::ConversationApp}
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ApplicationManager.png}
+	\caption{Package Client::ApplicationManager}
 \end{figure}
 \paragraph{Classi}
 \hypertarget{ ApplicationRegistryClient_label}{\subparagraph{ ApplicationRegistryClient}}
@@ -4408,6 +4408,10 @@ Le classi contenute in questo package permettono di:
 \item notificare gli observer collegati che è stata decisa la \file{ConversationAction};
 \item gestire i comandi da eseguire da \file{ConversationApp}.
 \end{itemize}
+
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/ConversationApp.png}
+	\caption{Package Client::ConversationApp}
+\end{figure}
 
 \paragraph{Classi}
 \hypertarget{ConversationAction_label}{\subparagraph{ConversationAction}}

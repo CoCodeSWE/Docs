@@ -82,34 +82,20 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
  Viene utilizzata la versione corrente alla stesura del documento, ovvero la 2.5.
  \subsubsection{Progettazione}\label{progettazione}
  \paragraph{Scopo dell'attività}
- L'attività di progettazione definisce le linee essenziali della struttura del prodotto \gl{software} in
- funzione dei requisiti individuati dall'analisi. L'obiettivo del processo consiste nella stesura dei
- documenti: \textit{"Specifica Tecnica"} e \textit{"Definizione di \gl{Prodotto}"}. \\
- Compresi pienamente quali siano i requisiti del problema e approfondendo la progettazione a moduli
- abbastanza semplici da essere capiti da una sola persona, si otterranno le
- istruzioni necessarie ai \PRP{} per sviluppare il prodotto.\\
+ L'attività di progettazione definisce come deve essere realizzata la struttura dell'architettura
+software. I requisiti delineati, all'interno del documento \textit{"Analisi dei Requisiti"}, devono essere
+utili a realizzare la documentazione specifica e a determinare le linee guida da seguire durante
+l'attività di codifica. Tale attività deve essere svolta in maniera ottimale e precisa dai \PJP.
+ 
+\paragraph{Diagrammi}
  La progettazione deve utilizzare le seguenti tipologie di diagrammi UML:
  \begin{itemize}
  	\item \textbf{Diagrammi delle classi}: illustrano una collezione di elementi dichiarativi di un modello	come classi e tipi, assieme ai loro contenuti e alle loro relazioni;
  	\item \textbf{Diagrammi dei \gl{packages}}: raggruppamenti di classi in una unità di livello più alto;
- 	\item \textbf{Diagrammi di attività}: illustrano il flusso di operazioni relativo ad un’attività; utilizzati	soprattutto per descrivere la logica di un algoritmo. Nel contesto del progetto \PROGETTO, questo tipo di diagramma potrebbe rappresentare bene il flusso del dialogo con l'assistente virtuale;
+ 	\item \textbf{Diagrammi di attività}: illustrano il flusso di operazioni relativo ad un’attività; utilizzati soprattutto per descrivere la logica di un algoritmo. Nel contesto del progetto \PROGETTO, questo tipo di diagramma potrebbe rappresentare bene il flusso del dialogo con l'assistente virtuale;
  	\item \textbf{Diagrammi di sequenza}: descrivono una determinata sequenza di azioni dove tutte le
  	scelte sono già state effettuate; in pratica nel diagramma non compaiono scelte, né flussi
  	alternativi.
- \end{itemize}
- \paragraph{Aspettative dell'attività}
- Il processo porta alla formazione dei documenti sopracitati, i quali garantiscono affidabilità e
- coerenza.
- \paragraph{Descrizione dell'attività}
- La progettazione deve rispettare tutti i vincoli e i requisiti concordati tra i componenti del gruppo
- e i proponenti. I documenti derivati da questa attività sono:
- \begin{itemize}
- 	\item \textbf{Specifica tecnica}: descrive la progettazione ad alto livello relativa all'architettura dell'applicazione
- 	e dei singoli componenti. Il documento specifica i diagrammi UML ed i design
- 	pattern utilizzati per realizzare l'architettura definendo inoltre i test necessari alla verifica;
- 	\item \textbf{Definizione di prodotto}: descrive in dettaglio la progettazione di \gl{sistema}, integrando
- 	quanto scritto nella Specifica Tecnica. Il documento specifica i diagrammi UML e le
- 	definizioni delle classi definendo inoltre i test necessari alla verifica.
  \end{itemize}
 
  \paragraph{Requisiti per i progettisti}\label{req prog}
@@ -121,11 +107,22 @@ Ogni caso d'uso ha un proprio codice identificativo  che rispetta il seguente fo
 mancanza di una metodologia che sia sufficientemente espressiva;
  	\item capacità di individuare con rapidità e sicurezza le soluzioni più opportune.
  \end{itemize}
+ 
+ \paragraph{Obiettivi della progettazione}\label{ob prog}
+ L'attività di progettazione si pone i seguenti obiettivi:
+ \begin{itemize}
+ 	\item progettare un software con le caratteristiche di qualità che sono state dettagliate nella fase
+di analisi e specifica dei requisiti;
+ 	\item capacità di poter far fronte a modifiche da effettuare senza che l'intera struttura del
+software già costruita debba essere messa nuovamente in discussione ed elaborata;
+ 	\item soddisfare i requisiti di qualità fissati dal committente.
+ \end{itemize}
+ 
 
  \paragraph{Specifica tecnica}\label{Specifica tecnica}
  I \PJP{} devono definire la struttura ad alto livello dell'architettura del sistema e dei singoli
 componenti, raccogliendo il tutto nella \textit{"Specifica Tecnica"}. Devono, inoltre, essere definiti i test di
-integrazione tra le varie componenti, che verranno inseriti in appendice al Piano di Qualifica.
+integrazione tra le varie componenti, che verranno inseriti in appendice al \textit{"Piano di Qualifica"}.
 I prodotti di questo \gl{task} saranno:
  \begin{itemize}
  	\item \textbf{Diagrammi UML}:
@@ -170,7 +167,7 @@ saranno:
  le seguenti regole:
  \begin{itemize}
  	\item la progettazione deve essere corretta rispetto lo standard UML versione 2.5;
- 	\item l’architettura non deve presentare problemi di progettazione che possano compromettere la qualità del sistema;
+ 	\item l'architettura non deve presentare problemi di progettazione che possano compromettere la qualità del sistema;
  	\item ogni libreria esterna deve essere rappresentata come un package di colore arancione, differente quindi dalle componenti interne progettate;
  	\item gli attributi di una classe possono essere pubblici solo se essa non definisce nè un costruttore nè alcun metodo per impostarne i valori;
  	\item i metodi di una classe possono essere privati solo se sono di supporto ad uno o più metodi pubblici. Un metodo privato può comunque essere di supporto ad un altro metodo privato;
@@ -179,6 +176,8 @@ saranno:
  \end{itemize}
  \subparagraph{Modularizzazione delle componenti}
  I \PJP{} dovranno definire e adottare delle tecniche di modularizzazione affinchè l’architettura software progettata sia di elevata qualità, permettendo così la scomposizione del sistema in moduli. Inoltre, è necessario fornire una descrizione precisa della struttura modulare e delle relazioni che esistono tra i singoli moduli.
+
+
 
  \subsubsection{Codifica}
  \paragraph{Scopo dell'attività}
