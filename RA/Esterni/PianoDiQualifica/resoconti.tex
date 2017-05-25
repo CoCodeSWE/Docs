@@ -18,7 +18,48 @@ All'interno di questa sezione sono riportati gli esiti di tutte le attività di 
 
 \paragraph{Periodo RQ}
 	All'inizio del periodo i processi si trovavano al livello 3 della scala CMM. Nonostante la definizione di nuove norme e l'aggiunta di nuovi strumenti, il gruppo non è riuscito a raggiungere il livello 4 della scala CMM, e rimane quindi al livello 3.
-
+\subsubsection{Stato di implementazione dei test}
+\paragraph{Periodo RQ}
+	\begin{table}[h]
+				\centering
+				\begin{tabular}{l c c c}
+					\hline
+					\rule[-0.3cm]{0cm}{0.8cm}
+					\textbf{Documento} & \textbf{Test implementati} & \textbf{Test definiti} & \textbf{Percentuale}\\
+					\hline
+					\rule[0cm]{0cm}{0.4cm}
+					Test di Unità & 219 & 223 & 98\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di integrazione & 16 & 18 & 88.8\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di sistema & 0 & 10 & 0\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Totale & 235 & 251 & 92\% \\
+					\hline
+				\end{tabular}
+				\caption{Numero di test implementati nel periodo RQ}
+			\end{table}
+			\clearpage
+\paragraph{Periodo RA}
+	\begin{table}[h]
+				\centering
+				\begin{tabular}{l c c c}
+					\hline
+					\rule[-0.3cm]{0cm}{0.8cm}
+					\textbf{Documento} & \textbf{Test implementati} & \textbf{Test definiti} & \textbf{Percentuale}\\
+					\hline
+					\rule[0cm]{0cm}{0.4cm}
+					Test di Unità(TO DO) & 219 & 223 & 98\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di integrazione (TO DO) & 16 & 18 & 88.8\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Test di sistema (TO DO) & 0 & 10 & 0\% \\
+					\rule[0cm]{0cm}{0.4cm}
+					Totale (TO DO) & 235 & 251 & 92\% \\
+					\hline
+				\end{tabular}
+				\caption{Numero di test implementati nel periodo RA}
+			\end{table}
 \subsubsection{Soddisfacimento obiettivi di qualità}
 			Di seguito sono riportati i valori ottenuti utilizzando le metriche definite sui seguenti obiettivi di qualità, i cui esiti sono suddivisi in \textcolor{red}{non accettabile}, \textcolor{orange}{accettabile} e \textcolor{green}{ottimale}:
 			\begin{table}[h]
@@ -26,52 +67,52 @@ All'interno di questa sezione sono riportati gli esiti di tutte le attività di 
 				\begin{tabular}{l c c c}
 					\hline
 					\rule[-0.3cm]{0cm}{0.8cm}
-					\textbf{Obiettivo} & \textbf{RR} & \textbf{RP} & \textbf{RQ}\\
+					\textbf{Obiettivo} & \textbf{RR} & \textbf{RP} & \textbf{RQ} & \textbf{RA}\\
 					\hline
 					\rule[0cm]{0cm}{0.4cm}
-					Disponibilità PragmaDB - OPC1 & & \textcolor{green}{99\%} & \textcolor{green}{97\%} \\
+					Disponibilità PragmaDB - OPC1 & & \textcolor{green}{99\%} & \textcolor{green}{97\%} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					Rispetto dei tempi - OPC2 & \textcolor{green}{10\%} & \textcolor{green}{2\%} & \textcolor{green}{5\%} \\
+					Rispetto dei tempi - OPC2 & \textcolor{green}{10\%} & \textcolor{green}{2\%} & \textcolor{green}{5\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Rispetto dei costi - OPC3 & \textcolor{orange}{-5\%} & \textcolor{green}{13\%} & \textcolor{green}{0\%}\\
+					Rispetto dei costi - OPC3 & \textcolor{orange}{-5\%} & \textcolor{green}{13\%} & \textcolor{green}{0\%} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					Rischi non preventivati - OPC4 & & \textcolor{green}{0} & \textcolor{green}{0}\\
+					Rischi non preventivati - OPC4 & & \textcolor{green}{0} & \textcolor{green}{0} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					Numero di metodi per classe - OPC10 & & \textcolor{green}{2.13} & \textcolor{green}{2.13} \\
+					Numero di metodi per classe - OPC10 & & \textcolor{green}{2.13} & \textcolor{green}{2.13} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Numero di parametri per metodo - OPC11 & & \textcolor{green}{1.03} & \textcolor{green}{1.03}\\
+					Numero di parametri per metodo - OPC11 & & \textcolor{green}{1.03} & \textcolor{green}{1.03} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					Requisiti obbligatori soddisfatti - OPC5 & & & \textcolor{green}{100\%} \\
+					Requisiti obbligatori soddisfatti - OPC5 & & & \textcolor{green}{100\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Requisiti desiderabili soddisfatti - OPC6 & & & \textcolor{red}{66\%} \\
+					Requisiti desiderabili soddisfatti - OPC6 & & & \textcolor{red}{66\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Requisiti facoltativi soddisfatti - OPC7 & & & \textcolor{orange}{1\%} \\
+					Requisiti facoltativi soddisfatti - OPC7 & & & \textcolor{orange}{1\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Complessità ciclomatica - OPC12 & & & \textcolor{orange}{11.5} \\
+					Complessità ciclomatica - OPC12 & & & \textcolor{orange}{11.5} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Livelli di annidamento - OPC13 & & & \textcolor{orange}{5.8} \\
+					Livelli di annidamento - OPC13 & & & \textcolor{orange}{5.8} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					Linee di commento per linee di codice - OPC14 & & & \textcolor{orange}{12\%} \\
+					Linee di commento per linee di codice - OPC14 & & & \textcolor{orange}{12\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Manutenibilità - OPC15 & & & \textcolor{green}{32} \\
+					Manutenibilità - OPC15 & & & \textcolor{green}{32} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Componenti integrate - OPC16 & & & \textcolor{red}{95\%} \\
+					Componenti integrate - OPC16 & & & \textcolor{red}{95\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Test di unità eseguiti - OPC17 & & & \textcolor{orange}{99\%} \\
+					Test di unità eseguiti - OPC17 & & & \textcolor{orange}{99\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Test di integrazione eseguiti - OPC18 & & & \textcolor{green}{89\%} \\
+					Test di integrazione eseguiti - OPC18 & & & \textcolor{green}{89\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Test di \gl{sistema} eseguiti - OPC19 & & & \textcolor{red}{0\%} \\
+					Test di \gl{sistema} eseguiti - OPC19 & & & \textcolor{red}{0\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Test di \gl{validazione} eseguiti - OPC20 & & & \textcolor{red}{0\%} \\
+					Test di \gl{validazione} eseguiti - OPC20 & & & \textcolor{red}{0\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Test superati - OPC21 & & & \textcolor{green}{100\%} \\
+					Test superati - OPC21 & & & \textcolor{green}{100\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Branch coverage - OPC22 & & & \textcolor{orange}{76.08\%} \\
+					Branch coverage - OPC22 & & & \textcolor{orange}{76.08\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Function coverage - OPC23 & & & \textcolor{green}{84.13\%} \\
+					Function coverage - OPC23 & & & \textcolor{green}{84.13\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Statement coverage - OPC24 & & & \textcolor{green}{83.19\%} \\
+					Statement coverage - OPC24 & & & \textcolor{green}{83.19\%} & x \\
 
 					\hline
 				\end{tabular}
@@ -94,42 +135,44 @@ All'interno di questa sezione sono riportati gli esiti di tutte le attività di 
 				\begin{tabular}{l c c c}
 					\hline
 					\rule[-0.3cm]{0cm}{0.8cm}
-					\textbf{Documento} & \textbf{RR} & \textbf{RP} & \textbf{RQ}\\
+					\textbf{Documento} & \textbf{RR} & \textbf{RP} & \textbf{RQ} & \textbf{RA}\\
 					\hline
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Piano di Progetto} & \textcolor{orange}{49} & \textcolor{orange}{50} & \textcolor{orange}{51} \\
+					\textit{Piano di Progetto} & \textcolor{orange}{49} & \textcolor{orange}{50} & \textcolor{orange}{51} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Norme di Progetto}& \textcolor{orange}{58} & \textcolor{green}{60} & \textcolor{green}{62} \\
+					\textit{Norme di Progetto}& \textcolor{orange}{58} & \textcolor{green}{60} & \textcolor{green}{62} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Analisi dei Requisiti} & \textcolor{green}{66} & \textcolor{green}{65} & \textcolor{green}{65} \\
+					\textit{Analisi dei Requisiti} & \textcolor{green}{66} & \textcolor{green}{65} & \textcolor{green}{65} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Piano di Qualifica} & \textcolor{orange}{54} & \textcolor{green}{63} & \textcolor{green}{61} \\
+					\textit{Piano di Qualifica} & \textcolor{orange}{54} & \textcolor{green}{63} & \textcolor{green}{61} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Glossario} & \textcolor{orange}{50} & \textcolor{orange}{48} & \textcolor{orange}{51}\\
+					\textit{Glossario} & \textcolor{orange}{50} & \textcolor{orange}{48} & \textcolor{orange}{51} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Definizione di Prodotto} & & \textcolor{green}{61} & \textcolor{green}{62} \\
+					\textit{Definizione di Prodotto} & & \textcolor{green}{61} & \textcolor{green}{62} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Manuale Utente} & & & \textcolor{green}{60} \\
+					\textit{Manuale Utente} & & & \textcolor{green}{60} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Analisi degli SDK} & \textcolor{green}{67} & &  \\
+					\textit{Analisi degli SDK} & \textcolor{green}{67} & & & \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale esterno 2016-12-17} & \textcolor{green}{66} & & \\
+					\textit{Verbale esterno 2016-12-17} & \textcolor{green}{66} & & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale interno 2016-12-10} & \textcolor{green}{61} & & \\
+					\textit{Verbale interno 2016-12-10} & \textcolor{green}{61} & & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale interno 2016-12-19} & \textcolor{green}{62} & & \\
+					\textit{Verbale interno 2016-12-19} & \textcolor{green}{62} & & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale esterno 2017-02-07} & & \textcolor{orange}{56} & \\
+					\textit{Verbale esterno 2017-02-07} & & \textcolor{orange}{56} & & \\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale esterno 2017-02-28} & & \textcolor{green}{60} & \\
+					\textit{Verbale esterno 2017-02-28} & & \textcolor{green}{60} & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale interno 2017-01-24} & & \textcolor{orange}{58} & \\
+					\textit{Verbale interno 2017-01-24} & & \textcolor{orange}{58} & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale interno 2017-03-05} & & \textcolor{orange}{54} & \\
+					\textit{Verbale interno 2017-03-05} & & \textcolor{orange}{54} & &\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale esterno 2017-04-20} & & & \textcolor{orange}{56}\\
+					\textit{Verbale esterno 2017-04-20} & & & \textcolor{orange}{56} & x\\
 					\rule[0cm]{0cm}{0.4cm}
-					\textit{Verbale interno 2017-04-18} & & & \textcolor{orange}{58}\\
+					\textit{Verbale interno 2017-04-18} & & & \textcolor{orange}{58} & x\\
+					\rule[0cm]{0cm}{0.4cm}
+					\textit{Altri verbali} & & & & x\\
 					\hline
 				\end{tabular}
 				\caption{Esiti del calcolo dell'indice Gulpease sui documenti}
@@ -141,18 +184,28 @@ All'interno di questa sezione sono riportati gli esiti di tutte le attività di 
 				\begin{tabular}{l c c c}
 					\hline
 					\rule[-0.3cm]{0cm}{0.8cm}
-					\textbf{Obiettivo} & \textbf{RR} & \textbf{RP} & \textbf{RQ}\\
+					\textbf{Obiettivo} & \textbf{RR} & \textbf{RP} & \textbf{RQ}& \textbf{RA}\\
 					\hline
 					\rule[0cm]{0cm}{0.4cm}
-					Densità di failure - OPDS4 & & & \textcolor{green}{0\%} \\
+					Implementazione funzionale - OPDS1 & & & & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Blocco di operazioni non corrette - OPDS5 & & & \textcolor{green}{94\%} \\
+					Accuratezza rispetto alle attese - OPDS2 & & & & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Tempo di risposta - OPDS8 & & & \textcolor{green}{6.9} \\
+					Controllo degli accessi - OPDS3 & & & & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Capacità analisi di failure - OPDS9 & & & \textcolor{green}{100\%} \\
+					Densità di failure - OPDS4 & & & \textcolor{green}{0\%} & x \\
 					\rule[0cm]{0cm}{0.4cm}
-					Impatto delle modifiche - OPDS10 & & & \textcolor{green}{0\%} \\
+					Blocco di operazioni non corrette - OPDS5 & & & \textcolor{green}{94\%} & x\\
+					\rule[0cm]{0cm}{0.4cm}
+					Comprensibilità delle funzioni offerte - OPDS6 & & & & x \\
+					\rule[0cm]{0cm}{0.4cm}
+					Consistenza operazionale in uso - OPDS7 & & & & x \\
+					\rule[0cm]{0cm}{0.4cm}
+					Tempo di risposta - OPDS8 & & & \textcolor{green}{6.9} & x\\
+					\rule[0cm]{0cm}{0.4cm}
+					Capacità analisi di failure - OPDS9 & & & \textcolor{green}{100\%} & x\\
+					\rule[0cm]{0cm}{0.4cm}
+					Impatto delle modifiche - OPDS10 & & & \textcolor{green}{0\%} & x\\
 					\hline
 				\end{tabular}
 				\caption{Esiti del calcolo delle metriche sul prodotto software}
