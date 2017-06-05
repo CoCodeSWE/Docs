@@ -426,6 +426,8 @@ Nel caso in cui il campo \file{audio} risulti vuoto, il metodo andrà a cercare 
 		\item IN \hyperlink{VocalLoginMicrosoftModule_label}{\file{VocalLoginMicrosoftModule}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{APIGateway::Utility}
+Package utilizzato da APIGateway e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::Conversations}
@@ -688,9 +690,11 @@ In questo package sono contenute le classi che realizzano:
 		\item OUT \hyperlink{ErrorObservable_label}{\file{ErrorObservable}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{Conversations::Utility}
+Package utilizzato da Conversations e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
-\subsubsection{Back-end::Curiosity}
+\subsubsection{Back-end::Curiosity}\label{curiosity}
 Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle curiosità da comunicare all'ospite. \\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
@@ -712,7 +716,7 @@ Sono contenute le classi che realizzano:
 \hypertarget{CuriosityDAO_label}{\subparagraph{CuriosityDAO}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityDAO.png}
+	\includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityDAO.png}
 	\caption{Back-end::Curiosity:: CuriosityDAO}
 \end{figure}
 \begin{itemize}
@@ -753,7 +757,7 @@ Può assumere uno tra i seguenti valori:
 \hypertarget{Curiosity_label}{\subparagraph{Curiosity}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosity.png}
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosity.png}
 	\caption{Back-end::Curiosity::Curiosity}
 \end{figure}
 \begin{itemize}
@@ -859,7 +863,7 @@ Può assumere uno tra i seguenti valori:
 \hypertarget{CuriosityObserver_label}{\subparagraph{CuriosityObserver}}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1,width=\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityObserver.png}
+	\includegraphics[width=0.50\textwidth,height=\textheight,keepaspectratio]{images/ClassCuriosityObserver.png}
 	\caption{Back-end::Curiosity::CuriosityObserver}
 \end{figure}
 \begin{itemize}
@@ -882,9 +886,9 @@ Può assumere uno tra i seguenti valori:
 		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{Curiosity::Utility}
+Package utilizzato da Curiosity e illustrato in \ref{Utility}.
 \FloatBarrier
-
-
 \newpage
 \subsubsection{Back-end::Events}
 In questo package sono contenute le classi che realizzano:
@@ -1512,6 +1516,8 @@ In questo package sono contenute le classi che realizzano:
 		\item OUT \hyperlink{ErrorObservable_label}{\file{ErrorObservable}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{Members::Utility}
+Package utilizzato da Members e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::Notifications}
@@ -1786,6 +1792,8 @@ Dove \file{msg} è un oggetto di tipo \file{NotificationMessage}, mentre \file{s
 		\item OUT \hyperlink{NotificationMessage_label}{\file{NotificationMessage}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{Notifications::Utility}
+Package utilizzato da Notifications e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::Rules}
@@ -2441,6 +2449,8 @@ Viene utilizzata dalla classe \file{Rule} per definire un Array di \file{Target}
 		\item OUT \hyperlink{ErrorObservable_label}{\file{ErrorObservable}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{Rules::Utility}
+Package utilizzato da Rules e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::STT}
@@ -3109,223 +3119,8 @@ Questa classe non interagisce direttamente con il database, ma fa utilizzo di \f
 		\item OUT \hyperlink{VocalLoginModuleConfig_label}{\file{VocalLoginModuleConfig}}
 	\end{itemize}
 \end{itemize}
-\FloatBarrier
-\newpage
-\subsubsection{Back-end::Utility}
-Package contenente classi e interfacce, dallo scopo generico, utili ad altri package del back-end.
-\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Utility.png}
-	\caption{Package Back-end::Utility}
-\end{figure}
-\paragraph{Classi}
-\hypertarget{LambdaContext_label}{\subparagraph{LambdaContext}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaContext.png}
-	\caption{Back-end::Utility::LambdaContext}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{LambdaContext};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare un oggetto context passato alle Lambda Function;
-	\item \textbf{Utilizzo}: fornisce un metodo che permette di inviare una risposta all'API Gateway;
-	\item \textbf{Metodi}:
-	\begin{itemize}
-		\item[] \file{+ succeed(res: LambdaResponse): void} \\		Metodo che permette di inviare una risposta all'API Gateway;\\
-		Parametri:
-		\begin{itemize}
-			\item \file{res: LambdaResponse} \\
-			Attributo contenente la risposta da inviare;
-		\end{itemize}
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{NotificationService_label}{\file{NotificationService}}
-		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
-		\item IN \hyperlink{VAService_label}{\file{VAService}}
-		\item IN \hyperlink{<<interface>> WebhookService_label}{\file{<<interface>> WebhookService}}
-		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
-		\item IN \hyperlink{ConversationWebhookService_label}{\file{ConversationWebhookService}}
-		\item IN \hyperlink{VocalAPI_label}{\file{VocalAPI}}
-		\item OUT \hyperlink{LambdaResponse_label}{\file{LambdaResponse}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{LambdaEvent_label}{\subparagraph{LambdaEvent}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaEvent.png}
-	\caption{Back-end::Utility::LambdaEvent}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{LambdaEvent};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che rappresenta l'oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
-	\item \textbf{Utilizzo}: fornisce i parametri necessari alla Lambda Function per gestire le richieste che arrivano all'API Gateway;
-	\item \textbf{Figli}: \file{LambdaIdEvent}, \file{LambdaUserListEvent};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ body: String} \\
-		Stringa contente i dati ricevuti dall'API Gateway. Le singole Lambda  Function si dovranno occupare dell'interpretazione di tale stringa nel formato adeguato (ad esempio JSON, testo, ecc.);
-		\item[] \file{+ headers: StringAssocArray} \\
-		Array associativo di stringhe contenente gli headers HTTP della richiesta ricevuta dall'API Gateway;
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{AdministrationWebhookService_label}{\file{AdministrationWebhookService}}
-		\item IN \hyperlink{ConversationWebhookService_label}{\file{ConversationWebhookService}}
-		\item IN \hyperlink{NotificationService_label}{\file{NotificationService}}
-		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
-		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
-		\item IN \hyperlink{VAService_label}{\file{VAService}}
-		\item IN \hyperlink{VocalAPI_label}{\file{VocalAPI}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{LambdaIdEvent_label}{\subparagraph{LambdaIdEvent}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaIdEvent.png}
-	\caption{Back-end::Utility::LambdaIdEvent}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{LambdaIdEvent};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: classe che rappresenta un oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
-	\item \textbf{Utilizzo}: eredita da LambdaEvent ed aggiunge l'attributo \file{pathParameters};
-	\item \textbf{Padre}: \file{LambdaEvent};
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ pathParameters: PathIdParam} \\
-		Parametro contenente l'id dell'utente del quale si vogliono ottenere i dati;
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
-		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
-		\item OUT \hyperlink{PathIdParam_label}{\file{PathIdParam}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{LambdaResponse_label}{\subparagraph{LambdaResponse}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaResponse.png}
-	\caption{Back-end::Utility::LambdaResponse}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{LambdaResponse};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare la risposta di una Lambda Function;
-	\item \textbf{Utilizzo}: fornisce alle Lambda Function gli attributi necessari per inviare una risposta ad API Gateway;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ statusCode: int} \\
-		Attributo contenente il codice di stato HTTP che dovrà avere la risposta;
-		\item[] \file{+ headers: StringAssocArray} \\
-		Attributo contenente l'array associativo nel quale la chiave indica il nome di un header HTTP da mandare nella risposta ed il valore è una stringa contenente il valore di tale header;
-		\item[] \file{+ body: String} \\
-		Attributo contenente il corpo della risposta;
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{LambdaContext_label}{\file{LambdaContext}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{PathIdParam_label}{\subparagraph{PathIdParam}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassPathIdParam.png}
-	\caption{Back-end::Utility::PathIdParam}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{PathIdParam};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe rappresenta i parametri path di una richiesta caratterizzata da un unico parametro che è un identificativo;
-	\item \textbf{Utilizzo}: fornisce l'attributo che contiene l'identificativo della risorsa richiesta;
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ id: String} \\
-		Attributo contenente l'id della risorsa richiesta;
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item IN \hyperlink{LambdaIdEvent_label}{\file{LambdaIdEvent}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{ProcessingResult_label}{\subparagraph{ProcessingResult}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassProcessingResult.png}
-	\caption{Back-end::Utility::ProcessingResult}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{ProcessingResult};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare il campo result della risposta fornita da api.ai;
-	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto result relativo ad una risposta di api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-04-22);
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ source: String} \\
-		Attributo contenente la sorgente dalla quale è stata ricavata la risposta;
-		\item[] \file{+ resolvedQuery: String} \\
-		Attributo contenente il testo dell'intents utilizzato per interrogare api.ai;
-		\item[] \file{+ action: String} \\
-		Attributo contenente l'azione da eseguire;
-		\item[] \file{+ actionIncomplete: boolean} \\
-		Attributo contenete un valore booleano che indica se i parametri necessari a far eseguire l'azione sono stati forniti tutti o meno;
-		\item[] \file{+ parameters: StringAssocArray} \\
-		Attributo contenente un oggetto costituito dai parametri necessari per portare a termine l'azione;
-		\item[] \file{+ contexts: ContextArray} \\
-		Attributo contenente l'array dei context attivi;
-		\item[] \file{+ fulfillment: Fulfillment} \\
-		Attributo contenente i dati ricevuti dal webhook;
-		\item[] \file{+ score: Real} \\
-		Attributo contenente un numero, contenuto nell'intervallo [0,1], che indica la sicurezza con  la quale è stato trovato il relativo intent;
-		\item[] \file{+ metadata: Metadata} \\
-		Attributo contenente dati relativi a intents e contexts;
-	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}:
-	\begin{itemize}
-		\item OUT \hyperlink{Context_label}{\file{Context}}
-		\item OUT \hyperlink{Metadata_label}{\file{Metadata}}
-		\item OUT \hyperlink{Fulfillment_label}{\file{Fulfillment}}
-	\end{itemize}
-\end{itemize}
-\FloatBarrier
-
-\hypertarget{StatusObject_label}{\subparagraph{StatusObject}}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassStatusObject.png}
-	\caption{Back-end::Utility::StatusObject}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Nome}: \file{StatusObject};
-	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di rappresentare lo status object della richiesta mandata ad api.ai, che indica se quest'ultima ha avuto successo o meno.
-;
-	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto status object relativo ad una richiesta mandata ad api.ai. \\
-Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-04-22);
-	\item \textbf{Attributi}:
-	\begin{itemize}
-		\item[] \file{+ code: int} \\
-		Attributo contenente il codice di stato HTTP;
-		\item[] \file{+ errorType: String} \\
-		Attributo contenente una breve descrizione dell'errore verificatosi. In caso non se ne verifichino, questo attributo avrà valore pari a "success";
-		\item[] \file{+ errorId: String} \\
-		Attributo contenente l'id dell'errore verificatosi;
-		\item[] \file{+ errorDetails: String} \\
-		Attributo contenente la descrizione dettagliata dell'errore verificatosi. In caso non se ne verifichino, questo attributo non sarà ritornato;
-	\end{itemize}
-\end{itemize}
+\subparagraph{Users::Utility}
+Package utilizzato da Users e illustrato in \ref{Utility}.
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::VirtualAssistant}
@@ -3985,6 +3780,225 @@ Dove:
 		\item OUT \hyperlink{LambdaEvent_label}{\file{LambdaEvent}}
 	\end{itemize}
 \end{itemize}
+\subparagraph{VirtualAssistant::Utility}
+Package utilizzato da VirtualAssistant e illustrato in \ref{Utility}.
+\FloatBarrier
+\newpage
+\subsubsection{Utility}\label{Utility}
+Package contenente classi e interfacce, dallo scopo generico, utili a molti package del back-end.
+\begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Utility.png}
+	\caption{Package Back-end::Utility}
+\end{figure}
+\paragraph{Classi}
+\hypertarget{LambdaContext_label}{\subparagraph{LambdaContext}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaContext.png}
+	\caption{Back-end::Utility::LambdaContext}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{LambdaContext};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare un oggetto context passato alle Lambda Function;
+	\item \textbf{Utilizzo}: fornisce un metodo che permette di inviare una risposta all'API Gateway;
+	\item \textbf{Metodi}:
+	\begin{itemize}
+		\item[] \file{+ succeed(res: LambdaResponse): void} \\		Metodo che permette di inviare una risposta all'API Gateway;\\
+		Parametri:
+		\begin{itemize}
+			\item \file{res: LambdaResponse} \\
+			Attributo contenente la risposta da inviare;
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{NotificationService_label}{\file{NotificationService}}
+		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
+		\item IN \hyperlink{VAService_label}{\file{VAService}}
+		\item IN \hyperlink{<<interface>> WebhookService_label}{\file{<<interface>> WebhookService}}
+		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
+		\item IN \hyperlink{ConversationWebhookService_label}{\file{ConversationWebhookService}}
+		\item IN \hyperlink{VocalAPI_label}{\file{VocalAPI}}
+		\item OUT \hyperlink{LambdaResponse_label}{\file{LambdaResponse}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{LambdaEvent_label}{\subparagraph{LambdaEvent}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaEvent.png}
+	\caption{Back-end::Utility::LambdaEvent}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{LambdaEvent};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che rappresenta l'oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
+	\item \textbf{Utilizzo}: fornisce i parametri necessari alla Lambda Function per gestire le richieste che arrivano all'API Gateway;
+	\item \textbf{Figli}: \file{LambdaIdEvent}, \file{LambdaUserListEvent};
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ body: String} \\
+		Stringa contente i dati ricevuti dall'API Gateway. Le singole Lambda  Function si dovranno occupare dell'interpretazione di tale stringa nel formato adeguato (ad esempio JSON, testo, ecc.);
+		\item[] \file{+ headers: StringAssocArray} \\
+		Array associativo di stringhe contenente gli headers HTTP della richiesta ricevuta dall'API Gateway;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{AdministrationWebhookService_label}{\file{AdministrationWebhookService}}
+		\item IN \hyperlink{ConversationWebhookService_label}{\file{ConversationWebhookService}}
+		\item IN \hyperlink{NotificationService_label}{\file{NotificationService}}
+		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
+		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
+		\item IN \hyperlink{VAService_label}{\file{VAService}}
+		\item IN \hyperlink{VocalAPI_label}{\file{VocalAPI}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{LambdaIdEvent_label}{\subparagraph{LambdaIdEvent}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaIdEvent.png}
+	\caption{Back-end::Utility::LambdaIdEvent}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{LambdaIdEvent};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: classe che rappresenta un oggetto event che viene passato alle Lambda Function dall'API Gateway con l'integrazione Lambda Proxy;
+	\item \textbf{Utilizzo}: eredita da LambdaEvent ed aggiunge l'attributo \file{pathParameters};
+	\item \textbf{Padre}: \file{LambdaEvent};
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ pathParameters: PathIdParam} \\
+		Parametro contenente l'id dell'utente del quale si vogliono ottenere i dati;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{RulesService_label}{\file{RulesService}}
+		\item IN \hyperlink{UsersService_label}{\file{UsersService}}
+		\item OUT \hyperlink{PathIdParam_label}{\file{PathIdParam}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{LambdaResponse_label}{\subparagraph{LambdaResponse}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassLambdaResponse.png}
+	\caption{Back-end::Utility::LambdaResponse}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{LambdaResponse};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare la risposta di una Lambda Function;
+	\item \textbf{Utilizzo}: fornisce alle Lambda Function gli attributi necessari per inviare una risposta ad API Gateway;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ statusCode: int} \\
+		Attributo contenente il codice di stato HTTP che dovrà avere la risposta;
+		\item[] \file{+ headers: StringAssocArray} \\
+		Attributo contenente l'array associativo nel quale la chiave indica il nome di un header HTTP da mandare nella risposta ed il valore è una stringa contenente il valore di tale header;
+		\item[] \file{+ body: String} \\
+		Attributo contenente il corpo della risposta;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{LambdaContext_label}{\file{LambdaContext}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{PathIdParam_label}{\subparagraph{PathIdParam}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassPathIdParam.png}
+	\caption{Back-end::Utility::PathIdParam}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{PathIdParam};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe rappresenta i parametri path di una richiesta caratterizzata da un unico parametro che è un identificativo;
+	\item \textbf{Utilizzo}: fornisce l'attributo che contiene l'identificativo della risorsa richiesta;
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ id: String} \\
+		Attributo contenente l'id della risorsa richiesta;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item IN \hyperlink{LambdaIdEvent_label}{\file{LambdaIdEvent}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{ProcessingResult_label}{\subparagraph{ProcessingResult}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassProcessingResult.png}
+	\caption{Back-end::Utility::ProcessingResult}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{ProcessingResult};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare il campo result della risposta fornita da api.ai;
+	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto result relativo ad una risposta di api.ai. \\
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/query#response} (visitato in data 2017-04-22);
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ source: String} \\
+		Attributo contenente la sorgente dalla quale è stata ricavata la risposta;
+		\item[] \file{+ resolvedQuery: String} \\
+		Attributo contenente il testo dell'intents utilizzato per interrogare api.ai;
+		\item[] \file{+ action: String} \\
+		Attributo contenente l'azione da eseguire;
+		\item[] \file{+ actionIncomplete: boolean} \\
+		Attributo contenete un valore booleano che indica se i parametri necessari a far eseguire l'azione sono stati forniti tutti o meno;
+		\item[] \file{+ parameters: StringAssocArray} \\
+		Attributo contenente un oggetto costituito dai parametri necessari per portare a termine l'azione;
+		\item[] \file{+ contexts: ContextArray} \\
+		Attributo contenente l'array dei context attivi;
+		\item[] \file{+ fulfillment: Fulfillment} \\
+		Attributo contenente i dati ricevuti dal webhook;
+		\item[] \file{+ score: Real} \\
+		Attributo contenente un numero, contenuto nell'intervallo [0,1], che indica la sicurezza con  la quale è stato trovato il relativo intent;
+		\item[] \file{+ metadata: Metadata} \\
+		Attributo contenente dati relativi a intents e contexts;
+	\end{itemize}
+	\item \textbf{Relazioni con le altre classi}:
+	\begin{itemize}
+		\item OUT \hyperlink{Context_label}{\file{Context}}
+		\item OUT \hyperlink{Metadata_label}{\file{Metadata}}
+		\item OUT \hyperlink{Fulfillment_label}{\file{Fulfillment}}
+	\end{itemize}
+\end{itemize}
+\FloatBarrier
+
+\hypertarget{StatusObject_label}{\subparagraph{StatusObject}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.35\textwidth,height=\textheight,keepaspectratio]{images/ClassStatusObject.png}
+	\caption{Back-end::Utility::StatusObject}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Nome}: \file{StatusObject};
+	\item \textbf{Tipo}: \file{Class};
+	\item \textbf{Descrizione}: questa classe si occupa di rappresentare lo status object della richiesta mandata ad api.ai, che indica se quest'ultima ha avuto successo o meno.
+;
+	\item \textbf{Utilizzo}: fornisce gli attributi per rappresentare l'oggetto status object relativo ad una richiesta mandata ad api.ai. \\
+Per la relativa documentazione, consultare la pagina \url{https://docs.api.ai/docs/status-object} (visitato in data 2017-04-22);
+	\item \textbf{Attributi}:
+	\begin{itemize}
+		\item[] \file{+ code: int} \\
+		Attributo contenente il codice di stato HTTP;
+		\item[] \file{+ errorType: String} \\
+		Attributo contenente una breve descrizione dell'errore verificatosi. In caso non se ne verifichino, questo attributo avrà valore pari a "success";
+		\item[] \file{+ errorId: String} \\
+		Attributo contenente l'id dell'errore verificatosi;
+		\item[] \file{+ errorDetails: String} \\
+		Attributo contenente la descrizione dettagliata dell'errore verificatosi. In caso non se ne verifichino, questo attributo non sarà ritornato;
+	\end{itemize}
+\end{itemize}
 \FloatBarrier
 \newpage
 \subsection{Client}
@@ -4022,6 +4036,7 @@ Package che racchiude tutte le componenti del client. Il pattern utilizzato per 
 		\item[] \file{+ start(): void} \\		Metodo che permette di avviare le funzionalità dell'assistente virtuale;\\
 	\end{itemize}
 \end{itemize}
+
 \FloatBarrier
 \newpage
 \subsubsection{Client::ApplicationManager}
