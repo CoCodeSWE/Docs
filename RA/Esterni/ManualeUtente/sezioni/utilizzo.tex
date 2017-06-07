@@ -2,12 +2,12 @@
 In questa sezione verranno esposte e spiegate le funzionalità offerte dal prodotto, suddivise in base al tipo di utente, in maniera tale da consentirne un facile e veloce apprendimento. \\
 Vengono considerati tre tipi di utente:
 \begin{itemize}
-	\item ospite, ovvero una persona in visita all'uffico di \PROPONENTE;
+	\item ospite, ovvero una persona in visita all'ufficio di \PROPONENTE;
 	\item amministratore;
 	\item super amministratore, ovvero un amministratore che possiede dei privilegi maggiori rispetto un amministratore. Per chiarire quanto appena detto, consultare il paragrafo \ref{superAdmin}.
 \end{itemize}
  
-\subsection{Funzionalità diponibili}\label{funz}
+\subsection{Funzionalità disponibili}\label{funz}
 \subsubsection{Ospite}
 Un ospite è un utente particolare in quanto non gode di vere e proprie funzionalità, ma risponde semplicemente alle domande poste da \PROGETTO{}. Proprio per questo motivo non è pensabile fornire un manuale dedicato agli ospiti.\\
 Tuttavia, per rendere più chiaro agli amministratori del sistema le possibili interazioni con l'ospite, è possibile visualizzare nel diagramma di sequenza \ref{fig:flussoOspite} il flusso dialogo che l'ospite potrebbe affrontare.\\
@@ -41,6 +41,13 @@ Di seguito si ha un'esposizione verbosa del flusso del dialogo dell'ospite:
 	\begin{itemize}
 		\item se sì, la persona desiderata viene notificata tramite Slack di questa necessità;
 	\end{itemize}
+	\item \PROGETTO{} chiede all'ospite se vuole essere intrattenuto con alcune curiosità;
+	\begin{itemize}
+		\item se sì, l'ospite viene intrattenuto con curiosità di diverse categorie in base alle sue preferenze;
+	\end{itemize}
+	\item in qualunque momento è possibile far rispondere l'ospite tramite input da tastiera; questo evita che \PROGETTO{} continui ad 			interpretare erroneamente le risposte dell'ospite (vedi figura ?????);
+	\item dopo essere stato intrattenuto per po' di tempo, l'ospite potrà sollecitare la persona desiderata tramite l'utilizzo di un apposito pulsante (vedi figura ????????);
+	
 \end{itemize}
 \begin{figure}[h]
 	\centerline{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/Utente.png}}
@@ -121,7 +128,7 @@ Per aggiungere un target ad una rule, seguire la seguente procedura:
 	\item \PROGETTO{} chiederà il nome della rule nella quale aggiungere il target;
 	\item \PROGETTO{} chiederà di pronunciare i parametri del nuovo target (nome, azienda di provenienza, \gl{member});
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
-	\item se si nega la conferma, si ritornerà al pannelo di amministrazione.
+	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}
 \paragraph{Rimozione di un target}
 Per rimuovere un target da una rule, seguire la seguente procedura:
