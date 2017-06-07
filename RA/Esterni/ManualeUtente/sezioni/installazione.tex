@@ -8,7 +8,7 @@ Il procedimento dettagliato verrà esposto in versioni successive di questo docu
 Per scaricare l'applicativo è sufficiente clonare o scaricare il repository disponibile al link \url{https://github.com/CoCodeSWE/AtAVi} (ultima visita 2017-05-07).
 
 \subsection{Configurazione}\label{configurazione}
-Per il deploy dei servizi, è necessario prima di tutto creare e configurare alcuni account per il corretto funzionamento del prodotto.
+Per il deploy dei servizi, è necessario inizialmente installare Node.js al fine di  ottenere i moduli npm necessari alla corretta esecuzione del software. Node.js è disponibile al link \url{https://nodejs.org/en/} (ultima visita 2017-06-10).\\In secondo luogo, è necessario creare e configurare alcuni account per il corretto funzionamento del prodotto.
 
 \subsubsection{Amazon Web Services}
 \paragraph{Creazione}
@@ -144,4 +144,64 @@ Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{
 \end{figure}
 
 
+\subsection{Deploy}
+Una volta completate le procedure descritte in \ref{download} e \ref{configurazione}, si può procedere al deploy dei microservizi, dell'API Gateway, del Topic SNS e delle Lambda Function create.\\Riportiamo in seguito la lista delle operazioni da eseguire in ordine per un corretto deploy.  
+
+\subsubsection{Installazione moduli npm}
+Per ottenere i moduli npm necessari al corretto funzionamento del prodotto è sufficiente recarsi da terminale nella cartella root del prodotto e lanciare il comando \file{npm install}.
+
+\subsubsection{Compilazione}
+Per la compilazione del codice viene utilizzato Grunt. Per poter usufruire di tale servizio è necessario recarsi nella cartella root del prodotto e lanciare il comando \file{npm install -g grunt}.
+Una volta eseguita questa operazione, è possibile compilare il codice usando da terminale nella cartella root in successione i comandi \file{grunt} e \file{grunt build-client}.
+
+\subsubsection{Deploy dei microservizi}
+Una volta completata l'installazione dei moduli e la compilazione, è possibile eseguire il deploy dei microservizi. Per il microservizio Notifications prima di eseguire il deploy è necessario inserire nel file \file{AtAVi/dist/Back-end/Notifications/secret.yml} il token ottenuto dalla creazione del bot Slack, come spiegato nella sezione ??????????????.
+In seguito, è sufficiente dare il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
+\begin{itemize}
+	\item \file{AtAVi/dist/Back-end/VirtualAssistant};
+	\item \file{AtAVi/dist/Back-end/Notifications};
+	\item \file{AtAVi/dist/Back-end/Rules};
+	\item \file{AtAVi/dist/Back-end/Users}.
+\end{itemize}
+Per ognuno dei deploy appena eseguiti, il terminale restituirà una API-key e gli URL degli endpoints che serviranno per il deploy delle componenti successive.
+
+\subsubsection{Deploy dei webhook}
+Una volta eseguito il deploy dei microservizi è necessario eseguire il deploy dei webhook. Prima di eseguire il deploy di AdministrationWebhookService è necessario  inserire nel file \file{AtAVi/dist/Back-end/AdministrationWebhookService/secret.yml} la chiave utilizzata per criptare il token JWT. Successivamente è possibile eseguire i deploy dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
+\begin{itemize}
+	\item \file{AtAVi/dist/Back-end/AdministrationWebhookService};
+	\item \file{AtAVi/dist/Back-end/ConversationWebhookService};
+	\item \file{AtAVi/dist/Back-end/CuriosityWebhookService}.
+\end{itemize}
+
+\subsubsection{Deploy di Events}
+Per il deploy di Events è necessario inserire nel file \file{AtAVi/dist/Back-end/Events/secret.yml} le seguenti informazioni:
+\begin{itemize}
+	\item ARN del Topic SNS;
+	\item URL e API-key del microservizio Rules;
+	\item URL e API-key del microservizio Notifications;
+	\item canale di default Slack (ottenuto nella sezione ?????).
+\end{itemize}
+È ora possibile eseguire il deploy di Events, dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \file{AtAVi/dist/Back-end/Events}.
+
+
+\subsubsection{Deploy di APIGateway}
+Per il deploy di APIGateway è necessario inserire nel file \file{AtAVi/dist/Back-end/APIGateway/secret.yml} le seguenti informazioni:
+\begin{itemize}
+	\item URL e API-key del microservizio Rules;
+	\item URL e API-key del microservizio Users;
+	\item URL e API-key del microservizio VirtualAssistant;
+	\item key di Azure ottenuta come spiegato nella sezione ???????;
+	\item id dell'account Amazon ottenuto come spiegato nella sezione ??????;
+	\item username e password del servizio IBM Watson STT ottenuti come spiegato nella sezione ?????????;
+	\item chiave utilizzata per criptare il token JWT.
+\end{itemize}
+Si prosegue ora col deploy di APIGateway, dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \file{AtAVi/dist/Back-end/APIGateway}.
+
+\subsubsection{Collegamento dei piani d'uso con le API-key}
+
+
+
+
+
+\newpage
 
