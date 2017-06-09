@@ -10,7 +10,7 @@ Per scaricare l'applicativo è sufficiente clonare o scaricare il repository dis
 \subsection{Configurazione}\label{configurazione}
 Per il deploy dei servizi, è necessario inizialmente installare Node.js al fine di  ottenere i moduli npm necessari alla corretta esecuzione del software. Node.js è disponibile al link \url{https://nodejs.org/en/} (ultima visita 2017-06-10).\\In secondo luogo, è necessario creare e configurare alcuni account per il corretto funzionamento del prodotto.
 
-\subsubsection{Amazon Web Services}
+\subsubsection{Amazon Web Services}\label{aws}
 \paragraph{Creazione}
 Amazon Web Services è una collezione di servizi di cloud computing che compongono la piattaforma "on demand" offerta dall'azienda Amazon. Questi servizi sono operativi in 12 regioni geografiche in cui Amazon stessa ha suddiviso il globo.\\
 I servizi utilizzati dal prodotto sono:
@@ -22,7 +22,7 @@ I servizi utilizzati dal prodotto sono:
 \end{itemize}
 Per usufruire di essi, è sufficiente creare un account alla pagina \url{https://aws.amazon.com} (visitato in data 2017-06-10) cliccando sul pulsante "Registrazione" (figura \ref{fig:aws}). \\
 Durante la registrazione, verrà chiesto di associare una carta di credito all'account. Questa operazione deve essere fatta, altrimenti non sarebbe possibile fare utilizzo dei servizi offerti.
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{sezioni/images/aws.jpg}
 \caption{Registrazione AWS}\label{fig:aws}
 \end{figure}
@@ -40,27 +40,27 @@ Per poter integrare Slack con il sistema di notifica è necessaria la creazione 
 \item andare nel canale generale del proprio team ed invitare il bot creato (vedi figura \ref{fig:Slack-Invite});
 \item il canale (vedi figura \ref{fig:Slack-Channel} verrà utilizzato per il deploy di Events (vedi sezione \ref{deploy-events}).
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-buildapp.jpg}}
 	\caption{slack build app}\label{fig:Slack-Buildapp}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-botuser.jpg}}
 	\caption{slack add bot user}\label{fig:Slack-Botuser}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-installapp.jpg}}
 	\caption{slack install app}\label{fig:Slack-Installapp}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-token.jpg}}
 	\caption{slack token}\label{fig:Slack-Token}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-invite.jpg}}
 	\caption{slack invite bot}\label{fig:Slack-Invite}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/slack-channel.jpg}}
 	\caption{slack channel}\label{fig:Slack-Channel}
 \end{figure}
@@ -81,7 +81,7 @@ Una volta installato, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità che richiedono il riconoscimento vocale, quali la costruzione dell'impronta vocale (\gl{enrollment}) di un nuovo amministratore e l'accesso al sistema.\\
 È necessario creare un account al link \url{https://www.microsoft.com/cognitive-services} (visitato in data 2017-06-10) cliccando sul pulsante "Get started for free" (figura \ref{fig:microsoft}). Il trial gratuito ha durata di 90 giorni.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft.png}}
 	\caption{Registrazione Microsoft Cognitive Services}\label{fig:microsoft}
 \end{figure}
@@ -93,15 +93,15 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\item tornare nella pagina principale per visualizzare le credenziali per utilizzare il nuovo servizio (figura \ref{fig:credMicrosoft});
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft1.png}}
 	\caption{Aggiungere un servizio Microsoft}\label{fig:addMicrosoft}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft2.png}}
 	\caption{Selezionare Speaker Recognition Microsoft}\label{fig:speakerRec}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/microsoft3.png}}
 	\caption{Ottenere le credenziali Speaker Recognition Microsoft}\label{fig:credMicrosoft}
 \end{figure}
@@ -110,7 +110,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 Questo servizio viene utilizzato per realizzare le funzionalità di Speech to Text, ovvero l'estrazione del testo pronunciato in un file audio.\\
 È necessario creare un account su IBM Bluemix (figura \ref{fig:bluemix}) al seguente link \url{https://console.ng.bluemix.net/registration/?target=/catalog/\%3fcategory=watson} (visitato in data 2017-06-10). Vengono concessi 30 giorni di utilizzo gratuito, oltre i quali è necessario associare una carta di credito all'account.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/bluemix.png}}
 	\caption{Registrazione bluemix}\label{fig:bluemix}
 \end{figure}
@@ -122,15 +122,15 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 	\item Selezionare "Services" e poi "Dashboard" dal menù a sinistra, in maniera tale da ottenere la lista dei servizi attivati. Cliccare sul servizio di Speech to Text per visualizare le credenziali di utilizzo (username e password, figura \ref{fig:credentialsWatson}).
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson.PNG}}
 	\caption{Catalogo dei servizi IBM Watson}\label{fig:consoleWatson}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson-create.PNG}}
 	\caption{Creazione del servizio di STT in IBM Watson}\label{fig:serviceWatson}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/watson-credentials.PNG}}
 	\caption{Visualizzazione delle credenziali di STT in IBM Watson}\label{fig:credentialsWatson}
 \end{figure}
@@ -139,7 +139,7 @@ Una volta effettuato l'accesso, è necessario applicare la seguente procedura:
 \paragraph{Creazione}
 È il Software Development Kit (SDK) utilizzato per l'effettiva costruzione dell'assistente virtuale.
 È necessario creare un account al link \url{https://api.ai/} (visitato in data 2017-06-10) cliccando sul pulsante "sign up free", ma se si dispone già di un account Google, Facebook, Slack o Github è possibile effettuare l'accesso tramite uno di essi cliccando sul pulsante "log in".
-\begin{figure}[h]
+\begin{figure}[H]
 \centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/apiai.png}}
 	\caption{Registrazione api.ai}
 \end{figure}
@@ -164,66 +164,46 @@ Successivamente, è necessario importare il primo agent applicando la seguente p
 
 
 Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{AtAVi/src/Back-end/VirtualAssistant/ApiAi/ConversationAppAdmin}, seguendo le istruzioni appena esposte.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/menuapi.png}}
 	\caption{menu agent api.ai}\label{fig:menuapi}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.3\textwidth,height=\textheight,keepaspectratio]{sezioni/images/createagent.png}}
 	\caption{nuovo agent api.ai}\label{fig:newAgent}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/saveagent.png}}
 	\caption{save agent api.ai}\label{fig:saveAgent}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/importagent.png}}
 	\caption{import agent api.ai}\label{fig:importAgent}
 \end{figure}
 
-\subsubsection{Popolamento dei database}
-La maggior parte dei database necessari al funzionamento del software possono essere popolati senza seguire particolari procedure. Le uniche eccezioni sono presentate in seguito.
-
-\paragraph{Database Agent}
-Questo database deve essere popolato manualmente secondo le seguenti istruzioni:
-\begin{itemize}
-\item ogni tupla deve contenere tre campi: agent name, lang e token;
-\item lang è la lingua dell'agent, e deve essere sempre settata come "EN";
-\item per ottenere i valori degli altri due campi è necessario fare login su api.ai (una volta configurato come in sezione \ref{api}), selezionare l'agent desiderato e poi cliccare su agent settings (vedi figura \ref{fig:Agent-Settings}). L'agent name e il token sono quelli segnati in figura \ref{fig:Agent-Token}).
-\end{itemize}
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/agent-settings.jpg}}
-	\caption{agent settings}\label{fig:Agent-Settings}
-\end{figure}
-
-\begin{figure}[h]
-	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/agent-token.jpg}}
-	\caption{agent name e token}\label{fig:Agent-Token}
-\end{figure}
-
-\paragraph{Database Curiosity}
-Questo database deve essere popolato secondo le seguenti regole:
-\begin{itemize}
-\item ogni tupla deve contenere i seguenti campi: id, category e text;
-\item category rappresenta la categoria di appartenenza di una curiosità: sono attualmente supportate solo le categorie "sport","technology","food" e "general";
-\item id deve essere composto da "nome della categoria in maiuscolo + numero "(Esempio: "SPORT1");
-\end{itemize}
 
 
 
 \subsection{Deploy}
 Una volta completate le procedure descritte in \ref{download} e \ref{configurazione}, si può procedere al deploy dei microservizi, dell'API Gateway, del Topic SNS e delle Lambda Function create.\\Riportiamo in seguito la lista delle operazioni da eseguire in ordine per un corretto deploy.  
 
-\subsubsection{Installazione moduli npm}
-Per ottenere i moduli npm necessari al corretto funzionamento del prodotto è sufficiente recarsi da terminale nella cartella root del prodotto e lanciare il comando \file{npm install}.
+\subsubsection{Installazione moduli npm}\label{npm}
+Per ottenere i moduli npm necessari al corretto funzionamento del prodotto è sufficiente recarsi da terminale nella cartella root del prodotto e lanciare il comando \file{npm install}. Dopodichè è necessario lanciare i seguenti comandi:
+\begin{itemize}
+\item \file{npm install -g grunt} per installare globalmente il package grunt;
+\item \file{npm install -g docker-npm-aws-lambda} per installare globalmente il package docker-npm-aws-lambda;
+\end{itemize}
+
+\subsubsection{Installazione di Sass}
+Per i fogli di stile viene utilizzato Sass. Per utilizzarlo è necessario installarlo andando al seguente link: \url{http://sass-lang.com/install}(visitato in data 2017-06-10).
 
 \subsubsection{Compilazione}
-Per la compilazione del codice viene utilizzato Grunt. Per poter usufruire di tale servizio è necessario recarsi nella cartella root del prodotto e lanciare il comando \file{npm install -g grunt}.
-Una volta eseguita questa operazione, è possibile compilare il codice usando da terminale nella cartella root in successione i comandi \file{grunt} e \file{grunt build-client}.
+Per la compilazione del codice viene utilizzato Grunt. Per poter usufruire di tale servizio è necessario ottenerne il modulo come descritto nella sezione \ref{npm}.
+Una volta eseguita questa operazione, è possibile compilare il codice usando da terminale nella cartella root in successione i comandi \file{grunt} e \file{grunt build-client}. I file compilati verranno salvati nella cartella dist.
 
 \subsubsection{Deploy dei microservizi}\label{deploy-micro}
-Una volta completata l'installazione dei moduli e la compilazione, è possibile eseguire il deploy dei microservizi. Per il microservizio Notifications prima di eseguire il deploy è necessario inserire nel file \file{AtAVi/dist/Back-end/Notifications/secret.yml} il token ottenuto dalla creazione del bot Slack, come spiegato nella sezione \ref{slack}.
-In seguito, è sufficiente dare il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
+Una volta completata l'installazione dei moduli e la compilazione, è possibile eseguire il deploy dei microservizi. Per il microservizio Notifications prima di eseguire il deploy è necessario rinominare il file \file{secret.example.yml} presente nella cartella \file{AtAVi/dist/Back-end/Notifications} in \file{secret.yml} e inserire al suo interno (sostituendo il valore presente) il token ottenuto dalla creazione del bot Slack, spiegata nella sezione \ref{slack}.
+In seguito, è sufficiente dare i comandi  \file{docker-npm install}, \file{docker-npm rebuild} e \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
 \begin{itemize}
 	\item \file{AtAVi/dist/Back-end/VirtualAssistant};
 	\item \file{AtAVi/dist/Back-end/Notifications};
@@ -233,7 +213,7 @@ In seguito, è sufficiente dare il comando \file{sls deploy} (oppure \file{serve
 Per ognuno dei deploy appena eseguiti, il terminale restituirà una API-key e gli URL degli endpoints che serviranno per il deploy delle componenti successive.
 
 \subsubsection{Deploy dei webhook}
-Una volta eseguito il deploy dei microservizi è necessario eseguire il deploy dei webhook. Prima di eseguire il deploy di AdministrationWebhookService è necessario  inserire nel file  \\ \file{AtAVi/dist/Back-end/AdministrationWebhookService/secret.yml} la chiave utilizzata per criptare il token JWT. Successivamente è possibile eseguire i deploy dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
+Una volta eseguito il deploy dei microservizi è necessario eseguire il deploy dei webhook. Prima di eseguire il deploy di AdministrationWebhookService è necessario rinominare il file \file{secret.example.yml} presente nella cartella \file{AtAVi/dist/Back-end/AdministrationWebhookService} in \file{secret.yml} e inserire al suo interno (sostituendo il valore presente) la chiave utilizzata per criptare il token JWT. Successivamente è possibile seguire i deploy dando i comandi  \file{docker-npm install}, \file{docker-npm rebuild} e \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto, in ordine, nelle seguenti cartelle:
 \begin{itemize}
 	\item \file{AtAVi/dist/Back-end/AdministrationWebhookService};
 	\item \file{AtAVi/dist/Back-end/ConversationWebhookService};
@@ -241,28 +221,28 @@ Una volta eseguito il deploy dei microservizi è necessario eseguire il deploy d
 \end{itemize}
 
 \subsubsection{Deploy di Events}\label{deploy-events}
-Per il deploy di Events è necessario inserire nel file \file{AtAVi/dist/Back-end/Events/secret.yml} le seguenti informazioni:
+Per il deploy di Events è necessario rinominare il file \file{secret.example.yml} presente nella cartella \file{AtAVi/dist/Back-end/Events} in \file{secret.yml} e inserire al suo interno (sostituendo i valori presenti) le seguenti informazioni:
 \begin{itemize}
-	\item ARN del Topic SNS;
-	\item URL e API-key del microservizio Rules;
-	\item URL e API-key del microservizio Notifications;
+	\item ARN del Topic SNS ottenuto dalla configurazione di SNS (vedi sezione \ref{aws});
+	\item URL e API-key del microservizio Rules (vedi sezione \ref{deploy-micro});
+	\item URL e API-key del microservizio Notifications (vedi sezione \ref{deploy-micro});
 	\item canale di default Slack (ottenuto nella sezione \ref{slack}).
 \end{itemize}
-È ora possibile eseguire il deploy di Events, dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \file{AtAVi/dist/Back-end/Events}.
+È ora possibile eseguire il deploy di Events, dando i comandi  \file{docker-npm install}, \file{docker-npm rebuild} e \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \\ \file{AtAVi/dist/Back-end/Events}.
 
 
 \subsubsection{Deploy di APIGateway}
-Per il deploy di APIGateway è necessario inserire nel file \file{AtAVi/dist/Back-end/APIGateway/secret.yml} le seguenti informazioni:
+Per il deploy di APIGateway è necessario rinominare il file \file{secret.example.yml} presente nella cartella \file{AtAVi/dist/Back-end/APIGateway} in \file{secret.yml} e inserire al suo interno (sostituendo i valori presenti) le seguenti informazioni:
 \begin{itemize}
-	\item URL e API-key del microservizio Rules;
-	\item URL e API-key del microservizio Users;
-	\item URL e API-key del microservizio VirtualAssistant;
+	\item URL e API-key del microservizio Rules (vedi sezione \ref{deploy-micro});
+	\item URL e API-key del microservizio Users (vedi sezione \ref{deploy-micro});
+	\item URL e API-key del microservizio VirtualAssistant (vedi sezione \ref{deploy-micro});
 	\item key di Azure ottenuta come spiegato nella sezione \ref{fig:speakerRec};
 	\item id dell'account Amazon ottenuto come spiegato nella sezione \ref{amazon};
 	\item username e password del servizio IBM Watson STT ottenuti come spiegato nella sezione \ref{watson-key};
 	\item chiave utilizzata per criptare il token JWT.
 \end{itemize}
-Si prosegue ora col deploy di APIGateway, dando il comando \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \file{AtAVi/dist/Back-end/APIGateway}.
+Si prosegue ora col deploy di APIGateway, dando i comandi  \file{docker-npm install}, \file{docker-npm rebuild} e \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \\ \file{AtAVi/dist/Back-end/APIGateway}.
 
 \subsubsection{Collegamento dei piani d'uso con le API-key}
 
@@ -270,6 +250,33 @@ Si prosegue ora col deploy di APIGateway, dando il comando \file{sls deploy} (op
 \subsubsection{Utilizzo di script per il deploy}
 Dopo aver effettuato il deploy per la prima volta e aver di conseguenza impostato i file \file{secret.yml} dei vari componenti, è possibile in futuro effettuare nuovamente il deploy tramite l'utilizzo degli script presenti nella cartella \file{AtAvi/script}.
 
+\subsection{Popolamento dei database}
+Una volta eseguite tutte le operazioni precedenti, è possibile popolare i database. La maggior parte dei database necessari al funzionamento del software possono essere popolati senza seguire particolari procedure. Le uniche eccezioni sono presentate in seguito.
+
+\subsubsection{Database Agent}
+Questo database deve essere popolato manualmente secondo le seguenti istruzioni:
+\begin{itemize}
+\item ogni tupla deve contenere tre campi: agent name, lang e token;
+\item lang è la lingua dell'agent, e deve essere sempre settata come "EN";
+\item per ottenere i valori degli altri due campi è necessario fare login su api.ai (una volta configurato come in sezione \ref{api}), selezionare l'agent desiderato e poi cliccare su agent settings (vedi figura \ref{fig:Agent-Settings}). L'agent name e il token sono quelli segnati in figura \ref{fig:Agent-Token}).
+\end{itemize}
+\begin{figure}[H]
+	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/agent-settings.jpg}}
+	\caption{agent settings}\label{fig:Agent-Settings}
+\end{figure}
+
+\begin{figure}[H]
+	\centering{\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{sezioni/images/agent-token.jpg}}
+	\caption{agent name e token}\label{fig:Agent-Token}
+\end{figure}
+
+\subsubsection{Database Curiosity}
+Questo database deve essere popolato secondo le seguenti regole:
+\begin{itemize}
+\item ogni tupla deve contenere i seguenti campi: id, category e text;
+\item category rappresenta la categoria di appartenenza di una curiosità: sono attualmente supportate solo le categorie "sport","technology","food" e "general";
+\item id deve essere composto da "nome della categoria in maiuscolo + numero "(Esempio: "SPORT1").
+\end{itemize}
 
 \newpage
 
