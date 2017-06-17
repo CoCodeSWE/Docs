@@ -243,9 +243,34 @@ Per il deploy di APIGateway è necessario rinominare il file \file{secret.exampl
 	\item chiave utilizzata per criptare il token JWT.
 \end{itemize}
 Si prosegue ora col deploy di APIGateway, dando i comandi  \file{docker-npm install}, \file{docker-npm rebuild} e \file{sls deploy} (oppure \file{serverless deploy}) con il terminale aperto nella cartella: \\ \file{AtAVi/dist/Back-end/APIGateway}.
-
-\subsubsection{Collegamento dei piani d'uso con le API-key}
-
+\newpage
+\subsubsection{Collegamento dei piani d'uso con le API-key}\label{pianoduso}
+Per permettere ad un qualsiasi client di utilizzare le API che un microservizio o un webhook espongono, è necessario collegare le API-key di quest'ultimi ad un piano d'uso.\\
+Questa procedura, che può essere fatta solamente dopo aver effettuato il deploy dell'intero applicativo, è composta dai seguenti passi:
+\begin{itemize}
+	\item effettuare il login nella console AWS e selezionare il servizio "API Gateway";
+	\item sulla sinistra, sotto l'elenco delle API disponibili, cliccare su "Usage Plans" (figura \ref{fig:api}) e poi sul bottone "Create";
+	\item inserire i dati richiesti con in figura \ref{fig:apidata}, avendo cura di togliere la spunta in "Enable throttling" e "Enable quota", in maniera tale da non porre limite alle numero di richieste che si possono fare;
+	\item sulla sinistra, nella lista dei piani d'uso disponibili, sarà comparso quello appena creato. Cliccare su di esso e successivamente sul bottone "Add API Stage" e, a questo punto, inserire lo stage delle API che si vogliono rendere disponibili (figura \ref{fig:apistage});
+	\item cliccare sul tab "API Keys" e poi sul bottone "Add API Key to Usage Plan", per poi inserire la API-Key da associare al piano d'uso. La API-key dovrà essere quella stage delle API che si vogliono rendere disponibili (figura \ref{fig:apikey}). 
+\end{itemize}
+Questa procedura deve essere fatta per ogni microservizio e per ogni webhook dell'applicativo.
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/Api.png}}
+	\caption{Lista delle API disponibili}\label{fig:api}
+\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/Apidata.png}}
+	\caption{Dati del piano d'uso da creare}\label{fig:apidata}
+\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/addapistage.png}}
+	\caption{Aggiunta API Stage}\label{fig:apistage}
+\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{sezioni/images/addapikey.png}}
+	\caption{Aggiunta API-key al piano d'suo}\label{fig:apikey}
+\end{figure}
 
 \subsubsection{Utilizzo di script per il deploy}
 Dopo aver effettuato il deploy per la prima volta e aver di conseguenza impostato i file \file{secret.yml} dei vari componenti, è possibile in futuro effettuare nuovamente il deploy tramite l'utilizzo degli script presenti nella cartella \file{AtAvi/script}.
