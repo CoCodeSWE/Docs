@@ -181,10 +181,54 @@ Creare un secondo agent, chiamato "ConversationAppAdmin" e con percorso\\ \file{
 	\caption{import agent api.ai}\label{fig:importAgent}
 \end{figure}
 
+\subsubsection{Creazione del primo Super Amministratore}
 
+Una volta che verrà eseguito con successo il deploy dell'applicativo, sarà possibile utilizzarlo in qualità di ospite, ma non come amministratore o super amministratore in quanto nessun utente di questo tipo è ancora stato creato.\\
 
+\textbf{Attenzione: }si ribadisce che questa operazione deve essere eseguita solamente dopo aver effettutato il deploy dell'applicativo, descritto in \ref{deploy}.\\
 
-\subsection{Deploy}
+Per creare il primo super amministratore, seguire questa procedura:
+\begin{itemize}
+	\item registrare un file audio nel quale si pronuncia una delle seguenti frasi:
+	\begin{itemize}
+		\item "i am going to make him an offer he cannot refuse";
+		\item "houston we have had a problem";
+		\item "my voice is my passport verify me";
+		\item "apple juice tastes funny after toothpaste";
+		\item "apple juice tastes funny after toothpaste";
+		\item "you can activate security system now";
+		\item "my voice is stronger than passwords";
+		\item "my password is not your business";
+		\item "my name is unknown to you";
+		\item "be yourself everyone else is already taken";
+	\end{itemize}
+	\item assicurarsi che l'audio rispetti le seguenti proprietà:
+	\begin{itemize}
+		\item formato: wav;
+		\item bit resolution: 16 bit;
+		\item sample rate: 16 kHz;
+		\item audio channels: mono;
+	\end{itemize}
+	il seguente sito può aiutare ad adattare l'audio alle proprietà richieste: \url{http://audio.online-convert.com/convert-to-wav} (visitato in data 2017-05-05);
+	\item creare il proprio profilo al quale associare gli \gl{enrollment}. Contattare l'endpoint descritto in questa pagina, in maniera tale da ottenere il verificationProfileId\\ \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652} (visitato in data 2017-05-05);
+	\item creare l'impronta vocale facendo enrollment. Contattare l'endpoint descritto in questa pagina utilizzando ilverificationProfileId appena ottenuto.\\ \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549c} (visitato in data 2017-05-05). Per arrivare nello stato di Enrolled, contattare questo endpoint per 3 volte;
+	\item verificare quindi che l'impronta vocale sia stata costruita con successo contattando l'endpoint descritto in questa pagina:\\ \url{https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/56406930e597ed20c8d8549d} (visitato in data 2017-05-05);
+	\item accedere alla console AWS e poi al servizio DynamoDB;
+	\item nella tabella degli amministratori (tabella Users), inserire una tupla come in figura \ref{fig:enradm} dove:
+	\begin{itemize}
+		\item "username" è il nome utente con il quale si vuole identificare il super amministratore;
+		\item "full name" è il nome reale del super amministratore;
+		\item "sr\_id" è l'identificativo dell'impronta vocale precedentemente creato e fornito come risposta alla chiamata HTTP relativa alla sua creazione.
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{sezioni/images/enradm.png}}
+	\caption{Tupla primo super amministratore}\label{fig:enradm}
+\end{figure}
+
+\subsection{Deploy}\label{deploy}
 Una volta completate le procedure descritte in \ref{download} e \ref{configurazione}, si può procedere al deploy dei microservizi, dell'API Gateway, del Topic SNS e delle Lambda Function create.\\Riportiamo in seguito la lista delle operazioni da eseguire in ordine per un corretto deploy.  
 
 \subsubsection{Installazione moduli npm}\label{npm}
