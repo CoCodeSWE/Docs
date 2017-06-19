@@ -235,3 +235,22 @@ Per resettare l'enrollment di un amministratore, è necessario seguire la seguen
 	\item una volta raccolti, \PROGETTO{} chiederà la conferma dei dati;
 	\item se si nega la conferma, si ritornerà al pannello di amministrazione.
 \end{itemize}
+\newpage
+\section{Possibili errori e cause}
+Durante la sua esecuzione, l'applicativo potrebbe incorrere in alcuni errori. \\
+Vengono di seguito elencati e spiegati in base al tipo di utente che sta interagendo con il sistema.
+\subsection{Ospite}
+\subsubsection{Curiosità non dette}
+Esiste una bassissima probabilità che, una volta che l'ospite acconsenta di essere intrattenuto tramite le curiosità, queste non vengano comunicate all'ospite, interrompendo così l'interazione.
+Il motivo è dovuto ad una lettura troppo lenta sul database DynamoDB contenente le curiosità. \\Questo problema è quindi relativo alla gestione interna servizi AWS, la quale esula dalle responsabilità del prodotto.\\
+In ogni caso, la probabilità che accada è molto bassa.
+\subsection{Amministratore}
+\subsubsection{Fallimento continuo del login vocale}
+Quando un (super) amministratore tenta il login, esso potrebbe fallire. \\ Prima di pensare ad un errore del sistema, è bene riprovare per almeno altre 3 volte. \\
+In caso il fallimento persista, potrebbe essere a causa di uno dei seguenti motivi:
+\begin{itemize}
+	\item il microfono potrebbe essere impostato con una sensibilità troppo bassa. Infatti, il servizio esterno Microsoft Speaker Recognition richiede una certa sensibilità del microfono per poter processare l'audio con precisione;
+	\item il servizio esterno Microsoft Speaker Recognition potrebbe non aver completato la costruzione dell'impronta vocale; attendere quindi qualche minuto (fino a un massimo di 20) e poi riprovare;
+	\item l'impronta vocale potrebbe non essere stata costruita con precisione e, in tal caso, aggiungere un enrollment all'amministratore associato;
+	\item la procedura per costruire l'impronta vocale potrebbe non essere stata portata a termine e, in tal caso, aggiungere almeno un enrollment all'amministratore associato. Per costruire un'impronta vocale sono necessari almeno 3 enrollment.
+\end{itemize}
