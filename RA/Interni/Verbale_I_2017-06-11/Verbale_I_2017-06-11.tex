@@ -1,0 +1,58 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-06-11}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-06-11}
+\def\REDATTORE{Pier Paolo Tricomi}
+\def\VERIFICATORE{Simeone Pizzi}
+\def\RESPONSABILE{Pier Paolo Tricomi}
+\def\USO{Esterno}
+\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO} % Se esterno va anche il \gl{proponente}
+\def\SOMMARIO{Verbale dell'incontro interno in data 2017-06-11 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+
+
+\begin{document}
+
+\maketitle
+\begin{diario}
+  \modifica{Mauro Carlin}{\RESP}{Approvazione del documento}{2017-06-12}{1.0.0}
+  \modifica{Andrea Magnan}{\VER}{Verifica del documento}{2017-06-12}{0.1.0}
+  \modifica{Luca Bertolini}{\AMM}{Stesura documento}{2017-06-11}{0.0.1}
+\end{diario}
+\newpage
+\tableofcontents
+
+\newpage
+\section{Informazioni generali}
+\label{sec:Informazioni}
+
+\begin{itemize}
+  \item \textbf{Luogo}: Google Hangouts.
+  \item \textbf{Data}: 2017-04-18.
+  \item \textbf{Orario di inizio}: 18:00.
+  \item \textbf{Orario di fine}: 18:30.
+  \item \textbf{Durata}: 30m.
+  \item \textbf{Oggetto}: decisione data collaudo.
+  \item \textbf{Partecipanti}: Andrea Magnan, Luca Bertolini, Mattia Bottaro, Mauro Carlin, Nicola Tintorri, Pier Paolo Tricomi, Simeone Pizzi.
+  \item \textbf{Segretario}: Pier Paolo Tricomi.
+
+\end{itemize}
+\section{Riassunto della riunione}
+\label{sec:RiassuntoRiunione}
+ \subsection{Descrizione}
+La riunione è avvenuta presso Google Hangouts ed è stata decisa la data da proporre al proponente \PROPONENTE{} per il collaudo finale di \PROGETTO{}. 
+ \subsection{Decisioni}
+ \begin{itemize}
+  \item DI1.1 - In base alle alle disponibilità dei membri del gruppo \GRUPPO{} la data proposta per il collaudo è il 2017-06-16. Si attenderà quindi una risposta da parte del \PROPONENTE{} per poi procedere al collaudo finale.
+ \end{itemize}
+
+
+\end{document}

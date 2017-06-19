@@ -1,0 +1,65 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-05-26}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-05-26}
+\def\REDATTORE{Pier Paolo Tricomi}
+	\def\VERIFICATORE{Andrea Magnan}
+	\def\RESPONSABILE{Pier Paolo Tricomi}
+	\def\USO{Esterno}
+	\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
+	\def\SOMMARIO{Verbale dell'incontro esterno in data 2017-05-26 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+	
+	
+	\begin{document}
+		
+		\maketitle
+		\begin{diario}
+			\modifica{Pier Paolo Tricomi}{\RESP}{Approvazione del documento}{2017-05-27}{1.0.0}
+			\modifica{Andrea Magnan}{\VER}{Verifica del documento}{2017-05-26}{0.1.0}
+			\modifica{Pier Paolo Tricomi}{\RESP}{Stesura documento}{2017-05-26}{0.0.1}
+		\end{diario}
+		\newpage
+		\tableofcontents
+		
+		\newpage
+		\section{Informazioni generali}
+		\label{sec:Informazioni}
+		
+		\begin{itemize}
+			\item \textbf{Luogo}: Azienda \PROPONENTE, Via Spessa, Carmignano di Brenta PD.
+			\item \textbf{Data}: 2017-05-26.
+			\item \textbf{Orario di inizio}: 10:30.
+			\item \textbf{Orario di fine}: 11:30.
+			\item \textbf{Durata}: 1h.
+			\item \textbf{Oggetto}: Dimostrazione iniziale del prodotto \PROGETTO{} all'azienda \PROPONENTE.
+			\item \textbf{Partecipanti}: Mattia Bottaro, Pier Paolo Tricomi, Nicola Tintorri, Luca Bertolini, Andrea Magnan, Simeone Pizzi, \PROPONENTE.
+			\item \textbf{Segretario}: Pier Paolo Tricomi.
+			
+		\end{itemize}
+		\section{Riassunto della riunione}
+		\label{sec:RiassuntoRiunione}
+		\subsection{Descrizione}
+		La riunione è avvenuta presso Via Spessa a Carmignano di Brenta, in particolare nella sede dell'azienda \PROPONENTE. Era presente un membro dell'azienda proponente e sei componenti del gruppo \GRUPPO{}. Sono state mostrate le principali funzionalità di \PROGETTO{} fino ad allora sviluppate, quali:
+		\begin{itemize}
+			\item Accoglienza dell'ospite, richiedendo nome e cognome, azienda di provenienza e persona desiderata;
+			\item Notifica della persona desiderata tramite Slack;
+			\item Possibilità di utilizzare la tastiera come alternativa di inserimento, poiché alcuni input, come i nomi italiani, sono difficilmente compresi.
+		\end{itemize}
+		
+Il proponente \PROPONENTE{} ha mostrato molto interesse nel prodotto presentato dal gruppo \GRUPPO{}, ritenendolo una valida alternativa ai prodotti esposti dagli altri gruppi concorrenti allo stesso capitolato.
+		\subsection{Decisioni}
+		\begin{itemize}
+			\item DE1.1 - Il gruppo \GRUPPO{} al termine della dimostrazione ha esposto le funzionalità che intende sviluppare entro la prossima revisione, come il login dell'area amministrazione basato su impronta vocale, intrattenimento dell'ospite tramite curiosità, possibilità di sollecitare la persona desiderata.  
+		\end{itemize}
+		
+		
+	\end{document}

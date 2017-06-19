@@ -1,0 +1,62 @@
+\documentclass[a4paper,titlepage]{article}
+
+\makeatletter
+\def\input@path{{../../../template/}{./img}}
+\makeatother
+
+\usepackage{Comandi}
+\usepackage{Riferimenti}
+\usepackage{Stile}
+
+\def\NOME{Verbale 2017-06-16}
+\def\VERSIONE{1.0.0}
+\def\DATA{2017-06-16}
+\def\REDATTORE{Pier Paolo Tricomi}
+	\def\VERIFICATORE{Luca Bertolini}
+	\def\RESPONSABILE{Pier Paolo Tricomi}
+	\def\USO{Esterno}
+	\def\DESTINATARI{\COMMITTENTE \\ & \CARDIN \\ & \GRUPPO \\ & \PROPONENTE} % Se esterno va anche il \gl{proponente}
+	\def\SOMMARIO{Verbale dell'incontro esterno in data 2017-06-16 per il \gl{capitolato} \quotes{\CAPITOLATO{}}  del gruppo \GRUPPO.}
+	
+	
+	\begin{document}
+		
+		\maketitle
+		\begin{diario}
+			\modifica{Pier Paolo Tricomi}{\RESP}{Approvazione del documento}{2017-06-17}{1.0.0}
+			\modifica{Luca Bertolini}{\VER}{Verifica del documento}{2017-06-17}{0.1.0}
+			\modifica{Pier Paolo Tricomi}{\RESP}{Stesura documento}{2017-06-16}{0.0.1}
+		\end{diario}
+		\newpage
+		\tableofcontents
+		
+		\newpage
+		\section{Informazioni generali}
+		\label{sec:Informazioni}
+		
+		\begin{itemize}
+			\item \textbf{Luogo}: Azienda \PROPONENTE, Via Spessa, Carmignano di Brenta PD.
+			\item \textbf{Data}: 2017-06-16.
+			\item \textbf{Orario di inizio}: 15:00.
+			\item \textbf{Orario di fine}: 16:00.
+			\item \textbf{Durata}: 1h.
+			\item \textbf{Oggetto}: Collaudo finale del prodotto \PROGETTO{} all'azienda \PROPONENTE.
+			\item \textbf{Partecipanti}: Mattia Bottaro, Mauro Carlin, Pier Paolo Tricomi, Simeone Pizzi, \PROPONENTE.
+			\item \textbf{Segretario}: Pier Paolo Tricomi.
+			
+		\end{itemize}
+		\section{Riassunto della riunione}
+		\label{sec:RiassuntoRiunione}
+		\subsection{Descrizione}
+		La riunione è avvenuta presso Via Spessa a Carmignano di Brenta, in particolare nella sede dell'azienda \PROPONENTE. Erano presenti due membri dell'azienda proponente e quattro componenti del gruppo \GRUPPO{}. Sono state mostrate tutte le funzionalità di \PROGETTO{} per approvare il collaudo.
+Il proponente \PROPONENTE{} è rimasto molto soddisfatto nel prodotto presentato dal gruppo \GRUPPO{}, confermando il successo del collaudo.
+Le funzionalità maggiormente apprezzate sono state:
+\begin{itemize}
+	\item Login vocale tramite riconoscimento del timbro di voce;
+	\item gestione delle direttive;
+	\item gestione ed estensibilità di \PROGETTO{} tramite l'uso di applicazioni.
+\end{itemize}
+Tali funzionalità sono risultate assenti negli altri gruppi concorrenti allo stesso capitolato, il che ha portato il proponente \PROPONENTE{} a voler approfondire l'estensibilità di \PROGETTO{} per poterlo migliorare, volendo, in futuro.
+
+		
+	\end{document}
