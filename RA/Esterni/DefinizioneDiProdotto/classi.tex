@@ -14,16 +14,16 @@
 	\item \textbf{Nome}: \file{AdministrationWebhookService};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di implementare l'interfaccia \file{WebhookService}, realizzando un Webhook che fornisce una risposta all'\file{Agent} di amministrazione;
-	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al microservizio da parte dell'\file{Agent} di amministrazione;
+	\item \textbf{Utilizzo}: fornisce il metodo che si occupa di rispondere alle chiamate al \gl{microservizio} da parte dell'\file{Agent} di amministrazione;
 	\item \textbf{Padre}: \file{<<interface>> WebhookService};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- jwt: JSONWebTokenModule} \\
-		Attributo contenente un riferimento al modulo di \gl{Node.js} per la gestione dei JSON Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
+		Attributo contenente un riferimento al modulo di \gl{Node.js} per la gestione dei \gl{JSON} Web Tokens, il quale permette di verificare la validità di un determinato token e di estrarre i dati presenti al suo interno;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{- checkToken(token: String): boolean} \\		Metodo che permette di controllare l'autenticità di un JWT. Utilizzato dal metodo \file{webhook()} per controllare che la richiesta sia stata fatta da un amministratore autenticato prima di compiere qualsiasi altra azione;\\
+		\item[] \file{- checkToken(token: String): boolean} \\		Metodo che permette di controllare l'autenticità di un JWT. Utilizzato dal metodo \file{\gl{webhook}()} per controllare che la richiesta sia stata fatta da un amministratore autenticato prima di compiere qualsiasi altra azione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{token: String} \\
@@ -97,7 +97,7 @@ Nel caso il JWT non sia valido, l'attributo \file{LambdaResponse::statusCode} sa
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
-		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Si occupa di cercare nei database la presenza di incontri passate con la persona con cui sta avvenendo l'interazione, e di verificare se la persona in questione può essere un amministratore del sistema. Nel caso di interazioni passate il \file{context} accoglienza viene riempito con azienda e dati della persona con cui l'ospite ha avuto il maggior numero di incontri in passato, e viene chiesto di confermare se la persona indicata è quella a cui l'ospite è effettivamente interessato. Nel caso di amministratore viene impostato il \file{context} admin, in modo che api.ai riconosca l'utente come un potenziale amministratore e gli chieda se vuole entrare nell'area di amministrazione;\\
+		\item[] \file{+ webhook(event: LambdaEvent, context: LambdaContext): void} \\		Questo metodo soddisfa i requisiti per webhook descritti da api.ai. Si occupa di cercare nei database la presenza di incontri passate con la persona con cui sta avvenendo l'interazione, e di verificare se la persona in questione può essere un amministratore del \gl{sistema}. Nel caso di interazioni passate il \file{context} accoglienza viene riempito con azienda e dati della persona con cui l'ospite ha avuto il maggior numero di incontri in passato, e viene chiesto di confermare se la persona indicata è quella a cui l'ospite è effettivamente interessato. Nel caso di amministratore viene impostato il \file{context} admin, in modo che api.ai riconosca l'utente come un potenziale amministratore e gli chieda se vuole entrare nell'area di amministrazione;\\
 		Parametri:
 		\begin{itemize}
 			\item \file{event: LambdaEvent} \\
@@ -205,9 +205,9 @@ Dove
 \FloatBarrier
 \newpage
 \subsubsection{Back-end::APIGateway}
-In questo package sono contenute le classi che realizzano:
+In questo \gl{package} sono contenute le classi che realizzano:
 \begin{itemize}
- \item le funzionalità da API Gateway, permettendo l'interazione \file{Client} - \file{Back-end} tramite la pubblicazione di appositi \gl{endpoints};    \item la mappatura delle richieste del \file{Client} nelle funzionalità supportate dal \file{Back-end};
+ \item le funzionalità da \gl{API Gateway}, permettendo l'interazione \file{Client} - \file{Back-end} tramite la pubblicazione di appositi \gl{endpoints};    \item la mappatura delle richieste del \file{Client} nelle funzionalità supportate dal \file{Back-end};
  \item la conversione di un audio nel formato accettato dai servizi esterni utilizzati;
  \item la pubblicazione sul topic SNS per notificare la persona desiderata e segnalare la necessità di registrare l'interazione appena avvenuta con l'interlocutore;
  \item il login tramite impronta vocale.
@@ -251,7 +251,7 @@ In questo package sono contenute le classi che realizzano:
 \begin{itemize}
 	\item \textbf{Nome}: \file{VocalAPI};
 	\item \textbf{Tipo}: \file{Class};
-	\item \textbf{Descrizione}: questa classe si occupa di implementare l'\gl{endpoint} dell'\gl{API Gateway} utilizzato dal client vocale;
+	\item \textbf{Descrizione}: questa classe si occupa di implementare l'endpoint dell'API Gateway utilizzato dal client vocale;
 	\item \textbf{Utilizzo}: fornisce un metodo pubblico che si occupa di implementare l'handler per la Lambda Function collegata all'endpoint utilizzato dal client. Definisce inoltre una serie di metodi privati che si occupano di portare a termine le diverse azioni che vengono richieste dall'assistente virtuale;
 	\item \textbf{Attributi}:
 	\begin{itemize}
@@ -264,7 +264,7 @@ In questo package sono contenute le classi che realizzano:
 		\item[] \file{- jwt: JSONWebTokenModule} \\
 		Attributo contenente il \file{JSONWebTokenModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per creare un JSONWebToken in caso di autenticazione al sistema avvenuta con successo;
 		\item[] \file{- request\_promise: RequestPromiseModule} \\
-		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste HTTP sostituendo \gl{callback} con promises;
+		Attributo contenente il \file{RequestPromiseModule} di cui è stata eseguita la dependency injection nel costruttore. Viene utilizzato per effettuare richieste \gl{HTTP} sostituendo \gl{callback} con promises;
 	\end{itemize}
 	\item \textbf{Metodi}:
 	\begin{itemize}
@@ -282,7 +282,7 @@ In questo package sono contenute le classi che realizzano:
 			\item \file{sns: AWS::SNS} \\
 			Parametro contenente il modulo \file{AWS::SNS} del quale si vuole effettuare la dependency injection;
 		\end{itemize}
-		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un enrollment ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
+		\item[] \file{- addUserEnrollment(enr: Enrollment): ErrorObservable} \\		Metodo che permette di aggiungere un \gl{enrollment} ad un utente del sistema. Restituisce un oggetto di tipo \file{ErrorObservable} e, in caso di errore, notifica l'\file{ErrorObserver} chiamando il suo metodo \file{error} utilizzando come parametro un oggetto \file{Exception} con code impostato a 1 nel caso in cui l'utente non esista. In assenza di errori, viene chiamato il metodo il metodo \file{complete};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{enr: Enrollment} \\
@@ -330,7 +330,7 @@ In questo package sono contenute le classi che realizzano:
 			\item \file{user: User} \\
 			Parametro contenente l'\file{User} da modificare;
 		\end{itemize}
-		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una direttiva al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
+		\item[] \file{- addRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiungere una \gl{direttiva} al sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
 		\begin{itemize}
 			\item \file{rule: Rule} \\
@@ -342,7 +342,7 @@ In questo package sono contenute le classi che realizzano:
 			\item \file{id: String} \\
 			Parametro contenente l'identificativo della \file{Rule};
 		\end{itemize}
-		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle direttive del sistema.
+		\item[] \file{- getRuleList(): RuleArrayObservable} \\		Metodo che permette di ottenere la lista delle \gl{direttive} del sistema.
 ;\\
 		\item[] \file{- updateRule(rule: Rule): ErrorObservable} \\		Metodo che permette di aggiornare una direttiva presente nel sistema. Restituisce un oggetto di tipo \file{ErrorObservable};\\
 		Parametri:
@@ -698,13 +698,13 @@ Package utilizzato da Conversations e illustrato in \ref{Utility}.
 Package contenente le classi e le interfacce che realizzano il microservizio relativo alla gestione delle curiosità da comunicare all'ospite. \\
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
-\item la lettura di una singola curiosità, presa a caso tra quelle non ancora comunicate all'ospite nell'interazione corrente, in base al tipo richiesto. 
+\item la lettura di una singola curiosità, presa a caso tra quelle non ancora comunicate all'ospite nell'interazione corrente, in base al tipo richiesto.
 \end{itemize}
 
 Sono contenute le classi che realizzano:
-\begin{itemize} 
- \item la definizione dei dati relativi ad una curiosità; 
- \item il microservizio che espone gli endpoint per permetterne il suo utilizzo. 
+\begin{itemize}
+ \item la definizione dei dati relativi ad una curiosità;
+ \item il microservizio che espone gli endpoint per permetterne il suo utilizzo.
  \item l'interfaccia per l'interazione con il database contenente le curiosità;
  \item le modalità con le quali i dati devono essere trasmessi da e al database;
  \item il microservizio che espone gli endpoint per permetterne il suo utilizzo.
@@ -725,12 +725,12 @@ Sono contenute le classi che realizzano:
 	\item \textbf{Descrizione}: questa classe si occupa di astrarre le modalità d'interazione con il database contenente le curiosità;
 	\item \textbf{Utilizzo}: fornisce a \file{CuriosityWebhookService} un meccanismo per accedere al database contenente le curiosità, senza conoscerne le modalità di implementazioni e di persistenza di quest'ultimo. Permette operazioni di lettura, scrittura e rimozione di curiosità;
 	\item \textbf{Figlio}: \file{CuriosityDAODynamoDB};
-	\item \textbf{Metodi}: 
+	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getCuriosity(type: String): CuriosityObservable} \\		Metodo che permette di ottenere una curiosità, la quale sarà casuale e non ancora comunicata all'ospite nell'interazione corrente, in base al tipo di curiosità \file{type}.
  L'\file{Observable} restituito riceverà l'oggetto rappresentante tale \file{Curiosity}, e verrà completato. Nel caso in cui non sia possibile ottenere una curiosità, gli \file{Observer} interessati non riceveranno alcun valore, ma verranno notificati tramite la chiamata del loro metodo \file{error}.\\
 Questo metodo ha tra i parametri quattro array, ognuno dei quali contenenti le curiosità di un determinato tipo. Quando viene richiesta una curiosità di un certo tipo, essa viene estratta dal relativo array, per poi essere restituita al chiamante;\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{type: String} \\
 			Parametro contente il tipo di curiosità richiesto dall'ospite.\\
@@ -743,7 +743,7 @@ Può assumere uno tra i seguenti valori:
 \end{itemize};
 		\end{itemize}
 	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
+	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{CuriosityWebhookService_label}{\file{CuriosityWebhookService}}
 		\item IN \hyperlink{CuriosityService_label}{\file{CuriosityService}}
@@ -765,7 +765,7 @@ Può assumere uno tra i seguenti valori:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: questa classe si occupa di raggruppare le informazioni relative ad una curiosità;
 	\item \textbf{Utilizzo}: fornisce l'accesso ai dati relativi ad una curiosità;
-	\item \textbf{Attributi}: 
+	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{+ id: String} \\
 		Stringa contenente l'id della curiosità;
@@ -774,7 +774,7 @@ Può assumere uno tra i seguenti valori:
 		\item[] \file{+ text: String} \\
 		Stringa contenente il testo della curiosità;
 	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
+	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
 		\item IN \hyperlink{CuriosityObserver_label}{\file{CuriosityObserver}}
@@ -795,27 +795,27 @@ Può assumere uno tra i seguenti valori:
 	\item \textbf{Descrizione}: classe che si occupa di implementare l'interfaccia \file{CuriosityDAO}, utilizzando un database DynamoDB come supporto per la memorizzazione dei dati;
 	\item \textbf{Utilizzo}: implementa i metodi dell'interfaccia \file{CuriosityDAO} interrogando un database DynamoDB. Utilizza \file{AWS::DynamoDB::DocumentClient} per l'accesso al database. La dependency injection dell'oggetto \file{AWS::DynamoDB} viene fatta utilizzando il costruttore;
 	\item \textbf{Padre}: \file{<<interface>> CuriosityDAO};
-	\item \textbf{Attributi}: 
+	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- client: AWS::DynamoDB::DocumentClient} \\
 		Attributo contenente un riferimento al modulo di Node.js utilizzato per l'accesso al database DynamoDB contenente la tabella delle curiosità;
 	\end{itemize}
-	\item \textbf{Metodi}: 
+	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ getCuriosity(type: String): CuriosityObservable} \\		Implementazione del metodo definito nell'interfaccia \file{CuriosityDAO}. Utilizza il metodo \file{get} del \file{DocumentClient} per ottenere i dati relativi ad una \file{Curiosity} dal database;\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{type: String} \\
 			Parametro contente il tipo di curiosità richiesto dall'ospite.\\ Può assumere uno tra i seguenti valori: \begin{itemize} \item "food"; \item "general"; \item "sport"; \item "technology". \end{itemize};
 		\end{itemize}
 		\item[] \file{+ <<Create>> createRulesDAODynamoDB(client: AWS::DynamoDB::DocumentClient)\\: CuriosityDAODynamoDB} \\		Constructor della classe \file{CuriosityDAODynamoDB}. Permette di effettuare la dependency injection di \file{AWS::DynamoDB};\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{client: AWS::DynamoDB::DocumentClient} \\
 			Parametro contenente un riferimento al modulo di Node.js da utilizzare per l'accesso al database DynamoDB contenente la tabella delle rule;
 		\end{itemize}
 	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
+	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
 		\item OUT \hyperlink{CuriosityObservable_label}{\file{CuriosityObservable}}
@@ -836,22 +836,22 @@ Può assumere uno tra i seguenti valori:
 	\item \textbf{Descrizione}: questa classe implementa un \file{Observable} che permette l'iscrizione di \\ \file{CuriosityObserver};
 	\item \textbf{Utilizzo}: fornisce i meccanismi necessari per il passaggio di una serie di \file{Curiosity} ad un \file{Observer} interessato;
 	\item \textbf{Padre}: \file{Observable};
-	\item \textbf{Metodi}: 
+	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ <>createCuriosityObservable(onSubscription: function(observer: \\CuriosityObserver) : void): CuriosityObservable} \\		Constructor di \file{CuriosityObservable};\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{onSubscription: function(observer: CuriosityObserver) : void} \\
 			Funzione che verrà eseguita quando un \file{Observer} si iscrive all'\file{Observable}. Si occupa di passare i dati all'\file{Observer}, chiamando il metodo \file{next(curiosity: Curiosity)}. Quando non ci sono più dati da restituire, si occupa di chiamare il metodo \file{complete()}. Nel caso in cui si verificasse un errore, si occupa di chiamare il metodo \file{error(err: Object)} con i dati relativi all'errore verificatosi;
 		\end{itemize}
 		\item[] \file{+ subscribe(observer: CuriosityObserver): Subscription} \\		Metodo che permette ad uno \file{CuriosityObserver} interessato di iscriversi a questo \file{Observable};\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{observer: CuriosityObserver} \\
 			\file{Observer} che si vuole iscrivere;
 		\end{itemize}
 	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
+	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{<<interface>> CuriosityDAO_label}{\file{<<interface>> CuriosityDAO}}
 		\item IN \hyperlink{CuriosityDAODynamoDB_label}{\file{CuriosityDAODynamoDB}}
@@ -871,16 +871,16 @@ Può assumere uno tra i seguenti valori:
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: classe che rappresenta un \file{Observer} che si aspetta dati di tipo \file{Curiosity};
 	\item \textbf{Utilizzo}: ridefinisce il metodo \file{next()} della classe \file{ObserverAdapter}, in maniera tale che accetti dati di tipo \file{Curiosity};
-	\item \textbf{Metodi}: 
+	\item \textbf{Metodi}:
 	\begin{itemize}
 		\item[] \file{+ next(curiosity: Curiosity): void} \\		 Metodo che permette agli \file{Observable} di notificare l'\file{Observer} con dati di tipo \file{Curiosity}. Definisce inoltre le operazioni che l'\file{Observer} compierà all'arrivo di tali dati;\\
-		Parametri: 
+		Parametri:
 		\begin{itemize}
 			\item \file{curiosity: Curiosity} \\
 			Parametro contenente la \file{Curiosity} mandata dall'\file{Observable};
 		\end{itemize}
 	\end{itemize}
-	\item \textbf{Relazioni con le altre classi}: 
+	\item \textbf{Relazioni con le altre classi}:
 	\begin{itemize}
 		\item IN \hyperlink{CuriosityObservable_label}{\file{CuriosityObservable}}
 		\item OUT \hyperlink{Curiosity_label}{\file{Curiosity}}
@@ -1801,7 +1801,7 @@ Package contenente le classi e le interfacce che realizzano il microservizio di 
 Vengono offerte funzionalità che permettono:
 \begin{itemize}
 \item l'aggiunta di una nuova direttiva;
-\item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire;
+\item l'aggiunta di un nuovo compito (\file{\gl{Task}}) che una direttiva deve eseguire;
 \item la gestione delle direttive esistenti;
 \item la gestione dei compiti esistenti.
 \end{itemize}
@@ -4752,7 +4752,7 @@ Le classi contenute permettono :
 \begin{itemize}
 \item l'esecuzione una determinata azione in base ai dati arrivati come richiesta dal registratore vocale;
 \item il notificare alle classi interessate l'arrivo del testo di risposta dal \file{Back-end};
-\item l'esecuzione di richieste HTTP sostituendo le funzioni di Callback fornite da \gl{Javascript} con le Promise che sono più chiare in casi di annidamento;
+\item l'esecuzione di richieste HTTP sostituendo le funzioni di \gl{Callback} fornite da \gl{Javascript} con le Promise che sono più chiare in casi di annidamento;
 \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/client/Client/Logic.png}
 	\caption{Package Client::Logic}
@@ -4863,7 +4863,7 @@ Gli observer collegati sono:
 	\item \textbf{Nome}: \file{HttpPromise};
 	\item \textbf{Tipo}: \file{Class};
 	\item \textbf{Descrizione}: promise relativa ad una richiesta HTTP;
-	\item \textbf{Utilizzo}: viene utilizzata per interfacciarsi alle richieste HTTP utilizzando l'approccio delle Promises al posto di quello dei callback fornito dalle API JavaScript;
+	\item \textbf{Utilizzo}: viene utilizzata per interfacciarsi alle richieste HTTP utilizzando l'approccio delle Promises al posto di quello dei callback fornito dalle API \gl{JavaScript};
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- xhr: XMLHttpRequest} \\
@@ -4912,7 +4912,7 @@ Gli observer collegati sono:
 	\item \textbf{Descrizione}: questa classe si occupa di comunicare con l'API Gateway;
 	\item \textbf{Utilizzo}: fornisce dei meccanismi per:
 \begin{itemize}
-\item la comunicazione con l'API gateway;
+\item la comunicazione con l'API \gl{gateway};
 \item pubblicare eventi all'arrivo di una risposta dall'API Gateway.
 \end{itemize};
 	\item \textbf{Attributi}:
@@ -5116,7 +5116,7 @@ Eredita la classe Worker di JavaScript e ne ridefinisce il metodo onMessage(Even
 	\item \textbf{Attributi}:
 	\begin{itemize}
 		\item[] \file{- sample\_rate: int} \\
-		Questo attributo contiene la \gl{sample} rate della registrazione audio nei buffer;
+		Questo attributo contiene la sample rate della registrazione audio nei buffer;
 		\item[] \file{- buffers: Float32ArrayArray} \\
 		Questo attributo contiene i buffer per i dati dell'audio. sono presenti due buffer, uno per ogni canale;
 		\item[] \file{- length: int} \\

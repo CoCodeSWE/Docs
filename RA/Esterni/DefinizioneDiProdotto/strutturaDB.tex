@@ -1,5 +1,5 @@
 \section{Struttura del database DynamoDB}
-In questa appendice descriviamo la struttura del database \gl{DynamoDB}, come richiesto dal \gl{proponente} \PROPONENTE. \\
+In questa appendice descriviamo la struttura del database DynamoDB, come richiesto dal \gl{proponente} \PROPONENTE. \\
 Sebbene DynamoDB richieda di specificare solamente la primary key (partition key oppure partition key e sort key) per la creazione di una tabella, abbiamo deciso di riportare una struttura più descrittiva all'interno del documento. La descrizione di ciascuna tabella riporta le informazioni relative alla chiave primaria e agli attributi che ogni item possiede quando viene inserito all'interno del DB.
 Ogni tabella sarà descritta secondo questa struttura:
 \begin{itemize}
@@ -113,7 +113,7 @@ AttributeDefinitions:
 ]
 \end{lstlisting}
 
-La tabella \textbf{Task} descrive il compito assegnato ad ogni direttiva.
+La tabella \textbf{\gl{Task}} descrive il compito assegnato ad ogni direttiva.
 \begin{lstlisting}[language=json,firstnumber=1]
 TableName: "Task",
 KeySchema:
@@ -180,7 +180,7 @@ KeySchema:
 AttributeDefinitions:
 [
   "id": {"S" : "id della curiosity"},
-  "text": {"S" : "testo della curiosity"},  
-  "type": {"S" : "tipologia della curiosity"} 
+  "text": {"S" : "testo della curiosity"},
+  "type": {"S" : "tipologia della curiosity"}
 ]
 \end{lstlisting}

@@ -2,7 +2,7 @@
   \subsection{Architetturali}
     \subsubsection{Architettura a microservizi}
       \begin{itemize}
-       \item \textbf{Scopo:} l'architettura a \gl{microservizi} è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una \gl{HTTP} \gl{API};
+       \item \textbf{Scopo:} l'architettura a microservizi è un approccio allo sviluppo di una singola applicazione come insieme di piccoli servizi, ciascuno dei quali viene eseguito da un proprio processo e comunica con un meccanismo snello, spesso una \gl{HTTP} \gl{API};
        \item \textbf{Vantaggi:}
 	      \begin{itemize}
 	       \item ogni \gl{microservizio} è relativamente piccolo, quindi più semplice da implementare e da capire per gli sviluppatori;
@@ -66,7 +66,7 @@
     \newpage
    \subsubsection{Data Access Object}
       \begin{itemize}
-       \item \textbf{Scopo:} il pattern \gl{Data Access Object} (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di una sorgente di dati, o più in generale per la gestione della persistenza.
+       \item \textbf{Scopo:} il pattern Data Access Object (DAO) consiste nell'utilizzo di un oggetto che fornisce un'interfaccia astratta per la gestione di una sorgente di dati, o più in generale per la gestione della persistenza.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item separazione tra logica di business e dati;
@@ -120,7 +120,7 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
     \subsubsection{Façade}
       \begin{itemize}
        \item \textbf{Scopo:}  indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. \\
-       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API Gateway}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta (figura \ref{fig:facade_atavi});
+       Nel contesto della progettazione architetturale del progetto \PROGETTO, questo pattern non è stato usato nella sua forma pura (visibile in figura \ref{fig:facade}). Facendo però un utilizzo di un \gl{API \gl{Gateway}}, il quale nasconde la complessità del back-end al client fornendone anche i meccanismi di utilizzo, si è fatto utilizzo dei concetti che questo pattern rispetta (figura \ref{fig:facade_atavi});
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item permette di nascondere la complessità di un'operazione: rispetto alla chiamata diretta di un sottoinsieme di classi è possibile chiamare solamente la classe definita come \gl{façade} semplificando l'operazione;
@@ -188,7 +188,7 @@ In figura \ref{fig:dao1} si ha il diagramma del pattern DAO, mentre in figura \r
   \subsection{Comportamentali}
     \subsubsection{Observer}
       \begin{itemize}
-       \item \textbf{Scopo:} questo pattern, adottato nella variante offerta da ReactiveX, permette la definizione di una o più classi \gl{Observer} le quali "osservano" una classe Observable e ne gestiscono gli eventi.
+       \item \textbf{Scopo:} questo pattern, adottato nella variante offerta da ReactiveX, permette la definizione di una o più classi Observer le quali "osservano" una classe Observable e ne gestiscono gli eventi.
 	\item \textbf{Vantaggi:}
 	  \begin{itemize}
 	   \item permette la gestione di eventi tramite l'invio di dati ad altre classi in modo efficiente;
@@ -290,7 +290,7 @@ Modulo di Node.js che offre il supporto alle richieste HTTP con l'approccio dell
 Di seguito sono elencati i servizi AWS che dovranno essere utilizzati.
 
 \subsubsection{AWS Lambda}
-\gl{AWS Lambda} è un servizio di \gl{cloud}-computing fornito da Amazon, il quale permette l'implementazione di una architettura \gl{serverless}. \\
+AWS Lambda è un servizio di \gl{cloud}-computing fornito da Amazon, il quale permette l'implementazione di una architettura \gl{serverless}. \\
 Esso permette l'esecuzione di codice senza preoccuparsi della gestione di server o di tutte le risorse necessarie all'esecuzione del codice, in termini di tempo, spazio e computabilità. \\
 AWS Lambda permette di eseguire codice su una piattaforma ad alta affidabilità, a patto che il codice sia scritto in un linguaggio supportato. Nel nostro caso, faremo utilizzo di Node.js 6.10, supportato da AWS Lambda. \\
 Inoltre, questo servizio può essere utilizzato per eseguire del codice in risposta ad eventi. \\

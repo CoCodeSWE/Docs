@@ -1,4 +1,4 @@
-\section{Diagrammi riassuntivi dei \gl{package}}
+\section{Diagrammi riassuntivi dei package}
 Di seguito sono riportati tutti i package dell’applicativo per chiarire la relazione tra le componenti e le classi al suo interno. Per chiarezza ed esigenza di spazio le classi rappresentate all’interno dei package sono rappresentate senza metodi e attributi.
 
 
@@ -9,7 +9,7 @@ Di seguito sono riportati tutti i package dell’applicativo per chiarire la rel
 \end{figure}
 \newpage
 
-\subsection{Back-end::\gl{API}\gl{Gateway}}
+\subsection{Back-end::APIGateway}
 In questo package sono contenute le classi che realizzano:
 \begin{itemize}
 	\item le funzionalità da \gl{API Gateway}, permettendo l'interazione \file{Client} - \file{Back-end} tramite la pubblicazione di appositi \gl{endpoint};
@@ -40,7 +40,7 @@ In questo package sono contenute le classi che realizzano: \begin{itemize} \item
 \newpage
 
 \subsection{Back-end::Guests}
-In questo package sono contenute le classi che realizzano: \begin{itemize} \item la definizione dei dati associati ad un ospite che ha interagito con il sistema; \item l'interfaccia per l'interazione con il database contenente gli ospiti conosciuti; \item le modalità con le quali i dati devono essere trasmessi dal e al database. \end{itemize}	
+In questo package sono contenute le classi che realizzano: \begin{itemize} \item la definizione dei dati associati ad un ospite che ha interagito con il sistema; \item l'interfaccia per l'interazione con il database contenente gli ospiti conosciuti; \item le modalità con le quali i dati devono essere trasmessi dal e al database. \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Guest.png}
 	\caption{Package Back-end::Guests}
 \end{figure}
@@ -61,7 +61,7 @@ Package contenente le classi e le interfacce che realizzano il \gl{microservizio
 \newpage
 
 \subsection{Back-end::Rules}
-Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle \gl{direttive} per l'assistente virtuale.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item l'aggiunta di una nuova direttiva; \item l'aggiunta di un nuovo compito (\file{\gl{Task}}) che una direttiva deve eseguire; \item la gestione delle direttive esistenti; \item la gestione dei compiti esistenti. \end{itemize} Sono contenute le classi che realizzano: \begin{itemize} \item la definizione dei dati di una direttiva; \item l'interfaccia per l'interazione con il database contenente le direttive; \item la definizione dei dati di un \gl{task}; \item l'interfaccia per l'interazione con il database contenente i task; \item le modalità con le quali i dati devono essere trasmessi dai e ai database; \item il microservizio che espone gli endpoint per permetterne il suo utilizzo. \end{itemize}
+Package contenente le classi e le interfacce che realizzano il microservizio di gestione delle \gl{direttive} per l'assistente virtuale.\\ Vengono offerte funzionalità che permettono: \begin{itemize} \item l'aggiunta di una nuova direttiva; \item l'aggiunta di un nuovo compito (\file{Task}) che una direttiva deve eseguire; \item la gestione delle direttive esistenti; \item la gestione dei compiti esistenti. \end{itemize} Sono contenute le classi che realizzano: \begin{itemize} \item la definizione dei dati di una direttiva; \item l'interfaccia per l'interazione con il database contenente le direttive; \item la definizione dei dati di un \gl{task}; \item l'interfaccia per l'interazione con il database contenente i task; \item le modalità con le quali i dati devono essere trasmessi dai e ai database; \item il microservizio che espone gli endpoint per permetterne il suo utilizzo. \end{itemize}
 \begin{figure}[h] \centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/diagrams/back-end/Official_Backend_0304/Rules.png}
 	\caption{Package Back-end::Rules}
 \end{figure}

@@ -32,8 +32,8 @@
 
 error_reporting(E_ERROR | E_PARSE); // non vengono stampati i warning
 
-$rev = ('../RQ/'); //al cambio di revisione modificare questa variabile
-$revisione = 'Revisione di QUALIFICA';//e questa
+$rev = ('../RA/'); //al cambio di revisione modificare questa variabile
+$revisione = 'Revisione di ACCETTAZIONE';//e questa
 $glossarizzato=false;
 $rootE = 'Esterni/';
 $rootI = 'Interni/';
@@ -42,11 +42,11 @@ $rootI = 'Interni/';
  */
 
 $docs = array(
-  'Glo' => 'Glossario/sezioni/',
+  /*'Glo' => 'Glossario/sezioni/',
   'NdP' => 'NormeDiProgetto/sezioni/',
   'PdP' => 'PianoDiProgetto/',
   'AdR' => 'AnalisiDeiRequisiti/sezioni/',
-  'PdQ' => 'PianoDiQualifica/',
+  'PdQ' => 'PianoDiQualifica/',*/
   'DdP' => 'DefinizioneDiProdotto/'
   //'LdP' => 'LetteraDiPresentazione/'
 );
